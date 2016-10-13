@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 
 
+// import mdl
+import "../extra/material.js"
+
+
 
 // import your js component here
 import Home from "./Home/Home.js"
