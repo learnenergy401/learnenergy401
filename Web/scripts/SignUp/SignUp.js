@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Textfield,Grid,Cell } from 'react-mdl';
+var firebase = require('firebase');
+var config = require('../../../firebase.config.js');
+firebase.initializeApp(config);
 
 class SignUp extends Component {
   render(){
@@ -69,41 +72,56 @@ class SignUpTextfield extends Component {
     }
 };
 
-
 class SignUpMidDiv extends Component {
-    // *todo* add database logic here
-    render(){
-    // *todo* 1. add more text field 
-    //        2. add change it to form
-    //        3. add a submit button
-    //        4. adjust layout
-        return(
-          <div className="android-content mdl-layout__content">
-            <a name="top" />
-            <div style={{width: '80%', margin: 'auto'}}>
-                <Grid className="demo-grid-3">
-                        <SignUpTextfield text = "First Name"/>
-                        <SignUpTextfield text = "Last Name"/>
-                </Grid>
-                
-                <Grid className="demo-grid-3">
-                        <SignUpTextfield text = "Operation Name"/>
-                        <SignUpTextfield text = "City"/>
-                </Grid>
+
+  requestSubmit() {
+    // Add signup event
+    console.log(email.value);
+    console.log(password.value);
+    firebase.database().ref('SignUpList').push({
+      email: email.value,
+      password: password.value
+    });
+  }
+
+  render() {
+    return(
+
+      <div className="android-content mdl-layout__content">
+        <a name="top" />
+        <div style={{width: '80%', margin: 'auto'}}>
+        {/*
+            <Grid className="demo-grid-3">
+                    <SignUpTextfield text = "First Name"/>
+                    <SignUpTextfield text = "Last Name"/>
+            </Grid>
             
-                <Grid className="demo-grid-3">
-                        <SignUpTextfield text = "Address Line 1"/>
-                        <SignUpTextfield text = "Provence"/>
-                </Grid>
-            
-                <Grid className="demo-grid-3">
-                        <SignUpTextfield text = "Address Line 2"/>
-                        <SignUpTextfield text = "Postal Code"/>
-                </Grid>
-            </div>
-          </div>
-        );
-    }
+            <Grid className="demo-grid-3">
+                    <SignUpTextfield text = "Operation Name"/>
+                    <SignUpTextfield text = "City"/>
+            </Grid>
+        
+            <Grid className="demo-grid-3">
+                    <SignUpTextfield text = "Address Line 1"/>
+                    <SignUpTextfield text = "Provence"/>
+            </Grid>
+        
+            <Grid className="demo-grid-3">
+                    <SignUpTextfield text = "Address Line 2"/>
+                    <SignUpTextfield text = "Postal Code"/>
+            </Grid>
+            */}
+          <form onSubmit={this.requestSubmit}>
+            <label> Email </label>
+            <input className="form-control" ref="email" placeholder="Email" id="email"/>
+            <label>Password</label>
+            <input ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+            <button type="submit" className="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 };
 
 class Footer extends Component {
