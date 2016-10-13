@@ -20,6 +20,7 @@
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-mdl": "^1.7.2",
     "react-router": "^2.8.1"
   },
   "devDependencies": {

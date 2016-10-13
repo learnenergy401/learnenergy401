@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 
+
+
 // import your js component here
 import Home from "./Home/Home.js"
 import SignUp from "./SignUp/SignUp.js"

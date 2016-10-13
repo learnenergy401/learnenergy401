@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
-
+import { Textfield,Grid,Cell } from 'react-mdl';
 
 class SignUp extends Component {
   render(){
     return (
-      <div className="learn-header mdl-layout__header">
-        <SignUpHeader/>
-        <SignUpMidDiv/>
-      </div>
+      <div>    
+          <div className="learn-header mdl-layout__header">
+            <SignUpHeader/>
+          </div>
+          <div className="">
+            <SignUpMidDiv/>   
+          </div>
+          <Footer/>
+      </div>    
     );
   }
 }
 
 
 class SignUpHeader extends Component {
+
     render(){
         return(
             
@@ -23,14 +29,7 @@ class SignUpHeader extends Component {
           </span>
           {/* Add spacer, to align navigation to the right in desktop */}
           <div className="mdl-layout-spacer" />
-          <div className="learn-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
-            <label className="mdl-button mdl-js-button mdl-button--icon" htmlFor="search-field">
-              <i className="material-icons">search</i>
-            </label>
-            <div className="mdl-textfield__expandable-holder">
-              <input className="mdl-textfield__input" type="text" id="search-field" />
-            </div>
-          </div>
+
           {/* Navigation */}
           <div className="learn-navigation-container">
             <nav className="learn-navigation mdl-navigation">
@@ -47,24 +46,93 @@ class SignUpHeader extends Component {
           </button>
         </div>
       
-    );}
+    );};
+    
+};
+
+
+class SignUpTextfield extends Component {
+    propTypes:{
+        text: React.PropTypes.string.isRequired,
+    }
+    render(){
+        return(
+            <Cell col={5}>
+                <p>{this.props.text}</p>
+                <Textfield
+                    onChange={() => {}}
+                    label="Text.."
+                    style={{width: '200px'}}
+                />
+            </Cell>
+        )  
+    }
 };
 
 
 class SignUpMidDiv extends Component {
+
     render(){
         return(
           <div className="android-content mdl-layout__content">
             <a name="top" />
-            <div className="android-be-together-section mdl-typography--text-center">
-              <div className="logo-font android-slogan">Learn Energy</div>
-              <div className="logo-font android-sub-slogan">some introduction text here.</div>
-              <a href="#screens">
-              </a>
+            <div style={{width: '80%', margin: 'auto'}}>
+                <Grid className="demo-grid-3">
+                        <SignUpTextfield text = "First Name"/>
+                        <SignUpTextfield text = "Last Name"/>
+                </Grid>
+                
+                <Grid className="demo-grid-3">
+                        <SignUpTextfield text = "Operation Name"/>
+                        <SignUpTextfield text = "City"/>
+                </Grid>
+            
+                <Grid className="demo-grid-3">
+                        <SignUpTextfield text = "Address Line 1"/>
+                        <SignUpTextfield text = "Provence"/>
+                </Grid>
+            
+                <Grid className="demo-grid-3">
+                        <SignUpTextfield text = "Address Line 2"/>
+                        <SignUpTextfield text = "Postal Code"/>
+                </Grid>
             </div>
           </div>
         );
     }
+};
+
+class Footer extends Component {
+  render() {
+    return (
+
+      <footer className="android-footer mdl-mega-footer">
+        <div className="mdl-mega-footer--top-section">
+          <div className="mdl-mega-footer--left-section">
+            <button className="mdl-mega-footer--social-btn" />
+            &nbsp;
+            <button className="mdl-mega-footer--social-btn" />
+            &nbsp;
+            <button className="mdl-mega-footer--social-btn" />
+          </div>
+          <div className="mdl-mega-footer--right-section">
+            <a className="mdl-typography--font-light" href="#top">
+              Back to Top
+              <i className="material-icons">expand_less</i>
+            </a>
+          </div>
+        </div>
+        <div className="mdl-mega-footer--middle-section">
+          <p className="mdl-typography--font-light">Satellite imagery: © 2014 Astrium, DigitalGlobe</p>
+          <p className="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
+        </div>
+        <div className="mdl-mega-footer--bottom-section">
+          <a className="android-link mdl-typography--font-light" href>Blog</a>
+          <a className="android-link mdl-typography--font-light" href>Privacy Policy</a>
+        </div>
+      </footer>
+    );
+  }
 };
 export default SignUp
     
