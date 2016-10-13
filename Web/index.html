@@ -1,23 +1,37 @@
-<!doctype html>
-
 <html lang="en">
   <head>
+
+      
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Learn Energy</title>
-
+    
+    <!-- React -->
+<!--
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+-->
+<!--
+      
+    <script src="https://unpkg.com/react@15.3.0/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/remarkable@1.7.1/dist/remarkable.min.js"></script>
+-->
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <!-- Google Material Design-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css">
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-      
-      
+<!--    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.cyan-light_blue.min.css">-->
+<!--    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>-->
     <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="css/material.cyan-light_blue.min.css">  
+    <link rel="stylesheet" href="css/material.min.css">
+      
 
     <style>
     #view-source {
@@ -30,92 +44,16 @@
       z-index: 900;
     }
     </style>
+
+
   </head>
+    
   <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
-      <div class="learn-header mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <span class="learn-title mdl-layout-title">
-              <img class="learn-logo-image" src="images/learn_logo.png"></img>
-          </span>
-          <!-- Add spacer, to align navigation to the right in desktop -->
-          <div class="mdl-layout-spacer"></div>
-          <div class="learn-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search-field">
-            </div>
-          </div>
-          <!-- Navigation -->
-          <div class="learn-navigation-container">
-            <nav class="learn-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Courses</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Pricing</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">How it works</a>
-              
-            </nav>
-          </div>
-            
-          <button class="learn-signIn-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--indigo mdl-color-text--white mdl-shadow--dp">
-             SIGN UP
-         </button>
-            
-          <button class="learn-signUp-button mdl-button mdl-js-button mdl-button--accent mdl-color-text--indigo ">
-            SIGN IN
-          </button>
-        </div>
-      </div>
-
-      <div class="android-content mdl-layout__content">
-        <a name="top"></a>
-        <div class="android-be-together-section mdl-typography--text-center">
-          <div class="logo-font android-slogan">Learn Energy</div>
-          <div class="logo-font android-sub-slogan">some introduction text here.</div>
-
-
-          <a href="#screens">
-          </a>
-        </div>
-        
-        
-        
-        
-        <footer class="android-footer mdl-mega-footer">
-          <div class="mdl-mega-footer--top-section">
-            <div class="mdl-mega-footer--left-section">
-              <button class="mdl-mega-footer--social-btn"></button>
-              &nbsp;
-              <button class="mdl-mega-footer--social-btn"></button>
-              &nbsp;
-              <button class="mdl-mega-footer--social-btn"></button>
-            </div>
-            <div class="mdl-mega-footer--right-section">
-              <a class="mdl-typography--font-light" href="#top">
-                Back to Top
-                <i class="material-icons">expand_less</i>
-              </a>
-            </div>
-          </div>
-
-          <div class="mdl-mega-footer--middle-section">
-            <p class="mdl-typography--font-light">Satellite imagery: © 2014 Astrium, DigitalGlobe</p>
-            <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
-          </div>
-
-          <div class="mdl-mega-footer--bottom-section">
-
-
-            <a class="android-link mdl-typography--font-light" href="">Blog</a>
-            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
-          </div>
-
-        </footer>
-      </div>
-    </div>
-    <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/android-dot-com/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
-    <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <div  class="mdl-layout mdl-js-layout mdl-layout--fixed-header"></div>
+        <div id = "root"></div>
+        <script src="bundle.js"></script>
+   
+  
+    
+    
   </body>
-</html>

@@ -1,3 +1,5 @@
+import React, { Component } from 'react'
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 
 
 var Home = React.createClass ({
@@ -101,7 +103,11 @@ var Footer = React.createClass({
   }
 });
 
-ReactDOM.render(
-  <Home/>,
-  document.getElementById('header')
-);
+//ReactDOM.render(
+//  <Home/>,
+//  document.getElementById('header')
+//);
+
+const App = () => <Home/>
+
+export default App
