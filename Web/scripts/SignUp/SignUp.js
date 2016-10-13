@@ -50,7 +50,7 @@ class SignUpHeader extends Component {
     
 };
 
-
+// template for text field
 class SignUpTextfield extends Component {
     propTypes:{
         text: React.PropTypes.string.isRequired,
@@ -71,8 +71,12 @@ class SignUpTextfield extends Component {
 
 
 class SignUpMidDiv extends Component {
-
+    // *todo* add database logic here
     render(){
+    // *todo* 1. add more text field 
+    //        2. add change it to form
+    //        3. add a submit button
+    //        4. adjust layout
         return(
           <div className="android-content mdl-layout__content">
             <a name="top" />
