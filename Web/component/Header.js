@@ -6,7 +6,9 @@ import LearnLogo from './Logo.js'
 import LearnNavigation from './Navigation.js'
 
 
-
+var buttonSpacer={
+    padding:'4px'
+}
 
 
 class LearnHeader extends Component {
@@ -24,6 +26,8 @@ class LearnHeader extends Component {
               <ButtonSignUp  to='signup'>
                 SIGN UP
               </ButtonSignUp>
+              <div style={buttonSpacer}>
+              </div>
               <ButtonLogIn  to='login'>
                 LOG IN
               </ButtonLogIn>
