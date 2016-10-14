@@ -99,24 +99,11 @@ a img{
     }
 
   .learn-search-box {
-    -webkit-order: 2;
-        -ms-flex-order: 2;
-            order: 2;
     margin-left: 16px;
     margin-right: 16px;
   }
 
-  .learn-signIn-button {
-    -webkit-order: 3;
-        -ms-flex-order: 3;
-            order: 3;
-  }
 
-  .learn-signUp-button {
-    -webkit-order: 4;
-        -ms-flex-order: 4;
-            order: 4;
-  }
 
 
 .android-drawer {
@@ -469,21 +456,7 @@ a img{
     opacity: 0;
   }
 
-  .learn-signIn-button {
-    display: none;
-  }
-    
-  .learn-signIn-button {
-    order: 3;
-  }
-    
-  .learn-signUp-button {
-    display: none;
-  }
-    
-  .learn-signUp-button {
-    order: 4;
-  }
+
 
   .learn-search-box.is-focused {
     width: calc(100% - 48px);
