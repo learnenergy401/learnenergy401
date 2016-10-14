@@ -1,7 +1,7 @@
 module.exports = {
-  entry: './Web/scripts/main.js',
+  entry: './Web/component/main.js',
   output: {
-    path: './Web/scripts/',
+    path: './Web/component/',
     filename: 'bundle.js'
   },
   devServer: {
