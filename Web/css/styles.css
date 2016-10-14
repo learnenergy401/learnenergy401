@@ -39,18 +39,8 @@ a img{
   width: auto;
 }
 
-.android-fab {
-  position: absolute;
-  right: 20%;
-  bottom: -26px;
-  z-index: 3;
-  background: #64ffda !important;
-  color: black !important;
-}
 
-.android-mobile-title {
-  display: none !important;
-}
+
 
 
 .learn-logo-image {
@@ -82,39 +72,7 @@ a img{
   }
 
 
-
-
-.android-drawer {
-  border-right: none;
-}
-
-  .android-drawer-separator {
-    height: 1px;
-    background-color: #dcdcdc;
-    margin: 8px 0;
-  }
-
-  .android-drawer .mdl-navigation__link.mdl-navigation__link {
-    font-size: 14px;
-    color: #757575;
-  }
-
-  .android-drawer span.mdl-navigation__link.mdl-navigation__link {
-    color: #8bc34a;
-  }
-
-  .android-drawer .mdl-layout-title {
-    position: relative;
-    background: #6ab344;
-    height: 160px;
-  }
-
-    .android-drawer .learn-logo-image {
-      position: absolute;
-      bottom: 16px;
-    }
-
-.android-be-together-section {
+.learn-content {
   position: relative;
   height: 800px;
   width: auto;
@@ -130,26 +88,15 @@ a img{
   font-weight: 500;
 }
 
-.android-slogan {
+.learn-slogan {
   font-size: 60px;
   padding-top: 160px;
 }
 
-.android-sub-slogan {
+.learn-sub-slogan {
   font-size: 21px;
   padding-top: 24px;
 }
-
-.android-create-character {
-  font-size: 21px;
-  padding-top: 400px;
-}
-
-  .android-create-character a {
-    text-decoration: none;
-    color: #767777;
-    font-weight: 300;
-  }
 
 .android-screen-section {
   position: relative;

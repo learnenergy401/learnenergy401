@@ -15,7 +15,7 @@ class SignUp extends Component {
             <Header/>
           </div>
           <div className="">
-            <SignUpMidDiv/>   
+            <SignUpContent/>   
           </div>
           <Footer/>
       </div>    
@@ -45,7 +45,7 @@ class SignUpTextfield extends Component {
     }
 };
 
-class SignUpMidDiv extends Component {
+class SignUpContent extends Component {
 
   requestSubmit() {
     // Add signup event

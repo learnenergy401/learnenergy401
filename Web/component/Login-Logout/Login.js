@@ -15,7 +15,7 @@ class Login extends Component {
             <LearnHeader/>
           </div>
           <div className="">
-            <LoginMidDiv/>   
+            <LoginContent/>   
           </div>
           <LearnFooter/>
       </div>    
@@ -25,7 +25,7 @@ class Login extends Component {
 
 
 
-class LoginMidDiv extends Component {
+class LoginContent extends Component {
 
     loginSubmit() {
         var email = this.refs.email.value;
