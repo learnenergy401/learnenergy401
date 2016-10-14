@@ -58,28 +58,6 @@ a img{
   width: 100px;
 }
 
-
-
-  .learn-navigation-container {
-    /* Simple hack to make the overflow happen to the left instead... */
-    direction: rtl;
-    -webkit-order: 1;
-        -ms-flex-order: 1;
-            order: 1;
-    width: 500px;
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-        width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .learn-navigation {
-    /* ... and now make sure the content is actually LTR */
-    direction: ltr;
-    -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    width: 800px;
-  }
-
   .learn-search-box.is-focused + .learn-navigation-container {
     opacity: 0;
     width: 100px;

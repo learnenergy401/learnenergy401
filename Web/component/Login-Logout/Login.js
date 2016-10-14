@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell } from 'react-mdl';
-import Header from '../Header.js'
-import Footer from '../Footer.js'
+import LearnHeader from '../Header.js'
+import LearnFooter from '../Footer.js'
 
 // var firebase = require('firebase');
 // var config = require('../../../firebase.config.js');
@@ -12,12 +12,12 @@ class Login extends Component {
     return (
       <div>    
           <div className="learn-header mdl-layout__header">
-            <Header/>
+            <LearnHeader/>
           </div>
           <div className="">
             <LoginMidDiv/>   
           </div>
-          <Footer/>
+          <LearnFooter/>
       </div>    
     );
   }

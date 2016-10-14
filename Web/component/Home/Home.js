@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import Header from '../Header.js'
-import Footer from '../Footer.js'
+import LearnHeader from '../Header.js'
+import LearnFooter from '../Footer.js'
 
 class Home extends Component {
   render(){
     return (
       <div className="learn-header mdl-layout__header">
-        <Header/>
+        <LearnHeader/>
         <HomeIntroDiv/>
-        <Footer/>
+        <LearnFooter/>
       </div>
     );
   }
