@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import {Button} from 'react-mdl';
 
 class Header extends Component {
     render(){
@@ -27,9 +27,9 @@ class Header extends Component {
               <a className="mdl-navigation__link mdl-typography--text-uppercase" href>How it works</a>
             </nav>
           </div>
-          <button className="learn-signIn-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--indigo mdl-color-text--white mdl-shadow--dp" >
+          <Button raised ripple accent className="learn-signIn-button mdl-color--indigo mdl-color-text--white " >
             SIGN UP
-          </button>
+          </Button>
           <button className="learn-signUp-button mdl-button mdl-js-button mdl-button--accent mdl-color-text--indigo ">
             SIGN IN
           </button>
