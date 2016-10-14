@@ -5,11 +5,6 @@ import ButtonLogIn from './ButtonLogIn.js'
 import LearnLogo from './Logo.js'
 import LearnNavigation from './Navigation.js'
 
-var headerStyle = {
-    backgroundColor:'#2196F3!important' ,
-    WebkitTransition: 'all', 
-    msTransition: 'all' 
-}
 
 
 
@@ -18,7 +13,7 @@ class LearnHeader extends Component {
     render(){
         return(
         
-            <Header style={headerStyle} waterfall>    
+            <Header className="mdl-color--white mdl-shadow--2dp" waterfall>    
               <span  className="learn-title mdl-layout-title">
                 <LearnLogo to=''/>
               </span>
