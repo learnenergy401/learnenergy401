@@ -13,7 +13,7 @@ import ContentLogin from '../ContentLogin.js'
 class Login extends Component {
   render(){
     return (  
-      <div className="learn-header mdl-layout__header">
+      <div>
         <LearnHeader/>
         <ContentLogin/>   
         <LearnFooter/>

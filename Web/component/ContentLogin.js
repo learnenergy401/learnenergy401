@@ -6,7 +6,7 @@ import ComponentLogin from './ComponentLogin.js'
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    marginTop: '50px',
+    top: '50px',
     height:'500px'
 }
 
@@ -17,7 +17,7 @@ var cardTitleStyle = {
 class ContentLogin extends Component {
     render(){
         return(
-          <div  className="learn-content mdl-layout__content mdl-typography--text-center">
+          <div  className="learn-content mdl-typography--text-center">
               <Card shadow={0} style={cardStyle} >
                 <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Login</CardTitle>
                 <ComponentLogin/>

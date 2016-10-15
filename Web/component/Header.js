@@ -15,8 +15,8 @@ class LearnHeader extends Component {
     render(){
         return(
         
-            <Header className="mdl-color--white mdl-shadow--2dp" waterfall>    
-              <span  className="learn-title mdl-layout-title">
+            <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
+              <span  className="learn-title mdl-layout-title ">
                 <LearnLogo to=''/>
               </span>
               {/* Add spacer, to align navigation to the right in desktop */}

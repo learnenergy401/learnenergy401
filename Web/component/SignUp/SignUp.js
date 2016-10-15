@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 class SignUp extends Component {
   render(){
     return (
-      <div className="learn-header mdl-layout__header">    
+      <div>    
         <Header/>
         <ContentSignUp/>   
         <Footer/>

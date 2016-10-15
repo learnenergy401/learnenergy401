@@ -25,12 +25,13 @@ a img{
 }
 
 .learn-header {
+  z-index: 50;
+  position:relative;
   overflow: visible;
   background-color: white;
 }
 
 .learn-header .mdl-menu__container {
-  z-index: 50;
   margin: 0 !important;
 }
 
@@ -40,7 +41,13 @@ a img{
 }
 
 
+.learn-content{
 
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+
+}
 
 
 .learn-logo-image {
@@ -72,14 +79,7 @@ a img{
   }
 
 
-.learn-content {
-  position: relative;
-  height: 800px;
-  width: auto;
-  background-color: #f3f3f3;
-  
-  background-size: cover;
-}
+
 
 .logo-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
