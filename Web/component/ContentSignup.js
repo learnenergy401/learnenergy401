@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Content, Card,CardTitle} from 'react-mdl';
-import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import ComponentSignUp from './ComponentSignUp.js'
 
 var spacerStyle = {
