@@ -23,14 +23,12 @@ class LearnHeader extends Component {
               <div className="mdl-layout-spacer" />
               {/* Navigation */}
               <LearnNavigation />
-              <ButtonSignUp  to='signup'>
-                SIGN UP
-              </ButtonSignUp>
+              <ButtonSignUp  to='signup'/>
+
               <div style={buttonSpacer}>
               </div>
-              <ButtonLogIn  to='login'>
-                LOG IN
-              </ButtonLogIn>
+              <ButtonLogIn  to='login'/>
+    
             </Header>
     );}
     
