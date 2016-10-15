@@ -1,23 +1,19 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell } from 'react-mdl';
+import LearnHeader from '../Header.js'
+import LearnFooter from '../Footer.js'
+import ContentHome from '../ContentHome.js'
 
-var Logout = React.createClass({
-    contextTypes: {
-        router: React.PropTypes.object.isRequired
-    },
-    getInitialState: function(){
-        return {
-            error: false
-        }
-    },
-    componentDidMount: function () {
-        firebase.auth().signOut();
-        this.setState({loggedIn: false});
-        // this.context.router.replace('/');
-    },
-    render: function () {
-        return <p>You are now logged out</p>;
-    }
-});
+class Logout extends Component {
+  render(){
+    return (  
+      <div className="learn-header mdl-layout__header">
+        <LearnHeader/>
+        <ContentLogout/>   
+        <LearnFooter/>
+      </div> 
+    );
+  }
+}
 
-module.exports = Logout;
+export default Logout
