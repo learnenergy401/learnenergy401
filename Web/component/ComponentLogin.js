@@ -31,18 +31,23 @@ class ComponentLogin extends Component {
 
     render() {
         return (
-                <form style={formStyle} onSubmit={this.loginSubmit}>
-                    <CardText style={componentStyle}>
-                        <Textfield className="form-control" ref="email" placeholder="Email" id="email"/>
-                    </CardText>
-                    <CardText style={componentStyle}>        
-                        <Textfield ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
-                    </CardText>
-                    {/*errors*/}
-                    <CardActions style={componentStyle}>
-                        <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Login</Button>
-                    </CardActions>
-                </form>
+                <div className="android-content mdl-layout__content">
+                    <a name="top" />
+                    <div style={{width: '80%', margin: 'auto'}}>
+                        <form style={formStyle} onSubmit={this.loginSubmit}>
+                            <CardText style={componentStyle}>
+                                <Textfield className="form-control" ref="email" placeholder="Email" id="email"/>
+                            </CardText>
+                            <CardText style={componentStyle}>        
+                                <Textfield ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+                            </CardText>
+                            {/*errors*/}
+                            <CardActions style={componentStyle}>
+                                <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Login</Button>
+                            </CardActions>
+                        </form>
+                    </div>
+                </div>
         );
     }
 
