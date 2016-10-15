@@ -12,7 +12,8 @@ import Home from "./Home/Home.js"
 import SignUp from "./SignUp/SignUp.js"
 import Login from "./Login-Logout/Login.js"
 import Logout from "./Login-Logout/Logout.js"
-
+import Upload from "./Vendor/Upload.js"
+    
 class ReactRouter extends Component {
   render() {
     return (
@@ -23,7 +24,7 @@ class ReactRouter extends Component {
         <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
-        
+        <Route path='/upload' component={Upload} />
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>
