@@ -28,7 +28,7 @@ class ComponentSignUp extends Component {
       <div className="android-content mdl-layout__content">
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
-          <form onSubmit={this.requestSubmit}>
+          <form style={formStyle} onSubmit={this.requestSubmit}>
             <CardText style={componentStyle}el> 
                 <Textfield className="form-control" ref="email" placeholder="Email" id="email"/>
             </CardText>
