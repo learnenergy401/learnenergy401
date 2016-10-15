@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
+import FirebaseTools from './Firebase.js'
 
 var componentStyle = {
     margin: 'auto',
@@ -12,21 +13,10 @@ var formStyle = {
 class ComponentLogin extends Component {
 
     loginSubmit() {
-        var email = this.refs.email.value;
-        var pw    = this.refs.pw.value;
-        var self  = this;
+        var email = document.getElementById("email").value;
+        var pw = document.getElementById("pw").value;
 
-        firebase.auth().signInWithEmailAndPassword(email, pw).then(function(result) {
-            var location = self.props.location
-            if (location.state && location.state.nextPathname) {
-                self.context.router.replace(location.state.nextPathname)
-            } else {
-                self.context.router.replace('/home')
-            }
-            // User signed in!
-            console.log('User signed in!');
-            // var uid = result.user.uid;
-        });
+        FirebaseTools.loginUser({email, pw});
     }
 
     render() {
@@ -39,7 +29,7 @@ class ComponentLogin extends Component {
                                 <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email"/>
                             </CardText>
                             <CardText style={componentStyle}>        
-                                <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+                                <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="pw"/>
                             </CardText>
                             {/*errors*/}
                             <CardActions style={componentStyle}>
