@@ -36,10 +36,10 @@ class ComponentLogin extends Component {
                     <div style={{width: '80%', margin: 'auto'}}>
                         <form style={formStyle} onSubmit={this.loginSubmit}>
                             <CardText style={componentStyle}>
-                                <Textfield className="form-control" ref="email" placeholder="Email" id="email"/>
+                                <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email"/>
                             </CardText>
                             <CardText style={componentStyle}>        
-                                <Textfield ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+                                <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
                             </CardText>
                             {/*errors*/}
                             <CardActions style={componentStyle}>
