@@ -29,11 +29,11 @@ class ComponentSignUp extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
           <form style={formStyle} onSubmit={this.requestSubmit}>
-            <CardText style={componentStyle}el> 
-                <Textfield className="form-control" ref="email" placeholder="Email" id="email"/>
+            <CardText style={componentStyle}> 
+                <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email"/>
             </CardText>
-            <CardText style={componentStyle}el> 
-                <Textfield ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+            <CardText style={componentStyle}> 
+                <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
             </CardText>
             <CardActions>
                 <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Register</Button>
