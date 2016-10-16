@@ -7,6 +7,7 @@ export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 export const firebaseStorage = firebaseApp.storage().ref();
 
+
 var FirebaseTools = {
 
 	registerUser: (user) => {
@@ -14,16 +15,22 @@ var FirebaseTools = {
 			email: user.email,
 			password: user.pw
 		});
+
+		alert("Thank you for registering for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
 	},
 
 	loginUser: (user) => {
 		firebaseAuth.signInWithEmailAndPassword(user.email, user.pw);
         console.log('User signed in!');
+
+				// Until we can link to a homepage that doesn't look the same as when you are not signed in
+				alert("You have signed in:" +"\n" + user.email);
 	},
 
 	logoutUser: () => {
 		firebaseAuth.signOut();
 		console.log('User logged out!');
+        alert("You have logged out. See you later.");
 	},
     
     //function fo vendor upload demo
@@ -43,3 +50,6 @@ var FirebaseTools = {
 }
 
 export default FirebaseTools;
+
+		
+
