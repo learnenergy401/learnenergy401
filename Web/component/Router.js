@@ -12,6 +12,7 @@ import Home from "./Home/Home.js"
 import SignUp from "./SignUp/SignUp.js"
 import Login from "./Login-Logout/Login.js"
 import Logout from "./Login-Logout/Logout.js"
+import Admin from "./Admin.js"
 
 class ReactRouter extends Component {
   render() {
@@ -23,7 +24,7 @@ class ReactRouter extends Component {
         <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
         <Route path='/logout' component={Logout} />
-        
+        <Route path='/admin'component={Admin}/>
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>
@@ -33,7 +34,6 @@ class ReactRouter extends Component {
 
 // Hard coded pages (TEMP!)
 const NotFound = () => <h1>404.. This page is not found!</h1>
-
 
 // Export Router for compile use
 export default ReactRouter
