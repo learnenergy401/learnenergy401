@@ -18,8 +18,12 @@ export function getCurrentUser() {
 // firebaseAuth.signInWithEmailAndPassword('test@gmail.com', '123456');
 // firebaseAuth.signOut();
   return function(dispatch) {
-       firebaseAuth.onAuthStateChanged((user)=>{
-           dispatch({type: "FETCH_USER_FULFILLED", payload: user})
-       }
-  
-)}}
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user) {
+        dispatch({type: "FETCH_USER_LOGGED_IN", payload: user})
+      } else {  
+        dispatch({type: "FETCH_USER_NOT_LOGGED_IN", payload: user})
+      }
+    })
+  }
+}

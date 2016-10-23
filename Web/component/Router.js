@@ -11,7 +11,7 @@ import "../../firebase.config.js"
 import Home from "./Home/Home.js"
 import SignUp from "./SignUp/SignUp.js"
 import Login from "./Login-Logout/Login.js"
-import Logout from "./Login-Logout/Logout.js"
+import Logout from "./ButtonLogOut.js"
 import Admin from "./Admin.js"
 
 import Upload from "./Vendor/Upload.js"

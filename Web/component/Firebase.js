@@ -7,6 +7,9 @@ export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 export const firebaseStorage = firebaseApp.storage().ref();
 
+import { connect } from "react-redux"
+import { fetchUsers,getCurrentUser } from "./Actions/userActions"
+
 
 var FirebaseTools = {
 
@@ -45,8 +48,11 @@ var FirebaseTools = {
 		firebaseAuth.signInWithEmailAndPassword(user.email, user.pw);
         console.log('User signed in!');
 
-				// Until we can link to a homepage that doesn't look the same as when you are not signed in
-				alert("You have signed in:" +"\n" + user.email);
+		// Until we can link to a homepage that doesn't look the same as when you are not signed in
+		alert("You have signed in:" +"\n" + user.email);
+
+
+                
 	},
 
 	logoutUser: () => {
