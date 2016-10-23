@@ -22,10 +22,10 @@ export default function reducer(state={
         }
       }
       case "FETCH_USER_LOGGED_IN": {
-        return {...state, isLoggedIn: true, user: action.payload}
+        return {...state, isLoggedIn: true}
       }
       case "FETCH_USER_NOT_LOGGED_IN": {
-        return {...state, isLoggedIn: false, user: action.payload}
+        return {...state, isLoggedIn: false}
       }
     }
 

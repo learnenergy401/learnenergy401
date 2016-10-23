@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Button} from 'react-mdl';
+import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import FirebaseTools from './Firebase.js'
 
@@ -14,16 +14,12 @@ class ButtonLogOut extends Component {
 	}
     render(){
         return(
-	      <div className="android-content mdl-layout__content">
-	        <a name="top" />
-	        <div style={{width: '80%', margin: 'auto'}}>
-	          <form style={formStyle} onSubmit={this.requestSubmit}>
-	            <CardActions>
-	                <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Logout</Button>
-	            </CardActions>
-	          </form>
-	        </div>
-	      </div>
+			<form onSubmit={this.requestSubmit}>
+				<Button style={buttonStyle} className="mdl-color-text--indigo" >
+					LOG OUT
+				</Button>
+			</form>
+				
         );}
 };
 

@@ -32,13 +32,13 @@ class LearnHeader extends Component {
   
   render(){   
     //console.log(this.getCurrentUser().object.user.isLoggedIn)
-    this.getCurrentUser()
+    //this.getCurrentUser()
     //console.log(this.props)
     const {isLoggedIn} = this.props;
     if (isLoggedIn) {
       console.log("IF STATEMENT")
       return (
-        <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
+        <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-heaer" waterfall>    
           <span  className="learn-title mdl-layout-title ">
             <LearnLogo to=''/>
           </span>
@@ -46,7 +46,15 @@ class LearnHeader extends Component {
           <div className="mdl-layout-spacer" />
           {/* Navigation */}
           <LearnNavigation />
-          <ButtonLogOut  to='logout'/>       
+          <ButtonSignUp  to='signup'/>
+
+          <div style={buttonSpacer}>
+          </div>
+          <ButtonLogIn  to='login'/>     
+
+          <div style={buttonSpacer}>
+          </div>
+          <ButtonLogOut  to='logout'/>  
         
         </Header>
       );   
@@ -68,6 +76,10 @@ class LearnHeader extends Component {
           </div>
           <ButtonLogIn  to='login'/>          
         
+          <div style={buttonSpacer}>
+          </div>
+          <ButtonLogOut  to='logout'/>  
+
         </Header>
       );
     }
