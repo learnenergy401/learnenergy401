@@ -10,6 +10,28 @@ export const firebaseStorage = firebaseApp.storage().ref();
 
 var FirebaseTools = {
 
+    checkAuth: () => {
+        firebaseAuth.onAuthStateChanged(function(user) {
+            if (user) {
+//                console.log("logged in 1");
+            } else {
+//                console.log("not logged in 1");
+            }
+        });
+    },
+    
+     getUser: () => {
+
+        firebaseDb.ref('SignUpList').once("value").then(function(snapshot){
+
+            var result=snapshot.val();
+            console.log(result+'1');
+
+
+            return result;
+        });
+    },
+    
 	registerUser: (user) => {
 		firebaseDb.ref('SignUpList').push({
 			email: user.email,
