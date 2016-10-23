@@ -12,3 +12,14 @@ export function fetchUsers() {
       })
   }
 }
+
+
+export function getCurrentUser() {
+// firebaseAuth.signInWithEmailAndPassword('test@gmail.com', '123456');
+// firebaseAuth.signOut();
+  return function(dispatch) {
+       firebaseAuth.onAuthStateChanged((user)=>{
+           dispatch({type: "FETCH_USER_FULFILLED", payload: user})
+       }
+  
+)}}

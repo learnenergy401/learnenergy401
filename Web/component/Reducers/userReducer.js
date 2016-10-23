@@ -3,6 +3,7 @@ export default function reducer(state={
     fetching: false,
     fetched: false,
     error: null,
+    isLoggedIn:false
   }, action) {
 
     switch (action.type) {

@@ -6,7 +6,7 @@ import LearnLogo from './Logo.js';
 import LearnNavigation from './Navigation.js';
 
 import { connect } from "react-redux"
-import { fetchUsers } from "./Actions/userActions"
+import { fetchUsers,getCurrentUser } from "./Actions/userActions"
 
 
 var buttonSpacer={
@@ -18,7 +18,7 @@ var buttonSpacer={
   return {
     user: store.user.user
   };
-})
+})/*dont add semicolon here!*/
 
 
 
@@ -26,6 +26,10 @@ var buttonSpacer={
 class LearnHeader extends Component {
     fetchUsers() {
         this.props.dispatch(fetchUsers())
+    }
+    
+    getCurrentUser() {
+        this.props.dispatch(getCurrentUser())
     }
     
     render(){   
@@ -40,7 +44,7 @@ class LearnHeader extends Component {
               <LearnNavigation />
               <div style={buttonSpacer}>
               </div>
-              <button onClick={this.fetchUsers.bind(this)}>load tweets</button>
+              <button onClick={this.getCurrentUser.bind(this)}>load tweets</button>
                 
             </Header>
         );
