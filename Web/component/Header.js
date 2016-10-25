@@ -4,6 +4,7 @@ import ButtonSignUp from './ButtonSignUp.js';
 import ButtonLogIn from './ButtonLogIn.js';
 import LearnLogo from './Logo.js';
 import LearnNavigation from './Navigation.js';
+import store from './Store.js'
 
 import { connect } from "react-redux"
 import { fetchUsers,getCurrentUser } from "./Actions/userActions"
@@ -33,6 +34,7 @@ class LearnHeader extends Component {
     }
     
     render(){   
+        const { user} = this.props;
         return (
             <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
               <span  className="learn-title mdl-layout-title ">
@@ -45,7 +47,6 @@ class LearnHeader extends Component {
               <div style={buttonSpacer}>
               </div>
               <button onClick={this.getCurrentUser.bind(this)}>load tweets</button>
-                
             </Header>
         );
     }
