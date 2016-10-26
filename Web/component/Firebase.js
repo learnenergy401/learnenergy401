@@ -51,8 +51,6 @@ var FirebaseTools = {
 		// Until we can link to a homepage that doesn't look the same as when you are not signed in
 		alert("You have signed in:" +"\n" + user.email);
 
-
-                
 	},
 
 	logoutUser: () => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
-import FirebaseTools from './Firebase.js'
+import FirebaseTools from '../Firebase.js'
 
 var componentStyle = {
     margin: 'auto',
@@ -33,16 +33,15 @@ class ComponentSignUpPurchaser extends Component {
     var password = document.getElementById("password").value;
 
     FirebaseTools.registerUser({email, pw});
-
   }
 
   render() {
     return(
-
       <div className="android-content mdl-layout__content">
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
           <form style={formStyle} onSubmit={this.requestSubmit}>
+<<<<<<< HEAD:Web/component/ComponentSignUpPurchaser.js
 
             <CardText style={componentStyle}>
                 <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
@@ -76,6 +75,13 @@ class ComponentSignUpPurchaser extends Component {
             </CardText>
             <CardText style={componentStyle}>
                 <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
+=======
+            <CardText style={componentStyle}> 
+              <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email" />
+            </CardText>
+            <CardText style={componentStyle}> 
+              <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="pw"/>
+>>>>>>> origin/redux-login:Web/component/SignUp/ComponentSignUpPurchaser.js
             </CardText>
             <CardText style={componentStyle}>
                 <Textfield label="adminContact" className="form-control" ref="adminContact"  placeholder="Admin Email" id="adminContact"/>
@@ -102,7 +108,7 @@ class ComponentSignUpPurchaser extends Component {
             </form>*/}
 
             <CardActions>
-                <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Register</Button>
+              <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Register</Button>
             </CardActions>
           </form>
         </div>
