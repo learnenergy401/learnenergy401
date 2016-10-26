@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
-import FirebaseTools from './Firebase.js'
+import FirebaseTools from '../Firebase.js'
 
 var componentStyle = {
     margin: 'auto',

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button,Layout,Header} from 'react-mdl';
-import ButtonSignUp from './ButtonSignUp.js';
+import ButtonSignUp from './SignUp/ButtonSignUp.js';
 import ButtonLogIn from './ButtonLogIn.js';
 import ButtonLogOut from './ButtonLogOut.js';
 import LearnLogo from './Logo.js';
