@@ -41,7 +41,6 @@ class ComponentSignUpPurchaser extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
           <form style={formStyle} onSubmit={this.requestSubmit}>
-<<<<<<< HEAD:Web/component/ComponentSignUpPurchaser.js
 
             <CardText style={componentStyle}>
                 <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
@@ -75,13 +74,12 @@ class ComponentSignUpPurchaser extends Component {
             </CardText>
             <CardText style={componentStyle}>
                 <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
-=======
-            <CardText style={componentStyle}> 
+            </CardText>
+            <CardText style={componentStyle}>
               <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email" />
             </CardText>
-            <CardText style={componentStyle}> 
+            <CardText style={componentStyle}>
               <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="pw"/>
->>>>>>> origin/redux-login:Web/component/SignUp/ComponentSignUpPurchaser.js
             </CardText>
             <CardText style={componentStyle}>
                 <Textfield label="adminContact" className="form-control" ref="adminContact"  placeholder="Admin Email" id="adminContact"/>
