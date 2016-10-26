@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
 import FirebaseTools from './Firebase.js'
-import ButtonSignUpPurchaser from './ButtonSignUpPurchaser.js'
-import ButtonSignUpVendor from './ButtonSignUpVendor.js'
 
 var componentStyle = {
     margin: 'auto',
@@ -12,7 +10,7 @@ var formStyle = {
     marginTop: '5%'
 }
 
-class ComponentSignUp extends Component {
+class ComponentSignUpVendor extends Component {
 
   requestSubmit() {
     // Add signup event
@@ -30,22 +28,22 @@ class ComponentSignUp extends Component {
       <div className="android-content mdl-layout__content">
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
-          <CardActions>
-            <ButtonSignUpPurchaser to='signup-purchaser' />
-          </CardActions>
-  
-          <CardActions>
-            <ButtonSignUpVendor to='signup-vendor' />
-          </CardActions>
-
+          <form style={formStyle} onSubmit={this.requestSubmit}>
+            <CardText style={componentStyle}> 
+                <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email" />
+            </CardText>
+            <CardText style={componentStyle}> 
+                <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="pw"/>
+            </CardText>
             <CardActions>
-                <Button accent ripple id="add" type="submit" className="mdl-color-text--indigo btn btn-primary">Additional Resource</Button>
+                <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Register</Button>
             </CardActions>
+          </form>
         </div>
       </div>
     );
   }
 };
 
-export default ComponentSignUp
+export default ComponentSignUpVendor
     

@@ -31,8 +31,9 @@ class LearnHeader extends Component {
   }
   
   render(){   
-    //console.log(this.getCurrentUser().object.user.isLoggedIn)
-    this.getCurrentUser()
+    //console.log(this.getCurrentUser().???.user.isLoggedIn)
+    const check = this.getCurrentUser()
+    console.log(check)
     //console.log(this.props)
     const {isLoggedIn} = this.props;
     if (isLoggedIn) {
