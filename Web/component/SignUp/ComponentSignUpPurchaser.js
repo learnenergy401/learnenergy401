@@ -14,7 +14,6 @@ class ComponentSignUpPurchaser extends Component {
 
   requestSubmit() {
     // Add signup event
-
     var email = document.getElementById("email").value;
     var pw = document.getElementById("pw").value;
 

@@ -26,10 +26,8 @@ var FirebaseTools = {
      getUser: () => {
 
         firebaseDb.ref('SignUpList').once("value").then(function(snapshot){
-
             var result=snapshot.val();
             console.log(result+'1');
-
 
             return result;
         });
@@ -38,8 +36,22 @@ var FirebaseTools = {
 	registerUser: (user) => {
 		firebaseDb.ref('SignUpList').push({
 			email: user.email,
-			password: user.pw
-		});
+			password: user.pw,
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax, 
+            adminContact: user.adminContact,
+            techincalContact: user.techincalContact,
+            ISnumber: user.ISnumber,
+            website: user.website
+        });
 
 		alert("Thank you for registering for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
 	},
