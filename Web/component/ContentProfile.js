@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Content, Card,CardTitle} from 'react-mdl';
+import {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import SideMenuProfile from './SideMenuProfile.js'
 
@@ -17,9 +17,19 @@ var cardTitleStyle = {
 class ContentProfile extends Component {
     render(){
         return(
-          <div  className="learn-content mdl-typography--text-center">
-              <SideMenuProfile/>
-          </div>
+              <Content className="learn-content">
+                    <List>
+                      <ListItem>
+                        <ListItemContent icon="person">Bryan Cranston</ListItemContent>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemContent icon="person">Aaron Paul</ListItemContent>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemContent icon="person">Bob Odenkirk</ListItemContent>
+                      </ListItem>
+                    </List>
+                </Content>
         );
     }
 };
