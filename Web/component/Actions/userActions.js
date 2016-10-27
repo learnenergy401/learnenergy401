@@ -5,7 +5,7 @@ export function fetchUsers() {
   return function(dispatch) {
     firebaseDb.ref('SignUpList').once("value")
       .then((snapshot) => {
-        dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val().ggop})
+        dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val()})
       })
       .catch((err) => {
         dispatch({type: "FETCH_USER_REJECTED", payload: err})
@@ -49,6 +49,6 @@ export function logOutUser(user) {
             .catch((err) => {
                 dispatch({type: "LOGOUT_USER_REJECTED", payload: err})
             })
-        
     }
 }
+

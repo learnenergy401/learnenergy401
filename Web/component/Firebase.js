@@ -36,7 +36,7 @@ var FirebaseTools = {
 	registerUser: (user) => {
 		firebaseDb.ref('SignUpList').push({
 			email: user.email,
-			password: user.pw,
+			password: user.password,
             legalEntity: user.legalEntity,
             operatingName: user.operatingName,
             address1: user.address1,
@@ -48,7 +48,7 @@ var FirebaseTools = {
             phone: user.phone,
             fax: user.fax, 
             adminContact: user.adminContact,
-            techincalContact: user.techincalContact,
+            technicalContact: user.technicalContact,
             ISnumber: user.ISnumber,
             website: user.website
         });

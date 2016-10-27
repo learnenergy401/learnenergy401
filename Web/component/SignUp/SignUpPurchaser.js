@@ -16,7 +16,5 @@ class SignUpPurchaser extends Component {
   }
 }
 
-
-
 export default SignUpPurchaser
     
