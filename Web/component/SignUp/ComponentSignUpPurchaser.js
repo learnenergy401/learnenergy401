@@ -44,24 +44,37 @@ class ComponentSignUpPurchaser extends Component {
         <div style={{width: '80%', margin: 'auto'}}>
           <form style={formStyle} onSubmit={this.requestSubmit}>
 
-            <CardText style={componentStyle}>
-                <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
-                <Textfield label="operatingName" className="form-control" ref="password"  placeholder="Operating Name" id="operatingName"/>
-                <Textfield label="address1" className="form-control" ref="address1"  placeholder="Address 1" id="address1"/>
-                <Textfield label="address2" className="form-control" ref="address2"  placeholder="Address 2" id="address2"/>
-                <Textfield label="city" className="form-control" ref="city"  placeholder="City" id="city"/>
-                <Textfield label="province" className="form-control" ref="province"  placeholder="Province" id="province"/>
-                <Textfield label="country" className="form-control" ref="country"  placeholder="Country" id="country"/>
-                <Textfield label="postalCode" className="form-control" ref="postalCode"  placeholder="Postal Code" id="postalCode"/>
-                <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone Number" id="phone"/>
-                <Textfield label="fax" className="form-control" ref="fax"  placeholder="Fax Number" id="fax"/>
-                <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
-                <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
-                <Textfield label="adminContact" className="form-control" ref="adminContact"  placeholder="Admin Email" id="adminContact"/>
-                <Textfield label="technicalContact" className="form-control" ref="technicalContact"  placeholder="Technical Email" id="technicalContact"/>
-                <Textfield label="ISnumber" className="form-control" ref="ISnumber"  placeholder="ISN Member? Y/N" id="ISnumber"/>
-                <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
-            </CardText>
+              <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
+              <br/>
+              <Textfield label="operatingName" className="form-control" ref="password"  placeholder="Operating Name" id="operatingName"/>
+              <br/>
+              <Textfield label="address1" className="form-control" ref="address1"  placeholder="Address 1" id="address1"/>
+              <br/>
+              <Textfield label="address2" className="form-control" ref="address2"  placeholder="Address 2" id="address2"/>
+              <br/>
+              <Textfield label="city" className="form-control" ref="city"  placeholder="City" id="city"/>
+              <br/>
+              <Textfield label="province" className="form-control" ref="province"  placeholder="Province" id="province"/>
+              <br/>
+              <Textfield label="country" className="form-control" ref="country"  placeholder="Country" id="country"/>
+              <br/>
+              <Textfield label="postalCode" className="form-control" ref="postalCode"  placeholder="Postal Code" id="postalCode"/>
+              <br/>
+              <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone Number" id="phone"/>
+              <br/>
+              <Textfield label="fax" className="form-control" ref="fax"  placeholder="Fax Number" id="fax"/>
+              <br/>
+              <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
+              <br/>
+              <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+              <br/>
+              <Textfield label="adminContact" className="form-control" ref="adminContact"  placeholder="Admin Email" id="adminContact"/>
+              <br/>
+              <Textfield label="technicalContact" className="form-control" ref="technicalContact"  placeholder="Technical Email" id="technicalContact"/>
+              <br/>
+              <Textfield label="ISnumber" className="form-control" ref="ISnumber"  placeholder="ISN Member? Y/N" id="ISnumber"/>
+              <br/>
+              <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
 
             {/*<form>
                 <input type="radio" name="ISNyes" value="yes" />Yes
