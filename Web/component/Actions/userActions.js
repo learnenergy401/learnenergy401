@@ -43,6 +43,7 @@ export function logOutUser(user) {
     return function(dispatch) {
         firebaseAuth.signOut()
             .then((data) => {
+                console.log(data)
                 dispatch({type: "LOGOUT_USER_FULFILLED"})
             })
             .catch((err) => {
