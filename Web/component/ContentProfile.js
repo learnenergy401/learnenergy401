@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
-import SideMenuProfile from './SideMenuProfile.js'
+
 
 var cardStyle = {
     width: '80%',

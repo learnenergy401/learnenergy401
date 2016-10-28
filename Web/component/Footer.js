@@ -4,7 +4,7 @@ class LearnFooter extends Component {
   render() {
     return (
 
-      <footer className="android-footer mdl-mega-footer">
+      <footer className=" mdl-mega-footer">
         <div className="mdl-mega-footer--top-section">
           <div className="mdl-mega-footer--left-section">
             <button className="mdl-mega-footer--social-btn" />
