@@ -38,7 +38,6 @@ var FirebaseTools = {
 			password: user.pw
 		});
 
-		alert("Thank you for registering for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
 	},
 
 	loginUser: (user) => {

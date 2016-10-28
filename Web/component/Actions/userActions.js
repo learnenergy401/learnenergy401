@@ -26,6 +26,35 @@ export function getCurrentUser() {
   
 )}}
 
+export function signUpUser(user,profile) {
+    return function(dispatch) { 
+        firebaseAuth.createUserWithEmailAndPassword(user.email, user.pw)
+            .then((data) => {
+                dispatch({type: "SIGNUP_USER_FULFILLED"})
+                firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
+                    .then((data) => {
+                        dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+                        var currentUser = firebaseAuth.currentUser;
+                        currentUser.updateProfile(profile)
+                            .then((data) => {
+                                dispatch({type: "UPDATE_USER_PROFILE_FULFILLED", payload: profile})
+                            })
+                            .catch((err) => {
+                                dispatch({type: "UPDATE_USER_PROFILE_REJECTED", payload: err})
+                            })
+                    })
+                    .catch((err) => {
+                        dispatch({type: "LOGIN_USER_REJECTED", payload: err})
+                    })
+                }).catch((err) => {
+                     dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
+                })
+        
+    }
+}
+
+
+
 export function logInUser(user) {
     return function(dispatch) { 
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
