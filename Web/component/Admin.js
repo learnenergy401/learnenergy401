@@ -28,7 +28,13 @@ class Admin extends Component {
         const {user} = this.props
         console.log(user.user)
         if (user.user != null) {
-            console.log(user.user.test.email)
+            var keys = Object.keys(user.user)
+            for (var count=0; count<=keys.length-1; count++) {  
+                
+                var key_name = keys[count]
+                console.log(user.user[key_name].email)
+                //console.log(user.user.test.email)
+            }
         }
         return(
         <div>
