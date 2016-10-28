@@ -15,25 +15,38 @@ import { fetchUsers,getCurrentUser } from "./Actions/userActions"
 })
 
 class Admin extends Component {
-    
+
+    fetchRole() { // pass email to fetchRole for it to see role
+        this.props.dispatch(fetchRole(email))
+    }   
+
     fetchUsers() {
         this.props.dispatch(fetchUsers())
     }
 
     componentWillMount() {
         this.fetchUsers()
+        //this.fetchRole(email) // email will be current user logged in email
+    }
+
+    approve() {
+        console.log("approved")
+    }
+
+    reject() {
+        console.log("rejected")
     }
 
     render() {
         const {user} = this.props
+        console.log(user)
         console.log(user.user)
+        var keys
         if (user.user != null) {
-            var keys = Object.keys(user.user)
-            for (var count=0; count<=keys.length-1; count++) {  
-                
+            keys = Object.keys(user.user)
+            for (var count=0; count<=keys.length-1; count++) {      
                 var key_name = keys[count]
                 console.log(user.user[key_name].email)
-                //console.log(user.user.test.email)
             }
         }
         return(
@@ -44,8 +57,13 @@ class Admin extends Component {
             <p><b>display users with check and X next to name </b></p>
             <p><b>on check click, user is approved.</b></p>
             <p><b>on X click, user is refused.</b></p>
+            {/*
+                DISPLAY THE USERS INFORMATION HERE WITH CHECKBOXES 
+            */}
 
-            <h1>DONE</h1>
+            <Button accent ripple onClick={this.approve} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+            <Button accent ripple onClick={this.reject} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+        
         </div>
         
         );

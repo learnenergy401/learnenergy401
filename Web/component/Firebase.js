@@ -36,29 +36,25 @@ var FirebaseTools = {
 	registerUser: (user) => {
         var num = 0;
         console.log(num);
-        firebaseDb.ref('SignUpList').once('value').then(function(snapshot){
-            
-            num = snapshot.numChildren();
-            console.log("number is", num);
-            firebaseDb.ref('SignUpList').child(num).set({
-                email: user.email,
-                password: user.password,
-                legalEntity: user.legalEntity,
-                operatingName: user.operatingName,
-                address1: user.address1,
-                address2: user.address2,
-                city: user.city,
-                province: user.province,
-                country: user.country,
-                postalCode: user.postalCode,
-                phone: user.phone,
-                fax: user.fax, 
-                adminContact: user.adminContact,
-                technicalContact: user.technicalContact,
-                ISnumber: user.ISnumber,
-                website: user.website
-            });
+        firebaseDb.ref('SignUpList').push({
+            email: user.email,
+            password: user.password,
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax, 
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+            ISnumber: user.ISnumber,
+            website: user.website
         });
+
 		
 
 		alert("Thank you for registering for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");

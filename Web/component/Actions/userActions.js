@@ -1,6 +1,16 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'
 
+export function fetchRole(user) { // TODO FIX
+  return function(dispatch) {
+    firebaseDb.ref('User').once('value').then((snapshot) => {
+      // grab current user information and see what role number it is
+      // dispatch the role value so the state of current user can change
+      dispatch({type:"FETCH_ROLE_FULFILLED", payload: user})
+    })
+  }
+}
+
 export function fetchUsers() {
   return function(dispatch) {
     firebaseDb.ref('SignUpList').once("value")
@@ -30,7 +40,11 @@ export function logInUser(user) {
     return function(dispatch) { 
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
-                dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+              if (user.email == "admin@gmail.com") {
+                dispatch({type: "LOGIN_ADMIN_USER_FULFILLED", payload: data})
+              } else {
+                dispatch({type: "LOGIN_USER_FULFILLED", payload: data})    
+              }
             })
             .catch((err) => {
                 dispatch({type: "LOGIN_USER_REJECTED", payload: err})

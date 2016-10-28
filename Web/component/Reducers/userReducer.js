@@ -5,6 +5,7 @@ export default function reducer(state={
     fetched: false,
     error: null,
     isLoggedIn:false,
+    role: 0, // role 0 = purchaser, 1 = vendor, 2 = admin
   }, action) {
 
     switch (action.type) {
@@ -20,7 +21,7 @@ export default function reducer(state={
                 error: action.payload
             }
         }
-        
+
         case "FETCH_USER_FULFILLED": {
             return {
                 ...state,
@@ -28,6 +29,20 @@ export default function reducer(state={
                 fetched: true,
                 user: action.payload,
                 isLoggedIn: action.isLoggedIn,
+            }
+        }
+
+        case "FETCH_ROLE": {
+            return {...state, 
+                fetching: true}
+        }
+
+        case "FETCH_ROLE_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                role: action.payload,
             }
         }
 
@@ -46,6 +61,7 @@ export default function reducer(state={
                 user: action.payload,
                 userName: action.payload.email,
                 isLoggedIn:true,
+                role:0,
             }
         }
             
@@ -58,6 +74,17 @@ export default function reducer(state={
             }
         }            
             
+        case "LOGIN_ADMIN_USER_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,
+                user: action.payload,
+                userName: action.payload.email,
+                isLoggedIn:true,
+                role: 2,
+            }
+        }
         case "LOGOUT_USER": {
             return {
                 ...state,
