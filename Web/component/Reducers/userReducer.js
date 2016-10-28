@@ -7,10 +7,11 @@ export default function reducer(state={
     isLoggedIn:false,
     role: null,
     profile:{
+        role:null,
         firstName: null,
         // *TODO*
         // add more attribute here in model
-        // null as default
+        // null as default, i copie role into outer scope for convenience :)
     },
   }, action) {
 

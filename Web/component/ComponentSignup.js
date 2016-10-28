@@ -33,12 +33,13 @@ class ComponentSignUp extends Component {
     var pw = document.getElementById("pw").value;
     console.log(email);
     console.log(pw);
+    var role = 0;
     // *TODO*
     // sample code here, add more attributes and wrapped in {}
-    // then drop it in this.signUpUser as second parameter
-    var firstName = "John"
-    var role = 0
-    this.signUpUser({email, pw},{firstName,role});
+    // then drop it in this.signUpUser() as second parameter
+    var firstName = "John";
+    
+    this.signUpUser({email, pw},{role,firstName});
     
   }
 
