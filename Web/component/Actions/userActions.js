@@ -11,9 +11,9 @@ export function fetchRole(user) { // TODO FIX
   }
 }
 
-export function fetchUsers() {
+export function fetchPurchaserSignup() {
   return function(dispatch) {
-    firebaseDb.ref('SignUpList').once("value")
+    firebaseDb.ref('PurchaserSignup').once("value")
       .then((snapshot) => {
         dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val()})
       })
@@ -22,8 +22,19 @@ export function fetchUsers() {
       })
   }
 }
-
-
+/*
+export function fetchVendorSignup() {
+  return function(dispatch) {
+    firebaseDb.ref('VendorSignup').once("value")
+      .then((snapshot) => {
+        dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val()})
+      })
+      .catch((err) => {
+        dispatch({type: "FETCH_USER_REJECTED", payload: err})
+      })
+  }
+}
+*/
 export function getCurrentUser() {
   return function(dispatch) {
      firebaseAuth.onAuthStateChanged((user)=>{
@@ -37,19 +48,19 @@ export function getCurrentUser() {
 )}}
 
 export function logInUser(user) {
-    return function(dispatch) { 
+    return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
               if (user.email == "admin@gmail.com") {
                 dispatch({type: "LOGIN_ADMIN_USER_FULFILLED", payload: data})
               } else {
-                dispatch({type: "LOGIN_USER_FULFILLED", payload: data})    
+                dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
               }
             })
             .catch((err) => {
                 dispatch({type: "LOGIN_USER_REJECTED", payload: err})
             })
-        
+
     }
 }
 
@@ -65,4 +76,3 @@ export function logOutUser(user) {
             })
     }
 }
-

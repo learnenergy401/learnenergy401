@@ -31,8 +31,8 @@ class ComponentSignUpPurchaser extends Component {
     var website = document.getElementById("website").value;
     var password = document.getElementById("password").value;
 
-    FirebaseTools.registerUser({email, password, legalEntity, operatingName, address1, address2, 
-      city, province, country, postalCode, phone, fax, adminContact, technicalContact, 
+    FirebaseTools.registerPurchaser({email, password, legalEntity, operatingName, address1, address2,
+      city, province, country, postalCode, phone, fax, adminContact, technicalContact,
       ISnumber, website});
   }
 

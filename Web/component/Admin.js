@@ -8,7 +8,7 @@ import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
 
 import { connect } from "react-redux"
-import { fetchUsers,getCurrentUser } from "./Actions/userActions"
+import { fetchPurchaserSignup,getCurrentUser } from "./Actions/userActions"
 
 @connect((store) => {
   return {
@@ -22,12 +22,12 @@ class Admin extends Component {
         this.props.dispatch(fetchRole(email))
     }
 
-    fetchUsers() {
-        this.props.dispatch(fetchUsers())
+    fetchPurchaserSignup() {
+        this.props.dispatch(fetchPurchaserSignup())
     }
 
     componentWillMount() {
-        this.fetchUsers()
+        this.fetchPurchaserSignup()
         //this.fetchRole(email) // email will be current user logged in email
     }
 
@@ -67,7 +67,7 @@ class Admin extends Component {
             <div className="grid">
               <div className="card mdl-shadow--2dp">
                 <div className="card__title mdl-color--indigo mdl-color-text--white">
-                  <h4 className="card__title-text">Vendor Candidates</h4>
+                  <h4 className="card__title-text">Purchaser Candidates</h4>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
