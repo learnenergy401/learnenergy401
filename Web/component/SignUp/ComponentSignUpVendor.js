@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
-import FirebaseTools from '../Firebase.js'
+import { signUpVendor } from "../Actions/userActions.js"
+import { connect } from "react-redux"
 
 var componentStyle = {
     margin: 'auto',
@@ -10,7 +11,17 @@ var formStyle = {
     marginTop: '5%'
 }
 
+@connect((store) => {
+  return {
+    user: store.user
+  };
+})/*dont add semicolon here!*/
+
 class ComponentSignUpVendor extends Component {
+
+  signUpVendor(user) {
+    this.props.dispatch(signUpVendor(user));
+  }
 
   requestSubmit() {
     // Add signup event
@@ -31,10 +42,13 @@ class ComponentSignUpVendor extends Component {
     var website = document.getElementById("website").value;
     var password = document.getElementById("password").value;
 
-    FirebaseTools.registerVendor({email, password, legalEntity, operatingName, address1, address2,
+    var user = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
-      ISnumber, website});
+      ISnumber, website}
 
+    this.signUpVendor(user);
+    
+    alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
   }
 
   render() {
@@ -43,7 +57,6 @@ class ComponentSignUpVendor extends Component {
       <div className="android-content mdl-layout__content">
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
-          <form style={formStyle} onSubmit={this.requestSubmit}>
 
             <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
             <br/>
@@ -78,9 +91,8 @@ class ComponentSignUpVendor extends Component {
             <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
 
             <CardActions>
-                <Button accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Register</Button>
+                <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
-          </form>
         </div>
       </div>
     );

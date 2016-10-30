@@ -88,6 +88,64 @@ export function signUpUser(user,profile) {
     }
 }
 
+export function signUpPurchaser(user) {
+  return function(dispatch) {
+    firebaseDb.ref('PurchaserSignup').push({
+      email: user.email,
+      password: user.password,
+      legalEntity: user.legalEntity,
+      operatingName: user.operatingName,
+      address1: user.address1,
+      address2: user.address2,
+      city: user.city,
+      province: user.province,
+      country: user.country,
+      postalCode: user.postalCode,
+      phone: user.phone,
+      fax: user.fax,
+      adminContact: user.adminContact,
+      technicalContact: user.technicalContact,
+      ISnumber: user.ISnumber,
+      website: user.website,
+      role: 0,
+    }).then((data) => {
+      dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
+    })
+  }
+}
+
+export function signUpVendor(user) {
+  return function(dispatch) {
+    firebaseDb.ref('VendorSignup').push({
+      email: user.email,
+      password: user.password,
+      legalEntity: user.legalEntity,
+      operatingName: user.operatingName,
+      address1: user.address1,
+      address2: user.address2,
+      city: user.city,
+      province: user.province,
+      country: user.country,
+      postalCode: user.postalCode,
+      phone: user.phone,
+      fax: user.fax,
+      adminContact: user.adminContact,
+      technicalContact: user.technicalContact,
+      ISnumber: user.ISnumber,
+      website: user.website,
+      role: 1,
+    }).then((data) => {
+      dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
+    })
+  }
+}
+
 
 
 export function logInUser(user) {

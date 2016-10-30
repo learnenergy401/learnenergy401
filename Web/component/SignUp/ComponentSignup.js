@@ -24,10 +24,6 @@ var formStyle = {
 
 class ComponentSignUp extends Component {
 
-  signUpUser(user,profile) {
-    this.props.dispatch(signUpUser(user,profile));
-  };
-
   render() {
     return(
 
@@ -43,9 +39,10 @@ class ComponentSignUp extends Component {
             <ButtonSignUpVendor to='signup-vendor' />
           </CardActions>
 
-            <CardActions>
-                <Button accent ripple id="add" type="submit" className="mdl-color-text--indigo btn btn-primary">Additional Resource</Button>
-            </CardActions>
+          <CardActions>
+            <Button accent ripple id="add" type="submit" className="mdl-color-text--indigo btn btn-primary">Additional Resource</Button>
+          </CardActions>
+
         </div>
       </div>
     );
