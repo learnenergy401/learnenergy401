@@ -1,39 +1,75 @@
 import React, { Component } from 'react'
-import {Drawer,Content,Navigation,Card,CardTitle,Layout} from 'react-mdl';
-import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
+import {Drawer,Navigation,List,ListItem,ListItemContent} from 'react-mdl';
+import { connect } from "react-redux"
+import { getCurrentUser } from "./Actions/userActions"
 
-var drawerStyle = {
 
+
+var sidemenuStyle={
+    width: "240px",
+    height: "100%",
+    maxHeight: "100%",
+    position: "absolute",
+    top: "0",
+    left: "0",
+    marginTop: "64px",
+    zIndex:"99"
 }
 
-var cardTitleStyle = {
-    center:'true'
+var listStyle={
+    paddingLeft:"30px",
 }
+@connect((store) => {
+  return {
+    user: store.user
+  };
+})/*dont add semicolon here!*/
 
-var cardStyle = {
-    width: '80%',
-    margin: 'auto',
-    top: '50px',
-    height:'500px'
-}
-
-var cardTitleStyle = {
-    center:'true'
-}
 
 class SideMenuProfile extends Component {
+    
     render(){
-        return(
-                <Drawer style={drawerStyle} title="Title">
-                    <Navigation>
-                        <a href="">Link</a>
-                        <a href="">Link</a>
-                        <a href="">Link</a>
-                        <a href="">Link</a>
-                    </Navigation>
-                </Drawer>
+        const {user} = this.props
+        
+        if (user.role == 0){
+            return(
+                    <aside style={sidemenuStyle} className="mdl-typography--headline">
+                        <List style={listStyle}>
+                          <ListItem>
+                            <ListItemContent >Profile</ListItemContent>
+                          </ListItem>
+                          <ListItem>
+                            <ListItemContent >Bookmarks</ListItemContent>
+                          </ListItem>
+                          <ListItem>
+                            <ListItemContent >My RFP</ListItemContent>
+                          </ListItem>
+                        </List>
+                    </aside>
 
-        );
+            );
+        }else if (user.role==1){
+            return(
+                    <aside style={sidemenuStyle} className="mdl-typography--headline">
+                        <List style={listStyle}>
+                          <ListItem>
+                            <ListItemContent >Profile</ListItemContent>
+                          </ListItem>
+                          <ListItem>
+                            <ListItemContent >My Courses</ListItemContent>
+                          </ListItem>
+                          <ListItem>
+                            <ListItemContent >My RFP</ListItemContent>
+                          </ListItem>
+                        </List>
+                    </aside>
+
+            );
+        }else{
+            return(
+                <div>broken</div>
+            )
+        }
     }
 };
 

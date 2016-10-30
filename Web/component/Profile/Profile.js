@@ -4,6 +4,7 @@ import LearnHeader from '../Header.js'
 import LearnFooter from '../Footer.js'
 import ContentProfile from '../ContentProfile.js'
 import SideMenuProfile from '../SideMenuProfile.js'
+
 import store from '../Store.js'
 import { connect } from "react-redux"
 //      <LearnHeader/>
@@ -22,13 +23,13 @@ class SignUp extends Component {
   render(){
     return (
       <div>
-
+        <LearnHeader/>
+        <SideMenuProfile/>
         <Layout fixedHeader fixedDrawer>
-      
-            <SideMenuProfile/>
             <ContentProfile/>   
             <LearnFooter/>
         </Layout>
+        
       </div>    
     );
   }

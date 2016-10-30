@@ -3,21 +3,18 @@ import {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'reac
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 
-var cardStyle = {
-    width: '80%',
-    margin: 'auto',
-    top: '50px',
-    height:'500px'
-}
+import "../extra/material.js"
 
-var cardTitleStyle = {
-    center:'true'
-}
+
+
 
 class ContentProfile extends Component {
     render(){
+        
+        
         return(
               <Content className="learn-content">
+                   
                     <List>
                       <ListItem>
                         <ListItemContent icon="person">Bryan Cranston</ListItemContent>

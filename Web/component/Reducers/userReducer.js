@@ -82,7 +82,31 @@ export default function reducer(state={
                 fetching: false, 
                 error: action.payload
             }
-        }      
+        } 
+    
+        case "FETCH_USER_PROFILE": {
+            return {
+                ...state,
+                fetching: true,
+            }
+        }
+        case "FETCH_USER_PROFILE_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,
+                profile:action.payload,
+                role: action.payload.role,
+            }
+        }
+            
+        case "FETCH_USER_PROFILE_REJECTED": {
+            return {
+                ...state, 
+                fetching: false, 
+                error: action.payload
+            }
+        }  
 //        Login
         case "LOGIN_USER": {
             return {

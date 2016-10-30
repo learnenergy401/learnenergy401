@@ -14,7 +14,7 @@ import Login from "./Login-Logout/Login.js"
 import Logout from "./Login-Logout/Logout.js"
 import Admin from "./Admin.js"
 import Profile from "./Profile/Profile.js"
-
+import Scripts from "./Scripts"
 import Upload from "./Vendor/Upload.js"
 class ReactRouter extends Component {
   render() {
@@ -29,6 +29,7 @@ class ReactRouter extends Component {
         <Route path='/admin'component={Admin}/>
         <Route path='/upload' component={Upload} />
         <Route path='/profile' component={Profile} />
+        <Route path='/scripts' component={Scripts} />
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>

@@ -33,7 +33,7 @@ class ComponentSignUp extends Component {
     var pw = document.getElementById("pw").value;
     console.log(email);
     console.log(pw);
-    var role = 0;
+    var role = 1;
     // *TODO*
     // sample code here, add more attributes and wrapped in {}
     // then drop it in this.signUpUser() as second parameter
