@@ -46,14 +46,30 @@ class Admin extends Component {
 
       // grab all of the information and put into { }
       // var info = {user.user[key_name].email, .... , }
-      var email = "JIMMY123@gmail.com"
-      var password = '123456'
-      var role = 0
-      var firstName = 'test'
-      var key_name = '-KVMg8Dj4KiZmG-8ahd7'
-      var user = {email, password, role, firstName, key_name}
+      const {user} = this.props
 
-      this.approveUser(user)
+      var legalEntity = user.user[key_name].legalEntity;
+      var operatingName = user.user[key_name].operatingName;
+      var address1 = user.user[key_name].address1;
+      var address2 = user.user[key_name].address2;
+      var city = user.user[key_name].city;
+      var province = user.user[key_name].province;
+      var country = user.user[key_name].country;
+      var postalCode = user.user[key_name].postalCode;
+      var phone = user.user[key_name].phone;
+      var fax = user.user[key_name].fax;
+      var email = user.user[key_name].email;
+      var adminContact = user.user[key_name].adminContact;
+      var technicalContact = user.user[key_name].technicalContact;
+      var ISnumber = user.user[key_name].ISnumber;
+      var website = user.user[key_name].website;
+      var password = user.user[key_name].password;
+      var role = user.user[key_name].role;
+
+      var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
+      adminContact, technicalContact, ISnumber, website, password, role, key_name}
+
+      this.approveUser(info)
     }
 
     reject(key_name) {

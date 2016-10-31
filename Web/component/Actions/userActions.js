@@ -94,10 +94,23 @@ export function approveUser(user) {
       dispatch({type: "SIGNUP_USER_FULFILLED"})
       if (user.role==0) { // push as a purchaser
         firebaseDb.ref('User').push({
+          legalEntity: user.legalEntity,
+          operatingName: user.operatingName,
+          address1: user.address1,
+          address2: user.address2,
+          city: user.city,
+          province: user.province,
+          country: user.country,
+          postalCode: user.postalCode,
+          phone: user.phone,
+          fax: user.fax,
           email: user.email,
+          adminContact: user.adminContact,
+          technicalContact: user.technicalContact,
+          ISnumber: user.ISnumber,
+          website: user.website,
           password: user.password,
-          firstName: user.firstName,
-          role: 0,
+          role: user.role,
         })
         firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
           console.log("removed")
