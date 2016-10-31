@@ -4,6 +4,8 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
 import "../../extra/material.js"
+import { uploadCourse } from "../Actions/courseActions"
+
 
 var componentStyle = {
     margin: 'auto',
@@ -16,16 +18,23 @@ var formStyle = {
 @connect((store) => {
   return {
     user: store.user,
-    profile: store.profile,
     course: store.course
   };
 })/*dont add semicolon here!*/
 
 
 class ContentProfileUpload extends Component {
-    courseSubmit(){
-        console.log("gg")
+    uploadCourse(course){
+        var courseName = document.getElementById("courseName").value;
+        var courseDescription = document.getElementById("courseDescription").value;
+        // hard code email for test
+        var courseVendorEmail = "test@test.com"
+        var course = {courseName, courseDescription, courseVendorEmail}
+        console.log(courseName);
+        console.log(courseDescription);
+        this.props.dispatch(uploadCourse(course)); 
     }
+    
     render(){
         return(
             <Content className="learn-content">
@@ -36,10 +45,10 @@ class ContentProfileUpload extends Component {
                                 <Textfield floatingLabel label="courseName" className="form-control" ref="courseName" id="courseName"/>
                                 </CardText>
                             <CardText style={componentStyle}>        
-                                <Textfield floatingLabel label="courseDescription" ref="pw" type="courseDescription" className="form-control" id="pw"/>
+                                <Textfield floatingLabel label="courseDescription" ref="pw" type="courseDescription" className="form-control" id="courseDescription"/>
                             </CardText>
                             <CardActions style={componentStyle}>
-                                <Button onClick={this.courseSubmit.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>
+                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>
                             </CardActions>
                         </div>
                     </div>
