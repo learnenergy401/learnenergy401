@@ -29,4 +29,16 @@ export function uploadCourse(course) {
     }
 }
 
-
+export function fetchVendorCourse() {
+    return function(dispatch) {
+        dispatch({type: "FETCH_VENDORS_COURSE"})
+        firebaseDb.ref('Course').on("value",function(snapshot){
+            dispatch({type:"FETCH_VENDORS_COURSE_FULFILLED",payload:snapshot.val()})
+            console.log(snapshot.val());
+        },function(errorObject){
+            dispatch({type:"FETCH_VENDORS_COURSE_REJECTED"})
+            console.log("The read failed: " + errorObject.code);
+        }
+        )
+    }
+}
