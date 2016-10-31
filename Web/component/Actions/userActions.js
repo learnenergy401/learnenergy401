@@ -15,26 +15,26 @@ export function fetchPurchaserSignup() {
   return function(dispatch) {
     firebaseDb.ref('PurchaserSignup').once("value")
       .then((snapshot) => {
-        dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val()})
+        dispatch({type: "FETCH_PURCHASER_FULFILLED", payload: snapshot.val()})
       })
       .catch((err) => {
         dispatch({type: "FETCH_USER_REJECTED", payload: err})
       })
   }
 }
-/*
+
 export function fetchVendorSignup() {
   return function(dispatch) {
     firebaseDb.ref('VendorSignup').once("value")
       .then((snapshot) => {
-        dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val()})
+        dispatch({type: "FETCH_VENDOR_FULFILLED", payload: snapshot.val()})
       })
       .catch((err) => {
         dispatch({type: "FETCH_USER_REJECTED", payload: err})
       })
   }
 }
-*/
+
 export function getCurrentUser() {
   return function(dispatch) {
        firebaseAuth.onAuthStateChanged((user)=>{
@@ -42,7 +42,6 @@ export function getCurrentUser() {
                dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: true})
                firebaseDb.ref('User/' + user.uid).once("value")
                     .then((snapshot) => {
-                        console.log("role is" + snapshot.val().role)
                         dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val()})
                     })
                     .catch((err) => {

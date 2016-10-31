@@ -6,6 +6,7 @@ export default function reducer(state={
     error: null,
     isLoggedIn:false,
     role: null,
+    vendors: null,
     profile:{
         role:null,
         firstName: null,
@@ -38,6 +39,25 @@ export default function reducer(state={
                 isLoggedIn: action.isLoggedIn,
             }
         }  
+
+        case "FETCH_PURCHASER_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                user: action.payload,
+                isLoggedIn: action.isLoggedIn,
+            }
+        }  
+
+        case "FETCH_VENDOR_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                vendors: action.payload,
+            }
+        }
             
         case "SIGNUP_USER": {
             return {
@@ -45,7 +65,7 @@ export default function reducer(state={
                 fetching: true,
             }
         }
-        
+
         case "SIGNUP_USER_FULFILLED": {
             return {
                 ...state,

@@ -10,7 +10,7 @@ import LearnFooter from './Footer.js'
 import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
-import { fetchPurchaserSignup, getCurrentUser } from "./Actions/userActions"
+import { fetchVendorSignup, fetchPurchaserSignup, getCurrentUser } from "./Actions/userActions"
 
 @connect((store) => {
   return {
@@ -28,6 +28,10 @@ class Admin extends Component {
       this.props.dispatch(fetchPurchaserSignup())
     }
 
+    fetchVendorSignup() {
+      this.props.dispatch(fetchVendorSignup())
+    }
+
     getCurrentUser() {
       this.props.dispatch(getCurrentUser())
     }
@@ -35,6 +39,7 @@ class Admin extends Component {
     componentWillMount() {
       this.getCurrentUser()
       this.fetchPurchaserSignup()
+      this.fetchVendorSignup()
     }
 
     approveUser(user) {
@@ -147,6 +152,24 @@ class Admin extends Component {
           }
         }
 
+        var keys
+        if (user.vendors != null) {
+          keys = Object.keys(user.vendors)
+          for (var count=0; count<=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.vendors[key_name].email)
+            EMAILS.push(<br/>)
+            EMAILS.push(<div>
+              <Button accent ripple onClick={this.approve.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              </div>)
+            EMAILS.push(<br/>)
+            //console.log(user.user[key_name].email)
+            //console.log(EMAILS + "here")
+          }
+        }
+        
         return(
 
           <div>
@@ -170,8 +193,6 @@ class Admin extends Component {
             </div>
           </div>
         </div>
-
-
 
           <LearnFooter/>
         </div>
