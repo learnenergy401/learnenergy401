@@ -4,7 +4,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
 import "../../extra/material.js"
-
+import ContentProfileUpload from "./ContentProfileUpload.js"
 
 @connect((store) => {
   return {
@@ -41,13 +41,7 @@ class ContentProfile extends Component {
             )
         }else{
             return(
-                <Content className="learn-content">
-                        <List>
-                          <ListItem>
-                            <ListItemContent icon="person">gg3</ListItemContent>
-                          </ListItem>
-                        </List>
-                    </Content>
+                <ContentProfileUpload/>
             )
         }
     }

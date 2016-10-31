@@ -3,6 +3,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'
 
 export function fetchUsers() {
   return function(dispatch) {
+    dispatch({type: "FETCH_USER"})
     firebaseDb.ref('SignUpList').once("value")
       .then((snapshot) => {
         dispatch({type: "FETCH_USER_FULFILLED", payload: snapshot.val().ggop})
