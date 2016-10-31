@@ -129,17 +129,6 @@ class Admin extends Component {
 
     review(key_name, role) {
       // QUICK FIX
-      Popup.prompt('Type your name below', 'What\'s your name?', {
-         placeholder: 'Placeholder yo',
-        type: 'text'
-}, {
-    text: 'Save',
-    className: 'success',
-    action: function (Box) {
-        Popup.alert('Your name is: ' + Box.value);
-        Box.close();
-    }
-});
       console.log("review")
       const {user} = this.props
       if (role == 0) {
@@ -164,6 +153,17 @@ class Admin extends Component {
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
         alert(JSON.stringify(info))
+        Popup.prompt('Type your name below', 'What\'s your name?', {
+    placeholder: 'Placeholder yo',
+    type: 'text'
+}, {
+    text: 'Save',
+    className: 'success',
+    action: function (Box) {
+        Popup.alert('Your name is: ' + Box.value);
+        Box.close();
+    }
+});
       } else if (role == 1) {
         var legalEntity = user.vendors[key_name].legalEntity;
         var operatingName = user.vendors[key_name].operatingName;
