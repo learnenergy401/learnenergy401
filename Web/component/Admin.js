@@ -252,7 +252,7 @@ class Admin extends Component {
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-                  <h4> {EMAILS} </h4>
+                  <h4> {EMAILS_1} </h4>
 
                 </div>
                 <div className="card__title mdl-color--indigo mdl-color-text--white">
@@ -260,7 +260,7 @@ class Admin extends Component {
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-                  <h4> {EMAILS} </h4>
+                  <h4> {EMAILS_2} </h4>
 
                 </div>
                 </div>
