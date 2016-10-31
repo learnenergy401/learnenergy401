@@ -79,6 +79,42 @@ class Admin extends Component {
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
       } else if (role == 1) { // approve for vendor
 
+        var legalEntity = user.vendors[key_name].legalEntity;
+        var operatingName = user.vendors[key_name].operatingName;
+        var address1 = user.vendors[key_name].address1;
+        var address2 = user.vendors[key_name].address2;
+        var city = user.vendors[key_name].city;
+        var province = user.vendors[key_name].province;
+        var country = user.vendors[key_name].country;
+        var postalCode = user.vendors[key_name].postalCode;
+        var phone = user.vendors[key_name].phone;
+        var fax = user.vendors[key_name].fax;
+        var email = user.vendors[key_name].email;
+        var adminContact = user.vendors[key_name].adminContact;
+        var technicalContact = user.vendors[key_name].technicalContact;
+        var ISnumber = user.vendors[key_name].ISnumber;
+        var website = user.vendors[key_name].website;
+        var password = user.vendors[key_name].password;
+        var role = user.vendors[key_name].role;
+
+        var owners = user.vendors[key_name].owners;
+        var natureBusiness = user.vendors[key_name].natureBusiness;
+        var timeBusiness = user.vendors[key_name].timeBusiness;
+        var proAffiliation = user.vendors[key_name].proAffiliation;
+        var bank = user.vendors[key_name].bank;
+        var bonding = user.vendors[key_name].bonding;
+        var bondingLimit = user.vendors[key_name].bondingLimit;
+        var insurance = user.vendors[key_name].insurance;
+        var bankruptcy = user.vendors[key_name].bankruptcy;
+        var numEmployees = user.vendors[key_name].numEmployees;
+
+
+        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
+        adminContact, technicalContact, ISnumber, website, password, role, owners, natureBusiness, timeBusiness, proAffiliation,
+        bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
+
+
+
       } else if (role == 2) { // approve for additional resource
 
       }
@@ -120,7 +156,39 @@ class Admin extends Component {
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
         alert(JSON.stringify(info))
       } else if (role == 1) {
-        alert('hi')
+        var legalEntity = user.vendors[key_name].legalEntity;
+        var operatingName = user.vendors[key_name].operatingName;
+        var address1 = user.vendors[key_name].address1;
+        var address2 = user.vendors[key_name].address2;
+        var city = user.vendors[key_name].city;
+        var province = user.vendors[key_name].province;
+        var country = user.vendors[key_name].country;
+        var postalCode = user.vendors[key_name].postalCode;
+        var phone = user.vendors[key_name].phone;
+        var fax = user.vendors[key_name].fax;
+        var email = user.vendors[key_name].email;
+        var adminContact = user.vendors[key_name].adminContact;
+        var technicalContact = user.vendors[key_name].technicalContact;
+        var ISnumber = user.vendors[key_name].ISnumber;
+        var website = user.vendors[key_name].website;
+        var password = user.vendors[key_name].password;
+        var role = user.vendors[key_name].role;
+
+        var owners = user.vendors[key_name].owners;
+        var natureBusiness = user.vendors[key_name].natureBusiness;
+        var timeBusiness = user.vendors[key_name].timeBusiness;
+        var proAffiliation = user.vendors[key_name].proAffiliation;
+        var bank = user.vendors[key_name].bank;
+        var bonding = user.vendors[key_name].bonding;
+        var bondingLimit = user.vendors[key_name].bondingLimit;
+        var insurance = user.vendors[key_name].insurance;
+        var bankruptcy = user.vendors[key_name].bankruptcy;
+        var numEmployees = user.vendors[key_name].numEmployees;
+
+        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
+        adminContact, technicalContact, ISnumber, website, password, role, owners, natureBusiness, timeBusiness, proAffiliation,
+        bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
+        alert(JSON.stringify(info))
       } else if (role == 2) {
 
       }
@@ -130,7 +198,7 @@ class Admin extends Component {
       const {user} = this.props
       if (user.role == 3) {
         var EMAILS = [];
-        
+
         //console.log(user)
         console.log(user)
         var keys
@@ -207,7 +275,7 @@ class Admin extends Component {
           <div className="logo-font learn-slogan"></div>
           <a name="top" />
           <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
-          
+
             <h4>YOU ARE NOT AN ADMIN</h4>
           </div>
           </div>

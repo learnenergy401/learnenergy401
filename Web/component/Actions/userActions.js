@@ -51,11 +51,11 @@ export function getCurrentUser() {
                dispatch({type: "FETCH_USER_REJECTED", payload: user,isLoggedIn: false})
            }
        }
-  
+
 )}}
 
 export function signUpUser(user,profile) {
-    return function(dispatch) { 
+    return function(dispatch) {
         firebaseAuth.createUserWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
                 dispatch({type: "SIGNUP_USER_FULFILLED"})
@@ -76,7 +76,7 @@ export function signUpUser(user,profile) {
                             .catch((err) => {
                                 dispatch({type: "UPDATE_USER_PROFILE_REJECTED", payload: err})
                             })
-                        
+
                     })
                     .catch((err) => {
                         dispatch({type: "LOGIN_USER_REJECTED", payload: err})
@@ -89,7 +89,7 @@ export function signUpUser(user,profile) {
 
 export function approveUser(user) {
   return function(dispatch) {
-    firebaseAuth.createUserWithEmailAndPassword(user.email, user.password) 
+    firebaseAuth.createUserWithEmailAndPassword(user.email, user.password)
       .then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED"})
       if (user.role==0) { // push as a purchaser
@@ -118,13 +118,50 @@ export function approveUser(user) {
         .catch(function(err) {
           console.log("failed to remove", user.key_name)
         })
-       
+
       } else if (user.role == 1) { // push as a vendor
+
+        firebaseDb.ref('User').push({
+          legalEntity: user.legalEntity,
+          operatingName: user.operatingName,
+          address1: user.address1,
+          address2: user.address2,
+          city: user.city,
+          province: user.province,
+          country: user.country,
+          postalCode: user.postalCode,
+          phone: user.phone,
+          fax: user.fax,
+          email: user.email,
+          adminContact: user.adminContact,
+          technicalContact: user.technicalContact,
+          ISnumber: user.ISnumber,
+          website: user.website,
+          password: user.password,
+          role: user.role,
+          owners: user.owners,
+          natureBusiness: user.natureBusiness,
+          timeBusiness: user.timeBusiness,
+          proAffiliation: user.proAffiliation,
+          bank: user.bank,
+          bonding: user.bonding,
+          bondingLimit: user.bondingLimit,
+          insurance: user.insurance,
+          bankruptcy: user.bankruptcy,
+          numEmployees: user.numEmployees,
+        })
+        firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
+          console.log("removed")
+        })
+        .catch(function(err) {
+          console.log("failed to remove", user.key_name)
+        })
+
 
       } else if (user.role == 2) { //push as an additional resource
 
       }
-    })  
+    })
   }
 }
 
@@ -196,6 +233,16 @@ export function signUpVendor(user) {
       technicalContact: user.technicalContact,
       ISnumber: user.ISnumber,
       website: user.website,
+      owners: user.owners,
+      natureBusiness: user.natureBusiness,
+      timeBusiness: user.timeBusiness,
+      proAffiliation: user.proAffiliation,
+      bank: user.bank,
+      bonding: user.bonding,
+      bondingLimit: user.bondingLimit,
+      insurance: user.insurance,
+      bankruptcy: user.bankruptcy,
+      numEmployees: user.numEmployees,
       role: 1,
     }).then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})

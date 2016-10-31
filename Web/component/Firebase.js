@@ -71,6 +71,18 @@ var FirebaseTools = {
             technicalContact: user.technicalContact,
             ISnumber: user.ISnumber,
             website: user.website,
+
+            owners: user.owners,
+            natureBusiness: user.natureBusiness,
+            timeBusiness: user.timeBusiness,
+            proAffiliation: user.proAffiliation,
+            bank: user.bank,
+            bonding: user.bonding,
+            bondingLimit: user.bondingLimit,
+            insurance: user.insurance,
+            bankruptcy: user.bankruptcy,
+            numEmployees: user.numEmployees,
+                        
             role: 1
         });
     alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
