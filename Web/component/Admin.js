@@ -121,7 +121,7 @@ class Admin extends Component {
           <div className="grid">
             <div className="card mdl-shadow--2dp">
               <div className="card__title mdl-color--indigo mdl-color-text--white">
-                <h4 className="card__title-text">Purchaser Candidates</h4>
+                <h4 className="card__title-text">Candidates</h4>
               </div>
               <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
