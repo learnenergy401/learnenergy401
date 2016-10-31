@@ -7,7 +7,7 @@ import store from './Store.js'
 import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
 
-import { approvePurchaser } from './Actions/userActions.js'
+import { approveUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchPurchaserSignup,getCurrentUser } from "./Actions/userActions"
 
@@ -60,7 +60,7 @@ class Admin extends Component {
     }
 
     review(key_name) {
-      console.log("review")
+      console.log(key_name)
 
     }
 
@@ -77,9 +77,9 @@ class Admin extends Component {
           EMAILS.push(user.user[key_name].email)
           EMAILS.push(<br/>)
           EMAILS.push(<div>
-            <Button accent ripple onClick={this.approve(key_name).bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-            <Button accent ripple onClick={this.reject(key_name).bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-            <Button accent ripple onClick={this.review(key_name).bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+            <Button accent ripple onClick={this.approve.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+            <Button accent ripple onClick={this.reject.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+            <Button accent ripple onClick={this.review.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
             </div>)
           EMAILS.push(<br/>)
           //console.log(user.user[key_name].email)
