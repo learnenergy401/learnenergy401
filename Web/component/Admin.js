@@ -8,6 +8,7 @@ import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
 
 import { approveUser } from './Actions/userActions.js'
+import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchPurchaserSignup,getCurrentUser } from "./Actions/userActions"
 
@@ -57,6 +58,11 @@ class Admin extends Component {
 
     reject(key_name) {
       console.log("rejected")
+      const {user} = this.props
+      var role = user.user[key_name].role
+      var info = {key_name, role}
+
+      this.rejectUser(info)
     }
 
     review(key_name) {
