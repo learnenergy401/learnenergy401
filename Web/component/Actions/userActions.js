@@ -22,7 +22,7 @@ export function fetchPurchaserSignup() {
       })
   }
 }
-/*
+
 export function fetchVendorSignup() {
   return function(dispatch) {
     firebaseDb.ref('VendorSignup').once("value")
@@ -34,7 +34,7 @@ export function fetchVendorSignup() {
       })
   }
 }
-*/
+
 export function getCurrentUser() {
   return function(dispatch) {
      firebaseAuth.onAuthStateChanged((user)=>{
