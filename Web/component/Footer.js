@@ -1,34 +1,50 @@
 import React, { Component } from 'react'
-
+import { Footer, FooterSection, FooterDropDownSection, FooterLinkList } from 'react-mdl';
 class LearnFooter extends Component {
   render() {
     return (
+      <Footer size="mega">
+            <FooterSection type="middle">
+                <FooterDropDownSection title="Features">
+                    <FooterLinkList>
+                        <a href="#">About</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Partners</a>
+                        <a href="#">Updates</a>
+                    </FooterLinkList>
+                </FooterDropDownSection>
+                <FooterDropDownSection title="Details">
+                    <FooterLinkList>
+                        <a href="#">Specs</a>
+                        <a href="#">Tools</a>
+                        <a href="#">Resources</a>
+                    </FooterLinkList>
+                </FooterDropDownSection>
+                <FooterDropDownSection title="Technology">
+                    <FooterLinkList>
+                        <a href="#">How it works</a>
+                        <a href="#">Patterns</a>
+                        <a href="#">Usage</a>
+                        <a href="#">Products</a>
+                        <a href="#">Contracts</a>
+                    </FooterLinkList>
+                </FooterDropDownSection>
+                <FooterDropDownSection title="FAQ">
+                    <FooterLinkList>
+                        <a href="#">Questions</a>
+                        <a href="#">Answers</a>
+                        <a href="#">Contact Us</a>
+                    </FooterLinkList>
+                </FooterDropDownSection>
+            </FooterSection>
+            <FooterSection type="bottom" logo="Title">
+                <FooterLinkList>
+                    <a href="#">Help</a>
+                    <a href="#">Privacy & Terms</a>
+                </FooterLinkList>
+            </FooterSection>
+        </Footer>
 
-      <footer className="android-footer mdl-mega-footer">
-        <div className="mdl-mega-footer--top-section">
-          <div className="mdl-mega-footer--left-section">
-            <button className="mdl-mega-footer--social-btn" />
-            &nbsp;
-            <button className="mdl-mega-footer--social-btn" />
-            &nbsp;
-            <button className="mdl-mega-footer--social-btn" />
-          </div>
-          <div className="mdl-mega-footer--right-section">
-            <a className="mdl-typography--font-light" href="#top">
-              Back to Top
-              <i className="material-icons">expand_less</i>
-            </a>
-          </div>
-        </div>
-        <div className="mdl-mega-footer--middle-section">
-          <p className="mdl-typography--font-light">Satellite imagery: © 2014 Astrium, DigitalGlobe</p>
-          <p className="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
-        </div>
-        <div className="mdl-mega-footer--bottom-section">
-          <a className="android-link mdl-typography--font-light" href>Blog</a>
-          <a className="android-link mdl-typography--font-light" href>Privacy Policy</a>
-        </div>
-      </footer>
     );
   }
 };
