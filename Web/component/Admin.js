@@ -47,28 +47,32 @@ class Admin extends Component {
       // grab all of the information and put into { }
       // var info = {user.user[key_name].email, .... , }
       const {user} = this.props
+      if (user.user[key_name].role == 0) {
+        var legalEntity = user.user[key_name].legalEntity;
+        var operatingName = user.user[key_name].operatingName;
+        var address1 = user.user[key_name].address1;
+        var address2 = user.user[key_name].address2;
+        var city = user.user[key_name].city;
+        var province = user.user[key_name].province;
+        var country = user.user[key_name].country;
+        var postalCode = user.user[key_name].postalCode;
+        var phone = user.user[key_name].phone;
+        var fax = user.user[key_name].fax;
+        var email = user.user[key_name].email;
+        var adminContact = user.user[key_name].adminContact;
+        var technicalContact = user.user[key_name].technicalContact;
+        var ISnumber = user.user[key_name].ISnumber;
+        var website = user.user[key_name].website;
+        var password = user.user[key_name].password;
+        var role = user.user[key_name].role;
 
-      var legalEntity = user.user[key_name].legalEntity;
-      var operatingName = user.user[key_name].operatingName;
-      var address1 = user.user[key_name].address1;
-      var address2 = user.user[key_name].address2;
-      var city = user.user[key_name].city;
-      var province = user.user[key_name].province;
-      var country = user.user[key_name].country;
-      var postalCode = user.user[key_name].postalCode;
-      var phone = user.user[key_name].phone;
-      var fax = user.user[key_name].fax;
-      var email = user.user[key_name].email;
-      var adminContact = user.user[key_name].adminContact;
-      var technicalContact = user.user[key_name].technicalContact;
-      var ISnumber = user.user[key_name].ISnumber;
-      var website = user.user[key_name].website;
-      var password = user.user[key_name].password;
-      var role = user.user[key_name].role;
+        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
+        adminContact, technicalContact, ISnumber, website, password, role, key_name}
+      } else if (user.user[key_name].role == 1) {
 
-      var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
-      adminContact, technicalContact, ISnumber, website, password, role, key_name}
+      } else if (user.user[key_name].role == 2) {
 
+      }
       this.approveUser(info)
     }
 
@@ -82,6 +86,7 @@ class Admin extends Component {
     }
 
     review(key_name) {
+      // QUICK FIX
       console.log("review")
       const {user} = this.props
       if (user.user[key_name].role == 0) {
