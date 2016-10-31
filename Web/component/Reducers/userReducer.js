@@ -121,6 +121,7 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched:true,
+                isLoggedIn:true,
                 profile:action.payload,
                 role: action.payload.role,
             }
