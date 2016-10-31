@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 import "../../extra/material.js"
 import { uploadCourse } from "../Actions/courseActions"
-
+import Toast from "../Toast.js"
 
 var componentStyle = {
     margin: 'auto',

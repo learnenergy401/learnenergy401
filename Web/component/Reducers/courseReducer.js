@@ -5,9 +5,7 @@ export default function reducer(state={
     error: null,
     
     uploaded: false,
-    courseName:null,
-    courseDescription: null,
-    courseVendorEmail: null,
+wo
     
   }, action) {
 
