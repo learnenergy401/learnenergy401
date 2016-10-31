@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import { uploadCourse } from "../Actions/courseActions"
 import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
-
+import ContentCourseDisplay from "../ContentCourseDisplay.js"
 @connect((store) => {
   return {
     user: store.user,
@@ -32,13 +32,7 @@ class ContentProfile extends Component {
             );
         }else if (profile.menu == 1){
             return(
-                <Content className="learn-content">
-                        <List>
-                          <ListItem>
-                            <ListItemContent icon="person">gg2</ListItemContent>
-                          </ListItem>
-                        </List>
-                    </Content>
+                <ContentCourseDisplay/>
             )
         }else{
             return(
