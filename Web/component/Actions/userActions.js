@@ -84,8 +84,55 @@ export function signUpUser(user,profile) {
                 }).catch((err) => {
                      dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
                 })
-        
     }
+}
+
+export function approveUser(user) {
+  return function(dispatch) {
+    firebaseAuth.createUserWithEmailAndPassword(user.email, user.password) 
+      .then((data) => {
+      dispatch({type: "SIGNUP_USER_FULFILLED"})
+      if (user.role==0) { // push as a purchaser
+        firebaseDb.ref('User').push({
+          email: user.email,
+          password: user.password,
+          firstName: user.firstName,
+          role: 0,
+        })
+        firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
+          console.log("removed")
+        })
+        .catch(function(err) {
+          console.log("failed to remove", user.key_name)
+        })
+       
+      } else if (user.role == 1) { // push as a vendor
+
+      } else if (user.role == 2) { //push as an additional resource
+
+      }
+    })  
+  }
+}
+
+export function rejectUser(user) {
+  return function(dispatch) {
+    if (user.role == 0) { // reject purchaser
+      firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
+        console.log("removed")
+      }).then((data) => {
+        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+      })
+    } else if (user.role == 1) { // reject vendor
+      firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
+        console.log("removed")
+      }).then((data) => {
+        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+      })
+    } else if (user.role == 2) { // reject additional resource
+
+    }
+  }
 }
 
 export function signUpPurchaser(user) {

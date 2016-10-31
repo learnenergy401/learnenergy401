@@ -7,6 +7,7 @@ import store from './Store.js'
 import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
 
+import { approvePurchaser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchPurchaserSignup,getCurrentUser } from "./Actions/userActions"
 
@@ -31,8 +32,27 @@ class Admin extends Component {
         //this.fetchRole(email) // email will be current user logged in email
     }
 
+    approveUser(user) {
+      this.props.dispatch(approveUser(user))
+    }
+
+    rejectUser(user) {
+      this.props.dispatch(rejectUser(user))
+    }
+
     approve() {
         console.log("approved")
+
+        // grab all of the information and put into { }
+        // var info = {user.user[key_name].email, .... , }
+        var email = "JIMMY123@gmail.com"
+        var password = '123456'
+        var role = 0
+        var firstName = 'test'
+        var key_name = '-KVMg8Dj4KiZmG-8ahd7'
+        var user = {email, password, role, firstName, key_name}
+
+        this.approveUser(user)
     }
 
     reject() {
@@ -51,10 +71,14 @@ class Admin extends Component {
                 var key_name = keys[count]
                 EMAILS.push(user.user[key_name].email)
                 EMAILS.push(<br/>)
+                EMAILS.push(<div><Button accent ripple onClick={this.approve.bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+                  <Button accent ripple onClick={this.reject.bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button></div>)
+                EMAILS.push(<br/>)
                 //console.log(user.user[key_name].email)
                 //console.log(EMAILS + "here")
             }
         }
+
         return(
 
         <div>
@@ -73,10 +97,7 @@ class Admin extends Component {
 
                   <h4> {EMAILS} </h4>
 
-                  <Button accent ripple onClick={this.approve} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-                  <Button accent ripple onClick={this.reject} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 </div>
-
                 </div>
             </div>
           </div>

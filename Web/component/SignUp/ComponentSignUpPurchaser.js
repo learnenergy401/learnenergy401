@@ -47,8 +47,8 @@ class ComponentSignUpPurchaser extends Component {
       ISnumber, website}
 
     this.signUpPurchaser(user);
-    
     alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");  
+    
   }
 
   render() {
