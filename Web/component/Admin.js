@@ -40,7 +40,7 @@ class Admin extends Component {
       this.props.dispatch(rejectUser(user))
     }
 
-    approve() {
+    approve(key_name) {
       console.log("approved")
 
       // grab all of the information and put into { }
@@ -55,11 +55,11 @@ class Admin extends Component {
       this.approveUser(user)
     }
 
-    reject() {
+    reject(key_name) {
       console.log("rejected")
     }
 
-    review() {
+    review(key_name) {
       console.log("review")
 
     }
@@ -76,9 +76,11 @@ class Admin extends Component {
           var key_name = keys[count]
           EMAILS.push(user.user[key_name].email)
           EMAILS.push(<br/>)
-          EMAILS.push(<div><Button accent ripple onClick={this.approve.bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-            <Button accent ripple onClick={this.reject.bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-            <Button accent ripple onClick={this.review.bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button></div>)
+          EMAILS.push(<div>
+            <Button accent ripple onClick={this.approve(key_name).bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+            <Button accent ripple onClick={this.reject(key_name).bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+            <Button accent ripple onClick={this.review(key_name).bind(this)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+            </div>)
           EMAILS.push(<br/>)
           //console.log(user.user[key_name].email)
           //console.log(EMAILS + "here")
