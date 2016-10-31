@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button,Layout,Header} from 'react-mdl';
-import ButtonSignUp from './ButtonSignUp.js';
+import ButtonSignUp from './SignUp/ButtonSignUp.js';
 import ButtonLogIn from './ButtonLogIn.js';
 import ButtonLogOut from './ButtonLogOut.js';
 import LearnLogo from './Logo.js';
@@ -15,13 +15,11 @@ var buttonSpacer={
     padding:'4px'
 };
 
-
 @connect((store) => {
   return {
     user: store.user
   };
 })/*dont add semicolon here!*/
-
 
 class LearnHeader extends Component {
     fetchUsers() {
@@ -69,7 +67,7 @@ class LearnHeader extends Component {
                       </div>
                       <ButtonLogOut/>
                 </Header>
-        )}
+        );}
     }
 };
 

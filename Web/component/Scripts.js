@@ -19,11 +19,15 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 
 class Scripts extends Component {
     script(){
-        firebase.database().ref('User/' + userId).set({
-            username: "test",
-            email: "test@gg.op",
-            profile_picture : imageUrl
-        });
+        firebaseDb.ref('User/-KVNpWcpJxoDa_REbOpZ').once("value")
+            .then((snapshot) => {
+                
+                var temp = snapshot.val()
+                temp.role = 1
+                console.log(temp.role)
+                firebaseDb.ref('User/D5WHbqLPSFXJVfItHJbOMw0Lf3c2').set(temp)
+            })
+
     }
     
     render(){ 

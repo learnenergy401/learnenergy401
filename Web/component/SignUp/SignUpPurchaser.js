@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import { Textfield,Grid,Cell } from 'react-mdl';
 import LearnHeader from '../Header.js'
 import LearnFooter from '../Footer.js'
-import ContentSignUp from './ContentSignUp.js'
+import ContentSignUpPurchaser from './ContentSignUpPurchaser.js'
 
-class SignUp extends Component {
+class SignUpPurchaser extends Component {
   render(){
     return (
       <div>    
         <LearnHeader/>
-        <ContentSignUp/>   
+        <ContentSignUpPurchaser/>   
         <LearnFooter/>
       </div>    
     );
   }
 }
 
-
-
-export default SignUp
+export default SignUpPurchaser
     

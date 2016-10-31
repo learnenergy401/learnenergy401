@@ -10,7 +10,7 @@ var formStyle = {
     marginTop: '5%'
 }
 
-class ComponentLogout extends Component {
+class ContentLogout extends Component {
 
   requestSubmit() {
     // Add signup event
@@ -34,4 +34,4 @@ class ComponentLogout extends Component {
   }
 };
 
-export default ComponentLogout
+export default ContentLogout

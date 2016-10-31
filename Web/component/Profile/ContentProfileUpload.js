@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 import "../../extra/material.js"
 import { uploadCourse } from "../Actions/courseActions"
-
+import Toast from "../Toast.js"
 
 var componentStyle = {
     margin: 'auto',
@@ -25,10 +25,11 @@ var formStyle = {
 
 class ContentProfileUpload extends Component {
     uploadCourse(course){
+        var user = this.props.user.user
         var courseName = document.getElementById("courseName").value;
         var courseDescription = document.getElementById("courseDescription").value;
         // hard code email for test
-        var courseVendorEmail = "test@test.com"
+        var courseVendorEmail = user.email
         var course = {courseName, courseDescription, courseVendorEmail}
         console.log(courseName);
         console.log(courseDescription);

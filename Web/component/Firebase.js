@@ -7,6 +7,9 @@ export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 export const firebaseStorage = firebaseApp.storage().ref();
 
+import { connect } from "react-redux"
+import { fetchUsers,getCurrentUser } from "./Actions/userActions"
+
 
 var FirebaseTools = {
 
@@ -19,33 +22,67 @@ var FirebaseTools = {
             }
         });
     },
-    
-     getUser: () => {
-
-        firebaseDb.ref('SignUpList').once("value").then(function(snapshot){
-
-            var result=snapshot.val();
-            console.log(result+'1');
 
 
-            return result;
+  //0: purchaser; 1: vendor; 3: additional user; 4: admin
+	registerPurchaser: (user) => {
+        var num = 0;
+        console.log(num);
+        firebaseDb.ref('PurchaserSignup').push({
+            email: user.email,
+            password: user.password,
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax,
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+            ISnumber: user.ISnumber,
+            website: user.website,
+            role: 0
         });
-    },
-    
-	registerUser: (user) => {
-		firebaseDb.ref('SignUpList').push({
-			email: user.email,
-			password: user.pw
-		});
-
+		alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
 	},
+
+  //0: purchaser; 1: vendor; 3: additional user; 4: admin
+  registerVendor: (user) => {
+        var num = 0;
+        console.log(num);
+        firebaseDb.ref('VendorSignup').push({
+            email: user.email,
+            password: user.password,
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax,
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+            ISnumber: user.ISnumber,
+            website: user.website,
+            role: 1
+        });
+    alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
+  },
 
 	loginUser: (user) => {
 		firebaseAuth.signInWithEmailAndPassword(user.email, user.pw);
         console.log('User signed in!');
 
-				// Until we can link to a homepage that doesn't look the same as when you are not signed in
-				alert("You have signed in:" +"\n" + user.email);
+		// Until we can link to a homepage that doesn't look the same as when you are not signed in
+		alert("You have signed in:" +"\n" + user.email);
+
 	},
 
 	logoutUser: () => {
@@ -53,7 +90,7 @@ var FirebaseTools = {
 		console.log('User logged out!');
         alert("You have logged out. See you later.");
 	},
-    
+
     //function fo vendor upload demo
     vendorUpload: function(fileObj){
         var url='';
@@ -71,6 +108,3 @@ var FirebaseTools = {
 }
 
 export default FirebaseTools;
-
-		
-

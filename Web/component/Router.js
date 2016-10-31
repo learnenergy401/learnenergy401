@@ -11,11 +11,14 @@ import "../../firebase.config.js"
 import Home from "./Home/Home.js"
 import SignUp from "./SignUp/SignUp.js"
 import Login from "./Login-Logout/Login.js"
-import Logout from "./Login-Logout/Logout.js"
+import Logout from "./ButtonLogOut.js"
 import Admin from "./Admin.js"
 import Profile from "./Profile/Profile.js"
 import Scripts from "./Scripts"
+import SignUpPurchaser from "./SignUp/SignUpPurchaser.js"
+import SignUpVendor from "./SignUp/SignUpVendor.js"
 import Upload from "./Vendor/Upload.js"
+
 class ReactRouter extends Component {
   render() {
     return (
@@ -30,6 +33,9 @@ class ReactRouter extends Component {
         <Route path='/upload' component={Upload} />
         <Route path='/profile' component={Profile} />
         <Route path='/scripts' component={Scripts} />
+        <Route path='/signup-purchaser' component={SignUpPurchaser} />
+        <Route path='/signup-vendor' component={SignUpVendor} />
+
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>
