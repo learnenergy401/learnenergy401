@@ -101,11 +101,7 @@ class Admin extends Component {
         var natureBusiness = user.vendors[key_name].natureBusiness;
         var timeBusiness = user.vendors[key_name].timeBusiness;
         var proAffiliation = user.vendors[key_name].proAffiliation;
-        var bank = user.vendors[key_name@connect((store) => {
-  return {
-    user: store.user
-  };
-})].bank;
+        var bank = user.vendors[key_name].bank;
         var bonding = user.vendors[key_name].bonding;
         var bondingLimit = user.vendors[key_name].bondingLimit;
         var insurance = user.vendors[key_name].insurance;
