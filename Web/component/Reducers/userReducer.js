@@ -6,6 +6,7 @@ export default function reducer(state={
     error: null,
     isLoggedIn:false,
     role: null,
+    purchasers: null,
     vendors: null,
     profile:{
         role:null,
@@ -45,7 +46,7 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched: true,
-                user: action.payload,
+                purchasers: action.payload,
                 isLoggedIn: action.isLoggedIn,
             }
         }  
@@ -56,6 +57,7 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 vendors: action.payload,
+                isLoggedIn: action.isLoggedIn,
             }
         }
             

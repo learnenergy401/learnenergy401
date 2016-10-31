@@ -50,79 +50,78 @@ class Admin extends Component {
       this.props.dispatch(rejectUser(user))
     }
 
-    approve(key_name) {
+    approve(key_name, role) {
       console.log("approved")
 
       // grab all of the information and put into { }
       // var info = {user.user[key_name].email, .... , }
       const {user} = this.props
-      if (user.user[key_name].role == 0) {
-        var legalEntity = user.user[key_name].legalEntity;
-        var operatingName = user.user[key_name].operatingName;
-        var address1 = user.user[key_name].address1;
-        var address2 = user.user[key_name].address2;
-        var city = user.user[key_name].city;
-        var province = user.user[key_name].province;
-        var country = user.user[key_name].country;
-        var postalCode = user.user[key_name].postalCode;
-        var phone = user.user[key_name].phone;
-        var fax = user.user[key_name].fax;
-        var email = user.user[key_name].email;
-        var adminContact = user.user[key_name].adminContact;
-        var technicalContact = user.user[key_name].technicalContact;
-        var ISnumber = user.user[key_name].ISnumber;
-        var website = user.user[key_name].website;
-        var password = user.user[key_name].password;
-        var role = user.user[key_name].role;
+      if (role == 0) { // approve for purchaser
+        var legalEntity = user.purchasers[key_name].legalEntity;
+        var operatingName = user.purchasers[key_name].operatingName;
+        var address1 = user.purchasers[key_name].address1;
+        var address2 = user.purchasers[key_name].address2;
+        var city = user.purchasers[key_name].city;
+        var province = user.purchasers[key_name].province;
+        var country = user.purchasers[key_name].country;
+        var postalCode = user.purchasers[key_name].postalCode;
+        var phone = user.purchasers[key_name].phone;
+        var fax = user.purchasers[key_name].fax;
+        var email = user.purchasers[key_name].email;
+        var adminContact = user.purchasers[key_name].adminContact;
+        var technicalContact = user.purchasers[key_name].technicalContact;
+        var ISnumber = user.purchasers[key_name].ISnumber;
+        var website = user.purchasers[key_name].website;
+        var password = user.purchasers[key_name].password;
+        var role = user.purchasers[key_name].role;
 
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
-      } else if (user.user[key_name].role == 1) {
+      } else if (role == 1) { // approve for vendor
 
-      } else if (user.user[key_name].role == 2) {
+      } else if (role == 2) { // approve for additional resource
 
       }
       this.approveUser(info)
     }
 
-    reject(key_name) {
+    reject(key_name, role) {
       console.log("rejected")
       const {user} = this.props
-      var role = user.user[key_name].role
       var info = {key_name, role}
 
       this.rejectUser(info)
     }
 
-    review(key_name) {
+    review(key_name, role) {
       // QUICK FIX
       console.log("review")
       const {user} = this.props
-      if (user.user[key_name].role == 0) {
-        var legalEntity = user.user[key_name].legalEntity;
-        var operatingName = user.user[key_name].operatingName;
-        var address1 = user.user[key_name].address1;
-        var address2 = user.user[key_name].address2;
-        var city = user.user[key_name].city;
-        var province = user.user[key_name].province;
-        var country = user.user[key_name].country;
-        var postalCode = user.user[key_name].postalCode;
-        var phone = user.user[key_name].phone;
-        var fax = user.user[key_name].fax;
-        var email = user.user[key_name].email;
-        var adminContact = user.user[key_name].adminContact;
-        var technicalContact = user.user[key_name].technicalContact;
-        var ISnumber = user.user[key_name].ISnumber;
-        var website = user.user[key_name].website;
-        var password = user.user[key_name].password;
-        var role = user.user[key_name].role;
+      if (role == 0) {
+        var legalEntity = user.purchasers[key_name].legalEntity;
+        var operatingName = user.purchasers[key_name].operatingName;
+        var address1 = user.purchasers[key_name].address1;
+        var address2 = user.purchasers[key_name].address2;
+        var city = user.purchasers[key_name].city;
+        var province = user.purchasers[key_name].province;
+        var country = user.purchasers[key_name].country;
+        var postalCode = user.purchasers[key_name].postalCode;
+        var phone = user.purchasers[key_name].phone;
+        var fax = user.purchasers[key_name].fax;
+        var email = user.purchasers[key_name].email;
+        var adminContact = user.purchasers[key_name].adminContact;
+        var technicalContact = user.purchasers[key_name].technicalContact;
+        var ISnumber = user.purchasers[key_name].ISnumber;
+        var website = user.purchasers[key_name].website;
+        var password = user.purchasers[key_name].password;
+        var role = user.purchasers[key_name].role;
 
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
         alert(JSON.stringify(info))
-      } else if (user.user[key_name].role == 1) {
-
-      } else if (user.user[key_name].role == 2) {
+      } else if (role == 1) {
+        alert('hi')
+      } else if (role == 2) {
 
       }
     }
@@ -135,16 +134,34 @@ class Admin extends Component {
         //console.log(user)
         console.log(user)
         var keys
-        if (user.user != null) {
-          keys = Object.keys(user.user)
+        if (user.purchasers != null) {
+          keys = Object.keys(user.purchasers)
+          var role = 0 // pass role in for purchaser
           for (var count=0; count<=keys.length-1; count++) {
             var key_name = keys[count]
-            EMAILS.push(user.user[key_name].email)
+            EMAILS.push(user.purchasers[key_name].email)
             EMAILS.push(<br/>)
             EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              </div>)
+            EMAILS.push(<br/>)
+          }
+        }
+
+        var keys
+        if (user.vendors != null) {
+          keys = Object.keys(user.vendors)
+          var role = 1 // role for vendor
+          for (var count=0; count<=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.vendors[key_name].email)
+            EMAILS.push(<br/>)
+            EMAILS.push(<div>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
             EMAILS.push(<br/>)
             //console.log(user.user[key_name].email)
@@ -152,24 +169,6 @@ class Admin extends Component {
           }
         }
 
-        var keys
-        if (user.vendors != null) {
-          keys = Object.keys(user.vendors)
-          for (var count=0; count<=keys.length-1; count++) {
-            var key_name = keys[count]
-            EMAILS.push(user.vendors[key_name].email)
-            EMAILS.push(<br/>)
-            EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
-              </div>)
-            EMAILS.push(<br/>)
-            //console.log(user.user[key_name].email)
-            //console.log(EMAILS + "here")
-          }
-        }
-        
         return(
 
           <div>
