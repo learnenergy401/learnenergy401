@@ -15,7 +15,8 @@ import { fetchVendorCourse } from "./Actions/courseActions"
 
 class ContentCourseDisplay extends Component{
     componentWillMount(){   
-        this.props.dispatch(fetchVendorCourse());
+        const {user} = this.props
+        this.props.dispatch(fetchVendorCourse(user.user.email));
     }
     
     

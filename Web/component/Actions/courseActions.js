@@ -29,10 +29,10 @@ export function uploadCourse(course) {
     }
 }
 
-export function fetchVendorCourse() {
+export function fetchVendorCourse(email) {
     return function(dispatch) {
         dispatch({type: "FETCH_VENDORS_COURSE"})
-        firebaseDb.ref('Course').on("value",function(snapshot){
+        firebaseDb.ref('Course').orderByChild('courseVendorEmail').equalTo(email).on("value",function(snapshot){
             dispatch({type:"FETCH_VENDORS_COURSE_FULFILLED",payload:snapshot.val()})
         },function(errorObject){
             dispatch({type:"FETCH_VENDORS_COURSE_REJECTED"})
