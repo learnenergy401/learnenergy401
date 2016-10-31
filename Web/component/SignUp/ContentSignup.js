@@ -25,7 +25,7 @@ class ContentSignUp extends Component {
           <div  className="learn-content mdl-typography--text-center">
               <div style={spacerStyle} />
               <Card shadow={0} style={cardStyle} >
-                <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">SignUp</CardTitle>
+                <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Sign Up</CardTitle>
                 <ComponentSignUp/>
               </Card>
           </div>
