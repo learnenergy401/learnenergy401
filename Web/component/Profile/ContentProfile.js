@@ -3,6 +3,7 @@ import {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'reac
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
+import { uploadCourse } from "../Actions/courseActions"
 import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
 
