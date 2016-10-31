@@ -113,8 +113,6 @@ class Admin extends Component {
         adminContact, technicalContact, ISnumber, website, password, role, owners, natureBusiness, timeBusiness, proAffiliation,
         bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
 
-
-
       } else if (role == 2) { // approve for additional resource
 
       }
@@ -197,8 +195,8 @@ class Admin extends Component {
     render() {
       const {user} = this.props
       if (user.role == 3) {
-        var EMAILS = [];
-        //var EMAILS = [];
+        var EMAILS_1 = [];
+        var EMAILS_2 = [];
 
         //console.log(user)
         console.log(user)
@@ -208,14 +206,14 @@ class Admin extends Component {
           var role = 0 // pass role in for purchaser
           for (var count=0; count<=keys.length-1; count++) {
             var key_name = keys[count]
-            EMAILS.push(user.purchasers[key_name].email)
-            EMAILS.push(<br/>)
-            EMAILS.push(<div>
+            EMAILS_1.push(user.purchasers[key_name].email)
+            EMAILS_1.push(<br/>)
+            EMAILS_1.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<br/>)
+            EMAILS_1.push(<br/>)
           }
         }
 
@@ -225,14 +223,14 @@ class Admin extends Component {
           var role = 1 // role for vendor
           for (var count=0; count<=keys.length-1; count++) {
             var key_name = keys[count]
-            EMAILS.push(user.vendors[key_name].email)
-            EMAILS.push(<br/>)
-            EMAILS.push(<div>
+            EMAILS_2.push(user.vendors[key_name].email)
+            EMAILS_2.push(<br/>)
+            EMAILS_2.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<br/>)
+            EMAILS_2.push(<br/>)
             //console.log(user.user[key_name].email)
             //console.log(EMAILS + "here")
           }
@@ -250,7 +248,15 @@ class Admin extends Component {
             <div className="grid">
               <div className="card mdl-shadow--2dp">
                 <div className="card__title mdl-color--indigo mdl-color-text--white">
-                  <h4 className="card__title-text">Candidates</h4>
+                  <h4 className="card__title-text">Purchaaser</h4>
+                </div>
+                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+
+                  <h4> {EMAILS} </h4>
+
+                </div>
+                <div className="card__title mdl-color--indigo mdl-color-text--white">
+                  <h4 className="card__title-text">Vendor</h4>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
