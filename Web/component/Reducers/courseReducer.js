@@ -20,13 +20,13 @@ export default function reducer(state={
         case "FETCH_COURSE_FULFILLED": {
             return{...state, 
                     fetching: false,
-                    courseList: acion.payload,
+                    courseList: action.payload,
             }
         }
         case "FETCH_COURSE_REJECTED": {
             return{...state, 
                     fetching: false,
-                    error: acion.payload,
+                    error: action.payload,
             }
         }
         case "FETCH_VENDORS_COURSE": {
