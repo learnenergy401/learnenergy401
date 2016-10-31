@@ -5,7 +5,6 @@ export default function reducer(state={
     error: null,
     
     uploaded: false,
-wo
     
   }, action) {
 
