@@ -19,20 +19,37 @@ class ContentCourseDisplay extends Component{
     }
     
     
-    
+    jsonToArray(json){
+        var arr = [];
+        for (var prop in json) {
+            arr.push(json[prop]);
+        }
+        return arr
+    }
     render(){
         const {course}=this.props
+        if (course.currentVendorCourseList){
+            var arr = this.jsonToArray(course.currentVendorCourseList)
+            const mappedCourse = arr.map(course => 
+                                        <li key = {course.courseName}>{course.courseName}</li>
+                                       )
+            return(
+
+                <Content className="learn-content">
+                <ul>{mappedCourse}</ul>
+                </Content>
+            )
+                                         
+        }else{
+            return(
+
+                <Content className="learn-content">
+                
+                </Content>
+            )
+        }
         
-        return(
-            
-            <Content className="learn-content">
-            <div>{JSON.stringify(course.currentVendorCourseList, null, 2)}</div>
-            </Content>
-        )
     }
-
-
-
-} 
+}
 
 export default ContentCourseDisplay
