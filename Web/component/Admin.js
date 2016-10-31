@@ -6,16 +6,11 @@ import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-md
 import store from './Store.js'
 import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
-
 import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
-<<<<<<< HEAD
 import { fetchPurchaserSignup,getCurrentUser, fetchVendorSignup} from "./Actions/userActions"
-
-=======
-import { fetchVendorSignup, fetchPurchaserSignup, getCurrentUser } from "./Actions/userActions"
->>>>>>> 3017f57fe222c754291f9ed79d6a635b6f098be2
+import { fetchVendorSignup, fetchPurchaserSignup, getCurrentUser} from "./Actions/userActions"
 
 @connect((store) => {
   return {
@@ -60,7 +55,6 @@ class Admin extends Component {
         console.log("approved p")
     }
 
-<<<<<<< HEAD
     reject_purchaser() { //what to do if purchaser reject button is pressed
         console.log("rejected p")
     }
@@ -98,7 +92,7 @@ class Admin extends Component {
         return(
                 
         <div>
-=======
+
     approveUser(user) {
       this.props.dispatch(approveUser(user))
     }
@@ -297,7 +291,6 @@ class Admin extends Component {
         return(
 
           <div>
->>>>>>> 3017f57fe222c754291f9ed79d6a635b6f098be2
           <LearnHeader/>
 
           <div className="learn-content mdl-typography--text-center">
@@ -319,7 +312,6 @@ class Admin extends Component {
                                       
                                       
                 <div className="card__title mdl-color--indigo mdl-color-text--white">
-<<<<<<< HEAD
                     <h4 className="card__title-text">Vendor Candidates</h4>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
@@ -336,22 +328,17 @@ class Admin extends Component {
                   <h4> {EMAILS_purchaser} </h4>
                   <Button accent ripple onClick={this.approve_other} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                   <Button accent ripple onClick={this.reject_other} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-=======
                   <h4 className="card__title-text">Candidates</h4>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
                   <h4> {EMAILS} </h4>
-
->>>>>>> 3017f57fe222c754291f9ed79d6a635b6f098be2
                 </div>
                 </div>
             </div>
           </div>
         </div>
 
-<<<<<<< HEAD
-=======
           <LearnFooter/>
         </div>
 
@@ -370,7 +357,6 @@ class Admin extends Component {
             <h4>YOU ARE NOT AN ADMIN</h4>
           </div>
           </div>
->>>>>>> 3017f57fe222c754291f9ed79d6a635b6f098be2
           <LearnFooter/>
         </div>
         );
