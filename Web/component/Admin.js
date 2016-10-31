@@ -197,8 +197,8 @@ class Admin extends Component {
     render() {
       const {user} = this.props
       if (user.role == 3) {
-        var EMAILS_1 = [];
-        var EMAILS_2 = [];
+        var EMAILS = [];
+        //var EMAILS = [];
 
         //console.log(user)
         console.log(user)
