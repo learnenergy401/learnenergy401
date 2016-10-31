@@ -42,6 +42,7 @@ export function getCurrentUser() {
                dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: true})
                firebaseDb.ref('User/' + user.uid).once("value")
                     .then((snapshot) => {
+                        console.log("role is" + snapshot.val().role)
                         dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val()})
                     })
                     .catch((err) => {

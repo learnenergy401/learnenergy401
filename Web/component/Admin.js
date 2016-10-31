@@ -10,7 +10,7 @@ import LearnFooter from './Footer.js'
 import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
-import { fetchPurchaserSignup,getCurrentUser } from "./Actions/userActions"
+import { fetchPurchaserSignup, getCurrentUser } from "./Actions/userActions"
 
 @connect((store) => {
   return {
@@ -28,9 +28,13 @@ class Admin extends Component {
       this.props.dispatch(fetchPurchaserSignup())
     }
 
+    getCurrentUser() {
+      this.props.dispatch(getCurrentUser())
+    }
+
     componentWillMount() {
+      this.getCurrentUser()
       this.fetchPurchaserSignup()
-      //this.fetchRole(email) // email will be current user logged in email
     }
 
     approveUser(user) {
@@ -119,59 +123,79 @@ class Admin extends Component {
     }
 
     render() {
-      var EMAILS = [];
       const {user} = this.props
-      //console.log(user)
-      //console.log(user.user)
-      var keys
-      if (user.user != null) {
-        keys = Object.keys(user.user)
-        for (var count=0; count<=keys.length-1; count++) {
-          var key_name = keys[count]
-          EMAILS.push(user.user[key_name].email)
-          EMAILS.push(<br/>)
-          EMAILS.push(<div>
-            <Button accent ripple onClick={this.approve.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-            <Button accent ripple onClick={this.reject.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-            <Button accent ripple onClick={this.review.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
-            </div>)
-          EMAILS.push(<br/>)
-          //console.log(user.user[key_name].email)
-          //console.log(EMAILS + "here")
+      if (user.role == 3) {
+        var EMAILS = [];
+        
+        //console.log(user)
+        console.log(user)
+        var keys
+        if (user.user != null) {
+          keys = Object.keys(user.user)
+          for (var count=0; count<=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.user[key_name].email)
+            EMAILS.push(<br/>)
+            EMAILS.push(<div>
+              <Button accent ripple onClick={this.approve.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              </div>)
+            EMAILS.push(<br/>)
+            //console.log(user.user[key_name].email)
+            //console.log(EMAILS + "here")
+          }
         }
-      }
 
-      return(
+        return(
 
-        <div>
-        <LearnHeader/>
+          <div>
+          <LearnHeader/>
 
-        <div className="learn-content mdl-typography--text-center">
-        <div className="logo-font learn-slogan"></div>
-        <a name="top" />
-        <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
-          <div className="grid">
-            <div className="card mdl-shadow--2dp">
-              <div className="card__title mdl-color--indigo mdl-color-text--white">
-                <h4 className="card__title-text">Candidates</h4>
-              </div>
-              <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+          <div className="learn-content mdl-typography--text-center">
+          <div className="logo-font learn-slogan"></div>
+          <a name="top" />
+          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+            <div className="grid">
+              <div className="card mdl-shadow--2dp">
+                <div className="card__title mdl-color--indigo mdl-color-text--white">
+                  <h4 className="card__title-text">Candidates</h4>
+                </div>
+                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-                <h4> {EMAILS} </h4>
+                  <h4> {EMAILS} </h4>
 
-              </div>
-              </div>
+                </div>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
 
 
 
-        <LearnFooter/>
-      </div>
+          <LearnFooter/>
+        </div>
 
       );
+    } else {
+        console.log(user.role)
+        return(
+        <div>
+          <LearnHeader/>
+
+          <div className="learn-content mdl-typography--text-center">
+          <div className="logo-font learn-slogan"></div>
+          <a name="top" />
+          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+          
+            <h4>YOU ARE NOT AN ADMIN</h4>
+          </div>
+          </div>
+          <LearnFooter/>
+        </div>
+        );
     }
+  }
 }
 
 
