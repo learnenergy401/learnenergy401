@@ -19,12 +19,55 @@ export function getCurrentUser() {
        firebaseAuth.onAuthStateChanged((user)=>{
            if (user){
                dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: true})
+               firebaseDb.ref('User/' + user.uid).once("value")
+                    .then((snapshot) => {
+                        dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val()})
+                    })
+                    .catch((err) => {
+                        dispatch({type: "FETCH_USER_PROFILE_REJECTED", payload: err})
+                    })
            }else{
-               dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: false})
+               dispatch({type: "FETCH_USER_REJECTED", payload: user,isLoggedIn: false})
            }
        }
   
 )}}
+
+export function signUpUser(user,profile) {
+    return function(dispatch) { 
+        firebaseAuth.createUserWithEmailAndPassword(user.email, user.pw)
+            .then((data) => {
+                dispatch({type: "SIGNUP_USER_FULFILLED"})
+                firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
+                    .then((data) => {
+                        dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+                        var currentUser = firebaseAuth.currentUser;
+                        var user =  {
+                            role: profile.role,
+                            firstName: profile.firstName,
+                            uid : currentUser.uid,
+                            email: currentUser.email,
+                        }
+                        firebaseDb.ref('User/' + user.uid).set(user)
+                            .then((data) => {
+                                dispatch({type: "UPDATE_USER_PROFILE_FULFILLED", payload: user})
+                            })
+                            .catch((err) => {
+                                dispatch({type: "UPDATE_USER_PROFILE_REJECTED", payload: err})
+                            })
+                        
+                    })
+                    .catch((err) => {
+                        dispatch({type: "LOGIN_USER_REJECTED", payload: err})
+                    })
+                }).catch((err) => {
+                     dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
+                })
+        
+    }
+}
+
+
 
 export function logInUser(user) {
     return function(dispatch) { 
