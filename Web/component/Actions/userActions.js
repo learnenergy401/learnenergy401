@@ -3,7 +3,6 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'
 
 export function fetchRole(user) { // TODO FIX
   return function(dispatch) {
-
     firebaseDb.ref('User').once('value').then((snapshot) => {
       // grab current user information and see what role number it is
       // dispatch the role value so the state of current user can change

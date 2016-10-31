@@ -25,10 +25,11 @@ var formStyle = {
 
 class ContentProfileUpload extends Component {
     uploadCourse(course){
+        var user = this.props.user.user
         var courseName = document.getElementById("courseName").value;
         var courseDescription = document.getElementById("courseDescription").value;
         // hard code email for test
-        var courseVendorEmail = "test@test.com"
+        var courseVendorEmail = user.email
         var course = {courseName, courseDescription, courseVendorEmail}
         console.log(courseName);
         console.log(courseDescription);

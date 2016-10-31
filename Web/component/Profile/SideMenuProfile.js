@@ -47,7 +47,6 @@ class SideMenuProfile extends Component {
     
     render(){
         const {user,profile} = this.props
-        user.role = 1;
         if (user.role == 0){
             return(
                     <aside style={sidemenuStyle} className="mdl-typography--headline">
@@ -84,7 +83,7 @@ class SideMenuProfile extends Component {
             );
         }else{
             return(
-                <div>broken</div>
+                <div>Loading</div>
             )
         }
     }
