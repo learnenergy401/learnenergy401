@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Textfield,Grid,Cell,Layout } from 'react-mdl';
 import LearnHeader from '../Header.js'
 import LearnFooter from '../Footer.js'
-import ContentProfile from '../ContentProfile.js'
-import SideMenuProfile from '../SideMenuProfile.js'
+import ContentProfile from './ContentProfile.js'
+import SideMenuProfile from './SideMenuProfile.js'
 
 import store from '../Store.js'
 import { connect } from "react-redux"

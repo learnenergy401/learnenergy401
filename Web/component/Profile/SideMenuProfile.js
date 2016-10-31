@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {Drawer,Navigation,List,ListItem,ListItemContent,Button} from 'react-mdl';
 import { connect } from "react-redux"
-import { getCurrentUser } from "./Actions/userActions"
-import { changeMenu } from "./Actions/profileActions"
+import { getCurrentUser } from "../Actions/userActions"
+import { changeMenu } from "../Actions/profileActions"
 
 
 
@@ -76,7 +76,7 @@ class SideMenuProfile extends Component {
                             <Button onClick={this.changeMenuNumberOne.bind(this)} style={sidemenuItemStyle}>My Courses</Button>
                           </ListItem>
                           <ListItem>
-                            <Button onClick={this.changeMenuNumberTwo.bind(this)} style={sidemenuItemStyle}>My RFP</Button>
+                            <Button onClick={this.changeMenuNumberTwo.bind(this)} style={sidemenuItemStyle}>Add Course</Button>
                           </ListItem>
                         </List>
                     </aside>
