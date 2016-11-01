@@ -35,6 +35,18 @@ export function fetchVendorSignup() {
   }
 }
 
+export function fetchADSignup() {
+  return function(dispatch) {
+    firebaseDb.ref('ADSignup').once("value")
+      .then((snapshot) => {
+        dispatch({type: "FETCH_AD_FULFILLED", payload: snapshot.val()})
+      })
+      .catch((err) => {
+        dispatch({type: "FETCH_USER_REJECTED", payload: err})
+      })
+  }
+}
+
 export function getCurrentUser() {
   return function(dispatch) {
        firebaseAuth.onAuthStateChanged((user)=>{
@@ -166,6 +178,20 @@ export function approveUser(user) {
 
       } else if (user.role == 2) { //push as an additional resource
 
+        firebaseDb.ref('User').push({
+          website: user.website,
+          email: user.email,
+          password: user.password,
+          role: user.role,
+        })
+        firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
+          console.log("removed")
+        })
+        .catch(function(err) {
+          console.log("failed to remove", user.key_name)
+        })
+
+
       }
     })
   }
@@ -186,7 +212,11 @@ export function rejectUser(user) {
         dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
       })
     } else if (user.role == 2) { // reject additional resource
-
+      firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
+        console.log("removed")
+      }).then((data) => {
+        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+      })
     }
   }
 }
@@ -259,6 +289,23 @@ export function signUpVendor(user) {
   }
 }
 
+export function signUpAD(user) {
+  return function(dispatch) {
+    firebaseDb.ref('ADSignup').push({
+      website: user.website,
+      email: user.email,
+      password: user.password,
+      role: 2,
+    }).then((data) => {
+      dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
+    })
+  }
+}
+
+
 export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
@@ -281,7 +328,7 @@ export function logOutUser(user) {
             .then((data) => {
                 console.log(data)
                 dispatch({type: "LOGOUT_USER_FULFILLED"})
-                
+
             })
             .catch((err) => {
                 dispatch({type: "LOGOUT_USER_REJECTED", payload: err})

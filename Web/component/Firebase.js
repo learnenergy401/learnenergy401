@@ -24,10 +24,8 @@ var FirebaseTools = {
     },
 
 
-  //0: purchaser; 1: vendor; 3: additional user; 4: admin
+  //0: purchaser; 1: vendor; 2: additional user; 3: admin
 	registerPurchaser: (user) => {
-        var num = 0;
-        console.log(num);
         firebaseDb.ref('PurchaserSignup').push({
             email: user.email,
             password: user.password,
@@ -52,8 +50,6 @@ var FirebaseTools = {
 
   //0: purchaser; 1: vendor; 3: additional user; 4: admin
   registerVendor: (user) => {
-        var num = 0;
-        console.log(num);
         firebaseDb.ref('VendorSignup').push({
             email: user.email,
             password: user.password,
@@ -82,11 +78,24 @@ var FirebaseTools = {
             insurance: user.insurance,
             bankruptcy: user.bankruptcy,
             numEmployees: user.numEmployees,
-                        
+
             role: 1
         });
     alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
   },
+
+  //0: purchaser; 1: vendor; 2: additional user; 3: admin
+	registerAD: (user) => {
+        firebaseDb.ref('ADSignup').push({
+            website: user.website,
+            email: user.email,
+            password: user.password,
+            role: 2
+        });
+		alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
+	},
+
+
 
 	loginUser: (user) => {
 		firebaseAuth.signInWithEmailAndPassword(user.email, user.pw);

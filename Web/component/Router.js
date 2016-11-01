@@ -17,13 +17,14 @@ import Profile from "./Profile/Profile.js"
 import Scripts from "./Scripts"
 import SignUpPurchaser from "./SignUp/SignUpPurchaser.js"
 import SignUpVendor from "./SignUp/SignUpVendor.js"
+import SignUpAD from "./SignUp/SignUpAD.js"
 import Upload from "./Vendor/Upload.js"
 
 class ReactRouter extends Component {
   render() {
     return (
       <Router history={hashHistory}>
-        
+
         {/* Add routes below but above 404 */}
         <Route path='/' component={Home} />
         <Route path='/signup' component={SignUp} />
@@ -35,6 +36,7 @@ class ReactRouter extends Component {
         <Route path='/scripts' component={Scripts} />
         <Route path='/signup-purchaser' component={SignUpPurchaser} />
         <Route path='/signup-vendor' component={SignUpVendor} />
+        <Route path='/signup-ad' component={SignUpAD} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
