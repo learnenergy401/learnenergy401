@@ -22,9 +22,11 @@ class ButtonLogOut extends Component {
     
     render(){
         return(
-           <Button style={buttonStyle} onClick={this.logOutUser.bind(this)} className="mdl-color-text--indigo" >
-                LOG OUT
-           </Button>
+          <Link to={'/'}>
+            <Button style={buttonStyle} onClick={this.logOutUser.bind(this)} className="mdl-color-text--indigo" >
+              LOG OUT
+            </Button>
+          </Link>
         )
     }
 };

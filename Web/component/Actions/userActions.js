@@ -39,28 +39,22 @@ export function fetchADSignup() {
 
 export function getCurrentUser() {
   return function(dispatch) {
-       firebaseAuth.onAuthStateChanged((user)=>{
-          if (user){
-              dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: true})
-              firebaseDb.ref('User/').once("value")
-              .then((snapshot) => {
-                var keys = Object.keys(snapshot.val())
-                var currentUser = firebaseAuth.currentUser
-                for (var count=0; count<=keys.length-1; count++) {
-                  if (snapshot.val()[keys[count]].email == currentUser.email) {
-                    dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val()[keys[count]]})
-                  }
-                }
-              })
-              .catch((err) => {
-                dispatch({type: "FETCH_USER_PROFILE_REJECTED", payload: err})
-              })
-          }else{
-              dispatch({type: "FETCH_USER_REJECTED", payload: user,isLoggedIn: false})
-          }
-       }
-
-)}}
+   firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: true})
+        firebaseDb.ref('User/' + user.uid).once("value")
+        .then((snapshot) => {
+            dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+            dispatch({type: "FETCH_USER_PROFILE_REJECTED", payload: err})
+        })
+      } else {
+        dispatch({type: "FETCH_USER_REJECTED", payload: user,isLoggedIn: false})
+      }
+   }
+  )}
+}
 
 export function approveUser(user) {
   return function(dispatch) {
