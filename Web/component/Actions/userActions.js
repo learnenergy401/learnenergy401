@@ -1,15 +1,5 @@
 
-import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'
-
-export function fetchRole(user) { // TODO FIX
-  return function(dispatch) {
-    firebaseDb.ref('User').once('value').then((snapshot) => {
-      // grab current user information and see what role number it is
-      // dispatch the role value so the state of current user can change
-      dispatch({type:"FETCH_ROLE_FULFILLED", payload: user})
-    })
-  }
-}
+import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 export function fetchPurchaserSignup() {
   return function(dispatch) {
@@ -72,128 +62,100 @@ export function getCurrentUser() {
 
 )}}
 
-export function signUpUser(user,profile) {
-    return function(dispatch) {
-        firebaseAuth.createUserWithEmailAndPassword(user.email, user.pw)
-            .then((data) => {
-                dispatch({type: "SIGNUP_USER_FULFILLED"})
-                firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
-                    .then((data) => {
-                        dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
-                        var currentUser = firebaseAuth.currentUser;
-                        var user =  {
-                            role: profile.role,
-                            firstName: profile.firstName,
-                            uid : currentUser.uid,
-                            email: currentUser.email,
-                        }
-                        firebaseDb.ref('User/' + user.uid).set(user)
-                            .then((data) => {
-                                dispatch({type: "UPDATE_USER_PROFILE_FULFILLED", payload: user})
-                            })
-                            .catch((err) => {
-                                dispatch({type: "UPDATE_USER_PROFILE_REJECTED", payload: err})
-                            })
-
-                    })
-                    .catch((err) => {
-                        dispatch({type: "LOGIN_USER_REJECTED", payload: err})
-                    })
-                }).catch((err) => {
-                     dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
-                })
-    }
-}
-
 export function approveUser(user) {
   return function(dispatch) {
-    firebaseAuth.createUserWithEmailAndPassword(user.email, user.password)
-      .then((data) => {
+    firebaseAuthInstance.createUserWithEmailAndPassword(user.email, user.password)
+    .then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED"})
-      if (user.role==0) { // push as a purchaser
-        firebaseDb.ref('User').push({
-          legalEntity: user.legalEntity,
-          operatingName: user.operatingName,
-          address1: user.address1,
-          address2: user.address2,
-          city: user.city,
-          province: user.province,
-          country: user.country,
-          postalCode: user.postalCode,
-          phone: user.phone,
-          fax: user.fax,
-          email: user.email,
-          adminContact: user.adminContact,
-          technicalContact: user.technicalContact,
-          ISnumber: user.ISnumber,
-          website: user.website,
-          password: user.password,
-          role: user.role,
-        })
-        firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
-          console.log("removed")
-        })
-        .catch(function(err) {
-          console.log("failed to remove", user.key_name)
-        })
+      firebaseAuthInstance.signInWithEmailAndPassword(user.email, user.password)
+      .then((data) => {
+        var currentUser = firebaseAuthInstance.currentUser
 
-      } else if (user.role == 1) { // push as a vendor
+        if (user.role==0) { // push as a purchaser
+          firebaseDb.ref('User/' + currentUser.uid).set({
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax,
+            email: user.email,
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+            ISnumber: user.ISnumber,
+            website: user.website,
+            password: user.password,
+            role: user.role,
+          })
 
-        firebaseDb.ref('User').push({
-          legalEntity: user.legalEntity,
-          operatingName: user.operatingName,
-          address1: user.address1,
-          address2: user.address2,
-          city: user.city,
-          province: user.province,
-          country: user.country,
-          postalCode: user.postalCode,
-          phone: user.phone,
-          fax: user.fax,
-          email: user.email,
-          adminContact: user.adminContact,
-          technicalContact: user.technicalContact,
-          ISnumber: user.ISnumber,
-          website: user.website,
-          password: user.password,
-          role: user.role,
-          owners: user.owners,
-          natureBusiness: user.natureBusiness,
-          timeBusiness: user.timeBusiness,
-          proAffiliation: user.proAffiliation,
-          bank: user.bank,
-          bonding: user.bonding,
-          bondingLimit: user.bondingLimit,
-          insurance: user.insurance,
-          bankruptcy: user.bankruptcy,
-          numEmployees: user.numEmployees,
-        })
-        firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
-          console.log("removed")
-        })
-        .catch(function(err) {
-          console.log("failed to remove", user.key_name)
-        })
+          firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
+            console.log("removed")
+          })
+          .catch(function(err) {
+            console.log("failed to remove", user.key_name)
+          })
 
+        } else if (user.role == 1) { // push as a vendor
 
-      } else if (user.role == 2) { //push as an additional resource
-
-        firebaseDb.ref('User').push({
-          website: user.website,
-          email: user.email,
-          password: user.password,
-          role: user.role,
-        })
-        firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
-          console.log("removed")
-        })
-        .catch(function(err) {
-          console.log("failed to remove", user.key_name)
-        })
+          firebaseDb.ref('User/' + currentUser.uid).set({
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax,
+            email: user.email,
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+            ISnumber: user.ISnumber,
+            website: user.website,
+            password: user.password,
+            role: user.role,
+            owners: user.owners,
+            natureBusiness: user.natureBusiness,
+            timeBusiness: user.timeBusiness,
+            proAffiliation: user.proAffiliation,
+            bank: user.bank,
+            bonding: user.bonding,
+            bondingLimit: user.bondingLimit,
+            insurance: user.insurance,
+            bankruptcy: user.bankruptcy,
+            numEmployees: user.numEmployees,
+          })
+          firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
+            console.log("removed")
+          })
+          .catch(function(err) {
+            console.log("failed to remove", user.key_name)
+          })
 
 
-      }
+        } else if (user.role == 2) { //push as an additional resource
+
+          firebaseDb.ref('User/' + currentUser.uid).set({
+            website: user.website,
+            email: user.email,
+            password: user.password,
+            role: user.role,
+          })
+          firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
+            console.log("removed")
+          })
+          .catch(function(err) {
+            console.log("failed to remove", user.key_name)
+          })
+        }
+      })
     })
+    firebaseAuthInstance.signOut()
   }
 }
 

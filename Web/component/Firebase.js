@@ -7,6 +7,9 @@ export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 export const firebaseStorage = firebaseApp.storage().ref();
 
+export const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);
+export const firebaseAuthInstance = firebaseApp2.auth();
+
 import { connect } from "react-redux"
 import { fetchUsers,getCurrentUser } from "./Actions/userActions"
 

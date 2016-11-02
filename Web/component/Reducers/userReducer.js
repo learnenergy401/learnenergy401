@@ -19,6 +19,7 @@ export default function reducer(state={
   }, action) {
 
     switch (action.type) {
+
         case "FETCH_USER": {
             return {...state,
                 fetching: true}
@@ -146,20 +147,6 @@ export default function reducer(state={
             }
         }
 
-        case "FETCH_ROLE": {
-            return {...state,
-                fetching: true}
-        }
-
-        case "FETCH_ROLE_FULFILLED": {
-            return {
-                ...state,
-                fetching: false,
-                fetched: true,
-                role: action.payload,
-            }
-        }
-
         case "LOGIN_USER": {
             return {
                 ...state,
@@ -175,7 +162,6 @@ export default function reducer(state={
                 user: action.payload,
                 userName: action.payload.email,
                 isLoggedIn:true,
-                role:0,
             }
         }
 
