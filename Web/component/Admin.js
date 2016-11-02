@@ -226,9 +226,9 @@ class Admin extends Component {
             EMAILS.push(user.purchasers[key_name].email)
             EMAILS.push(<br/>)
             EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
             EMAILS.push(<br/>)
           }
@@ -243,9 +243,9 @@ class Admin extends Component {
             EMAILS.push(user.vendors[key_name].email)
             EMAILS.push(<br/>)
             EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
             EMAILS.push(<br/>)
           }
@@ -260,9 +260,9 @@ class Admin extends Component {
             EMAILS.push(user.ad[key_name].email)
             EMAILS.push(<br/>)
             EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
             EMAILS.push(<br/>)
           }
