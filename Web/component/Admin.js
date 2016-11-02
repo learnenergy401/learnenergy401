@@ -18,6 +18,7 @@ import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser 
   };
 })
 
+
 class Admin extends Component {
 
     fetchRole() { // pass email to fetchRole for it to see role
@@ -138,10 +139,12 @@ class Admin extends Component {
     }
 
     review(key_name, role) {
-      // QUICK FIX
+
+        //TEMP FIX
       console.log("review")
       const {user} = this.props
       if (role == 0) {
+        this.popupcall()
         var legalEntity = user.purchasers[key_name].legalEntity;
         var operatingName = user.purchasers[key_name].operatingName;
         var address1 = user.purchasers[key_name].address1;
@@ -162,7 +165,7 @@ class Admin extends Component {
 
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
-        alert(JSON.stringify(info))
+        //alert(JSON.stringify(info))
         
       } else if (role == 1) {
         var legalEntity = user.vendors[key_name].legalEntity;
@@ -197,7 +200,7 @@ class Admin extends Component {
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, owners, natureBusiness, timeBusiness, proAffiliation,
         bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
-        alert(JSON.stringify(info))
+        //alert(JSON.stringify(info))
       } else if (role == 2) {
         var website = user.ad[key_name].website;
         var email = user.ad[key_name].email;
@@ -205,7 +208,7 @@ class Admin extends Component {
         var role = user.ad[key_name].role;
 
         var info = {website, email, password, role, key_name}
-        alert(JSON.stringify(info))
+        //alert(JSON.stringify(info))
       }
     }
 
