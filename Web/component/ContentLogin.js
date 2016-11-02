@@ -18,7 +18,7 @@ class ContentLogin extends Component {
     render(){
         return(
           <div  className="learn-content mdl-typography--text-center">
-              <Card shadow={0} style={cardStyle} >
+              <Card  style={cardStyle} >
                 <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Login</CardTitle>
                 <ComponentLogin/>
               </Card>

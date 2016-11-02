@@ -35,9 +35,18 @@ export function fetchVendorCourse(email) {
         firebaseDb.ref('Course').orderByChild('courseVendorEmail').equalTo(email).on("value",function(snapshot){
             dispatch({type:"FETCH_VENDORS_COURSE_FULFILLED",payload:snapshot.val()})
         },function(errorObject){
-            dispatch({type:"FETCH_VENDORS_COURSE_REJECTED"})
-            console.log("The read failed: " + errorObject.code);
-        }
-        )
+            dispatch({type:"FETCH_VENDORS_COURSE_REJECTED",payload:errorObject.code})
+        })
+    }
+}
+
+export function fetchCourse() {
+    return function(dispatch) {
+        dispatch({type: "FETCH_COURSE"})
+        firebaseDb.ref('Course').on("value",function(snapshot){
+            dispatch({type:"FETCH_COURSE_FULFILLED",payload:snapshot.val()})
+        },function(errorObject){
+            dispatch({type:"FETCH_COURSE_REJECTED",payload:errorObject.code})
+        })
     }
 }
