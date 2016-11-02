@@ -10,7 +10,7 @@ import LearnFooter from './Footer.js'
 import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
-import { fetchVendorSignup, fetchPurchaserSignup, getCurrentUser } from "./Actions/userActions"
+import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
 
 @connect((store) => {
   return {
@@ -32,6 +32,10 @@ class Admin extends Component {
       this.props.dispatch(fetchVendorSignup())
     }
 
+    fetchADSignup() {
+      this.props.dispatch(fetchADSignup())
+    }
+
     getCurrentUser() {
       this.props.dispatch(getCurrentUser())
     }
@@ -40,6 +44,7 @@ class Admin extends Component {
       this.getCurrentUser()
       this.fetchPurchaserSignup()
       this.fetchVendorSignup()
+      this.fetchADSignup()
     }
 
     approveUser(user) {
@@ -114,7 +119,12 @@ class Admin extends Component {
         bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
 
       } else if (role == 2) { // approve for additional resource
+        var website = user.ad[key_name].website;
+        var email = user.ad[key_name].email;
+        var password = user.ad[key_name].password;
+        var role = user.ad[key_name].role;
 
+        var info = {website, email, password, role, key_name}
       }
       this.approveUser(info)
     }
@@ -189,7 +199,13 @@ class Admin extends Component {
         bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
         alert(JSON.stringify(info))
       } else if (role == 2) {
+        var website = user.ad[key_name].website;
+        var email = user.ad[key_name].email;
+        var password = user.ad[key_name].password;
+        var role = user.ad[key_name].role;
 
+        var info = {website, email, password, role, key_name}
+        alert(JSON.stringify(info))
       }
     }
 
@@ -211,9 +227,9 @@ class Admin extends Component {
             EMAILS.push(user.purchasers[key_name].email)
             EMAILS.push(<br/>)
             EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
             EMAILS.push(<br/>)
           }
@@ -228,15 +244,31 @@ class Admin extends Component {
             EMAILS.push(user.vendors[key_name].email)
             EMAILS.push(<br/>)
             EMAILS.push(<div>
-              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} type="submit" className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
             EMAILS.push(<br/>)
-            //console.log(user.user[key_name].email)
-            //console.log(EMAILS + "here")
           }
         }
+
+        var keys
+        if (user.ad != null) {
+          keys = Object.keys(user.ad)
+          var role = 2 // role for additional user
+          for (var count=0; count<=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.ad[key_name].email)
+            EMAILS.push(<br/>)
+            EMAILS.push(<div>
+              <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              </div>)
+            EMAILS.push(<br/>)
+          }
+        }
+
 
         return(
 
