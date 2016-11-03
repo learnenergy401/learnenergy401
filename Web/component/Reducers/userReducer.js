@@ -174,17 +174,6 @@ export default function reducer(state={
             }
         }
 
-        case "LOGIN_ADMIN_USER_FULFILLED": {
-            return {
-                ...state,
-                fetching: false,
-                fetched:true,
-                user: action.payload,
-                userName: action.payload.email,
-                isLoggedIn:true,
-                role: 2,
-            }
-        }
         case "LOGOUT_USER": {
             return {
                 ...state,

@@ -272,25 +272,24 @@ export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
-              if (user.email == "admin@gmail.com") {
-                dispatch({type: "LOGIN_ADMIN_USER_FULFILLED", payload: data})
-              } else {
-                dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
-              }
+              dispatch({type: "LOGIN_USER_FULFILLED", payload: data})  
             })
             .catch((err) => {
-                dispatch({type: "LOGIN_USER_REJECTED", payload: err})
+              dispatch({type: "LOGIN_USER_REJECTED", payload: err})
             })
+        firebaseDb.ref('Notifications/Admin_Notification').set({
+          notified: false
+        })
     }
 }
 
 export function logOutUser(user) {
     return function(dispatch) {
+
         firebaseAuth.signOut()
             .then((data) => {
                 console.log(data)
                 dispatch({type: "LOGOUT_USER_FULFILLED"})
-
             })
             .catch((err) => {
                 dispatch({type: "LOGOUT_USER_REJECTED", payload: err})
