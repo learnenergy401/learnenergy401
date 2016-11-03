@@ -239,6 +239,8 @@ export function signUpPurchaser(user) {
     .catch((err) => {
       dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
     })
+    alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
+    location.reload();
   }
 }
 
@@ -278,6 +280,8 @@ export function signUpVendor(user) {
     .catch((err) => {
       dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
     })
+    alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
+    location.reload();
   }
 }
 
@@ -294,6 +298,8 @@ export function signUpAD(user) {
     .catch((err) => {
       dispatch({type: "SIGNUP_USER_REJECTED", payload: err})
     })
+    alert("Thank you for registering as an Additional User for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
+    location.reload();
   }
 }
 
