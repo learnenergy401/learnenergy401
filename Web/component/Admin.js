@@ -75,13 +75,30 @@ class Admin extends Component {
         var email = user.purchasers[key_name].email;
         var adminContact = user.purchasers[key_name].adminContact;
         var technicalContact = user.purchasers[key_name].technicalContact;
+
+        var gstReg = user.purchasers[key_name].gstReg;
+        var billAddress1 = user.purchasers[key_name].billAddress1;
+        var billAddress2 = user.purchasers[key_name].billAddress2;
+        var billCity = user.purchasers[key_name].billCity;
+        var billProvince = user.purchasers[key_name].billProvince;
+        var billCountry = user.purchasers[key_name].billCountry;
+        var billPostalCode = user.purchasers[key_name].billPostalCode;
+        var accntRec = user.purchasers[key_name].accntRec;
+        var bank = user.purchasers[key_name].bank;
+
         var ISnumber = user.purchasers[key_name].ISnumber;
         var website = user.purchasers[key_name].website;
+
+        var jointVenture = user.purchasers[key_name].jointVenture;
+        var categories = user.purchasers[key_name].categories;
+
         var password = user.purchasers[key_name].password;
         var role = user.purchasers[key_name].role;
 
-        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
-        adminContact, technicalContact, ISnumber, website, password, role, key_name}
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+          city, province, country, postalCode, phone, fax, adminContact, technicalContact,
+          gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
+          accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
       } else if (role == 1) { // approve for vendor
 
         var legalEntity = user.vendors[key_name].legalEntity;
@@ -157,13 +174,30 @@ class Admin extends Component {
         var email = user.purchasers[key_name].email;
         var adminContact = user.purchasers[key_name].adminContact;
         var technicalContact = user.purchasers[key_name].technicalContact;
+
+        var gstReg = user.purchasers[key_name].gstReg;
+        var billAddress1 = user.purchasers[key_name].billAddress1;
+        var billAddress2 = user.purchasers[key_name].billAddress2;
+        var billCity = user.purchasers[key_name].billCity;
+        var billProvince = user.purchasers[key_name].billProvince;
+        var billCountry = user.purchasers[key_name].billCountry;
+        var billPostalCode = user.purchasers[key_name].billPostalCode;
+        var accntRec = user.purchasers[key_name].accntRec;
+        var bank = user.purchasers[key_name].bank;
+
         var ISnumber = user.purchasers[key_name].ISnumber;
         var website = user.purchasers[key_name].website;
+
+        var jointVenture = user.purchasers[key_name].jointVenture;
+        var categories = user.purchasers[key_name].categories;
+
         var password = user.purchasers[key_name].password;
         var role = user.purchasers[key_name].role;
 
-        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
-        adminContact, technicalContact, ISnumber, website, password, role, key_name}
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+          city, province, country, postalCode, phone, fax, adminContact, technicalContact,
+          gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
+          accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
         alert(JSON.stringify(info))
       } else if (role == 1) {
         var legalEntity = user.vendors[key_name].legalEntity;

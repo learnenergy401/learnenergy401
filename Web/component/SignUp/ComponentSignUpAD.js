@@ -32,7 +32,6 @@ class ComponentSignUpAD extends Component {
     var user = {website, email, password}
 
     this.signUpPurchaser(user);
-    alert("Thank you for registering as an Additional User for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
 
   }
 

@@ -33,7 +33,7 @@ class ComponentSignUpVendor extends Component {
     var email = document.getElementById("email").value;
     var adminContact = document.getElementById("adminContact").value;
     var technicalContact = document.getElementById("technicalContact").value;
-    
+
     var ISnumber = null
     if(document.getElementById("ISnumberYes").checked) {
         ISnumber = "yes"
@@ -66,7 +66,6 @@ class ComponentSignUpVendor extends Component {
       bondingLimit, insurance, bankruptcy, numEmployees}
 
     this.signUpVendor(user);
-    alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
   }
   render() {
     return(
@@ -103,7 +102,7 @@ class ComponentSignUpVendor extends Component {
             <br/>
             <br/>
             <div>
-            <label>ISN Member:    
+            <label>ISN Member:
             <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
             <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
             </label>
@@ -129,7 +128,7 @@ class ComponentSignUpVendor extends Component {
             <br/>
             <br/>
             <div>
-            <label>Bankruptcy:    
+            <label>Bankruptcy:
             <input type="radio" name="bankruptcy" value="bankY" id="bankYes"/>Yes
             <input type="radio" name="bankruptcy" value="bankN" id="bankNo"/>No
             </label>
