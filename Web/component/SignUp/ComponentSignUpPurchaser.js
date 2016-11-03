@@ -25,9 +25,6 @@ class ComponentSignUpPurchaser extends Component {
 
   requestSubmit() {
     // Add signup event
-    //Purchaser:selects whether or not to be considered for joint ventures in development of new education/training/ if yes selects categories of training and keywords, purchaser requests number of seats (separate log-ins)
-
-
 
     var legalEntity = document.getElementById("legalEntity").value;
     var operatingName = document.getElementById("operatingName").value;
@@ -53,11 +50,24 @@ class ComponentSignUpPurchaser extends Component {
     var accntRec = document.getElementById("accntRec").value;
     var bank = document.getElementById("bank").value;
 
-    var ISnumber = document.getElementById("ISnumber").value;
+    var ISnumber = null
+    if(document.getElementById("ISnumberYes").checked) {
+        ISnumber = "yes"
+    } else if (document.getElementById("ISnumberNo").checked) {
+        ISnumber = "no"
+    }
+
     var website = document.getElementById("website").value;
     var password = document.getElementById("password").value;
 
-    var jointVenture = document.getElementById("jointVenture").value;
+    var jointVenture = null
+    if(document.getElementById("jointVentureYes").checked) {
+        jointVenture = "yes"
+    } else if (document.getElementById("jointVentureNo").checked) {
+        jointVenture = "no"
+    }
+
+
     var categories = document.getElementById("categories").value;
 
     var user = {email, password, legalEntity, operatingName, address1, address2,
@@ -128,13 +138,22 @@ class ComponentSignUpPurchaser extends Component {
             <br/>
             <Textfield label="bank" className="form-control" ref="bank"  placeholder="Bank" id="bank"/>
             <br/>
-            <Textfield label="ISnumber" className="form-control" ref="ISnumber"  placeholder="ISN Member? Y/N" id="ISnumber"/>
+            <div>
+              <label>ISN Member:
+                <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
+                <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
+              </label>
+            </div>
             <br/>
             <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
             <hr/>
             <h6>Would you like to be considered for joint ventures in development of new education/training?</h6>
-            <br/>
-            <Textfield label="jointVenture" className="form-control" ref="jointVenture"  placeholder="Y/N" id="jointVenture"/>
+            <div>
+              <label>
+                <input type="radio" name="JointVentures" value="jvY" id="jointVentureYes"/>Yes
+                <input type="radio" name="JointVentures" value="jvN" id="jointVentureNo"/>No
+              </label>
+            </div>
             <br/>
             <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
             <hr/>
