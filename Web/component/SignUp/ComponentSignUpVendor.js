@@ -33,7 +33,14 @@ class ComponentSignUpVendor extends Component {
     var email = document.getElementById("email").value;
     var adminContact = document.getElementById("adminContact").value;
     var technicalContact = document.getElementById("technicalContact").value;
-    var ISnumber = document.getElementById("ISnumber").value;
+    
+    var ISnumber = null
+    if(document.getElementById("ISnumberYes").checked) {
+        ISnumber = "yes"
+    } else if (document.getElementById("ISnumberNo").checked) {
+        ISnumber = "no"
+    }
+
     var website = document.getElementById("website").value;
     var password = document.getElementById("password").value;
     // More form
@@ -45,13 +52,19 @@ class ComponentSignUpVendor extends Component {
     var bonding = document.getElementById("bonding").value;
     var bondingLimit = document.getElementById("bondingLimit").value;
     var insurance = document.getElementById("insurance").value;
-    var bankruptcy = document.getElementById("bankruptcy").value;
+    var bankruptcy = null
+    if(document.getElementById("bankYes").checked) {
+        bankruptcy = "yes"
+    } else if (document.getElementById("bankNo").checked) {
+        bankruptcy = "no"
+    }
     var numEmployees = document.getElementById("numEmployees").value;
     // STILL MISSING A LOT; WILL NEED TO REWORK THIS FORM
     var user = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
       ISnumber, website, owners, natureBusiness, timeBusiness, proAffiliation, bank, bonding,
       bondingLimit, insurance, bankruptcy, numEmployees}
+
     this.signUpVendor(user);
     alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
   }
@@ -88,7 +101,13 @@ class ComponentSignUpVendor extends Component {
             <br/>
             <Textfield label="technicalContact" className="form-control" ref="technicalContact"  placeholder="Technical Email" id="technicalContact"/>
             <br/>
-            <Textfield label="ISnumber" className="form-control" ref="ISnumber"  placeholder="ISN Member? Y/N" id="ISnumber"/>
+            <br/>
+            <div>
+            <label>ISN Member:    
+            <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
+            <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
+            </label>
+            </div>
             <br/>
             <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
             <br/>
@@ -108,9 +127,16 @@ class ComponentSignUpVendor extends Component {
             <br/>
             <Textfield label="insurance" className="form-control" ref="insurance"  placeholder="Insurance Company" id="insurance"/>
             <br/>
-            <Textfield label="bankruptcy" className="form-control" ref="bankruptcy"  placeholder="Bankruptcy: Y/N" id="bankruptcy"/>
+            <br/>
+            <div>
+            <label>Bankruptcy:    
+            <input type="radio" name="bankruptcy" value="bankY" id="bankYes"/>Yes
+            <input type="radio" name="bankruptcy" value="bankN" id="bankNo"/>No
+            </label>
+            </div>
             <br/>
             <Textfield label="numEmployees" className="form-control" ref="numEmployees"  placeholder="Number of Employees" id="numEmployees"/>
+
             <CardActions>
                 <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
