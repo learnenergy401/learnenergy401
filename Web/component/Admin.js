@@ -2,24 +2,56 @@ import firebase from 'firebase';
 import {FIREBASE_CONFIG} from '../../firebase.config.js';
 import FirebaseTools from './Firebase.js'
 import React, { Component } from 'react'
-import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
+import {Dialog, DialogTitle,DialogContent,DialogActions , Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
 import store from './Store.js'
 import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
-
+import Example from './Modal.js'
 import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
-
+var info;
 @connect((store) => {
   return {
     user: store.user
   };
 })
-
-
 class Admin extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.handleOpenDialog = this.handleOpenDialog.bind(this);
+        this.handleCloseDialog = this.handleCloseDialog.bind(this);
+        this.handleOpenDialog2 = this.handleOpenDialog2.bind(this);
+        this.handleCloseDialog2 = this.handleCloseDialog2.bind(this);
+      }
+
+      handleOpenDialog() {
+        this.setState({
+          openDialog: true
+        });
+          
+      }
+
+      handleCloseDialog() {
+        this.setState({
+          openDialog: false
+        });
+      }
+      handleOpenDialog2() {
+          this.setState({
+              openDialog2: true
+            });
+
+          }
+
+       handleCloseDialog2() {
+            this.setState({
+              openDialog2: false
+            });
+      }
 
     fetchRole() { // pass email to fetchRole for it to see role
       this.props.dispatch(fetchRole(email))
@@ -28,7 +60,7 @@ class Admin extends Component {
     fetchPurchaserSignup() {
       this.props.dispatch(fetchPurchaserSignup())
     }
-
+    
     fetchVendorSignup() {
       this.props.dispatch(fetchVendorSignup())
     }
@@ -55,7 +87,8 @@ class Admin extends Component {
     rejectUser(user) {
       this.props.dispatch(rejectUser(user))
     }
-
+    
+    
     approve(key_name, role) {
       console.log("approved")
 
@@ -139,11 +172,11 @@ class Admin extends Component {
     }
 
     review(key_name, role) {
-
+//        /this.popupShow()
         //TEMP FIX
       console.log("review")
       const {user} = this.props
-      if (role == 0) {
+      if (role == 0) { //0 = purchaser
         //
         var legalEntity = user.purchasers[key_name].legalEntity;
         var operatingName = user.purchasers[key_name].operatingName;
@@ -165,9 +198,10 @@ class Admin extends Component {
 
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
+        this.handleOpenDialog()
         //alert(JSON.stringify(info))
         
-      } else if (role == 1) {
+      } else if (role == 1) {//1 = vendor
         var legalEntity = user.vendors[key_name].legalEntity;
         var operatingName = user.vendors[key_name].operatingName;
         var address1 = user.vendors[key_name].address1;
@@ -196,12 +230,14 @@ class Admin extends Component {
         var insurance = user.vendors[key_name].insurance;
         var bankruptcy = user.vendors[key_name].bankruptcy;
         var numEmployees = user.vendors[key_name].numEmployees;
-
-        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
+        
+        window.info = [legalEntity ,operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, owners, natureBusiness, timeBusiness, proAffiliation,
-        bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
+        bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name]
         //alert(JSON.stringify(info))
-      } else if (role == 2) {
+        this.handleOpenDialog2()
+        
+      } else if (role == 2) {//2 = add resource
         var website = user.ad[key_name].website;
         var email = user.ad[key_name].email;
         var password = user.ad[key_name].password;
@@ -215,7 +251,7 @@ class Admin extends Component {
     render() {
       //TODO: maybe add a separate section for vendors/buyers
       const {user} = this.props
-      if (user.role == 3) {
+      if (user.role == 3) { //3 = admin
         var EMAILS = [];
         //var EMAILS = [];
 
@@ -233,7 +269,19 @@ class Admin extends Component {
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
-              </div>)
+              <div>
+                <Dialog open={this.state.openDialog}>
+                  <DialogTitle>Purchaser</DialogTitle>
+                  <DialogContent>
+                    <p>BUYER </p>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button type='button' onClick={this.handleCloseDialog}>Close</Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
+            </div>
+              )
             EMAILS.push(<br/>)
           }
         }
@@ -248,8 +296,24 @@ class Admin extends Component {
             EMAILS.push(<br/>)
             EMAILS.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+              
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              <div>
+                <Dialog open={this.state.openDialog2}>
+                  <DialogTitle>Vendor</DialogTitle>
+                  <DialogContent>
+                    <p>{window.info}</p>
+                    
+                    
+                  </DialogContent>
+                  <DialogActions>
+                    <Button type='button' onClick={this.handleCloseDialog2}>Close</Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
+              
               </div>)
             EMAILS.push(<br/>)
           }
@@ -272,12 +336,10 @@ class Admin extends Component {
           }
         }
 
-
-        return(
-
+        return(         
           <div>
           <LearnHeader/>
-
+          <div id='modal'></div>
           <div className="learn-content mdl-typography--text-center">
           <div className="logo-font learn-slogan"></div>
           <a name="top" />
@@ -288,16 +350,13 @@ class Admin extends Component {
                   <h4 className="card__title-text">Candidates</h4>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
-
                   <h4> {EMAILS} </h4>
-
                 </div>
                 </div>
             </div>
           </div>
         </div>
-
-          <LearnFooter/>
+                <LearnFooter/>
         </div>
 
       );
@@ -321,6 +380,6 @@ class Admin extends Component {
     }
   }
 }
-
+          
 
 export default Admin;
