@@ -144,7 +144,7 @@ class Admin extends Component {
       console.log("review")
       const {user} = this.props
       if (role == 0) {
-        this.popupcall()
+        //
         var legalEntity = user.purchasers[key_name].legalEntity;
         var operatingName = user.purchasers[key_name].operatingName;
         var address1 = user.purchasers[key_name].address1;
