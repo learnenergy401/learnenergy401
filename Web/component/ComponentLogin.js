@@ -40,7 +40,7 @@ class ComponentLogin extends Component {
         var pw = document.getElementById("pw").value
         const user = {email, pw}
         this.logInUser(user)
-        
+
     }
 
     render() {
@@ -54,7 +54,7 @@ class ComponentLogin extends Component {
                         <CardText style={componentStyle}>
                             <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email"/>
                             </CardText>
-                        <CardText style={componentStyle}>        
+                        <CardText style={componentStyle}>
                             <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="pw"/>
                         </CardText>
                             {/*errors*/}
