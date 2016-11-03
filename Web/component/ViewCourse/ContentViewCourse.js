@@ -6,7 +6,7 @@ import CourseList from "./CourseList.js"
 class ContentViewCourse extends Component {
     render(){
         return(
-          <div style={{overflow: "scroll"}} className="learnContent mdl-typography--text-center">
+          <div  className="learnContent mdl-typography--text-center">
               <CourseList/>
           </div>
         );

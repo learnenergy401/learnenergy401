@@ -4,7 +4,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
 import "../../extra/material.js"
-import { fetchCourse } from "../Actions/courseActions"
+import { fetchCourse,saveACourse } from "../Actions/courseActions"
 
 var listItemStyle =  {
     width:"100%",
@@ -24,8 +24,16 @@ var cardStyle = {
 })
 
 class CourseList extends Component{
+    onListItemClick(){
+        console.log(course.courseName)
+    }
     componentWillMount(){   
         this.props.dispatch(fetchCourse());
+    }
+
+    saveACourse(courseName){   
+        this.props.dispatch(saveACourse(courseName));
+        window.location.assign("/#view-course-detail");
     }
     
     
@@ -42,7 +50,7 @@ class CourseList extends Component{
             var arr = this.jsonToArray(course.courseList)
             const mappedCourse = arr.map(course => 
                 
-                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp ">
+                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp " onClick={()=>(this.saveACourse(course.courseName))}>
                     <div className="mdl-card__title" >
                         <h2 className="mdl-card__title-text">
                             {course.courseName}
