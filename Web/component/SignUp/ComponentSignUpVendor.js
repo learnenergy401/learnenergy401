@@ -31,11 +31,16 @@ class ComponentSignUpVendor extends Component {
     var phone = document.getElementById("phone").value;
     var fax = document.getElementById("fax").value;
 
-    var owner1Name = document.getElementById("owner1").value;
+    console.log('here')
+    var owner1Name = document.getElementById("owner1Name").value;
     var owner1Pos = document.getElementById("owner1Pos").value;
-
+    console.log('heresesr')
     var natureBusiness = document.getElementById("natureBusiness").value;
+    
+    console.log(natureBusiness)
     var timeBusiness = document.getElementById("timeBusiness").value;
+
+    console.log('kejalrkjwelkrja')
     var proAffiliation = document.getElementById("proAffiliation").value;
     var report = null
     if(document.getElementById("reportEnclosed").checked) {
@@ -45,7 +50,7 @@ class ComponentSignUpVendor extends Component {
     } else if (document.getElementById("reportNotApplicable").checked) {
         report = "not applicable"
     }
-
+    console.log("here2")
     var bank = document.getElementById("bank").value;
     var bankLocation = document.getElementById("bankLocation").value;
     var bonding = document.getElementById("bonding").value;
@@ -62,7 +67,7 @@ class ComponentSignUpVendor extends Component {
     } else if (document.getElementById("bankNo").checked) {
         bankruptcy = "no"
     }
-
+    console.log("here3")
     var numEmployees = document.getElementById("numEmployees").value;
     var AD1address1 = document.getElementById("AD1address1").value;
     var AD1address2 = document.getElementById("AD1address2").value;
@@ -79,7 +84,7 @@ class ComponentSignUpVendor extends Component {
     var client1Location = document.getElementById("client1Location").value;
     var client1Phone = document.getElementById("client1Phone").value;
     var client1Email = document.getElementById("client1Email").value;
-
+    console.log("here4")
     var licence1 = document.getElementById("licence1").value;
     var licence1Location = document.getElementById("licence1Location").value;
     var insurer1 = document.getElementById("insurer1").value; var policyLimit1 = document.getElementById("policyLimit1").value; var expiry1 = document.getElementById("expiry1").value;
@@ -98,22 +103,23 @@ class ComponentSignUpVendor extends Component {
     var insurer14 = document.getElementById("insurer14").value; var policyLimit14 = document.getElementById("policyLimit14").value; var expiry14 = document.getElementById("expiry14").value;
     var insurer15 = document.getElementById("insurer15").value; var policyLimit15 = document.getElementById("policyLimit15").value; var expiry15 = document.getElementById("expiry15").value;
 
-    var EHWcurrentYear = document.getElementById("EHWcurrentYear").value; var EHWpreviousYear1 = document.getElementById("EHWpreviousYear1"); var EHWpreviousYear2 = document.getElementById("EHWpreviousYear2").value; var EHWpreviousYear3 = document.getElementById("EHWpreviousYear3").value;
-    var FcurrentYear = document.getElementById("FcurrentYear").value; var FpreviousYear1 = document.getElementById("FpreviousYear1"); var FpreviousYear2 = document.getElementById("FpreviousYear2").value; var FpreviousYear3 = document.getElementById("FpreviousYear3").value;
-    var LTIcurrentYear = document.getElementById("LTIcurrentYear").value; var LTIpreviousYear1 = document.getElementById("LTIpreviousYear1"); var LTIpreviousYear2 = document.getElementById("LTIpreviousYear2").value; var LTIpreviousYear3 = document.getElementById("LTIpreviousYear3").value;
-    var MAIcurrentYear = document.getElementById("MAIcurrentYear").value; var MAIpreviousYear1 = document.getElementById("MAIpreviousYear1"); var MAIpreviousYear2 = document.getElementById("MAIpreviousYear2").value; var MAIpreviousYear3 = document.getElementById("MAIpreviousYear3").value;
-    var ORCcurrentYear = document.getElementById("ORCcurrentYear").value; var ORCpreviousYear1 = document.getElementById("ORCpreviousYear1"); var ORCpreviousYear2 = document.getElementById("ORCpreviousYear2").value; var ORCpreviousYear3 = document.getElementById("ORCpreviousYear3").value;
-    var TRIcurrentYear = document.getElementById("TRIcurrentYear").value; var TRIpreviousYear1 = document.getElementById("TRIpreviousYear1"); var TRIpreviousYear2 = document.getElementById("TRIpreviousYear2").value; var TRIpreviousYear3 = document.getElementById("TRIpreviousYear3").value;
+    console.log("here5")
+    var EHWcurrentYear = document.getElementById("EHWcurrentYear").value; var EHWpreviousYear1 = document.getElementById("EHWpreviousYear1").value; var EHWpreviousYear2 = document.getElementById("EHWpreviousYear2").value; var EHWpreviousYear3 = document.getElementById("EHWpreviousYear3").value;
+    var FcurrentYear = document.getElementById("FcurrentYear").value; var FpreviousYear1 = document.getElementById("FpreviousYear1").value; var FpreviousYear2 = document.getElementById("FpreviousYear2").value; var FpreviousYear3 = document.getElementById("FpreviousYear3").value;
+    var LTIcurrentYear = document.getElementById("LTIcurrentYear").value; var LTIpreviousYear1 = document.getElementById("LTIpreviousYear1").value; var LTIpreviousYear2 = document.getElementById("LTIpreviousYear2").value; var LTIpreviousYear3 = document.getElementById("LTIpreviousYear3").value;
+    var MAIcurrentYear = document.getElementById("MAIcurrentYear").value; var MAIpreviousYear1 = document.getElementById("MAIpreviousYear1").value; var MAIpreviousYear2 = document.getElementById("MAIpreviousYear2").value; var MAIpreviousYear3 = document.getElementById("MAIpreviousYear3").value;
+    var ORCcurrentYear = document.getElementById("ORCcurrentYear").value; var ORCpreviousYear1 = document.getElementById("ORCpreviousYear1").value; var ORCpreviousYear2 = document.getElementById("ORCpreviousYear2").value; var ORCpreviousYear3 = document.getElementById("ORCpreviousYear3").value;
+    var TRIcurrentYear = document.getElementById("TRIcurrentYear").value; var TRIpreviousYear1 = document.getElementById("TRIpreviousYear1").value; var TRIpreviousYear2 = document.getElementById("TRIpreviousYear2").value; var TRIpreviousYear3 = document.getElementById("TRIpreviousYear3").value;
 
-    var IRcurrentYear = document.getElementById("IRcurrentYear").value; var IRpreviousYear1 = document.getElementById("IRpreviousYear1"); var IRpreviousYear2 = document.getElementById("IRpreviousYear2").value; var IRpreviousYear3 = document.getElementById("IRpreviousYear3").value;
-    var PRcurrentYear = document.getElementById("PRcurrentYear").value; var PRpreviousYear1 = document.getElementById("PRpreviousYear1"); var PRpreviousYear2 = document.getElementById("PRpreviousYear2").value; var PRpreviousYear3 = document.getElementById("PRpreviousYear3").value;
-    var PDcurrentYear = document.getElementById("PDcurrentYear").value; var PDpreviousYear1 = document.getElementById("PDpreviousYear1"); var PDpreviousYear2 = document.getElementById("PDpreviousYear2").value; var PDpreviousYear3 = document.getElementById("PDpreviousYear3").value;
-    var PScurrentYear = document.getElementById("PScurrentYear").value; var PSpreviousYear1 = document.getElementById("PSpreviousYear1"); var PSpreviousYear2 = document.getElementById("PSpreviousYear2").value; var PSpreviousYear3 = document.getElementById("PSpreviousYear3").value;
+    var IRcurrentYear = document.getElementById("IRcurrentYear").value; var IRpreviousYear1 = document.getElementById("IRpreviousYear1").value; var IRpreviousYear2 = document.getElementById("IRpreviousYear2").value; var IRpreviousYear3 = document.getElementById("IRpreviousYear3").value;
+    var PRcurrentYear = document.getElementById("PRcurrentYear").value; var PRpreviousYear1 = document.getElementById("PRpreviousYear1").value; var PRpreviousYear2 = document.getElementById("PRpreviousYear2").value; var PRpreviousYear3 = document.getElementById("PRpreviousYear3").value;
+    var PDcurrentYear = document.getElementById("PDcurrentYear").value; var PDpreviousYear1 = document.getElementById("PDpreviousYear1").value; var PDpreviousYear2 = document.getElementById("PDpreviousYear2").value; var PDpreviousYear3 = document.getElementById("PDpreviousYear3").value;
+    var PScurrentYear = document.getElementById("PScurrentYear").value; var PSpreviousYear1 = document.getElementById("PSpreviousYear1").value; var PSpreviousYear2 = document.getElementById("PSpreviousYear2").value; var PSpreviousYear3 = document.getElementById("PSpreviousYear3").value;
 
     var drugPolicy = document.getElementById("drugPolicy").value;
     var subcontractors = document.getElementById("subcontractors").value;
     var stopWorkOrder = document.getElementById("stopWorkOrder").value;
-
+    console.log("here6")
 
 
     var email = document.getElementById("email").value;
@@ -130,20 +136,23 @@ class ComponentSignUpVendor extends Component {
     var website = document.getElementById("website").value;
     var password = document.getElementById("password").value;
 
+    console.log("here7")
 
     var user = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
-      adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insurance, insuranceLocation,
+      adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
       bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
       AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
       insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
       insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
       insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
       EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
-      MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3
+      MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
+      IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
     }
 
-
+    console.log(user)
     this.signUpVendor(user);
   }
   render() {
@@ -248,7 +257,7 @@ class ComponentSignUpVendor extends Component {
             <h6>Categories of services provided - List all types of work you are able to provide:</h6>
             <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
             <br/>
-            <Textfield label="Specialties" className="form-control" ref="Specialties"  placeholder="Specialties" id="Specialties"/>
+            <Textfield label="specialties" className="form-control" ref="specialties"  placeholder="Specialties" id="specialties"/>
             <h6>Work History:</h6>
             <Textfield label="client1" className="form-control" ref="client1"  placeholder="Client 1: Name" id="client1"/>
             &nbsp;
