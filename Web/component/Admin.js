@@ -1,6 +1,5 @@
-import firebase from 'firebase';
-import {FIREBASE_CONFIG} from '../../firebase.config.js';
-import FirebaseTools from './Firebase.js'
+import firebase from 'firebase'
+import {FIREBASE_CONFIG} from '../../firebase.config.js'
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
 import store from './Store.js'

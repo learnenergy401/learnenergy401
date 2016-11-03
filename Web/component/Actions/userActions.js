@@ -1,6 +1,10 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
+/**
+ * Grabs the purchasers from the Purchaser SignUp list in the database
+ * @returns {object} purchasers - Returns the object of purchasers.
+ */
 export function fetchPurchaserSignup() {
   return function(dispatch) {
     firebaseDb.ref('PurchaserSignup').once("value")
@@ -13,6 +17,10 @@ export function fetchPurchaserSignup() {
   }
 }
 
+/**
+ * Grabs the vendors from the Vendor SignUp list in the database
+ * @returns {object} vendors - Returns the object of vendors.
+ */
 export function fetchVendorSignup() {
   return function(dispatch) {
     firebaseDb.ref('VendorSignup').once("value")
@@ -25,6 +33,10 @@ export function fetchVendorSignup() {
   }
 }
 
+/**
+ * Grabs the addition resources from the additional resouce SignUp list in the database
+ * @returns {object} ads - Returns the object of additional resources.
+ */
 export function fetchADSignup() {
   return function(dispatch) {
     firebaseDb.ref('ADSignup').once("value")
@@ -37,6 +49,10 @@ export function fetchADSignup() {
   }
 }
 
+/**
+ * Checks to see if the user is logged in and then returns information about the current user logged in
+ * @returns {object} user - Returns the object of user.
+ */
 export function getCurrentUser() {
   return function(dispatch) {
    firebaseAuth.onAuthStateChanged((user)=>{
@@ -56,6 +72,10 @@ export function getCurrentUser() {
   )}
 }
 
+/**
+ * Gets user information passed in and will create the account for the user and remove the old user from the signup list
+ * @param {object} user - object which contains information for us to register into firebase with and store in our database
+ */
 export function approveUser(user) {
   return function(dispatch) {
     firebaseAuthInstance.createUserWithEmailAndPassword(user.email, user.password)
@@ -171,6 +191,10 @@ export function approveUser(user) {
   }
 }
 
+/**
+ * Gets user information passed in and will remove the user from the signup list
+ * @param {object} user - object which contains information about the user
+ */
 export function rejectUser(user) {
   return function(dispatch) {
     if (user.role == 0) { // reject purchaser
@@ -198,6 +222,10 @@ export function rejectUser(user) {
   }
 }
 
+/**
+ * Gets purchaser user information passed in and will add the user to the purchaser signup list
+ * @param {object} user - object which contains information about the user purchaser
+ */
 export function signUpPurchaser(user) {
   return function(dispatch) {
     firebaseDb.ref('PurchaserSignup').push({
@@ -244,6 +272,10 @@ export function signUpPurchaser(user) {
   }
 }
 
+/**
+ * Gets vendor user information passed in and will add the user to the vendor signup list
+ * @param {object} user - object which contains information about the user vendor
+ */
 export function signUpVendor(user) {
   return function(dispatch) {
     firebaseDb.ref('VendorSignup').push({
@@ -285,6 +317,10 @@ export function signUpVendor(user) {
   }
 }
 
+/**
+ * Gets additional resource user information passed in and will add the user to the additional resource signup list
+ * @param {object} user - object which contains information about the user additional resource
+ */
 export function signUpAD(user) {
   return function(dispatch) {
     firebaseDb.ref('ADSignup').push({
@@ -303,7 +339,10 @@ export function signUpAD(user) {
   }
 }
 
-
+/**
+ * Logs in the user using firebase authentication and sets notifications to false, error if invalid information
+ * @param {object} user - object which contains information about the user to log in with
+ */
 export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
@@ -314,12 +353,15 @@ export function logInUser(user) {
               dispatch({type: "LOGIN_USER_REJECTED", payload: err})
             })
         firebaseDb.ref('Notifications/Admin_Notification').set({
-          notified: false
-        })
+            notified: false
+          })
     }
 }
 
-export function logOutUser(user) {
+/**
+ * Logs out the user using firebase authentication 
+ */
+export function logOutUser() {
     return function(dispatch) {
 
         firebaseAuth.signOut()
