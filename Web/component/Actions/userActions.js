@@ -280,7 +280,6 @@ export function logInUser(user) {
             })
             .catch((err) => {
                 dispatch({type: "LOGIN_USER_REJECTED", payload: err})
-                alert("Email/Password Incorrect\n"+"Please try again.")
             })
     }
 }

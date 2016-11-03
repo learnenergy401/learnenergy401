@@ -199,7 +199,11 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 user: null,
-                isLoggedIn: false
+                role: null,
+                isLoggedIn: false,
+                purchasers: null,
+                vendors: null,
+                ad: null,
             }
         }
 
