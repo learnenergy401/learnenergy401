@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import Header from '../Header.js'
 import Footer from '../Footer.js'
-import LearnFooter from '../Footer.js'
 import YouTube from './Youtube.js'
 import ReactPlayer from 'react-player'
-import Duration from './Duration'    
-    
+import Duration from './Duration.js'    
+
     
 var componentStyle = {
     margin: 'auto',
@@ -246,7 +245,6 @@ class YoutubePlayer extends Component{
           </tbody></table>
         </section>
         <footer className='footer'>
-          Version <strong>{version}</strong>
           {SEPARATOR}
           <a href='https://github.com/CookPete/react-player'>GitHub</a>
           {SEPARATOR}
