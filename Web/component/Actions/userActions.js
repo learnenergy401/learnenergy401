@@ -88,6 +88,7 @@ export function approveUser(user) {
 
           firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
+            location.reload();
           })
           .catch(function(err) {
             console.log("failed to remove", user.key_name)
@@ -126,6 +127,7 @@ export function approveUser(user) {
           })
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
+            location.reload();
           })
           .catch(function(err) {
             console.log("failed to remove", user.key_name)
@@ -142,6 +144,7 @@ export function approveUser(user) {
           })
           firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
+            location.reload();
           })
           .catch(function(err) {
             console.log("failed to remove", user.key_name)
@@ -157,19 +160,22 @@ export function rejectUser(user) {
   return function(dispatch) {
     if (user.role == 0) { // reject purchaser
       firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
-        console.log("removed")
+        console.log("purchaseer removed")
+        location.reload();
       }).then((data) => {
         dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
       })
     } else if (user.role == 1) { // reject vendor
       firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
-        console.log("removed")
+        console.log("vendor removed")
+        location.reload();
       }).then((data) => {
         dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
       })
     } else if (user.role == 2) { // reject additional resource
       firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
-        console.log("removed")
+        console.log("ad removed")
+        location.reload();
       }).then((data) => {
         dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
       })
