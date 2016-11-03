@@ -80,9 +80,24 @@ export function approveUser(user) {
             email: user.email,
             adminContact: user.adminContact,
             technicalContact: user.technicalContact,
+
+            gstReg: user.gstReg,
+            billAddress1: user.billAddress1,
+            billAddress2: user.billAddress2,
+            billCity: user.billCity,
+            billProvince: user.billProvince,
+            billCountry: user.billCountry,
+            billPostalCode: user.billPostalCode,
+            accntRec: user.accntRec,
+            bank: user.bank,
+
             ISnumber: user.ISnumber,
             website: user.website,
             password: user.password,
+
+            jointVenture: user.jointVenture,
+            categories: user.categories,
+
             role: user.role,
           })
 
@@ -200,8 +215,23 @@ export function signUpPurchaser(user) {
       fax: user.fax,
       adminContact: user.adminContact,
       technicalContact: user.technicalContact,
+
+      gstReg: user.gstReg,
+      billAddress1: user.billAddress1,
+      billAddress2: user.billAddress2,
+      billCity: user.billCity,
+      billProvince: user.billProvince,
+      billCountry: user.billCountry,
+      billPostalCode: user.billPostalCode,
+      accntRec: user.accntRec,
+      bank: user.bank,
+
       ISnumber: user.ISnumber,
       website: user.website,
+
+      jointVenture: user.jointVenture,
+      categories: user.categories,
+
       role: 0,
     }).then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})

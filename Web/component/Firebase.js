@@ -44,8 +44,23 @@ var FirebaseTools = {
             fax: user.fax,
             adminContact: user.adminContact,
             technicalContact: user.technicalContact,
+
+            gstReg: user.gstReg,
+            billAddress1: user.billAddress1,
+            billAddress2: user.billAddress2,
+            billCity: user.billCity,
+            billProvince: user.billProvince,
+            billCountry: user.billCountry,
+            billPostalCode: user.billPostalCode,
+            accntRec: user.accntRec,
+            bank: user.bank,
+
             ISnumber: user.ISnumber,
             website: user.website,
+
+            jointVenture: user.jointVenture,
+            categories: user.categories,
+
             role: 0
         });
 		alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
