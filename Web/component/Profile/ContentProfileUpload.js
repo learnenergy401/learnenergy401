@@ -28,11 +28,12 @@ class ContentProfileUpload extends Component {
         var user = this.props.user.user
         var courseName = document.getElementById("courseName").value;
         var courseDescription = document.getElementById("courseDescription").value;
-        // hard code email for test
+        var courseVideoId = document.getElementById("courseVideoId").value;
         var courseVendorEmail = user.email
-        var course = {courseName, courseDescription, courseVendorEmail}
+        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}
         console.log(courseName);
         console.log(courseDescription);
+        console.log(courseVideoId);
         this.props.dispatch(uploadCourse(course)); 
     }
     
@@ -47,6 +48,9 @@ class ContentProfileUpload extends Component {
                                 </CardText>
                             <CardText style={componentStyle}>        
                                 <Textfield floatingLabel label="courseDescription" ref="pw" type="courseDescription" className="form-control" id="courseDescription"/>
+                            </CardText>
+                            <CardText style={componentStyle}>        
+                                <Textfield floatingLabel label="courseVideoId" ref="pw" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardActions style={componentStyle}>
                                 <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>
