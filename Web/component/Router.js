@@ -19,6 +19,8 @@ import SignUpPurchaser from "./SignUp/SignUpPurchaser.js"
 import SignUpVendor from "./SignUp/SignUpVendor.js"
 import SignUpAD from "./SignUp/SignUpAD.js"
 import Upload from "./Vendor/Upload.js"
+import ViewCourse from "./ViewCourse/ViewCourse.js"
+import CourseDetail from "./ViewCourse/CourseDetail.js"
 
 class ReactRouter extends Component {
   render() {
@@ -36,6 +38,8 @@ class ReactRouter extends Component {
         <Route path='/scripts' component={Scripts} />
         <Route path='/signup-purchaser' component={SignUpPurchaser} />
         <Route path='/signup-vendor' component={SignUpVendor} />
+        <Route path='/view-course' component={ViewCourse} />
+        <Route path='/view-course-detail' component={CourseDetail} />
         <Route path='/signup-ad' component={SignUpAD} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
