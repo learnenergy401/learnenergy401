@@ -31,6 +31,9 @@ class CourseList extends Component{
         this.props.dispatch(fetchCourse());
     }
 
+    /**save a course
+    *@param courseName the name of the course
+    */
     saveACourse(courseName){   
         this.props.dispatch(saveACourse(courseName));
         window.location.assign("/#view-course-detail");
