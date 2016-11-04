@@ -33,18 +33,28 @@ var listStyle={
 
 
 class SideMenuProfile extends Component {
+    /**
+    * Changes state of sidebar menu
+    */
     changeMenuNumberZero(){
         this.props.dispatch(changeMenu(0))
     }
-    
+    /**
+    * Changes state of sidebar menu
+    */
     changeMenuNumberOne(){
         this.props.dispatch(changeMenu(1))
     }
-    
+    /**
+    * Changes state of sidebar menu
+    */
     changeMenuNumberTwo(){
         this.props.dispatch(changeMenu(2))
     }
-    
+    /**
+    * Loads the user profile sidebar
+    * @return {html} - returns Bookmarks, profile, sidebar, RFPs
+    */
     render(){
         const {user,profile} = this.props
         if (user.role == 0){

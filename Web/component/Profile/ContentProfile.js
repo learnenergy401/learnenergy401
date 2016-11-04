@@ -16,10 +16,14 @@ import ContentCourseDisplay from "../ContentCourseDisplay.js"
 
 
 class ContentProfile extends Component {
+    /**
+    * Loads the profile of user
+    * @return {html} - returns user profile depending on type of user
+    */
     render(){
-        
+
         const {profile} = this.props
-        
+
         if (profile.menu == 0){
             return(
                   <Content className="learn-content">

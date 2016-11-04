@@ -2866,7 +2866,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\n\nimport \"../../extra/material.js\"\nimport ContentProfileUpload from \"./ContentProfileUpload.js\"\nimport ContentCourseDisplay from \"../ContentCourseDisplay.js\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfile extends Component {\n    render(){\n        \n        const {profile} = this.props\n        \n        if (profile.menu == 0){\n            return(\n                  <Content className=\"learn-content\">\n                        <List>\n                          <ListItem>\n                            <ListItemContent icon=\"person\">gg1</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </Content>\n            );\n        }else if (profile.menu == 1){\n            return(\n                <ContentCourseDisplay/>\n            )\n        }else{\n            return(\n                <ContentProfileUpload/>\n            )\n        }\n    }\n};\n\n\n\nexport default ContentProfile"
+    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\n\nimport \"../../extra/material.js\"\nimport ContentProfileUpload from \"./ContentProfileUpload.js\"\nimport ContentCourseDisplay from \"../ContentCourseDisplay.js\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfile extends Component {\n    /**\n    * Loads the profile of user\n    * @return {html} - returns user profile depending on type of user\n    */\n    render(){\n\n        const {profile} = this.props\n\n        if (profile.menu == 0){\n            return(\n                  <Content className=\"learn-content\">\n                        <List>\n                          <ListItem>\n                            <ListItemContent icon=\"person\">gg1</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </Content>\n            );\n        }else if (profile.menu == 1){\n            return(\n                <ContentCourseDisplay/>\n            )\n        }else{\n            return(\n                <ContentProfileUpload/>\n            )\n        }\n    }\n};\n\n\n\nexport default ContentProfile\n"
   },
   {
     "__docId__": 120,
@@ -2897,14 +2897,16 @@
     "memberof": "component/Profile/ContentProfile.js~ContentProfile",
     "longname": "component/Profile/ContentProfile.js~ContentProfile#render",
     "access": null,
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "Loads the profile of user",
+    "lineNumber": 23,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns user profile depending on type of user"
     },
     "generator": false
   },
@@ -2919,7 +2921,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { uploadCourse } from \"../Actions/courseActions\"\nimport Toast from \"../Toast.js\"\n\nvar componentStyle = {\n    margin: 'auto',\n}\nvar formStyle = {\n    marginTop: '5%'\n}\n\n\n@connect((store) => {\n  return {\n    user: store.user,\n    course: store.course\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfileUpload extends Component {\n    uploadCourse(course){\n        var user = this.props.user.user\n        var courseName = document.getElementById(\"courseName\").value;\n        var courseDescription = document.getElementById(\"courseDescription\").value;\n        var courseVideoId = document.getElementById(\"courseVideoId\").value;\n        var courseVendorEmail = user.email\n        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}\n        console.log(courseName);\n        console.log(courseDescription);\n        console.log(courseVideoId);\n        this.props.dispatch(uploadCourse(course)); \n    }\n    \n    render(){\n        return(\n            <Content className=\"learn-content\">\n                <div className=\"android-content mdl-layout__content\">\n                        <a name=\"top\" />\n                        <div style={{width: '80%', margin: 'auto'}}>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseName\" className=\"form-control\" ref=\"courseName\" id=\"courseName\"/>\n                                </CardText>\n                            <CardText style={componentStyle}>        \n                                <Textfield floatingLabel label=\"courseDescription\" ref=\"pw\" type=\"courseDescription\" className=\"form-control\" id=\"courseDescription\"/>\n                            </CardText>\n                            <CardText style={componentStyle}>        \n                                <Textfield floatingLabel label=\"courseVideoId\" ref=\"pw\" type=\"courseVideoId\" className=\"form-control\" id=\"courseVideoId\"/>\n                            </CardText>\n                            <CardActions style={componentStyle}>\n                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className=\"mdl-color-text--indigo btn btn-primary\">Submit Course</Button>\n                            </CardActions>\n                        </div>\n                    </div>\n            </Content>\n    )}\n};\n\n\n\nexport default ContentProfileUpload"
+    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { uploadCourse } from \"../Actions/courseActions\"\nimport Toast from \"../Toast.js\"\n\nvar componentStyle = {\n    margin: 'auto',\n}\nvar formStyle = {\n    marginTop: '5%'\n}\n\n\n@connect((store) => {\n  return {\n    user: store.user,\n    course: store.course\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfileUpload extends Component {\n    /**\n    * Uploads course\n    * @param {object} course - takes course for upload\n    * @returns {object} arr - return array from converted json object\n    */\n    uploadCourse(course){\n        var user = this.props.user.user\n        var courseName = document.getElementById(\"courseName\").value;\n        var courseDescription = document.getElementById(\"courseDescription\").value;\n        var courseVideoId = document.getElementById(\"courseVideoId\").value;\n        var courseVendorEmail = user.email\n        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}\n        console.log(courseName);\n        console.log(courseDescription);\n        console.log(courseVideoId);\n        this.props.dispatch(uploadCourse(course));\n    }\n    /**\n    * Loads the course profile\n    * @return {html} - returns course profile depending on type of user\n    */\n    render(){\n        return(\n            <Content className=\"learn-content\">\n                <div className=\"android-content mdl-layout__content\">\n                        <a name=\"top\" />\n                        <div style={{width: '80%', margin: 'auto'}}>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseName\" className=\"form-control\" ref=\"courseName\" id=\"courseName\"/>\n                                </CardText>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseDescription\" ref=\"pw\" type=\"courseDescription\" className=\"form-control\" id=\"courseDescription\"/>\n                            </CardText>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseVideoId\" ref=\"pw\" type=\"courseVideoId\" className=\"form-control\" id=\"courseVideoId\"/>\n                            </CardText>\n                            <CardActions style={componentStyle}>\n                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className=\"mdl-color-text--indigo btn btn-primary\">Submit Course</Button>\n                            </CardActions>\n                        </div>\n                    </div>\n            </Content>\n    )}\n};\n\n\n\nexport default ContentProfileUpload\n"
   },
   {
     "__docId__": 123,
@@ -2992,17 +2994,34 @@
     "memberof": "component/Profile/ContentProfileUpload.js~ContentProfileUpload",
     "longname": "component/Profile/ContentProfileUpload.js~ContentProfileUpload#uploadCourse",
     "access": null,
-    "description": null,
-    "lineNumber": 27,
-    "undocument": true,
-    "params": [
+    "description": "Uploads course",
+    "lineNumber": 32,
+    "unknown": [
       {
-        "name": "course",
-        "types": [
-          "*"
-        ]
+        "tagName": "@returns",
+        "tagValue": "{object} arr - return array from converted json object"
       }
     ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "course",
+        "description": "takes course for upload"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "arr - return array from converted json object"
+    },
     "generator": false
   },
   {
@@ -3014,14 +3033,16 @@
     "memberof": "component/Profile/ContentProfileUpload.js~ContentProfileUpload",
     "longname": "component/Profile/ContentProfileUpload.js~ContentProfileUpload#render",
     "access": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "Loads the course profile",
+    "lineNumber": 48,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns course profile depending on type of user"
     },
     "generator": false
   },
@@ -3036,7 +3057,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell,Layout } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentProfile from './ContentProfile.js'\nimport SideMenuProfile from './SideMenuProfile.js'\n\nimport store from '../Store.js'\nimport { connect } from \"react-redux\"\n//      <LearnHeader/>\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\nclass SignUp extends Component {\n    \n    componentWillMount(){\n        const {user} = this.props\n        console.log(user.isLoggedIn)\n    }\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <SideMenuProfile/>\n        <Layout fixedHeader fixedDrawer>\n            <ContentProfile/>   \n            <LearnFooter/>\n        </Layout>\n        \n      </div>    \n    );\n  }\n}\n\n\n\nexport default SignUp\n    "
+    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell,Layout } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentProfile from './ContentProfile.js'\nimport SideMenuProfile from './SideMenuProfile.js'\n\nimport store from '../Store.js'\nimport { connect } from \"react-redux\"\n//      <LearnHeader/>\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\nclass SignUp extends Component {\n  /**\n   * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses\n   */\n    componentWillMount(){\n        const {user} = this.props\n        console.log(user.isLoggedIn)\n    }\n  /**\n  * Loads the user profile\n  * @return {html} - returns course, profile, sidebar\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <SideMenuProfile/>\n        <Layout fixedHeader fixedDrawer>\n            <ContentProfile/>\n            <LearnFooter/>\n        </Layout>\n\n      </div>\n    );\n  }\n}\n\n\n\nexport default SignUp\n"
   },
   {
     "__docId__": 129,
@@ -3067,9 +3088,8 @@
     "memberof": "component/Profile/Profile.js~SignUp",
     "longname": "component/Profile/Profile.js~SignUp#componentWillMount",
     "access": null,
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses",
+    "lineNumber": 21,
     "params": [],
     "generator": false
   },
@@ -3082,14 +3102,16 @@
     "memberof": "component/Profile/Profile.js~SignUp",
     "longname": "component/Profile/Profile.js~SignUp#render",
     "access": null,
-    "description": null,
-    "lineNumber": 23,
-    "undocument": true,
+    "description": "Loads the user profile",
+    "lineNumber": 29,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns course, profile, sidebar"
     },
     "generator": false
   },
@@ -3104,7 +3126,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Drawer,Navigation,List,ListItem,ListItemContent,Button} from 'react-mdl';\nimport { connect } from \"react-redux\"\nimport { getCurrentUser } from \"../Actions/userActions\"\nimport { changeMenu } from \"../Actions/profileActions\"\n\n\n\nvar sidemenuItemStyle = {\n    width:\"100%\"\n}\n\nvar sidemenuStyle={\n    width: \"240px\",\n    height: \"100%\",\n    maxHeight: \"100%\",\n    position: \"absolute\",\n    top: \"0\",\n    left: \"0\",\n    marginTop: \"64px\",\n    zIndex:\"99\"\n}\n\nvar listStyle={\n\n}\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass SideMenuProfile extends Component {\n    changeMenuNumberZero(){\n        this.props.dispatch(changeMenu(0))\n    }\n    \n    changeMenuNumberOne(){\n        this.props.dispatch(changeMenu(1))\n    }\n    \n    changeMenuNumberTwo(){\n        this.props.dispatch(changeMenu(2))\n    }\n    \n    render(){\n        const {user,profile} = this.props\n        if (user.role == 0){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <ListItemContent >Profile</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >Bookmarks</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >My RFP</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else if (user.role==1){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberZero.bind(this)} style={sidemenuItemStyle} >Profile</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberOne.bind(this)} style={sidemenuItemStyle}>My Courses</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberTwo.bind(this)} style={sidemenuItemStyle}>Add Course</Button>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else{\n            return(\n                <div>Loading</div>\n            )\n        }\n    }\n};\n\n\n\nexport default SideMenuProfile"
+    "content": "import React, { Component } from 'react'\nimport {Drawer,Navigation,List,ListItem,ListItemContent,Button} from 'react-mdl';\nimport { connect } from \"react-redux\"\nimport { getCurrentUser } from \"../Actions/userActions\"\nimport { changeMenu } from \"../Actions/profileActions\"\n\n\n\nvar sidemenuItemStyle = {\n    width:\"100%\"\n}\n\nvar sidemenuStyle={\n    width: \"240px\",\n    height: \"100%\",\n    maxHeight: \"100%\",\n    position: \"absolute\",\n    top: \"0\",\n    left: \"0\",\n    marginTop: \"64px\",\n    zIndex:\"99\"\n}\n\nvar listStyle={\n\n}\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass SideMenuProfile extends Component {\n    /**\n    * Changes state of sidebar menu\n    */\n    changeMenuNumberZero(){\n        this.props.dispatch(changeMenu(0))\n    }\n    /**\n    * Changes state of sidebar menu\n    */\n    changeMenuNumberOne(){\n        this.props.dispatch(changeMenu(1))\n    }\n    /**\n    * Changes state of sidebar menu\n    */\n    changeMenuNumberTwo(){\n        this.props.dispatch(changeMenu(2))\n    }\n    /**\n    * Loads the user profile sidebar\n    * @return {html} - returns Bookmarks, profile, sidebar, RFPs\n    */\n    render(){\n        const {user,profile} = this.props\n        if (user.role == 0){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <ListItemContent >Profile</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >Bookmarks</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >My RFP</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else if (user.role==1){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberZero.bind(this)} style={sidemenuItemStyle} >Profile</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberOne.bind(this)} style={sidemenuItemStyle}>My Courses</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberTwo.bind(this)} style={sidemenuItemStyle}>Add Course</Button>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else{\n            return(\n                <div>Loading</div>\n            )\n        }\n    }\n};\n\n\n\nexport default SideMenuProfile\n"
   },
   {
     "__docId__": 133,
@@ -3198,9 +3220,8 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#changeMenuNumberZero",
     "access": null,
-    "description": null,
-    "lineNumber": 36,
-    "undocument": true,
+    "description": "Changes state of sidebar menu",
+    "lineNumber": 39,
     "params": [],
     "generator": false
   },
@@ -3213,9 +3234,8 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#changeMenuNumberOne",
     "access": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "Changes state of sidebar menu",
+    "lineNumber": 45,
     "params": [],
     "generator": false
   },
@@ -3228,9 +3248,8 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#changeMenuNumberTwo",
     "access": null,
-    "description": null,
-    "lineNumber": 44,
-    "undocument": true,
+    "description": "Changes state of sidebar menu",
+    "lineNumber": 51,
     "params": [],
     "generator": false
   },
@@ -3243,14 +3262,16 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#render",
     "access": null,
-    "description": null,
-    "lineNumber": 48,
-    "undocument": true,
+    "description": "Loads the user profile sidebar",
+    "lineNumber": 58,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns Bookmarks, profile, sidebar, RFPs"
     },
     "generator": false
   },
@@ -5623,7 +5644,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { fetchCourse,saveACourse } from \"../Actions/courseActions\"\n\nvar listItemStyle =  {\n    width:\"100%\",\n    height:\"200px\"\n}\n\nvar cardStyle = {\n    width:\"100%\"\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass CourseList extends Component{\n    onListItemClick(){\n        console.log(course.courseName)\n    }\n    componentWillMount(){   \n        this.props.dispatch(fetchCourse());\n    }\n\n    saveACourse(courseName){   \n        this.props.dispatch(saveACourse(courseName));\n        window.location.assign(\"/#view-course-detail\");\n    }\n    \n    \n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    render(){\n        const {course}=this.props\n        if (course.courseList){\n            var arr = this.jsonToArray(course.courseList)\n            const mappedCourse = arr.map(course => \n                \n                <div style={listItemStyle} key = {course.courseName} className=\"mdl-card mdl-shadow--2dp \" onClick={()=>(this.saveACourse(course.courseName))}>\n                    <div className=\"mdl-card__title\" >\n                        <h2 className=\"mdl-card__title-text\">\n                            {course.courseName}\n                        </h2>\n                    </div>\n                     <div className=\"mdl-card__supporting-text\"> \n                        {course.courseDescription}\n                    </div>\n                </div>\n                )\n            \n            return(\n                <div>\n                    {mappedCourse}\n                </div>\n\n            )\n                                         \n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n                \n                </Content>\n            )\n        }\n        \n    }\n}\n\nexport default CourseList"
+    "content": "import React, { Component } from 'react'\nimport {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { fetchCourse,saveACourse } from \"../Actions/courseActions\"\n\nvar listItemStyle =  {\n    width:\"100%\",\n    height:\"200px\"\n}\n\nvar cardStyle = {\n    width:\"100%\"\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass CourseList extends Component{\n    onListItemClick(){\n        console.log(course.courseName)\n    }\n    componentWillMount(){   \n        this.props.dispatch(fetchCourse());\n    }\n\n    saveACourse(courseName){   \n        this.props.dispatch(saveACourse(courseName));\n        window.location.assign(\"/#view-course-detail\");\n    }\n    \n    /**converts json object to an array of its contents\n    * @param {object} json   takes a json object\n    * @return {Array} arr returns an array of the given json object\n    */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    \n    /**renders the display for the current page.   displays courses\n    * @return if there is a courselist return the list\n    * @return if not display empy page\n    */\n    render(){\n        const {course}=this.props\n        if (course.courseList){\n            var arr = this.jsonToArray(course.courseList)\n            const mappedCourse = arr.map(course => \n                \n                <div style={listItemStyle} key = {course.courseName} className=\"mdl-card mdl-shadow--2dp \" onClick={()=>(this.saveACourse(course.courseName))}>\n                    <div className=\"mdl-card__title\" >\n                        <h2 className=\"mdl-card__title-text\">\n                            {course.courseName}\n                        </h2>\n                    </div>\n                     <div className=\"mdl-card__supporting-text\"> \n                        {course.courseDescription}\n                    </div>\n                </div>\n                )\n            \n            return(\n                <div>\n                    {mappedCourse}\n                </div>\n\n            )\n                                         \n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n                \n                </Content>\n            )\n        }\n        \n    }\n}\n\nexport default CourseList"
   },
   {
     "__docId__": 263,
@@ -5748,21 +5769,27 @@
     "memberof": "component/ViewCourse/CourseList.js~CourseList",
     "longname": "component/ViewCourse/CourseList.js~CourseList#jsonToArray",
     "access": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "converts json object to an array of its contents",
+    "lineNumber": 43,
     "params": [
       {
-        "name": "json",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": "takes a json object"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Array"
+      ],
+      "spread": false,
+      "description": "arr returns an array of the given json object"
     },
     "generator": false
   },
@@ -5775,14 +5802,16 @@
     "memberof": "component/ViewCourse/CourseList.js~CourseList",
     "longname": "component/ViewCourse/CourseList.js~CourseList#render",
     "access": null,
-    "description": null,
-    "lineNumber": 47,
-    "undocument": true,
+    "description": "renders the display for the current page.   displays courses",
+    "lineNumber": 55,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
         "*"
-      ]
+      ],
+      "spread": false,
+      "description": "if not display empy page"
     },
     "generator": false
   },
@@ -5797,7 +5826,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentViewCourse from './ContentViewCourse.js'\nimport CourseList from './CourseList.js'\n\n\nclass ViewCourse extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentViewCourse/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default ViewCourse"
+    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentViewCourse from './ContentViewCourse.js'\nimport CourseList from './CourseList.js'\n\n/**display courses\n*  @return display output of viewcourse page.\n*/\nclass ViewCourse extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentViewCourse/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default ViewCourse"
   },
   {
     "__docId__": 272,
@@ -5811,9 +5840,16 @@
     "export": true,
     "importPath": "learnenergy401/component/ViewCourse/ViewCourse.js",
     "importStyle": "ViewCourse",
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "display courses",
+    "lineNumber": 10,
+    "return": {
+      "nullable": null,
+      "types": [
+        "*"
+      ],
+      "spread": false,
+      "description": "display output of viewcourse page."
+    },
     "interface": false,
     "extends": [
       "react~Component"
@@ -5829,7 +5865,7 @@
     "longname": "component/ViewCourse/ViewCourse.js~ViewCourse#render",
     "access": null,
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 11,
     "undocument": true,
     "params": [],
     "return": {

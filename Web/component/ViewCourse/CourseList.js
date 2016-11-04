@@ -36,7 +36,10 @@ class CourseList extends Component{
         window.location.assign("/#view-course-detail");
     }
     
-    
+    /**converts json object to an array of its contents
+    * @param {object} json   takes a json object
+    * @return {Array} arr returns an array of the given json object
+    */
     jsonToArray(json){
         var arr = [];
         for (var prop in json) {
@@ -44,6 +47,11 @@ class CourseList extends Component{
         }
         return arr
     }
+    
+    /**renders the display for the current page.   displays courses
+    * @return if there is a courselist return the list
+    * @return if not display empy page
+    */
     render(){
         const {course}=this.props
         if (course.courseList){

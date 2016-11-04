@@ -138,6 +138,11 @@ var formStyle = {
 
 
 class ContentProfileUpload extends Component {
+    /**
+    * Uploads course
+    * @param {object} course - takes course for upload
+    * @returns {object} arr - return array from converted json object
+    */
     uploadCourse(course){
         var user = this.props.user.user
         var courseName = document.getElementById(&quot;courseName&quot;).value;
@@ -148,9 +153,12 @@ class ContentProfileUpload extends Component {
         console.log(courseName);
         console.log(courseDescription);
         console.log(courseVideoId);
-        this.props.dispatch(uploadCourse(course)); 
+        this.props.dispatch(uploadCourse(course));
     }
-    
+    /**
+    * Loads the course profile
+    * @return {html} - returns course profile depending on type of user
+    */
     render(){
         return(
             &lt;Content className=&quot;learn-content&quot;&gt;
@@ -160,10 +168,10 @@ class ContentProfileUpload extends Component {
                             &lt;CardText style={componentStyle}&gt;
                                 &lt;Textfield floatingLabel label=&quot;courseName&quot; className=&quot;form-control&quot; ref=&quot;courseName&quot; id=&quot;courseName&quot;/&gt;
                                 &lt;/CardText&gt;
-                            &lt;CardText style={componentStyle}&gt;        
+                            &lt;CardText style={componentStyle}&gt;
                                 &lt;Textfield floatingLabel label=&quot;courseDescription&quot; ref=&quot;pw&quot; type=&quot;courseDescription&quot; className=&quot;form-control&quot; id=&quot;courseDescription&quot;/&gt;
                             &lt;/CardText&gt;
-                            &lt;CardText style={componentStyle}&gt;        
+                            &lt;CardText style={componentStyle}&gt;
                                 &lt;Textfield floatingLabel label=&quot;courseVideoId&quot; ref=&quot;pw&quot; type=&quot;courseVideoId&quot; className=&quot;form-control&quot; id=&quot;courseVideoId&quot;/&gt;
                             &lt;/CardText&gt;
                             &lt;CardActions style={componentStyle}&gt;
@@ -177,7 +185,8 @@ class ContentProfileUpload extends Component {
 
 
 
-export default ContentProfileUpload</code></pre>
+export default ContentProfileUpload
+</code></pre>
 
 </div>
 
