@@ -168,12 +168,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "learnenergy401/component/firebase.js~firebasetools",
-    "variable/index.html#static-variable-FirebaseTools",
-    "<span>FirebaseTools</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
     "learnenergy401/component/home/home.js~home",
     "class/component/Home/Home.js~Home.html",
     "<span>Home</span> <span class=\"search-result-import-path\">learnenergy401/component/Home/Home.js</span>",
@@ -213,12 +207,6 @@ window.esdocSearchIndex = [
     "learnenergy401/component/router.js~reactrouter",
     "class/component/Router.js~ReactRouter.html",
     "<span>ReactRouter</span> <span class=\"search-result-import-path\">learnenergy401/component/Router.js</span>",
-    "class"
-  ],
-  [
-    "learnenergy401/component/scripts.js~scripts",
-    "class/component/Scripts.js~Scripts.html",
-    "<span>Scripts</span> <span class=\"search-result-import-path\">learnenergy401/component/Scripts.js</span>",
     "class"
   ],
   [
@@ -264,12 +252,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "learnenergy401/component/toast.js~toast",
-    "class/component/Toast.js~Toast.html",
-    "<span>Toast</span> <span class=\"search-result-import-path\">learnenergy401/component/Toast.js</span>",
-    "class"
-  ],
-  [
     "learnenergy401/component/vendor/upload.js~upload",
     "class/component/Vendor/Upload.js~Upload.html",
     "<span>Upload</span> <span class=\"search-result-import-path\">learnenergy401/component/Vendor/Upload.js</span>",
@@ -279,12 +261,6 @@ window.esdocSearchIndex = [
     "learnenergy401/component/viewcourse/viewcourse.js~viewcourse",
     "class/component/ViewCourse/ViewCourse.js~ViewCourse.html",
     "<span>ViewCourse</span> <span class=\"search-result-import-path\">learnenergy401/component/ViewCourse/ViewCourse.js</span>",
-    "class"
-  ],
-  [
-    "learnenergy401/component/viewcourse/youtube.js~youtube",
-    "class/component/ViewCourse/Youtube.js~YouTube.html",
-    "<span>YouTube</span> <span class=\"search-result-import-path\">learnenergy401/component/ViewCourse/Youtube.js</span>",
     "class"
   ],
   [
@@ -340,42 +316,6 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-fetchVendorSignup",
     "<span>fetchVendorSignup</span> <span class=\"search-result-import-path\">learnenergy401/component/Actions/userActions.js</span>",
     "function"
-  ],
-  [
-    "learnenergy401/component/firebase.js~firebaseapp2",
-    "variable/index.html#static-variable-firebaseApp2",
-    "<span>firebaseApp2</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
-    "learnenergy401/component/firebase.js~firebaseapp",
-    "variable/index.html#static-variable-firebaseApp",
-    "<span>firebaseApp</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
-    "learnenergy401/component/firebase.js~firebaseauth",
-    "variable/index.html#static-variable-firebaseAuth",
-    "<span>firebaseAuth</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
-    "learnenergy401/component/firebase.js~firebaseauthinstance",
-    "variable/index.html#static-variable-firebaseAuthInstance",
-    "<span>firebaseAuthInstance</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
-    "learnenergy401/component/firebase.js~firebasedb",
-    "variable/index.html#static-variable-firebaseDb",
-    "<span>firebaseDb</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
-    "learnenergy401/component/firebase.js~firebasestorage",
-    "variable/index.html#static-variable-firebaseStorage",
-    "<span>firebaseStorage</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
   ],
   [
     "learnenergy401/component/actions/useractions.js~getcurrentuser",
@@ -1278,18 +1218,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "component/scripts.js~scripts#render",
-    "class/component/Scripts.js~Scripts.html#instance-method-render",
-    "component/Scripts.js~Scripts#render",
-    "method"
-  ],
-  [
-    "component/scripts.js~scripts#script",
-    "class/component/Scripts.js~Scripts.html#instance-method-script",
-    "component/Scripts.js~Scripts#script",
-    "method"
-  ],
-  [
     "component/signup/buttonsignup.js",
     "file/component/SignUp/ButtonSignUp.js.html",
     "component/SignUp/ButtonSignUp.js",
@@ -1530,36 +1458,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "component/toast.js~toast#constructor",
-    "class/component/Toast.js~Toast.html#instance-constructor-constructor",
-    "component/Toast.js~Toast#constructor",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#handleshowsnackbar",
-    "class/component/Toast.js~Toast.html#instance-method-handleShowSnackbar",
-    "component/Toast.js~Toast#handleShowSnackbar",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#handletimeoutsnackbar",
-    "class/component/Toast.js~Toast.html#instance-method-handleTimeoutSnackbar",
-    "component/Toast.js~Toast#handleTimeoutSnackbar",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#render",
-    "class/component/Toast.js~Toast.html#instance-method-render",
-    "component/Toast.js~Toast#render",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#state",
-    "class/component/Toast.js~Toast.html#instance-member-state",
-    "component/Toast.js~Toast#state",
-    "member"
-  ],
-  [
     "component/vendor/upload.js",
     "file/component/Vendor/Upload.js.html",
     "component/Vendor/Upload.js",
@@ -1666,48 +1564,6 @@ window.esdocSearchIndex = [
     "file/component/ViewCourse/Youtube.js.html",
     "component/ViewCourse/Youtube.js",
     "file"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#componentdidmount",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-componentDidMount",
-    "component/ViewCourse/Youtube.js~YouTube#componentDidMount",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#componentdidupdate",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-componentDidUpdate",
-    "component/ViewCourse/Youtube.js~YouTube#componentDidUpdate",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#componentwillunmount",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-componentWillUnmount",
-    "component/ViewCourse/Youtube.js~YouTube#componentWillUnmount",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#constructor",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-constructor-constructor",
-    "component/ViewCourse/Youtube.js~YouTube#constructor",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#container",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-member-container",
-    "component/ViewCourse/Youtube.js~YouTube#container",
-    "member"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#internalplayer",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-member-internalPlayer",
-    "component/ViewCourse/Youtube.js~YouTube#internalPlayer",
-    "member"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#render",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-render",
-    "component/ViewCourse/Youtube.js~YouTube#render",
-    "method"
   ],
   [
     "component/main.js",

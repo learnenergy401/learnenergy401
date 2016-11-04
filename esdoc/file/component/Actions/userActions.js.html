@@ -47,15 +47,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Scripts.js~Scripts.html">Scripts</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Toast.js~Toast.html">Toast</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FirebaseTools">FirebaseTools</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp">firebaseApp</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp2">firebaseApp2</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuthInstance">firebaseAuthInstance</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseDb">firebaseDb</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseStorage">firebaseStorage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
@@ -106,7 +97,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/Youtube.js~YouTube.html">YouTube</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -118,7 +108,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 /**
  * Grabs the purchasers from the Purchaser SignUp list in the database.
  * @returns {object} purchasers - Returns the object of purchasers.
- * @throws {object} err - Returns an error if failed to fetch from database. 
+ * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function fetchPurchaserSignup() {
   return function(dispatch) {
@@ -192,8 +182,9 @@ export function getCurrentUser() {
 
 /**
  * Gets user information passed in and will create the account for the user and remove the old user from the signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information for us to register into firebase with and store in our database.
- * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase. 
+ * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase.
  */
 export function approveUser(user) {
   return function(dispatch) {
@@ -376,8 +367,9 @@ export function approveUser(user) {
 
 /**
  * Gets user information passed in and will remove the user from the signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user.
- * @throws {object} err - Returns an error if failed to remove from database. 
+ * @throws {object} err - Returns an error if failed to remove from database.
  */
 export function rejectUser(user) {
   return function(dispatch) {
@@ -408,6 +400,7 @@ export function rejectUser(user) {
 
 /**
  * Gets purchaser user information passed in and will add the user to the purchaser signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user purchaser.
  * @throws {object} err - Returns an error if failed to push to database.
  */
@@ -459,6 +452,7 @@ export function signUpPurchaser(user) {
 
 /**
  * Gets vendor user information passed in and will add the user to the vendor signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user vendor.
  * @throws {object} err - Returns an error if failed to push to database.
  */
@@ -569,6 +563,7 @@ export function signUpVendor(user) {
 
 /**
  * Gets additional resource user information passed in and will add the user to the additional resource signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user additional resource.
  * @throws {object} err - Returns an error if failed to push to database.
  */
@@ -592,6 +587,7 @@ export function signUpAD(user) {
 
 /**
  * Logs in the user using firebase authentication and sets notifications to false, error if invalid information.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user to log in with.
  * @throws {object} err - Returns an error if failed to login.
  */
@@ -599,7 +595,7 @@ export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) =&gt; {
-              dispatch({type: &quot;LOGIN_USER_FULFILLED&quot;, payload: data})  
+              dispatch({type: &quot;LOGIN_USER_FULFILLED&quot;, payload: data})
             })
             .catch((err) =&gt; {
               dispatch({type: &quot;LOGIN_USER_REJECTED&quot;, payload: err})
@@ -612,7 +608,8 @@ export function logInUser(user) {
 
 /**
  * Logs out the user using firebase authentication.
- * @throws {object} err - Returns an error if fail to logout. 
+ * @returns {object} dispatch - Returns the state which contains user object
+ * @throws {object} err - Returns an error if fail to logout.
  */
 export function logOutUser() {
     return function(dispatch) {

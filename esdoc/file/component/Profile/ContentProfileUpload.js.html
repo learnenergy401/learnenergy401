@@ -47,15 +47,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Scripts.js~Scripts.html">Scripts</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Toast.js~Toast.html">Toast</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FirebaseTools">FirebaseTools</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp">firebaseApp</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp2">firebaseApp2</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuthInstance">firebaseAuthInstance</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseDb">firebaseDb</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseStorage">firebaseStorage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
@@ -106,7 +97,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/Youtube.js~YouTube.html">YouTube</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -138,6 +128,11 @@ var formStyle = {
 
 
 class ContentProfileUpload extends Component {
+    /**
+    * Uploads course
+    * @param {object} course - takes course for upload
+    * @returns {object} arr - return array from converted json object
+    */
     uploadCourse(course){
         var user = this.props.user.user
         var courseName = document.getElementById(&quot;courseName&quot;).value;
@@ -148,9 +143,12 @@ class ContentProfileUpload extends Component {
         console.log(courseName);
         console.log(courseDescription);
         console.log(courseVideoId);
-        this.props.dispatch(uploadCourse(course)); 
+        this.props.dispatch(uploadCourse(course));
     }
-    
+    /**
+    * Loads the course profile
+    * @return {html} - returns course profile depending on type of user
+    */
     render(){
         return(
             &lt;Content className=&quot;learn-content&quot;&gt;
@@ -160,10 +158,10 @@ class ContentProfileUpload extends Component {
                             &lt;CardText style={componentStyle}&gt;
                                 &lt;Textfield floatingLabel label=&quot;courseName&quot; className=&quot;form-control&quot; ref=&quot;courseName&quot; id=&quot;courseName&quot;/&gt;
                                 &lt;/CardText&gt;
-                            &lt;CardText style={componentStyle}&gt;        
+                            &lt;CardText style={componentStyle}&gt;
                                 &lt;Textfield floatingLabel label=&quot;courseDescription&quot; ref=&quot;pw&quot; type=&quot;courseDescription&quot; className=&quot;form-control&quot; id=&quot;courseDescription&quot;/&gt;
                             &lt;/CardText&gt;
-                            &lt;CardText style={componentStyle}&gt;        
+                            &lt;CardText style={componentStyle}&gt;
                                 &lt;Textfield floatingLabel label=&quot;courseVideoId&quot; ref=&quot;pw&quot; type=&quot;courseVideoId&quot; className=&quot;form-control&quot; id=&quot;courseVideoId&quot;/&gt;
                             &lt;/CardText&gt;
                             &lt;CardActions style={componentStyle}&gt;
@@ -177,7 +175,8 @@ class ContentProfileUpload extends Component {
 
 
 
-export default ContentProfileUpload</code></pre>
+export default ContentProfileUpload
+</code></pre>
 
 </div>
 

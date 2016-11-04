@@ -47,15 +47,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Scripts.js~Scripts.html">Scripts</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Toast.js~Toast.html">Toast</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FirebaseTools">FirebaseTools</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp">firebaseApp</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp2">firebaseApp2</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuthInstance">firebaseAuthInstance</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseDb">firebaseDb</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseStorage">firebaseStorage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
@@ -106,7 +97,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/Youtube.js~YouTube.html">YouTube</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -114,7 +104,12 @@
 <div class="content" data-ice="content"><h1 data-ice="title">component/Actions/courseActions.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from &apos;../Firebase&apos;
 
-function  jsonToArray(json){
+/**
+ * converts json into an array
+ * @param {object} json - pushes object into array
+ * @returns {list} arr - Returns array of json objects
+ */
+function jsonToArray(json){
         var arr = [];
         for (var prop in json) {
             arr.push(json[prop]);
@@ -122,6 +117,11 @@ function  jsonToArray(json){
         return arr
     }
 
+/**
+ * Grabs the courses from the course child in the database.
+ * @returns {object} courses - Returns the object of courses.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchCourseList() {
     return function(dispatch) {
         dispatch({type: &quot;UPLOAD_COURSE&quot;})
@@ -136,7 +136,12 @@ export function fetchCourseList() {
     }
 }
 
-
+/**
+ * Upload a course into the database.
+ * @param {object} course - object containing course info
+ * @returns {object} courses - Returns the object of courses.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function uploadCourse(course) {
     return function(dispatch) {
         dispatch({type: &quot;UPLOAD_COURSE&quot;})
@@ -151,6 +156,12 @@ export function uploadCourse(course) {
     }
 }
 
+/**
+ * Grabs the vendor courses from the Vendor Course in the database.
+ * @param {object} email - object containing email
+ * @returns {object} currentVendorCourseList - Returns the object of courses.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchVendorCourse(email) {
     return function(dispatch) {
         dispatch({type: &quot;FETCH_VENDORS_COURSE&quot;})
@@ -162,6 +173,11 @@ export function fetchVendorCourse(email) {
     }
 }
 
+/**
+ * Grabs the courses from the CourseList in the database.
+ * @returns {object} courseList - Returns the object of courseList.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchCourse() {
     return function(dispatch) {
         dispatch({type: &quot;FETCH_COURSE&quot;})
@@ -173,6 +189,12 @@ export function fetchCourse() {
     }
 }
 
+/**
+ * Grabs the courseName from the Course in the database.
+ * @param {object} courseName - Object containing course names
+ * @returns {object} aCourseName - Returns the object aCourseName
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchACourse(courseName) {
     return function(dispatch) {
         dispatch({type: &quot;FETCH_A_COURSE&quot;})
@@ -188,6 +210,12 @@ export function fetchACourse(courseName) {
     }
 }
 
+/**
+ * Saves a course to the database.
+ * @param {object} courseName - Object containing course names
+ * @returns {object} courseName - Returns the object containing course names.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function saveACourse(courseName) {
     return function(dispatch) {
         dispatch({type: &quot;SAVE_A_COURSE&quot;,payload: courseName})

@@ -1,14 +1,14 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 220,
+  "end": 380,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 10,
+      "line": 14,
       "column": 0
     }
   },
@@ -235,52 +235,77 @@
         },
         "value": "../Firebase",
         "rawValue": "../Firebase",
-        "raw": "'../Firebase'"
-      }
+        "raw": "'../Firebase'",
+        "leadingComments": null,
+        "trailingComments": null
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * sidebar options for profile page\n * @param {object} menuNum - object of menuNum\n * @returns {object} dispatch - Returns the new state of the sidebar.\n ",
+          "start": 83,
+          "end": 243,
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 8,
+              "column": 3
+            }
+          },
+          "range": [
+            83,
+            243
+          ]
+        }
+      ]
     },
     {
       "type": "ExportNamedDeclaration",
-      "start": 83,
-      "end": 218,
+      "start": 244,
+      "end": 379,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 8,
+          "line": 13,
           "column": 1
         }
       },
       "declaration": {
         "type": "FunctionDeclaration",
-        "start": 90,
-        "end": 218,
+        "start": 251,
+        "end": 379,
         "loc": {
           "start": {
-            "line": 4,
+            "line": 9,
             "column": 7
           },
           "end": {
-            "line": 8,
+            "line": 13,
             "column": 1
           }
         },
         "id": {
           "type": "Identifier",
-          "start": 99,
-          "end": 109,
+          "start": 260,
+          "end": 270,
           "loc": {
             "start": {
-              "line": 4,
+              "line": 9,
               "column": 16
             },
             "end": {
-              "line": 4,
+              "line": 9,
               "column": 26
             }
           },
-          "name": "changeMenu"
+          "name": "changeMenu",
+          "leadingComments": null
         },
         "generator": false,
         "expression": false,
@@ -288,15 +313,15 @@
         "params": [
           {
             "type": "Identifier",
-            "start": 110,
-            "end": 117,
+            "start": 271,
+            "end": 278,
             "loc": {
               "start": {
-                "line": 4,
+                "line": 9,
                 "column": 27
               },
               "end": {
-                "line": 4,
+                "line": 9,
                 "column": 34
               }
             },
@@ -305,44 +330,44 @@
         ],
         "body": {
           "type": "BlockStatement",
-          "start": 119,
-          "end": 218,
+          "start": 280,
+          "end": 379,
           "loc": {
             "start": {
-              "line": 4,
+              "line": 9,
               "column": 36
             },
             "end": {
-              "line": 8,
+              "line": 13,
               "column": 1
             }
           },
           "body": [
             {
               "type": "ReturnStatement",
-              "start": 125,
-              "end": 216,
+              "start": 286,
+              "end": 377,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 10,
                   "column": 4
                 },
                 "end": {
-                  "line": 7,
+                  "line": 12,
                   "column": 5
                 }
               },
               "argument": {
                 "type": "FunctionExpression",
-                "start": 132,
-                "end": 216,
+                "start": 293,
+                "end": 377,
                 "loc": {
                   "start": {
-                    "line": 5,
+                    "line": 10,
                     "column": 11
                   },
                   "end": {
-                    "line": 7,
+                    "line": 12,
                     "column": 5
                   }
                 },
@@ -353,15 +378,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 141,
-                    "end": 149,
+                    "start": 302,
+                    "end": 310,
                     "loc": {
                       "start": {
-                        "line": 5,
+                        "line": 10,
                         "column": 20
                       },
                       "end": {
-                        "line": 5,
+                        "line": 10,
                         "column": 28
                       }
                     },
@@ -370,58 +395,58 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 151,
-                  "end": 216,
+                  "start": 312,
+                  "end": 377,
                   "loc": {
                     "start": {
-                      "line": 5,
+                      "line": 10,
                       "column": 30
                     },
                     "end": {
-                      "line": 7,
+                      "line": 12,
                       "column": 5
                     }
                   },
                   "body": [
                     {
                       "type": "ExpressionStatement",
-                      "start": 161,
-                      "end": 210,
+                      "start": 322,
+                      "end": 371,
                       "loc": {
                         "start": {
-                          "line": 6,
+                          "line": 11,
                           "column": 8
                         },
                         "end": {
-                          "line": 6,
+                          "line": 11,
                           "column": 57
                         }
                       },
                       "expression": {
                         "type": "CallExpression",
-                        "start": 161,
-                        "end": 210,
+                        "start": 322,
+                        "end": 371,
                         "loc": {
                           "start": {
-                            "line": 6,
+                            "line": 11,
                             "column": 8
                           },
                           "end": {
-                            "line": 6,
+                            "line": 11,
                             "column": 57
                           }
                         },
                         "callee": {
                           "type": "Identifier",
-                          "start": 161,
-                          "end": 169,
+                          "start": 322,
+                          "end": 330,
                           "loc": {
                             "start": {
-                              "line": 6,
+                              "line": 11,
                               "column": 8
                             },
                             "end": {
-                              "line": 6,
+                              "line": 11,
                               "column": 16
                             }
                           },
@@ -430,30 +455,30 @@
                         "arguments": [
                           {
                             "type": "ObjectExpression",
-                            "start": 170,
-                            "end": 209,
+                            "start": 331,
+                            "end": 370,
                             "loc": {
                               "start": {
-                                "line": 6,
+                                "line": 11,
                                 "column": 17
                               },
                               "end": {
-                                "line": 6,
+                                "line": 11,
                                 "column": 56
                               }
                             },
                             "properties": [
                               {
                                 "type": "Property",
-                                "start": 171,
-                                "end": 190,
+                                "start": 332,
+                                "end": 351,
                                 "loc": {
                                   "start": {
-                                    "line": 6,
+                                    "line": 11,
                                     "column": 18
                                   },
                                   "end": {
-                                    "line": 6,
+                                    "line": 11,
                                     "column": 37
                                   }
                                 },
@@ -462,15 +487,15 @@
                                 "computed": false,
                                 "key": {
                                   "type": "Identifier",
-                                  "start": 171,
-                                  "end": 175,
+                                  "start": 332,
+                                  "end": 336,
                                   "loc": {
                                     "start": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 18
                                     },
                                     "end": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 22
                                     }
                                   },
@@ -478,15 +503,15 @@
                                 },
                                 "value": {
                                   "type": "Literal",
-                                  "start": 177,
-                                  "end": 190,
+                                  "start": 338,
+                                  "end": 351,
                                   "loc": {
                                     "start": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 24
                                     },
                                     "end": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 37
                                     }
                                   },
@@ -498,15 +523,15 @@
                               },
                               {
                                 "type": "Property",
-                                "start": 192,
-                                "end": 208,
+                                "start": 353,
+                                "end": 369,
                                 "loc": {
                                   "start": {
-                                    "line": 6,
+                                    "line": 11,
                                     "column": 39
                                   },
                                   "end": {
-                                    "line": 6,
+                                    "line": 11,
                                     "column": 55
                                   }
                                 },
@@ -515,15 +540,15 @@
                                 "computed": false,
                                 "key": {
                                   "type": "Identifier",
-                                  "start": 192,
-                                  "end": 199,
+                                  "start": 353,
+                                  "end": 360,
                                   "loc": {
                                     "start": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 39
                                     },
                                     "end": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 46
                                     }
                                   },
@@ -531,15 +556,15 @@
                                 },
                                 "value": {
                                   "type": "Identifier",
-                                  "start": 201,
-                                  "end": 208,
+                                  "start": 362,
+                                  "end": 369,
                                   "loc": {
                                     "start": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 48
                                     },
                                     "end": {
-                                      "line": 6,
+                                      "line": 11,
                                       "column": 55
                                     }
                                   },
@@ -558,11 +583,54 @@
             }
           ]
         },
-        "leadingComments": [],
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * sidebar options for profile page\n * @param {object} menuNum - object of menuNum\n * @returns {object} dispatch - Returns the new state of the sidebar.\n ",
+            "start": 83,
+            "end": 243,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            },
+            "range": [
+              83,
+              243
+            ]
+          }
+        ],
         "trailingComments": []
       },
       "specifiers": [],
-      "source": null
+      "source": null,
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * sidebar options for profile page\n * @param {object} menuNum - object of menuNum\n * @returns {object} dispatch - Returns the new state of the sidebar.\n ",
+          "start": 83,
+          "end": 243,
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 8,
+              "column": 3
+            }
+          },
+          "range": [
+            83,
+            243
+          ]
+        }
+      ]
     }
   ]
 }

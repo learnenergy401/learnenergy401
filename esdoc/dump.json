@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\nfunction  jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\nexport function fetchCourseList() {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.name).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\n\nexport function uploadCourse(course) {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.courseName).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\nexport function fetchVendorCourse(email) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_VENDORS_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseVendorEmail').equalTo(email).on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_VENDORS_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_VENDORS_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\nexport function fetchCourse() {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_COURSE\"})\n        firebaseDb.ref('Course').on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\nexport function fetchACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_A_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseName').equalTo(courseName).on(\"value\",function(snapshot){\n            if (snapshot.val()){\n                dispatch({type:\"FETCH_A_COURSE_FULFILLED\",payload:jsonToArray(snapshot.val())[0]})\n            }else{\n                dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:\"payload is null\"})\n            }\n        },function(errorObject){\n            dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\nexport function saveACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"SAVE_A_COURSE\",payload: courseName})\n    }\n}\n\n"
+    "content": "import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\n/**\n * converts json into an array\n * @param {object} json - pushes object into array\n * @returns {list} arr - Returns array of json objects\n */\nfunction jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\n/**\n * Grabs the courses from the course child in the database.\n * @returns {object} courses - Returns the object of courses.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchCourseList() {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.name).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\n/**\n * Upload a course into the database.\n * @param {object} course - object containing course info\n * @returns {object} courses - Returns the object of courses.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function uploadCourse(course) {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.courseName).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\n/**\n * Grabs the vendor courses from the Vendor Course in the database.\n * @param {object} email - object containing email\n * @returns {object} currentVendorCourseList - Returns the object of courses.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchVendorCourse(email) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_VENDORS_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseVendorEmail').equalTo(email).on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_VENDORS_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_VENDORS_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\n/**\n * Grabs the courses from the CourseList in the database.\n * @returns {object} courseList - Returns the object of courseList.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchCourse() {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_COURSE\"})\n        firebaseDb.ref('Course').on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\n/**\n * Grabs the courseName from the Course in the database.\n * @param {object} courseName - Object containing course names\n * @returns {object} aCourseName - Returns the object aCourseName\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_A_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseName').equalTo(courseName).on(\"value\",function(snapshot){\n            if (snapshot.val()){\n                dispatch({type:\"FETCH_A_COURSE_FULFILLED\",payload:jsonToArray(snapshot.val())[0]})\n            }else{\n                dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:\"payload is null\"})\n            }\n        },function(errorObject){\n            dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\n/**\n * Saves a course to the database.\n * @param {object} courseName - Object containing course names\n * @returns {object} courseName - Returns the object containing course names.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function saveACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"SAVE_A_COURSE\",payload: courseName})\n    }\n}\n\n"
   },
   {
     "__docId__": 1,
@@ -24,21 +24,33 @@
     "export": false,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "converts json into an array",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{list} arr - Returns array of json objects"
+      }
+    ],
     "params": [
       {
-        "name": "json",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": "pushes object into array"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "list"
+      ],
+      "spread": false,
+      "description": "arr - Returns array of json objects"
     },
     "generator": false
   },
@@ -54,15 +66,31 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchCourseList}",
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
+    "description": "Grabs the courses from the course child in the database.",
+    "lineNumber": 21,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courses - Returns the object of courses."
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courses - Returns the object of courses."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -77,22 +105,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{uploadCourse}",
-    "description": null,
-    "lineNumber": 26,
-    "undocument": true,
+    "description": "Upload a course into the database.",
+    "lineNumber": 41,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courses - Returns the object of courses."
+      }
+    ],
     "params": [
       {
-        "name": "course",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "course",
+        "description": "object containing course info"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courses - Returns the object of courses."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -107,22 +155,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchVendorCourse}",
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "Grabs the vendor courses from the Vendor Course in the database.",
+    "lineNumber": 61,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} currentVendorCourseList - Returns the object of courses."
+      }
+    ],
     "params": [
       {
-        "name": "email",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "email",
+        "description": "object containing email"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "currentVendorCourseList - Returns the object of courses."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -137,15 +205,31 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchCourse}",
-    "description": null,
-    "lineNumber": 51,
-    "undocument": true,
+    "description": "Grabs the courses from the CourseList in the database.",
+    "lineNumber": 77,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courseList - Returns the object of courseList."
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courseList - Returns the object of courseList."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -160,22 +244,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchACourse}",
-    "description": null,
-    "lineNumber": 62,
-    "undocument": true,
+    "description": "Grabs the courseName from the Course in the database.",
+    "lineNumber": 94,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} aCourseName - Returns the object aCourseName"
+      }
+    ],
     "params": [
       {
-        "name": "courseName",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "courseName",
+        "description": "Object containing course names"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "aCourseName - Returns the object aCourseName"
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -190,22 +294,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{saveACourse}",
-    "description": null,
-    "lineNumber": 77,
-    "undocument": true,
+    "description": "Saves a course to the database.",
+    "lineNumber": 115,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courseName - Returns the object containing course names."
+      }
+    ],
     "params": [
       {
-        "name": "courseName",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "courseName",
+        "description": "Object containing course names"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courseName - Returns the object containing course names."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -219,7 +343,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\nexport function changeMenu(menuNum) {\n    return function(dispatch) {\n        dispatch({type: \"CHANGE_MENU\", payload: menuNum})\n    }\n}\n\n"
+    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\n/**\n * sidebar options for profile page\n * @param {object} menuNum - object of menuNum\n * @returns {object} dispatch - Returns the new state of the sidebar.\n */\nexport function changeMenu(menuNum) {\n    return function(dispatch) {\n        dispatch({type: \"CHANGE_MENU\", payload: menuNum})\n    }\n}\n"
   },
   {
     "__docId__": 9,
@@ -233,21 +357,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/profileActions.js",
     "importStyle": "{changeMenu}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
+    "description": "sidebar options for profile page",
+    "lineNumber": 9,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the new state of the sidebar."
+      }
+    ],
     "params": [
       {
-        "name": "menuNum",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "menuNum",
+        "description": "object of menuNum"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the new state of the sidebar."
     },
     "generator": false
   },
@@ -262,7 +398,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'\n\n/**\n * Grabs the purchasers from the Purchaser SignUp list in the database.\n * @returns {object} purchasers - Returns the object of purchasers.\n * @throws {object} err - Returns an error if failed to fetch from database. \n */\nexport function fetchPurchaserSignup() {\n  return function(dispatch) {\n    firebaseDb.ref('PurchaserSignup').once(\"value\")\n      .then((snapshot) => {\n        dispatch({type: \"FETCH_PURCHASER_FULFILLED\", payload: snapshot.val()})\n      })\n      .catch((err) => {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: err})\n      })\n  }\n}\n\n/**\n * Grabs the vendors from the Vendor SignUp list in the database.\n * @returns {object} vendors - Returns the object of vendors.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchVendorSignup() {\n  return function(dispatch) {\n    firebaseDb.ref('VendorSignup').once(\"value\")\n      .then((snapshot) => {\n        dispatch({type: \"FETCH_VENDOR_FULFILLED\", payload: snapshot.val()})\n      })\n      .catch((err) => {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: err})\n      })\n  }\n}\n\n/**\n * Grabs the addition resources from the additional resouce SignUp list in the database.\n * @returns {object} ads - Returns the object of additional resources.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchADSignup() {\n  return function(dispatch) {\n    firebaseDb.ref('ADSignup').once(\"value\")\n      .then((snapshot) => {\n        dispatch({type: \"FETCH_AD_FULFILLED\", payload: snapshot.val()})\n      })\n      .catch((err) => {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: err})\n      })\n  }\n}\n\n/**\n * Checks to see if the user is logged in and then returns information about the current user logged in.\n * @returns {object} user - Returns the object of user.\n * @throws {object} err - Returns an error if failed to find current logged in user.\n */\nexport function getCurrentUser() {\n  return function(dispatch) {\n   firebaseAuth.onAuthStateChanged((user)=>{\n      if (user){\n        dispatch({type: \"FETCH_USER_FULFILLED\", payload: user,isLoggedIn: true})\n        firebaseDb.ref('User/' + user.uid).once(\"value\")\n        .then((snapshot) => {\n            dispatch({type: \"FETCH_USER_PROFILE_FULFILLED\", payload: snapshot.val()})\n        })\n        .catch((err) => {\n            dispatch({type: \"FETCH_USER_PROFILE_REJECTED\", payload: err})\n        })\n      } else {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: user,isLoggedIn: false})\n      }\n   }\n  )}\n}\n\n/**\n * Gets user information passed in and will create the account for the user and remove the old user from the signup list.\n * @param {object} user - object which contains information for us to register into firebase with and store in our database.\n * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase. \n */\nexport function approveUser(user) {\n  return function(dispatch) {\n    firebaseAuthInstance.createUserWithEmailAndPassword(user.email, user.password)\n    .then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\"})\n      firebaseAuthInstance.signInWithEmailAndPassword(user.email, user.password)\n      .then((data) => {\n        var currentUser = firebaseAuthInstance.currentUser\n\n        if (user.role==0) { // push as a purchaser\n          firebaseDb.ref('User/' + currentUser.uid).set({\n            legalEntity: user.legalEntity,\n            operatingName: user.operatingName,\n            address1: user.address1,\n            address2: user.address2,\n            city: user.city,\n            province: user.province,\n            country: user.country,\n            postalCode: user.postalCode,\n            phone: user.phone,\n            fax: user.fax,\n            email: user.email,\n            adminContact: user.adminContact,\n            technicalContact: user.technicalContact,\n\n            gstReg: user.gstReg,\n            billAddress1: user.billAddress1,\n            billAddress2: user.billAddress2,\n            billCity: user.billCity,\n            billProvince: user.billProvince,\n            billCountry: user.billCountry,\n            billPostalCode: user.billPostalCode,\n            accntRec: user.accntRec,\n            bank: user.bank,\n\n            ISnumber: user.ISnumber,\n            website: user.website,\n            password: user.password,\n\n            jointVenture: user.jointVenture,\n            categories: user.categories,\n\n            role: user.role,\n          })\n\n          firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {\n            console.log(\"removed\")\n            location.reload();\n          })\n          .catch(function(err) {\n            console.log(\"failed to remove\", user.key_name)\n          })\n\n        } else if (user.role == 1) { // push as a vendor\n\n          firebaseDb.ref('User/' + currentUser.uid).set({\n            legalEntity: user.legalEntity,\n            operatingName: user.operatingName,\n            address1: user.address1,\n            address2: user.address2,\n            city: user.city,\n            province: user.province,\n            country: user.country,\n            postalCode: user.postalCode,\n            phone: user.phone,\n            fax: user.fax,\n\n            owner1Name: user.owner1Name,\n            owner1Pos: user.owner1Pos,\n\n            natureBusiness: user.natureBusiness,\n            timeBusiness: user.timeBusiness,\n            proAffiliation: user.proAffiliation,\n            report:user.report,\n\n            bank: user.bank,\n            bankLocation: user.bankLocation,\n            bonding: user.bonding,\n            bondingLocation: user.bondingLocation,\n            insuranceCompany: user.insuranceCompany,\n            insuranceLocation: user.insuranceLocation,\n            bondingLimitDate: user.bondingLimitDate,\n            bondingLimit: user.bondingLimit,\n            grossBus: user.grossBus,\n            grossBusYear: user.grossBusYear,\n            bankruptcy:user.bankruptcy,\n\n            numEmployees: user.numEmployees,\n            AD1address1: user.AD1address1,\n            AD1address2: user.AD1address2,\n            AD1city: user.AD1city,\n            AD1province: user.AD1province,\n            AD1country: user.AD1country,\n            AD1postalCode: user.AD1postalCode,\n            AD1phone: user.AD1phone,\n\n            categories: user.categories,\n            specialties: user.specialties,\n\n            client1: user.client1,\n            client1Location: user.client1Location,\n            client1Phone: user.client1Phone,\n            client1Email: user.client1Email,\n\n            licence1: user.licence1,\n            licence1Location: user.licence1Location,\n            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,\n            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,\n            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,\n            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,\n            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,\n            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,\n            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,\n            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,\n            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,\n            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,\n            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,\n            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,\n            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,\n            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,\n            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,\n\n            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,\n            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,\n            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,\n            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,\n            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,\n            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,\n\n            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,\n            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,\n            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,\n            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,\n\n            drugPolicy: user.drugPolicy,\n            subcontractors: user.subcontractors,\n            stopWorkOrder: user.stopWorkOrder,\n\n            email: user.email,\n            adminContact: user.adminContact,\n            technicalContact: user.technicalContact,\n\n            ISnumber:user.ISnumber,\n\n            website: user.website,\n            password: user.password,\n            role: user.role,\n          })\n          firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {\n            console.log(\"removed\")\n            location.reload();\n          })\n          .catch(function(err) {\n            console.log(\"failed to remove\", user.key_name)\n          })\n\n\n        } else if (user.role == 2) { //push as an additional resource\n\n          firebaseDb.ref('User/' + currentUser.uid).set({\n            website: user.website,\n            email: user.email,\n            password: user.password,\n            role: user.role,\n          })\n          firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {\n            console.log(\"removed\")\n            location.reload();\n          })\n          .catch(function(err) {\n            console.log(\"failed to remove\", user.key_name)\n          })\n        }\n      })\n    })\n    firebaseAuthInstance.signOut()\n  }\n}\n\n/**\n * Gets user information passed in and will remove the user from the signup list.\n * @param {object} user - object which contains information about the user.\n * @throws {object} err - Returns an error if failed to remove from database. \n */\nexport function rejectUser(user) {\n  return function(dispatch) {\n    if (user.role == 0) { // reject purchaser\n      firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {\n        console.log(\"purchaseer removed\")\n        location.reload();\n      }).then((data) => {\n        dispatch({type: \"SIGNUP_USER_REJECTED\", paylod: data})\n      })\n    } else if (user.role == 1) { // reject vendor\n      firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {\n        console.log(\"vendor removed\")\n        location.reload();\n      }).then((data) => {\n        dispatch({type: \"SIGNUP_USER_REJECTED\", paylod: data})\n      })\n    } else if (user.role == 2) { // reject additional resource\n      firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {\n        console.log(\"ad removed\")\n        location.reload();\n      }).then((data) => {\n        dispatch({type: \"SIGNUP_USER_REJECTED\", paylod: data})\n      })\n    }\n  }\n}\n\n/**\n * Gets purchaser user information passed in and will add the user to the purchaser signup list.\n * @param {object} user - object which contains information about the user purchaser.\n * @throws {object} err - Returns an error if failed to push to database.\n */\nexport function signUpPurchaser(user) {\n  return function(dispatch) {\n    firebaseDb.ref('PurchaserSignup').push({\n      email: user.email,\n      password: user.password,\n      legalEntity: user.legalEntity,\n      operatingName: user.operatingName,\n      address1: user.address1,\n      address2: user.address2,\n      city: user.city,\n      province: user.province,\n      country: user.country,\n      postalCode: user.postalCode,\n      phone: user.phone,\n      fax: user.fax,\n      adminContact: user.adminContact,\n      technicalContact: user.technicalContact,\n\n      gstReg: user.gstReg,\n      billAddress1: user.billAddress1,\n      billAddress2: user.billAddress2,\n      billCity: user.billCity,\n      billProvince: user.billProvince,\n      billCountry: user.billCountry,\n      billPostalCode: user.billPostalCode,\n      accntRec: user.accntRec,\n      bank: user.bank,\n\n      ISnumber: user.ISnumber,\n      website: user.website,\n\n      jointVenture: user.jointVenture,\n      categories: user.categories,\n\n      role: 0,\n    }).then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\", payload: user})\n    })\n    .catch((err) => {\n      dispatch({type: \"SIGNUP_USER_REJECTED\", payload: err})\n    })\n    alert(\"Thank you for registering as a Purchaser for LearnEnergy Marketplace.\" +\"\\n\" + \"We will be in contact with you shortly.\");\n    location.reload();\n  }\n}\n\n/**\n * Gets vendor user information passed in and will add the user to the vendor signup list.\n * @param {object} user - object which contains information about the user vendor.\n * @throws {object} err - Returns an error if failed to push to database.\n */\nexport function signUpVendor(user) {\n  return function(dispatch) {\n    firebaseDb.ref('VendorSignup').push({\n      legalEntity: user.legalEntity,\n      operatingName: user.operatingName,\n      address1: user.address1,\n      address2: user.address2,\n      city: user.city,\n      province: user.province,\n      country: user.country,\n      postalCode: user.postalCode,\n      phone: user.phone,\n      fax: user.fax,\n\n      owner1Name: user.owner1Name,\n      owner1Pos: user.owner1Pos,\n\n      natureBusiness: user.natureBusiness,\n      timeBusiness: user.timeBusiness,\n      proAffiliation: user.proAffiliation,\n      report:user.report,\n\n      bank: user.bank,\n      bankLocation: user.bankLocation,\n      bonding: user.bonding,\n      bondingLocation: user.bondingLocation,\n      insuranceCompany: user.insuranceCompany,\n      insuranceLocation: user.insuranceLocation,\n      bondingLimitDate: user.bondingLimitDate,\n      bondingLimit: user.bondingLimit,\n      grossBus: user.grossBus,\n      grossBusYear: user.grossBusYear,\n      bankruptcy:user.bankruptcy,\n\n      numEmployees: user.numEmployees,\n      AD1address1: user.AD1address1,\n      AD1address2: user.AD1address2,\n      AD1city: user.AD1city,\n      AD1province: user.AD1province,\n      AD1country: user.AD1country,\n      AD1postalCode: user.AD1postalCode,\n      AD1phone: user.AD1phone,\n\n      categories: user.categories,\n      specialties: user.specialties,\n\n      client1: user.client1,\n      client1Location: user.client1Location,\n      client1Phone: user.client1Phone,\n      client1Email: user.client1Email,\n\n      licence1: user.licence1,\n      licence1Location: user.licence1Location,\n      insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,\n      insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,\n      insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,\n      insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,\n      insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,\n      insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,\n      insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,\n      insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,\n      insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,\n      insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,\n      insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,\n      insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,\n      insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,\n      insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,\n      insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,\n\n      EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,\n      FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,\n      LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,\n      MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,\n      ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1,  ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,\n      TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,\n\n      IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,\n      PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,\n      PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,\n      PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,\n\n      drugPolicy: user.drugPolicy,\n      subcontractors: user.subcontractors,\n      stopWorkOrder: user.stopWorkOrder,\n\n      email: user.email,\n      adminContact: user.adminContact,\n      technicalContact: user.technicalContact,\n\n      ISnumber:user.ISnumber,\n\n      website: user.website,\n      password: user.password,\n      role: 1,\n    }).then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\", payload: user})\n    })\n    .catch((err) => {\n      dispatch({type: \"SIGNUP_USER_REJECTED\", payload: err})\n    })\n    alert(\"Thank you for registering as a Vendor for LearnEnergy Marketplace.\" +\"\\n\" + \"We will be in contact with you shortly.\");\n    location.reload();\n  }\n}\n\n/**\n * Gets additional resource user information passed in and will add the user to the additional resource signup list.\n * @param {object} user - object which contains information about the user additional resource.\n * @throws {object} err - Returns an error if failed to push to database.\n */\nexport function signUpAD(user) {\n  return function(dispatch) {\n    firebaseDb.ref('ADSignup').push({\n      website: user.website,\n      email: user.email,\n      password: user.password,\n      role: 2,\n    }).then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\", payload: user})\n    })\n    .catch((err) => {\n      dispatch({type: \"SIGNUP_USER_REJECTED\", payload: err})\n    })\n    alert(\"Thank you for registering as an Additional User for LearnEnergy Marketplace.\" +\"\\n\" + \"We will be in contact with you shortly.\");\n    location.reload();\n  }\n}\n\n/**\n * Logs in the user using firebase authentication and sets notifications to false, error if invalid information.\n * @param {object} user - object which contains information about the user to log in with.\n * @throws {object} err - Returns an error if failed to login.\n */\nexport function logInUser(user) {\n    return function(dispatch) {\n        firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)\n            .then((data) => {\n              dispatch({type: \"LOGIN_USER_FULFILLED\", payload: data})  \n            })\n            .catch((err) => {\n              dispatch({type: \"LOGIN_USER_REJECTED\", payload: err})\n            })\n        firebaseDb.ref('Notifications/Admin_Notification').set({\n            notified: false\n          })\n    }\n}\n\n/**\n * Logs out the user using firebase authentication.\n * @throws {object} err - Returns an error if fail to logout. \n */\nexport function logOutUser() {\n    return function(dispatch) {\n\n        firebaseAuth.signOut()\n            .then((data) => {\n                console.log(data)\n                dispatch({type: \"LOGOUT_USER_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"LOGOUT_USER_REJECTED\", payload: err})\n            })\n    }\n}\n"
+    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'\n\n/**\n * Grabs the purchasers from the Purchaser SignUp list in the database.\n * @returns {object} purchasers - Returns the object of purchasers.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchPurchaserSignup() {\n  return function(dispatch) {\n    firebaseDb.ref('PurchaserSignup').once(\"value\")\n      .then((snapshot) => {\n        dispatch({type: \"FETCH_PURCHASER_FULFILLED\", payload: snapshot.val()})\n      })\n      .catch((err) => {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: err})\n      })\n  }\n}\n\n/**\n * Grabs the vendors from the Vendor SignUp list in the database.\n * @returns {object} vendors - Returns the object of vendors.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchVendorSignup() {\n  return function(dispatch) {\n    firebaseDb.ref('VendorSignup').once(\"value\")\n      .then((snapshot) => {\n        dispatch({type: \"FETCH_VENDOR_FULFILLED\", payload: snapshot.val()})\n      })\n      .catch((err) => {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: err})\n      })\n  }\n}\n\n/**\n * Grabs the addition resources from the additional resouce SignUp list in the database.\n * @returns {object} ads - Returns the object of additional resources.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchADSignup() {\n  return function(dispatch) {\n    firebaseDb.ref('ADSignup').once(\"value\")\n      .then((snapshot) => {\n        dispatch({type: \"FETCH_AD_FULFILLED\", payload: snapshot.val()})\n      })\n      .catch((err) => {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: err})\n      })\n  }\n}\n\n/**\n * Checks to see if the user is logged in and then returns information about the current user logged in.\n * @returns {object} user - Returns the object of user.\n * @throws {object} err - Returns an error if failed to find current logged in user.\n */\nexport function getCurrentUser() {\n  return function(dispatch) {\n   firebaseAuth.onAuthStateChanged((user)=>{\n      if (user){\n        dispatch({type: \"FETCH_USER_FULFILLED\", payload: user,isLoggedIn: true})\n        firebaseDb.ref('User/' + user.uid).once(\"value\")\n        .then((snapshot) => {\n            dispatch({type: \"FETCH_USER_PROFILE_FULFILLED\", payload: snapshot.val()})\n        })\n        .catch((err) => {\n            dispatch({type: \"FETCH_USER_PROFILE_REJECTED\", payload: err})\n        })\n      } else {\n        dispatch({type: \"FETCH_USER_REJECTED\", payload: user,isLoggedIn: false})\n      }\n   }\n  )}\n}\n\n/**\n * Gets user information passed in and will create the account for the user and remove the old user from the signup list.\n * @returns {object} dispatch - Returns the state which contains user object\n * @param {object} user - object which contains information for us to register into firebase with and store in our database.\n * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase.\n */\nexport function approveUser(user) {\n  return function(dispatch) {\n    firebaseAuthInstance.createUserWithEmailAndPassword(user.email, user.password)\n    .then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\"})\n      firebaseAuthInstance.signInWithEmailAndPassword(user.email, user.password)\n      .then((data) => {\n        var currentUser = firebaseAuthInstance.currentUser\n\n        if (user.role==0) { // push as a purchaser\n          firebaseDb.ref('User/' + currentUser.uid).set({\n            legalEntity: user.legalEntity,\n            operatingName: user.operatingName,\n            address1: user.address1,\n            address2: user.address2,\n            city: user.city,\n            province: user.province,\n            country: user.country,\n            postalCode: user.postalCode,\n            phone: user.phone,\n            fax: user.fax,\n            email: user.email,\n            adminContact: user.adminContact,\n            technicalContact: user.technicalContact,\n\n            gstReg: user.gstReg,\n            billAddress1: user.billAddress1,\n            billAddress2: user.billAddress2,\n            billCity: user.billCity,\n            billProvince: user.billProvince,\n            billCountry: user.billCountry,\n            billPostalCode: user.billPostalCode,\n            accntRec: user.accntRec,\n            bank: user.bank,\n\n            ISnumber: user.ISnumber,\n            website: user.website,\n            password: user.password,\n\n            jointVenture: user.jointVenture,\n            categories: user.categories,\n\n            role: user.role,\n          })\n\n          firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {\n            console.log(\"removed\")\n            location.reload();\n          })\n          .catch(function(err) {\n            console.log(\"failed to remove\", user.key_name)\n          })\n\n        } else if (user.role == 1) { // push as a vendor\n\n          firebaseDb.ref('User/' + currentUser.uid).set({\n            legalEntity: user.legalEntity,\n            operatingName: user.operatingName,\n            address1: user.address1,\n            address2: user.address2,\n            city: user.city,\n            province: user.province,\n            country: user.country,\n            postalCode: user.postalCode,\n            phone: user.phone,\n            fax: user.fax,\n\n            owner1Name: user.owner1Name,\n            owner1Pos: user.owner1Pos,\n\n            natureBusiness: user.natureBusiness,\n            timeBusiness: user.timeBusiness,\n            proAffiliation: user.proAffiliation,\n            report:user.report,\n\n            bank: user.bank,\n            bankLocation: user.bankLocation,\n            bonding: user.bonding,\n            bondingLocation: user.bondingLocation,\n            insuranceCompany: user.insuranceCompany,\n            insuranceLocation: user.insuranceLocation,\n            bondingLimitDate: user.bondingLimitDate,\n            bondingLimit: user.bondingLimit,\n            grossBus: user.grossBus,\n            grossBusYear: user.grossBusYear,\n            bankruptcy:user.bankruptcy,\n\n            numEmployees: user.numEmployees,\n            AD1address1: user.AD1address1,\n            AD1address2: user.AD1address2,\n            AD1city: user.AD1city,\n            AD1province: user.AD1province,\n            AD1country: user.AD1country,\n            AD1postalCode: user.AD1postalCode,\n            AD1phone: user.AD1phone,\n\n            categories: user.categories,\n            specialties: user.specialties,\n\n            client1: user.client1,\n            client1Location: user.client1Location,\n            client1Phone: user.client1Phone,\n            client1Email: user.client1Email,\n\n            licence1: user.licence1,\n            licence1Location: user.licence1Location,\n            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,\n            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,\n            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,\n            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,\n            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,\n            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,\n            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,\n            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,\n            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,\n            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,\n            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,\n            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,\n            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,\n            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,\n            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,\n\n            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,\n            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,\n            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,\n            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,\n            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,\n            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,\n\n            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,\n            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,\n            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,\n            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,\n\n            drugPolicy: user.drugPolicy,\n            subcontractors: user.subcontractors,\n            stopWorkOrder: user.stopWorkOrder,\n\n            email: user.email,\n            adminContact: user.adminContact,\n            technicalContact: user.technicalContact,\n\n            ISnumber:user.ISnumber,\n\n            website: user.website,\n            password: user.password,\n            role: user.role,\n          })\n          firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {\n            console.log(\"removed\")\n            location.reload();\n          })\n          .catch(function(err) {\n            console.log(\"failed to remove\", user.key_name)\n          })\n\n\n        } else if (user.role == 2) { //push as an additional resource\n\n          firebaseDb.ref('User/' + currentUser.uid).set({\n            website: user.website,\n            email: user.email,\n            password: user.password,\n            role: user.role,\n          })\n          firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {\n            console.log(\"removed\")\n            location.reload();\n          })\n          .catch(function(err) {\n            console.log(\"failed to remove\", user.key_name)\n          })\n        }\n      })\n    })\n    firebaseAuthInstance.signOut()\n  }\n}\n\n/**\n * Gets user information passed in and will remove the user from the signup list.\n * @returns {object} dispatch - Returns the state which contains user object\n * @param {object} user - object which contains information about the user.\n * @throws {object} err - Returns an error if failed to remove from database.\n */\nexport function rejectUser(user) {\n  return function(dispatch) {\n    if (user.role == 0) { // reject purchaser\n      firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {\n        console.log(\"purchaseer removed\")\n        location.reload();\n      }).then((data) => {\n        dispatch({type: \"SIGNUP_USER_REJECTED\", paylod: data})\n      })\n    } else if (user.role == 1) { // reject vendor\n      firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {\n        console.log(\"vendor removed\")\n        location.reload();\n      }).then((data) => {\n        dispatch({type: \"SIGNUP_USER_REJECTED\", paylod: data})\n      })\n    } else if (user.role == 2) { // reject additional resource\n      firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {\n        console.log(\"ad removed\")\n        location.reload();\n      }).then((data) => {\n        dispatch({type: \"SIGNUP_USER_REJECTED\", paylod: data})\n      })\n    }\n  }\n}\n\n/**\n * Gets purchaser user information passed in and will add the user to the purchaser signup list.\n * @returns {object} dispatch - Returns the state which contains user object\n * @param {object} user - object which contains information about the user purchaser.\n * @throws {object} err - Returns an error if failed to push to database.\n */\nexport function signUpPurchaser(user) {\n  return function(dispatch) {\n    firebaseDb.ref('PurchaserSignup').push({\n      email: user.email,\n      password: user.password,\n      legalEntity: user.legalEntity,\n      operatingName: user.operatingName,\n      address1: user.address1,\n      address2: user.address2,\n      city: user.city,\n      province: user.province,\n      country: user.country,\n      postalCode: user.postalCode,\n      phone: user.phone,\n      fax: user.fax,\n      adminContact: user.adminContact,\n      technicalContact: user.technicalContact,\n\n      gstReg: user.gstReg,\n      billAddress1: user.billAddress1,\n      billAddress2: user.billAddress2,\n      billCity: user.billCity,\n      billProvince: user.billProvince,\n      billCountry: user.billCountry,\n      billPostalCode: user.billPostalCode,\n      accntRec: user.accntRec,\n      bank: user.bank,\n\n      ISnumber: user.ISnumber,\n      website: user.website,\n\n      jointVenture: user.jointVenture,\n      categories: user.categories,\n\n      role: 0,\n    }).then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\", payload: user})\n    })\n    .catch((err) => {\n      dispatch({type: \"SIGNUP_USER_REJECTED\", payload: err})\n    })\n    alert(\"Thank you for registering as a Purchaser for LearnEnergy Marketplace.\" +\"\\n\" + \"We will be in contact with you shortly.\");\n    location.reload();\n  }\n}\n\n/**\n * Gets vendor user information passed in and will add the user to the vendor signup list.\n * @returns {object} dispatch - Returns the state which contains user object\n * @param {object} user - object which contains information about the user vendor.\n * @throws {object} err - Returns an error if failed to push to database.\n */\nexport function signUpVendor(user) {\n  return function(dispatch) {\n    firebaseDb.ref('VendorSignup').push({\n      legalEntity: user.legalEntity,\n      operatingName: user.operatingName,\n      address1: user.address1,\n      address2: user.address2,\n      city: user.city,\n      province: user.province,\n      country: user.country,\n      postalCode: user.postalCode,\n      phone: user.phone,\n      fax: user.fax,\n\n      owner1Name: user.owner1Name,\n      owner1Pos: user.owner1Pos,\n\n      natureBusiness: user.natureBusiness,\n      timeBusiness: user.timeBusiness,\n      proAffiliation: user.proAffiliation,\n      report:user.report,\n\n      bank: user.bank,\n      bankLocation: user.bankLocation,\n      bonding: user.bonding,\n      bondingLocation: user.bondingLocation,\n      insuranceCompany: user.insuranceCompany,\n      insuranceLocation: user.insuranceLocation,\n      bondingLimitDate: user.bondingLimitDate,\n      bondingLimit: user.bondingLimit,\n      grossBus: user.grossBus,\n      grossBusYear: user.grossBusYear,\n      bankruptcy:user.bankruptcy,\n\n      numEmployees: user.numEmployees,\n      AD1address1: user.AD1address1,\n      AD1address2: user.AD1address2,\n      AD1city: user.AD1city,\n      AD1province: user.AD1province,\n      AD1country: user.AD1country,\n      AD1postalCode: user.AD1postalCode,\n      AD1phone: user.AD1phone,\n\n      categories: user.categories,\n      specialties: user.specialties,\n\n      client1: user.client1,\n      client1Location: user.client1Location,\n      client1Phone: user.client1Phone,\n      client1Email: user.client1Email,\n\n      licence1: user.licence1,\n      licence1Location: user.licence1Location,\n      insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,\n      insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,\n      insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,\n      insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,\n      insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,\n      insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,\n      insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,\n      insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,\n      insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,\n      insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,\n      insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,\n      insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,\n      insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,\n      insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,\n      insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,\n\n      EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,\n      FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,\n      LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,\n      MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,\n      ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1,  ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,\n      TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,\n\n      IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,\n      PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,\n      PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,\n      PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,\n\n      drugPolicy: user.drugPolicy,\n      subcontractors: user.subcontractors,\n      stopWorkOrder: user.stopWorkOrder,\n\n      email: user.email,\n      adminContact: user.adminContact,\n      technicalContact: user.technicalContact,\n\n      ISnumber:user.ISnumber,\n\n      website: user.website,\n      password: user.password,\n      role: 1,\n    }).then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\", payload: user})\n    })\n    .catch((err) => {\n      dispatch({type: \"SIGNUP_USER_REJECTED\", payload: err})\n    })\n    alert(\"Thank you for registering as a Vendor for LearnEnergy Marketplace.\" +\"\\n\" + \"We will be in contact with you shortly.\");\n    location.reload();\n  }\n}\n\n/**\n * Gets additional resource user information passed in and will add the user to the additional resource signup list.\n * @returns {object} dispatch - Returns the state which contains user object\n * @param {object} user - object which contains information about the user additional resource.\n * @throws {object} err - Returns an error if failed to push to database.\n */\nexport function signUpAD(user) {\n  return function(dispatch) {\n    firebaseDb.ref('ADSignup').push({\n      website: user.website,\n      email: user.email,\n      password: user.password,\n      role: 2,\n    }).then((data) => {\n      dispatch({type: \"SIGNUP_USER_FULFILLED\", payload: user})\n    })\n    .catch((err) => {\n      dispatch({type: \"SIGNUP_USER_REJECTED\", payload: err})\n    })\n    alert(\"Thank you for registering as an Additional User for LearnEnergy Marketplace.\" +\"\\n\" + \"We will be in contact with you shortly.\");\n    location.reload();\n  }\n}\n\n/**\n * Logs in the user using firebase authentication and sets notifications to false, error if invalid information.\n * @returns {object} dispatch - Returns the state which contains user object\n * @param {object} user - object which contains information about the user to log in with.\n * @throws {object} err - Returns an error if failed to login.\n */\nexport function logInUser(user) {\n    return function(dispatch) {\n        firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)\n            .then((data) => {\n              dispatch({type: \"LOGIN_USER_FULFILLED\", payload: data})\n            })\n            .catch((err) => {\n              dispatch({type: \"LOGIN_USER_REJECTED\", payload: err})\n            })\n        firebaseDb.ref('Notifications/Admin_Notification').set({\n            notified: false\n          })\n    }\n}\n\n/**\n * Logs out the user using firebase authentication.\n * @returns {object} dispatch - Returns the state which contains user object\n * @throws {object} err - Returns an error if fail to logout.\n */\nexport function logOutUser() {\n    return function(dispatch) {\n\n        firebaseAuth.signOut()\n            .then((data) => {\n                console.log(data)\n                dispatch({type: \"LOGOUT_USER_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"LOGOUT_USER_REJECTED\", payload: err})\n            })\n    }\n}\n"
   },
   {
     "__docId__": 11,
@@ -433,7 +569,13 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{approveUser}",
     "description": "Gets user information passed in and will create the account for the user and remove the old user from the signup list.",
-    "lineNumber": 84,
+    "lineNumber": 85,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -447,9 +589,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -474,7 +619,13 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{rejectUser}",
     "description": "Gets user information passed in and will remove the user from the signup list.",
-    "lineNumber": 268,
+    "lineNumber": 270,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -488,9 +639,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -515,7 +669,13 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{signUpPurchaser}",
     "description": "Gets purchaser user information passed in and will add the user to the purchaser signup list.",
-    "lineNumber": 300,
+    "lineNumber": 303,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -529,9 +689,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -556,7 +719,13 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{signUpVendor}",
     "description": "Gets vendor user information passed in and will add the user to the vendor signup list.",
-    "lineNumber": 351,
+    "lineNumber": 355,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -570,9 +739,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -597,7 +769,13 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{signUpAD}",
     "description": "Gets additional resource user information passed in and will add the user to the additional resource signup list.",
-    "lineNumber": 461,
+    "lineNumber": 466,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -611,9 +789,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -638,7 +819,13 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{logInUser}",
     "description": "Logs in the user using firebase authentication and sets notifications to false, error if invalid information.",
-    "lineNumber": 484,
+    "lineNumber": 490,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -652,9 +839,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -679,12 +869,21 @@
     "importPath": "learnenergy401/component/Actions/userActions.js",
     "importStyle": "{logOutUser}",
     "description": "Logs out the user using firebase authentication.",
-    "lineNumber": 503,
+    "lineNumber": 510,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the state which contains user object"
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the state which contains user object"
     },
     "throws": [
       {
@@ -1514,7 +1713,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../extra/material.js\"\nimport { fetchVendorCourse } from \"./Actions/courseActions\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass ContentCourseDisplay extends Component{\n    /**\n     * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses\n     */\n    componentWillMount(){\n        const {user} = this.props\n        this.props.dispatch(fetchVendorCourse(user.user.email));\n    }\n\n    /**\n     * Coverts json to array\n     * @return {object} arr - return array from converted json object\n     */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    /**\n    * Loads the webpage for course display\n    * @return {html} - returns avaiable courses\n    */\n    render(){\n        const {course}=this.props\n        if (course.currentVendorCourseList){\n            var arr = this.jsonToArray(course.currentVendorCourseList)\n            const mappedCourse = arr.map(course =>\n                                        <li key = {course.courseName}>{course.courseName}</li>\n                                       )\n            return(\n\n                <Content className=\"learn-content\">\n                <ul>{mappedCourse}</ul>\n                </Content>\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default ContentCourseDisplay\n"
+    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../extra/material.js\"\nimport { fetchVendorCourse } from \"./Actions/courseActions\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass ContentCourseDisplay extends Component{\n    /**\n     * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses\n     */\n    componentWillMount(){\n        const {user} = this.props\n        this.props.dispatch(fetchVendorCourse(user.user.email));\n    }\n\n    /**\n     * Coverts json to array\n     * @param {object} json \n     * @return {object} arr - return array from converted json object\n     */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    /**\n    * Loads the webpage for course display\n    * @return {html} - returns avaiable courses\n    */\n    render(){\n        const {course}=this.props\n        if (course.currentVendorCourseList){\n            var arr = this.jsonToArray(course.currentVendorCourseList)\n            const mappedCourse = arr.map(course =>\n                                        <li key = {course.courseName}>{course.courseName}</li>\n                                       )\n            return(\n\n                <Content className=\"learn-content\">\n                <ul>{mappedCourse}</ul>\n                </Content>\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default ContentCourseDisplay\n"
   },
   {
     "__docId__": 62,
@@ -1560,13 +1759,17 @@
     "longname": "component/ContentCourseDisplay.js~ContentCourseDisplay#jsonToArray",
     "access": null,
     "description": "Coverts json to array",
-    "lineNumber": 29,
+    "lineNumber": 30,
     "params": [
       {
-        "name": "json",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": ""
       }
     ],
     "return": {
@@ -1589,7 +1792,7 @@
     "longname": "component/ContentCourseDisplay.js~ContentCourseDisplay#render",
     "access": null,
     "description": "Loads the webpage for course display",
-    "lineNumber": 40,
+    "lineNumber": 41,
     "params": [],
     "return": {
       "nullable": null,
@@ -1875,7 +2078,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import firebase from 'firebase';\nimport {FIREBASE_CONFIG} from '../../firebase.config.js';\nimport ComponentUpload from './ComponentUpload.js';\n\nexport const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');\nexport const firebaseAuth = firebaseApp.auth();\nexport const firebaseDb = firebaseApp.database();\nexport const firebaseStorage = firebaseApp.storage().ref();\n\nexport const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);\nexport const firebaseAuthInstance = firebaseApp2.auth();\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\n\nvar FirebaseTools = {\n    /**\n    * used for uploading files, gives a url for the file\n    * @param {object} url - returns the url of the file\n    * @return {object} error - returns error if it cannot upload file\n    */\n    //function fo vendor upload demo\n    vendorUpload: function(fileObj){\n        var url='';\n        firebaseAuth.signInAnonymously();\n        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata).then(function(snapshot){\n        //use then() to avoid asynchronous case\n        url = snapshot.metadata.downloadURLs[0];\n        document.getElementById('linkbox').innerHTML = '<a href=\"' + url + '\">Click For File</a>';\n        console.log('Upload successfully');\n        }).catch(function(error) {\n        console.error('Upload failed:', error);\n      });;\n    },\n\n}\n\nexport default FirebaseTools;\n"
+    "content": "import firebase from 'firebase';\nimport {FIREBASE_CONFIG} from '../../firebase.config.js';\nimport ComponentUpload from './ComponentUpload.js';\n\n/**\n * Initializes the firebase App \n * @ignore\n */\nexport const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');\n\n/**\n * Auth of firebaseApp \n * @ignore\n */\nexport const firebaseAuth = firebaseApp.auth();\n\n/**\n * Db of firebaseApp\n * @ignore\n */\nexport const firebaseDb = firebaseApp.database();\n\n/**\n * Storage of firebaseApp \n * @ignore\n */\nexport const firebaseStorage = firebaseApp.storage().ref();\n\n/**\n * Initializes a second instance of firebase App \n  * @ignore\n  */\nexport const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);\n\n/**\n * Auth of firebaseApp2\n  * @ignore\n  */\nexport const firebaseAuthInstance = firebaseApp2.auth();\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\n\nvar FirebaseTools = {\n    /**\n    * used for uploading files, gives a url for the file\n    * @param {object} url - returns the url of the file\n    * @return {object} error - returns error if it cannot upload file\n    */\n    //function fo vendor upload demo\n    vendorUpload: function(fileObj){\n        var url='';\n        firebaseAuth.signInAnonymously();\n        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata).then(function(snapshot){\n        //use then() to avoid asynchronous case\n        url = snapshot.metadata.downloadURLs[0];\n        document.getElementById('linkbox').innerHTML = '<a href=\"' + url + '\">Click For File</a>';\n        console.log('Upload successfully');\n        }).catch(function(error) {\n        console.error('Upload failed:', error);\n      });;\n    },\n\n}\n\n/**\n * Exports firebaseTools\n * @ignore\n */\nexport default FirebaseTools;\n"
   },
   {
     "__docId__": 81,
@@ -1889,9 +2092,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseApp}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
+    "description": "Initializes the firebase App ",
+    "lineNumber": 9,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -1910,9 +2113,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseAuth}",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "Auth of firebaseApp ",
+    "lineNumber": 15,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -1931,9 +2134,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseDb}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
+    "description": "Db of firebaseApp",
+    "lineNumber": 21,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -1952,9 +2155,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseStorage}",
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "Storage of firebaseApp ",
+    "lineNumber": 27,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -1973,9 +2176,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseApp2}",
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
+    "description": "Initializes a second instance of firebase App ",
+    "lineNumber": 33,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -1994,9 +2197,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseAuthInstance}",
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
+    "description": "Auth of firebaseApp2",
+    "lineNumber": 39,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -2015,9 +2218,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "FirebaseTools",
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
+    "description": "Exports firebaseTools",
+    "lineNumber": 45,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -2290,7 +2493,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\n\n\n\nclass Home extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentHome/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default Home"
+    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\n\n\n\nclass Home extends Component {\n  /**\n  * Loads the home page and its components.\n  * @return {html} - returns all components for the home page.\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentHome/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default Home\n"
   },
   {
     "__docId__": 102,
@@ -2321,14 +2524,16 @@
     "memberof": "component/Home/Home.js~Home",
     "longname": "component/Home/Home.js~Home#render",
     "access": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "Loads the home page and its components.",
+    "lineNumber": 13,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns all components for the home page."
     },
     "generator": false
   },
@@ -2343,7 +2548,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ComponentLogin from '../ComponentLogin.js'\nimport ContentLogin from '../ContentLogin.js'\n\nclass Login extends Component {\n  render(){\n    return (  \n      <div>\n        <LearnHeader/>\n        <ContentLogin/>   \n        <LearnFooter/>\n      </div>    \n    );\n  }\n}\n\nexport default Login"
+    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ComponentLogin from '../ComponentLogin.js'\nimport ContentLogin from '../ContentLogin.js'\n\nclass Login extends Component {\n  /**\n  * Loads the login and its components.\n  * @return {html} - returns all components for the home page.\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentLogin/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\nexport default Login\n"
   },
   {
     "__docId__": 105,
@@ -2374,14 +2579,16 @@
     "memberof": "component/Login-Logout/Login.js~Login",
     "longname": "component/Login-Logout/Login.js~Login#render",
     "access": null,
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
+    "description": "Loads the login and its components.",
+    "lineNumber": 14,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns all components for the home page."
     },
     "generator": false
   },
@@ -2396,7 +2603,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ContentLogout from '../ContentLogout.js'\n\nclass Logout extends Component {\n  render(){\n    return (  \n      <div className=\"learn-header mdl-layout__header\">\n        <LearnHeader/>\n        <ContentLogout/>   \n        <LearnFooter/>\n      </div> \n    );\n  }\n}\n\nexport default Logout"
+    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ContentLogout from '../ContentLogout.js'\n\nclass Logout extends Component {\n  /**\n  * Loads the logout and its components.\n  * @return {html} - returns all components for the home page.\n  */\n  render(){\n    return (\n      <div className=\"learn-header mdl-layout__header\">\n        <LearnHeader/>\n        <ContentLogout/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\nexport default Logout\n"
   },
   {
     "__docId__": 108,
@@ -2427,14 +2634,16 @@
     "memberof": "component/Login-Logout/Logout.js~Logout",
     "longname": "component/Login-Logout/Logout.js~Logout#render",
     "access": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "Loads the logout and its components.",
+    "lineNumber": 13,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns all components for the home page."
     },
     "generator": false
   },
@@ -2622,7 +2831,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\n\nimport \"../../extra/material.js\"\nimport ContentProfileUpload from \"./ContentProfileUpload.js\"\nimport ContentCourseDisplay from \"../ContentCourseDisplay.js\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfile extends Component {\n    render(){\n        \n        const {profile} = this.props\n        \n        if (profile.menu == 0){\n            return(\n                  <Content className=\"learn-content\">\n                        <List>\n                          <ListItem>\n                            <ListItemContent icon=\"person\">gg1</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </Content>\n            );\n        }else if (profile.menu == 1){\n            return(\n                <ContentCourseDisplay/>\n            )\n        }else{\n            return(\n                <ContentProfileUpload/>\n            )\n        }\n    }\n};\n\n\n\nexport default ContentProfile"
+    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\n\nimport \"../../extra/material.js\"\nimport ContentProfileUpload from \"./ContentProfileUpload.js\"\nimport ContentCourseDisplay from \"../ContentCourseDisplay.js\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfile extends Component {\n    /**\n    * Loads the profile of user\n    * @return {html} - returns user profile depending on type of user\n    */\n    render(){\n\n        const {profile} = this.props\n\n        if (profile.menu == 0){\n            return(\n                  <Content className=\"learn-content\">\n                        <List>\n                          <ListItem>\n                            <ListItemContent icon=\"person\">gg1</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </Content>\n            );\n        }else if (profile.menu == 1){\n            return(\n                <ContentCourseDisplay/>\n            )\n        }else{\n            return(\n                <ContentProfileUpload/>\n            )\n        }\n    }\n};\n\n\n\nexport default ContentProfile\n"
   },
   {
     "__docId__": 120,
@@ -2653,14 +2862,16 @@
     "memberof": "component/Profile/ContentProfile.js~ContentProfile",
     "longname": "component/Profile/ContentProfile.js~ContentProfile#render",
     "access": null,
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "Loads the profile of user",
+    "lineNumber": 23,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns user profile depending on type of user"
     },
     "generator": false
   },
@@ -2675,7 +2886,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { uploadCourse } from \"../Actions/courseActions\"\nimport Toast from \"../Toast.js\"\n\nvar componentStyle = {\n    margin: 'auto',\n}\nvar formStyle = {\n    marginTop: '5%'\n}\n\n\n@connect((store) => {\n  return {\n    user: store.user,\n    course: store.course\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfileUpload extends Component {\n    uploadCourse(course){\n        var user = this.props.user.user\n        var courseName = document.getElementById(\"courseName\").value;\n        var courseDescription = document.getElementById(\"courseDescription\").value;\n        var courseVideoId = document.getElementById(\"courseVideoId\").value;\n        var courseVendorEmail = user.email\n        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}\n        console.log(courseName);\n        console.log(courseDescription);\n        console.log(courseVideoId);\n        this.props.dispatch(uploadCourse(course)); \n    }\n    \n    render(){\n        return(\n            <Content className=\"learn-content\">\n                <div className=\"android-content mdl-layout__content\">\n                        <a name=\"top\" />\n                        <div style={{width: '80%', margin: 'auto'}}>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseName\" className=\"form-control\" ref=\"courseName\" id=\"courseName\"/>\n                                </CardText>\n                            <CardText style={componentStyle}>        \n                                <Textfield floatingLabel label=\"courseDescription\" ref=\"pw\" type=\"courseDescription\" className=\"form-control\" id=\"courseDescription\"/>\n                            </CardText>\n                            <CardText style={componentStyle}>        \n                                <Textfield floatingLabel label=\"courseVideoId\" ref=\"pw\" type=\"courseVideoId\" className=\"form-control\" id=\"courseVideoId\"/>\n                            </CardText>\n                            <CardActions style={componentStyle}>\n                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className=\"mdl-color-text--indigo btn btn-primary\">Submit Course</Button>\n                            </CardActions>\n                        </div>\n                    </div>\n            </Content>\n    )}\n};\n\n\n\nexport default ContentProfileUpload"
+    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { uploadCourse } from \"../Actions/courseActions\"\nimport Toast from \"../Toast.js\"\n\nvar componentStyle = {\n    margin: 'auto',\n}\nvar formStyle = {\n    marginTop: '5%'\n}\n\n\n@connect((store) => {\n  return {\n    user: store.user,\n    course: store.course\n  };\n})/*dont add semicolon here!*/\n\n\nclass ContentProfileUpload extends Component {\n    /**\n    * Uploads course\n    * @param {object} course - takes course for upload\n    * @returns {object} arr - return array from converted json object\n    */\n    uploadCourse(course){\n        var user = this.props.user.user\n        var courseName = document.getElementById(\"courseName\").value;\n        var courseDescription = document.getElementById(\"courseDescription\").value;\n        var courseVideoId = document.getElementById(\"courseVideoId\").value;\n        var courseVendorEmail = user.email\n        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}\n        console.log(courseName);\n        console.log(courseDescription);\n        console.log(courseVideoId);\n        this.props.dispatch(uploadCourse(course));\n    }\n    /**\n    * Loads the course profile\n    * @return {html} - returns course profile depending on type of user\n    */\n    render(){\n        return(\n            <Content className=\"learn-content\">\n                <div className=\"android-content mdl-layout__content\">\n                        <a name=\"top\" />\n                        <div style={{width: '80%', margin: 'auto'}}>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseName\" className=\"form-control\" ref=\"courseName\" id=\"courseName\"/>\n                                </CardText>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseDescription\" ref=\"pw\" type=\"courseDescription\" className=\"form-control\" id=\"courseDescription\"/>\n                            </CardText>\n                            <CardText style={componentStyle}>\n                                <Textfield floatingLabel label=\"courseVideoId\" ref=\"pw\" type=\"courseVideoId\" className=\"form-control\" id=\"courseVideoId\"/>\n                            </CardText>\n                            <CardActions style={componentStyle}>\n                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className=\"mdl-color-text--indigo btn btn-primary\">Submit Course</Button>\n                            </CardActions>\n                        </div>\n                    </div>\n            </Content>\n    )}\n};\n\n\n\nexport default ContentProfileUpload\n"
   },
   {
     "__docId__": 123,
@@ -2748,17 +2959,34 @@
     "memberof": "component/Profile/ContentProfileUpload.js~ContentProfileUpload",
     "longname": "component/Profile/ContentProfileUpload.js~ContentProfileUpload#uploadCourse",
     "access": null,
-    "description": null,
-    "lineNumber": 27,
-    "undocument": true,
-    "params": [
+    "description": "Uploads course",
+    "lineNumber": 32,
+    "unknown": [
       {
-        "name": "course",
-        "types": [
-          "*"
-        ]
+        "tagName": "@returns",
+        "tagValue": "{object} arr - return array from converted json object"
       }
     ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "course",
+        "description": "takes course for upload"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "arr - return array from converted json object"
+    },
     "generator": false
   },
   {
@@ -2770,14 +2998,16 @@
     "memberof": "component/Profile/ContentProfileUpload.js~ContentProfileUpload",
     "longname": "component/Profile/ContentProfileUpload.js~ContentProfileUpload#render",
     "access": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "Loads the course profile",
+    "lineNumber": 48,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns course profile depending on type of user"
     },
     "generator": false
   },
@@ -2792,7 +3022,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell,Layout } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentProfile from './ContentProfile.js'\nimport SideMenuProfile from './SideMenuProfile.js'\n\nimport store from '../Store.js'\nimport { connect } from \"react-redux\"\n//      <LearnHeader/>\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\nclass SignUp extends Component {\n    \n    componentWillMount(){\n        const {user} = this.props\n        console.log(user.isLoggedIn)\n    }\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <SideMenuProfile/>\n        <Layout fixedHeader fixedDrawer>\n            <ContentProfile/>   \n            <LearnFooter/>\n        </Layout>\n        \n      </div>    \n    );\n  }\n}\n\n\n\nexport default SignUp\n    "
+    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell,Layout } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentProfile from './ContentProfile.js'\nimport SideMenuProfile from './SideMenuProfile.js'\n\nimport store from '../Store.js'\nimport { connect } from \"react-redux\"\n//      <LearnHeader/>\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\nclass SignUp extends Component {\n  /**\n   * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses\n   */\n    componentWillMount(){\n        const {user} = this.props\n        console.log(user.isLoggedIn)\n    }\n  /**\n  * Loads the user profile\n  * @return {html} - returns course, profile, sidebar\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <SideMenuProfile/>\n        <Layout fixedHeader fixedDrawer>\n            <ContentProfile/>\n            <LearnFooter/>\n        </Layout>\n\n      </div>\n    );\n  }\n}\n\n\n\nexport default SignUp\n"
   },
   {
     "__docId__": 129,
@@ -2823,9 +3053,8 @@
     "memberof": "component/Profile/Profile.js~SignUp",
     "longname": "component/Profile/Profile.js~SignUp#componentWillMount",
     "access": null,
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses",
+    "lineNumber": 21,
     "params": [],
     "generator": false
   },
@@ -2838,14 +3067,16 @@
     "memberof": "component/Profile/Profile.js~SignUp",
     "longname": "component/Profile/Profile.js~SignUp#render",
     "access": null,
-    "description": null,
-    "lineNumber": 23,
-    "undocument": true,
+    "description": "Loads the user profile",
+    "lineNumber": 29,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns course, profile, sidebar"
     },
     "generator": false
   },
@@ -2860,7 +3091,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Drawer,Navigation,List,ListItem,ListItemContent,Button} from 'react-mdl';\nimport { connect } from \"react-redux\"\nimport { getCurrentUser } from \"../Actions/userActions\"\nimport { changeMenu } from \"../Actions/profileActions\"\n\n\n\nvar sidemenuItemStyle = {\n    width:\"100%\"\n}\n\nvar sidemenuStyle={\n    width: \"240px\",\n    height: \"100%\",\n    maxHeight: \"100%\",\n    position: \"absolute\",\n    top: \"0\",\n    left: \"0\",\n    marginTop: \"64px\",\n    zIndex:\"99\"\n}\n\nvar listStyle={\n\n}\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass SideMenuProfile extends Component {\n    changeMenuNumberZero(){\n        this.props.dispatch(changeMenu(0))\n    }\n    \n    changeMenuNumberOne(){\n        this.props.dispatch(changeMenu(1))\n    }\n    \n    changeMenuNumberTwo(){\n        this.props.dispatch(changeMenu(2))\n    }\n    \n    render(){\n        const {user,profile} = this.props\n        if (user.role == 0){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <ListItemContent >Profile</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >Bookmarks</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >My RFP</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else if (user.role==1){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberZero.bind(this)} style={sidemenuItemStyle} >Profile</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberOne.bind(this)} style={sidemenuItemStyle}>My Courses</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberTwo.bind(this)} style={sidemenuItemStyle}>Add Course</Button>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else{\n            return(\n                <div>Loading</div>\n            )\n        }\n    }\n};\n\n\n\nexport default SideMenuProfile"
+    "content": "import React, { Component } from 'react'\nimport {Drawer,Navigation,List,ListItem,ListItemContent,Button} from 'react-mdl';\nimport { connect } from \"react-redux\"\nimport { getCurrentUser } from \"../Actions/userActions\"\nimport { changeMenu } from \"../Actions/profileActions\"\n\n\n\nvar sidemenuItemStyle = {\n    width:\"100%\"\n}\n\nvar sidemenuStyle={\n    width: \"240px\",\n    height: \"100%\",\n    maxHeight: \"100%\",\n    position: \"absolute\",\n    top: \"0\",\n    left: \"0\",\n    marginTop: \"64px\",\n    zIndex:\"99\"\n}\n\nvar listStyle={\n\n}\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile\n  };\n})/*dont add semicolon here!*/\n\n\nclass SideMenuProfile extends Component {\n    /**\n    * Changes state of sidebar menu\n    */\n    changeMenuNumberZero(){\n        this.props.dispatch(changeMenu(0))\n    }\n    /**\n    * Changes state of sidebar menu\n    */\n    changeMenuNumberOne(){\n        this.props.dispatch(changeMenu(1))\n    }\n    /**\n    * Changes state of sidebar menu\n    */\n    changeMenuNumberTwo(){\n        this.props.dispatch(changeMenu(2))\n    }\n    /**\n    * Loads the user profile sidebar\n    * @return {html} - returns Bookmarks, profile, sidebar, RFPs\n    */\n    render(){\n        const {user,profile} = this.props\n        if (user.role == 0){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <ListItemContent >Profile</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >Bookmarks</ListItemContent>\n                          </ListItem>\n                          <ListItem>\n                            <ListItemContent >My RFP</ListItemContent>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else if (user.role==1){\n            return(\n                    <aside style={sidemenuStyle} className=\"mdl-typography--headline\">\n                        <List style={listStyle}>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberZero.bind(this)} style={sidemenuItemStyle} >Profile</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberOne.bind(this)} style={sidemenuItemStyle}>My Courses</Button>\n                          </ListItem>\n                          <ListItem>\n                            <Button onClick={this.changeMenuNumberTwo.bind(this)} style={sidemenuItemStyle}>Add Course</Button>\n                          </ListItem>\n                        </List>\n                    </aside>\n\n            );\n        }else{\n            return(\n                <div>Loading</div>\n            )\n        }\n    }\n};\n\n\n\nexport default SideMenuProfile\n"
   },
   {
     "__docId__": 133,
@@ -2954,9 +3185,8 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#changeMenuNumberZero",
     "access": null,
-    "description": null,
-    "lineNumber": 36,
-    "undocument": true,
+    "description": "Changes state of sidebar menu",
+    "lineNumber": 39,
     "params": [],
     "generator": false
   },
@@ -2969,9 +3199,8 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#changeMenuNumberOne",
     "access": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "Changes state of sidebar menu",
+    "lineNumber": 45,
     "params": [],
     "generator": false
   },
@@ -2984,9 +3213,8 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#changeMenuNumberTwo",
     "access": null,
-    "description": null,
-    "lineNumber": 44,
-    "undocument": true,
+    "description": "Changes state of sidebar menu",
+    "lineNumber": 51,
     "params": [],
     "generator": false
   },
@@ -2999,14 +3227,16 @@
     "memberof": "component/Profile/SideMenuProfile.js~SideMenuProfile",
     "longname": "component/Profile/SideMenuProfile.js~SideMenuProfile#render",
     "access": null,
-    "description": null,
-    "lineNumber": 48,
-    "undocument": true,
+    "description": "Loads the user profile sidebar",
+    "lineNumber": 58,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns Bookmarks, profile, sidebar, RFPs"
     },
     "generator": false
   },
@@ -3021,7 +3251,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default function reducer(state={\n    courseList: null,\n    currentVendorCourseList: null,\n    fetching: false,\n    error: null,\n    aCourse: \"Loading...\",\n    aCourseName:\"Loading...\",\n    uploaded: false,\n    \n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_A_COURSE\":{\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_A_COURSE_FULFILLED\":{\n            return {...state, \n                    fetching: false,\n                    aCourse: action.payload,\n            }\n        }\n        case \"FETCH_A_COURSE_REJECTED\":{\n            return {...state, \n                    fetching:false,\n                    error: action.payload,\n            }\n        }\n\n        case \"FETCH_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_COURSE_FULFILLED\": {\n            return{...state, \n                    fetching: false,\n                    courseList: action.payload,\n            }\n        }\n        case \"FETCH_COURSE_REJECTED\": {\n            return{...state, \n                    fetching: false,\n                    error: action.payload,\n            }\n        }\n        case \"FETCH_VENDORS_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n            \n        case \"FETCH_VENDORS_COURSE_FULFILLED\": {\n            return {...state, \n                    fetching: false,\n                    currentVendorCourseList: action.payload\n            }\n        }\n        case \"FETCH_VENDORS_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n                    error: action.payload\n            }\n        }\n            \n        case \"UPLOAD_COURSE\": {\n            return {...state, \n                    uploaded: false,\n                    fetching: true\n            }\n        }\n            \n        case \"UPLOAD_COURSE_FULFILLED\": {\n            return {...state,\n                    uploaded: true,\n                    fetching: false,\n            }\n        }\n        case \"UPLOAD_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n            }\n        }\n\n        case \"SAVE_A_COURSE\": {\n            return {...state,\n                    aCourseName : action.payload\n            }\n        }\n        \n    }\n\n    return state\n}\n"
+    "content": "/**\n * Course Reducer\n * @exports {state} reducer\n * @param {object} action\n * @return {state} state\n */\nexport default function reducer(state={\n    courseList: null,\n    currentVendorCourseList: null,\n    fetching: false,\n    error: null,\n    aCourse: \"Loading...\",\n    aCourseName:\"Loading...\",\n    uploaded: false,\n    \n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_A_COURSE\":{\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_A_COURSE_FULFILLED\":{\n            return {...state, \n                    fetching: false,\n                    aCourse: action.payload,\n            }\n        }\n        case \"FETCH_A_COURSE_REJECTED\":{\n            return {...state, \n                    fetching:false,\n                    error: action.payload,\n            }\n        }\n\n        case \"FETCH_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_COURSE_FULFILLED\": {\n            return{...state, \n                    fetching: false,\n                    courseList: action.payload,\n            }\n        }\n        case \"FETCH_COURSE_REJECTED\": {\n            return{...state, \n                    fetching: false,\n                    error: action.payload,\n            }\n        }\n        case \"FETCH_VENDORS_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n            \n        case \"FETCH_VENDORS_COURSE_FULFILLED\": {\n            return {...state, \n                    fetching: false,\n                    currentVendorCourseList: action.payload\n            }\n        }\n        case \"FETCH_VENDORS_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n                    error: action.payload\n            }\n        }\n            \n        case \"UPLOAD_COURSE\": {\n            return {...state, \n                    uploaded: false,\n                    fetching: true\n            }\n        }\n            \n        case \"UPLOAD_COURSE_FULFILLED\": {\n            return {...state,\n                    uploaded: true,\n                    fetching: false,\n            }\n        }\n        case \"UPLOAD_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n            }\n        }\n\n        case \"SAVE_A_COURSE\": {\n            return {...state,\n                    aCourseName : action.payload\n            }\n        }\n        \n    }\n\n    return state\n}\n"
   },
   {
     "__docId__": 142,
@@ -3035,38 +3265,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Reducers/courseReducer.js",
     "importStyle": "reducer",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "Course Reducer",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@exports",
+        "tagValue": "{state} reducer"
+      }
+    ],
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{\"courseList\": object, \"currentVendorCourseList\": object, \"fetching\": boolean, \"error\": object, \"aCourse\": string, \"aCourseName\": string, \"uploaded\": boolean}"
+          "object"
         ],
-        "defaultRaw": {
-          "courseList": null,
-          "currentVendorCourseList": null,
-          "fetching": false,
-          "error": null,
-          "aCourse": "Loading...",
-          "aCourseName": "Loading...",
-          "uploaded": false
-        },
-        "defaultValue": "{\"courseList\":null,\"currentVendorCourseList\":null,\"fetching\":false,\"error\":null,\"aCourse\":\"Loading...\",\"aCourseName\":\"Loading...\",\"uploaded\":false}"
-      },
-      {
+        "spread": false,
+        "optional": false,
         "name": "action",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "state"
+      ],
+      "spread": false,
+      "description": "state"
     },
     "generator": false
   },
@@ -3094,7 +3319,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default function reducer(state={\n    menu: 0,\n    \n  }, action) {\n\n    switch (action.type) {\n        case \"CHANGE_MENU\": {\n            return {...state, \n               menu: action.payload }\n        }    \n    }\n\n    return state\n}\n"
+    "content": "/**\n * Profile Reducer\n * @exports {state} reducer\n * @param {object} action\n * @return {state} state\n */\n\nexport default function reducer(state={\n    menu: 0,\n    \n  }, action) {\n\n    switch (action.type) {\n        case \"CHANGE_MENU\": {\n            return {...state, \n               menu: action.payload }\n        }    \n    }\n\n    return state\n}\n"
   },
   {
     "__docId__": 145,
@@ -3108,32 +3333,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Reducers/profileReducer.js",
     "importStyle": "reducer",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "Profile Reducer",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@exports",
+        "tagValue": "{state} reducer"
+      }
+    ],
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{\"menu\": number}"
+          "object"
         ],
-        "defaultRaw": {
-          "menu": 0
-        },
-        "defaultValue": "{\"menu\":0}"
-      },
-      {
+        "spread": false,
+        "optional": false,
         "name": "action",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "state"
+      ],
+      "spread": false,
+      "description": "state"
     },
     "generator": false
   },
@@ -3148,7 +3374,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default function reducer(state={\n    user: null,\n    userName:null,\n    fetching: false,\n    fetched: false,\n    error: null,\n    isLoggedIn:false,\n    role: null,\n    purchasers: null,\n    vendors: null,\n    ad: null,\n    profile:{\n        role:null,\n        firstName: null,\n        // *TODO*\n        // add more attribute here in model\n        // null as default, i copie role into outer scope for convenience :)\n    },\n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_USER\": {\n            return {...state,\n                fetching: true}\n        }\n\n        case \"FETCH_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_PURCHASER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                purchasers: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_VENDOR_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                vendors: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_AD_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                ad: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"SIGNUP_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"SIGNUP_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n            }\n        }\n\n        case \"SIGNUP_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                isLoggedIn:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGIN_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"LOGIN_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                user: action.payload,\n                userName: action.payload.email,\n                isLoggedIn:true,\n            }\n        }\n\n        case \"LOGIN_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGOUT_USER\": {\n            return {\n                ...state,\n                fetching: true,\n                fetched: false,\n            }\n        }\n\n        case \"LOGOUT_USER_FULFILLED\": {\n            return{\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: null,\n                role: null,\n                isLoggedIn: false,\n                purchasers: null,\n                vendors: null,\n                ad: null,\n            }\n        }\n\n        case \"LOGOUT_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: true,\n                error: action.payload\n            }\n        }\n\n    }\n\n    return state\n}\n"
+    "content": "/**\n * User Reducer\n * @exports {state} reducer\n * @param {object} action\n * @return {state} state\n */\nexport default function reducer(state={\n    user: null,\n    userName:null,\n    fetching: false,\n    fetched: false,\n    error: null,\n    isLoggedIn:false,\n    role: null,\n    purchasers: null,\n    vendors: null,\n    ad: null,\n    profile:{\n        role:null,\n        firstName: null,\n        // *TODO*\n        // add more attribute here in model\n        // null as default, i copie role into outer scope for convenience :)\n    },\n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_USER\": {\n            return {...state,\n                fetching: true}\n        }\n\n        case \"FETCH_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_PURCHASER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                purchasers: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_VENDOR_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                vendors: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_AD_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                ad: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"SIGNUP_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"SIGNUP_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n            }\n        }\n\n        case \"SIGNUP_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                isLoggedIn:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGIN_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"LOGIN_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                user: action.payload,\n                userName: action.payload.email,\n                isLoggedIn:true,\n            }\n        }\n\n        case \"LOGIN_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGOUT_USER\": {\n            return {\n                ...state,\n                fetching: true,\n                fetched: false,\n            }\n        }\n\n        case \"LOGOUT_USER_FULFILLED\": {\n            return{\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: null,\n                role: null,\n                isLoggedIn: false,\n                purchasers: null,\n                vendors: null,\n                ad: null,\n            }\n        }\n\n        case \"LOGOUT_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: true,\n                error: action.payload\n            }\n        }\n\n    }\n\n    return state\n}\n"
   },
   {
     "__docId__": 147,
@@ -3162,41 +3388,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Reducers/userReducer.js",
     "importStyle": "reducer",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "User Reducer",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@exports",
+        "tagValue": "{state} reducer"
+      }
+    ],
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{\"user\": object, \"userName\": object, \"fetching\": boolean, \"fetched\": boolean, \"error\": object, \"isLoggedIn\": boolean, \"role\": object, \"purchasers\": object, \"vendors\": object, \"ad\": object, \"profile\": undefined}"
+          "object"
         ],
-        "defaultRaw": {
-          "user": null,
-          "userName": null,
-          "fetching": false,
-          "fetched": false,
-          "error": null,
-          "isLoggedIn": false,
-          "role": null,
-          "purchasers": null,
-          "vendors": null,
-          "ad": null
-        },
-        "defaultValue": "{\"user\":null,\"userName\":null,\"fetching\":false,\"fetched\":false,\"error\":null,\"isLoggedIn\":false,\"role\":null,\"purchasers\":null,\"vendors\":null,\"ad\":null}"
-      },
-      {
+        "spread": false,
+        "optional": false,
         "name": "action",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "state"
+      ],
+      "spread": false,
+      "description": "state"
     },
     "generator": false
   },
@@ -3287,7 +3505,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react';\nimport {Button} from 'react-mdl';\n\nimport store from './Store.js'\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'\n\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\n\n\n\nclass Scripts extends Component {\n    script(){\n\n      firebaseDb.ref('Key/KeyName').set({\n        key: null,\n        role: null\n      })\n\n    }\n\n    render(){\n        return(\n\n                <div>\n                <Button onClick = {this.script.bind(this)}>ggg</Button>\n                </div>\n            )\n        }\n\n};\n\nexport default Scripts\n"
+    "content": "import React, { Component } from 'react';\nimport {Button} from 'react-mdl';\n\nimport store from './Store.js'\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'\n\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\n\n\n/**\n* @ignore\n*/\nclass Scripts extends Component {\n  /**\n  * @ignore\n  */\n    script(){\n\n      firebaseDb.ref('Key/KeyName').set({\n        key: null,\n        role: null\n      })\n\n    }\n    /**\n    * @ignore\n    */\n    render(){\n        return(\n\n                <div>\n                <Button onClick = {this.script.bind(this)}>ggg</Button>\n                </div>\n            )\n        }\n\n};\n\nexport default Scripts\n"
   },
   {
     "__docId__": 153,
@@ -3301,9 +3519,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Scripts.js",
     "importStyle": "Scripts",
-    "description": null,
-    "lineNumber": 20,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 22,
+    "ignore": true,
     "interface": false,
     "extends": [
       "react~Component"
@@ -3318,9 +3536,9 @@
     "memberof": "component/Scripts.js~Scripts",
     "longname": "component/Scripts.js~Scripts#script",
     "access": null,
-    "description": null,
-    "lineNumber": 21,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 26,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -3333,9 +3551,9 @@
     "memberof": "component/Scripts.js~Scripts",
     "longname": "component/Scripts.js~Scripts#render",
     "access": null,
-    "description": null,
-    "lineNumber": 30,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 37,
+    "ignore": true,
     "params": [],
     "return": {
       "types": [
@@ -4660,7 +4878,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentSignUp from './ContentSignUp.js'\n\nclass SignUp extends Component {\n  render(){\n\n    /**\n    * Loads the format page for signup.\n    * @return {html}\n    */\t\n    return (\n      <div>    \n        <LearnHeader/>\n        <ContentSignUp/>   \n        <LearnFooter/>\n      </div>    \n    );\n  }\n}\n\n\n\nexport default SignUp\n    "
+    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentSignUp from './ContentSignUp.js'\n\nclass SignUp extends Component {\n  /**\n  * Loads the format page for signup.\n  * @return {html} - returns header, signup, footer\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentSignUp/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\nexport default SignUp\n    \n"
   },
   {
     "__docId__": 223,
@@ -4691,14 +4909,16 @@
     "memberof": "component/SignUp/SignUp.js~SignUp",
     "longname": "component/SignUp/SignUp.js~SignUp#render",
     "access": null,
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "Loads the format page for signup.",
+    "lineNumber": 12,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns header, signup, footer"
     },
     "generator": false
   },
@@ -4878,7 +5098,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { applyMiddleware, createStore } from \"redux\"\n\nimport logger from \"redux-logger\"\nimport thunk from \"redux-thunk\"\nimport promise from \"redux-promise-middleware\"\nimport reducer from \"./Reducers\"\n\nconst middleware = applyMiddleware(promise(), thunk, logger())\n\nexport default createStore(reducer, middleware)\n"
+    "content": "import { applyMiddleware, createStore } from \"redux\"\n\nimport logger from \"redux-logger\"\nimport thunk from \"redux-thunk\"\nimport promise from \"redux-promise-middleware\"\nimport reducer from \"./Reducers\"\n\n/**\n* @ignore\n*/\nconst middleware = applyMiddleware(promise(), thunk, logger())\n\n/**\n* @ignore\n*/\nexport default createStore(reducer, middleware)\n"
   },
   {
     "__docId__": 235,
@@ -4892,9 +5112,9 @@
     "export": false,
     "importPath": "learnenergy401/component/Store.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 11,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -4912,7 +5132,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Button,Snackbar} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\n\nclass Toast extends React.Component {\n  constructor(props) {\n    super(props);\n    this.handleShowSnackbar = this.handleShowSnackbar.bind(this);\n    this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);\n    this.state = { isSnackbarActive: false };\n  }\n\n  handleShowSnackbar() {\n    this.setState({ isSnackbarActive: true });\n  }\n  handleTimeoutSnackbar() {\n    this.setState({ isSnackbarActive: false });\n  }\n  render() {\n    const { isSnackbarActive } = this.state;\n    return (\n      <div>\n        <Snackbar\n          active={isSnackbarActive}\n          onTimeout={this.handleTimeoutSnackbar}>\n            {this.prop}\n          </Snackbar>\n      </div>\n    );\n  }\n}\n\nexport default Toast"
+    "content": "import React, { Component } from 'react'\nimport {Button,Snackbar} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\n/**\n* @ignore\n*/\nclass Toast extends React.Component {\n  /**\n  * @ignore\n  */\n  constructor(props) {\n    super(props);\n    this.handleShowSnackbar = this.handleShowSnackbar.bind(this);\n    this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);\n    this.state = { isSnackbarActive: false };\n  }\n  /**\n  * @ignore\n  */\n  handleShowSnackbar() {\n    this.setState({ isSnackbarActive: true });\n  }\n  /**\n  * @ignore\n  */\n  handleTimeoutSnackbar() {\n    this.setState({ isSnackbarActive: false });\n  }\n  /**\n  * @ignore\n  */\n  render() {\n    const { isSnackbarActive } = this.state;\n    return (\n      <div>\n        <Snackbar\n          active={isSnackbarActive}\n          onTimeout={this.handleTimeoutSnackbar}>\n            {this.prop}\n          </Snackbar>\n      </div>\n    );\n  }\n}\n\nexport default Toast\n"
   },
   {
     "__docId__": 237,
@@ -4926,9 +5146,9 @@
     "export": true,
     "importPath": "learnenergy401/component/Toast.js",
     "importStyle": "Toast",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 7,
+    "ignore": true,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -4943,9 +5163,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#constructor",
     "access": null,
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 11,
+    "ignore": true,
     "params": [
       {
         "name": "props",
@@ -4966,7 +5186,7 @@
     "longname": "component/Toast.js~Toast#handleShowSnackbar",
     "access": null,
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 13,
     "undocument": true,
     "type": {
       "types": [
@@ -4984,7 +5204,7 @@
     "longname": "component/Toast.js~Toast#handleTimeoutSnackbar",
     "access": null,
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 14,
     "undocument": true,
     "type": {
       "types": [
@@ -5002,7 +5222,7 @@
     "longname": "component/Toast.js~Toast#state",
     "access": null,
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 15,
     "undocument": true,
     "type": {
       "types": [
@@ -5019,9 +5239,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#handleShowSnackbar",
     "access": null,
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 20,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -5034,9 +5254,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#handleTimeoutSnackbar",
     "access": null,
-    "description": null,
-    "lineNumber": 16,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 26,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -5049,9 +5269,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#render",
     "access": null,
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 32,
+    "ignore": true,
     "params": [],
     "return": {
       "types": [
@@ -5071,7 +5291,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport Header from '../Header.js'\nimport Footer from '../Footer.js'\nimport LearnFooter from '../Footer.js'\nimport ComponentUpload from '../ComponentUpload.js'\n\nclass Upload extends Component {\n    render(){\n    return (\n        <div className=\"learn-header\">\n        <Header/>\n        <ComponentUpload/>\n        <Footer/>\n      </div>\n    )\n    }\n}    \n    \nexport default Upload"
+    "content": "import React, { Component } from 'react'\nimport Header from '../Header.js'\nimport Footer from '../Footer.js'\nimport LearnFooter from '../Footer.js'\nimport ComponentUpload from '../ComponentUpload.js'\n\nclass Upload extends Component {\n\n\t/**\n\t * Upload Html\n\t * @returns {html} Upload - Returns html for upload\n\t */\n    render(){\n    return (\n        <div className=\"learn-header\">\n        <Header/>\n        <ComponentUpload/>\n        <Footer/>\n      </div>\n    )\n    }\n}    \n    \nexport default Upload"
   },
   {
     "__docId__": 246,
@@ -5102,14 +5322,22 @@
     "memberof": "component/Vendor/Upload.js~Upload",
     "longname": "component/Vendor/Upload.js~Upload#render",
     "access": null,
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "Upload Html",
+    "lineNumber": 13,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{html} Upload - Returns html for upload"
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "Upload - Returns html for upload"
     },
     "generator": false
   },
@@ -5124,7 +5352,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content,CardText,CardActions,Card,CardTitle} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'\nimport { connect } from \"react-redux\"\nimport { fetchACourse} from \"../Actions/courseActions\"\nimport YouTube from './Youtube.js'\n    \n    \nvar componentStyle = {\n    margin: 'auto',\n}\n\nvar cardStyle = {\n    width: '80%',\n    margin: 'auto',\n    top: '50px',\n    height:'300px'\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\nclass ContentCourseDetail extends Component {\n\tcomponentWillMount(){   \n\t\tconst {course}=this.props\n        this.props.dispatch(fetchACourse(course.aCourseName));\n    }\n    \n    _onReady(event) {\n    // access to player in all event handlers via event.target\n        event.target.playVideo();\n    }\n\n    render(){\n    \tconst {course}=this.props\n        const opts = {\n            height: '360',\n            width: '480',\n            playerVars: { // https://developers.google.com/youtube/player_parameters\n                autoplay: 0,\n                controls: 1,\n            }\n        }\n        return(\n          <div style={{height:'400px'}} className=\"learnContent mdl-typography--text-center\">\n          \n          \t  <Card  style={cardStyle} >\n          \t  <CardTitle className=\"mdl-color--indigo mdl-color-text--white mdl-shadow--2dp\">{course.aCourse.courseName}</CardTitle>\n          \t  <div className=\"mdl-layout__content\">\n              <a name=\"top\" />\n                    <div style={{width: '80%', margin: 'auto'}}>\n                        <CardText style={componentStyle}>{course.aCourse.courseDescription}</CardText>\n                        <div>\n                            <YouTube\n                                videoId={course.aCourse.courseVideoId}\n                                opts={opts}\n                                onReady={this._onReady}\n                            />\n                        </div>\n                    </div>\n               </div>\n               </Card>\n          \n          </div>\n        );\n    }\n};\n\n\n\nexport default ContentCourseDetail"
+    "content": "import React, { Component } from 'react'\nimport {Content,CardText,CardActions,Card,CardTitle} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'\nimport { connect } from \"react-redux\"\nimport { fetchACourse} from \"../Actions/courseActions\"\nimport YouTube from './Youtube.js'\n\n\nvar componentStyle = {\n    margin: 'auto',\n}\n\nvar cardStyle = {\n    width: '80%',\n    margin: 'auto',\n    top: '50px',\n    height:'300px'\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\nclass ContentCourseDetail extends Component {\n  /**\n   * Invoked immediately before a component is unmounted and destroyed, to update our states\n   */\n  componentWillMount(){\n\t\tconst {course}=this.props\n        this.props.dispatch(fetchACourse(course.aCourseName));\n    }\n    /**\n     * plays video\n     */\n    _onReady(event) {\n    // access to player in all event handlers via event.target\n        event.target.playVideo();\n    }\n    /**\n    * display the layout for coursedetails\n    * @return {html} display the layout\n    */\n    render(){\n    \tconst {course}=this.props\n        const opts = {\n            height: '360',\n            width: '480',\n            playerVars: { // https://developers.google.com/youtube/player_parameters\n                autoplay: 0,\n                controls: 1,\n            }\n        }\n        return(\n          <div style={{height:'400px'}} className=\"learnContent mdl-typography--text-center\">\n\n          \t  <Card  style={cardStyle} >\n          \t  <CardTitle className=\"mdl-color--indigo mdl-color-text--white mdl-shadow--2dp\">{course.aCourse.courseName}</CardTitle>\n          \t  <div className=\"mdl-layout__content\">\n              <a name=\"top\" />\n                    <div style={{width: '80%', margin: 'auto'}}>\n                        <CardText style={componentStyle}>{course.aCourse.courseDescription}</CardText>\n                        <div>\n                            <YouTube\n                                videoId={course.aCourse.courseVideoId}\n                                opts={opts}\n                                onReady={this._onReady}\n                            />\n                        </div>\n                    </div>\n               </div>\n               </Card>\n\n          </div>\n        );\n    }\n};\n\n\n\nexport default ContentCourseDetail\n"
   },
   {
     "__docId__": 249,
@@ -5197,9 +5425,8 @@
     "memberof": "component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail",
     "longname": "component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail#componentWillMount",
     "access": null,
-    "description": null,
-    "lineNumber": 28,
-    "undocument": true,
+    "description": "Invoked immediately before a component is unmounted and destroyed, to update our states",
+    "lineNumber": 31,
     "params": [],
     "generator": false
   },
@@ -5212,9 +5439,8 @@
     "memberof": "component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail",
     "longname": "component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail#_onReady",
     "access": null,
-    "description": null,
-    "lineNumber": 33,
-    "undocument": true,
+    "description": "plays video",
+    "lineNumber": 38,
     "params": [
       {
         "name": "event",
@@ -5234,14 +5460,16 @@
     "memberof": "component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail",
     "longname": "component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail#render",
     "access": null,
-    "description": null,
-    "lineNumber": 38,
-    "undocument": true,
+    "description": "display the layout for coursedetails",
+    "lineNumber": 46,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "display the layout"
     },
     "generator": false
   },
@@ -5256,7 +5484,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport CourseList from \"./CourseList.js\"\n\nclass ContentViewCourse extends Component {\n    render(){\n        return(\n          <div  className=\"learnContent mdl-typography--text-center\">\n              <CourseList/>\n          </div>\n        );\n    }\n};\n\n\n\nexport default ContentViewCourse"
+    "content": "import React, { Component } from 'react'\nimport {Content} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport CourseList from \"./CourseList.js\"\n\n\nclass ContentViewCourse extends Component {\n    /**\n    * view course render\n    * @return {html} display courses\n    */\n    render(){\n        return(\n          <div  className=\"learnContent mdl-typography--text-center\">\n              <CourseList/>\n          </div>\n        );\n    }\n};\n\n\n\nexport default ContentViewCourse\n"
   },
   {
     "__docId__": 256,
@@ -5271,7 +5499,7 @@
     "importPath": "learnenergy401/component/ViewCourse/ContentViewCourse.js",
     "importStyle": "ContentViewCourse",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 7,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -5287,14 +5515,16 @@
     "memberof": "component/ViewCourse/ContentViewCourse.js~ContentViewCourse",
     "longname": "component/ViewCourse/ContentViewCourse.js~ContentViewCourse#render",
     "access": null,
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
+    "description": "view course render",
+    "lineNumber": 12,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "display courses"
     },
     "generator": false
   },
@@ -5309,7 +5539,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentCourseDetail from './ContentCourseDetail.js'\n\nvar contentStyle = {\n    height: '1000px!important',\n}\n\nclass CourseDetail extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentCourseDetail style={contentStyle}/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default CourseDetail"
+    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentCourseDetail from './ContentCourseDetail.js'\n\nvar contentStyle = {\n    height: '1000px!important',\n}\n\n/**\n* class to display course details\n* @return {html} display course details\n*/\nclass CourseDetail extends Component {\n  /**\n  * class to display course details\n  * @return {html} display course details\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentCourseDetail style={contentStyle}/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default CourseDetail\n"
   },
   {
     "__docId__": 259,
@@ -5344,9 +5574,16 @@
     "export": true,
     "importPath": "learnenergy401/component/ViewCourse/CourseDetail.js",
     "importStyle": "CourseDetail",
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
+    "description": "class to display course details",
+    "lineNumber": 14,
+    "return": {
+      "nullable": null,
+      "types": [
+        "html"
+      ],
+      "spread": false,
+      "description": "display course details"
+    },
     "interface": false,
     "extends": [
       "react~Component"
@@ -5361,14 +5598,16 @@
     "memberof": "component/ViewCourse/CourseDetail.js~CourseDetail",
     "longname": "component/ViewCourse/CourseDetail.js~CourseDetail#render",
     "access": null,
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
+    "description": "class to display course details",
+    "lineNumber": 19,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "display course details"
     },
     "generator": false
   },
@@ -5383,7 +5622,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { fetchCourse,saveACourse } from \"../Actions/courseActions\"\n\nvar listItemStyle =  {\n    width:\"100%\",\n    height:\"200px\"\n}\n\nvar cardStyle = {\n    width:\"100%\"\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass CourseList extends Component{\n    onListItemClick(){\n        console.log(course.courseName)\n    }\n    componentWillMount(){   \n        this.props.dispatch(fetchCourse());\n    }\n\n    saveACourse(courseName){   \n        this.props.dispatch(saveACourse(courseName));\n        window.location.assign(\"/#view-course-detail\");\n    }\n    \n    \n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    render(){\n        const {course}=this.props\n        if (course.courseList){\n            var arr = this.jsonToArray(course.courseList)\n            const mappedCourse = arr.map(course => \n                \n                <div style={listItemStyle} key = {course.courseName} className=\"mdl-card mdl-shadow--2dp \" onClick={()=>(this.saveACourse(course.courseName))}>\n                    <div className=\"mdl-card__title\" >\n                        <h2 className=\"mdl-card__title-text\">\n                            {course.courseName}\n                        </h2>\n                    </div>\n                     <div className=\"mdl-card__supporting-text\"> \n                        {course.courseDescription}\n                    </div>\n                </div>\n                )\n            \n            return(\n                <div>\n                    {mappedCourse}\n                </div>\n\n            )\n                                         \n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n                \n                </Content>\n            )\n        }\n        \n    }\n}\n\nexport default CourseList"
+    "content": "import React, { Component } from 'react'\nimport {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { fetchCourse,saveACourse } from \"../Actions/courseActions\"\n\nvar listItemStyle =  {\n    width:\"100%\",\n    height:\"200px\"\n}\n\nvar cardStyle = {\n    width:\"100%\"\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass CourseList extends Component{\n    onListItemClick(){\n        console.log(course.courseName)\n    }\n    componentWillMount(){\n        this.props.dispatch(fetchCourse());\n    }\n\n    /**\n    * save a course\n    * @param {object} courseName the name of the course\n    */\n    saveACourse(courseName){\n        this.props.dispatch(saveACourse(courseName));\n        window.location.assign(\"/#view-course-detail\");\n    }\n\n    /**\n    * converts json object to an array of its contents\n    * @param {object} json   takes a json object\n    * @return {Array} arr returns an array of the given json object\n    */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\n    /**\n    * renders the display for the current page.   displays courses\n    * @return {html} if there is a courselist return the list\n    */\n    render(){\n        const {course}=this.props\n        if (course.courseList){\n            var arr = this.jsonToArray(course.courseList)\n            const mappedCourse = arr.map(course =>\n\n                <div style={listItemStyle} key = {course.courseName} className=\"mdl-card mdl-shadow--2dp \" onClick={()=>(this.saveACourse(course.courseName))}>\n                    <div className=\"mdl-card__title\" >\n                        <h2 className=\"mdl-card__title-text\">\n                            {course.courseName}\n                        </h2>\n                    </div>\n                     <div className=\"mdl-card__supporting-text\">\n                        {course.courseDescription}\n                    </div>\n                </div>\n                )\n\n            return(\n                <div>\n                    {mappedCourse}\n                </div>\n\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default CourseList\n"
   },
   {
     "__docId__": 263,
@@ -5486,15 +5725,18 @@
     "memberof": "component/ViewCourse/CourseList.js~CourseList",
     "longname": "component/ViewCourse/CourseList.js~CourseList#saveACourse",
     "access": null,
-    "description": null,
-    "lineNumber": 34,
-    "undocument": true,
+    "description": "save a course",
+    "lineNumber": 38,
     "params": [
       {
-        "name": "courseName",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "courseName",
+        "description": "the name of the course"
       }
     ],
     "generator": false
@@ -5508,21 +5750,27 @@
     "memberof": "component/ViewCourse/CourseList.js~CourseList",
     "longname": "component/ViewCourse/CourseList.js~CourseList#jsonToArray",
     "access": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "converts json object to an array of its contents",
+    "lineNumber": 48,
     "params": [
       {
-        "name": "json",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": "takes a json object"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Array"
+      ],
+      "spread": false,
+      "description": "arr returns an array of the given json object"
     },
     "generator": false
   },
@@ -5535,14 +5783,16 @@
     "memberof": "component/ViewCourse/CourseList.js~CourseList",
     "longname": "component/ViewCourse/CourseList.js~CourseList#render",
     "access": null,
-    "description": null,
-    "lineNumber": 47,
-    "undocument": true,
+    "description": "renders the display for the current page.   displays courses",
+    "lineNumber": 60,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "if there is a courselist return the list"
     },
     "generator": false
   },
@@ -5557,7 +5807,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentViewCourse from './ContentViewCourse.js'\nimport CourseList from './CourseList.js'\n\n\nclass ViewCourse extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentViewCourse/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default ViewCourse"
+    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentViewCourse from './ContentViewCourse.js'\nimport CourseList from './CourseList.js'\n\n\nclass ViewCourse extends Component {\n  /**\n  * display courses\n  * @return {html} display output of viewcourse page.\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentViewCourse/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default ViewCourse\n"
   },
   {
     "__docId__": 272,
@@ -5588,14 +5838,16 @@
     "memberof": "component/ViewCourse/ViewCourse.js~ViewCourse",
     "longname": "component/ViewCourse/ViewCourse.js~ViewCourse#render",
     "access": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "display courses",
+    "lineNumber": 13,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "display output of viewcourse page."
     },
     "generator": false
   },
@@ -5610,7 +5862,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React from 'react';\nimport isEqual from 'lodash.isequal';\nimport youTubePlayer from 'youtube-player';\n\n/**\n * Check whether a `props` change should result in the video being updated.\n *\n * @param {Object} prevProps\n * @param {Object} props\n */\nfunction shouldUpdateVideo(prevProps, props) {\n  // A changing video should always trigger an update\n  if (prevProps.videoId !== props.videoId) {\n    return true;\n  }\n\n  // Otherwise, a change in the start/end time playerVars also requires a player\n  // update.\n  const prevVars = prevProps.opts.playerVars || {};\n  const vars = props.opts.playerVars || {};\n\n  return prevVars.start !== vars.start || prevVars.end !== vars.end;\n}\n\n/**\n * Neutralise API options that only require a video update, leaving only options\n * that require a player reset. The results can then be compared to see if a\n * player reset is necessary.\n *\n * @param {Object} opts\n */\nfunction filterResetOptions(opts) {\n  return {\n    ...opts,\n    playerVars: {\n      ...opts.playerVars,\n      controls: 1,\n      autoplay: 0,\n      start: 0,\n      end: 0,\n    },\n  };\n}\n\n/**\n * Check whether a `props` change should result in the player being reset.\n * The player is reset when the `props.opts` change, except if the only change\n * is in the `start` and `end` playerVars, because a video update can deal with\n * those.\n *\n * @param {Object} prevProps\n * @param {Object} props\n */\nfunction shouldResetPlayer(prevProps, props) {\n  return !isEqual(\n    filterResetOptions(prevProps.opts),\n    filterResetOptions(props.opts)\n  );\n}\n\n/**\n * Check whether a props change should result in an id or className update.\n *\n * @param {Object} prevProps\n * @param {Object} props\n */\nfunction shouldUpdatePlayer(prevProps, props) {\n  return (\n     prevProps.id === props.id || prevProps.className === props.className\n  );\n}\n\nclass YouTube extends React.Component {\n  static propTypes = {\n    videoId: React.PropTypes.string,\n\n    // custom ID for player element\n    id: React.PropTypes.string,\n\n    // custom class name for player element\n    className: React.PropTypes.string,\n\n    // https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player\n    opts: React.PropTypes.object,\n\n    // event subscriptions\n    onReady: React.PropTypes.func,\n    onError: React.PropTypes.func,\n    onPlay: React.PropTypes.func,\n    onPause: React.PropTypes.func,\n    onEnd: React.PropTypes.func,\n    onStateChange: React.PropTypes.func,\n    onPlaybackRateChange: React.PropTypes.func,\n    onPlaybackQualityChange: React.PropTypes.func,\n  };\n\n  static defaultProps = {\n    opts: {},\n    onReady: () => {},\n    onError: () => {},\n    onPlay: () => {},\n    onPause: () => {},\n    onEnd: () => {},\n    onStateChange: () => {},\n    onPlaybackRateChange: () => {},\n    onPlaybackQualityChange: () => {},\n  };\n\n /**\n   * Expose PlayerState constants for convenience. These constants can also be\n   * accessed through the global YT object after the YouTube IFrame API is instantiated.\n   * https://developers.google.com/youtube/iframe_api_reference#onStateChange\n   */\n  static PlayerState = {\n    UNSTARTED: -1,\n    ENDED: 0,\n    PLAYING: 1,\n    PAUSED: 2,\n    BUFFERING: 3,\n    CUED: 5,\n  };\n\n  constructor(props) {\n    super(props);\n\n    this.container = null;\n    this.internalPlayer = null;\n  }\n\n  componentDidMount() {\n    this.createPlayer();\n  }\n\n  componentDidUpdate(prevProps) {\n    if (shouldUpdatePlayer(prevProps, this.props)) {\n      this.updatePlayer();\n    }\n\n    if (shouldResetPlayer(prevProps, this.props)) {\n      this.resetPlayer();\n    }\n\n    if (shouldUpdateVideo(prevProps, this.props)) {\n      this.updateVideo();\n    }\n  }\n\n  componentWillUnmount() {\n     /**\n      * Note: The `youtube-player` package that is used promisifies all Youtube\n      * Player API calls, which introduces a delay of a tick before it actually\n      * gets destroyed. Since React attempts to remove the element instantly\n      * this method isn't quick enough to reset the container element.\n      */\n    this.internalPlayer.destroy();\n  }\n\n  /**\n   * https://developers.google.com/youtube/iframe_api_reference#onReady\n   *\n   * @param {Object} event\n   *   @param {Object} target - player object\n   */\n  onPlayerReady = event => this.props.onReady(event);\n\n  /**\n   * https://developers.google.com/youtube/iframe_api_reference#onError\n   *\n   * @param {Object} event\n   *   @param {Integer} data  - error type\n   *   @param {Object} target - player object\n   */\n  onPlayerError = event => this.props.onError(event);\n\n  /**\n   * https://developers.google.com/youtube/iframe_api_reference#onStateChange\n   *\n   * @param {Object} event\n   *   @param {Integer} data  - status change type\n   *   @param {Object} target - actual YT player\n   */\n  onPlayerStateChange = (event) => {\n    this.props.onStateChange(event);\n    switch (event.data) {\n\n      case YouTube.PlayerState.ENDED:\n        this.props.onEnd(event);\n        break;\n\n      case YouTube.PlayerState.PLAYING:\n        this.props.onPlay(event);\n        break;\n\n      case YouTube.PlayerState.PAUSED:\n        this.props.onPause(event);\n        break;\n\n      default:\n        return;\n    }\n  };\n\n  /**\n   * https://developers.google.com/youtube/iframe_api_reference#onPlaybackRateChange\n   *\n   * @param {Object} event\n   *   @param {Float} data    - playback rate\n   *   @param {Object} target - actual YT player\n   */\n  onPlayerPlaybackRateChange = event => this.props.onPlaybackRateChange(event);\n\n  /**\n   * https://developers.google.com/youtube/iframe_api_reference#onPlaybackQualityChange\n   *\n   * @param {Object} event\n   *   @param {String} data   - playback quality\n   *   @param {Object} target - actual YT player\n   */\n  onPlayerPlaybackQualityChange = event => this.props.onPlaybackQualityChange(event);\n\n  /**\n   * Initialize the Youtube Player API on the container and attach event handlers\n   */\n  createPlayer = () => {\n    // do not attempt to create a player server-side, it won't work\n    if (typeof document === 'undefined') return;\n    // create player\n    const playerOpts = {\n      ...this.props.opts,\n      // preload the `videoId` video if one is already given\n      videoId: this.props.videoId,\n    };\n    this.internalPlayer = youTubePlayer(this.container, playerOpts);\n    // attach event handlers\n    this.internalPlayer.on('ready', this.onPlayerReady);\n    this.internalPlayer.on('error', this.onPlayerError);\n    this.internalPlayer.on('stateChange', this.onPlayerStateChange);\n    this.internalPlayer.on('playbackRateChange', this.onPlayerPlaybackRateChange);\n    this.internalPlayer.on('playbackQualityChange', this.onPlayerPlaybackQualityChange);\n  };\n\n  /**\n   * Shorthand for destroying and then re-creating the Youtube Player\n   */\n  resetPlayer = () => this.internalPlayer.destroy().then(this.createPlayer);\n\n  /**\n   * Method to update the id and class of the Youtube Player iframe.\n   * React should update this automatically but since the Youtube Player API\n   * replaced the DIV that is mounted by React we need to do this manually.\n   */\n  updatePlayer = () => {\n    this.internalPlayer.getIframe().then((iframe) => {\n      iframe.setAttribute('id', this.props.id);\n      iframe.setAttribute('class', this.props.className);\n    });\n  };\n\n  /**\n   * Call Youtube Player API methods to update the currently playing video.\n   * Depeding on the `opts.playerVars.autoplay` this function uses one of two\n   * Youtube Player API methods to update the video.\n   */\n  updateVideo = () => {\n    if (typeof this.props.videoId === 'undefined' || this.props.videoId === null) {\n      this.internalPlayer.stopVideo();\n      return;\n    }\n\n    // set queueing options\n    let autoplay = false;\n    const opts = {\n      videoId: this.props.videoId,\n    };\n    if ('playerVars' in this.props.opts) {\n      autoplay = this.props.opts.playerVars.autoplay === 1;\n      if ('start' in this.props.opts.playerVars) {\n        opts.startSeconds = this.props.opts.playerVars.start;\n      }\n      if ('end' in this.props.opts.playerVars) {\n        opts.endSeconds = this.props.opts.playerVars.end;\n      }\n    }\n\n    // if autoplay is enabled loadVideoById\n    if (autoplay) {\n      this.internalPlayer.loadVideoById(opts);\n      return;\n    }\n    // default behaviour just cues the video\n    this.internalPlayer.cueVideoById(opts);\n  };\n\n  refContainer = (container) => {\n    this.container = container;\n  };\n\n  render() {\n    return (\n      <span>\n        <div id={this.props.id} className={this.props.className} ref={this.refContainer} />\n      </span>\n    );\n  }\n}\n\nexport default YouTube;"
+    "content": "import React from 'react';\nimport isEqual from 'lodash.isequal';\nimport youTubePlayer from 'youtube-player';\n\n/**\n* @ignore\n*/\nfunction shouldUpdateVideo(prevProps, props) {\n  // A changing video should always trigger an update\n  if (prevProps.videoId !== props.videoId) {\n    return true;\n  }\n\n  // Otherwise, a change in the start/end time playerVars also requires a player\n  // update.\n  const prevVars = prevProps.opts.playerVars || {};\n  const vars = props.opts.playerVars || {};\n\n  return prevVars.start !== vars.start || prevVars.end !== vars.end;\n}\n\n/**\n* @ignore\n*/\nfunction filterResetOptions(opts) {\n  return {\n    ...opts,\n    playerVars: {\n      ...opts.playerVars,\n      controls: 1,\n      autoplay: 0,\n      start: 0,\n      end: 0,\n    },\n  };\n}\n\n/**\n* @ignore\n*/\nfunction shouldResetPlayer(prevProps, props) {\n  return !isEqual(\n    filterResetOptions(prevProps.opts),\n    filterResetOptions(props.opts)\n  );\n}\n\n/**\n* @ignore\n*/\nfunction shouldUpdatePlayer(prevProps, props) {\n  return (\n     prevProps.id === props.id || prevProps.className === props.className\n  );\n}\n/**\n* @ignore\n*/\nclass YouTube extends React.Component {\n  static propTypes = {\n    videoId: React.PropTypes.string,\n\n    // custom ID for player element\n    id: React.PropTypes.string,\n\n    // custom class name for player element\n    className: React.PropTypes.string,\n\n    // https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player\n    opts: React.PropTypes.object,\n\n    // event subscriptions\n    onReady: React.PropTypes.func,\n    onError: React.PropTypes.func,\n    onPlay: React.PropTypes.func,\n    onPause: React.PropTypes.func,\n    onEnd: React.PropTypes.func,\n    onStateChange: React.PropTypes.func,\n    onPlaybackRateChange: React.PropTypes.func,\n    onPlaybackQualityChange: React.PropTypes.func,\n  };\n\n  static defaultProps = {\n    opts: {},\n    onReady: () => {},\n    onError: () => {},\n    onPlay: () => {},\n    onPause: () => {},\n    onEnd: () => {},\n    onStateChange: () => {},\n    onPlaybackRateChange: () => {},\n    onPlaybackQualityChange: () => {},\n  };\n\n /**\n   * Expose PlayerState constants for convenience. These constants can also be\n   * accessed through the global YT object after the YouTube IFrame API is instantiated.\n   * https://developers.google.com/youtube/iframe_api_reference#onStateChange\n   */\n  static PlayerState = {\n    UNSTARTED: -1,\n    ENDED: 0,\n    PLAYING: 1,\n    PAUSED: 2,\n    BUFFERING: 3,\n    CUED: 5,\n  };\n  /**\n  * @ignore\n  */\n  constructor(props) {\n    super(props);\n\n    this.container = null;\n    this.internalPlayer = null;\n  }\n  /**\n  * @ignore\n  */\n  componentDidMount() {\n    this.createPlayer();\n  }\n  /**\n  * @ignore\n  */\n  componentDidUpdate(prevProps) {\n    if (shouldUpdatePlayer(prevProps, this.props)) {\n      this.updatePlayer();\n    }\n\n    if (shouldResetPlayer(prevProps, this.props)) {\n      this.resetPlayer();\n    }\n\n    if (shouldUpdateVideo(prevProps, this.props)) {\n      this.updateVideo();\n    }\n  }\n  /**\n  * @ignore\n  */\n  componentWillUnmount() {\n     /**\n      * Note: The `youtube-player` package that is used promisifies all Youtube\n      * Player API calls, which introduces a delay of a tick before it actually\n      * gets destroyed. Since React attempts to remove the element instantly\n      * this method isn't quick enough to reset the container element.\n      */\n    this.internalPlayer.destroy();\n  }\n\n  /**\n  * @ignore\n  */\n  onPlayerReady = event => this.props.onReady(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerError = event => this.props.onError(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerStateChange = (event) => {\n    this.props.onStateChange(event);\n    switch (event.data) {\n\n      case YouTube.PlayerState.ENDED:\n        this.props.onEnd(event);\n        break;\n\n      case YouTube.PlayerState.PLAYING:\n        this.props.onPlay(event);\n        break;\n\n      case YouTube.PlayerState.PAUSED:\n        this.props.onPause(event);\n        break;\n\n      default:\n        return;\n    }\n  };\n\n  /**\n  * @ignore\n  */\n  onPlayerPlaybackRateChange = event => this.props.onPlaybackRateChange(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerPlaybackQualityChange = event => this.props.onPlaybackQualityChange(event);\n\n  /**\n  * @ignore\n  */\n  createPlayer = () => {\n    // do not attempt to create a player server-side, it won't work\n    if (typeof document === 'undefined') return;\n    // create player\n    const playerOpts = {\n      ...this.props.opts,\n      // preload the `videoId` video if one is already given\n      videoId: this.props.videoId,\n    };\n    this.internalPlayer = youTubePlayer(this.container, playerOpts);\n    // attach event handlers\n    this.internalPlayer.on('ready', this.onPlayerReady);\n    this.internalPlayer.on('error', this.onPlayerError);\n    this.internalPlayer.on('stateChange', this.onPlayerStateChange);\n    this.internalPlayer.on('playbackRateChange', this.onPlayerPlaybackRateChange);\n    this.internalPlayer.on('playbackQualityChange', this.onPlayerPlaybackQualityChange);\n  };\n\n  /**\n  * @ignore\n  */\n  resetPlayer = () => this.internalPlayer.destroy().then(this.createPlayer);\n\n  /**\n  * @ignore\n  */\n  updatePlayer = () => {\n    this.internalPlayer.getIframe().then((iframe) => {\n      iframe.setAttribute('id', this.props.id);\n      iframe.setAttribute('class', this.props.className);\n    });\n  };\n\n  /**\n  * @ignore\n  */\n  updateVideo = () => {\n    if (typeof this.props.videoId === 'undefined' || this.props.videoId === null) {\n      this.internalPlayer.stopVideo();\n      return;\n    }\n\n    // set queueing options\n    let autoplay = false;\n    const opts = {\n      videoId: this.props.videoId,\n    };\n    if ('playerVars' in this.props.opts) {\n      autoplay = this.props.opts.playerVars.autoplay === 1;\n      if ('start' in this.props.opts.playerVars) {\n        opts.startSeconds = this.props.opts.playerVars.start;\n      }\n      if ('end' in this.props.opts.playerVars) {\n        opts.endSeconds = this.props.opts.playerVars.end;\n      }\n    }\n\n    // if autoplay is enabled loadVideoById\n    if (autoplay) {\n      this.internalPlayer.loadVideoById(opts);\n      return;\n    }\n    // default behaviour just cues the video\n    this.internalPlayer.cueVideoById(opts);\n  };\n  /**\n  * @ignore\n  */\n  refContainer = (container) => {\n    this.container = container;\n  };\n  /**\n  * @ignore\n  */\n  render() {\n    return (\n      <span>\n        <div id={this.props.id} className={this.props.className} ref={this.refContainer} />\n      </span>\n    );\n  }\n}\n\nexport default YouTube;\n"
   },
   {
     "__docId__": 275,
@@ -5624,28 +5876,21 @@
     "export": false,
     "importPath": "learnenergy401/component/ViewCourse/Youtube.js",
     "importStyle": null,
-    "description": "Check whether a `props` change should result in the video being updated.",
-    "lineNumber": 11,
+    "description": "",
+    "lineNumber": 8,
+    "ignore": true,
     "params": [
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "prevProps",
-        "description": ""
+        "types": [
+          "*"
+        ]
       },
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "props",
-        "description": ""
+        "types": [
+          "*"
+        ]
       }
     ],
     "return": {
@@ -5667,18 +5912,15 @@
     "export": false,
     "importPath": "learnenergy401/component/ViewCourse/Youtube.js",
     "importStyle": null,
-    "description": "Neutralise API options that only require a video update, leaving only options\nthat require a player reset. The results can then be compared to see if a\nplayer reset is necessary.",
-    "lineNumber": 32,
+    "description": "",
+    "lineNumber": 25,
+    "ignore": true,
     "params": [
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "opts",
-        "description": ""
+        "types": [
+          "*"
+        ]
       }
     ],
     "return": {
@@ -5700,28 +5942,21 @@
     "export": false,
     "importPath": "learnenergy401/component/ViewCourse/Youtube.js",
     "importStyle": null,
-    "description": "Check whether a `props` change should result in the player being reset.\nThe player is reset when the `props.opts` change, except if the only change\nis in the `start` and `end` playerVars, because a video update can deal with\nthose.",
-    "lineNumber": 54,
+    "description": "",
+    "lineNumber": 41,
+    "ignore": true,
     "params": [
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "prevProps",
-        "description": ""
+        "types": [
+          "*"
+        ]
       },
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "props",
-        "description": ""
+        "types": [
+          "*"
+        ]
       }
     ],
     "return": {
@@ -5743,28 +5978,21 @@
     "export": false,
     "importPath": "learnenergy401/component/ViewCourse/Youtube.js",
     "importStyle": null,
-    "description": "Check whether a props change should result in an id or className update.",
-    "lineNumber": 67,
+    "description": "",
+    "lineNumber": 51,
+    "ignore": true,
     "params": [
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "prevProps",
-        "description": ""
+        "types": [
+          "*"
+        ]
       },
       {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
         "name": "props",
-        "description": ""
+        "types": [
+          "*"
+        ]
       }
     ],
     "return": {
@@ -5786,9 +6014,9 @@
     "export": true,
     "importPath": "learnenergy401/component/ViewCourse/Youtube.js",
     "importStyle": "YouTube",
-    "description": null,
-    "lineNumber": 73,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 59,
+    "ignore": true,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -5803,9 +6031,9 @@
     "memberof": "component/ViewCourse/Youtube.js~YouTube",
     "longname": "component/ViewCourse/Youtube.js~YouTube#constructor",
     "access": null,
-    "description": null,
-    "lineNumber": 123,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 111,
+    "ignore": true,
     "params": [
       {
         "name": "props",
@@ -5826,7 +6054,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#container",
     "access": null,
     "description": null,
-    "lineNumber": 126,
+    "lineNumber": 114,
     "undocument": true,
     "type": {
       "types": [
@@ -5844,7 +6072,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#internalPlayer",
     "access": null,
     "description": null,
-    "lineNumber": 127,
+    "lineNumber": 115,
     "undocument": true,
     "type": {
       "types": [
@@ -5861,9 +6089,9 @@
     "memberof": "component/ViewCourse/Youtube.js~YouTube",
     "longname": "component/ViewCourse/Youtube.js~YouTube#componentDidMount",
     "access": null,
-    "description": null,
-    "lineNumber": 130,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 120,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -5876,9 +6104,9 @@
     "memberof": "component/ViewCourse/Youtube.js~YouTube",
     "longname": "component/ViewCourse/Youtube.js~YouTube#componentDidUpdate",
     "access": null,
-    "description": null,
-    "lineNumber": 134,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 126,
+    "ignore": true,
     "params": [
       {
         "name": "prevProps",
@@ -5898,9 +6126,9 @@
     "memberof": "component/ViewCourse/Youtube.js~YouTube",
     "longname": "component/ViewCourse/Youtube.js~YouTube#componentWillUnmount",
     "access": null,
-    "description": null,
-    "lineNumber": 148,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 142,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -5913,9 +6141,9 @@
     "memberof": "component/ViewCourse/Youtube.js~YouTube",
     "longname": "component/ViewCourse/Youtube.js~YouTube#render",
     "access": null,
-    "description": null,
-    "lineNumber": 298,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 273,
+    "ignore": true,
     "params": [],
     "return": {
       "types": [
