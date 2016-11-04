@@ -6,9 +6,10 @@ import ButtonLogOut from './ButtonLogOut.js';
 import LearnLogo from './Logo.js';
 import LearnNavigation from './Navigation.js';
 import store from './Store.js'
+import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from './Firebase'
 
 import { connect } from "react-redux"
-import { fetchUsers,getCurrentUser } from "./Actions/userActions"
+import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
 
 
 var buttonSpacer={
@@ -30,9 +31,25 @@ class LearnHeader extends Component {
         this.props.dispatch(getCurrentUser())
     }
 
+    fetchPurchaserSignup() {
+      this.props.dispatch(fetchPurchaserSignup())
+    }
+
+    fetchVendorSignup() {
+      this.props.dispatch(fetchVendorSignup())
+    }
+
+    fetchADSignup() {
+      this.props.dispatch(fetchADSignup())
+    }
+
     componentWillMount(){
         this.getCurrentUser()
+        this.fetchPurchaserSignup()
+        this.fetchVendorSignup()
+        this.fetchADSignup()
     }
+
     render(){ 
         const {user} = this.props
 
@@ -54,6 +71,23 @@ class LearnHeader extends Component {
             );
         }
         else{
+          console.log(user)
+          var notified
+          firebaseDb.ref('Notifications/Admin_Notification').once('value')
+          .then((snapshot) => {
+            notified = snapshot.val().notified
+            if (user.role == 3) {
+              if ((user.purchasers != null || user.vendors != null || user.ad != null)&&(notified==false)) {
+                alert("There are users to be approved")
+                firebaseDb.ref('Notifications/Admin_Notification').set({
+                  notified: true
+                })
+                
+              }
+            }
+          })
+
+
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
                       <span  className="learn-title mdl-layout-title ">

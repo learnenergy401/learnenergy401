@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import FirebaseTools from '../Firebase.js'
 import ButtonSignUpPurchaser from './ButtonSignUpPurchaser.js'
 import ButtonSignUpVendor from './ButtonSignUpVendor.js'
+import ButtonSignUpAD from './ButtonSignUpAD.js'
 
 var componentStyle = {
     margin: 'auto',
@@ -34,13 +35,13 @@ class ComponentSignUp extends Component {
           <CardActions>
             <ButtonSignUpPurchaser to='signup-purchaser' />
           </CardActions>
-  
+
           <CardActions>
             <ButtonSignUpVendor to='signup-vendor' />
           </CardActions>
 
           <CardActions>
-            <Button accent ripple id="add" type="submit" className="mdl-color-text--indigo btn btn-primary">Additional Resource</Button>
+          <ButtonSignUpAD to='signup-ad' />
           </CardActions>
 
         </div>
@@ -50,4 +51,3 @@ class ComponentSignUp extends Component {
 };
 
 export default ComponentSignUp
-    
