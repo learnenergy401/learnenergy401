@@ -1,3 +1,9 @@
+/**
+ * User Reducer
+ * @exports {state} reducer
+ * @param {object} action
+ * @return {state} state
+ */
 export default function reducer(state={
     user: null,
     userName:null,

@@ -112,7 +112,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">component/Reducers/profileReducer.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export default function reducer(state={
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Profile Reducer
+ * @exports {state} reducer
+ * @param {object} action
+ * @return {state} state
+ */
+
+export default function reducer(state={
     menu: 0,
     
   }, action) {
