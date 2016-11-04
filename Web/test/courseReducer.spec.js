@@ -13,7 +13,11 @@ describe('course reducer', () => {
 		    error: null,
 		    aCourse: "Loading...",
 		    aCourseName:"Loading...",
-		    uploaded: false})
+		    uploaded: false,
+
+		    courseName:null,
+		    courseDescription: null,
+		    courseVendorEmail: null,})
   	})
 
 	it('should handle FETCH_A_COURSE', () => {
@@ -133,10 +137,10 @@ describe('course reducer', () => {
 	   )
 	})
 
-	it('should handle UPLOAD_COURSE', () => {
+	it('should handle UPLOAD_COURSE_DETAIL', () => {
 	    expect(
 	      reducer([], {
-	        type: 'UPLOAD_COURSE',
+	        type: 'UPLOAD_COURSE_DETAIL',
 	      })
 	    ).toEqual(
 	      	{
@@ -147,10 +151,10 @@ describe('course reducer', () => {
 	})
 
 
-	it('should handle UPLOAD_COURSE_FULFILLED', () => {
+	it('should handle UPLOAD_COURSE_DETAIL_FULFILLED', () => {
 	    expect(
 	      reducer([], {
-	        type: 'UPLOAD_COURSE_FULFILLED',
+	        type: 'UPLOAD_COURSE_DETAIL_FULFILLED',
 	      })
 	    ).toEqual(
 	      	{
@@ -160,10 +164,10 @@ describe('course reducer', () => {
 	   )
 	})
 
-	it('should handle UPLOAD_COURSE_REJECTED', () => {
+	it('should handle UPLOAD_COURSE_DETAIL_REJECTED', () => {
 	    expect(
 	      reducer([], {
-	        type: 'UPLOAD_COURSE_REJECTED',
+	        type: 'UPLOAD_COURSE_DETAIL_REJECTED',
 	      })
 	    ).toEqual(
 	      {
