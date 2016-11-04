@@ -112,8 +112,14 @@ import thunk from &quot;redux-thunk&quot;
 import promise from &quot;redux-promise-middleware&quot;
 import reducer from &quot;./Reducers&quot;
 
+/**
+* @ignore
+*/
 const middleware = applyMiddleware(promise(), thunk, logger())
 
+/**
+* @ignore
+*/
 export default createStore(reducer, middleware)
 </code></pre>
 

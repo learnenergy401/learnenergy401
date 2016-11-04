@@ -110,19 +110,30 @@ import {Button,Snackbar} from &apos;react-mdl&apos;;
 import { Router, Route, Link, browserHistory, IndexRoute  } from &apos;react-router&apos;
 
 class Toast extends React.Component {
+  /**
+  * @ignore
+  */
   constructor(props) {
     super(props);
     this.handleShowSnackbar = this.handleShowSnackbar.bind(this);
     this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);
     this.state = { isSnackbarActive: false };
   }
-
+  /**
+  * @ignore
+  */
   handleShowSnackbar() {
     this.setState({ isSnackbarActive: true });
   }
+  /**
+  * @ignore
+  */
   handleTimeoutSnackbar() {
     this.setState({ isSnackbarActive: false });
   }
+  /**
+  * @ignore
+  */
   render() {
     const { isSnackbarActive } = this.state;
     return (
@@ -137,7 +148,8 @@ class Toast extends React.Component {
   }
 }
 
-export default Toast</code></pre>
+export default Toast
+</code></pre>
 
 </div>
 

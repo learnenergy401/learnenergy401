@@ -1,6 +1,6 @@
 {
-  "coverage": "61.07%",
-  "expectCount": 167,
+  "coverage": "63.35%",
+  "expectCount": 161,
   "actualCount": 102,
   "files": {
     "component/Admin.js": {
@@ -253,12 +253,10 @@
       ]
     },
     "component/Scripts.js": {
-      "expectCount": 3,
+      "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        20,
-        30,
-        21
+        20
       ]
     },
     "component/Profile/SideMenuProfile.js": {
@@ -268,18 +266,18 @@
         35
       ]
     },
-    "component/SignUp/SignUp.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        7
-      ]
-    },
     "component/Profile/Profile.js": {
       "expectCount": 3,
       "actualCount": 2,
       "undocumentLines": [
         17
+      ]
+    },
+    "component/SignUp/SignUp.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        7
       ]
     },
     "component/SignUp/SignUpAD.js": {
@@ -311,15 +309,11 @@
       ]
     },
     "component/Toast.js": {
-      "expectCount": 6,
+      "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
         5,
-        6,
-        13,
-        16,
-        19,
-        10
+        13
       ]
     },
     "component/Vendor/Upload.js": {
@@ -365,17 +359,17 @@
       "actualCount": 6,
       "undocumentLines": []
     },
-    "component/Reducers/userReducer.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
     "component/Reducers/profileReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
     "component/Reducers/courseReducer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "component/Reducers/userReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

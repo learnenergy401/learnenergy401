@@ -3505,7 +3505,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react';\nimport {Button} from 'react-mdl';\n\nimport store from './Store.js'\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'\n\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\n\n\n\nclass Scripts extends Component {\n    script(){\n\n      firebaseDb.ref('Key/KeyName').set({\n        key: null,\n        role: null\n      })\n\n    }\n\n    render(){\n        return(\n\n                <div>\n                <Button onClick = {this.script.bind(this)}>ggg</Button>\n                </div>\n            )\n        }\n\n};\n\nexport default Scripts\n"
+    "content": "import React, { Component } from 'react';\nimport {Button} from 'react-mdl';\n\nimport store from './Store.js'\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'\n\n\n@connect((store) => {\n  return {\n    user: store.user\n  };\n})/*dont add semicolon here!*/\n\n\n\nclass Scripts extends Component {\n  /**\n  * @ignore\n  */\n    script(){\n\n      firebaseDb.ref('Key/KeyName').set({\n        key: null,\n        role: null\n      })\n\n    }\n    /**\n    * @ignore\n    */\n    render(){\n        return(\n\n                <div>\n                <Button onClick = {this.script.bind(this)}>ggg</Button>\n                </div>\n            )\n        }\n\n};\n\nexport default Scripts\n"
   },
   {
     "__docId__": 153,
@@ -3536,9 +3536,9 @@
     "memberof": "component/Scripts.js~Scripts",
     "longname": "component/Scripts.js~Scripts#script",
     "access": null,
-    "description": null,
-    "lineNumber": 21,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 24,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -3551,9 +3551,9 @@
     "memberof": "component/Scripts.js~Scripts",
     "longname": "component/Scripts.js~Scripts#render",
     "access": null,
-    "description": null,
-    "lineNumber": 30,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 35,
+    "ignore": true,
     "params": [],
     "return": {
       "types": [
@@ -5098,7 +5098,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { applyMiddleware, createStore } from \"redux\"\n\nimport logger from \"redux-logger\"\nimport thunk from \"redux-thunk\"\nimport promise from \"redux-promise-middleware\"\nimport reducer from \"./Reducers\"\n\nconst middleware = applyMiddleware(promise(), thunk, logger())\n\nexport default createStore(reducer, middleware)\n"
+    "content": "import { applyMiddleware, createStore } from \"redux\"\n\nimport logger from \"redux-logger\"\nimport thunk from \"redux-thunk\"\nimport promise from \"redux-promise-middleware\"\nimport reducer from \"./Reducers\"\n\n/**\n* @ignore\n*/\nconst middleware = applyMiddleware(promise(), thunk, logger())\n\n/**\n* @ignore\n*/\nexport default createStore(reducer, middleware)\n"
   },
   {
     "__docId__": 235,
@@ -5112,9 +5112,9 @@
     "export": false,
     "importPath": "learnenergy401/component/Store.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 11,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -5132,7 +5132,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Button,Snackbar} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\n\nclass Toast extends React.Component {\n  constructor(props) {\n    super(props);\n    this.handleShowSnackbar = this.handleShowSnackbar.bind(this);\n    this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);\n    this.state = { isSnackbarActive: false };\n  }\n\n  handleShowSnackbar() {\n    this.setState({ isSnackbarActive: true });\n  }\n  handleTimeoutSnackbar() {\n    this.setState({ isSnackbarActive: false });\n  }\n  render() {\n    const { isSnackbarActive } = this.state;\n    return (\n      <div>\n        <Snackbar\n          active={isSnackbarActive}\n          onTimeout={this.handleTimeoutSnackbar}>\n            {this.prop}\n          </Snackbar>\n      </div>\n    );\n  }\n}\n\nexport default Toast"
+    "content": "import React, { Component } from 'react'\nimport {Button,Snackbar} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\n\nclass Toast extends React.Component {\n  /**\n  * @ignore\n  */\n  constructor(props) {\n    super(props);\n    this.handleShowSnackbar = this.handleShowSnackbar.bind(this);\n    this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);\n    this.state = { isSnackbarActive: false };\n  }\n  /**\n  * @ignore\n  */\n  handleShowSnackbar() {\n    this.setState({ isSnackbarActive: true });\n  }\n  /**\n  * @ignore\n  */\n  handleTimeoutSnackbar() {\n    this.setState({ isSnackbarActive: false });\n  }\n  /**\n  * @ignore\n  */\n  render() {\n    const { isSnackbarActive } = this.state;\n    return (\n      <div>\n        <Snackbar\n          active={isSnackbarActive}\n          onTimeout={this.handleTimeoutSnackbar}>\n            {this.prop}\n          </Snackbar>\n      </div>\n    );\n  }\n}\n\nexport default Toast\n"
   },
   {
     "__docId__": 237,
@@ -5163,9 +5163,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#constructor",
     "access": null,
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 9,
+    "ignore": true,
     "params": [
       {
         "name": "props",
@@ -5186,7 +5186,7 @@
     "longname": "component/Toast.js~Toast#handleShowSnackbar",
     "access": null,
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -5204,7 +5204,7 @@
     "longname": "component/Toast.js~Toast#handleTimeoutSnackbar",
     "access": null,
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 12,
     "undocument": true,
     "type": {
       "types": [
@@ -5222,7 +5222,7 @@
     "longname": "component/Toast.js~Toast#state",
     "access": null,
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 13,
     "undocument": true,
     "type": {
       "types": [
@@ -5239,9 +5239,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#handleShowSnackbar",
     "access": null,
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 18,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -5254,9 +5254,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#handleTimeoutSnackbar",
     "access": null,
-    "description": null,
-    "lineNumber": 16,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 24,
+    "ignore": true,
     "params": [],
     "generator": false
   },
@@ -5269,9 +5269,9 @@
     "memberof": "component/Toast.js~Toast",
     "longname": "component/Toast.js~Toast#render",
     "access": null,
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 30,
+    "ignore": true,
     "params": [],
     "return": {
       "types": [

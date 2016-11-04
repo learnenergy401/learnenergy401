@@ -1236,18 +1236,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "component/scripts.js~scripts#render",
-    "class/component/Scripts.js~Scripts.html#instance-method-render",
-    "component/Scripts.js~Scripts#render",
-    "method"
-  ],
-  [
-    "component/scripts.js~scripts#script",
-    "class/component/Scripts.js~Scripts.html#instance-method-script",
-    "component/Scripts.js~Scripts#script",
-    "method"
-  ],
-  [
     "component/signup/buttonsignup.js",
     "file/component/SignUp/ButtonSignUp.js.html",
     "component/SignUp/ButtonSignUp.js",
@@ -1486,30 +1474,6 @@ window.esdocSearchIndex = [
     "file/component/Toast.js.html",
     "component/Toast.js",
     "file"
-  ],
-  [
-    "component/toast.js~toast#constructor",
-    "class/component/Toast.js~Toast.html#instance-constructor-constructor",
-    "component/Toast.js~Toast#constructor",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#handleshowsnackbar",
-    "class/component/Toast.js~Toast.html#instance-method-handleShowSnackbar",
-    "component/Toast.js~Toast#handleShowSnackbar",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#handletimeoutsnackbar",
-    "class/component/Toast.js~Toast.html#instance-method-handleTimeoutSnackbar",
-    "component/Toast.js~Toast#handleTimeoutSnackbar",
-    "method"
-  ],
-  [
-    "component/toast.js~toast#render",
-    "class/component/Toast.js~Toast.html#instance-method-render",
-    "component/Toast.js~Toast#render",
-    "method"
   ],
   [
     "component/toast.js~toast#state",
