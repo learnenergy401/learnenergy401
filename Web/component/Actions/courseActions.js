@@ -42,7 +42,7 @@ export function uploadCourse(course) {
 export function uploadCourseDetail(user,fileObj) {
     return function(dispatch) {
         dispatch({type: "UPLOAD_COURSE_DETAIL"})
-        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata)
+        firebaseStorage.child(user.email+fileObj.fileName).put(fileObj.file,fileObj.metadata)
             .then((snapshot) =>{
             //use then() to avoid asynchronous case
             url = snapshot.metadata.downloadURLs[0];
