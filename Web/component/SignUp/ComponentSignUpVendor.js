@@ -30,7 +30,6 @@ class ComponentSignUpVendor extends Component {
     var postalCode = document.getElementById("postalCode").value;
     var phone = document.getElementById("phone").value;
     var fax = document.getElementById("fax").value;
-
     var owner1Name = document.getElementById("owner1Name").value;
     var owner1Pos = document.getElementById("owner1Pos").value;
     var natureBusiness = document.getElementById("natureBusiness").value;
