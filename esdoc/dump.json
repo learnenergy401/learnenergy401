@@ -2070,7 +2070,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import firebase from 'firebase';\nimport {FIREBASE_CONFIG} from '../../firebase.config.js';\nimport ComponentUpload from './ComponentUpload.js';\n\nexport const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');\nexport const firebaseAuth = firebaseApp.auth();\nexport const firebaseDb = firebaseApp.database();\nexport const firebaseStorage = firebaseApp.storage().ref();\n\nexport const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);\nexport const firebaseAuthInstance = firebaseApp2.auth();\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\n\nvar FirebaseTools = {\n    /**\n    * used for uploading files, gives a url for the file\n    * @param {object} url - returns the url of the file\n    * @return {object} error - returns error if it cannot upload file\n    */\n    //function fo vendor upload demo\n    vendorUpload: function(fileObj){\n        var url='';\n        firebaseAuth.signInAnonymously();\n        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata).then(function(snapshot){\n        //use then() to avoid asynchronous case\n        url = snapshot.metadata.downloadURLs[0];\n        document.getElementById('linkbox').innerHTML = '<a href=\"' + url + '\">Click For File</a>';\n        console.log('Upload successfully');\n        }).catch(function(error) {\n        console.error('Upload failed:', error);\n      });;\n    },\n\n}\n\nexport default FirebaseTools;\n"
+    "content": "import firebase from 'firebase';\nimport {FIREBASE_CONFIG} from '../../firebase.config.js';\nimport ComponentUpload from './ComponentUpload.js';\n\n/**\n * Initializes the firebase App \n * @returns {object} firebaseApp - Returns instance of firebase.\n */\nexport const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');\n\n/**\n * Auth of firebaseApp \n * @returns {object} firebaseAuth - Returns auth instance of firebase.\n */\nexport const firebaseAuth = firebaseApp.auth();\n\n/**\n * Db of firebaseApp\n * @returns {object} firebaseDb - Returns db instance of firebase.\n */\nexport const firebaseDb = firebaseApp.database();\n\n/**\n * Storage of firebaseApp \n * @returns {object} firebaseStorage - Returns storage instance of firebase.\n */\nexport const firebaseStorage = firebaseApp.storage().ref();\n\n/**\n * Initializes a second instance of firebase App \n * @returns {object} firebaseApp2 - Returns instance of firebase.\n */\nexport const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);\n\n/**\n * Auth of firebaseApp2\n * @returns {object} firebaseAuth2 - Returns second auth instance of firebase.\n */\nexport const firebaseAuthInstance = firebaseApp2.auth();\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\n\nvar FirebaseTools = {\n    /**\n    * used for uploading files, gives a url for the file\n    * @param {object} url - returns the url of the file\n    * @return {object} error - returns error if it cannot upload file\n    */\n    //function fo vendor upload demo\n    vendorUpload: function(fileObj){\n        var url='';\n        firebaseAuth.signInAnonymously();\n        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata).then(function(snapshot){\n        //use then() to avoid asynchronous case\n        url = snapshot.metadata.downloadURLs[0];\n        document.getElementById('linkbox').innerHTML = '<a href=\"' + url + '\">Click For File</a>';\n        console.log('Upload successfully');\n        }).catch(function(error) {\n        console.error('Upload failed:', error);\n      });;\n    },\n\n}\n\nexport default FirebaseTools;\n"
   },
   {
     "__docId__": 81,
@@ -2084,9 +2084,22 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseApp}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
+    "description": "Initializes the firebase App ",
+    "lineNumber": 9,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} firebaseApp - Returns instance of firebase."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "firebaseApp - Returns instance of firebase."
+    },
     "type": {
       "types": [
         "*"
@@ -2105,9 +2118,22 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseAuth}",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "Auth of firebaseApp ",
+    "lineNumber": 15,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} firebaseAuth - Returns auth instance of firebase."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "firebaseAuth - Returns auth instance of firebase."
+    },
     "type": {
       "types": [
         "*"
@@ -2126,9 +2152,22 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseDb}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
+    "description": "Db of firebaseApp",
+    "lineNumber": 21,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} firebaseDb - Returns db instance of firebase."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "firebaseDb - Returns db instance of firebase."
+    },
     "type": {
       "types": [
         "*"
@@ -2147,9 +2186,22 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseStorage}",
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "Storage of firebaseApp ",
+    "lineNumber": 27,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} firebaseStorage - Returns storage instance of firebase."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "firebaseStorage - Returns storage instance of firebase."
+    },
     "type": {
       "types": [
         "*"
@@ -2168,9 +2220,22 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseApp2}",
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
+    "description": "Initializes a second instance of firebase App ",
+    "lineNumber": 33,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} firebaseApp2 - Returns instance of firebase."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "firebaseApp2 - Returns instance of firebase."
+    },
     "type": {
       "types": [
         "*"
@@ -2189,9 +2254,22 @@
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseAuthInstance}",
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
+    "description": "Auth of firebaseApp2",
+    "lineNumber": 39,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} firebaseAuth2 - Returns second auth instance of firebase."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "firebaseAuth2 - Returns second auth instance of firebase."
+    },
     "type": {
       "types": [
         "*"
@@ -2211,7 +2289,7 @@
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "FirebaseTools",
     "description": null,
-    "lineNumber": 17,
+    "lineNumber": 45,
     "undocument": true,
     "type": {
       "types": [

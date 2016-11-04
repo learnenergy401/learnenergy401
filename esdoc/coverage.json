@@ -1,7 +1,7 @@
 {
-  "coverage": "45.97%",
+  "coverage": "49.42%",
   "expectCount": 174,
-  "actualCount": 80,
+  "actualCount": 86,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -214,15 +214,9 @@
     },
     "component/Firebase.js": {
       "expectCount": 7,
-      "actualCount": 0,
+      "actualCount": 6,
       "undocumentLines": [
-        17,
-        5,
-        10,
-        6,
-        11,
-        7,
-        8
+        45
       ]
     },
     "component/Home/Home.js": {
