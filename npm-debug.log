@@ -1,0 +1,51 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/opt/local/bin/node',
+1 verbose cli   '/opt/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-D',
+1 verbose cli   'esdoc' ]
+2 info using npm@3.10.5
+3 info using node@v6.7.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData esdoc
+8 silly fetchDirectoryPackageData esdoc
+9 silly install normalizeTree
+10 silly loadCurrentTree Finishing
+11 silly loadIdealTree Starting
+12 silly install loadIdealTree
+13 silly cloneCurrentTree Starting
+14 silly install cloneCurrentTreeToIdealTree
+15 silly cloneCurrentTree Finishing
+16 silly loadShrinkwrap Starting
+17 silly install loadShrinkwrap
+18 silly loadShrinkwrap Finishing
+19 silly loadAllDepsIntoIdealTree Starting
+20 silly install loadAllDepsIntoIdealTree
+21 silly rollbackFailedOptional Starting
+22 silly rollbackFailedOptional Finishing
+23 silly runTopLevelLifecycles Starting
+24 silly runTopLevelLifecycles Finishing
+25 silly install printInstalled
+26 verbose stack Error: Refusing to install learnenergy401 as a dependency of itself
+26 verbose stack     at checkSelf (/opt/local/lib/node_modules/npm/lib/install/validate-args.js:53:14)
+26 verbose stack     at Array.<anonymous> (/opt/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+26 verbose stack     at LOOP (/opt/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+26 verbose stack     at chain (/opt/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+26 verbose stack     at /opt/local/lib/node_modules/npm/lib/install/validate-args.js:16:5
+26 verbose stack     at /opt/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
+26 verbose stack     at Array.forEach (native)
+26 verbose stack     at /opt/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
+26 verbose stack     at Array.forEach (native)
+26 verbose stack     at asyncMap (/opt/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:51:8)
+27 verbose cwd /Users/Chris/Desktop/learnenergy401
+28 error Darwin 16.1.0
+29 error argv "/opt/local/bin/node" "/opt/local/bin/npm" "install" "-D" "esdoc"
+30 error node v6.7.0
+31 error npm  v3.10.5
+32 error code ENOSELF
+33 error Refusing to install learnenergy401 as a dependency of itself
+34 error If you need help, you may report this error at:
+34 error     <https://github.com/npm/npm/issues>
+35 verbose exit [ 1, true ]
