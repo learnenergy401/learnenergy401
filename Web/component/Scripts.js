@@ -19,9 +19,11 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 
 class Scripts extends Component {
     script(){
-
-
-
+        console.log('h')
+        firebaseDb.ref('Key/Keyname').set({
+            key: null,
+            role: null,
+        })
     }
     
     render(){ 

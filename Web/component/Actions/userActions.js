@@ -2,6 +2,32 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * Grabs the key from the database.
+ * @returns {object} key - Returns the object of key.
+ * @throws {object} err - Returns an error if failed to fetch from database. 
+ */
+export function fetchKeyName() {
+  return function(dispatch) {
+    firebaseDb.ref('Key/KeyName').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_KEYNAME_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_KEYNAME_REJECTED"})
+    })
+  }
+}
+
+
+export function storeKeyName(key) {
+  return function(dispatch) {
+    firebaseDb.ref('Key/Keyname').set({
+      key: key.key_name,
+      role: key.role,
+    })
+  }
+}
+/**
  * Grabs the purchasers from the Purchaser SignUp list in the database.
  * @returns {object} purchasers - Returns the object of purchasers.
  * @throws {object} err - Returns an error if failed to fetch from database. 

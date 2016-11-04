@@ -19,10 +19,6 @@ import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser 
 
 class Admin extends Component {
 
-    fetchRole() { // pass email to fetchRole for it to see role
-      this.props.dispatch(fetchRole(email))
-    }
-
     fetchPurchaserSignup() {
       this.props.dispatch(fetchPurchaserSignup())
     }
@@ -272,6 +268,7 @@ class Admin extends Component {
           gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
           accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
         alert(JSON.stringify(info))
+      
       } else if (role == 1) {
         var legalEntity = user.vendors[key_name].legalEntity;
         var operatingName = user.vendors[key_name].operatingName;

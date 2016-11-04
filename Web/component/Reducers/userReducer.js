@@ -9,6 +9,7 @@ export default function reducer(state={
     purchasers: null,
     vendors: null,
     ad: null,
+    keyName: null,
     profile:{
         role:null,
         firstName: null,
@@ -202,6 +203,20 @@ export default function reducer(state={
                 fetching: false,
                 isLoggedIn: true,
                 error: action.payload
+            }
+        }
+
+        case "FETCH_KEYNAME_FULFILLED": {
+            return {
+                ...state,
+                keyName: action.payload,
+            }
+        } 
+
+        case "FETCH_KEYNAME_REJECTED": {
+            return {
+                ...state,
+                keyName: null,
             }
         }
 
