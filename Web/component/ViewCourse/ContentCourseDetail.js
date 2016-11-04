@@ -34,7 +34,10 @@ class ContentCourseDetail extends Component {
     // access to player in all event handlers via event.target
         event.target.playVideo();
     }
-
+    /**display the layout for coursedetails
+    *@return dispaly the layout
+    *
+    */
     render(){
     	const {course}=this.props
         const opts = {
