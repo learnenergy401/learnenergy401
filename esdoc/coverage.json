@@ -1,7 +1,7 @@
 {
-  "coverage": "68%",
+  "coverage": "69.33%",
   "expectCount": 150,
-  "actualCount": 102,
+  "actualCount": 104,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -104,10 +104,9 @@
     },
     "component/ViewCourse/ContentCourseDetail.js": {
       "expectCount": 3,
-      "actualCount": 1,
+      "actualCount": 2,
       "undocumentLines": [
-        27,
-        28
+        27
       ]
     },
     "component/ContentCourseDisplay.js": {
@@ -184,15 +183,13 @@
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        10
+        7
       ]
     },
     "component/ViewCourse/CourseDetail.js": {
       "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        15
-      ]
+      "actualCount": 2,
+      "undocumentLines": []
     },
     "component/ViewCourse/CourseList.js": {
       "expectCount": 6,
@@ -312,7 +309,7 @@
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        11
+        12
       ]
     },
     "component/Actions/userActions.js": {

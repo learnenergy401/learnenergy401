@@ -9,9 +9,13 @@ var contentStyle = {
 
 /**
 * class to display course details
-*@return display course details
+* @return {html} display course details
 */
 class CourseDetail extends Component {
+  /**
+  * class to display course details
+  * @return {html} display course details
+  */
   render(){
     return (
       <div>

@@ -131,19 +131,21 @@ class CourseList extends Component{
     onListItemClick(){
         console.log(course.courseName)
     }
-    componentWillMount(){   
+    componentWillMount(){
         this.props.dispatch(fetchCourse());
     }
 
-    /**save a course
-    *@param courseName the name of the course
+    /**
+    * save a course
+    * @param courseName the name of the course
     */
-    saveACourse(courseName){   
+    saveACourse(courseName){
         this.props.dispatch(saveACourse(courseName));
         window.location.assign(&quot;/#view-course-detail&quot;);
     }
-    
-    /**converts json object to an array of its contents
+
+    /**
+    * converts json object to an array of its contents
     * @param {object} json   takes a json object
     * @return {Array} arr returns an array of the given json object
     */
@@ -154,49 +156,50 @@ class CourseList extends Component{
         }
         return arr
     }
-    
-    /**renders the display for the current page.   displays courses
-    * @return if there is a courselist return the list
-    * @return if not display empy page
+
+    /**
+    * renders the display for the current page.   displays courses
+    * @return {html} if there is a courselist return the list
     */
     render(){
         const {course}=this.props
         if (course.courseList){
             var arr = this.jsonToArray(course.courseList)
-            const mappedCourse = arr.map(course =&gt; 
-                
+            const mappedCourse = arr.map(course =&gt;
+
                 &lt;div style={listItemStyle} key = {course.courseName} className=&quot;mdl-card mdl-shadow--2dp &quot; onClick={()=&gt;(this.saveACourse(course.courseName))}&gt;
                     &lt;div className=&quot;mdl-card__title&quot; &gt;
                         &lt;h2 className=&quot;mdl-card__title-text&quot;&gt;
                             {course.courseName}
                         &lt;/h2&gt;
                     &lt;/div&gt;
-                     &lt;div className=&quot;mdl-card__supporting-text&quot;&gt; 
+                     &lt;div className=&quot;mdl-card__supporting-text&quot;&gt;
                         {course.courseDescription}
                     &lt;/div&gt;
                 &lt;/div&gt;
                 )
-            
+
             return(
                 &lt;div&gt;
                     {mappedCourse}
                 &lt;/div&gt;
 
             )
-                                         
+
         }else{
             return(
 
                 &lt;Content className=&quot;learn-content&quot;&gt;
-                
+
                 &lt;/Content&gt;
             )
         }
-        
+
     }
 }
 
-export default CourseList</code></pre>
+export default CourseList
+</code></pre>
 
 </div>
 

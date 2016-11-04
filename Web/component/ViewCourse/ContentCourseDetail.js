@@ -4,8 +4,8 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import { connect } from "react-redux"
 import { fetchACourse} from "../Actions/courseActions"
 import YouTube from './Youtube.js'
-    
-    
+
+
 var componentStyle = {
     margin: 'auto',
 }
@@ -25,18 +25,23 @@ var cardStyle = {
   };
 })
 class ContentCourseDetail extends Component {
-	componentWillMount(){   
+  /**
+   * Invoked immediately before a component is unmounted and destroyed, to update our states
+   */
+  componentWillMount(){
 		const {course}=this.props
         this.props.dispatch(fetchACourse(course.aCourseName));
     }
-    
+    /**
+     * plays video
+     */
     _onReady(event) {
     // access to player in all event handlers via event.target
         event.target.playVideo();
     }
-    /**display the layout for coursedetails
-    *@return dispaly the layout
-    *
+    /**
+    * display the layout for coursedetails
+    * @return {html} display the layout
     */
     render(){
     	const {course}=this.props
@@ -50,7 +55,7 @@ class ContentCourseDetail extends Component {
         }
         return(
           <div style={{height:'400px'}} className="learnContent mdl-typography--text-center">
-          
+
           	  <Card  style={cardStyle} >
           	  <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">{course.aCourse.courseName}</CardTitle>
           	  <div className="mdl-layout__content">
@@ -67,7 +72,7 @@ class ContentCourseDetail extends Component {
                     </div>
                </div>
                </Card>
-          
+
           </div>
         );
     }
