@@ -1,6 +1,6 @@
 {
-  "coverage": "66.66%",
-  "expectCount": 153,
+  "coverage": "68%",
+  "expectCount": 150,
   "actualCount": 102,
   "files": {
     "component/Admin.js": {
@@ -259,18 +259,18 @@
         35
       ]
     },
-    "component/Profile/Profile.js": {
-      "expectCount": 3,
-      "actualCount": 2,
-      "undocumentLines": [
-        17
-      ]
-    },
     "component/SignUp/SignUp.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
         7
+      ]
+    },
+    "component/Profile/Profile.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        17
       ]
     },
     "component/SignUp/SignUpAD.js": {
@@ -315,15 +315,6 @@
         11
       ]
     },
-    "component/ViewCourse/Youtube.js": {
-      "expectCount": 3,
-      "actualCount": 0,
-      "undocumentLines": [
-        57,
-        112,
-        113
-      ]
-    },
     "component/Actions/userActions.js": {
       "expectCount": 11,
       "actualCount": 11,
@@ -344,12 +335,12 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "component/Reducers/courseReducer.js": {
+    "component/Reducers/profileReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "component/Reducers/profileReducer.js": {
+    "component/Reducers/courseReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

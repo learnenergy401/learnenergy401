@@ -264,12 +264,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "learnenergy401/component/viewcourse/youtube.js~youtube",
-    "class/component/ViewCourse/Youtube.js~YouTube.html",
-    "<span>YouTube</span> <span class=\"search-result-import-path\">learnenergy401/component/ViewCourse/Youtube.js</span>",
-    "class"
-  ],
-  [
     "learnenergy401/component/actions/useractions.js~approveuser",
     "function/index.html#static-function-approveUser",
     "<span>approveUser</span> <span class=\"search-result-import-path\">learnenergy401/component/Actions/userActions.js</span>",
@@ -1570,18 +1564,6 @@ window.esdocSearchIndex = [
     "file/component/ViewCourse/Youtube.js.html",
     "component/ViewCourse/Youtube.js",
     "file"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#container",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-member-container",
-    "component/ViewCourse/Youtube.js~YouTube#container",
-    "member"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#internalplayer",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-member-internalPlayer",
-    "component/ViewCourse/Youtube.js~YouTube#internalPlayer",
-    "member"
   ],
   [
     "component/main.js",

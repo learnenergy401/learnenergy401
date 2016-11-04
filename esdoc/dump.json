@@ -5872,7 +5872,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React from 'react';\nimport isEqual from 'lodash.isequal';\nimport youTubePlayer from 'youtube-player';\n\n/**\n* @ignore\n*/\nfunction shouldUpdateVideo(prevProps, props) {\n  // A changing video should always trigger an update\n  if (prevProps.videoId !== props.videoId) {\n    return true;\n  }\n\n  // Otherwise, a change in the start/end time playerVars also requires a player\n  // update.\n  const prevVars = prevProps.opts.playerVars || {};\n  const vars = props.opts.playerVars || {};\n\n  return prevVars.start !== vars.start || prevVars.end !== vars.end;\n}\n\n/**\n* @ignore\n*/\nfunction filterResetOptions(opts) {\n  return {\n    ...opts,\n    playerVars: {\n      ...opts.playerVars,\n      controls: 1,\n      autoplay: 0,\n      start: 0,\n      end: 0,\n    },\n  };\n}\n\n/**\n* @ignore\n*/\nfunction shouldResetPlayer(prevProps, props) {\n  return !isEqual(\n    filterResetOptions(prevProps.opts),\n    filterResetOptions(props.opts)\n  );\n}\n\n/**\n* @ignore\n*/\nfunction shouldUpdatePlayer(prevProps, props) {\n  return (\n     prevProps.id === props.id || prevProps.className === props.className\n  );\n}\n\nclass YouTube extends React.Component {\n  static propTypes = {\n    videoId: React.PropTypes.string,\n\n    // custom ID for player element\n    id: React.PropTypes.string,\n\n    // custom class name for player element\n    className: React.PropTypes.string,\n\n    // https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player\n    opts: React.PropTypes.object,\n\n    // event subscriptions\n    onReady: React.PropTypes.func,\n    onError: React.PropTypes.func,\n    onPlay: React.PropTypes.func,\n    onPause: React.PropTypes.func,\n    onEnd: React.PropTypes.func,\n    onStateChange: React.PropTypes.func,\n    onPlaybackRateChange: React.PropTypes.func,\n    onPlaybackQualityChange: React.PropTypes.func,\n  };\n\n  static defaultProps = {\n    opts: {},\n    onReady: () => {},\n    onError: () => {},\n    onPlay: () => {},\n    onPause: () => {},\n    onEnd: () => {},\n    onStateChange: () => {},\n    onPlaybackRateChange: () => {},\n    onPlaybackQualityChange: () => {},\n  };\n\n /**\n   * Expose PlayerState constants for convenience. These constants can also be\n   * accessed through the global YT object after the YouTube IFrame API is instantiated.\n   * https://developers.google.com/youtube/iframe_api_reference#onStateChange\n   */\n  static PlayerState = {\n    UNSTARTED: -1,\n    ENDED: 0,\n    PLAYING: 1,\n    PAUSED: 2,\n    BUFFERING: 3,\n    CUED: 5,\n  };\n  /**\n  * @ignore\n  */\n  constructor(props) {\n    super(props);\n\n    this.container = null;\n    this.internalPlayer = null;\n  }\n  /**\n  * @ignore\n  */\n  componentDidMount() {\n    this.createPlayer();\n  }\n  /**\n  * @ignore\n  */\n  componentDidUpdate(prevProps) {\n    if (shouldUpdatePlayer(prevProps, this.props)) {\n      this.updatePlayer();\n    }\n\n    if (shouldResetPlayer(prevProps, this.props)) {\n      this.resetPlayer();\n    }\n\n    if (shouldUpdateVideo(prevProps, this.props)) {\n      this.updateVideo();\n    }\n  }\n  /**\n  * @ignore\n  */\n  componentWillUnmount() {\n     /**\n      * Note: The `youtube-player` package that is used promisifies all Youtube\n      * Player API calls, which introduces a delay of a tick before it actually\n      * gets destroyed. Since React attempts to remove the element instantly\n      * this method isn't quick enough to reset the container element.\n      */\n    this.internalPlayer.destroy();\n  }\n\n  /**\n  * @ignore\n  */\n  onPlayerReady = event => this.props.onReady(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerError = event => this.props.onError(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerStateChange = (event) => {\n    this.props.onStateChange(event);\n    switch (event.data) {\n\n      case YouTube.PlayerState.ENDED:\n        this.props.onEnd(event);\n        break;\n\n      case YouTube.PlayerState.PLAYING:\n        this.props.onPlay(event);\n        break;\n\n      case YouTube.PlayerState.PAUSED:\n        this.props.onPause(event);\n        break;\n\n      default:\n        return;\n    }\n  };\n\n  /**\n  * @ignore\n  */\n  onPlayerPlaybackRateChange = event => this.props.onPlaybackRateChange(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerPlaybackQualityChange = event => this.props.onPlaybackQualityChange(event);\n\n  /**\n  * @ignore\n  */\n  createPlayer = () => {\n    // do not attempt to create a player server-side, it won't work\n    if (typeof document === 'undefined') return;\n    // create player\n    const playerOpts = {\n      ...this.props.opts,\n      // preload the `videoId` video if one is already given\n      videoId: this.props.videoId,\n    };\n    this.internalPlayer = youTubePlayer(this.container, playerOpts);\n    // attach event handlers\n    this.internalPlayer.on('ready', this.onPlayerReady);\n    this.internalPlayer.on('error', this.onPlayerError);\n    this.internalPlayer.on('stateChange', this.onPlayerStateChange);\n    this.internalPlayer.on('playbackRateChange', this.onPlayerPlaybackRateChange);\n    this.internalPlayer.on('playbackQualityChange', this.onPlayerPlaybackQualityChange);\n  };\n\n  /**\n  * @ignore\n  */\n  resetPlayer = () => this.internalPlayer.destroy().then(this.createPlayer);\n\n  /**\n  * @ignore\n  */\n  updatePlayer = () => {\n    this.internalPlayer.getIframe().then((iframe) => {\n      iframe.setAttribute('id', this.props.id);\n      iframe.setAttribute('class', this.props.className);\n    });\n  };\n\n  /**\n  * @ignore\n  */\n  updateVideo = () => {\n    if (typeof this.props.videoId === 'undefined' || this.props.videoId === null) {\n      this.internalPlayer.stopVideo();\n      return;\n    }\n\n    // set queueing options\n    let autoplay = false;\n    const opts = {\n      videoId: this.props.videoId,\n    };\n    if ('playerVars' in this.props.opts) {\n      autoplay = this.props.opts.playerVars.autoplay === 1;\n      if ('start' in this.props.opts.playerVars) {\n        opts.startSeconds = this.props.opts.playerVars.start;\n      }\n      if ('end' in this.props.opts.playerVars) {\n        opts.endSeconds = this.props.opts.playerVars.end;\n      }\n    }\n\n    // if autoplay is enabled loadVideoById\n    if (autoplay) {\n      this.internalPlayer.loadVideoById(opts);\n      return;\n    }\n    // default behaviour just cues the video\n    this.internalPlayer.cueVideoById(opts);\n  };\n  /**\n  * @ignore\n  */\n  refContainer = (container) => {\n    this.container = container;\n  };\n  /**\n  * @ignore\n  */\n  render() {\n    return (\n      <span>\n        <div id={this.props.id} className={this.props.className} ref={this.refContainer} />\n      </span>\n    );\n  }\n}\n\nexport default YouTube;\n"
+    "content": "import React from 'react';\nimport isEqual from 'lodash.isequal';\nimport youTubePlayer from 'youtube-player';\n\n/**\n* @ignore\n*/\nfunction shouldUpdateVideo(prevProps, props) {\n  // A changing video should always trigger an update\n  if (prevProps.videoId !== props.videoId) {\n    return true;\n  }\n\n  // Otherwise, a change in the start/end time playerVars also requires a player\n  // update.\n  const prevVars = prevProps.opts.playerVars || {};\n  const vars = props.opts.playerVars || {};\n\n  return prevVars.start !== vars.start || prevVars.end !== vars.end;\n}\n\n/**\n* @ignore\n*/\nfunction filterResetOptions(opts) {\n  return {\n    ...opts,\n    playerVars: {\n      ...opts.playerVars,\n      controls: 1,\n      autoplay: 0,\n      start: 0,\n      end: 0,\n    },\n  };\n}\n\n/**\n* @ignore\n*/\nfunction shouldResetPlayer(prevProps, props) {\n  return !isEqual(\n    filterResetOptions(prevProps.opts),\n    filterResetOptions(props.opts)\n  );\n}\n\n/**\n* @ignore\n*/\nfunction shouldUpdatePlayer(prevProps, props) {\n  return (\n     prevProps.id === props.id || prevProps.className === props.className\n  );\n}\n/**\n* @ignore\n*/\nclass YouTube extends React.Component {\n  static propTypes = {\n    videoId: React.PropTypes.string,\n\n    // custom ID for player element\n    id: React.PropTypes.string,\n\n    // custom class name for player element\n    className: React.PropTypes.string,\n\n    // https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player\n    opts: React.PropTypes.object,\n\n    // event subscriptions\n    onReady: React.PropTypes.func,\n    onError: React.PropTypes.func,\n    onPlay: React.PropTypes.func,\n    onPause: React.PropTypes.func,\n    onEnd: React.PropTypes.func,\n    onStateChange: React.PropTypes.func,\n    onPlaybackRateChange: React.PropTypes.func,\n    onPlaybackQualityChange: React.PropTypes.func,\n  };\n\n  static defaultProps = {\n    opts: {},\n    onReady: () => {},\n    onError: () => {},\n    onPlay: () => {},\n    onPause: () => {},\n    onEnd: () => {},\n    onStateChange: () => {},\n    onPlaybackRateChange: () => {},\n    onPlaybackQualityChange: () => {},\n  };\n\n /**\n   * Expose PlayerState constants for convenience. These constants can also be\n   * accessed through the global YT object after the YouTube IFrame API is instantiated.\n   * https://developers.google.com/youtube/iframe_api_reference#onStateChange\n   */\n  static PlayerState = {\n    UNSTARTED: -1,\n    ENDED: 0,\n    PLAYING: 1,\n    PAUSED: 2,\n    BUFFERING: 3,\n    CUED: 5,\n  };\n  /**\n  * @ignore\n  */\n  constructor(props) {\n    super(props);\n\n    this.container = null;\n    this.internalPlayer = null;\n  }\n  /**\n  * @ignore\n  */\n  componentDidMount() {\n    this.createPlayer();\n  }\n  /**\n  * @ignore\n  */\n  componentDidUpdate(prevProps) {\n    if (shouldUpdatePlayer(prevProps, this.props)) {\n      this.updatePlayer();\n    }\n\n    if (shouldResetPlayer(prevProps, this.props)) {\n      this.resetPlayer();\n    }\n\n    if (shouldUpdateVideo(prevProps, this.props)) {\n      this.updateVideo();\n    }\n  }\n  /**\n  * @ignore\n  */\n  componentWillUnmount() {\n     /**\n      * Note: The `youtube-player` package that is used promisifies all Youtube\n      * Player API calls, which introduces a delay of a tick before it actually\n      * gets destroyed. Since React attempts to remove the element instantly\n      * this method isn't quick enough to reset the container element.\n      */\n    this.internalPlayer.destroy();\n  }\n\n  /**\n  * @ignore\n  */\n  onPlayerReady = event => this.props.onReady(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerError = event => this.props.onError(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerStateChange = (event) => {\n    this.props.onStateChange(event);\n    switch (event.data) {\n\n      case YouTube.PlayerState.ENDED:\n        this.props.onEnd(event);\n        break;\n\n      case YouTube.PlayerState.PLAYING:\n        this.props.onPlay(event);\n        break;\n\n      case YouTube.PlayerState.PAUSED:\n        this.props.onPause(event);\n        break;\n\n      default:\n        return;\n    }\n  };\n\n  /**\n  * @ignore\n  */\n  onPlayerPlaybackRateChange = event => this.props.onPlaybackRateChange(event);\n\n  /**\n  * @ignore\n  */\n  onPlayerPlaybackQualityChange = event => this.props.onPlaybackQualityChange(event);\n\n  /**\n  * @ignore\n  */\n  createPlayer = () => {\n    // do not attempt to create a player server-side, it won't work\n    if (typeof document === 'undefined') return;\n    // create player\n    const playerOpts = {\n      ...this.props.opts,\n      // preload the `videoId` video if one is already given\n      videoId: this.props.videoId,\n    };\n    this.internalPlayer = youTubePlayer(this.container, playerOpts);\n    // attach event handlers\n    this.internalPlayer.on('ready', this.onPlayerReady);\n    this.internalPlayer.on('error', this.onPlayerError);\n    this.internalPlayer.on('stateChange', this.onPlayerStateChange);\n    this.internalPlayer.on('playbackRateChange', this.onPlayerPlaybackRateChange);\n    this.internalPlayer.on('playbackQualityChange', this.onPlayerPlaybackQualityChange);\n  };\n\n  /**\n  * @ignore\n  */\n  resetPlayer = () => this.internalPlayer.destroy().then(this.createPlayer);\n\n  /**\n  * @ignore\n  */\n  updatePlayer = () => {\n    this.internalPlayer.getIframe().then((iframe) => {\n      iframe.setAttribute('id', this.props.id);\n      iframe.setAttribute('class', this.props.className);\n    });\n  };\n\n  /**\n  * @ignore\n  */\n  updateVideo = () => {\n    if (typeof this.props.videoId === 'undefined' || this.props.videoId === null) {\n      this.internalPlayer.stopVideo();\n      return;\n    }\n\n    // set queueing options\n    let autoplay = false;\n    const opts = {\n      videoId: this.props.videoId,\n    };\n    if ('playerVars' in this.props.opts) {\n      autoplay = this.props.opts.playerVars.autoplay === 1;\n      if ('start' in this.props.opts.playerVars) {\n        opts.startSeconds = this.props.opts.playerVars.start;\n      }\n      if ('end' in this.props.opts.playerVars) {\n        opts.endSeconds = this.props.opts.playerVars.end;\n      }\n    }\n\n    // if autoplay is enabled loadVideoById\n    if (autoplay) {\n      this.internalPlayer.loadVideoById(opts);\n      return;\n    }\n    // default behaviour just cues the video\n    this.internalPlayer.cueVideoById(opts);\n  };\n  /**\n  * @ignore\n  */\n  refContainer = (container) => {\n    this.container = container;\n  };\n  /**\n  * @ignore\n  */\n  render() {\n    return (\n      <span>\n        <div id={this.props.id} className={this.props.className} ref={this.refContainer} />\n      </span>\n    );\n  }\n}\n\nexport default YouTube;\n"
   },
   {
     "__docId__": 275,
@@ -6024,9 +6024,9 @@
     "export": true,
     "importPath": "learnenergy401/component/ViewCourse/Youtube.js",
     "importStyle": "YouTube",
-    "description": null,
-    "lineNumber": 57,
-    "undocument": true,
+    "description": "",
+    "lineNumber": 59,
+    "ignore": true,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -6042,7 +6042,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 109,
+    "lineNumber": 111,
     "ignore": true,
     "params": [
       {
@@ -6064,7 +6064,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#container",
     "access": null,
     "description": null,
-    "lineNumber": 112,
+    "lineNumber": 114,
     "undocument": true,
     "type": {
       "types": [
@@ -6082,7 +6082,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#internalPlayer",
     "access": null,
     "description": null,
-    "lineNumber": 113,
+    "lineNumber": 115,
     "undocument": true,
     "type": {
       "types": [
@@ -6100,7 +6100,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#componentDidMount",
     "access": null,
     "description": "",
-    "lineNumber": 118,
+    "lineNumber": 120,
     "ignore": true,
     "params": [],
     "generator": false
@@ -6115,7 +6115,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#componentDidUpdate",
     "access": null,
     "description": "",
-    "lineNumber": 124,
+    "lineNumber": 126,
     "ignore": true,
     "params": [
       {
@@ -6137,7 +6137,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#componentWillUnmount",
     "access": null,
     "description": "",
-    "lineNumber": 140,
+    "lineNumber": 142,
     "ignore": true,
     "params": [],
     "generator": false
@@ -6152,7 +6152,7 @@
     "longname": "component/ViewCourse/Youtube.js~YouTube#render",
     "access": null,
     "description": "",
-    "lineNumber": 271,
+    "lineNumber": 273,
     "ignore": true,
     "params": [],
     "return": {

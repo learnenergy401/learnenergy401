@@ -53,7 +53,9 @@ function shouldUpdatePlayer(prevProps, props) {
      prevProps.id === props.id || prevProps.className === props.className
   );
 }
-
+/**
+* @ignore
+*/
 class YouTube extends React.Component {
   static propTypes = {
     videoId: React.PropTypes.string,
