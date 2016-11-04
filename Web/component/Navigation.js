@@ -12,12 +12,16 @@ var containerStyle={
 
 var navStyle={
     width: '800px',
-    WebkitTransition: 'all', 
-    msTransition: 'all' 
+    WebkitTransition: 'all',
+    msTransition: 'all'
   }
 
 
 class LearnNavigation extends Component {
+    /**
+    * Loads the options on the header for Navigation
+    * @return {html} - returns Component for the header options
+    */
     render(){
         return(
         <div style={containerStyle}>

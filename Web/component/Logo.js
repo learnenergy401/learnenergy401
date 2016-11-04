@@ -7,11 +7,15 @@ var divStyle = {
     width: '100px',
     position: 'absolute',
     bottom: '16px',
-    WebkitTransition: 'all', 
-    msTransition: 'all' 
+    WebkitTransition: 'all',
+    msTransition: 'all'
 }
 
 class SignUpButton extends Component {
+    /**
+    * Loads the logo for the header
+    * @return {html} - returns logo in the header
+    */
     render(){
         return(
           <Link to={this.props.to}>

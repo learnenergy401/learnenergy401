@@ -15,7 +15,11 @@ import { fetchUsers,getCurrentUser } from "./Actions/userActions"
 
 
 var FirebaseTools = {
-    
+    /**
+    * used for uploading files, gives a url for the file
+    * @param {object} url - returns the url of the file
+    * @return {object} error - returns error if it cannot upload file
+    */
     //function fo vendor upload demo
     vendorUpload: function(fileObj){
         var url='';

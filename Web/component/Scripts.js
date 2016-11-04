@@ -20,11 +20,14 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 class Scripts extends Component {
     script(){
 
-
+      firebaseDb.ref('Key/KeyName').set({
+        key: null,
+        role: null
+      })
 
     }
-    
-    render(){ 
+
+    render(){
         return(
 
                 <div>
@@ -32,7 +35,7 @@ class Scripts extends Component {
                 </div>
             )
         }
-       
+
 };
 
 export default Scripts

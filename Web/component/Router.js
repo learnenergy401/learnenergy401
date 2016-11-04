@@ -23,6 +23,10 @@ import ViewCourse from "./ViewCourse/ViewCourse.js"
 import CourseDetail from "./ViewCourse/CourseDetail.js"
 
 class ReactRouter extends Component {
+  /**
+  * Loads the routes for each page
+  * @return {html} - returns a specific path for our pages
+  */
   render() {
     return (
       <Router history={hashHistory}>
