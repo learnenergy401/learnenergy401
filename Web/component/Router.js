@@ -21,6 +21,7 @@ import SignUpAD from "./SignUp/SignUpAD.js"
 import Upload from "./Vendor/Upload.js"
 import ViewCourse from "./ViewCourse/ViewCourse.js"
 import CourseDetail from "./ViewCourse/CourseDetail.js"
+import AdminReview from "./AdminReview.js"
 
 class ReactRouter extends Component {
   render() {
@@ -41,6 +42,7 @@ class ReactRouter extends Component {
         <Route path='/view-course' component={ViewCourse} />
         <Route path='/view-course-detail' component={CourseDetail} />
         <Route path='/signup-ad' component={SignUpAD} />
+        <Route path='/admin-review' component={AdminReview} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />

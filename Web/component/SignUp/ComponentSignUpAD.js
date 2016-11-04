@@ -17,6 +17,9 @@ var formStyle = {
   };
 })/*dont add semicolon here!*/
 
+/**
+ * 
+ */
 class ComponentSignUpAD extends Component {
 
   /**
