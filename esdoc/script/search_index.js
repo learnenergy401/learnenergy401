@@ -348,12 +348,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "learnenergy401/component/firebase.js~firebaseapp",
-    "variable/index.html#static-variable-firebaseApp",
-    "<span>firebaseApp</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",
-    "variable"
-  ],
-  [
     "learnenergy401/component/firebase.js~firebaseauth",
     "variable/index.html#static-variable-firebaseAuth",
     "<span>firebaseAuth</span> <span class=\"search-result-import-path\">learnenergy401/component/Firebase.js</span>",

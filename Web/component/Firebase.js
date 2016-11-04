@@ -4,38 +4,38 @@ import ComponentUpload from './ComponentUpload.js';
 
 /**
  * Initializes the firebase App 
- * @exports {object} firebaseApp - Returns instance of firebase.
+ * @ignore
  */
 export const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');
 
 /**
  * Auth of firebaseApp 
- * @exports {object} firebaseAuth - Returns auth instance of firebase.
+ * @ignore
  */
 export const firebaseAuth = firebaseApp.auth();
 
 /**
  * Db of firebaseApp
- * @exports {object} firebaseDb - Returns db instance of firebase.
+ * @ignore
  */
 export const firebaseDb = firebaseApp.database();
 
 /**
  * Storage of firebaseApp 
- * @exports {object} firebaseStorage - Returns storage instance of firebase.
+ * @ignore
  */
 export const firebaseStorage = firebaseApp.storage().ref();
 
 /**
  * Initializes a second instance of firebase App 
- * @exports {object} firebaseApp2 - Returns instance of firebase.
- */
+  * @ignore
+  */
 export const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);
 
 /**
  * Auth of firebaseApp2
- * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.
- */
+  * @ignore
+  */
 export const firebaseAuthInstance = firebaseApp2.auth();
 
 import { connect } from "react-redux"
@@ -66,6 +66,6 @@ var FirebaseTools = {
 
 /**
  * Exports firebaseTools
- * @exports {object} FirebaseTools
+ * @ignore
  */
 export default FirebaseTools;

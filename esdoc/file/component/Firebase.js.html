@@ -50,7 +50,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Scripts.js~Scripts.html">Scripts</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Toast.js~Toast.html">Toast</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FirebaseTools">FirebaseTools</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp">firebaseApp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp2">firebaseApp2</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuthInstance">firebaseAuthInstance</a></span></span></li>
@@ -118,37 +117,37 @@ import ComponentUpload from &apos;./ComponentUpload.js&apos;;
 
 /**
  * Initializes the firebase App 
- * @exports {object} firebaseApp - Returns instance of firebase.
+ * @ignore
  */
 export const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,&apos;LearnEnergy&apos;);
 
 /**
  * Auth of firebaseApp 
- * @exports {object} firebaseAuth - Returns auth instance of firebase.
+ * @variable {object} firebaseAuth - Returns auth instance of firebase.
  */
 export const firebaseAuth = firebaseApp.auth();
 
 /**
  * Db of firebaseApp
- * @exports {object} firebaseDb - Returns db instance of firebase.
+ * @static {object} firebaseDb - Returns db instance of firebase.
  */
 export const firebaseDb = firebaseApp.database();
 
 /**
  * Storage of firebaseApp 
- * @exports {object} firebaseStorage - Returns storage instance of firebase.
+ * @public {object} firebaseStorage - Returns storage instance of firebase.
  */
 export const firebaseStorage = firebaseApp.storage().ref();
 
 /**
  * Initializes a second instance of firebase App 
- * @exports {object} firebaseApp2 - Returns instance of firebase.
+ * @static {object} firebaseApp2 - Returns instance of firebase.
  */
 export const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);
 
 /**
  * Auth of firebaseApp2
- * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.
+ * @public {object} firebaseAuth2 - Returns second auth instance of firebase.
  */
 export const firebaseAuthInstance = firebaseApp2.auth();
 

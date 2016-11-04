@@ -2078,7 +2078,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import firebase from 'firebase';\nimport {FIREBASE_CONFIG} from '../../firebase.config.js';\nimport ComponentUpload from './ComponentUpload.js';\n\n/**\n * Initializes the firebase App \n * @exports {object} firebaseApp - Returns instance of firebase.\n */\nexport const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');\n\n/**\n * Auth of firebaseApp \n * @exports {object} firebaseAuth - Returns auth instance of firebase.\n */\nexport const firebaseAuth = firebaseApp.auth();\n\n/**\n * Db of firebaseApp\n * @exports {object} firebaseDb - Returns db instance of firebase.\n */\nexport const firebaseDb = firebaseApp.database();\n\n/**\n * Storage of firebaseApp \n * @exports {object} firebaseStorage - Returns storage instance of firebase.\n */\nexport const firebaseStorage = firebaseApp.storage().ref();\n\n/**\n * Initializes a second instance of firebase App \n * @exports {object} firebaseApp2 - Returns instance of firebase.\n */\nexport const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);\n\n/**\n * Auth of firebaseApp2\n * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.\n */\nexport const firebaseAuthInstance = firebaseApp2.auth();\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\n\nvar FirebaseTools = {\n    /**\n    * used for uploading files, gives a url for the file\n    * @param {object} url - returns the url of the file\n    * @return {object} error - returns error if it cannot upload file\n    */\n    //function fo vendor upload demo\n    vendorUpload: function(fileObj){\n        var url='';\n        firebaseAuth.signInAnonymously();\n        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata).then(function(snapshot){\n        //use then() to avoid asynchronous case\n        url = snapshot.metadata.downloadURLs[0];\n        document.getElementById('linkbox').innerHTML = '<a href=\"' + url + '\">Click For File</a>';\n        console.log('Upload successfully');\n        }).catch(function(error) {\n        console.error('Upload failed:', error);\n      });;\n    },\n\n}\n\n/**\n * Exports firebaseTools\n * @exports {object} FirebaseTools\n */\nexport default FirebaseTools;\n"
+    "content": "import firebase from 'firebase';\nimport {FIREBASE_CONFIG} from '../../firebase.config.js';\nimport ComponentUpload from './ComponentUpload.js';\n\n/**\n * Initializes the firebase App \n * @ignore\n */\nexport const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');\n\n/**\n * Auth of firebaseApp \n * @variable {object} firebaseAuth - Returns auth instance of firebase.\n */\nexport const firebaseAuth = firebaseApp.auth();\n\n/**\n * Db of firebaseApp\n * @static {object} firebaseDb - Returns db instance of firebase.\n */\nexport const firebaseDb = firebaseApp.database();\n\n/**\n * Storage of firebaseApp \n * @public {object} firebaseStorage - Returns storage instance of firebase.\n */\nexport const firebaseStorage = firebaseApp.storage().ref();\n\n/**\n * Initializes a second instance of firebase App \n * @static {object} firebaseApp2 - Returns instance of firebase.\n */\nexport const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);\n\n/**\n * Auth of firebaseApp2\n * @public {object} firebaseAuth2 - Returns second auth instance of firebase.\n */\nexport const firebaseAuthInstance = firebaseApp2.auth();\n\nimport { connect } from \"react-redux\"\nimport { fetchUsers,getCurrentUser } from \"./Actions/userActions\"\n\n\nvar FirebaseTools = {\n    /**\n    * used for uploading files, gives a url for the file\n    * @param {object} url - returns the url of the file\n    * @return {object} error - returns error if it cannot upload file\n    */\n    //function fo vendor upload demo\n    vendorUpload: function(fileObj){\n        var url='';\n        firebaseAuth.signInAnonymously();\n        firebaseStorage.child('vendors/'+fileObj.fileName).put(fileObj.file,fileObj.metadata).then(function(snapshot){\n        //use then() to avoid asynchronous case\n        url = snapshot.metadata.downloadURLs[0];\n        document.getElementById('linkbox').innerHTML = '<a href=\"' + url + '\">Click For File</a>';\n        console.log('Upload successfully');\n        }).catch(function(error) {\n        console.error('Upload failed:', error);\n      });;\n    },\n\n}\n\n/**\n * Exports firebaseTools\n * @exports {object} FirebaseTools\n */\nexport default FirebaseTools;\n"
   },
   {
     "__docId__": 81,
@@ -2094,12 +2094,7 @@
     "importStyle": "{firebaseApp}",
     "description": "Initializes the firebase App ",
     "lineNumber": 9,
-    "unknown": [
-      {
-        "tagName": "@exports",
-        "tagValue": "{object} firebaseApp - Returns instance of firebase."
-      }
-    ],
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -2122,7 +2117,7 @@
     "lineNumber": 15,
     "unknown": [
       {
-        "tagName": "@exports",
+        "tagName": "@variable",
         "tagValue": "{object} firebaseAuth - Returns auth instance of firebase."
       }
     ],
@@ -2148,7 +2143,7 @@
     "lineNumber": 21,
     "unknown": [
       {
-        "tagName": "@exports",
+        "tagName": "@static",
         "tagValue": "{object} firebaseDb - Returns db instance of firebase."
       }
     ],
@@ -2166,18 +2161,12 @@
     "name": "firebaseStorage",
     "memberof": "component/Firebase.js",
     "longname": "component/Firebase.js~firebaseStorage",
-    "access": null,
+    "access": "public",
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseStorage}",
     "description": "Storage of firebaseApp ",
     "lineNumber": 27,
-    "unknown": [
-      {
-        "tagName": "@exports",
-        "tagValue": "{object} firebaseStorage - Returns storage instance of firebase."
-      }
-    ],
     "type": {
       "types": [
         "*"
@@ -2200,7 +2189,7 @@
     "lineNumber": 33,
     "unknown": [
       {
-        "tagName": "@exports",
+        "tagName": "@static",
         "tagValue": "{object} firebaseApp2 - Returns instance of firebase."
       }
     ],
@@ -2218,18 +2207,12 @@
     "name": "firebaseAuthInstance",
     "memberof": "component/Firebase.js",
     "longname": "component/Firebase.js~firebaseAuthInstance",
-    "access": null,
+    "access": "public",
     "export": true,
     "importPath": "learnenergy401/component/Firebase.js",
     "importStyle": "{firebaseAuthInstance}",
     "description": "Auth of firebaseApp2",
     "lineNumber": 39,
-    "unknown": [
-      {
-        "tagName": "@exports",
-        "tagValue": "{object} firebaseAuth2 - Returns second auth instance of firebase."
-      }
-    ],
     "type": {
       "types": [
         "*"

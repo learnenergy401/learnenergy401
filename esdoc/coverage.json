@@ -1,7 +1,7 @@
 {
-  "coverage": "59.77%",
-  "expectCount": 174,
-  "actualCount": 104,
+  "coverage": "59.53%",
+  "expectCount": 173,
+  "actualCount": 103,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -208,8 +208,8 @@
       ]
     },
     "component/Firebase.js": {
-      "expectCount": 7,
-      "actualCount": 7,
+      "expectCount": 6,
+      "actualCount": 6,
       "undocumentLines": []
     },
     "component/Home/Home.js": {
@@ -277,19 +277,19 @@
         35
       ]
     },
+    "component/Profile/Profile.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        17
+      ]
+    },
     "component/SignUp/SignUp.js": {
       "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
         7,
         8
-      ]
-    },
-    "component/Profile/Profile.js": {
-      "expectCount": 3,
-      "actualCount": 2,
-      "undocumentLines": [
-        17
       ]
     },
     "component/SignUp/SignUpAD.js": {
@@ -375,7 +375,7 @@
       "actualCount": 6,
       "undocumentLines": []
     },
-    "component/Reducers/courseReducer.js": {
+    "component/Reducers/profileReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -385,7 +385,7 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "component/Reducers/profileReducer.js": {
+    "component/Reducers/courseReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
