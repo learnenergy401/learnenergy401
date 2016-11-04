@@ -115,12 +115,15 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from &apos;../Firebase&apos;
 
+/**
+ * sidebar options for profile page
+ * @returns {object} dispatch - Returns the new state of the sidebar.
+ */
 export function changeMenu(menuNum) {
     return function(dispatch) {
         dispatch({type: &quot;CHANGE_MENU&quot;, payload: menuNum})
     }
 }
-
 </code></pre>
 
 </div>

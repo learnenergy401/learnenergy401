@@ -7,13 +7,17 @@ import ComponentLogin from '../ComponentLogin.js'
 import ContentLogin from '../ContentLogin.js'
 
 class Login extends Component {
+  /**
+  * Loads the login and its components.
+  * @return {html} - returns all components for the home page.
+  */
   render(){
-    return (  
+    return (
       <div>
         <LearnHeader/>
-        <ContentLogin/>   
+        <ContentLogin/>
         <LearnFooter/>
-      </div>    
+      </div>
     );
   }
 }

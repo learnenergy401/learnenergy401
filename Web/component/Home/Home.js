@@ -6,6 +6,10 @@ import ContentHome from '../ContentHome.js'
 
 
 class Home extends Component {
+  /**
+  * Loads the home page and its components.
+  * @return {html} - returns all components for the home page.
+  */
   render(){
     return (
       <div>

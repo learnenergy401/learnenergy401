@@ -343,7 +343,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\nexport function changeMenu(menuNum) {\n    return function(dispatch) {\n        dispatch({type: \"CHANGE_MENU\", payload: menuNum})\n    }\n}\n\n"
+    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\n/**\n * sidebar options for profile page\n * @returns {object} dispatch - Returns the new state of the sidebar.\n */\nexport function changeMenu(menuNum) {\n    return function(dispatch) {\n        dispatch({type: \"CHANGE_MENU\", payload: menuNum})\n    }\n}\n"
   },
   {
     "__docId__": 9,
@@ -357,9 +357,14 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/profileActions.js",
     "importStyle": "{changeMenu}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
+    "description": "sidebar options for profile page",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} dispatch - Returns the new state of the sidebar."
+      }
+    ],
     "params": [
       {
         "name": "menuNum",
@@ -369,9 +374,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "dispatch - Returns the new state of the sidebar."
     },
     "generator": false
   },
@@ -2414,7 +2422,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\n\n\n\nclass Home extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentHome/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default Home"
+    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\n\n\n\nclass Home extends Component {\n  /**\n  * Loads the home page and its components.\n  * @return {html} - returns all components for the home page.\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentHome/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default Home\n"
   },
   {
     "__docId__": 102,
@@ -2445,14 +2453,16 @@
     "memberof": "component/Home/Home.js~Home",
     "longname": "component/Home/Home.js~Home#render",
     "access": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "Loads the home page and its components.",
+    "lineNumber": 13,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns all components for the home page."
     },
     "generator": false
   },
@@ -2467,7 +2477,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ComponentLogin from '../ComponentLogin.js'\nimport ContentLogin from '../ContentLogin.js'\n\nclass Login extends Component {\n  render(){\n    return (  \n      <div>\n        <LearnHeader/>\n        <ContentLogin/>   \n        <LearnFooter/>\n      </div>    \n    );\n  }\n}\n\nexport default Login"
+    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ComponentLogin from '../ComponentLogin.js'\nimport ContentLogin from '../ContentLogin.js'\n\nclass Login extends Component {\n  /**\n  * Loads the login and its components.\n  * @return {html} - returns all components for the home page.\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentLogin/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\nexport default Login\n"
   },
   {
     "__docId__": 105,
@@ -2498,14 +2508,16 @@
     "memberof": "component/Login-Logout/Login.js~Login",
     "longname": "component/Login-Logout/Login.js~Login#render",
     "access": null,
-    "description": null,
-    "lineNumber": 10,
-    "undocument": true,
+    "description": "Loads the login and its components.",
+    "lineNumber": 14,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns all components for the home page."
     },
     "generator": false
   },
