@@ -19,10 +19,18 @@ var formStyle = {
 
 class ComponentSignUpPurchaser extends Component {
 
+  /**
+   * Sends information about purchaser and adds it to Purchaser signup list
+   * @param {user} user - object which contains information about the purchaser.
+   */
   signUpPurchaser(user) {
     this.props.dispatch(signUpPurchaser(user));
   }
 
+  /**
+   * Sends information to signUpPurchaser(user)
+   * @return {Object} user - sends information about purchaser.
+   */
   requestSubmit() {
     // Add signup event
 
@@ -78,6 +86,10 @@ class ComponentSignUpPurchaser extends Component {
     this.signUpPurchaser(user);
   }
 
+  /**
+   * Loads the signup page for purchaser.
+   * @return {html} - displays sign up page for purchaser.
+   */
   render() {
     return(
 

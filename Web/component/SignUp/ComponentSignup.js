@@ -24,7 +24,10 @@ var formStyle = {
 })/*dont add semicolon here!*/
 
 class ComponentSignUp extends Component {
-
+  /**
+   * Loads the signup page and prompts user with options for what kind of user they want to sign up with.
+   * @return {html} - html page with buttons to choose what user is going to sign up
+   */
   render() {
     return(
 

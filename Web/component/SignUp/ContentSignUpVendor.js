@@ -20,6 +20,11 @@ var cardTitleStyle = {
 }
 
 class ContentSignUpVendor extends Component {
+
+    /**
+    * Loads the card for signup.
+    * @return {html} - displays card on the page for signup.
+    */
     render(){
         return(
           <div  className="learn-content mdl-typography--text-center">
