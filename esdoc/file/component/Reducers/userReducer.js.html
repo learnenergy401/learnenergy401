@@ -53,6 +53,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseDetail">uploadCourseDetail</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
@@ -65,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateProfile">updateProfile</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
@@ -119,6 +121,98 @@ export default function reducer(state={
     purchasers: null,
     vendors: null,
     ad: null,
+    editProfile:{
+            legalEntity: &quot;loading&quot;,
+            operatingName: &quot;loading&quot;,
+            address1: &quot;loading&quot;,
+            address2: &quot;loading&quot;,
+            city: &quot;loading&quot;,
+            province: &quot;loading&quot;,
+            country: &quot;loading&quot;,
+            postalCode: &quot;loading&quot;,
+            phone: &quot;loading&quot;,
+            fax: &quot;loading&quot;,
+
+            owner1Name: &quot;loading&quot;,
+            owner1Pos: &quot;loading&quot;,
+
+            natureBusiness: &quot;loading&quot;,
+            timeBusiness: &quot;loading&quot;,
+            proAffiliation: &quot;loading&quot;,
+            report:&quot;loading&quot;,
+
+            bank: &quot;loading&quot;,
+            bankLocation: &quot;loading&quot;,
+            bonding: &quot;loading&quot;,
+            bondingLocation: &quot;loading&quot;,
+            insuranceCompany: &quot;loading&quot;,
+            insuranceLocation:&quot;loading&quot;,
+            bondingLimitDate: &quot;loading&quot;,
+            bondingLimit: &quot;loading&quot;,
+            grossBus: &quot;loading&quot;,
+            grossBusYear: &quot;loading&quot;,
+            bankruptcy:&quot;loading&quot;,
+
+            numEmployees: &quot;loading&quot;,
+            AD1address1: &quot;loading&quot;,
+            AD1address2: &quot;loading&quot;,
+            AD1city: &quot;loading&quot;,
+            AD1province: &quot;loading&quot;,
+            AD1country: &quot;loading&quot;,
+            AD1postalCode: &quot;loading&quot;,
+            AD1phone: &quot;loading&quot;,
+
+            categories: &quot;loading&quot;,
+            specialties: &quot;loading&quot;,
+
+            client1: &quot;loading&quot;,
+            client1Location: &quot;loading&quot;,
+            client1Phone: &quot;loading&quot;,
+            client1Email: &quot;loading&quot;,
+
+            licence1: &quot;loading&quot;,
+            licence1Location: &quot;loading&quot;,
+            insurer1: &quot;loading&quot;,  policyLimit1: &quot;loading&quot;,  expiry1: &quot;loading&quot;,
+            insurer2: &quot;loading&quot;,  policyLimit2: &quot;loading&quot;,  expiry2: &quot;loading&quot;,
+            insurer3: &quot;loading&quot;,  policyLimit3: &quot;loading&quot;,  expiry3: &quot;loading&quot;,
+            insurer4: &quot;loading&quot;,  policyLimit4: &quot;loading&quot;,  expiry4: &quot;loading&quot;,
+            insurer5: &quot;loading&quot;,  policyLimit5: &quot;loading&quot;,  expiry5: &quot;loading&quot;,
+            insurer6: &quot;loading&quot;,  policyLimit6: &quot;loading&quot;,  expiry6: &quot;loading&quot;,
+            insurer7: &quot;loading&quot;,  policyLimit7: &quot;loading&quot;,  expiry7: &quot;loading&quot;,
+            insurer8: &quot;loading&quot;,  policyLimit8: &quot;loading&quot;,  expiry8: &quot;loading&quot;,
+            insurer9: &quot;loading&quot;,  policyLimit9: &quot;loading&quot;,  expiry9: &quot;loading&quot;,
+            insurer10: &quot;loading&quot;,  policyLimit10: &quot;loading&quot;,  expiry10: &quot;loading&quot;,
+            insurer11: &quot;loading&quot;,  policyLimit11: &quot;loading&quot;,  expiry11: &quot;loading&quot;,
+            insurer12: &quot;loading&quot;,  policyLimit12: &quot;loading&quot;,  expiry12: &quot;loading&quot;,
+            insurer13: &quot;loading&quot;,  policyLimit13: &quot;loading&quot;,  expiry13: &quot;loading&quot;,
+            insurer14: &quot;loading&quot;,  policyLimit14: &quot;loading&quot;,  expiry14: &quot;loading&quot;,
+            insurer15: &quot;loading&quot;,  policyLimit15: &quot;loading&quot;,  expiry15: &quot;loading&quot;,
+
+            EHWcurrentYear: &quot;loading&quot;,  EHWpreviousYear1: &quot;loading&quot;,  EHWpreviousYear2: &quot;loading&quot;,  EHWpreviousYear3: &quot;loading&quot;,
+            FcurrentYear: &quot;loading&quot;,  FpreviousYear1: &quot;loading&quot;,  FpreviousYear2: &quot;loading&quot;,  FpreviousYear3: &quot;loading&quot;,
+            LTIcurrentYear: &quot;loading&quot;,  LTIpreviousYear1: &quot;loading&quot;,  LTIpreviousYear2: &quot;loading&quot;,  LTIpreviousYear3: &quot;loading&quot;,
+            MAIcurrentYear: &quot;loading&quot;,  MAIpreviousYear1: &quot;loading&quot;,  MAIpreviousYear2: &quot;loading&quot;,  MAIpreviousYear3: &quot;loading&quot;,
+            ORCcurrentYear: &quot;loading&quot;,  ORCpreviousYear1: &quot;loading&quot;, ORCpreviousYear2: &quot;loading&quot;,  ORCpreviousYear3: &quot;loading&quot;,
+            TRIcurrentYear: &quot;loading&quot;,  TRIpreviousYear1: &quot;loading&quot;,  TRIpreviousYear2: &quot;loading&quot;,  TRIpreviousYear3: &quot;loading&quot;,
+
+            IRcurrentYear: &quot;loading&quot;,  IRpreviousYear1: &quot;loading&quot;,  IRpreviousYear2: &quot;loading&quot;,  IRpreviousYear3: &quot;loading&quot;,
+            PRcurrentYear: &quot;loading&quot;,  PRpreviousYear1: &quot;loading&quot;,  PRpreviousYear2: &quot;loading&quot;,  PRpreviousYear3: &quot;loading&quot;,
+            PDcurrentYear: &quot;loading&quot;,  PDpreviousYear1: &quot;loading&quot;,  PDpreviousYear2: &quot;loading&quot;,  PDpreviousYear3: &quot;loading&quot;,
+            PScurrentYear: &quot;loading&quot;,  PSpreviousYear1: &quot;loading&quot;,  PSpreviousYear2: &quot;loading&quot;,  PSpreviousYear3: &quot;loading&quot;,
+
+            drugPolicy: &quot;loading&quot;,
+            subcontractors: &quot;loading&quot;,
+            stopWorkOrder: &quot;loading&quot;,
+
+            email: &quot;loading&quot;,
+            adminContact: &quot;loading&quot;,
+            technicalContact: &quot;loading&quot;,
+
+            ISnumber:&quot;loading&quot;,
+
+            website: &quot;loading&quot;,
+            password: &quot;loading&quot;,
+    },
     profile:{
         role:null,
         firstName: null,
@@ -150,6 +244,7 @@ export default function reducer(state={
                 fetched: true,
                 user: action.payload,
                 isLoggedIn: action.isLoggedIn,
+                editProfile: action.payload
             }
         }
 

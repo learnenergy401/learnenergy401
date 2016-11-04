@@ -384,9 +384,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "learnenergy401/component/actions/useractions.js~updateprofile",
+    "function/index.html#static-function-updateProfile",
+    "<span>updateProfile</span> <span class=\"search-result-import-path\">learnenergy401/component/Actions/userActions.js</span>",
+    "function"
+  ],
+  [
     "learnenergy401/component/actions/courseactions.js~uploadcourse",
     "function/index.html#static-function-uploadCourse",
     "<span>uploadCourse</span> <span class=\"search-result-import-path\">learnenergy401/component/Actions/courseActions.js</span>",
+    "function"
+  ],
+  [
+    "learnenergy401/component/actions/courseactions.js~uploadcoursedetail",
+    "function/index.html#static-function-uploadCourseDetail",
+    "<span>uploadCourseDetail</span> <span class=\"search-result-import-path\">learnenergy401/component/Actions/courseActions.js</span>",
     "function"
   ],
   [
@@ -1104,9 +1116,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "component/profile/contentprofile.js~contentprofile#componentdidupdate",
+    "class/component/Profile/ContentProfile.js~ContentProfile.html#instance-method-componentDidUpdate",
+    "component/Profile/ContentProfile.js~ContentProfile#componentDidUpdate",
+    "method"
+  ],
+  [
     "component/profile/contentprofile.js~contentprofile#render",
     "class/component/Profile/ContentProfile.js~ContentProfile.html#instance-method-render",
     "component/Profile/ContentProfile.js~ContentProfile#render",
+    "method"
+  ],
+  [
+    "component/profile/contentprofile.js~contentprofile#requestupdate",
+    "class/component/Profile/ContentProfile.js~ContentProfile.html#instance-method-requestUpdate",
+    "component/Profile/ContentProfile.js~ContentProfile#requestUpdate",
+    "method"
+  ],
+  [
+    "component/profile/contentprofile.js~contentprofile#updateprofile",
+    "class/component/Profile/ContentProfile.js~ContentProfile.html#instance-method-updateProfile",
+    "component/Profile/ContentProfile.js~ContentProfile#updateProfile",
     "method"
   ],
   [

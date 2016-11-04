@@ -1,6 +1,6 @@
 {
-  "coverage": "69.33%",
-  "expectCount": 150,
+  "coverage": "67.09%",
+  "expectCount": 155,
   "actualCount": 104,
   "files": {
     "component/Admin.js": {
@@ -138,10 +138,13 @@
       ]
     },
     "component/Profile/ContentProfile.js": {
-      "expectCount": 2,
+      "expectCount": 5,
       "actualCount": 1,
       "undocumentLines": [
-        18
+        21,
+        23,
+        191,
+        187
       ]
     },
     "component/Profile/ContentProfileUpload.js": {
@@ -313,9 +316,11 @@
       ]
     },
     "component/Actions/userActions.js": {
-      "expectCount": 11,
+      "expectCount": 12,
       "actualCount": 11,
-      "undocumentLines": []
+      "undocumentLines": [
+        524
+      ]
     },
     "component/Actions/profileActions.js": {
       "expectCount": 1,
@@ -323,16 +328,18 @@
       "undocumentLines": []
     },
     "component/Actions/courseActions.js": {
-      "expectCount": 6,
+      "expectCount": 7,
       "actualCount": 6,
-      "undocumentLines": []
+      "undocumentLines": [
+        58
+      ]
     },
-    "component/Reducers/userReducer.js": {
+    "component/Reducers/profileReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "component/Reducers/profileReducer.js": {
+    "component/Reducers/userReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

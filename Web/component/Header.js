@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button,Layout,Header} from 'react-mdl';
 import ButtonSignUp from './SignUp/ButtonSignUp.js';
 import ButtonLogIn from './ButtonLogIn.js';
+import ButtonProfile from './ButtonProfile.js';
 import ButtonLogOut from './ButtonLogOut.js';
 import ButtonAdmin from './ButtonAdmin.js';
 import LearnLogo from './Logo.js';
@@ -140,6 +141,7 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+                      <ButtonProfile to='profile' />
 
                       <ButtonLogOut/>
                 </Header>

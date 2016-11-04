@@ -7,7 +7,8 @@
     "start": "webpack-dev-server",
     "lint": "eslint app",
     "doc": "esdoc -c esdoc.json",
-    "postinstall": "npm run build && npm run doc"
+    "postinstall": "npm run build && npm run doc",
+    "test":"mocha --reporter spec Web/test/*.js --require babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,9 @@
     "babel-preset-react": "^6.16.0",
     "esdoc": "^0.4.8",
     "gulp": "^3.9.1",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.1.2",
+    "react-addons-test-utils": "^15.3.2",
     "redux-devtools": "^3.3.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"

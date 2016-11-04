@@ -53,6 +53,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseDetail">uploadCourseDetail</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
@@ -65,6 +66,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateProfile">updateProfile</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
@@ -116,7 +118,11 @@ export default function reducer(state={
     aCourse: &quot;Loading...&quot;,
     aCourseName:&quot;Loading...&quot;,
     uploaded: false,
-    
+
+    courseName:null,
+    courseDescription: null,
+    courseVendorEmail: null,
+
   }, action) {
 
     switch (action.type) {
@@ -174,15 +180,30 @@ export default function reducer(state={
                     error: action.payload
             }
         }
-            
+        case &quot;FETCH_COURSE_DETAIL&quot;: {
+            return {...state, 
+                    fetching: true
+            }
+        }    
         case &quot;UPLOAD_COURSE&quot;: {
             return {...state, 
                     uploaded: false,
                     fetching: true
             }
         }
-            
-        case &quot;UPLOAD_COURSE_FULFILLED&quot;: {
+        case &quot;FETCH_COURSE_DETAIL_FULFILLED&quot;: {
+            return{...state, 
+                    fetching: false,
+                    courseList: acion.payload,
+            }
+        }
+        case &quot;FETCH_COURSE_DETAIL_REJECTED&quot;: {
+            return{...state, 
+                    fetching: false,
+                    error: acion.payload,
+            }
+        }    
+        case &quot;UPLOAD_COURSE_DETAIL_FULFILLED&quot;: {
             return {...state,
                     uploaded: true,
                     fetching: false,
@@ -192,7 +213,28 @@ export default function reducer(state={
             return {...state, 
                     fetching: false,
             }
+        }        
+        case &quot;UPLOAD_COURSE_DETAIL&quot;: {
+            return {...state,
+                    uploaded: false,
+                    fetching: true           
+            }
         }
+
+        case &quot;UPLOAD_COURSE_DETAIL_FULFILLED&quot;: {
+            return {...state,
+                    uploaded: true,
+                    fetching: false,
+            
+            }
+        }
+        case &quot;UPLOAD_COURSE_DETAIL_REJECTED&quot;: {
+            return {...state,
+                    fetching: false,
+            
+            }
+        }      
+
 
         case &quot;SAVE_A_COURSE&quot;: {
             return {...state,
@@ -200,6 +242,7 @@ export default function reducer(state={
             }
         }
         
+
     }
 
     return state
