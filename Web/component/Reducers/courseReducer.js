@@ -3,14 +3,36 @@ export default function reducer(state={
     currentVendorCourseList: null,
     fetching: false,
     error: null,
-    
+    aCourse: "Loading...",
+    aCourseName:"Loading...",
     uploaded: false,
+
     courseName:null,
     courseDescription: null,
     courseVendorEmail: null,
+
   }, action) {
 
     switch (action.type) {
+
+        case "FETCH_A_COURSE":{
+            return {...state, 
+                    fetching: true
+            }
+        }
+        case "FETCH_A_COURSE_FULFILLED":{
+            return {...state, 
+                    fetching: false,
+                    aCourse: action.payload,
+            }
+        }
+        case "FETCH_A_COURSE_REJECTED":{
+            return {...state, 
+                    fetching:false,
+                    error: action.payload,
+            }
+        }
+
         case "FETCH_COURSE": {
             return {...state, 
                     fetching: true
@@ -86,6 +108,7 @@ export default function reducer(state={
                     fetching: true           
             }
         }
+
         case "UPLOAD_COURSE_DETAIL_FULFILLED": {
             return {...state,
                     uploaded: true,
@@ -99,6 +122,15 @@ export default function reducer(state={
             
             }
         }      
+
+
+        case "SAVE_A_COURSE": {
+            return {...state,
+                    aCourseName : action.payload
+            }
+        }
+        
+
     }
 
     return state

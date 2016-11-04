@@ -7,52 +7,14 @@ export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 export const firebaseStorage = firebaseApp.storage().ref();
 
+export const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);
+export const firebaseAuthInstance = firebaseApp2.auth();
+
+import { connect } from "react-redux"
+import { fetchUsers,getCurrentUser } from "./Actions/userActions"
+
 
 var FirebaseTools = {
-
-    checkAuth: () => {
-        firebaseAuth.onAuthStateChanged(function(user) {
-            if (user) {
-//                console.log("logged in 1");
-            } else {
-//                console.log("not logged in 1");
-            }
-        });
-    },
-    
-     getUser: () => {
-
-        firebaseDb.ref('SignUpList').once("value").then(function(snapshot){
-
-            var result=snapshot.val();
-            console.log(result+'1');
-
-
-            return result;
-        });
-    },
-    
-	registerUser: (user) => {
-		firebaseDb.ref('SignUpList').push({
-			email: user.email,
-			password: user.pw
-		});
-
-	},
-
-	loginUser: (user) => {
-		firebaseAuth.signInWithEmailAndPassword(user.email, user.pw);
-        console.log('User signed in!');
-
-				// Until we can link to a homepage that doesn't look the same as when you are not signed in
-				alert("You have signed in:" +"\n" + user.email);
-	},
-
-	logoutUser: () => {
-		firebaseAuth.signOut();
-		console.log('User logged out!');
-        alert("You have logged out. See you later.");
-	},
     
     //function fo vendor upload demo
     vendorUpload: function(fileObj){
@@ -71,6 +33,3 @@ var FirebaseTools = {
 }
 
 export default FirebaseTools;
-
-		
-

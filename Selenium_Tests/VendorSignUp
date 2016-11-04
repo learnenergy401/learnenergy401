@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8100/" />
+<title>VendorSignUp</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">VendorSignUp</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/#/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/header/div/a[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[2]/a/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=legalEntity</td>
+	<td>Vendor Legal Entity</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=operatingName</td>
+	<td>Vendor Operating Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address1</td>
+	<td>Vendor Address 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address2</td>
+	<td>Vendor Address 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=city</td>
+	<td>Vendor City</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=province</td>
+	<td>Vendor Province</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=country</td>
+	<td>Vendor Country</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=postalCode</td>
+	<td>Vendor Postal</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phone</td>
+	<td>Vendor Phone</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=fax</td>
+	<td>Vendor Fax</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>Vendor@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=adminContact</td>
+	<td>VendorAdmin@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=technicalContact</td>
+	<td>VendorTech@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ISnumber</td>
+	<td>Vendor ISN</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=website</td>
+	<td>www.vendor.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owners</td>
+	<td>Vendor Owners</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=natureBusiness</td>
+	<td>Vendor Nature of Bus</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=timeBusiness</td>
+	<td>Vendor Time in Bus</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=proAffiliation</td>
+	<td>Vendor Pro Affiliations</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=bank</td>
+	<td>Vendor Bank</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=bonding</td>
+	<td>Vendor Bonding Company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=bondingLimit</td>
+	<td>Vendor Bonding Limit</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=insurance</td>
+	<td>Vendor Insurance</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=bankruptcy</td>
+	<td>Vendor Bankruptcy</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=numEmployees</td>
+	<td>Vendor Num of Employees</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[27]/button</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

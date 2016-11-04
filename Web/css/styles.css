@@ -42,7 +42,7 @@ a img{
 
 
 .learn-content{
-
+  overflow: scroll;
   height: 800px;
   width: auto;
   background-color: #f3f3f3;

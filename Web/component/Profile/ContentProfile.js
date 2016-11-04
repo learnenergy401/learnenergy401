@@ -3,9 +3,10 @@ import {Content, Card,CardTitle,List,ListItem,ListItemContent,Layout} from 'reac
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
+
 import "../../extra/material.js"
-
-
+import ContentProfileUpload from "./ContentProfileUpload.js"
+import ContentCourseDisplay from "../ContentCourseDisplay.js"
 @connect((store) => {
   return {
     user: store.user,
@@ -31,23 +32,11 @@ class ContentProfile extends Component {
             );
         }else if (profile.menu == 1){
             return(
-                <Content className="learn-content">
-                        <List>
-                          <ListItem>
-                            <ListItemContent icon="person">gg2</ListItemContent>
-                          </ListItem>
-                        </List>
-                    </Content>
+                <ContentCourseDisplay/>
             )
         }else{
             return(
-                <Content className="learn-content">
-                        <List>
-                          <ListItem>
-                            <ListItemContent icon="person">gg3</ListItemContent>
-                          </ListItem>
-                        </List>
-                    </Content>
+                <ContentProfileUpload/>
             )
         }
     }

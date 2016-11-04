@@ -6,6 +6,9 @@ export default function reducer(state={
     error: null,
     isLoggedIn:false,
     role: null,
+    purchasers: null,
+    vendors: null,
+    ad: null,
     profile:{
         role:null,
         firstName: null,
@@ -16,17 +19,20 @@ export default function reducer(state={
   }, action) {
 
     switch (action.type) {
+
         case "FETCH_USER": {
-            return {...state, 
+            return {...state,
                 fetching: true}
         }
+
         case "FETCH_USER_REJECTED": {
             return {
-                ...state, 
-                fetching: false, 
+                ...state,
+                fetching: false,
                 error: action.payload
             }
         }
+
         case "FETCH_USER_FULFILLED": {
             return {
                 ...state,
@@ -36,14 +42,44 @@ export default function reducer(state={
                 isLoggedIn: action.isLoggedIn,
             }
         }
-           
-            
+
+        case "FETCH_PURCHASER_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                purchasers: action.payload,
+                isLoggedIn: action.isLoggedIn,
+            }
+        }
+
+        case "FETCH_VENDOR_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                vendors: action.payload,
+                isLoggedIn: action.isLoggedIn,
+            }
+        }
+
+        case "FETCH_AD_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                ad: action.payload,
+                isLoggedIn: action.isLoggedIn,
+            }
+        }
+
         case "SIGNUP_USER": {
             return {
                 ...state,
                 fetching: true,
             }
         }
+
         case "SIGNUP_USER_FULFILLED": {
             return {
                 ...state,
@@ -51,21 +87,22 @@ export default function reducer(state={
                 fetched:true,
             }
         }
-            
+
         case "SIGNUP_USER_REJECTED": {
             return {
-                ...state, 
-                fetching: false, 
+                ...state,
+                fetching: false,
                 error: action.payload
             }
         }
-            
+
         case "UPDATE_USER_PROFILE": {
             return {
                 ...state,
                 fetching: true,
             }
         }
+
         case "UPDATE_USER_PROFILE_FULFILLED": {
             return {
                 ...state,
@@ -75,45 +112,48 @@ export default function reducer(state={
                 role: action.payload.role,
             }
         }
-            
+
         case "UPDATE_USER_PROFILE_REJECTED": {
             return {
-                ...state, 
-                fetching: false, 
+                ...state,
+                fetching: false,
                 error: action.payload
             }
-        } 
-    
+        }
+
         case "FETCH_USER_PROFILE": {
             return {
                 ...state,
                 fetching: true,
             }
         }
+
         case "FETCH_USER_PROFILE_FULFILLED": {
             return {
                 ...state,
                 fetching: false,
                 fetched:true,
+                isLoggedIn:true,
                 profile:action.payload,
                 role: action.payload.role,
             }
         }
-            
+
         case "FETCH_USER_PROFILE_REJECTED": {
             return {
-                ...state, 
-                fetching: false, 
+                ...state,
+                fetching: false,
                 error: action.payload
             }
-        }  
-//        Login
+        }
+
         case "LOGIN_USER": {
             return {
                 ...state,
                 fetching: true,
             }
         }
+
         case "LOGIN_USER_FULFILLED": {
             return {
                 ...state,
@@ -124,16 +164,16 @@ export default function reducer(state={
                 isLoggedIn:true,
             }
         }
-            
+
         case "LOGIN_USER_REJECTED": {
             return {
-                ...state, 
-                fetching: false, 
+                ...state,
+                fetching: false,
                 isLoggedIn: false,
                 error: action.payload
             }
-        }            
-            
+        }
+
         case "LOGOUT_USER": {
             return {
                 ...state,
@@ -141,26 +181,30 @@ export default function reducer(state={
                 fetched: false,
             }
         }
+
         case "LOGOUT_USER_FULFILLED": {
             return{
                 ...state,
                 fetching: false,
                 fetched: true,
                 user: null,
-                isLoggedIn: false
+                role: null,
+                isLoggedIn: false,
+                purchasers: null,
+                vendors: null,
+                ad: null,
             }
         }
-         
-            
+
         case "LOGOUT_USER_REJECTED": {
             return {
-                ...state, 
-                fetching: false, 
+                ...state,
+                fetching: false,
                 isLoggedIn: true,
                 error: action.payload
             }
-        }     
-            
+        }
+
     }
 
     return state
