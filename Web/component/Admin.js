@@ -61,6 +61,7 @@ class Admin extends Component {
       // var info = {user.user[key_name].email, .... , }
       const {user} = this.props
       if (role == 0) { // approve for purchaser
+        
         var legalEntity = user.purchasers[key_name].legalEntity;
         var operatingName = user.purchasers[key_name].operatingName;
         var address1 = user.purchasers[key_name].address1;
@@ -206,7 +207,7 @@ class Admin extends Component {
           MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
           IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
           PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
-          key_name,
+          role, key_name,
         }
 
       } else if (role == 2) { // approve for additional resource
@@ -378,7 +379,7 @@ class Admin extends Component {
           MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
           IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
           PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
-          key_name,
+          role, key_name,
         }
         alert(JSON.stringify(info))
       } else if (role == 2) {

@@ -3,10 +3,12 @@ import {Button,Layout,Header} from 'react-mdl';
 import ButtonSignUp from './SignUp/ButtonSignUp.js';
 import ButtonLogIn from './ButtonLogIn.js';
 import ButtonLogOut from './ButtonLogOut.js';
+import ButtonAdmin from './ButtonAdmin.js';
 import LearnLogo from './Logo.js';
 import LearnNavigation from './Navigation.js';
 import store from './Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from './Firebase'
+import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 import { connect } from "react-redux"
 import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
@@ -69,9 +71,9 @@ class LearnHeader extends Component {
                   <ButtonSignUp to='signup' />
                 </Header>
             );
-        }
-        else{
-          console.log(user)
+
+        } else{
+          // console.log(user)
           var notified
           firebaseDb.ref('Notifications/Admin_Notification').once('value')
           .then((snapshot) => {
@@ -83,10 +85,28 @@ class LearnHeader extends Component {
                   notified: true
                 })
                 
+
               }
             }
           })
 
+          if (user.role ==3) {
+            return (
+                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
+                      <span  className="learn-title mdl-layout-title ">
+                        <LearnLogo to=''/>
+                      </span>
+                      {/* Add spacer, to align navigation to the right in desktop */}
+                      <div className="mdl-layout-spacer" />
+                      {/* Navigation */}
+                      <LearnNavigation />
+                      <div style={buttonSpacer}>
+                      </div>
+                      <ButtonAdmin to='admin'/>
+                      <ButtonLogOut/>
+                </Header>
+            );
+          } else {
 
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
@@ -99,10 +119,13 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+
                       <ButtonLogOut/>
                 </Header>
-        );}
+        );
+      }
     }
+  }
 };
 
 export default LearnHeader
