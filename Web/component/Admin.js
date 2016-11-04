@@ -61,6 +61,7 @@ class Admin extends Component {
       // var info = {user.user[key_name].email, .... , }
       const {user} = this.props
       if (role == 0) { // approve for purchaser
+        
         var legalEntity = user.purchasers[key_name].legalEntity;
         var operatingName = user.purchasers[key_name].operatingName;
         var address1 = user.purchasers[key_name].address1;
@@ -99,7 +100,7 @@ class Admin extends Component {
           gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
           accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
       } else if (role == 1) { // approve for vendor
-        
+
         var legalEntity = user.vendors[key_name].legalEntity;
         var operatingName = user.vendors[key_name].operatingName;
         var address1 = user.vendors[key_name].address1;
