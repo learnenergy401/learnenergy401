@@ -5622,7 +5622,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { fetchCourse,saveACourse } from \"../Actions/courseActions\"\n\nvar listItemStyle =  {\n    width:\"100%\",\n    height:\"200px\"\n}\n\nvar cardStyle = {\n    width:\"100%\"\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass CourseList extends Component{\n    onListItemClick(){\n        console.log(course.courseName)\n    }\n    componentWillMount(){\n        this.props.dispatch(fetchCourse());\n    }\n\n    /**\n    * save a course\n    * @param courseName the name of the course\n    */\n    saveACourse(courseName){\n        this.props.dispatch(saveACourse(courseName));\n        window.location.assign(\"/#view-course-detail\");\n    }\n\n    /**\n    * converts json object to an array of its contents\n    * @param {object} json   takes a json object\n    * @return {Array} arr returns an array of the given json object\n    */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\n    /**\n    * renders the display for the current page.   displays courses\n    * @return {html} if there is a courselist return the list\n    */\n    render(){\n        const {course}=this.props\n        if (course.courseList){\n            var arr = this.jsonToArray(course.courseList)\n            const mappedCourse = arr.map(course =>\n\n                <div style={listItemStyle} key = {course.courseName} className=\"mdl-card mdl-shadow--2dp \" onClick={()=>(this.saveACourse(course.courseName))}>\n                    <div className=\"mdl-card__title\" >\n                        <h2 className=\"mdl-card__title-text\">\n                            {course.courseName}\n                        </h2>\n                    </div>\n                     <div className=\"mdl-card__supporting-text\">\n                        {course.courseDescription}\n                    </div>\n                </div>\n                )\n\n            return(\n                <div>\n                    {mappedCourse}\n                </div>\n\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default CourseList\n"
+    "content": "import React, { Component } from 'react'\nimport {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../../extra/material.js\"\nimport { fetchCourse,saveACourse } from \"../Actions/courseActions\"\n\nvar listItemStyle =  {\n    width:\"100%\",\n    height:\"200px\"\n}\n\nvar cardStyle = {\n    width:\"100%\"\n}\n\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass CourseList extends Component{\n    onListItemClick(){\n        console.log(course.courseName)\n    }\n    componentWillMount(){\n        this.props.dispatch(fetchCourse());\n    }\n\n    /**\n    * save a course\n    * @param {object} courseName the name of the course\n    */\n    saveACourse(courseName){\n        this.props.dispatch(saveACourse(courseName));\n        window.location.assign(\"/#view-course-detail\");\n    }\n\n    /**\n    * converts json object to an array of its contents\n    * @param {object} json   takes a json object\n    * @return {Array} arr returns an array of the given json object\n    */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\n    /**\n    * renders the display for the current page.   displays courses\n    * @return {html} if there is a courselist return the list\n    */\n    render(){\n        const {course}=this.props\n        if (course.courseList){\n            var arr = this.jsonToArray(course.courseList)\n            const mappedCourse = arr.map(course =>\n\n                <div style={listItemStyle} key = {course.courseName} className=\"mdl-card mdl-shadow--2dp \" onClick={()=>(this.saveACourse(course.courseName))}>\n                    <div className=\"mdl-card__title\" >\n                        <h2 className=\"mdl-card__title-text\">\n                            {course.courseName}\n                        </h2>\n                    </div>\n                     <div className=\"mdl-card__supporting-text\">\n                        {course.courseDescription}\n                    </div>\n                </div>\n                )\n\n            return(\n                <div>\n                    {mappedCourse}\n                </div>\n\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default CourseList\n"
   },
   {
     "__docId__": 263,
@@ -5731,7 +5731,7 @@
       {
         "nullable": null,
         "types": [
-          "*"
+          "object"
         ],
         "spread": false,
         "optional": false,
@@ -5807,7 +5807,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentViewCourse from './ContentViewCourse.js'\nimport CourseList from './CourseList.js'\n\n/**\n* display courses\n* @return display output of viewcourse page.\n*/\nclass ViewCourse extends Component {\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentViewCourse/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default ViewCourse\n"
+    "content": "import React, { Component } from 'react'\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentViewCourse from './ContentViewCourse.js'\nimport CourseList from './CourseList.js'\n\n\nclass ViewCourse extends Component {\n  /**\n  * display courses\n  * @return {html} display output of viewcourse page.\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentViewCourse/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\n\nexport default ViewCourse\n"
   },
   {
     "__docId__": 272,
@@ -5821,16 +5821,9 @@
     "export": true,
     "importPath": "learnenergy401/component/ViewCourse/ViewCourse.js",
     "importStyle": "ViewCourse",
-    "description": "display courses",
-    "lineNumber": 11,
-    "return": {
-      "nullable": null,
-      "types": [
-        "*"
-      ],
-      "spread": false,
-      "description": "display output of viewcourse page."
-    },
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
     "interface": false,
     "extends": [
       "react~Component"
@@ -5845,14 +5838,16 @@
     "memberof": "component/ViewCourse/ViewCourse.js~ViewCourse",
     "longname": "component/ViewCourse/ViewCourse.js~ViewCourse#render",
     "access": null,
-    "description": null,
-    "lineNumber": 12,
-    "undocument": true,
+    "description": "display courses",
+    "lineNumber": 13,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "display output of viewcourse page."
     },
     "generator": false
   },

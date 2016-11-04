@@ -33,7 +33,7 @@ class CourseList extends Component{
 
     /**
     * save a course
-    * @param courseName the name of the course
+    * @param {object} courseName the name of the course
     */
     saveACourse(courseName){
         this.props.dispatch(saveACourse(courseName));
