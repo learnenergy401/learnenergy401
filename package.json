@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "link": "eslink app",
+    "doc": "esdoc -c esdoc.json",
+    "postinstall": "npm run build && npm run doc"
   },
   "repository": {
     "type": "git",
