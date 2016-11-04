@@ -4,7 +4,8 @@ import LearnFooter from '../Footer.js'
 import ContentViewCourse from './ContentViewCourse.js'
 import CourseList from './CourseList.js'
 
-/* @return display output of viewcourse page.
+/**display courses
+*  @return display output of viewcourse page.
 */
 class ViewCourse extends Component {
   render(){
