@@ -1,7 +1,7 @@
 {
-  "coverage": "50%",
+  "coverage": "50.57%",
   "expectCount": 174,
-  "actualCount": 87,
+  "actualCount": 88,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -254,10 +254,9 @@
     },
     "component/Login-Logout/Logout.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        8,
-        9
+        8
       ]
     },
     "component/Router.js": {

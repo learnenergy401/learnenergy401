@@ -2630,7 +2630,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ContentLogout from '../ContentLogout.js'\n\nclass Logout extends Component {\n  render(){\n    return (  \n      <div className=\"learn-header mdl-layout__header\">\n        <LearnHeader/>\n        <ContentLogout/>   \n        <LearnFooter/>\n      </div> \n    );\n  }\n}\n\nexport default Logout"
+    "content": "import React, { Component } from 'react'\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentHome from '../ContentHome.js'\nimport ContentLogout from '../ContentLogout.js'\n\nclass Logout extends Component {\n  /**\n  * Loads the logout and its components.\n  * @return {html} - returns all components for the home page.\n  */\n  render(){\n    return (\n      <div className=\"learn-header mdl-layout__header\">\n        <LearnHeader/>\n        <ContentLogout/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\nexport default Logout\n"
   },
   {
     "__docId__": 108,
@@ -2661,14 +2661,16 @@
     "memberof": "component/Login-Logout/Logout.js~Logout",
     "longname": "component/Login-Logout/Logout.js~Logout#render",
     "access": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "Loads the logout and its components.",
+    "lineNumber": 13,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns all components for the home page."
     },
     "generator": false
   },
