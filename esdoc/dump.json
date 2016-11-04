@@ -343,7 +343,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\n/**\n * sidebar options for profile page\n * @returns {object} dispatch - Returns the new state of the sidebar.\n */\nexport function changeMenu(menuNum) {\n    return function(dispatch) {\n        dispatch({type: \"CHANGE_MENU\", payload: menuNum})\n    }\n}\n"
+    "content": "\nimport {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\n/**\n * sidebar options for profile page\n * @param {object} menuNum - object of menuNum\n * @returns {object} dispatch - Returns the new state of the sidebar.\n */\nexport function changeMenu(menuNum) {\n    return function(dispatch) {\n        dispatch({type: \"CHANGE_MENU\", payload: menuNum})\n    }\n}\n"
   },
   {
     "__docId__": 9,
@@ -358,7 +358,7 @@
     "importPath": "learnenergy401/component/Actions/profileActions.js",
     "importStyle": "{changeMenu}",
     "description": "sidebar options for profile page",
-    "lineNumber": 8,
+    "lineNumber": 9,
     "unknown": [
       {
         "tagName": "@returns",
@@ -367,10 +367,14 @@
     ],
     "params": [
       {
-        "name": "menuNum",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "menuNum",
+        "description": "object of menuNum"
       }
     ],
     "return": {
@@ -3261,7 +3265,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default function reducer(state={\n    courseList: null,\n    currentVendorCourseList: null,\n    fetching: false,\n    error: null,\n    aCourse: \"Loading...\",\n    aCourseName:\"Loading...\",\n    uploaded: false,\n    \n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_A_COURSE\":{\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_A_COURSE_FULFILLED\":{\n            return {...state, \n                    fetching: false,\n                    aCourse: action.payload,\n            }\n        }\n        case \"FETCH_A_COURSE_REJECTED\":{\n            return {...state, \n                    fetching:false,\n                    error: action.payload,\n            }\n        }\n\n        case \"FETCH_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_COURSE_FULFILLED\": {\n            return{...state, \n                    fetching: false,\n                    courseList: action.payload,\n            }\n        }\n        case \"FETCH_COURSE_REJECTED\": {\n            return{...state, \n                    fetching: false,\n                    error: action.payload,\n            }\n        }\n        case \"FETCH_VENDORS_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n            \n        case \"FETCH_VENDORS_COURSE_FULFILLED\": {\n            return {...state, \n                    fetching: false,\n                    currentVendorCourseList: action.payload\n            }\n        }\n        case \"FETCH_VENDORS_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n                    error: action.payload\n            }\n        }\n            \n        case \"UPLOAD_COURSE\": {\n            return {...state, \n                    uploaded: false,\n                    fetching: true\n            }\n        }\n            \n        case \"UPLOAD_COURSE_FULFILLED\": {\n            return {...state,\n                    uploaded: true,\n                    fetching: false,\n            }\n        }\n        case \"UPLOAD_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n            }\n        }\n\n        case \"SAVE_A_COURSE\": {\n            return {...state,\n                    aCourseName : action.payload\n            }\n        }\n        \n    }\n\n    return state\n}\n"
+    "content": "/**\n * Course Reducer\n * @exports {state} reducer\n * @param {object} action\n * @return {state} state\n */\nexport default function reducer(state={\n    courseList: null,\n    currentVendorCourseList: null,\n    fetching: false,\n    error: null,\n    aCourse: \"Loading...\",\n    aCourseName:\"Loading...\",\n    uploaded: false,\n    \n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_A_COURSE\":{\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_A_COURSE_FULFILLED\":{\n            return {...state, \n                    fetching: false,\n                    aCourse: action.payload,\n            }\n        }\n        case \"FETCH_A_COURSE_REJECTED\":{\n            return {...state, \n                    fetching:false,\n                    error: action.payload,\n            }\n        }\n\n        case \"FETCH_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n        case \"FETCH_COURSE_FULFILLED\": {\n            return{...state, \n                    fetching: false,\n                    courseList: action.payload,\n            }\n        }\n        case \"FETCH_COURSE_REJECTED\": {\n            return{...state, \n                    fetching: false,\n                    error: action.payload,\n            }\n        }\n        case \"FETCH_VENDORS_COURSE\": {\n            return {...state, \n                    fetching: true\n            }\n        }\n            \n        case \"FETCH_VENDORS_COURSE_FULFILLED\": {\n            return {...state, \n                    fetching: false,\n                    currentVendorCourseList: action.payload\n            }\n        }\n        case \"FETCH_VENDORS_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n                    error: action.payload\n            }\n        }\n            \n        case \"UPLOAD_COURSE\": {\n            return {...state, \n                    uploaded: false,\n                    fetching: true\n            }\n        }\n            \n        case \"UPLOAD_COURSE_FULFILLED\": {\n            return {...state,\n                    uploaded: true,\n                    fetching: false,\n            }\n        }\n        case \"UPLOAD_COURSE_REJECTED\": {\n            return {...state, \n                    fetching: false,\n            }\n        }\n\n        case \"SAVE_A_COURSE\": {\n            return {...state,\n                    aCourseName : action.payload\n            }\n        }\n        \n    }\n\n    return state\n}\n"
   },
   {
     "__docId__": 142,
@@ -3275,38 +3279,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Reducers/courseReducer.js",
     "importStyle": "reducer",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "Course Reducer",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@exports",
+        "tagValue": "{state} reducer"
+      }
+    ],
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{\"courseList\": object, \"currentVendorCourseList\": object, \"fetching\": boolean, \"error\": object, \"aCourse\": string, \"aCourseName\": string, \"uploaded\": boolean}"
+          "object"
         ],
-        "defaultRaw": {
-          "courseList": null,
-          "currentVendorCourseList": null,
-          "fetching": false,
-          "error": null,
-          "aCourse": "Loading...",
-          "aCourseName": "Loading...",
-          "uploaded": false
-        },
-        "defaultValue": "{\"courseList\":null,\"currentVendorCourseList\":null,\"fetching\":false,\"error\":null,\"aCourse\":\"Loading...\",\"aCourseName\":\"Loading...\",\"uploaded\":false}"
-      },
-      {
+        "spread": false,
+        "optional": false,
         "name": "action",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "state"
+      ],
+      "spread": false,
+      "description": "state"
     },
     "generator": false
   },
@@ -3334,7 +3333,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default function reducer(state={\n    menu: 0,\n    \n  }, action) {\n\n    switch (action.type) {\n        case \"CHANGE_MENU\": {\n            return {...state, \n               menu: action.payload }\n        }    \n    }\n\n    return state\n}\n"
+    "content": "/**\n * Profile Reducer\n * @exports {state} reducer\n * @param {object} action\n * @return {state} state\n */\n\nexport default function reducer(state={\n    menu: 0,\n    \n  }, action) {\n\n    switch (action.type) {\n        case \"CHANGE_MENU\": {\n            return {...state, \n               menu: action.payload }\n        }    \n    }\n\n    return state\n}\n"
   },
   {
     "__docId__": 145,
@@ -3348,32 +3347,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Reducers/profileReducer.js",
     "importStyle": "reducer",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "Profile Reducer",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@exports",
+        "tagValue": "{state} reducer"
+      }
+    ],
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{\"menu\": number}"
+          "object"
         ],
-        "defaultRaw": {
-          "menu": 0
-        },
-        "defaultValue": "{\"menu\":0}"
-      },
-      {
+        "spread": false,
+        "optional": false,
         "name": "action",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "state"
+      ],
+      "spread": false,
+      "description": "state"
     },
     "generator": false
   },
@@ -3388,7 +3388,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default function reducer(state={\n    user: null,\n    userName:null,\n    fetching: false,\n    fetched: false,\n    error: null,\n    isLoggedIn:false,\n    role: null,\n    purchasers: null,\n    vendors: null,\n    ad: null,\n    profile:{\n        role:null,\n        firstName: null,\n        // *TODO*\n        // add more attribute here in model\n        // null as default, i copie role into outer scope for convenience :)\n    },\n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_USER\": {\n            return {...state,\n                fetching: true}\n        }\n\n        case \"FETCH_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_PURCHASER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                purchasers: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_VENDOR_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                vendors: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_AD_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                ad: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"SIGNUP_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"SIGNUP_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n            }\n        }\n\n        case \"SIGNUP_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                isLoggedIn:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGIN_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"LOGIN_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                user: action.payload,\n                userName: action.payload.email,\n                isLoggedIn:true,\n            }\n        }\n\n        case \"LOGIN_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGOUT_USER\": {\n            return {\n                ...state,\n                fetching: true,\n                fetched: false,\n            }\n        }\n\n        case \"LOGOUT_USER_FULFILLED\": {\n            return{\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: null,\n                role: null,\n                isLoggedIn: false,\n                purchasers: null,\n                vendors: null,\n                ad: null,\n            }\n        }\n\n        case \"LOGOUT_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: true,\n                error: action.payload\n            }\n        }\n\n    }\n\n    return state\n}\n"
+    "content": "/**\n * User Reducer\n * @exports {state} reducer\n * @param {object} action\n * @return {state} state\n */\nexport default function reducer(state={\n    user: null,\n    userName:null,\n    fetching: false,\n    fetched: false,\n    error: null,\n    isLoggedIn:false,\n    role: null,\n    purchasers: null,\n    vendors: null,\n    ad: null,\n    profile:{\n        role:null,\n        firstName: null,\n        // *TODO*\n        // add more attribute here in model\n        // null as default, i copie role into outer scope for convenience :)\n    },\n  }, action) {\n\n    switch (action.type) {\n\n        case \"FETCH_USER\": {\n            return {...state,\n                fetching: true}\n        }\n\n        case \"FETCH_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_PURCHASER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                purchasers: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_VENDOR_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                vendors: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"FETCH_AD_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched: true,\n                ad: action.payload,\n                isLoggedIn: action.isLoggedIn,\n            }\n        }\n\n        case \"SIGNUP_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"SIGNUP_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n            }\n        }\n\n        case \"SIGNUP_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"UPDATE_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"FETCH_USER_PROFILE\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                isLoggedIn:true,\n                profile:action.payload,\n                role: action.payload.role,\n            }\n        }\n\n        case \"FETCH_USER_PROFILE_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGIN_USER\": {\n            return {\n                ...state,\n                fetching: true,\n            }\n        }\n\n        case \"LOGIN_USER_FULFILLED\": {\n            return {\n                ...state,\n                fetching: false,\n                fetched:true,\n                user: action.payload,\n                userName: action.payload.email,\n                isLoggedIn:true,\n            }\n        }\n\n        case \"LOGIN_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: false,\n                error: action.payload\n            }\n        }\n\n        case \"LOGOUT_USER\": {\n            return {\n                ...state,\n                fetching: true,\n                fetched: false,\n            }\n        }\n\n        case \"LOGOUT_USER_FULFILLED\": {\n            return{\n                ...state,\n                fetching: false,\n                fetched: true,\n                user: null,\n                role: null,\n                isLoggedIn: false,\n                purchasers: null,\n                vendors: null,\n                ad: null,\n            }\n        }\n\n        case \"LOGOUT_USER_REJECTED\": {\n            return {\n                ...state,\n                fetching: false,\n                isLoggedIn: true,\n                error: action.payload\n            }\n        }\n\n    }\n\n    return state\n}\n"
   },
   {
     "__docId__": 147,
@@ -3402,41 +3402,33 @@
     "export": true,
     "importPath": "learnenergy401/component/Reducers/userReducer.js",
     "importStyle": "reducer",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "User Reducer",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@exports",
+        "tagValue": "{state} reducer"
+      }
+    ],
     "params": [
       {
-        "name": "state",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "{\"user\": object, \"userName\": object, \"fetching\": boolean, \"fetched\": boolean, \"error\": object, \"isLoggedIn\": boolean, \"role\": object, \"purchasers\": object, \"vendors\": object, \"ad\": object, \"profile\": undefined}"
+          "object"
         ],
-        "defaultRaw": {
-          "user": null,
-          "userName": null,
-          "fetching": false,
-          "fetched": false,
-          "error": null,
-          "isLoggedIn": false,
-          "role": null,
-          "purchasers": null,
-          "vendors": null,
-          "ad": null
-        },
-        "defaultValue": "{\"user\":null,\"userName\":null,\"fetching\":false,\"fetched\":false,\"error\":null,\"isLoggedIn\":false,\"role\":null,\"purchasers\":null,\"vendors\":null,\"ad\":null}"
-      },
-      {
+        "spread": false,
+        "optional": false,
         "name": "action",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "state"
+      ],
+      "spread": false,
+      "description": "state"
     },
     "generator": false
   },

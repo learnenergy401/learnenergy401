@@ -1,7 +1,7 @@
 {
-  "coverage": "51.14%",
+  "coverage": "52.87%",
   "expectCount": 174,
-  "actualCount": 89,
+  "actualCount": 92,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -389,24 +389,18 @@
     },
     "component/Reducers/courseReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "component/Reducers/userReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "component/Reducers/profileReducer.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     }
   }
 }

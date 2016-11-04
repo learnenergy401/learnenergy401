@@ -1,3 +1,9 @@
+/**
+ * Course Reducer
+ * @exports {state} reducer
+ * @param {object} action
+ * @return {state} state
+ */
 export default function reducer(state={
     courseList: null,
     currentVendorCourseList: null,
