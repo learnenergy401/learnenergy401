@@ -15,9 +15,19 @@ var formStyle = {
   };
 })/*dont add semicolon here!*/
 class ComponentSignUpVendor extends Component {
+
+  /**
+   * Sends information about vendor and adds it to vendor signup list
+   * @param {user} user - object which contains information about the vendor.
+   */    
   signUpVendor(user) {
     this.props.dispatch(signUpVendor(user));
   }
+
+  /**
+   * Sends information to signUpVendor(user)
+   * @return {Object} user - sends information about vendor.
+   */
   requestSubmit() {
     // part A
     var legalEntity = document.getElementById("legalEntity").value;
@@ -140,6 +150,11 @@ class ComponentSignUpVendor extends Component {
 
     this.signUpVendor(user);
     }
+
+    /**
+    * Loads the signup page for vendor.
+    * @return {html} - displays sign up page for vendor.
+    */
     render() {
     return(
       <div className="android-content mdl-layout__content">
