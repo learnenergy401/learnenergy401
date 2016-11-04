@@ -19,6 +19,7 @@ import SignUpPurchaser from "./SignUp/SignUpPurchaser.js"
 import SignUpVendor from "./SignUp/SignUpVendor.js"
 import SignUpAD from "./SignUp/SignUpAD.js"
 import Upload from "./Vendor/Upload.js"
+import AdminReview from "./AdminReview.js"
 
 class ReactRouter extends Component {
   render() {
@@ -37,6 +38,7 @@ class ReactRouter extends Component {
         <Route path='/signup-purchaser' component={SignUpPurchaser} />
         <Route path='/signup-vendor' component={SignUpVendor} />
         <Route path='/signup-ad' component={SignUpAD} />
+        <Route path='/admin-review' component={AdminReview} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />

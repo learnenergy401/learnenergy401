@@ -1,8 +1,10 @@
 import firebase from 'firebase';
+
 import {FIREBASE_CONFIG} from '../../firebase.config.js';
 import FirebaseTools from './Firebase.js'
 import React, { Component } from 'react'
 import {Dialog, DialogTitle,DialogContent,DialogActions , Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
+
 import store from './Store.js'
 import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
@@ -11,7 +13,35 @@ import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
-var info;
+var info = {}
+/*var info = {legalname:null, 
+            opname:null, 
+            address1:null, 
+            address2:null,
+            city:null, 
+            provinve:null, 
+            country:null, 
+            postal:null, 
+            phone:null,
+            fax:null, 
+            email:null,
+            admin:null, 
+            tech:null, 
+            is:null,
+            web:null, 
+            pass:null, 
+            role:null, 
+            keyn:null};*/
+
+var DialogStyle = {
+    height: '700',
+    width: '800',
+    
+}
+
+var ButtonStyle = {
+    bottom: '0'
+}
 @connect((store) => {
   return {
     user: store.user
@@ -96,7 +126,7 @@ class Admin extends Component {
       // var info = {user.user[key_name].email, .... , }
       const {user} = this.props
       if (role == 0) { // approve for purchaser
-        var legalEntity = user.purchasers[key_name].legalEntity;
+        UserInfo.legalEntity = user.purchasers[key_name].legalEntity;
         var operatingName = user.purchasers[key_name].operatingName;
         var address1 = user.purchasers[key_name].address1;
         var address2 = user.purchasers[key_name].address2;
@@ -113,7 +143,6 @@ class Admin extends Component {
         var website = user.purchasers[key_name].website;
         var password = user.purchasers[key_name].password;
         var role = user.purchasers[key_name].role;
-
         var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, key_name}
       } else if (role == 1) { // approve for vendor
@@ -171,14 +200,14 @@ class Admin extends Component {
       this.rejectUser(info)
     }
 
-    review(key_name, role) {
-//        /this.popupShow()
-        //TEMP FIX
+    review(pop_up, key_name, role) {
+        window.info = []
       console.log("review")
       const {user} = this.props
       if (role == 0) { //0 = purchaser
         //
         var legalEntity = user.purchasers[key_name].legalEntity;
+        window.info.push(legalEntity)
         var operatingName = user.purchasers[key_name].operatingName;
         var address1 = user.purchasers[key_name].address1;
         var address2 = user.purchasers[key_name].address2;
@@ -196,8 +225,7 @@ class Admin extends Component {
         var password = user.purchasers[key_name].password;
         var role = user.purchasers[key_name].role;
 
-        var info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
-        adminContact, technicalContact, ISnumber, website, password, role, key_name}
+        
         this.handleOpenDialog()
         //alert(JSON.stringify(info))
         
@@ -231,11 +259,13 @@ class Admin extends Component {
         var bankruptcy = user.vendors[key_name].bankruptcy;
         var numEmployees = user.vendors[key_name].numEmployees;
         
-        window.info = [legalEntity ,operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
+        /*window.info = {legalEntity, operatingName, address1, address2, city, province, country, postalCode, phone, fax, email,
         adminContact, technicalContact, ISnumber, website, password, role, owners, natureBusiness, timeBusiness, proAffiliation,
-        bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name]
-        //alert(JSON.stringify(info))
+        bank, bonding, bondingLimit, insurance, bankruptcy, numEmployees, key_name}
+        //alert(JSON.stringify(info))*/
+        //windows.info = Array.from(test)
         this.handleOpenDialog2()
+        
         
       } else if (role == 2) {//2 = add resource
         var website = user.ad[key_name].website;
@@ -254,11 +284,13 @@ class Admin extends Component {
       if (user.role == 3) { //3 = admin
         var EMAILS = [];
         //var EMAILS = [];
-
+        var pop_up = [];
         //console.log(user)
         console.log(user)
         var keys
         if (user.purchasers != null) {
+          //var arr = this.jsonToArray(user.purchasers)
+          //const mapped = arr.map(purchasers)
           keys = Object.keys(user.purchasers)
           var role = 0 // pass role in for purchaser
           for (var count=0; count<=keys.length-1; count++) {
@@ -268,19 +300,37 @@ class Admin extends Component {
             EMAILS.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
-              <div>
-                <Dialog open={this.state.openDialog}>
+              <Button accent ripple onClick={this.review.bind(this,pop_up,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
+           <div>
+                <Dialog style={DialogStyle} open={this.state.openDialog}>
                   <DialogTitle>Purchaser</DialogTitle>
                   <DialogContent>
-                    <p>BUYER </p>
+                    <p></p>
+                    <p>Legal Name: {user.purchasers[key_name].legalEntity}</p>
+                    <p>Operating Name:</p>
+                    <p>Address 1:</p>
+                    <p>Address 2:</p>
+                    <p>City:</p>
+                    <p>Postal Code:</p>
+                    <p>Province: </p>
+                    <p>Country: </p>
+                    <p>Postal Code:</p>
+                    <p>Phone: </p>
+                    <p>Fax:</p>
+                    <p>Email:</p>
+                    <p>Admin Contact:</p>
+                    <p>Techncal Contact:</p>
+                    <p>IS Number:</p>
+                    <p>Website:</p>
+                    <p>Password:</p>
+                    <p>Role:</p>
                   </DialogContent>
                   <DialogActions>
-                    <Button type='button' onClick={this.handleCloseDialog}>Close</Button>
+                    <Button style= {ButtonStyle} type='button' onClick={this.handleCloseDialog}>Close</Button>
                   </DialogActions>
                 </Dialog>
               </div>
-            </div>
+             </div>
               )
             EMAILS.push(<br/>)
           }
@@ -294,27 +344,17 @@ class Admin extends Component {
             var key_name = keys[count]
             EMAILS.push(user.vendors[key_name].email)
             EMAILS.push(<br/>)
-            EMAILS.push(<div>
+            EMAILS.push(
+            <div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-              
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+              <Link to={'admin-review'}>
+              <Button accent ripple onClick={Link to={'admin-review'}(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
+              </Link>
               
-              <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
-              <div>
-                <Dialog open={this.state.openDialog2}>
-                  <DialogTitle>Vendor</DialogTitle>
-                  <DialogContent>
-                    <p>{window.info}</p>
-                    
-                    
-                  </DialogContent>
-                  <DialogActions>
-                    <Button type='button' onClick={this.handleCloseDialog2}>Close</Button>
-                  </DialogActions>
-                </Dialog>
+              
               </div>
-              
-              </div>)
+              )
             EMAILS.push(<br/>)
           }
         }
