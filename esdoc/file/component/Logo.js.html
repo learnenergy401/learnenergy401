@@ -121,11 +121,15 @@ var divStyle = {
     width: &apos;100px&apos;,
     position: &apos;absolute&apos;,
     bottom: &apos;16px&apos;,
-    WebkitTransition: &apos;all&apos;, 
-    msTransition: &apos;all&apos; 
+    WebkitTransition: &apos;all&apos;,
+    msTransition: &apos;all&apos;
 }
 
 class SignUpButton extends Component {
+    /**
+    * Loads the logo for the header
+    * @return {html} - returns logo in the header
+    */
     render(){
         return(
           &lt;Link to={this.props.to}&gt;
@@ -135,7 +139,8 @@ class SignUpButton extends Component {
 };
 
 
-export default SignUpButton</code></pre>
+export default SignUpButton
+</code></pre>
 
 </div>
 

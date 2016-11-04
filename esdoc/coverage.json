@@ -1,141 +1,105 @@
 {
-  "coverage": "6.28%",
-  "expectCount": 175,
-  "actualCount": 11,
+  "coverage": "40.8%",
+  "expectCount": 174,
+  "actualCount": 71,
   "files": {
     "component/Admin.js": {
-      "expectCount": 13,
-      "actualCount": 0,
+      "expectCount": 12,
+      "actualCount": 11,
       "undocumentLines": [
-        20,
-        57,
-        49,
-        42,
-        34,
-        26,
-        22,
-        30,
-        38,
-        224,
-        53,
-        396,
-        232
+        20
       ]
     },
     "component/ButtonAdmin.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        8,
-        9
+        8
       ]
     },
     "component/ButtonLogIn.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        8,
-        9
+        8
       ]
     },
     "component/ButtonLogOut.js": {
       "expectCount": 3,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
         17,
-        18,
-        23
+        18
       ]
     },
     "component/SignUp/ButtonSignUp.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        11,
-        12
+        11
       ]
     },
     "component/SignUp/ButtonSignUpAD.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        11,
-        12
+        11
       ]
     },
     "component/SignUp/ButtonSignUpPurchaser.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        11,
-        12
+        11
       ]
     },
     "component/SignUp/ButtonSignUpVendor.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        11,
-        12
+        11
       ]
     },
     "component/ComponentLogin.js": {
       "expectCount": 6,
-      "actualCount": 0,
+      "actualCount": 5,
       "undocumentLines": [
-        24,
-        34,
-        30,
-        26,
-        38,
-        46
+        24
       ]
     },
     "component/SignUp/ComponentSignup.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        26,
-        28
+        26
       ]
     },
     "component/SignUp/ComponentSignUpAD.js": {
       "expectCount": 4,
-      "actualCount": 0,
+      "actualCount": 3,
       "undocumentLines": [
-        20,
-        38,
-        26,
-        22
+        20
       ]
     },
     "component/SignUp/ComponentSignUpPurchaser.js": {
       "expectCount": 4,
-      "actualCount": 0,
+      "actualCount": 3,
       "undocumentLines": [
-        20,
-        81,
-        26,
-        22
+        20
       ]
     },
     "component/SignUp/ComponentSignUpVendor.js": {
       "expectCount": 4,
-      "actualCount": 0,
+      "actualCount": 3,
       "undocumentLines": [
-        17,
-        143,
-        21,
-        18
+        17
       ]
     },
     "component/ComponentUpload.js": {
       "expectCount": 3,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
-        6,
-        8,
-        35
+        6
       ]
     },
     "component/ViewCourse/ContentCourseDetail.js": {
@@ -149,37 +113,30 @@
     },
     "component/ContentCourseDisplay.js": {
       "expectCount": 4,
-      "actualCount": 0,
+      "actualCount": 3,
       "undocumentLines": [
-        16,
-        17,
-        23,
-        30
+        16
       ]
     },
     "component/ContentHome.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        5,
-        6
+        5
       ]
     },
     "component/ContentLogin.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        17,
-        18
+        17
       ]
     },
     "component/ContentLogout.js": {
       "expectCount": 3,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
-        13,
-        20,
-        15
+        13
       ]
     },
     "component/Profile/ContentProfile.js": {
@@ -201,34 +158,30 @@
     },
     "component/SignUp/ContentSignup.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        22,
-        23
+        22
       ]
     },
     "component/SignUp/ContentSignUpAD.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        22,
-        23
+        22
       ]
     },
     "component/SignUp/ContentSignUpPurchaser.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        22,
-        23
+        22
       ]
     },
     "component/SignUp/ContentSignUpVendor.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        22,
-        23
+        22
       ]
     },
     "component/ViewCourse/ContentViewCourse.js": {
@@ -282,32 +235,23 @@
     },
     "component/Footer.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        3,
-        4
+        3
       ]
     },
     "component/Header.js": {
       "expectCount": 8,
-      "actualCount": 0,
+      "actualCount": 7,
       "undocumentLines": [
-        27,
-        48,
-        44,
-        36,
-        28,
-        40,
-        32,
-        55
+        27
       ]
     },
     "component/Navigation.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        20,
-        21
+        20
       ]
     },
     "component/Login-Logout/Login.js": {
@@ -328,10 +272,9 @@
     },
     "component/Router.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        25,
-        26
+        25
       ]
     },
     "component/Scripts.js": {
@@ -339,7 +282,7 @@
       "actualCount": 0,
       "undocumentLines": [
         20,
-        27,
+        30,
         21
       ]
     },
@@ -354,6 +297,14 @@
         48
       ]
     },
+    "component/SignUp/SignUp.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8
+      ]
+    },
     "component/Profile/Profile.js": {
       "expectCount": 3,
       "actualCount": 0,
@@ -363,44 +314,32 @@
         23
       ]
     },
-    "component/SignUp/SignUp.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        7,
-        8
-      ]
-    },
     "component/SignUp/SignUpAD.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        7,
-        8
+        7
       ]
     },
     "component/Logo.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        14,
-        15
+        14
       ]
     },
     "component/SignUp/SignUpPurchaser.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        7,
-        8
+        7
       ]
     },
     "component/SignUp/SignUpVendor.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        7,
-        8
+        7
       ]
     },
     "component/Toast.js": {
@@ -469,6 +408,13 @@
         26
       ]
     },
+    "component/Reducers/courseReducer.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
     "component/Reducers/userReducer.js": {
       "expectCount": 1,
       "actualCount": 0,
@@ -477,13 +423,6 @@
       ]
     },
     "component/Reducers/profileReducer.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
-    "component/Reducers/courseReducer.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [

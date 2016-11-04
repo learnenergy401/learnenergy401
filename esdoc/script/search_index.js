@@ -834,12 +834,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "component/admin.js~admin#fetchrole",
-    "class/component/Admin.js~Admin.html#instance-method-fetchRole",
-    "component/Admin.js~Admin#fetchRole",
-    "method"
-  ],
-  [
     "component/admin.js~admin#fetchvendorsignup",
     "class/component/Admin.js~Admin.html#instance-method-fetchVendorSignup",
     "component/Admin.js~Admin#fetchVendorSignup",
@@ -1362,9 +1356,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "component/signup/componentsignupad.js~componentsignupad#signuppurchaser",
-    "class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html#instance-method-signUpPurchaser",
-    "component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD#signUpPurchaser",
+    "component/signup/componentsignupad.js~componentsignupad#signupad",
+    "class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html#instance-method-signUpAD",
+    "component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD#signUpAD",
     "method"
   ],
   [

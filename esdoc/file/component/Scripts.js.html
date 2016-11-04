@@ -134,11 +134,14 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from &apos;./Fireb
 class Scripts extends Component {
     script(){
 
-
+      firebaseDb.ref(&apos;Key/KeyName&apos;).set({
+        key: null,
+        role: null
+      })
 
     }
-    
-    render(){ 
+
+    render(){
         return(
 
                 &lt;div&gt;
@@ -146,10 +149,11 @@ class Scripts extends Component {
                 &lt;/div&gt;
             )
         }
-       
+
 };
 
-export default Scripts</code></pre>
+export default Scripts
+</code></pre>
 
 </div>
 

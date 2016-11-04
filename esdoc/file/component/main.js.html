@@ -117,8 +117,9 @@ import ReactDOM from &apos;react-dom&apos;
 import ReactRouter from &apos;./Router.js&apos;
 import { Provider } from &quot;react-redux&quot;
 import store from &quot;./Store&quot;
-
-// Load the react router and render it into bundle.js 
+/**
+  * Load the react router and render it into bundle.js
+  */
 ReactDOM.render(&lt;Provider store={store}&gt;
                 &lt;ReactRouter/&gt;
                 &lt;/Provider&gt;, document.getElementById(&apos;root&apos;))

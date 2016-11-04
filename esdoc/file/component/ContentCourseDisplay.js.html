@@ -128,12 +128,18 @@ import { fetchVendorCourse } from &quot;./Actions/courseActions&quot;
 })
 
 class ContentCourseDisplay extends Component{
-    componentWillMount(){   
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses
+     */
+    componentWillMount(){
         const {user} = this.props
         this.props.dispatch(fetchVendorCourse(user.user.email));
     }
-    
-    
+
+    /**
+     * Coverts json to array
+     * @return {object} arr - return array from converted json object
+     */
     jsonToArray(json){
         var arr = [];
         for (var prop in json) {
@@ -141,11 +147,15 @@ class ContentCourseDisplay extends Component{
         }
         return arr
     }
+    /**
+    * Loads the webpage for course display
+    * @return {html} - returns avaiable courses
+    */
     render(){
         const {course}=this.props
         if (course.currentVendorCourseList){
             var arr = this.jsonToArray(course.currentVendorCourseList)
-            const mappedCourse = arr.map(course =&gt; 
+            const mappedCourse = arr.map(course =&gt;
                                         &lt;li key = {course.courseName}&gt;{course.courseName}&lt;/li&gt;
                                        )
             return(
@@ -154,20 +164,21 @@ class ContentCourseDisplay extends Component{
                 &lt;ul&gt;{mappedCourse}&lt;/ul&gt;
                 &lt;/Content&gt;
             )
-                                         
+
         }else{
             return(
 
                 &lt;Content className=&quot;learn-content&quot;&gt;
-                
+
                 &lt;/Content&gt;
             )
         }
-        
+
     }
 }
 
-export default ContentCourseDisplay</code></pre>
+export default ContentCourseDisplay
+</code></pre>
 
 </div>
 
