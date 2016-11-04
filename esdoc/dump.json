@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\nfunction  jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\nexport function fetchCourseList() {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.name).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\n\nexport function uploadCourse(course) {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.courseName).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\nexport function fetchVendorCourse(email) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_VENDORS_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseVendorEmail').equalTo(email).on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_VENDORS_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_VENDORS_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\nexport function fetchCourse() {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_COURSE\"})\n        firebaseDb.ref('Course').on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\nexport function fetchACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_A_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseName').equalTo(courseName).on(\"value\",function(snapshot){\n            if (snapshot.val()){\n                dispatch({type:\"FETCH_A_COURSE_FULFILLED\",payload:jsonToArray(snapshot.val())[0]})\n            }else{\n                dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:\"payload is null\"})\n            }\n        },function(errorObject){\n            dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\nexport function saveACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"SAVE_A_COURSE\",payload: courseName})\n    }\n}\n\n"
+    "content": "import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'\n\n/**\n * converts json into an array\n * @param {object} json - pushes object into array\n * @returns {list} arr - Returns array of json objects\n */\nfunction jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n\n/**\n * Grabs the courses from the course child in the database.\n * @returns {object} courses - Returns the object of courses.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchCourseList() {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.name).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\n/**\n * Upload a course into the database.\n * @param {object} course - object containing course info\n * @returns {object} courses - Returns the object of courses.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function uploadCourse(course) {\n    return function(dispatch) {\n        dispatch({type: \"UPLOAD_COURSE\"})\n        firebaseDb.ref('Course/' + course.courseName).set(course)\n            .then((data) => {\n                dispatch({type: \"UPLOAD_COURSE_FULFILLED\"})\n            })\n            .catch((err) => {\n                dispatch({type: \"UPLOAD_COURSE_REJECTED\", payload: err.code})\n            })\n                        \n    }\n}\n\n/**\n * Grabs the vendor courses from the Vendor Course in the database.\n * @param {object} email - object containing email\n * @returns {object} currentVendorCourseList - Returns the object of courses.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchVendorCourse(email) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_VENDORS_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseVendorEmail').equalTo(email).on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_VENDORS_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_VENDORS_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\n/**\n * Grabs the courses from the CourseList in the database.\n * @returns {object} courseList - Returns the object of courseList.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchCourse() {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_COURSE\"})\n        firebaseDb.ref('Course').on(\"value\",function(snapshot){\n            dispatch({type:\"FETCH_COURSE_FULFILLED\",payload:snapshot.val()})\n        },function(errorObject){\n            dispatch({type:\"FETCH_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\n/**\n * Grabs the courseName from the Course in the database.\n * @param {object} courseName - Object containing course names\n * @returns {object} aCourseName - Returns the object aCourseName\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function fetchACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"FETCH_A_COURSE\"})\n        firebaseDb.ref('Course').orderByChild('courseName').equalTo(courseName).on(\"value\",function(snapshot){\n            if (snapshot.val()){\n                dispatch({type:\"FETCH_A_COURSE_FULFILLED\",payload:jsonToArray(snapshot.val())[0]})\n            }else{\n                dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:\"payload is null\"})\n            }\n        },function(errorObject){\n            dispatch({type:\"FETCH_A_COURSE_REJECTED\",payload:errorObject.code})\n        })\n    }\n}\n\n/**\n * Saves a course to the database.\n * @param {object} courseName - Object containing course names\n * @returns {object} courseName - Returns the object containing course names.\n * @throws {object} err - Returns an error if failed to fetch from database.\n */\nexport function saveACourse(courseName) {\n    return function(dispatch) {\n        dispatch({type: \"SAVE_A_COURSE\",payload: courseName})\n    }\n}\n\n"
   },
   {
     "__docId__": 1,
@@ -24,21 +24,33 @@
     "export": false,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "converts json into an array",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{list} arr - Returns array of json objects"
+      }
+    ],
     "params": [
       {
-        "name": "json",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": "pushes object into array"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "list"
+      ],
+      "spread": false,
+      "description": "arr - Returns array of json objects"
     },
     "generator": false
   },
@@ -54,15 +66,31 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchCourseList}",
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
+    "description": "Grabs the courses from the course child in the database.",
+    "lineNumber": 21,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courses - Returns the object of courses."
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courses - Returns the object of courses."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -77,22 +105,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{uploadCourse}",
-    "description": null,
-    "lineNumber": 26,
-    "undocument": true,
+    "description": "Upload a course into the database.",
+    "lineNumber": 41,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courses - Returns the object of courses."
+      }
+    ],
     "params": [
       {
-        "name": "course",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "course",
+        "description": "object containing course info"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courses - Returns the object of courses."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -107,22 +155,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchVendorCourse}",
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
+    "description": "Grabs the vendor courses from the Vendor Course in the database.",
+    "lineNumber": 61,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} currentVendorCourseList - Returns the object of courses."
+      }
+    ],
     "params": [
       {
-        "name": "email",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "email",
+        "description": "object containing email"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "currentVendorCourseList - Returns the object of courses."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -137,15 +205,31 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchCourse}",
-    "description": null,
-    "lineNumber": 51,
-    "undocument": true,
+    "description": "Grabs the courses from the CourseList in the database.",
+    "lineNumber": 77,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courseList - Returns the object of courseList."
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courseList - Returns the object of courseList."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -160,22 +244,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{fetchACourse}",
-    "description": null,
-    "lineNumber": 62,
-    "undocument": true,
+    "description": "Grabs the courseName from the Course in the database.",
+    "lineNumber": 94,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} aCourseName - Returns the object aCourseName"
+      }
+    ],
     "params": [
       {
-        "name": "courseName",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "courseName",
+        "description": "Object containing course names"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "aCourseName - Returns the object aCourseName"
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {
@@ -190,22 +294,42 @@
     "export": true,
     "importPath": "learnenergy401/component/Actions/courseActions.js",
     "importStyle": "{saveACourse}",
-    "description": null,
-    "lineNumber": 77,
-    "undocument": true,
+    "description": "Saves a course to the database.",
+    "lineNumber": 115,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} courseName - Returns the object containing course names."
+      }
+    ],
     "params": [
       {
-        "name": "courseName",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "courseName",
+        "description": "Object containing course names"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "object"
+      ],
+      "spread": false,
+      "description": "courseName - Returns the object containing course names."
     },
+    "throws": [
+      {
+        "types": [
+          "object"
+        ],
+        "description": "err - Returns an error if failed to fetch from database."
+      }
+    ],
     "generator": false
   },
   {

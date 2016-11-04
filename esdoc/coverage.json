@@ -1,7 +1,7 @@
 {
-  "coverage": "40.8%",
+  "coverage": "44.25%",
   "expectCount": 174,
-  "actualCount": 71,
+  "actualCount": 77,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -398,15 +398,8 @@
     },
     "component/Actions/courseActions.js": {
       "expectCount": 6,
-      "actualCount": 0,
-      "undocumentLines": [
-        62,
-        51,
-        11,
-        40,
-        77,
-        26
-      ]
+      "actualCount": 6,
+      "undocumentLines": []
     },
     "component/Reducers/courseReducer.js": {
       "expectCount": 1,
