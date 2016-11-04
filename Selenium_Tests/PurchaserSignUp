@@ -4,113 +4,13 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:8100/" />
-<title>PurchaserSignUp</title>
+<title>PurchaserSignup</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">PurchaserSignUp</td></tr>
+<tr><td rowspan="1" colspan="3">PurchaserSignup</td></tr>
 </thead><tbody>
-<tr>
-	<td>open</td>
-	<td>/#/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='root']/div/header/div/a[2]/button</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div/a/button</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=legalEntity</td>
-	<td>Purchaser Legal Entity</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=operatingName</td>
-	<td>Purchaser Operating Name</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=address1</td>
-	<td>Purchaser Address 1</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=address2</td>
-	<td>Purchaser Address 2</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=city</td>
-	<td>Purchaser City</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=province</td>
-	<td>Purchaser Province</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=country</td>
-	<td>Purchaser Country</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=postalCode</td>
-	<td>Purchaser Postal Code</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=phone</td>
-	<td>Purchaser Phone</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=fax</td>
-	<td>Purchaser Fax</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=email</td>
-	<td>Purchaser@gmail.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=password</td>
-	<td>123456</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=adminContact</td>
-	<td>PurchaserAdmin@gmail.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=technicalContact</td>
-	<td>PurchaserTech@gmail.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=ISnumber</td>
-	<td>Purchaser ISN</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=website</td>
-	<td>www.purchaser.com</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[17]/button</td>
-	<td></td>
-</tr>
 
 </tbody></table>
 </body>
