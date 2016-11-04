@@ -3,14 +3,16 @@ import LearnHeader from '../Header.js'
 import LearnFooter from '../Footer.js'
 import ContentCourseDetail from './ContentCourseDetail.js'
 
-
+var contentStyle = {
+    height: '1000px!important',
+}
 
 class CourseDetail extends Component {
   render(){
     return (
       <div>
         <LearnHeader/>
-        <ContentCourseDetail/>
+        <ContentCourseDetail style={contentStyle}/>
         <LearnFooter/>
       </div>
     );

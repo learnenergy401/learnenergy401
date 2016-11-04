@@ -21,7 +21,6 @@ import SignUpAD from "./SignUp/SignUpAD.js"
 import Upload from "./Vendor/Upload.js"
 import ViewCourse from "./ViewCourse/ViewCourse.js"
 import CourseDetail from "./ViewCourse/CourseDetail.js"
-import YoutubePlayer from "./Video/YoutubePlayer.js"
 
 class ReactRouter extends Component {
   render() {
@@ -43,9 +42,7 @@ class ReactRouter extends Component {
         <Route path='/view-course-detail' component={CourseDetail} />
         <Route path='/youtube' component={YoutubePlayer} />
         <Route path='/signup-ad' component={SignUpAD} />
-
-
-        {/* 404 not fond page, make sure it stay at bottom */}
+ {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>
     )
