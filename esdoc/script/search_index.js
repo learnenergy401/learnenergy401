@@ -1572,30 +1572,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "component/viewcourse/youtube.js~youtube#componentdidmount",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-componentDidMount",
-    "component/ViewCourse/Youtube.js~YouTube#componentDidMount",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#componentdidupdate",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-componentDidUpdate",
-    "component/ViewCourse/Youtube.js~YouTube#componentDidUpdate",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#componentwillunmount",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-componentWillUnmount",
-    "component/ViewCourse/Youtube.js~YouTube#componentWillUnmount",
-    "method"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#constructor",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-constructor-constructor",
-    "component/ViewCourse/Youtube.js~YouTube#constructor",
-    "method"
-  ],
-  [
     "component/viewcourse/youtube.js~youtube#container",
     "class/component/ViewCourse/Youtube.js~YouTube.html#instance-member-container",
     "component/ViewCourse/Youtube.js~YouTube#container",
@@ -1606,12 +1582,6 @@ window.esdocSearchIndex = [
     "class/component/ViewCourse/Youtube.js~YouTube.html#instance-member-internalPlayer",
     "component/ViewCourse/Youtube.js~YouTube#internalPlayer",
     "member"
-  ],
-  [
-    "component/viewcourse/youtube.js~youtube#render",
-    "class/component/ViewCourse/Youtube.js~YouTube.html#instance-method-render",
-    "component/ViewCourse/Youtube.js~YouTube#render",
-    "method"
   ],
   [
     "component/main.js",

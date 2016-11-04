@@ -1,6 +1,6 @@
 {
-  "coverage": "64.55%",
-  "expectCount": 158,
+  "coverage": "66.66%",
+  "expectCount": 153,
   "actualCount": 102,
   "files": {
     "component/Admin.js": {
@@ -316,17 +316,12 @@
       ]
     },
     "component/ViewCourse/Youtube.js": {
-      "expectCount": 8,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
-        73,
-        130,
-        134,
-        148,
-        123,
-        126,
-        127,
-        298
+        57,
+        112,
+        113
       ]
     },
     "component/Actions/userActions.js": {
@@ -349,12 +344,12 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "component/Reducers/profileReducer.js": {
+    "component/Reducers/courseReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "component/Reducers/courseReducer.js": {
+    "component/Reducers/profileReducer.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

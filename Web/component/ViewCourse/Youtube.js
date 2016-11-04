@@ -3,11 +3,8 @@ import isEqual from 'lodash.isequal';
 import youTubePlayer from 'youtube-player';
 
 /**
- * Check whether a `props` change should result in the video being updated.
- *
- * @param {Object} prevProps
- * @param {Object} props
- */
+* @ignore
+*/
 function shouldUpdateVideo(prevProps, props) {
   // A changing video should always trigger an update
   if (prevProps.videoId !== props.videoId) {
@@ -23,12 +20,8 @@ function shouldUpdateVideo(prevProps, props) {
 }
 
 /**
- * Neutralise API options that only require a video update, leaving only options
- * that require a player reset. The results can then be compared to see if a
- * player reset is necessary.
- *
- * @param {Object} opts
- */
+* @ignore
+*/
 function filterResetOptions(opts) {
   return {
     ...opts,
@@ -43,14 +36,8 @@ function filterResetOptions(opts) {
 }
 
 /**
- * Check whether a `props` change should result in the player being reset.
- * The player is reset when the `props.opts` change, except if the only change
- * is in the `start` and `end` playerVars, because a video update can deal with
- * those.
- *
- * @param {Object} prevProps
- * @param {Object} props
- */
+* @ignore
+*/
 function shouldResetPlayer(prevProps, props) {
   return !isEqual(
     filterResetOptions(prevProps.opts),
@@ -59,11 +46,8 @@ function shouldResetPlayer(prevProps, props) {
 }
 
 /**
- * Check whether a props change should result in an id or className update.
- *
- * @param {Object} prevProps
- * @param {Object} props
- */
+* @ignore
+*/
 function shouldUpdatePlayer(prevProps, props) {
   return (
      prevProps.id === props.id || prevProps.className === props.className
@@ -119,18 +103,24 @@ class YouTube extends React.Component {
     BUFFERING: 3,
     CUED: 5,
   };
-
+  /**
+  * @ignore
+  */
   constructor(props) {
     super(props);
 
     this.container = null;
     this.internalPlayer = null;
   }
-
+  /**
+  * @ignore
+  */
   componentDidMount() {
     this.createPlayer();
   }
-
+  /**
+  * @ignore
+  */
   componentDidUpdate(prevProps) {
     if (shouldUpdatePlayer(prevProps, this.props)) {
       this.updatePlayer();
@@ -144,7 +134,9 @@ class YouTube extends React.Component {
       this.updateVideo();
     }
   }
-
+  /**
+  * @ignore
+  */
   componentWillUnmount() {
      /**
       * Note: The `youtube-player` package that is used promisifies all Youtube
@@ -156,29 +148,18 @@ class YouTube extends React.Component {
   }
 
   /**
-   * https://developers.google.com/youtube/iframe_api_reference#onReady
-   *
-   * @param {Object} event
-   *   @param {Object} target - player object
-   */
+  * @ignore
+  */
   onPlayerReady = event => this.props.onReady(event);
 
   /**
-   * https://developers.google.com/youtube/iframe_api_reference#onError
-   *
-   * @param {Object} event
-   *   @param {Integer} data  - error type
-   *   @param {Object} target - player object
-   */
+  * @ignore
+  */
   onPlayerError = event => this.props.onError(event);
 
   /**
-   * https://developers.google.com/youtube/iframe_api_reference#onStateChange
-   *
-   * @param {Object} event
-   *   @param {Integer} data  - status change type
-   *   @param {Object} target - actual YT player
-   */
+  * @ignore
+  */
   onPlayerStateChange = (event) => {
     this.props.onStateChange(event);
     switch (event.data) {
@@ -201,26 +182,18 @@ class YouTube extends React.Component {
   };
 
   /**
-   * https://developers.google.com/youtube/iframe_api_reference#onPlaybackRateChange
-   *
-   * @param {Object} event
-   *   @param {Float} data    - playback rate
-   *   @param {Object} target - actual YT player
-   */
+  * @ignore
+  */
   onPlayerPlaybackRateChange = event => this.props.onPlaybackRateChange(event);
 
   /**
-   * https://developers.google.com/youtube/iframe_api_reference#onPlaybackQualityChange
-   *
-   * @param {Object} event
-   *   @param {String} data   - playback quality
-   *   @param {Object} target - actual YT player
-   */
+  * @ignore
+  */
   onPlayerPlaybackQualityChange = event => this.props.onPlaybackQualityChange(event);
 
   /**
-   * Initialize the Youtube Player API on the container and attach event handlers
-   */
+  * @ignore
+  */
   createPlayer = () => {
     // do not attempt to create a player server-side, it won't work
     if (typeof document === 'undefined') return;
@@ -240,15 +213,13 @@ class YouTube extends React.Component {
   };
 
   /**
-   * Shorthand for destroying and then re-creating the Youtube Player
-   */
+  * @ignore
+  */
   resetPlayer = () => this.internalPlayer.destroy().then(this.createPlayer);
 
   /**
-   * Method to update the id and class of the Youtube Player iframe.
-   * React should update this automatically but since the Youtube Player API
-   * replaced the DIV that is mounted by React we need to do this manually.
-   */
+  * @ignore
+  */
   updatePlayer = () => {
     this.internalPlayer.getIframe().then((iframe) => {
       iframe.setAttribute('id', this.props.id);
@@ -257,10 +228,8 @@ class YouTube extends React.Component {
   };
 
   /**
-   * Call Youtube Player API methods to update the currently playing video.
-   * Depeding on the `opts.playerVars.autoplay` this function uses one of two
-   * Youtube Player API methods to update the video.
-   */
+  * @ignore
+  */
   updateVideo = () => {
     if (typeof this.props.videoId === 'undefined' || this.props.videoId === null) {
       this.internalPlayer.stopVideo();
@@ -290,11 +259,15 @@ class YouTube extends React.Component {
     // default behaviour just cues the video
     this.internalPlayer.cueVideoById(opts);
   };
-
+  /**
+  * @ignore
+  */
   refContainer = (container) => {
     this.container = container;
   };
-
+  /**
+  * @ignore
+  */
   render() {
     return (
       <span>
