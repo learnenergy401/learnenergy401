@@ -99,7 +99,7 @@ class Admin extends Component {
           gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
           accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
       } else if (role == 1) { // approve for vendor
-
+        
         var legalEntity = user.vendors[key_name].legalEntity;
         var operatingName = user.vendors[key_name].operatingName;
         var address1 = user.vendors[key_name].address1;
@@ -206,7 +206,7 @@ class Admin extends Component {
           MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
           IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
           PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
-          key_name,
+          role, key_name,
         }
 
       } else if (role == 2) { // approve for additional resource
@@ -378,7 +378,7 @@ class Admin extends Component {
           MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
           IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
           PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
-          key_name,
+          role, key_name,
         }
         alert(JSON.stringify(info))
       } else if (role == 2) {
