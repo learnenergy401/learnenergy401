@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">component/Actions/userActions.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/learnenergy401/learnenergy401" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Admin.js~Admin.html">Admin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonAdmin.js~ButtonAdmin.html">ButtonAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogIn.js~ButtonLogIn.html">ButtonLogIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogOut.js~ButtonLogOut.html">ButtonLogOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentLogin.js~ComponentLogin.html">ComponentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentUpload.js~ComponentUpload.html">ComponentUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentCourseDisplay.js~ContentCourseDisplay.html">ContentCourseDisplay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentHome.js~ContentHome.html">ContentHome</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogin.js~ContentLogin.html">ContentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogout.js~ContentLogout.html">ContentLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Footer.js~LearnFooter.html">LearnFooter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Header.js~LearnHeader.html">LearnHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Scripts.js~Scripts.html">Scripts</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Toast.js~Toast.html">Toast</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FirebaseTools">FirebaseTools</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp">firebaseApp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp2">firebaseApp2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuthInstance">firebaseAuthInstance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseDb">firebaseDb</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseStorage">firebaseStorage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchPurchaserSignup">fetchPurchaserSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorSignup">fetchVendorSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCurrentUser">getCurrentUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logInUser">logInUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logOutUser">logOutUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rejectUser">rejectUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Profile</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfile.js~ContentProfile.html">ContentProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfileUpload.js~ContentProfileUpload.html">ContentProfileUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/Profile.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/SideMenuProfile.js~SideMenuProfile.html">SideMenuProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Reducers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">SignUp</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUp.js~ButtonSignUp.html">ButtonSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpAD.js~ButtonSignUpAD.html">ButtonSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpPurchaser.js~ButtonSignUpPurchaser.html">ButtonSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpVendor.js~ButtonSignUpVendor.html">ButtonSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html">ComponentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpPurchaser.js~ComponentSignUpPurchaser.html">ComponentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpVendor.js~ComponentSignUpVendor.html">ComponentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignup.js~ComponentSignUp.html">ComponentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpAD.js~ContentSignUpAD.html">ContentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpPurchaser.js~ContentSignUpPurchaser.html">ContentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpVendor.js~ContentSignUpVendor.html">ContentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignup.js~ContentSignUp.html">ContentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUp.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpAD.js~SignUpAD.html">SignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpPurchaser.js~SignUpPurchaser.html">SignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpVendor.js~SignUpVendor.html">SignUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Vendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Vendor/Upload.js~Upload.html">Upload</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewCourse</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail.html">ContentCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentViewCourse.js~ContentViewCourse.html">ContentViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/Youtube.js~YouTube.html">YouTube</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">component/Actions/userActions.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from &apos;../Firebase&apos;
+
+/**
+ * Grabs the purchasers from the Purchaser SignUp list in the database.
+ * @returns {object} purchasers - Returns the object of purchasers.
+ * @throws {object} err - Returns an error if failed to fetch from database. 
+ */
+export function fetchPurchaserSignup() {
+  return function(dispatch) {
+    firebaseDb.ref(&apos;PurchaserSignup&apos;).once(&quot;value&quot;)
+      .then((snapshot) =&gt; {
+        dispatch({type: &quot;FETCH_PURCHASER_FULFILLED&quot;, payload: snapshot.val()})
+      })
+      .catch((err) =&gt; {
+        dispatch({type: &quot;FETCH_USER_REJECTED&quot;, payload: err})
+      })
+  }
+}
+
+/**
+ * Grabs the vendors from the Vendor SignUp list in the database.
+ * @returns {object} vendors - Returns the object of vendors.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchVendorSignup() {
+  return function(dispatch) {
+    firebaseDb.ref(&apos;VendorSignup&apos;).once(&quot;value&quot;)
+      .then((snapshot) =&gt; {
+        dispatch({type: &quot;FETCH_VENDOR_FULFILLED&quot;, payload: snapshot.val()})
+      })
+      .catch((err) =&gt; {
+        dispatch({type: &quot;FETCH_USER_REJECTED&quot;, payload: err})
+      })
+  }
+}
+
+/**
+ * Grabs the addition resources from the additional resouce SignUp list in the database.
+ * @returns {object} ads - Returns the object of additional resources.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchADSignup() {
+  return function(dispatch) {
+    firebaseDb.ref(&apos;ADSignup&apos;).once(&quot;value&quot;)
+      .then((snapshot) =&gt; {
+        dispatch({type: &quot;FETCH_AD_FULFILLED&quot;, payload: snapshot.val()})
+      })
+      .catch((err) =&gt; {
+        dispatch({type: &quot;FETCH_USER_REJECTED&quot;, payload: err})
+      })
+  }
+}
+
+/**
+ * Checks to see if the user is logged in and then returns information about the current user logged in.
+ * @returns {object} user - Returns the object of user.
+ * @throws {object} err - Returns an error if failed to find current logged in user.
+ */
+export function getCurrentUser() {
+  return function(dispatch) {
+   firebaseAuth.onAuthStateChanged((user)=&gt;{
+      if (user){
+        dispatch({type: &quot;FETCH_USER_FULFILLED&quot;, payload: user,isLoggedIn: true})
+        firebaseDb.ref(&apos;User/&apos; + user.uid).once(&quot;value&quot;)
+        .then((snapshot) =&gt; {
+            dispatch({type: &quot;FETCH_USER_PROFILE_FULFILLED&quot;, payload: snapshot.val()})
+        })
+        .catch((err) =&gt; {
+            dispatch({type: &quot;FETCH_USER_PROFILE_REJECTED&quot;, payload: err})
+        })
+      } else {
+        dispatch({type: &quot;FETCH_USER_REJECTED&quot;, payload: user,isLoggedIn: false})
+      }
+   }
+  )}
+}
+
+/**
+ * Gets user information passed in and will create the account for the user and remove the old user from the signup list.
+ * @param {object} user - object which contains information for us to register into firebase with and store in our database.
+ * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase. 
+ */
+export function approveUser(user) {
+  return function(dispatch) {
+    firebaseAuthInstance.createUserWithEmailAndPassword(user.email, user.password)
+    .then((data) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_FULFILLED&quot;})
+      firebaseAuthInstance.signInWithEmailAndPassword(user.email, user.password)
+      .then((data) =&gt; {
+        var currentUser = firebaseAuthInstance.currentUser
+
+        if (user.role==0) { // push as a purchaser
+          firebaseDb.ref(&apos;User/&apos; + currentUser.uid).set({
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax,
+            email: user.email,
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+
+            gstReg: user.gstReg,
+            billAddress1: user.billAddress1,
+            billAddress2: user.billAddress2,
+            billCity: user.billCity,
+            billProvince: user.billProvince,
+            billCountry: user.billCountry,
+            billPostalCode: user.billPostalCode,
+            accntRec: user.accntRec,
+            bank: user.bank,
+
+            ISnumber: user.ISnumber,
+            website: user.website,
+            password: user.password,
+
+            jointVenture: user.jointVenture,
+            categories: user.categories,
+
+            role: user.role,
+          })
+
+          firebaseDb.ref(&apos;PurchaserSignup/&apos;+user.key_name).remove().then(function() {
+            console.log(&quot;removed&quot;)
+            location.reload();
+          })
+          .catch(function(err) {
+            console.log(&quot;failed to remove&quot;, user.key_name)
+          })
+
+        } else if (user.role == 1) { // push as a vendor
+
+          firebaseDb.ref(&apos;User/&apos; + currentUser.uid).set({
+            legalEntity: user.legalEntity,
+            operatingName: user.operatingName,
+            address1: user.address1,
+            address2: user.address2,
+            city: user.city,
+            province: user.province,
+            country: user.country,
+            postalCode: user.postalCode,
+            phone: user.phone,
+            fax: user.fax,
+
+            owner1Name: user.owner1Name,
+            owner1Pos: user.owner1Pos,
+
+            natureBusiness: user.natureBusiness,
+            timeBusiness: user.timeBusiness,
+            proAffiliation: user.proAffiliation,
+            report:user.report,
+
+            bank: user.bank,
+            bankLocation: user.bankLocation,
+            bonding: user.bonding,
+            bondingLocation: user.bondingLocation,
+            insuranceCompany: user.insuranceCompany,
+            insuranceLocation: user.insuranceLocation,
+            bondingLimitDate: user.bondingLimitDate,
+            bondingLimit: user.bondingLimit,
+            grossBus: user.grossBus,
+            grossBusYear: user.grossBusYear,
+            bankruptcy:user.bankruptcy,
+
+            numEmployees: user.numEmployees,
+            AD1address1: user.AD1address1,
+            AD1address2: user.AD1address2,
+            AD1city: user.AD1city,
+            AD1province: user.AD1province,
+            AD1country: user.AD1country,
+            AD1postalCode: user.AD1postalCode,
+            AD1phone: user.AD1phone,
+
+            categories: user.categories,
+            specialties: user.specialties,
+
+            client1: user.client1,
+            client1Location: user.client1Location,
+            client1Phone: user.client1Phone,
+            client1Email: user.client1Email,
+
+            licence1: user.licence1,
+            licence1Location: user.licence1Location,
+            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
+            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
+            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
+            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
+            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
+            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
+            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
+            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
+            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
+            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
+            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
+            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
+            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
+            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
+            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
+
+            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
+            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
+            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
+            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
+            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
+            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
+
+            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
+            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
+            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
+            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
+
+            drugPolicy: user.drugPolicy,
+            subcontractors: user.subcontractors,
+            stopWorkOrder: user.stopWorkOrder,
+
+            email: user.email,
+            adminContact: user.adminContact,
+            technicalContact: user.technicalContact,
+
+            ISnumber:user.ISnumber,
+
+            website: user.website,
+            password: user.password,
+            role: user.role,
+          })
+          firebaseDb.ref(&apos;VendorSignup/&apos;+user.key_name).remove().then(function() {
+            console.log(&quot;removed&quot;)
+            location.reload();
+          })
+          .catch(function(err) {
+            console.log(&quot;failed to remove&quot;, user.key_name)
+          })
+
+
+        } else if (user.role == 2) { //push as an additional resource
+
+          firebaseDb.ref(&apos;User/&apos; + currentUser.uid).set({
+            website: user.website,
+            email: user.email,
+            password: user.password,
+            role: user.role,
+          })
+          firebaseDb.ref(&apos;ADSignup/&apos;+user.key_name).remove().then(function() {
+            console.log(&quot;removed&quot;)
+            location.reload();
+          })
+          .catch(function(err) {
+            console.log(&quot;failed to remove&quot;, user.key_name)
+          })
+        }
+      })
+    })
+    firebaseAuthInstance.signOut()
+  }
+}
+
+/**
+ * Gets user information passed in and will remove the user from the signup list.
+ * @param {object} user - object which contains information about the user.
+ * @throws {object} err - Returns an error if failed to remove from database. 
+ */
+export function rejectUser(user) {
+  return function(dispatch) {
+    if (user.role == 0) { // reject purchaser
+      firebaseDb.ref(&apos;PurchaserSignup/&apos;+user.key_name).remove().then(function() {
+        console.log(&quot;purchaseer removed&quot;)
+        location.reload();
+      }).then((data) =&gt; {
+        dispatch({type: &quot;SIGNUP_USER_REJECTED&quot;, paylod: data})
+      })
+    } else if (user.role == 1) { // reject vendor
+      firebaseDb.ref(&apos;VendorSignup/&apos;+user.key_name).remove().then(function() {
+        console.log(&quot;vendor removed&quot;)
+        location.reload();
+      }).then((data) =&gt; {
+        dispatch({type: &quot;SIGNUP_USER_REJECTED&quot;, paylod: data})
+      })
+    } else if (user.role == 2) { // reject additional resource
+      firebaseDb.ref(&apos;ADSignup/&apos;+user.key_name).remove().then(function() {
+        console.log(&quot;ad removed&quot;)
+        location.reload();
+      }).then((data) =&gt; {
+        dispatch({type: &quot;SIGNUP_USER_REJECTED&quot;, paylod: data})
+      })
+    }
+  }
+}
+
+/**
+ * Gets purchaser user information passed in and will add the user to the purchaser signup list.
+ * @param {object} user - object which contains information about the user purchaser.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function signUpPurchaser(user) {
+  return function(dispatch) {
+    firebaseDb.ref(&apos;PurchaserSignup&apos;).push({
+      email: user.email,
+      password: user.password,
+      legalEntity: user.legalEntity,
+      operatingName: user.operatingName,
+      address1: user.address1,
+      address2: user.address2,
+      city: user.city,
+      province: user.province,
+      country: user.country,
+      postalCode: user.postalCode,
+      phone: user.phone,
+      fax: user.fax,
+      adminContact: user.adminContact,
+      technicalContact: user.technicalContact,
+
+      gstReg: user.gstReg,
+      billAddress1: user.billAddress1,
+      billAddress2: user.billAddress2,
+      billCity: user.billCity,
+      billProvince: user.billProvince,
+      billCountry: user.billCountry,
+      billPostalCode: user.billPostalCode,
+      accntRec: user.accntRec,
+      bank: user.bank,
+
+      ISnumber: user.ISnumber,
+      website: user.website,
+
+      jointVenture: user.jointVenture,
+      categories: user.categories,
+
+      role: 0,
+    }).then((data) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_FULFILLED&quot;, payload: user})
+    })
+    .catch((err) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_REJECTED&quot;, payload: err})
+    })
+    alert(&quot;Thank you for registering as a Purchaser for LearnEnergy Marketplace.&quot; +&quot;\n&quot; + &quot;We will be in contact with you shortly.&quot;);
+    location.reload();
+  }
+}
+
+/**
+ * Gets vendor user information passed in and will add the user to the vendor signup list.
+ * @param {object} user - object which contains information about the user vendor.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function signUpVendor(user) {
+  return function(dispatch) {
+    firebaseDb.ref(&apos;VendorSignup&apos;).push({
+      legalEntity: user.legalEntity,
+      operatingName: user.operatingName,
+      address1: user.address1,
+      address2: user.address2,
+      city: user.city,
+      province: user.province,
+      country: user.country,
+      postalCode: user.postalCode,
+      phone: user.phone,
+      fax: user.fax,
+
+      owner1Name: user.owner1Name,
+      owner1Pos: user.owner1Pos,
+
+      natureBusiness: user.natureBusiness,
+      timeBusiness: user.timeBusiness,
+      proAffiliation: user.proAffiliation,
+      report:user.report,
+
+      bank: user.bank,
+      bankLocation: user.bankLocation,
+      bonding: user.bonding,
+      bondingLocation: user.bondingLocation,
+      insuranceCompany: user.insuranceCompany,
+      insuranceLocation: user.insuranceLocation,
+      bondingLimitDate: user.bondingLimitDate,
+      bondingLimit: user.bondingLimit,
+      grossBus: user.grossBus,
+      grossBusYear: user.grossBusYear,
+      bankruptcy:user.bankruptcy,
+
+      numEmployees: user.numEmployees,
+      AD1address1: user.AD1address1,
+      AD1address2: user.AD1address2,
+      AD1city: user.AD1city,
+      AD1province: user.AD1province,
+      AD1country: user.AD1country,
+      AD1postalCode: user.AD1postalCode,
+      AD1phone: user.AD1phone,
+
+      categories: user.categories,
+      specialties: user.specialties,
+
+      client1: user.client1,
+      client1Location: user.client1Location,
+      client1Phone: user.client1Phone,
+      client1Email: user.client1Email,
+
+      licence1: user.licence1,
+      licence1Location: user.licence1Location,
+      insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
+      insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
+      insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
+      insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
+      insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
+      insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
+      insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
+      insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
+      insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
+      insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
+      insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
+      insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
+      insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
+      insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
+      insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
+
+      EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
+      FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
+      LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
+      MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
+      ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1,  ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
+      TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
+
+      IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
+      PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
+      PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
+      PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
+
+      drugPolicy: user.drugPolicy,
+      subcontractors: user.subcontractors,
+      stopWorkOrder: user.stopWorkOrder,
+
+      email: user.email,
+      adminContact: user.adminContact,
+      technicalContact: user.technicalContact,
+
+      ISnumber:user.ISnumber,
+
+      website: user.website,
+      password: user.password,
+      role: 1,
+    }).then((data) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_FULFILLED&quot;, payload: user})
+    })
+    .catch((err) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_REJECTED&quot;, payload: err})
+    })
+    alert(&quot;Thank you for registering as a Vendor for LearnEnergy Marketplace.&quot; +&quot;\n&quot; + &quot;We will be in contact with you shortly.&quot;);
+    location.reload();
+  }
+}
+
+/**
+ * Gets additional resource user information passed in and will add the user to the additional resource signup list.
+ * @param {object} user - object which contains information about the user additional resource.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function signUpAD(user) {
+  return function(dispatch) {
+    firebaseDb.ref(&apos;ADSignup&apos;).push({
+      website: user.website,
+      email: user.email,
+      password: user.password,
+      role: 2,
+    }).then((data) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_FULFILLED&quot;, payload: user})
+    })
+    .catch((err) =&gt; {
+      dispatch({type: &quot;SIGNUP_USER_REJECTED&quot;, payload: err})
+    })
+    alert(&quot;Thank you for registering as an Additional User for LearnEnergy Marketplace.&quot; +&quot;\n&quot; + &quot;We will be in contact with you shortly.&quot;);
+    location.reload();
+  }
+}
+
+/**
+ * Logs in the user using firebase authentication and sets notifications to false, error if invalid information.
+ * @param {object} user - object which contains information about the user to log in with.
+ * @throws {object} err - Returns an error if failed to login.
+ */
+export function logInUser(user) {
+    return function(dispatch) {
+        firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
+            .then((data) =&gt; {
+              dispatch({type: &quot;LOGIN_USER_FULFILLED&quot;, payload: data})  
+            })
+            .catch((err) =&gt; {
+              dispatch({type: &quot;LOGIN_USER_REJECTED&quot;, payload: err})
+            })
+        firebaseDb.ref(&apos;Notifications/Admin_Notification&apos;).set({
+            notified: false
+          })
+    }
+}
+
+/**
+ * Logs out the user using firebase authentication.
+ * @throws {object} err - Returns an error if fail to logout. 
+ */
+export function logOutUser() {
+    return function(dispatch) {
+
+        firebaseAuth.signOut()
+            .then((data) =&gt; {
+                console.log(data)
+                dispatch({type: &quot;LOGOUT_USER_FULFILLED&quot;})
+            })
+            .catch((err) =&gt; {
+                dispatch({type: &quot;LOGOUT_USER_REJECTED&quot;, payload: err})
+            })
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

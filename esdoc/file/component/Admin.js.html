@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">component/Admin.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/learnenergy401/learnenergy401" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Admin.js~Admin.html">Admin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonAdmin.js~ButtonAdmin.html">ButtonAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogIn.js~ButtonLogIn.html">ButtonLogIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogOut.js~ButtonLogOut.html">ButtonLogOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentLogin.js~ComponentLogin.html">ComponentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentUpload.js~ComponentUpload.html">ComponentUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentCourseDisplay.js~ContentCourseDisplay.html">ContentCourseDisplay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentHome.js~ContentHome.html">ContentHome</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogin.js~ContentLogin.html">ContentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogout.js~ContentLogout.html">ContentLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Footer.js~LearnFooter.html">LearnFooter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Header.js~LearnHeader.html">LearnHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Scripts.js~Scripts.html">Scripts</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Toast.js~Toast.html">Toast</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FirebaseTools">FirebaseTools</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp">firebaseApp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseApp2">firebaseApp2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuthInstance">firebaseAuthInstance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseDb">firebaseDb</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseStorage">firebaseStorage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchPurchaserSignup">fetchPurchaserSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorSignup">fetchVendorSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCurrentUser">getCurrentUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logInUser">logInUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logOutUser">logOutUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rejectUser">rejectUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Profile</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfile.js~ContentProfile.html">ContentProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfileUpload.js~ContentProfileUpload.html">ContentProfileUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/Profile.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/SideMenuProfile.js~SideMenuProfile.html">SideMenuProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Reducers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">SignUp</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUp.js~ButtonSignUp.html">ButtonSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpAD.js~ButtonSignUpAD.html">ButtonSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpPurchaser.js~ButtonSignUpPurchaser.html">ButtonSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpVendor.js~ButtonSignUpVendor.html">ButtonSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html">ComponentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpPurchaser.js~ComponentSignUpPurchaser.html">ComponentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpVendor.js~ComponentSignUpVendor.html">ComponentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignup.js~ComponentSignUp.html">ComponentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpAD.js~ContentSignUpAD.html">ContentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpPurchaser.js~ContentSignUpPurchaser.html">ContentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpVendor.js~ContentSignUpVendor.html">ContentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignup.js~ContentSignUp.html">ContentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUp.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpAD.js~SignUpAD.html">SignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpPurchaser.js~SignUpPurchaser.html">SignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpVendor.js~SignUpVendor.html">SignUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Vendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Vendor/Upload.js~Upload.html">Upload</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewCourse</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail.html">ContentCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentViewCourse.js~ContentViewCourse.html">ContentViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/Youtube.js~YouTube.html">YouTube</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">component/Admin.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import firebase from &apos;firebase&apos;
+import {FIREBASE_CONFIG} from &apos;../../firebase.config.js&apos;
+import React, { Component } from &apos;react&apos;
+import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from &apos;react-mdl&apos;;
+import store from &apos;./Store.js&apos;
+import LearnHeader from &apos;./Header.js&apos;
+import LearnFooter from &apos;./Footer.js&apos;
+
+import { approveUser } from &apos;./Actions/userActions.js&apos;
+import { rejectUser } from &apos;./Actions/userActions.js&apos;
+import { connect } from &quot;react-redux&quot;
+import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from &quot;./Actions/userActions&quot;
+
+@connect((store) =&gt; {
+  return {
+    user: store.user
+  };
+})
+
+class Admin extends Component {
+    /**
+     * Gets purchaser information for signup
+     * @return {object} user - Returns purchaser into state purchaser
+     */
+    fetchPurchaserSignup() {
+      this.props.dispatch(fetchPurchaserSignup())
+    }
+    /**
+     * Gets vendor information for signup
+     * @return {object} user - Returns vendor into state vedor
+     */
+    fetchVendorSignup() {
+      this.props.dispatch(fetchVendorSignup())
+    }
+    /**
+     * Gets additional resource information for signup
+     * @return {object} user - Returns addition resource into state additional resource
+     */
+    fetchADSignup() {
+      this.props.dispatch(fetchADSignup())
+    }
+    /**
+     * Gets the current user
+     * @return {object} user - Returns current user into state current user
+     */
+    getCurrentUser() {
+      this.props.dispatch(getCurrentUser())
+    }
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our states
+     */
+    componentWillMount() {
+      this.getCurrentUser()
+      this.fetchPurchaserSignup()
+      this.fetchVendorSignup()
+      this.fetchADSignup()
+    }
+    /**
+     * State changes if a user is approved
+     * @param {object} user - object which contains information for us to move into firebase and store in our database.
+     */
+    approveUser(user) {
+      this.props.dispatch(approveUser(user))
+    }
+    /**
+     * State changes if a user is rejected
+     * @param {object} user - object which contains information for us to move out of firebase and remove in our database.
+     */
+    rejectUser(user) {
+      this.props.dispatch(rejectUser(user))
+    }
+    /**
+     * approves type of users.
+     * @param {object} key_name - takes key name of user in database and approves user
+     * @param {object} role - takes role to determine which user to approve
+     */
+    approve(key_name, role) {
+      console.log(&quot;approved&quot;)
+
+      // grab all of the information and put into { }
+      // var info = {user.user[key_name].email, .... , }
+      const {user} = this.props
+      if (role == 0) { // approve for purchaser
+
+        var legalEntity = user.purchasers[key_name].legalEntity;
+        var operatingName = user.purchasers[key_name].operatingName;
+        var address1 = user.purchasers[key_name].address1;
+        var address2 = user.purchasers[key_name].address2;
+        var city = user.purchasers[key_name].city;
+        var province = user.purchasers[key_name].province;
+        var country = user.purchasers[key_name].country;
+        var postalCode = user.purchasers[key_name].postalCode;
+        var phone = user.purchasers[key_name].phone;
+        var fax = user.purchasers[key_name].fax;
+        var email = user.purchasers[key_name].email;
+        var adminContact = user.purchasers[key_name].adminContact;
+        var technicalContact = user.purchasers[key_name].technicalContact;
+
+        var gstReg = user.purchasers[key_name].gstReg;
+        var billAddress1 = user.purchasers[key_name].billAddress1;
+        var billAddress2 = user.purchasers[key_name].billAddress2;
+        var billCity = user.purchasers[key_name].billCity;
+        var billProvince = user.purchasers[key_name].billProvince;
+        var billCountry = user.purchasers[key_name].billCountry;
+        var billPostalCode = user.purchasers[key_name].billPostalCode;
+        var accntRec = user.purchasers[key_name].accntRec;
+        var bank = user.purchasers[key_name].bank;
+
+        var ISnumber = user.purchasers[key_name].ISnumber;
+        var website = user.purchasers[key_name].website;
+
+        var jointVenture = user.purchasers[key_name].jointVenture;
+        var categories = user.purchasers[key_name].categories;
+
+        var password = user.purchasers[key_name].password;
+        var role = user.purchasers[key_name].role;
+
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+          city, province, country, postalCode, phone, fax, adminContact, technicalContact,
+          gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
+          accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
+      } else if (role == 1) { // approve for vendor
+
+        var legalEntity = user.vendors[key_name].legalEntity;
+        var operatingName = user.vendors[key_name].operatingName;
+        var address1 = user.vendors[key_name].address1;
+        var address2 = user.vendors[key_name].address2;
+        var city = user.vendors[key_name].city;
+        var province = user.vendors[key_name].province;
+        var country = user.vendors[key_name].country;
+        var postalCode = user.vendors[key_name].postalCode;
+        var phone = user.vendors[key_name].phone;
+        var fax = user.vendors[key_name].fax;
+
+        var owner1Name = user.vendors[key_name].owner1Name;
+        var owner1Pos = user.vendors[key_name].owner1Pos;
+
+        var natureBusiness = user.vendors[key_name].natureBusiness;
+        var timeBusiness = user.vendors[key_name].timeBusiness;
+        var proAffiliation = user.vendors[key_name].proAffiliation;
+        var report = user.vendors[key_name].report;
+        var bank = user.vendors[key_name].bank;
+        var bankLocation = user.vendors[key_name].bankLocation;
+        var bonding = user.vendors[key_name].bonding;
+        var bondingLocation = user.vendors[key_name].bondingLocation;
+        var insuranceCompany = user.vendors[key_name].insuranceCompany;
+        var insuranceLocation = user.vendors[key_name].insuranceLocation;
+        var bondingLimitDate = user.vendors[key_name].bondingLimitDate;
+        var bondingLimit = user.vendors[key_name].bondingLimit;
+        var grossBus = user.vendors[key_name].grossBus;
+        var grossBusYear = user.vendors[key_name].grossBusYear;
+        var bankruptcy = user.vendors[key_name].bankruptcy;
+
+
+        var numEmployees = user.vendors[key_name].numEmployees;
+        var AD1address1 = user.vendors[key_name].AD1address1;
+        var AD1address2 = user.vendors[key_name].AD1address2;
+        var AD1city = user.vendors[key_name].AD1city;
+        var AD1province = user.vendors[key_name].AD1province;
+        var AD1country = user.vendors[key_name].AD1country;
+        var AD1postalCode = user.vendors[key_name].AD1postalCode;
+        var AD1phone = user.vendors[key_name].AD1phone;
+
+        var categories = user.vendors[key_name].categories;
+        var specialties = user.vendors[key_name].specialties;
+
+        var client1 = user.vendors[key_name].client1;
+        var client1Location = user.vendors[key_name].client1Location;
+        var client1Phone = user.vendors[key_name].client1Phone;
+        var client1Email = user.vendors[key_name].client1Email;
+
+        var licence1 = user.vendors[key_name].licence1;
+        var licence1Location = user.vendors[key_name].licence1Location;
+        var insurer1 = user.vendors[key_name].insurer1; var policyLimit1 = user.vendors[key_name].policyLimit1; var expiry1 = user.vendors[key_name].expiry1;
+        var insurer2 = user.vendors[key_name].insurer2; var policyLimit2 = user.vendors[key_name].policyLimit2; var expiry2 = user.vendors[key_name].expiry2;
+        var insurer3 = user.vendors[key_name].insurer3; var policyLimit3 = user.vendors[key_name].policyLimit3; var expiry3 = user.vendors[key_name].expiry3;
+        var insurer4 = user.vendors[key_name].insurer4; var policyLimit4 = user.vendors[key_name].policyLimit4; var expiry4 = user.vendors[key_name].expiry4;
+        var insurer5 = user.vendors[key_name].insurer5; var policyLimit5 = user.vendors[key_name].policyLimit5; var expiry5 = user.vendors[key_name].expiry5;
+        var insurer6 = user.vendors[key_name].insurer6; var policyLimit6 = user.vendors[key_name].policyLimit6; var expiry6 = user.vendors[key_name].expiry6;
+        var insurer7 = user.vendors[key_name].insurer7; var policyLimit7 = user.vendors[key_name].policyLimit7; var expiry7 = user.vendors[key_name].expiry7;
+        var insurer8 = user.vendors[key_name].insurer8; var policyLimit8 = user.vendors[key_name].policyLimit8; var expiry8 = user.vendors[key_name].expiry8;
+        var insurer9 = user.vendors[key_name].insurer9; var policyLimit9 = user.vendors[key_name].policyLimit9; var expiry9 = user.vendors[key_name].expiry9;
+        var insurer10 = user.vendors[key_name].insurer10; var policyLimit10 = user.vendors[key_name].policyLimit10; var expiry10 = user.vendors[key_name].expiry10;
+        var insurer11 = user.vendors[key_name].insurer11; var policyLimit11 = user.vendors[key_name].policyLimit11; var expiry11 = user.vendors[key_name].expiry11;
+        var insurer12 = user.vendors[key_name].insurer12; var policyLimit12 = user.vendors[key_name].policyLimit12; var expiry12 = user.vendors[key_name].expiry12;
+        var insurer13 = user.vendors[key_name].insurer13; var policyLimit13 = user.vendors[key_name].policyLimit13; var expiry13 = user.vendors[key_name].expiry13;
+        var insurer14 = user.vendors[key_name].insurer14; var policyLimit14 = user.vendors[key_name].policyLimit14; var expiry14 = user.vendors[key_name].expiry14;
+        var insurer15 = user.vendors[key_name].insurer15; var policyLimit15 = user.vendors[key_name].policyLimit15; var expiry15 = user.vendors[key_name].expiry15;
+
+        var EHWcurrentYear = user.vendors[key_name].EHWcurrentYear; var EHWpreviousYear1 = user.vendors[key_name].EHWpreviousYear1; var EHWpreviousYear2 = user.vendors[key_name].EHWpreviousYear2; var EHWpreviousYear3 = user.vendors[key_name].EHWpreviousYear3;
+        var FcurrentYear = user.vendors[key_name].FcurrentYear; var FpreviousYear1 = user.vendors[key_name].FpreviousYear1; var FpreviousYear2 = user.vendors[key_name].FpreviousYear2; var FpreviousYear3 = user.vendors[key_name].FpreviousYear3;
+        var LTIcurrentYear = user.vendors[key_name].LTIcurrentYear; var LTIpreviousYear1 = user.vendors[key_name].LTIpreviousYear1; var LTIpreviousYear2 = user.vendors[key_name].LTIpreviousYear2; var LTIpreviousYear3 = user.vendors[key_name].LTIpreviousYear3;
+        var MAIcurrentYear = user.vendors[key_name].MAIcurrentYear; var MAIpreviousYear1 = user.vendors[key_name].MAIpreviousYear1; var MAIpreviousYear2 = user.vendors[key_name].MAIpreviousYear2; var MAIpreviousYear3 = user.vendors[key_name].MAIpreviousYear3;
+        var ORCcurrentYear = user.vendors[key_name].ORCcurrentYear; var ORCpreviousYear1 = user.vendors[key_name].ORCpreviousYear1; var ORCpreviousYear2 = user.vendors[key_name].ORCpreviousYear2; var ORCpreviousYear3 = user.vendors[key_name].ORCpreviousYear3;
+        var TRIcurrentYear = user.vendors[key_name].TRIcurrentYear; var TRIpreviousYear1 = user.vendors[key_name].TRIpreviousYear1; var TRIpreviousYear2 = user.vendors[key_name].TRIpreviousYear2; var TRIpreviousYear3 = user.vendors[key_name].TRIpreviousYear3;
+
+        var IRcurrentYear = user.vendors[key_name].IRcurrentYear; var IRpreviousYear1 = user.vendors[key_name].IRpreviousYear1; var IRpreviousYear2 = user.vendors[key_name].IRpreviousYear2; var IRpreviousYear3 = user.vendors[key_name].IRpreviousYear3;
+        var PRcurrentYear = user.vendors[key_name].PRcurrentYear; var PRpreviousYear1 = user.vendors[key_name].PRpreviousYear1; var PRpreviousYear2 = user.vendors[key_name].PRpreviousYear2; var PRpreviousYear3 = user.vendors[key_name].PRpreviousYear3;
+        var PDcurrentYear = user.vendors[key_name].PDcurrentYear; var PDpreviousYear1 = user.vendors[key_name].PDpreviousYear1; var PDpreviousYear2 = user.vendors[key_name].PDpreviousYear2; var PDpreviousYear3 = user.vendors[key_name].PDpreviousYear3;
+        var PScurrentYear = user.vendors[key_name].PScurrentYear; var PSpreviousYear1 = user.vendors[key_name].PSpreviousYear1; var PSpreviousYear2 = user.vendors[key_name].PSpreviousYear2; var PSpreviousYear3 = user.vendors[key_name].PSpreviousYear3;
+
+        var drugPolicy = user.vendors[key_name].drugPolicy;
+        var subcontractors = user.vendors[key_name].subcontractors;
+        var stopWorkOrder = user.vendors[key_name].stopWorkOrder;
+
+
+
+        var email = user.vendors[key_name].email;
+        var adminContact = user.vendors[key_name].adminContact;
+        var technicalContact = user.vendors[key_name].technicalContact;
+
+        var ISnumber = user.vendors[key_name].ISnumber;
+
+        var website = user.vendors[key_name].website;
+        var password = user.vendors[key_name].password;
+
+
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+          city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
+          adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
+          bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
+          AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
+          insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
+          insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
+          insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
+          EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
+          MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
+          IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+          PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
+          role, key_name,
+        }
+
+      } else if (role == 2) { // approve for additional resource
+        var website = user.ad[key_name].website;
+        var email = user.ad[key_name].email;
+        var password = user.ad[key_name].password;
+        var role = user.ad[key_name].role;
+
+        var info = {website, email, password, role, key_name}
+      }
+      this.approveUser(info)
+    }
+    /**
+     * reject type of users.
+     * @param {object} key_name - takes key name of user in database and rejects user
+     * @param {object} role - takes role to determine which user to reject
+     */
+    reject(key_name, role) {
+      console.log(&quot;rejected&quot;)
+      const {user} = this.props
+      var info = {key_name, role}
+
+      this.rejectUser(info)
+    }
+    /**
+     * review type of users.
+     * @param {object} key_name - takes key name of user in database and review user
+     * @param {object} role - takes role to determine which user to review
+     */
+    review(key_name, role) {
+      // QUICK FIX
+      console.log(&quot;review&quot;)
+      const {user} = this.props
+      if (role == 0) {
+        var legalEntity = user.purchasers[key_name].legalEntity;
+        var operatingName = user.purchasers[key_name].operatingName;
+        var address1 = user.purchasers[key_name].address1;
+        var address2 = user.purchasers[key_name].address2;
+        var city = user.purchasers[key_name].city;
+        var province = user.purchasers[key_name].province;
+        var country = user.purchasers[key_name].country;
+        var postalCode = user.purchasers[key_name].postalCode;
+        var phone = user.purchasers[key_name].phone;
+        var fax = user.purchasers[key_name].fax;
+        var email = user.purchasers[key_name].email;
+        var adminContact = user.purchasers[key_name].adminContact;
+        var technicalContact = user.purchasers[key_name].technicalContact;
+
+        var gstReg = user.purchasers[key_name].gstReg;
+        var billAddress1 = user.purchasers[key_name].billAddress1;
+        var billAddress2 = user.purchasers[key_name].billAddress2;
+        var billCity = user.purchasers[key_name].billCity;
+        var billProvince = user.purchasers[key_name].billProvince;
+        var billCountry = user.purchasers[key_name].billCountry;
+        var billPostalCode = user.purchasers[key_name].billPostalCode;
+        var accntRec = user.purchasers[key_name].accntRec;
+        var bank = user.purchasers[key_name].bank;
+
+        var ISnumber = user.purchasers[key_name].ISnumber;
+        var website = user.purchasers[key_name].website;
+
+        var jointVenture = user.purchasers[key_name].jointVenture;
+        var categories = user.purchasers[key_name].categories;
+
+        var password = user.purchasers[key_name].password;
+        var role = user.purchasers[key_name].role;
+
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+          city, province, country, postalCode, phone, fax, adminContact, technicalContact,
+          gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
+          accntRec, bank, ISnumber, website, jointVenture, categories, role, key_name}
+        alert(JSON.stringify(info))
+      } else if (role == 1) {
+        var legalEntity = user.vendors[key_name].legalEntity;
+        var operatingName = user.vendors[key_name].operatingName;
+        var address1 = user.vendors[key_name].address1;
+        var address2 = user.vendors[key_name].address2;
+        var city = user.vendors[key_name].city;
+        var province = user.vendors[key_name].province;
+        var country = user.vendors[key_name].country;
+        var postalCode = user.vendors[key_name].postalCode;
+        var phone = user.vendors[key_name].phone;
+        var fax = user.vendors[key_name].fax;
+
+        var owner1Name = user.vendors[key_name].owner1Name;
+        var owner1Pos = user.vendors[key_name].owner1Pos;
+
+        var natureBusiness = user.vendors[key_name].natureBusiness;
+        var timeBusiness = user.vendors[key_name].timeBusiness;
+        var proAffiliation = user.vendors[key_name].proAffiliation;
+        var report = user.vendors[key_name].report;
+        var bank = user.vendors[key_name].bank;
+        var bankLocation = user.vendors[key_name].bankLocation;
+        var bonding = user.vendors[key_name].bonding;
+        var bondingLocation = user.vendors[key_name].bondingLocation;
+        var insuranceCompany = user.vendors[key_name].insuranceCompany;
+        var insuranceLocation = user.vendors[key_name].insuranceLocation;
+        var bondingLimitDate = user.vendors[key_name].bondingLimitDate;
+        var bondingLimit = user.vendors[key_name].bondingLimit;
+        var grossBus = user.vendors[key_name].grossBus;
+        var grossBusYear = user.vendors[key_name].grossBusYear;
+        var bankruptcy = user.vendors[key_name].bankruptcy;
+
+
+        var numEmployees = user.vendors[key_name].numEmployees;
+        var AD1address1 = user.vendors[key_name].AD1address1;
+        var AD1address2 = user.vendors[key_name].AD1address2;
+        var AD1city = user.vendors[key_name].AD1city;
+        var AD1province = user.vendors[key_name].AD1province;
+        var AD1country = user.vendors[key_name].AD1country;
+        var AD1postalCode = user.vendors[key_name].AD1postalCode;
+        var AD1phone = user.vendors[key_name].AD1phone;
+
+        var categories = user.vendors[key_name].categories;
+        var specialties = user.vendors[key_name].specialties;
+
+        var client1 = user.vendors[key_name].client1;
+        var client1Location = user.vendors[key_name].client1Location;
+        var client1Phone = user.vendors[key_name].client1Phone;
+        var client1Email = user.vendors[key_name].client1Email;
+
+        var licence1 = user.vendors[key_name].licence1;
+        var licence1Location = user.vendors[key_name].licence1Location;
+        var insurer1 = user.vendors[key_name].insurer1; var policyLimit1 = user.vendors[key_name].policyLimit1; var expiry1 = user.vendors[key_name].expiry1;
+        var insurer2 = user.vendors[key_name].insurer2; var policyLimit2 = user.vendors[key_name].policyLimit2; var expiry2 = user.vendors[key_name].expiry2;
+        var insurer3 = user.vendors[key_name].insurer3; var policyLimit3 = user.vendors[key_name].policyLimit3; var expiry3 = user.vendors[key_name].expiry3;
+        var insurer4 = user.vendors[key_name].insurer4; var policyLimit4 = user.vendors[key_name].policyLimit4; var expiry4 = user.vendors[key_name].expiry4;
+        var insurer5 = user.vendors[key_name].insurer5; var policyLimit5 = user.vendors[key_name].policyLimit5; var expiry5 = user.vendors[key_name].expiry5;
+        var insurer6 = user.vendors[key_name].insurer6; var policyLimit6 = user.vendors[key_name].policyLimit6; var expiry6 = user.vendors[key_name].expiry6;
+        var insurer7 = user.vendors[key_name].insurer7; var policyLimit7 = user.vendors[key_name].policyLimit7; var expiry7 = user.vendors[key_name].expiry7;
+        var insurer8 = user.vendors[key_name].insurer8; var policyLimit8 = user.vendors[key_name].policyLimit8; var expiry8 = user.vendors[key_name].expiry8;
+        var insurer9 = user.vendors[key_name].insurer9; var policyLimit9 = user.vendors[key_name].policyLimit9; var expiry9 = user.vendors[key_name].expiry9;
+        var insurer10 = user.vendors[key_name].insurer10; var policyLimit10 = user.vendors[key_name].policyLimit10; var expiry10 = user.vendors[key_name].expiry10;
+        var insurer11 = user.vendors[key_name].insurer11; var policyLimit11 = user.vendors[key_name].policyLimit11; var expiry11 = user.vendors[key_name].expiry11;
+        var insurer12 = user.vendors[key_name].insurer12; var policyLimit12 = user.vendors[key_name].policyLimit12; var expiry12 = user.vendors[key_name].expiry12;
+        var insurer13 = user.vendors[key_name].insurer13; var policyLimit13 = user.vendors[key_name].policyLimit13; var expiry13 = user.vendors[key_name].expiry13;
+        var insurer14 = user.vendors[key_name].insurer14; var policyLimit14 = user.vendors[key_name].policyLimit14; var expiry14 = user.vendors[key_name].expiry14;
+        var insurer15 = user.vendors[key_name].insurer15; var policyLimit15 = user.vendors[key_name].policyLimit15; var expiry15 = user.vendors[key_name].expiry15;
+
+        var EHWcurrentYear = user.vendors[key_name].EHWcurrentYear; var EHWpreviousYear1 = user.vendors[key_name].EHWpreviousYear1; var EHWpreviousYear2 = user.vendors[key_name].EHWpreviousYear2; var EHWpreviousYear3 = user.vendors[key_name].EHWpreviousYear3;
+        var FcurrentYear = user.vendors[key_name].FcurrentYear; var FpreviousYear1 = user.vendors[key_name].FpreviousYear1; var FpreviousYear2 = user.vendors[key_name].FpreviousYear2; var FpreviousYear3 = user.vendors[key_name].FpreviousYear3;
+        var LTIcurrentYear = user.vendors[key_name].LTIcurrentYear; var LTIpreviousYear1 = user.vendors[key_name].LTIpreviousYear1; var LTIpreviousYear2 = user.vendors[key_name].LTIpreviousYear2; var LTIpreviousYear3 = user.vendors[key_name].LTIpreviousYear3;
+        var MAIcurrentYear = user.vendors[key_name].MAIcurrentYear; var MAIpreviousYear1 = user.vendors[key_name].MAIpreviousYear1; var MAIpreviousYear2 = user.vendors[key_name].MAIpreviousYear2; var MAIpreviousYear3 = user.vendors[key_name].MAIpreviousYear3;
+        var ORCcurrentYear = user.vendors[key_name].ORCcurrentYear; var ORCpreviousYear1 = user.vendors[key_name].ORCpreviousYear1; var ORCpreviousYear2 = user.vendors[key_name].ORCpreviousYear2; var ORCpreviousYear3 = user.vendors[key_name].ORCpreviousYear3;
+        var TRIcurrentYear = user.vendors[key_name].TRIcurrentYear; var TRIpreviousYear1 = user.vendors[key_name].TRIpreviousYear1; var TRIpreviousYear2 = user.vendors[key_name].TRIpreviousYear2; var TRIpreviousYear3 = user.vendors[key_name].TRIpreviousYear3;
+
+        var IRcurrentYear = user.vendors[key_name].IRcurrentYear; var IRpreviousYear1 = user.vendors[key_name].IRpreviousYear1; var IRpreviousYear2 = user.vendors[key_name].IRpreviousYear2; var IRpreviousYear3 = user.vendors[key_name].IRpreviousYear3;
+        var PRcurrentYear = user.vendors[key_name].PRcurrentYear; var PRpreviousYear1 = user.vendors[key_name].PRpreviousYear1; var PRpreviousYear2 = user.vendors[key_name].PRpreviousYear2; var PRpreviousYear3 = user.vendors[key_name].PRpreviousYear3;
+        var PDcurrentYear = user.vendors[key_name].PDcurrentYear; var PDpreviousYear1 = user.vendors[key_name].PDpreviousYear1; var PDpreviousYear2 = user.vendors[key_name].PDpreviousYear2; var PDpreviousYear3 = user.vendors[key_name].PDpreviousYear3;
+        var PScurrentYear = user.vendors[key_name].PScurrentYear; var PSpreviousYear1 = user.vendors[key_name].PSpreviousYear1; var PSpreviousYear2 = user.vendors[key_name].PSpreviousYear2; var PSpreviousYear3 = user.vendors[key_name].PSpreviousYear3;
+
+        var drugPolicy = user.vendors[key_name].drugPolicy;
+        var subcontractors = user.vendors[key_name].subcontractors;
+        var stopWorkOrder = user.vendors[key_name].stopWorkOrder;
+
+
+
+        var email = user.vendors[key_name].email;
+        var adminContact = user.vendors[key_name].adminContact;
+        var technicalContact = user.vendors[key_name].technicalContact;
+
+        var ISnumber = user.vendors[key_name].ISnumber;
+
+        var website = user.vendors[key_name].website;
+        var password = user.vendors[key_name].password;
+
+
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+          city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
+          adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
+          bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
+          AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
+          insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
+          insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
+          insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
+          EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
+          MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
+          IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+          PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
+          role, key_name,
+        }
+        alert(JSON.stringify(info))
+      } else if (role == 2) {
+        var website = user.ad[key_name].website;
+        var email = user.ad[key_name].email;
+        var password = user.ad[key_name].password;
+        var role = user.ad[key_name].role;
+
+        var info = {website, email, password, role, key_name}
+        alert(JSON.stringify(info))
+      }
+    }
+    /**
+      * Loads the emails for and buttons.
+      * @return {html} - returns button and links and emails
+      */
+    render() {
+      const {user} = this.props
+      if (user.role == 3) {
+        var EMAILS = [];
+
+        //console.log(user)
+        console.log(user)
+        var keys
+        if (user.purchasers != null) {
+          keys = Object.keys(user.purchasers)
+          var role = 0 // pass role in for purchaser
+          for (var count=0; count&lt;=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.purchasers[key_name].email)
+            EMAILS.push(&lt;br/&gt;)
+            EMAILS.push(&lt;div&gt;
+              &lt;Button accent ripple onClick={this.approve.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Approve&lt;/Button&gt;
+              &lt;Button accent ripple onClick={this.reject.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Reject&lt;/Button&gt;
+              &lt;Button accent ripple onClick={this.review.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Review&lt;/Button&gt;
+              &lt;/div&gt;)
+            EMAILS.push(&lt;br/&gt;)
+          }
+        }
+
+        var keys
+        if (user.vendors != null) {
+          keys = Object.keys(user.vendors)
+          var role = 1 // role for vendor
+          for (var count=0; count&lt;=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.vendors[key_name].email)
+            EMAILS.push(&lt;br/&gt;)
+            EMAILS.push(&lt;div&gt;
+              &lt;Button accent ripple onClick={this.approve.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Approve&lt;/Button&gt;
+              &lt;Button accent ripple onClick={this.reject.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Reject&lt;/Button&gt;
+              &lt;Button accent ripple onClick={this.review.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Review&lt;/Button&gt;
+              &lt;/div&gt;)
+            EMAILS.push(&lt;br/&gt;)
+          }
+        }
+
+        var keys
+        if (user.ad != null) {
+          keys = Object.keys(user.ad)
+          var role = 2 // role for additional user
+          for (var count=0; count&lt;=keys.length-1; count++) {
+            var key_name = keys[count]
+            EMAILS.push(user.ad[key_name].email)
+            EMAILS.push(&lt;br/&gt;)
+            EMAILS.push(&lt;div&gt;
+              &lt;Button accent ripple onClick={this.approve.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Approve&lt;/Button&gt;
+              &lt;Button accent ripple onClick={this.reject.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Reject&lt;/Button&gt;
+              &lt;Button accent ripple onClick={this.review.bind(this,key_name,role)} className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Review&lt;/Button&gt;
+              &lt;/div&gt;)
+            EMAILS.push(&lt;br/&gt;)
+          }
+        }
+
+
+        return(
+
+          &lt;div&gt;
+          &lt;LearnHeader/&gt;
+
+          &lt;div className=&quot;learn-content mdl-typography--text-center&quot;&gt;
+          &lt;div className=&quot;logo-font learn-slogan&quot;&gt;&lt;/div&gt;
+          &lt;a name=&quot;top&quot; /&gt;
+          &lt;div className=&quot;learn-content mdl-typography--text-center&quot; style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+            &lt;div className=&quot;grid&quot;&gt;
+              &lt;div className=&quot;card mdl-shadow--2dp&quot;&gt;
+                &lt;div className=&quot;card__title mdl-color--indigo mdl-color-text--white&quot;&gt;
+                  &lt;h4 className=&quot;card__title-text&quot;&gt;Candidates&lt;/h4&gt;
+                &lt;/div&gt;
+                &lt;div className=&quot;card__supporting-text mdl-color-text--white-600&quot; id=&quot;messagesDiv&quot;&gt;
+
+                  &lt;h4&gt; {EMAILS} &lt;/h4&gt;
+
+                &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+          &lt;LearnFooter/&gt;
+        &lt;/div&gt;
+
+      );
+    } else {
+        console.log(user.role)
+        return(
+        &lt;div&gt;
+          &lt;LearnHeader/&gt;
+
+          &lt;div className=&quot;learn-content mdl-typography--text-center&quot;&gt;
+          &lt;div className=&quot;logo-font learn-slogan&quot;&gt;&lt;/div&gt;
+          &lt;a name=&quot;top&quot; /&gt;
+          &lt;div className=&quot;learn-content mdl-typography--text-center&quot; style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+
+            &lt;h4&gt;YOU ARE NOT AN ADMIN&lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;LearnFooter/&gt;
+        &lt;/div&gt;
+        );
+    }
+  }
+}
+
+
+export default Admin;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
