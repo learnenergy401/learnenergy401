@@ -227,6 +227,7 @@ export function approveUser(user) {
 
             website: user.website,
             password: user.password,
+            role: user.role,
           })
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
