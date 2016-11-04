@@ -1,7 +1,7 @@
 {
-  "coverage": "51.14%",
+  "coverage": "58.04%",
   "expectCount": 174,
-  "actualCount": 89,
+  "actualCount": 101,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -141,19 +141,16 @@
     },
     "component/Profile/ContentProfile.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        18,
-        19
+        18
       ]
     },
     "component/Profile/ContentProfileUpload.js": {
       "expectCount": 3,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
-        26,
-        40,
-        27
+        26
       ]
     },
     "component/SignUp/ContentSignup.js": {
@@ -202,13 +199,11 @@
     },
     "component/ViewCourse/CourseList.js": {
       "expectCount": 6,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
         26,
         30,
-        40,
         27,
-        47,
         34
       ]
     },
@@ -277,13 +272,9 @@
     },
     "component/Profile/SideMenuProfile.js": {
       "expectCount": 5,
-      "actualCount": 0,
+      "actualCount": 4,
       "undocumentLines": [
-        35,
-        40,
-        44,
-        36,
-        48
+        35
       ]
     },
     "component/SignUp/SignUp.js": {
@@ -296,11 +287,9 @@
     },
     "component/Profile/Profile.js": {
       "expectCount": 3,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
-        17,
-        19,
-        23
+        17
       ]
     },
     "component/SignUp/SignUpAD.js": {
@@ -352,10 +341,9 @@
     },
     "component/ViewCourse/ViewCourse.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        8,
-        9
+        11
       ]
     },
     "component/ViewCourse/Youtube.js": {

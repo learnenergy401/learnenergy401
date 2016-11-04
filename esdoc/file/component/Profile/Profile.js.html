@@ -129,22 +129,28 @@ import { connect } from &quot;react-redux&quot;
   };
 })/*dont add semicolon here!*/
 class SignUp extends Component {
-    
+  /**
+   * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses
+   */
     componentWillMount(){
         const {user} = this.props
         console.log(user.isLoggedIn)
     }
+  /**
+  * Loads the user profile
+  * @return {html} - returns course, profile, sidebar
+  */
   render(){
     return (
       &lt;div&gt;
         &lt;LearnHeader/&gt;
         &lt;SideMenuProfile/&gt;
         &lt;Layout fixedHeader fixedDrawer&gt;
-            &lt;ContentProfile/&gt;   
+            &lt;ContentProfile/&gt;
             &lt;LearnFooter/&gt;
         &lt;/Layout&gt;
-        
-      &lt;/div&gt;    
+
+      &lt;/div&gt;
     );
   }
 }
@@ -152,7 +158,7 @@ class SignUp extends Component {
 
 
 export default SignUp
-    </code></pre>
+</code></pre>
 
 </div>
 
