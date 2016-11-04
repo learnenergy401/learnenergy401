@@ -6,6 +6,11 @@ import ContentSignUp from './ContentSignUp.js'
 
 class SignUp extends Component {
   render(){
+
+    /**
+    * Loads the format page for signup.
+    * @return {html}
+    */	
     return (
       <div>    
         <LearnHeader/>
