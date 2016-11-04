@@ -1,7 +1,7 @@
 {
-  "coverage": "59.77%",
+  "coverage": "60.34%",
   "expectCount": 174,
-  "actualCount": 104,
+  "actualCount": 105,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -279,10 +279,9 @@
     },
     "component/SignUp/SignUp.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        7,
-        8
+        7
       ]
     },
     "component/Profile/Profile.js": {

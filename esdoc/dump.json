@@ -4913,7 +4913,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentSignUp from './ContentSignUp.js'\n\nclass SignUp extends Component {\n  render(){\n\n    /**\n    * Loads the format page for signup.\n    * @return {html}\n    */\t\n    return (\n      <div>    \n        <LearnHeader/>\n        <ContentSignUp/>   \n        <LearnFooter/>\n      </div>    \n    );\n  }\n}\n\n\n\nexport default SignUp\n    "
+    "content": "import React, { Component } from 'react';\nimport { Textfield,Grid,Cell } from 'react-mdl';\nimport LearnHeader from '../Header.js'\nimport LearnFooter from '../Footer.js'\nimport ContentSignUp from './ContentSignUp.js'\n\nclass SignUp extends Component {\n  /**\n  * Loads the format page for signup.\n  * @return {html} - returns header, signup, footer\n  */\n  render(){\n    return (\n      <div>\n        <LearnHeader/>\n        <ContentSignUp/>\n        <LearnFooter/>\n      </div>\n    );\n  }\n}\n\n\n\nexport default SignUp\n    \n"
   },
   {
     "__docId__": 223,
@@ -4944,14 +4944,16 @@
     "memberof": "component/SignUp/SignUp.js~SignUp",
     "longname": "component/SignUp/SignUp.js~SignUp#render",
     "access": null,
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "Loads the format page for signup.",
+    "lineNumber": 12,
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "returns header, signup, footer"
     },
     "generator": false
   },
