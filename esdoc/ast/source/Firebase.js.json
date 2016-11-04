@@ -1,14 +1,14 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 2124,
+  "end": 2192,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 68,
+      "line": 72,
       "column": 0
     }
   },
@@ -233,7 +233,7 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * Initializes the firebase App \n * @returns {object} firebaseApp - Returns instance of firebase.\n ",
+          "value": "*\n * Initializes the firebase App \n * @exports {object} firebaseApp - Returns instance of firebase.\n ",
           "start": 144,
           "end": 249,
           "loc": {
@@ -419,7 +419,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * Initializes the firebase App \n * @returns {object} firebaseApp - Returns instance of firebase.\n ",
+            "value": "*\n * Initializes the firebase App \n * @exports {object} firebaseApp - Returns instance of firebase.\n ",
             "start": 144,
             "end": 249,
             "loc": {
@@ -441,7 +441,7 @@
         "trailingComments": [
           {
             "type": "Block",
-            "value": "*\n * Auth of firebaseApp \n * @returns {object} firebaseAuth - Returns auth instance of firebase.\n ",
+            "value": "*\n * Auth of firebaseApp \n * @exports {object} firebaseAuth - Returns auth instance of firebase.\n ",
             "start": 333,
             "end": 435,
             "loc": {
@@ -466,7 +466,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Initializes the firebase App \n * @returns {object} firebaseApp - Returns instance of firebase.\n ",
+          "value": "*\n * Initializes the firebase App \n * @exports {object} firebaseApp - Returns instance of firebase.\n ",
           "start": 144,
           "end": 249,
           "loc": {
@@ -488,7 +488,7 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * Auth of firebaseApp \n * @returns {object} firebaseAuth - Returns auth instance of firebase.\n ",
+          "value": "*\n * Auth of firebaseApp \n * @exports {object} firebaseAuth - Returns auth instance of firebase.\n ",
           "start": 333,
           "end": 435,
           "loc": {
@@ -639,7 +639,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * Auth of firebaseApp \n * @returns {object} firebaseAuth - Returns auth instance of firebase.\n ",
+            "value": "*\n * Auth of firebaseApp \n * @exports {object} firebaseAuth - Returns auth instance of firebase.\n ",
             "start": 333,
             "end": 435,
             "loc": {
@@ -661,7 +661,7 @@
         "trailingComments": [
           {
             "type": "Block",
-            "value": "*\n * Db of firebaseApp\n * @returns {object} firebaseDb - Returns db instance of firebase.\n ",
+            "value": "*\n * Db of firebaseApp\n * @exports {object} firebaseDb - Returns db instance of firebase.\n ",
             "start": 485,
             "end": 580,
             "loc": {
@@ -686,7 +686,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Auth of firebaseApp \n * @returns {object} firebaseAuth - Returns auth instance of firebase.\n ",
+          "value": "*\n * Auth of firebaseApp \n * @exports {object} firebaseAuth - Returns auth instance of firebase.\n ",
           "start": 333,
           "end": 435,
           "loc": {
@@ -708,7 +708,7 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * Db of firebaseApp\n * @returns {object} firebaseDb - Returns db instance of firebase.\n ",
+          "value": "*\n * Db of firebaseApp\n * @exports {object} firebaseDb - Returns db instance of firebase.\n ",
           "start": 485,
           "end": 580,
           "loc": {
@@ -859,7 +859,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * Db of firebaseApp\n * @returns {object} firebaseDb - Returns db instance of firebase.\n ",
+            "value": "*\n * Db of firebaseApp\n * @exports {object} firebaseDb - Returns db instance of firebase.\n ",
             "start": 485,
             "end": 580,
             "loc": {
@@ -881,7 +881,7 @@
         "trailingComments": [
           {
             "type": "Block",
-            "value": "*\n * Storage of firebaseApp \n * @returns {object} firebaseStorage - Returns storage instance of firebase.\n ",
+            "value": "*\n * Storage of firebaseApp \n * @exports {object} firebaseStorage - Returns storage instance of firebase.\n ",
             "start": 632,
             "end": 743,
             "loc": {
@@ -906,7 +906,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Db of firebaseApp\n * @returns {object} firebaseDb - Returns db instance of firebase.\n ",
+          "value": "*\n * Db of firebaseApp\n * @exports {object} firebaseDb - Returns db instance of firebase.\n ",
           "start": 485,
           "end": 580,
           "loc": {
@@ -928,7 +928,7 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * Storage of firebaseApp \n * @returns {object} firebaseStorage - Returns storage instance of firebase.\n ",
+          "value": "*\n * Storage of firebaseApp \n * @exports {object} firebaseStorage - Returns storage instance of firebase.\n ",
           "start": 632,
           "end": 743,
           "loc": {
@@ -1127,7 +1127,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * Storage of firebaseApp \n * @returns {object} firebaseStorage - Returns storage instance of firebase.\n ",
+            "value": "*\n * Storage of firebaseApp \n * @exports {object} firebaseStorage - Returns storage instance of firebase.\n ",
             "start": 632,
             "end": 743,
             "loc": {
@@ -1149,7 +1149,7 @@
         "trailingComments": [
           {
             "type": "Block",
-            "value": "*\n * Initializes a second instance of firebase App \n * @returns {object} firebaseApp2 - Returns instance of firebase.\n ",
+            "value": "*\n * Initializes a second instance of firebase App \n * @exports {object} firebaseApp2 - Returns instance of firebase.\n ",
             "start": 805,
             "end": 928,
             "loc": {
@@ -1174,7 +1174,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Storage of firebaseApp \n * @returns {object} firebaseStorage - Returns storage instance of firebase.\n ",
+          "value": "*\n * Storage of firebaseApp \n * @exports {object} firebaseStorage - Returns storage instance of firebase.\n ",
           "start": 632,
           "end": 743,
           "loc": {
@@ -1196,7 +1196,7 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * Initializes a second instance of firebase App \n * @returns {object} firebaseApp2 - Returns instance of firebase.\n ",
+          "value": "*\n * Initializes a second instance of firebase App \n * @exports {object} firebaseApp2 - Returns instance of firebase.\n ",
           "start": 805,
           "end": 928,
           "loc": {
@@ -1364,7 +1364,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * Initializes a second instance of firebase App \n * @returns {object} firebaseApp2 - Returns instance of firebase.\n ",
+            "value": "*\n * Initializes a second instance of firebase App \n * @exports {object} firebaseApp2 - Returns instance of firebase.\n ",
             "start": 805,
             "end": 928,
             "loc": {
@@ -1386,7 +1386,7 @@
         "trailingComments": [
           {
             "type": "Block",
-            "value": "*\n * Auth of firebaseApp2\n * @returns {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
+            "value": "*\n * Auth of firebaseApp2\n * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
             "start": 999,
             "end": 1109,
             "loc": {
@@ -1411,7 +1411,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Initializes a second instance of firebase App \n * @returns {object} firebaseApp2 - Returns instance of firebase.\n ",
+          "value": "*\n * Initializes a second instance of firebase App \n * @exports {object} firebaseApp2 - Returns instance of firebase.\n ",
           "start": 805,
           "end": 928,
           "loc": {
@@ -1433,7 +1433,7 @@
       "trailingComments": [
         {
           "type": "Block",
-          "value": "*\n * Auth of firebaseApp2\n * @returns {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
+          "value": "*\n * Auth of firebaseApp2\n * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
           "start": 999,
           "end": 1109,
           "loc": {
@@ -1584,7 +1584,7 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "*\n * Auth of firebaseApp2\n * @returns {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
+            "value": "*\n * Auth of firebaseApp2\n * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
             "start": 999,
             "end": 1109,
             "loc": {
@@ -1610,7 +1610,7 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "*\n * Auth of firebaseApp2\n * @returns {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
+          "value": "*\n * Auth of firebaseApp2\n * @exports {object} firebaseAuth2 - Returns second auth instance of firebase.\n ",
           "start": 999,
           "end": 1109,
           "loc": {
@@ -3336,60 +3336,63 @@
                   }
                 ]
               }
-            ]
-          }
+            ],
+            "trailingComments": null
+          },
+          "trailingComments": null
         }
       ],
       "kind": "var",
+      "trailingComments": [],
       "name": "_",
-      "leadingComments": [],
-      "trailingComments": []
+      "leadingComments": []
     },
     {
       "type": "Identifier",
-      "start": 2094,
-      "end": 2123,
+      "start": 2162,
+      "end": 2191,
       "loc": {
         "start": {
-          "line": 67,
+          "line": 71,
           "column": 0
         },
         "end": {
-          "line": 67,
+          "line": 71,
           "column": 29
         }
       },
       "declaration": {
         "type": "Identifier",
-        "start": 2109,
-        "end": 2122,
+        "start": 2177,
+        "end": 2190,
         "loc": {
           "start": {
-            "line": 67,
+            "line": 71,
             "column": 15
           },
           "end": {
-            "line": 67,
+            "line": 71,
             "column": 28
           }
         },
-        "name": "FirebaseTools"
+        "name": "FirebaseTools",
+        "leadingComments": null
       },
-      "name": "_",
       "leadingComments": [],
+      "name": "_",
       "trailingComments": []
     },
     {
       "type": "ExportDefaultDeclaration",
-      "start": 2094,
-      "end": 2123,
+      "start": 2162,
+      "end": 2191,
       "loc": {
         "start": {
-          "line": 67,
+          "line": 71,
           "column": 0
         },
         "end": {
-          "line": 67,
+          "line": 71,
           "column": 29
         }
       },
@@ -4886,14 +4889,80 @@
                     }
                   ]
                 }
-              ]
-            }
+              ],
+              "trailingComments": null
+            },
+            "trailingComments": null
           }
         ],
         "kind": "var",
-        "leadingComments": [],
-        "trailingComments": []
-      }
+        "trailingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Exports firebaseTools\n * @exports {object} FirebaseTools\n ",
+            "start": 2094,
+            "end": 2161,
+            "loc": {
+              "start": {
+                "line": 67,
+                "column": 0
+              },
+              "end": {
+                "line": 70,
+                "column": 3
+              }
+            },
+            "range": [
+              2094,
+              2161
+            ]
+          }
+        ],
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Exports firebaseTools\n * @exports {object} FirebaseTools\n ",
+            "start": 2094,
+            "end": 2161,
+            "loc": {
+              "start": {
+                "line": 67,
+                "column": 0
+              },
+              "end": {
+                "line": 70,
+                "column": 3
+              }
+            },
+            "range": [
+              2094,
+              2161
+            ]
+          }
+        ]
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Exports firebaseTools\n * @exports {object} FirebaseTools\n ",
+          "start": 2094,
+          "end": 2161,
+          "loc": {
+            "start": {
+              "line": 67,
+              "column": 0
+            },
+            "end": {
+              "line": 70,
+              "column": 3
+            }
+          },
+          "range": [
+            2094,
+            2161
+          ]
+        }
+      ]
     }
   ]
 }
