@@ -16,7 +16,9 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 })/*dont add semicolon here!*/
 
 
-
+/**
+* @ignore
+*/
 class Scripts extends Component {
   /**
   * @ignore

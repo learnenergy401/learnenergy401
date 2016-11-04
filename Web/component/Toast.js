@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {Button,Snackbar} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
-
+/**
+* @ignore
+*/
 class Toast extends React.Component {
   /**
   * @ignore
