@@ -6,6 +6,10 @@ import CourseList from './CourseList.js'
 
 
 class ViewCourse extends Component {
+  /**
+  * display courses
+  * @return {html} display output of viewcourse page.
+  */
   render(){
     return (
       <div>

@@ -1,3 +1,10 @@
+/**
+ * Profile Reducer
+ * @exports {state} reducer
+ * @param {object} action
+ * @return {state} state
+ */
+
 export default function reducer(state={
     menu: 0,
     

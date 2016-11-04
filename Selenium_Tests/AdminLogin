@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/?_k=70vjfa</td>
+	<td>/#/</td>
 	<td></td>
 </tr>
 <tr>
@@ -34,11 +34,6 @@
 <tr>
 	<td>click</td>
 	<td>//button[@type='submit']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>http://localhost:8100/#/admin</td>
 	<td></td>
 </tr>
 

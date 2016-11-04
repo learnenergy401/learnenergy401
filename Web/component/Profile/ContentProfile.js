@@ -19,6 +19,7 @@ import {updateProfile} from "../Actions/userActions.js"
 
 
 class ContentProfile extends Component {
+
     componentDidUpdate(){
         const {user} = this.props
         document.getElementById("legalEntity").value=user.profile.legalEntity;
@@ -312,11 +313,18 @@ class ContentProfile extends Component {
 
     this.updateProfile(user);
     }
+
+    /**
+    * Loads the profile of user
+    * @return {html} - returns user profile depending on type of user
+    */
+
     render(){
-        
+
         const {profile} = this.props
         const {user} = this.props
         console.log(user)
+
         if (profile.menu == 0){
             return(
                   <Content className="learn-content">

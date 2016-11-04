@@ -4,7 +4,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 /**
  * Grabs the purchasers from the Purchaser SignUp list in the database.
  * @returns {object} purchasers - Returns the object of purchasers.
- * @throws {object} err - Returns an error if failed to fetch from database. 
+ * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function fetchPurchaserSignup() {
   return function(dispatch) {
@@ -78,8 +78,9 @@ export function getCurrentUser() {
 
 /**
  * Gets user information passed in and will create the account for the user and remove the old user from the signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information for us to register into firebase with and store in our database.
- * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase. 
+ * @throws {object} err - Returns an error if failed to grab, remove from database or add to firebase.
  */
 export function approveUser(user) {
   return function(dispatch) {
@@ -262,8 +263,9 @@ export function approveUser(user) {
 
 /**
  * Gets user information passed in and will remove the user from the signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user.
- * @throws {object} err - Returns an error if failed to remove from database. 
+ * @throws {object} err - Returns an error if failed to remove from database.
  */
 export function rejectUser(user) {
   return function(dispatch) {
@@ -294,6 +296,7 @@ export function rejectUser(user) {
 
 /**
  * Gets purchaser user information passed in and will add the user to the purchaser signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user purchaser.
  * @throws {object} err - Returns an error if failed to push to database.
  */
@@ -345,6 +348,7 @@ export function signUpPurchaser(user) {
 
 /**
  * Gets vendor user information passed in and will add the user to the vendor signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user vendor.
  * @throws {object} err - Returns an error if failed to push to database.
  */
@@ -455,6 +459,7 @@ export function signUpVendor(user) {
 
 /**
  * Gets additional resource user information passed in and will add the user to the additional resource signup list.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user additional resource.
  * @throws {object} err - Returns an error if failed to push to database.
  */
@@ -478,6 +483,7 @@ export function signUpAD(user) {
 
 /**
  * Logs in the user using firebase authentication and sets notifications to false, error if invalid information.
+ * @returns {object} dispatch - Returns the state which contains user object
  * @param {object} user - object which contains information about the user to log in with.
  * @throws {object} err - Returns an error if failed to login.
  */
@@ -485,7 +491,7 @@ export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
-              dispatch({type: "LOGIN_USER_FULFILLED", payload: data})  
+              dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
             })
             .catch((err) => {
               dispatch({type: "LOGIN_USER_REJECTED", payload: err})
@@ -498,7 +504,8 @@ export function logInUser(user) {
 
 /**
  * Logs out the user using firebase authentication.
- * @throws {object} err - Returns an error if fail to logout. 
+ * @returns {object} dispatch - Returns the state which contains user object
+ * @throws {object} err - Returns an error if fail to logout.
  */
 export function logOutUser() {
     return function(dispatch) {

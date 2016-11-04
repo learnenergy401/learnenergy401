@@ -15,6 +15,10 @@ var cardTitleStyle = {
 }
 
 class ContentLogin extends Component {
+    /**
+    * Loads the card for the login form
+    * @return {html} - returns the ContentLogin component
+    */
     render(){
         return(
           <div  className="learn-content mdl-typography--text-center">

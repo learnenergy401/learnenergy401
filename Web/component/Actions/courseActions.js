@@ -1,6 +1,11 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from '../Firebase'
 
-function  jsonToArray(json){
+/**
+ * converts json into an array
+ * @param {object} json - pushes object into array
+ * @returns {list} arr - Returns array of json objects
+ */
+function jsonToArray(json){
         var arr = [];
         for (var prop in json) {
             arr.push(json[prop]);
@@ -8,6 +13,11 @@ function  jsonToArray(json){
         return arr
     }
 
+/**
+ * Grabs the courses from the course child in the database.
+ * @returns {object} courses - Returns the object of courses.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchCourseList() {
     return function(dispatch) {
         dispatch({type: "UPLOAD_COURSE"})
@@ -22,7 +32,12 @@ export function fetchCourseList() {
     }
 }
 
-
+/**
+ * Upload a course into the database.
+ * @param {object} course - object containing course info
+ * @returns {object} courses - Returns the object of courses.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function uploadCourse(course) {
     return function(dispatch) {
         dispatch({type: "UPLOAD_COURSE"})
@@ -36,6 +51,7 @@ export function uploadCourse(course) {
                         
     }
 }
+
 
 
 /*------not using yet-----*/
@@ -54,6 +70,14 @@ export function uploadCourseDetail(user,fileObj) {
     }
 }
 
+
+/**
+ * Grabs the vendor courses from the Vendor Course in the database.
+ * @param {object} email - object containing email
+ * @returns {object} currentVendorCourseList - Returns the object of courses.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+
 export function fetchVendorCourse(email) {
     return function(dispatch) {
         dispatch({type: "FETCH_VENDORS_COURSE"})
@@ -65,6 +89,11 @@ export function fetchVendorCourse(email) {
     }
 }
 
+/**
+ * Grabs the courses from the CourseList in the database.
+ * @returns {object} courseList - Returns the object of courseList.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchCourse() {
     return function(dispatch) {
         dispatch({type: "FETCH_COURSE"})
@@ -76,6 +105,12 @@ export function fetchCourse() {
     }
 }
 
+/**
+ * Grabs the courseName from the Course in the database.
+ * @param {object} courseName - Object containing course names
+ * @returns {object} aCourseName - Returns the object aCourseName
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchACourse(courseName) {
     return function(dispatch) {
         dispatch({type: "FETCH_A_COURSE"})
@@ -91,6 +126,12 @@ export function fetchACourse(courseName) {
     }
 }
 
+/**
+ * Saves a course to the database.
+ * @param {object} courseName - Object containing course names
+ * @returns {object} courseName - Returns the object containing course names.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function saveACourse(courseName) {
     return function(dispatch) {
         dispatch({type: "SAVE_A_COURSE",payload: courseName})

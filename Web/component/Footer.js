@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { Footer, FooterSection, FooterDropDownSection, FooterLinkList } from 'react-mdl';
 class LearnFooter extends Component {
+  /**
+  * Loads the footer
+  * @return {html} - returns the footer
+  */
   render() {
     return (
       <Footer size="mega">

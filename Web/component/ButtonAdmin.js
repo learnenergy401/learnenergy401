@@ -6,6 +6,10 @@ var buttonStyle = {
     marginLeft:'2dp!important'
 }
 class ButtonAdmin extends Component {
+    /**
+    * Loads the button for Admin.
+    * @return {html} - returns button and links
+    */
     render(){
         return(
           <Link to={this.props.to}>

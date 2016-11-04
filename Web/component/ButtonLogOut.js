@@ -18,8 +18,10 @@ class ButtonLogOut extends Component {
     logOutUser(){
         this.props.dispatch(logOutUser())
     }
-
-    
+    /**
+    * Loads the button for Logout.
+    * @return {html} - returns button and links
+    */
     render(){
         return(
           <Link to={'/'}>

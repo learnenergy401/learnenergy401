@@ -5,13 +5,17 @@ import LearnFooter from '../Footer.js'
 import ContentSignUp from './ContentSignUp.js'
 
 class SignUp extends Component {
+  /**
+  * Loads the format page for signup.
+  * @return {html} - returns header, signup, footer
+  */
   render(){
     return (
-      <div>    
+      <div>
         <LearnHeader/>
-        <ContentSignUp/>   
+        <ContentSignUp/>
         <LearnFooter/>
-      </div>    
+      </div>
     );
   }
 }

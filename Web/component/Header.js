@@ -25,39 +25,60 @@ var buttonSpacer={
 })/*dont add semicolon here!*/
 
 class LearnHeader extends Component {
+    /**
+    * Gets users
+    * @return {object} user - Returns users
+    */
     fetchUsers() {
         this.props.dispatch(fetchUsers())
     }
-    
+    /**
+    * Gets current user
+    * @return {object} user - Returns current user logged in
+    */
     getCurrentUser() {
         this.props.dispatch(getCurrentUser())
     }
-
+    /**
+     * Gets purchaser information for signup
+     * @return {object} user - Returns purchaser into state purchaser
+     */
     fetchPurchaserSignup() {
       this.props.dispatch(fetchPurchaserSignup())
     }
-
+    /**
+     * Gets vendor information for signup
+     * @return {object} user - Returns vendor into state vedor
+     */
     fetchVendorSignup() {
       this.props.dispatch(fetchVendorSignup())
     }
-
+    /**
+     * Gets additional resource information for signup
+     * @return {object} user - Returns addition resource into state additional resource
+     */
     fetchADSignup() {
       this.props.dispatch(fetchADSignup())
     }
-
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our states
+     */
     componentWillMount(){
         this.getCurrentUser()
         this.fetchPurchaserSignup()
         this.fetchVendorSignup()
         this.fetchADSignup()
     }
-
-    render(){ 
+    /**
+    * Loads the header with different buttons depending on if user is logged in. Or an admin
+    * @return {html} - returns head with specific buttons depending on user
+    */
+    render(){
         const {user} = this.props
 
         if (!user.isLoggedIn){
             return (
-                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
+                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                   <span  className="learn-title mdl-layout-title ">
                     <LearnLogo to=''/>
                   </span>
@@ -84,7 +105,7 @@ class LearnHeader extends Component {
                 firebaseDb.ref('Notifications/Admin_Notification').set({
                   notified: true
                 })
-                
+
 
               }
             }
@@ -92,7 +113,7 @@ class LearnHeader extends Component {
 
           if (user.role ==3) {
             return (
-                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
+                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
                       </span>
@@ -109,7 +130,7 @@ class LearnHeader extends Component {
           } else {
 
             return (
-                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>    
+                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
                       </span>

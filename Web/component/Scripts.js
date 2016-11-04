@@ -16,15 +16,25 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 })/*dont add semicolon here!*/
 
 
-
+/**
+* @ignore
+*/
 class Scripts extends Component {
+  /**
+  * @ignore
+  */
     script(){
 
-
+      firebaseDb.ref('Key/KeyName').set({
+        key: null,
+        role: null
+      })
 
     }
-    
-    render(){ 
+    /**
+    * @ignore
+    */
+    render(){
         return(
 
                 <div>
@@ -32,7 +42,7 @@ class Scripts extends Component {
                 </div>
             )
         }
-       
+
 };
 
 export default Scripts

@@ -6,13 +6,17 @@ import ContentHome from '../ContentHome.js'
 import ContentLogout from '../ContentLogout.js'
 
 class Logout extends Component {
+  /**
+  * Loads the logout and its components.
+  * @return {html} - returns all components for the home page.
+  */
   render(){
-    return (  
+    return (
       <div className="learn-header mdl-layout__header">
         <LearnHeader/>
-        <ContentLogout/>   
+        <ContentLogout/>
         <LearnFooter/>
-      </div> 
+      </div>
     );
   }
 }
