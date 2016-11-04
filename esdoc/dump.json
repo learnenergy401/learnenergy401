@@ -1709,7 +1709,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../extra/material.js\"\nimport { fetchVendorCourse } from \"./Actions/courseActions\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass ContentCourseDisplay extends Component{\n    /**\n     * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses\n     */\n    componentWillMount(){\n        const {user} = this.props\n        this.props.dispatch(fetchVendorCourse(user.user.email));\n    }\n\n    /**\n     * Coverts json to array\n     * @return {object} arr - return array from converted json object\n     */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    /**\n    * Loads the webpage for course display\n    * @return {html} - returns avaiable courses\n    */\n    render(){\n        const {course}=this.props\n        if (course.currentVendorCourseList){\n            var arr = this.jsonToArray(course.currentVendorCourseList)\n            const mappedCourse = arr.map(course =>\n                                        <li key = {course.courseName}>{course.courseName}</li>\n                                       )\n            return(\n\n                <Content className=\"learn-content\">\n                <ul>{mappedCourse}</ul>\n                </Content>\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default ContentCourseDisplay\n"
+    "content": "import React, { Component } from 'react'\nimport {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';\nimport { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'\nimport { connect } from \"react-redux\"\n\nimport \"../extra/material.js\"\nimport { fetchVendorCourse } from \"./Actions/courseActions\"\n@connect((store) => {\n  return {\n    user: store.user,\n    profile: store.profile,\n    course: store.course\n  };\n})\n\nclass ContentCourseDisplay extends Component{\n    /**\n     * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses\n     */\n    componentWillMount(){\n        const {user} = this.props\n        this.props.dispatch(fetchVendorCourse(user.user.email));\n    }\n\n    /**\n     * Coverts json to array\n     * @returns {object} arr - return array from converted json object\n     */\n    jsonToArray(json){\n        var arr = [];\n        for (var prop in json) {\n            arr.push(json[prop]);\n        }\n        return arr\n    }\n    /**\n    * Loads the webpage for course display\n    * @returns {html} - returns avaiable courses\n    */\n    render(){\n        const {course}=this.props\n        if (course.currentVendorCourseList){\n            var arr = this.jsonToArray(course.currentVendorCourseList)\n            const mappedCourse = arr.map(course =>\n                                        <li key = {course.courseName}>{course.courseName}</li>\n                                       )\n            return(\n\n                <Content className=\"learn-content\">\n                <ul>{mappedCourse}</ul>\n                </Content>\n            )\n\n        }else{\n            return(\n\n                <Content className=\"learn-content\">\n\n                </Content>\n            )\n        }\n\n    }\n}\n\nexport default ContentCourseDisplay\n"
   },
   {
     "__docId__": 62,
@@ -1756,6 +1756,12 @@
     "access": null,
     "description": "Coverts json to array",
     "lineNumber": 29,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{object} arr - return array from converted json object"
+      }
+    ],
     "params": [
       {
         "name": "json",
@@ -1785,6 +1791,12 @@
     "access": null,
     "description": "Loads the webpage for course display",
     "lineNumber": 40,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{html} - returns avaiable courses"
+      }
+    ],
     "params": [],
     "return": {
       "nullable": null,
@@ -5307,7 +5319,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import React, { Component } from 'react'\nimport Header from '../Header.js'\nimport Footer from '../Footer.js'\nimport LearnFooter from '../Footer.js'\nimport ComponentUpload from '../ComponentUpload.js'\n\nclass Upload extends Component {\n    render(){\n    return (\n        <div className=\"learn-header\">\n        <Header/>\n        <ComponentUpload/>\n        <Footer/>\n      </div>\n    )\n    }\n}    \n    \nexport default Upload"
+    "content": "import React, { Component } from 'react'\nimport Header from '../Header.js'\nimport Footer from '../Footer.js'\nimport LearnFooter from '../Footer.js'\nimport ComponentUpload from '../ComponentUpload.js'\n\nclass Upload extends Component {\n\n\t/**\n\t * Upload Html\n\t * @returns {html} Upload - Returns html for upload\n\t */\n    render(){\n    return (\n        <div className=\"learn-header\">\n        <Header/>\n        <ComponentUpload/>\n        <Footer/>\n      </div>\n    )\n    }\n}    \n    \nexport default Upload"
   },
   {
     "__docId__": 246,
@@ -5338,14 +5350,22 @@
     "memberof": "component/Vendor/Upload.js~Upload",
     "longname": "component/Vendor/Upload.js~Upload#render",
     "access": null,
-    "description": null,
-    "lineNumber": 8,
-    "undocument": true,
+    "description": "Upload Html",
+    "lineNumber": 13,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{html} Upload - Returns html for upload"
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "html"
+      ],
+      "spread": false,
+      "description": "Upload - Returns html for upload"
     },
     "generator": false
   },

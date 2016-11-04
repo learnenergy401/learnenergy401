@@ -1,7 +1,7 @@
 {
-  "coverage": "50.57%",
+  "coverage": "51.14%",
   "expectCount": 174,
-  "actualCount": 88,
+  "actualCount": 89,
   "files": {
     "component/Admin.js": {
       "expectCount": 12,
@@ -345,10 +345,9 @@
     },
     "component/Vendor/Upload.js": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        7,
-        8
+        7
       ]
     },
     "component/ViewCourse/ViewCourse.js": {

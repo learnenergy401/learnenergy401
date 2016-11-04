@@ -24,7 +24,7 @@ class ContentCourseDisplay extends Component{
 
     /**
      * Coverts json to array
-     * @return {object} arr - return array from converted json object
+     * @returns {object} arr - return array from converted json object
      */
     jsonToArray(json){
         var arr = [];
@@ -35,7 +35,7 @@ class ContentCourseDisplay extends Component{
     }
     /**
     * Loads the webpage for course display
-    * @return {html} - returns avaiable courses
+    * @returns {html} - returns avaiable courses
     */
     render(){
         const {course}=this.props
