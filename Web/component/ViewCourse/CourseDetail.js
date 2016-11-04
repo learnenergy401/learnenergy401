@@ -7,7 +7,15 @@ var contentStyle = {
     height: '1000px!important',
 }
 
+/**
+* class to display course details
+* @return {html} display course details
+*/
 class CourseDetail extends Component {
+  /**
+  * class to display course details
+  * @return {html} display course details
+  */
   render(){
     return (
       <div>

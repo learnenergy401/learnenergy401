@@ -24,6 +24,7 @@ class ContentCourseDisplay extends Component{
 
     /**
      * Coverts json to array
+     * @param {object} json 
      * @return {object} arr - return array from converted json object
      */
     jsonToArray(json){
