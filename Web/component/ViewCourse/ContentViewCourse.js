@@ -4,6 +4,12 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import CourseList from "./CourseList.js"
 
 
+var contentStyle = {
+  height: "600px",
+  overflow:"scroll",
+  backgroundColor: "#f3f3f3"
+}
+
 class ContentViewCourse extends Component {
     /**
     * view course render
@@ -11,7 +17,7 @@ class ContentViewCourse extends Component {
     */
     render(){
         return(
-          <div  className="learnContent mdl-typography--text-center">
+          <div style={contentStyle} className="mdl-typography--text-center">
               <CourseList/>
           </div>
         );

@@ -6,13 +6,19 @@ import { connect } from "react-redux"
 import "../../extra/material.js"
 import { fetchCourse,saveACourse } from "../Actions/courseActions"
 
+var listStyle = {
+    width : "80%",
+    marginLeft: "20%",
+
+}
+
 var listItemStyle =  {
-    width:"100%",
-    height:"200px"
+    width : "100%",
+    height:"100px",
 }
 
 var cardStyle = {
-    width:"100%"
+    right: "0px"
 }
 
 @connect((store) => {
@@ -76,7 +82,7 @@ class CourseList extends Component{
                 )
 
             return(
-                <div>
+                <div style={listStyle}>
                     {mappedCourse}
                 </div>
 
@@ -85,9 +91,9 @@ class CourseList extends Component{
         }else{
             return(
 
-                <Content className="learn-content">
-
-                </Content>
+                <div style={listStyle}>
+                    loading
+                </div>
             )
         }
 
