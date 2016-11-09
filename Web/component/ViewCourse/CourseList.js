@@ -15,10 +15,17 @@ var listStyle = {
 var listItemStyle =  {
     width : "100%",
     height:"100px",
+    margin: "10px"
 }
 
-var cardStyle = {
-    right: "0px"
+var cardTitleStyle = {
+    right: "0px",
+    background:"#3F51B5",
+    color:"white"
+}
+var cardTextStyle= {
+    textAlign: "left",
+    paddingLeft: "18px"
 }
 
 @connect((store) => {
@@ -70,12 +77,12 @@ class CourseList extends Component{
             const mappedCourse = arr.map(course =>
 
                 <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp " onClick={()=>(this.saveACourse(course.courseName))}>
-                    <div className="mdl-card__title" >
-                        <h2 className="mdl-card__title-text">
+                    <div style={cardTitleStyle} className="mdl-card__title" >
+                        <h2  className="mdl-card__title-text">
                             {course.courseName}
                         </h2>
                     </div>
-                     <div className="mdl-card__supporting-text">
+                     <div style={cardTextStyle} className="mdl-card__supporting-text">
                         {course.courseDescription}
                     </div>
                 </div>
