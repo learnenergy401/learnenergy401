@@ -26,13 +26,7 @@ var buttonSpacer={
 })/*dont add semicolon here!*/
 
 class LearnHeader extends Component {
-    /**
-    * Gets users
-    * @return {object} user - Returns users
-    */
-    fetchUsers() {
-        this.props.dispatch(fetchUsers())
-    }
+
     /**
     * Gets current user
     * @return {object} user - Returns current user logged in
@@ -76,7 +70,7 @@ class LearnHeader extends Component {
     */
     render(){
         const {user} = this.props
-
+        console.log(user)
         if (!user.isLoggedIn){
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -94,24 +88,25 @@ class LearnHeader extends Component {
                 </Header>
             );
 
-        } else{
+        } else {
           // console.log(user)
           var notified
-          firebaseDb.ref('Notifications/Admin_Notification').once('value')
-          .then((snapshot) => {
-            notified = snapshot.val().notified
-            if (user.role == 3) {
-              if ((user.purchasers != null || user.vendors != null || user.ad != null)&&(notified==false)) {
-                alert("There are users to be approved")
-                firebaseDb.ref('Notifications/Admin_Notification').set({
-                  notified: true
-                })
-
-
+          var currentUser = firebaseAuth.currentUser
+          //console.log(user)
+          if (currentUser!=null) {
+            firebaseDb.ref('Notifications/'+currentUser.uid).once('value')
+            .then((snapshot) => {
+              notified = snapshot.val().notified
+              if (user.role == 3) {
+                if ((user.purchasers != null || user.vendors != null || user.ad != null)&&(notified==false)) {
+                  alert("There are users to be approved")
+                  firebaseDb.ref('Notifications/'+currentUser.uid).set({
+                    notified: true
+                  })
+                }
               }
-            }
-          })
-
+            })
+          }
           if (user.role ==3) {
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>

@@ -1,5 +1,65 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
+/**
+ * Grabs the key and role from the database.
+ * @returns {object} key - Returns the object of key.
+ * @throws {object} err - Returns an error if failed to fetch from database. 
+ */
+export function fetchKeyRole() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('Keys_Roles/'+user.uid).once('value')
+          .then((snapshot) => {
+            dispatch({type: "FETCH_KEYS_ROLES_FULFILLED", payload: snapshot.val()})
+          })
+          .catch((err) => {
+            dispatch({type: "FETCH_KEYS_ROLES_REJECTED", payload: err})
+          })
+        }
+      })
+  }
+}
+
+/**
+ * sets the key and role to the database.
+ * @returns {object} dispatch - Returns the state which contains keys_roles object
+ * @param {object} data - object which contains information about the key and role of the user.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeKeyRole(data) {
+  return function(dispatch) {
+    dispatch({type: "STORE_KEYS_ROLES_FULFILLED"})
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('Keys_Roles/'+user.uid).set({
+          key: data.key_name,
+          role: data.role,
+        })
+        .catch((err) => {
+          dispatch({type: "STORE_KEYS_ROLES_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * Grabs the purchasers from the Purchaser SignUp list in the database.
+ * @returns {object} purchasers - Returns the object of purchasers.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchAdminSignup() {
+  return function(dispatch) {
+    firebaseDb.ref('AdminSignup').once("value")
+      .then((snapshot) => {
+        dispatch({type: "FETCH_ADMIN_FULFILLED", payload: snapshot.val()})
+      })
+      .catch((err) => {
+        dispatch({type: "FETCH_USER_REJECTED", payload: err})
+      })
+  }
+}
 
 /**
  * Grabs the purchasers from the Purchaser SignUp list in the database.
@@ -255,6 +315,29 @@ export function approveUser(user) {
             console.log("failed to remove", user.key_name)
           })
         }
+
+        else if (user.role == 3) {
+          // if an admin is approved, set up admin account
+          firebaseDb.ref('User/' + currentUser.uid).set({
+            email: user.email,
+            password: user.password,
+            role: user.role,
+          })
+          firebaseDb.ref('Notifications/' + currentUser.uid).set({
+            notified: false,
+          })
+          firebaseDb.ref('Keys_Roles/' + currentUser.uid).set({
+            // set with base values
+            key: "test",
+            role: 0,
+          })
+          firebaseDb.ref('AdminSignup/'+user.key_name).remove().then(function() {
+            location.reload()
+          })
+
+        }
+
+
       })
     })
     firebaseAuthInstance.signOut()
@@ -491,14 +574,17 @@ export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
+              var currentUser = firebaseAuth.currentUser
+              console.log('current user is', currentUser.uid)
+              firebaseDb.ref('Notifications/'+currentUser.uid).set({
+                  notified: false
+                })
               dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
             })
             .catch((err) => {
               dispatch({type: "LOGIN_USER_REJECTED", payload: err})
             })
-        firebaseDb.ref('Notifications/Admin_Notification').set({
-            notified: false
-          })
+
     }
 }
 

@@ -24,12 +24,14 @@ class Scripts extends Component {
   * @ignore
   */
     script(){
-
-      firebaseDb.ref('Key/KeyName').set({
-        key: null,
-        role: null
-      })
-
+          firebaseDb.ref('Notifications/cykehSsWUIfvWZykWq1mnOLEHu32').set({
+            notified: false,
+          })
+          firebaseDb.ref('Keys_Roles/cykehSsWUIfvWZykWq1mnOLEHu32').set({
+            // set with base values
+            key: "test",
+            role: 0,
+          })
     }
     /**
     * @ignore
