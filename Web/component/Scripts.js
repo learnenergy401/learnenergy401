@@ -25,10 +25,11 @@ class Scripts extends Component {
   */
     script(){
 
-      firebaseDb.ref('Key/KeyName').set({
-        key: null,
-        role: null
+      firebaseDb.ref('Key').set({
+        key: "gg",
+        role: 'gg'
       })
+      console.log("gg")
 
     }
     /**
