@@ -25,11 +25,14 @@ class Scripts extends Component {
   */
     script(){
 
-      firebaseDb.ref('Key').set({
-        key: "gg",
-        role: 'gg'
-      })
-      console.log("gg")
+          firebaseDb.ref('Notifications/cykehSsWUIfvWZykWq1mnOLEHu32').set({
+            notified: false,
+          })
+          firebaseDb.ref('Keys_Roles/cykehSsWUIfvWZykWq1mnOLEHu32').set({
+            // set with base values
+            key: "test",
+            role: 0,
+          })
 
     }
     /**

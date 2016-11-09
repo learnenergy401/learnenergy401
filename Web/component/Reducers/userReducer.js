@@ -15,6 +15,8 @@ export default function reducer(state={
     purchasers: null,
     vendors: null,
     ad: null,
+    admin: null, 
+    keys_roles: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -172,6 +174,17 @@ export default function reducer(state={
             }
         }
 
+        // returns the admin information 
+        case "FETCH_ADMIN_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                admin: action.payload,
+                isLoggedIn: action.isLoggedIn,
+            }
+        }
+
         case "SIGNUP_USER": {
             return {
                 ...state,
@@ -304,7 +317,39 @@ export default function reducer(state={
             }
         }
 
-    }
+    
+        case "FETCH_KEYS_ROLES_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                keys_roles: action.payload,
+            }
+        } 
 
+        case "FETCH_KEYS_ROLES_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_KEYS_ROLES_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetching: true,
+            }
+        }
+
+        case "STORE_KEYS_ROLES_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+    }
     return state
 }
