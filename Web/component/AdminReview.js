@@ -51,7 +51,7 @@ class AdminReview extends Component {
 
     /**
      * Gets information for review
-     * @return {object} keys_roles - Returns keys roles state 
+     * @return {object} keys_roles - Returns keys roles state
      */
     fetchKeyRole() {
       this.props.dispatch(fetchKeyRole())
@@ -242,14 +242,14 @@ class AdminReview extends Component {
         var role = user.ad[key_name].role;
 
         var info = {website, email, password, role, key_name}
-      } 
+      }
 
       this.approveUser(info)
-      
+
       window.location.assign('/#/admin')
     }
 
-    reject() {  
+    reject(key_name, role) {
       console.log('reject')
       const {user} = this.props
       var info = {key_name, role}
@@ -303,8 +303,8 @@ class AdminReview extends Component {
 
           var password = user.purchasers[key_name].password;
           var role = user.purchasers[key_name].role;
-        
-          // make the page here 
+
+          // make the page here
           return (
             <div>
             <LearnHeader/>
@@ -338,7 +338,7 @@ class AdminReview extends Component {
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-                
+
                 </div>
                 <br/>
               </div>
@@ -449,10 +449,10 @@ class AdminReview extends Component {
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-                
+
                 </div>
                 <br/>
-            
+
             <LearnFooter/>
             </div>
           )
@@ -471,12 +471,12 @@ class AdminReview extends Component {
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-                
+
                 </div>
                 <br/>
             <LearnFooter/>
             </div>
-          )          
+          )
 
 
         } else if (role == 3) { // admin
@@ -490,7 +490,7 @@ class AdminReview extends Component {
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-                
+
                 </div>
                 <br/>
             <LearnFooter/>
@@ -510,4 +510,3 @@ class AdminReview extends Component {
 }
 
 export default AdminReview
-
