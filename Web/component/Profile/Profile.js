@@ -31,8 +31,10 @@ class SignUp extends Component {
       <div>
         <LearnHeader/>
         <SideMenuProfile/>
-        <ContentProfile/>
-        <LearnFooter/>
+        <Layout fixedHeader fixedDrawer>
+            <ContentProfile/>
+            <LearnFooter/>
+        </Layout>
 
       </div>
     );
