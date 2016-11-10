@@ -167,8 +167,7 @@ class ComponentSignUpVendor extends Component {
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
       }
 
-
-    this.signUpVendor(user);
+    this.signUpVendor(info);
     }
 
     /**
@@ -289,7 +288,7 @@ class ComponentSignUpVendor extends Component {
             <br/>
             <Textfield label="AD1phone" className="form-control" ref="AD1phone"  placeholder="Additional 1: Phone Number" id="AD1phone"/>
             <hr/>
-            <Textfield label="AD2address1" className="form-control" ref="AD2address1"  placeholder="Additional 2: Address 1" id="AD2address2"/>
+            <Textfield label="AD2address1" className="form-control" ref="AD2address1"  placeholder="Additional 2: Address 1" id="AD2address1"/>
             &nbsp;
             <Textfield label="AD2address2" className="form-control" ref="AD2address2"  placeholder="Additional 2: Address 2" id="AD2address2"/>
             <br/>
@@ -303,9 +302,9 @@ class ComponentSignUpVendor extends Component {
             <br/>
             <Textfield label="AD2phone" className="form-control" ref="AD2phone"  placeholder="Additional 2: Phone Number" id="AD2phone"/>
             <hr/>
-            <Textfield label="AD3address1" className="form-control" ref="AD3address1"  placeholder="Additional 3: Address 1" id="AD3address3"/>
+            <Textfield label="AD3address1" className="form-control" ref="AD3address1"  placeholder="Additional 3: Address 1" id="AD3address1"/>
             &nbsp;
-            <Textfield label="AD3address2" className="form-control" ref="AD3address2"  placeholder="Additional 3: Address 2" id="AD3address3"/>
+            <Textfield label="AD3address2" className="form-control" ref="AD3address2"  placeholder="Additional 3: Address 2" id="AD3address2"/>
             <br/>
             <Textfield label="AD3city" className="form-control" ref="AD3city"  placeholder="Additional 3: City" id="AD3city"/>
             &nbsp;
@@ -353,7 +352,7 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
             <br/>
-            <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client1Service"></textarea></h6>
+            <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client3Service"></textarea></h6>
             <hr/>
             <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Name" id="client4"/>
             &nbsp;
