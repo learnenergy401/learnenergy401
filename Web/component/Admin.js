@@ -160,21 +160,22 @@ class Admin extends Component {
 
 
         var numEmployees = user.vendors[key_name].numEmployees;
-        var AD1address1 = user.vendors[key_name].AD1address1;
-        var AD1address2 = user.vendors[key_name].AD1address2;
-        var AD1city = user.vendors[key_name].AD1city;
-        var AD1province = user.vendors[key_name].AD1province;
-        var AD1country = user.vendors[key_name].AD1country;
-        var AD1postalCode = user.vendors[key_name].AD1postalCode;
-        var AD1phone = user.vendors[key_name].AD1phone;
+        var AD1address1 = user.vendors[key_name].AD1address1; var AD1address2 = user.vendors[key_name].AD1address2; var AD1city = user.vendors[key_name].AD1city; var AD1province = user.vendors[key_name].AD1province;
+        var AD1country = user.vendors[key_name].AD1country; var AD1postalCode = user.vendors[key_name].AD1postalCode; var AD1phone = user.vendors[key_name].AD1phone;
+        var AD2address1 = user.vendors[key_name].AD2address1; var AD2address2 = user.vendors[key_name].AD2address2; var AD2city = user.vendors[key_name].AD2city; var AD2province = user.vendors[key_name].AD2province;
+        var AD2country = user.vendors[key_name].AD2country; var AD2postalCode = user.vendors[key_name].AD2postalCode; var AD2phone = user.vendors[key_name].AD2phone;
+        var AD3address1 = user.vendors[key_name].AD3address1; var AD3address2 = user.vendors[key_name].AD3address2; var AD3city = user.vendors[key_name].AD3city; var AD3province = user.vendors[key_name].AD3province;
+        var AD3country = user.vendors[key_name].AD3country; var AD3postalCode = user.vendors[key_name].AD3postalCode; var AD3phone = user.vendors[key_name].AD3phone;
+
 
         var categories = user.vendors[key_name].categories;
         var specialties = user.vendors[key_name].specialties;
 
-        var client1 = user.vendors[key_name].client1;
-        var client1Location = user.vendors[key_name].client1Location;
-        var client1Phone = user.vendors[key_name].client1Phone;
-        var client1Email = user.vendors[key_name].client1Email;
+        var client1 = user.vendors[key_name].client1; var client1Location = user.vendors[key_name].client1Location; var client1Phone = user.vendors[key_name].client1Phone; var client1Email = user.vendors[key_name].client1Email; var client1Service = user.vendors[key_name].client1Service;
+        var client2 = user.vendors[key_name].client2; var client2Location = user.vendors[key_name].client2Location; var client2Phone = user.vendors[key_name].client2Phone; var client2Email = user.vendors[key_name].client2Email; var client2Service = user.vendors[key_name].client2Service;
+        var client3 = user.vendors[key_name].client3; var client3Location = user.vendors[key_name].client3Location; var client3Phone = user.vendors[key_name].client3Phone; var client3Email = user.vendors[key_name].client3Email; var client3Service = user.vendors[key_name].client3Service;
+        var client4 = user.vendors[key_name].client4; var client4Location = user.vendors[key_name].client4Location; var client4Phone = user.vendors[key_name].client4Phone; var client4Email = user.vendors[key_name].client4Email; var client4Service = user.vendors[key_name].client4Service;
+
 
         var licence1 = user.vendors[key_name].licence1;
         var licence1Location = user.vendors[key_name].licence1Location;
@@ -225,8 +226,10 @@ class Admin extends Component {
         var info = {email, password, legalEntity, operatingName, address1, address2,
           city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
           adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
-          bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
-          AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
+          bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone,
+          AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
+          categories, specialties, client1, client1Location, client1Phone, client1Email, client1Service, client2, client2Location, client2Phone, client2Email, client2Service,
+          client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location,
           insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
           insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
           insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
@@ -244,7 +247,7 @@ class Admin extends Component {
         var role = user.ad[key_name].role;
 
         var info = {website, email, password, role, key_name}
-      } 
+      }
 
       this.approveUser(info)
     }
@@ -270,7 +273,7 @@ class Admin extends Component {
       const {user} = this.props
       var data = {key_name, role}
       this.storeKeyRole(data)
-      
+
       // after storing the information, we wnat to redirect into admin-review
       window.location.assign('/#/admin-review')
     }

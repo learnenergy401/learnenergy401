@@ -19,7 +19,7 @@ class ComponentSignUpVendor extends Component {
   /**
    * Sends information about vendor and adds it to vendor signup list
    * @param {user} user - object which contains information about the vendor.
-   */    
+   */
   signUpVendor(user) {
     this.props.dispatch(signUpVendor(user));
   }
@@ -71,21 +71,24 @@ class ComponentSignUpVendor extends Component {
         bankruptcy = "no"
     }
     var numEmployees = document.getElementById("numEmployees").value;
-    var AD1address1 = document.getElementById("AD1address1").value;
-    var AD1address2 = document.getElementById("AD1address2").value;
-    var AD1city = document.getElementById("AD1city").value;
-    var AD1province = document.getElementById("AD1province").value;
-    var AD1country = document.getElementById("AD1country").value;
-    var AD1postalCode = document.getElementById("AD1postalCode").value;
-    var AD1phone = document.getElementById("AD1phone").value;
+
+    var AD1address1 = document.getElementById("AD1address1").value; var AD1address2 = document.getElementById("AD1address2").value; var AD1city = document.getElementById("AD1city").value; var AD1province = document.getElementById("AD1province").value;
+    var AD1country = document.getElementById("AD1country").value; var AD1postalCode = document.getElementById("AD1postalCode").value; var AD1phone = document.getElementById("AD1phone").value;
+    var AD2address1 = document.getElementById("AD2address1").value; var AD2address2 = document.getElementById("AD2address2").value; var AD2city = document.getElementById("AD2city").value; var AD2province = document.getElementById("AD2province").value;
+    var AD2country = document.getElementById("AD2country").value; var AD2postalCode = document.getElementById("AD2postalCode").value; var AD2phone = document.getElementById("AD2phone").value;
+    var AD3address1 = document.getElementById("AD3address1").value; var AD3address2 = document.getElementById("AD3address2").value; var AD3city = document.getElementById("AD3city").value; var AD3province = document.getElementById("AD3province").value;
+    var AD3country = document.getElementById("AD3country").value; var AD3postalCode = document.getElementById("AD3postalCode").value; var AD3phone = document.getElementById("AD3phone").value;
 
     var categories = document.getElementById("categories").value;
     var specialties = document.getElementById("specialties").value;
 
-    var client1 = document.getElementById("client1").value;
-    var client1Location = document.getElementById("client1Location").value;
-    var client1Phone = document.getElementById("client1Phone").value;
-    var client1Email = document.getElementById("client1Email").value;
+    var client1 = document.getElementById("client1").value; var client1Location = document.getElementById("client1Location").value; var client1Phone = document.getElementById("client1Phone").value; var client1Email = document.getElementById("client1Email").value; var client1Service = document.getElementById("client1Service").value;
+    var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value;
+    var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value;
+    var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value;
+
+
+
     var licence1 = document.getElementById("licence1").value;
     var licence1Location = document.getElementById("licence1Location").value;
     var insurer1 = document.getElementById("insurer1").value; var policyLimit1 = document.getElementById("policyLimit1").value; var expiry1 = document.getElementById("expiry1").value;
@@ -134,11 +137,14 @@ class ComponentSignUpVendor extends Component {
     var website = document.getElementById("website").value;
     var password = document.getElementById("password").value;
 
-    var user = {email, password, legalEntity, operatingName, address1, address2,
+
+    var info = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
-      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
-      AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
+      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone,
+      AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
+      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Service, client2, client2Location, client2Phone, client2Email, client2Service,
+      client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location,
       insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
       insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
       insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
@@ -147,6 +153,7 @@ class ComponentSignUpVendor extends Component {
       IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
       }
+
 
     this.signUpVendor(user);
     }
@@ -251,6 +258,35 @@ class ComponentSignUpVendor extends Component {
             <Textfield label="AD1postalCode" className="form-control" ref="AD1postalCode"  placeholder="Additional 1: Postal Code" id="AD1postalCode"/>
             <br/>
             <Textfield label="AD1phone" className="form-control" ref="AD1phone"  placeholder="Additional 1: Phone Number" id="AD1phone"/>
+            <hr/>
+            <Textfield label="AD2address1" className="form-control" ref="AD2address1"  placeholder="Additional 2: Address 1" id="AD2address2"/>
+            &nbsp;
+            <Textfield label="AD2address2" className="form-control" ref="AD2address2"  placeholder="Additional 2: Address 2" id="AD2address2"/>
+            <br/>
+            <Textfield label="AD2city" className="form-control" ref="AD2city"  placeholder="Additional 2: City" id="AD2city"/>
+            &nbsp;
+            <Textfield label="AD2province" className="form-control" ref="AD2province"  placeholder="Additional 2: Province" id="AD2province"/>
+            <br/>
+            <Textfield label="AD2country" className="form-control" ref="AD2country"  placeholder="Additional 2: Country" id="AD2country"/>
+            &nbsp;
+            <Textfield label="AD2postalCode" className="form-control" ref="AD2postalCode"  placeholder="Additional 2: Postal Code" id="AD2postalCode"/>
+            <br/>
+            <Textfield label="AD2phone" className="form-control" ref="AD2phone"  placeholder="Additional 2: Phone Number" id="AD2phone"/>
+            <hr/>
+            <Textfield label="AD3address1" className="form-control" ref="AD3address1"  placeholder="Additional 3: Address 1" id="AD3address3"/>
+            &nbsp;
+            <Textfield label="AD3address2" className="form-control" ref="AD3address2"  placeholder="Additional 3: Address 2" id="AD3address3"/>
+            <br/>
+            <Textfield label="AD3city" className="form-control" ref="AD3city"  placeholder="Additional 3: City" id="AD3city"/>
+            &nbsp;
+            <Textfield label="AD3province" className="form-control" ref="AD3province"  placeholder="Additional 3: Province" id="AD3province"/>
+            <br/>
+            <Textfield label="AD3country" className="form-control" ref="AD3country"  placeholder="Additional 3: Country" id="AD3country"/>
+            &nbsp;
+            <Textfield label="AD3postalCode" className="form-control" ref="AD3postalCode"  placeholder="Additional 3: Postal Code" id="AD3postalCode"/>
+            <br/>
+            <Textfield label="AD3phone" className="form-control" ref="AD3phone"  placeholder="Additional 3: Phone Number" id="AD3phone"/>
+
 
             <hr/>
             <h4>Part D: Qualifications and Experience</h4>
@@ -267,7 +303,38 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
             <br/>
-            <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="natureBusiness"></textarea></h6>
+            <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client1Service"></textarea></h6>
+            <hr/>
+            <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Name" id="client2"/>
+            &nbsp;
+            <Textfield label="client2Location" className="form-control" ref="client2Location"  placeholder="Client 2: Location" id="client2Location"/>
+            <br/>
+            <Textfield label="client2Phone" className="form-control" ref="client2Phone"  placeholder="Client 2: Phone" id="client2Phone"/>
+            &nbsp;
+            <Textfield label="client2Email" className="form-control" ref="client2Email"  placeholder="Client 2: Email" id="client2Email"/>
+            <br/>
+            <h6>Client 2 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client2Service"></textarea></h6>
+            <hr/>
+            <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Name" id="client3"/>
+            &nbsp;
+            <Textfield label="client3Location" className="form-control" ref="client3Location"  placeholder="Client 3: Location" id="client3Location"/>
+            <br/>
+            <Textfield label="client3Phone" className="form-control" ref="client3Phone"  placeholder="Client 3: Phone" id="client3Phone"/>
+            &nbsp;
+            <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
+            <br/>
+            <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client1Service"></textarea></h6>
+            <hr/>
+            <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Name" id="client4"/>
+            &nbsp;
+            <Textfield label="client4Location" className="form-control" ref="client4Location"  placeholder="Client 4: Location" id="client4Location"/>
+            <br/>
+            <Textfield label="client4Phone" className="form-control" ref="client4Phone"  placeholder="Client 4: Phone" id="client4Phone"/>
+            &nbsp;
+            <Textfield label="client4Email" className="form-control" ref="client4Email"  placeholder="Client 4: Email" id="client4Email"/>
+            <br/>
+            <h6>Client 4 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client4Service"></textarea></h6>
+
             <hr/>
             <h6>Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).</h6>
             <br/>

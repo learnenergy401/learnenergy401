@@ -3,7 +3,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 /**
  * Grabs the key and role from the database.
  * @returns {object} key - Returns the object of key.
- * @throws {object} err - Returns an error if failed to fetch from database. 
+ * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function fetchKeyRole() {
   return function(dispatch) {
@@ -230,21 +230,17 @@ export function approveUser(user) {
             bankruptcy:user.bankruptcy,
 
             numEmployees: user.numEmployees,
-            AD1address1: user.AD1address1,
-            AD1address2: user.AD1address2,
-            AD1city: user.AD1city,
-            AD1province: user.AD1province,
-            AD1country: user.AD1country,
-            AD1postalCode: user.AD1postalCode,
-            AD1phone: user.AD1phone,
+            AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
+            AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
+            AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
 
             categories: user.categories,
             specialties: user.specialties,
 
-            client1: user.client1,
-            client1Location: user.client1Location,
-            client1Phone: user.client1Phone,
-            client1Email: user.client1Email,
+            client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
+            client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
+            client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
+            client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
 
             licence1: user.licence1,
             licence1Location: user.licence1Location,
@@ -470,21 +466,18 @@ export function signUpVendor(user) {
       bankruptcy:user.bankruptcy,
 
       numEmployees: user.numEmployees,
-      AD1address1: user.AD1address1,
-      AD1address2: user.AD1address2,
-      AD1city: user.AD1city,
-      AD1province: user.AD1province,
-      AD1country: user.AD1country,
-      AD1postalCode: user.AD1postalCode,
-      AD1phone: user.AD1phone,
+      AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
+      AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
+      AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
 
       categories: user.categories,
       specialties: user.specialties,
 
-      client1: user.client1,
-      client1Location: user.client1Location,
-      client1Phone: user.client1Phone,
-      client1Email: user.client1Email,
+      client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
+      client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
+      client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
+      client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
+
 
       licence1: user.licence1,
       licence1Location: user.licence1Location,
@@ -649,21 +642,18 @@ export function updateProfile(user) {
             bankruptcy:user.bankruptcy,
 
             numEmployees: user.numEmployees,
-            AD1address1: user.AD1address1,
-            AD1address2: user.AD1address2,
-            AD1city: user.AD1city,
-            AD1province: user.AD1province,
-            AD1country: user.AD1country,
-            AD1postalCode: user.AD1postalCode,
-            AD1phone: user.AD1phone,
+            AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
+            AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
+            AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
 
             categories: user.categories,
             specialties: user.specialties,
 
-            client1: user.client1,
-            client1Location: user.client1Location,
-            client1Phone: user.client1Phone,
-            client1Email: user.client1Email,
+            client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
+            client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
+            client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
+            client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
+
 
             licence1: user.licence1,
             licence1Location: user.licence1Location,
@@ -709,13 +699,13 @@ export function updateProfile(user) {
             password: user.password,
             role: user.role,
           })
-          
+
 
 
         }
       }).catch((err)=>{
         dispatch({type:"LOGIN_USER_REJECTED",payload:err})
       })
-      
+
     }
 }
