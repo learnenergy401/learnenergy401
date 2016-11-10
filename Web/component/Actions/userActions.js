@@ -242,8 +242,12 @@ export function approveUser(user) {
             client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
             client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
 
-            licence1: user.licence1,
-            licence1Location: user.licence1Location,
+            licence1: user.licence1, licence1Location: user.licence1Location,
+            licence2: user.licence2, licence2Location: user.licence2Location,
+            licence3: user.licence3, licence3Location: user.licence3Location,
+            licence4: user.licence4, licence4Location: user.licence4Location,
+            licence5: user.licence5, licence5Location: user.licence5Location,
+
             insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
             insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
             insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
@@ -266,6 +270,8 @@ export function approveUser(user) {
             MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
             ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
             TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
+
+            industryCode: user.industryCode, industryClassification: user.industryClassification,
 
             IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
             PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
@@ -479,8 +485,12 @@ export function signUpVendor(user) {
       client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
 
 
-      licence1: user.licence1,
-      licence1Location: user.licence1Location,
+      licence1: user.licence1, licence1Location: user.licence1Location,
+      licence2: user.licence2, licence2Location: user.licence2Location,
+      licence3: user.licence3, licence3Location: user.licence3Location,
+      licence4: user.licence4, licence4Location: user.licence4Location,
+      licence5: user.licence5, licence5Location: user.licence5Location,
+
       insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
       insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
       insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
@@ -503,6 +513,8 @@ export function signUpVendor(user) {
       MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
       ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1,  ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
       TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
+
+      industryCode: user.industryCode, industryClassification: user.industryClassification,
 
       IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
       PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
@@ -658,8 +670,12 @@ export function updateProfile(user) {
             client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
 
 
-            licence1: user.licence1,
-            licence1Location: user.licence1Location,
+            licence1: user.licence1, licence1Location: user.licence1Location,
+            licence2: user.licence2, licence2Location: user.licence2Location,
+            licence3: user.licence3, licence3Location: user.licence3Location,
+            licence4: user.licence4, licence4Location: user.licence4Location,
+            licence5: user.licence5, licence5Location: user.licence5Location,
+            
             insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
             insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
             insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
@@ -682,6 +698,8 @@ export function updateProfile(user) {
             MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
             ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
             TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
+
+            industryCode: user.industryCode, industryClassification: user.industryClassification,
 
             IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
             PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,

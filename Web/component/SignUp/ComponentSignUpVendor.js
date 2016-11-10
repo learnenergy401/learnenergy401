@@ -95,8 +95,13 @@ class ComponentSignUpVendor extends Component {
 
 
 
-    var licence1 = document.getElementById("licence1").value;
-    var licence1Location = document.getElementById("licence1Location").value;
+    var licence1 = document.getElementById("licence1").value; var licence1Location = document.getElementById("licence1Location").value;
+    var licence2 = document.getElementById("licence2").value; var licence2Location = document.getElementById("licence2Location").value;
+    var licence3 = document.getElementById("licence3").value; var licence3Location = document.getElementById("licence3Location").value;
+    var licence4 = document.getElementById("licence4").value; var licence4Location = document.getElementById("licence4Location").value;
+    var licence5 = document.getElementById("licence5").value; var licence5Location = document.getElementById("licence5Location").value;
+
+
     var insurer1 = document.getElementById("insurer1").value; var policyLimit1 = document.getElementById("policyLimit1").value; var expiry1 = document.getElementById("expiry1").value;
     var insurer2 = document.getElementById("insurer2").value; var policyLimit2 = document.getElementById("policyLimit2").value; var expiry2 = document.getElementById("expiry2").value;
     var insurer3 = document.getElementById("insurer3").value; var policyLimit3 = document.getElementById("policyLimit3").value; var expiry3 = document.getElementById("expiry3").value;
@@ -119,6 +124,8 @@ class ComponentSignUpVendor extends Component {
     var MAIcurrentYear = document.getElementById("MAIcurrentYear").value; var MAIpreviousYear1 = document.getElementById("MAIpreviousYear1").value; var MAIpreviousYear2 = document.getElementById("MAIpreviousYear2").value; var MAIpreviousYear3 = document.getElementById("MAIpreviousYear3").value;
     var ORCcurrentYear = document.getElementById("ORCcurrentYear").value; var ORCpreviousYear1 = document.getElementById("ORCpreviousYear1").value; var ORCpreviousYear2 = document.getElementById("ORCpreviousYear2").value; var ORCpreviousYear3 = document.getElementById("ORCpreviousYear3").value;
     var TRIcurrentYear = document.getElementById("TRIcurrentYear").value; var TRIpreviousYear1 = document.getElementById("TRIpreviousYear1").value; var TRIpreviousYear2 = document.getElementById("TRIpreviousYear2").value; var TRIpreviousYear3 = document.getElementById("TRIpreviousYear3").value;
+
+    var industryCode = document.getElementById("industryCode").value; var industryClassification = document.getElementById("industryClassification").value;
 
     var IRcurrentYear = document.getElementById("IRcurrentYear").value; var IRpreviousYear1 = document.getElementById("IRpreviousYear1").value; var IRpreviousYear2 = document.getElementById("IRpreviousYear2").value; var IRpreviousYear3 = document.getElementById("IRpreviousYear3").value;
     var PRcurrentYear = document.getElementById("PRcurrentYear").value; var PRpreviousYear1 = document.getElementById("PRpreviousYear1").value; var PRpreviousYear2 = document.getElementById("PRpreviousYear2").value; var PRpreviousYear3 = document.getElementById("PRpreviousYear3").value;
@@ -150,13 +157,13 @@ class ComponentSignUpVendor extends Component {
       bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone,
       AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
       categories, specialties, client1, client1Location, client1Phone, client1Email, client1Service, client2, client2Location, client2Phone, client2Email, client2Service,
-      client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location,
+      client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
       insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
       insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
       insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
       EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
       MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
-      IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+      industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
       }
 
@@ -364,6 +371,22 @@ class ComponentSignUpVendor extends Component {
             <Textfield label="licence1" className="form-control" ref="licence1"  placeholder="1. Type of Licence" id="licence1"/>
             &nbsp;
             <Textfield label="licence1Location" className="form-control" ref="licence1Location"  placeholder="Location" id="licence1Location"/>
+            <br/>
+            <Textfield label="licence2" className="form-control" ref="licence2"  placeholder="2. Type of Licence" id="licence2"/>
+            &nbsp;
+            <Textfield label="licence2Location" className="form-control" ref="licence2Location"  placeholder="Location" id="licence2Location"/>
+            <br/>
+            <Textfield label="licence3" className="form-control" ref="licence3"  placeholder="3. Type of Licence" id="licence3"/>
+            &nbsp;
+            <Textfield label="licence3Location" className="form-control" ref="licence3Location"  placeholder="Location" id="licence3Location"/>
+            <br/>
+            <Textfield label="licence4" className="form-control" ref="licence4"  placeholder="4. Type of Licence" id="licence4"/>
+            &nbsp;
+            <Textfield label="licence4Location" className="form-control" ref="licence4Location"  placeholder="Location" id="licence4Location"/>
+            <br/>
+            <Textfield label="licence5" className="form-control" ref="licence5"  placeholder="5. Type of Licence" id="licence5"/>
+            &nbsp;
+            <Textfield label="licence5Location" className="form-control" ref="licence5Location"  placeholder="Location" id="licence5Location"/>
             <hr/>
 
             <h4>Part E: Insurance</h4>
@@ -570,7 +593,7 @@ class ComponentSignUpVendor extends Component {
             <h6>Worker’s Compensation - If Proponent’s Rates are higher than applicable Industry Rate(s), provide details as to why and what measures are being taken to address this.</h6>
             <Textfield label="industryCode" className="form-control" ref="industryCode"  placeholder="Industry Code" id="industryCode"/>
             &nbsp;
-            <Textfield label="industryClassification" className="form-control" ref="industryClassification"  placeholder="industryClassification" id="industryClassification"/>
+            <Textfield label="industryClassification" className="form-control" ref="industryClassification"  placeholder="industry Classification" id="industryClassification"/>
             <br/>
             <h6>1. Industry Rate</h6>
             <Textfield label="IRcurrentYear" className="form-control" ref="IRcurrentYear"  placeholder="Current Year" id="IRcurrentYear"/>
