@@ -137,8 +137,11 @@ class AdminReview extends Component {
         var phone = user.vendors[key_name].phone;
         var fax = user.vendors[key_name].fax;
 
-        var owner1Name = user.vendors[key_name].owner1Name;
-        var owner1Pos = user.vendors[key_name].owner1Pos;
+        var owner1Name = user.vendors[key_name].owner1Name; var owner1Pos = user.vendors[key_name].owner1Pos;
+        var owner2Name = user.vendors[key_name].owner2Name; var owner2Pos = user.vendors[key_name].owner2Pos;
+        var owner3Name = user.vendors[key_name].owner3Name; var owner3Pos = user.vendors[key_name].owner3Pos;
+        var owner4Name = user.vendors[key_name].owner4Name; var owner4Pos = user.vendors[key_name].owner4Pos;
+        var owner5Name = user.vendors[key_name].owner5Name; var owner5Pos = user.vendors[key_name].owner5Pos;
 
         var natureBusiness = user.vendors[key_name].natureBusiness;
         var timeBusiness = user.vendors[key_name].timeBusiness;
@@ -222,7 +225,7 @@ class AdminReview extends Component {
 
 
         var info = {email, password, legalEntity, operatingName, address1, address2,
-          city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
+          city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
           adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
           bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone,
           AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
@@ -364,8 +367,11 @@ class AdminReview extends Component {
           var phone = user.vendors[key_name].phone;
           var fax = user.vendors[key_name].fax;
 
-          var owner1Name = user.vendors[key_name].owner1Name;
-          var owner1Pos = user.vendors[key_name].owner1Pos;
+          var owner1Name = user.vendors[key_name].owner1Name; var owner1Pos = user.vendors[key_name].owner1Pos;
+          var owner2Name = user.vendors[key_name].owner2Name; var owner2Pos = user.vendors[key_name].owner2Pos;
+          var owner3Name = user.vendors[key_name].owner3Name; var owner3Pos = user.vendors[key_name].owner3Pos;
+          var owner4Name = user.vendors[key_name].owner4Name; var owner4Pos = user.vendors[key_name].owner4Pos;
+          var owner5Name = user.vendors[key_name].owner5Name; var owner5Pos = user.vendors[key_name].owner5Pos;
 
           var natureBusiness = user.vendors[key_name].natureBusiness;
           var timeBusiness = user.vendors[key_name].timeBusiness;

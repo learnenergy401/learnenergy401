@@ -40,8 +40,14 @@ class ComponentSignUpVendor extends Component {
     var postalCode = document.getElementById("postalCode").value;
     var phone = document.getElementById("phone").value;
     var fax = document.getElementById("fax").value;
-    var owner1Name = document.getElementById("owner1Name").value;
-    var owner1Pos = document.getElementById("owner1Pos").value;
+
+    var owner1Name = document.getElementById("owner1Name").value; var owner1Pos = document.getElementById("owner1Pos").value;
+    var owner2Name = document.getElementById("owner2Name").value; var owner2Pos = document.getElementById("owner2Pos").value;
+    var owner3Name = document.getElementById("owner3Name").value; var owner3Pos = document.getElementById("owner3Pos").value;
+    var owner4Name = document.getElementById("owner4Name").value; var owner4Pos = document.getElementById("owner4Pos").value;
+    var owner5Name = document.getElementById("owner5Name").value; var owner5Pos = document.getElementById("owner5Pos").value;
+
+
     var natureBusiness = document.getElementById("natureBusiness").value;
     var timeBusiness = document.getElementById("timeBusiness").value;
 
@@ -139,7 +145,7 @@ class ComponentSignUpVendor extends Component {
 
 
     var info = {email, password, legalEntity, operatingName, address1, address2,
-      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
+      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
       bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone,
       AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
@@ -195,6 +201,23 @@ class ComponentSignUpVendor extends Component {
             <Textfield label="owner1Name" className="form-control" ref="owner1Name"  placeholder="Name" id="owner1Name"/>
             &nbsp;
             <Textfield label="owner1Pos" className="form-control" ref="owner1Pos"  placeholder="Postion" id="owner1Pos"/>
+            <br/>
+            <Textfield label="owner2Name" className="form-control" ref="owner2Name"  placeholder="Name" id="owner2Name"/>
+            &nbsp;
+            <Textfield label="owner2Pos" className="form-control" ref="owner2Pos"  placeholder="Postion" id="owner2Pos"/>
+            <br/>
+            <Textfield label="owner3Name" className="form-control" ref="owner3Name"  placeholder="Name" id="owner3Name"/>
+            &nbsp;
+            <Textfield label="owner3Pos" className="form-control" ref="owner3Pos"  placeholder="Postion" id="owner3Pos"/>
+            <br/>
+            <Textfield label="owner4Name" className="form-control" ref="owner4Name"  placeholder="Name" id="owner4Name"/>
+            &nbsp;
+            <Textfield label="owner4Pos" className="form-control" ref="owner4Pos"  placeholder="Postion" id="owner4Pos"/>
+            <br/>
+            <Textfield label="owner5Name" className="form-control" ref="owner5Name"  placeholder="Name" id="owner5Name"/>
+            &nbsp;
+            <Textfield label="owner5Pos" className="form-control" ref="owner5Pos"  placeholder="Postion" id="owner5Pos"/>
+
             <hr/>
             <h6>Description:</h6>
             <h6>Nature of Business:&nbsp; <textarea rows="4" cols="50" id="natureBusiness"></textarea></h6>

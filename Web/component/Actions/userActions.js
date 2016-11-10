@@ -621,8 +621,11 @@ export function updateProfile(user) {
             phone: user.phone,
             fax: user.fax,
 
-            owner1Name: user.owner1Name,
-            owner1Pos: user.owner1Pos,
+            owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
+            owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
+            owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
+            owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
+            owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
 
             natureBusiness: user.natureBusiness,
             timeBusiness: user.timeBusiness,
