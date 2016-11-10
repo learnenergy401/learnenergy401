@@ -14,7 +14,7 @@ var cardStyle = {
     width: '80%',
     margin: 'auto',
     top: '50px',
-    height:'300px'
+    height:'550px'
 }
 
 @connect((store) => {
@@ -46,24 +46,24 @@ class ContentCourseDetail extends Component {
     render(){
     	const {course}=this.props
         const opts = {
-            height: '360',
-            width: '480',
+            height: '480',
+            width: '560',
             playerVars: { // https://developers.google.com/youtube/player_parameters
                 autoplay: 0,
                 controls: 1,
             }
         }
         return(
-          <div style={{height:'400px'}} className="learnContent mdl-typography--text-center">
+          <div style={{height:'660px'}} className="learnContent mdl-typography--text-center">
 
           	  <Card  style={cardStyle} >
           	  <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">{course.aCourse.courseName}</CardTitle>
           	  <div className="mdl-layout__content">
               <a name="top" />
                     <div style={{width: '80%', margin: 'auto'}}>
-                        <CardText style={componentStyle}>{course.aCourse.courseDescription}</CardText>
+            {/*<CardText style={componentStyle}>{course.aCourse.courseDescription}</CardText>*/}
                         <div>
-                            <YouTube
+                            <YouTube style={{height:'600px'}}
                                 videoId={course.aCourse.courseVideoId}
                                 opts={opts}
                                 onReady={this._onReady}

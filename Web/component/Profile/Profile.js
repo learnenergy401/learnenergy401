@@ -7,6 +7,10 @@ import SideMenuProfile from './SideMenuProfile.js'
 
 import store from '../Store.js'
 import { connect } from "react-redux"
+    
+var contentStyle = {
+    height: '800px!important',
+}
 //      <LearnHeader/>
 
 @connect((store) => {
@@ -30,7 +34,7 @@ class SignUp extends Component {
     return (
       <div>
         <LearnHeader/>
-        <SideMenuProfile/>
+        <SideMenuProfile style={contentStyle}/>
         <Layout fixedHeader fixedDrawer>
             <ContentProfile/>
             <LearnFooter/>
