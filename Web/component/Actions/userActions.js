@@ -643,7 +643,7 @@ export function updateProfile(user) {
             timeBusiness: user.timeBusiness,
             proAffiliation: user.proAffiliation,
             report:user.report,
-
+            
             bank: user.bank,
             bankLocation: user.bankLocation,
             bonding: user.bonding,
