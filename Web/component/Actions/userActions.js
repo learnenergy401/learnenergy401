@@ -675,7 +675,7 @@ export function updateProfile(user) {
             licence3: user.licence3, licence3Location: user.licence3Location,
             licence4: user.licence4, licence4Location: user.licence4Location,
             licence5: user.licence5, licence5Location: user.licence5Location,
-            
+
             insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
             insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
             insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
