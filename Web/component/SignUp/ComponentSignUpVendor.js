@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react'
-import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
+import { Tab,Tabs,Textfield,Grid,Cell,Card,CardText,CardActions,Button } from 'react-mdl';
 import { signUpVendor } from "../Actions/userActions.js"
 import { connect } from "react-redux"
+
 var componentStyle = {
     margin: 'auto',
 }
@@ -15,6 +16,10 @@ var formStyle = {
   };
 })/*dont add semicolon here!*/
 class ComponentSignUpVendor extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { activeTab: 0 };
+    }
 
   /**
    * Sends information about vendor and adds it to vendor signup list
@@ -177,9 +182,22 @@ class ComponentSignUpVendor extends Component {
     */
     render() {
     return(
-      <div className="android-content mdl-layout__content">
+    <div className="android-content mdl-layout__content">
+
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
+             <div className="demo-tabs">
+                <Tabs activeTab={this.state.activeTab} onChange={(tabId) => this.setState({ activeTab: tabId })} ripple>
+                    <Tab id="A">Part:A</Tab>
+                    <Tab id="B">Part:B</Tab>
+                    <Tab>Part:C</Tab>
+                    <Tab>Part:D</Tab>
+                    <Tab>Part:E</Tab>
+                    <Tab>Part:F</Tab>
+                </Tabs>
+                <section>
+                    {this.state.activeTab === 0? 
+            <div>
             <h4>Part A: Company Structure</h4>
             <hr/>
             <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
@@ -240,8 +258,11 @@ class ComponentSignUpVendor extends Component {
             <input type="radio" name="report" value="reportNotAvailable" id="reportNotApplicable"/>Not Applicable
             </label>
             </div>
+            </div>
+                    :null}
 
-            <hr/>
+                    {this.state.activeTab === 1? 
+            <div>
             <h4>Part B: Financial</h4>
             <Textfield label="bank" className="form-control" ref="bank"  placeholder="Bank" id="bank"/>
             &nbsp;
@@ -269,8 +290,12 @@ class ComponentSignUpVendor extends Component {
             <input type="radio" name="bankruptcy" value="bankN" id="bankNo"/>No
             </label>
             </div>
+            </div>
+                    :null}
 
-            <hr/>
+
+                    {this.state.activeTab === 2? 
+            <div>
             <h4>Part C: General</h4>
             <Textfield label="numEmployees" className="form-control" ref="numEmployees"  placeholder="Number of Employees" id="numEmployees"/>
             <h6>Additional Locations:</h6>
@@ -316,9 +341,12 @@ class ComponentSignUpVendor extends Component {
             <Textfield label="AD3postalCode" className="form-control" ref="AD3postalCode"  placeholder="Additional 3: Postal Code" id="AD3postalCode"/>
             <br/>
             <Textfield label="AD3phone" className="form-control" ref="AD3phone"  placeholder="Additional 3: Phone Number" id="AD3phone"/>
+            </div>
 
+                    :null}
 
-            <hr/>
+                    {this.state.activeTab === 3? 
+                        <div>
             <h4>Part D: Qualifications and Experience</h4>
             <h6>Categories of services provided - List all types of work you are able to provide:</h6>
             <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
@@ -388,7 +416,11 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="licence5Location" className="form-control" ref="licence5Location"  placeholder="Location" id="licence5Location"/>
             <hr/>
+            </div>
+                    :null}
 
+                    {this.state.activeTab === 4?
+                <div>
             <h4>Part E: Insurance</h4>
             <h6>NOTE: Insurance Requirements are subject to change based on individual scopes of service. General Liability Bodily Injury &amp; Property Damage including the following:</h6>
             <h6>1. Products/Completed Operations:</h6>
@@ -525,7 +557,13 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="expiry15" className="form-control" ref="expiry15"  placeholder="Expiry Date" id="expiry15"/>
 
-            <hr/>
+            </div>
+
+                    :null}
+
+                    {this.state.activeTab === 5? 
+
+            <div>
             <h4>Part F: Health, Safety, and Environment (HSE) and Regulatory</h4>
             <h6>List your workers&#39; compensation board / insurance plan rate for the previous four (4) years starting with the current year. (If your industry is exempt from the requirement to participate in a workers&#39; compensation jurisdiction, please attach the supporting documentation to establish this exemption).</h6>
             <hr/>
@@ -667,6 +705,13 @@ class ComponentSignUpVendor extends Component {
             <CardActions>
                 <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
+        </div>
+
+                    :null}
+
+                </section>
+
+            </div>    
         </div>
       </div>
     );
