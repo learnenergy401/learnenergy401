@@ -5,18 +5,18 @@
  * @return {state} state
  */
 export default function reducer(state={
-    user: "loading",
-    userName:"loading",
+    user: null,
+    userName:null,
     fetching: false,
     fetched: false,
-    error: "loading",
+    error: null,
     isLoggedIn:false,
-    role: "loading",
-    purchasers: "loading",
-    vendors: "loading",
-    ad: "loading",
-    admin: "loading", 
-    keys_roles: "loading",
+    role: null,
+    purchasers: null,
+    vendors: null,
+    ad: null,
+    admin: null, 
+    keys_roles: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -122,8 +122,8 @@ export default function reducer(state={
                                  
     },
     profile:{
-        role:"loading",
-        firstName: "loading",
+        role:null,
+        firstName: null,
         // *TODO*
         // add more attribute here in model
         // null as default, i copie role into outer scope for convenience :)
