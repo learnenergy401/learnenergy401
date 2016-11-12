@@ -5,18 +5,18 @@
  * @return {state} state
  */
 export default function reducer(state={
-    user: null,
-    userName:null,
+    user: "loading",
+    userName:"loading",
     fetching: false,
     fetched: false,
-    error: null,
+    error: "loading",
     isLoggedIn:false,
-    role: null,
-    purchasers: null,
-    vendors: null,
-    ad: null,
-    admin: null, 
-    keys_roles: null,
+    role: "loading",
+    purchasers: "loading",
+    vendors: "loading",
+    ad: "loading",
+    admin: "loading", 
+    keys_roles: "loading",
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -108,10 +108,22 @@ export default function reducer(state={
 
             website: "loading",
             password: "loading",
+            
+            // different variables for purchasers
+            gstReg: "loading",
+            billAddress1:"loading",
+            billAddress2:"loading",
+            billCity:"loading",
+            billProvince:"loading",
+            billCountry:"loading",                     
+            billPostalCode:"loading",
+            accntRec: "loading",
+            jointVenture: "loading",                     
+                                 
     },
     profile:{
-        role:null,
-        firstName: null,
+        role:"loading",
+        firstName: "loading",
         // *TODO*
         // add more attribute here in model
         // null as default, i copie role into outer scope for convenience :)

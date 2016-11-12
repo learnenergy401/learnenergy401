@@ -8,7 +8,7 @@ import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
 import ContentCourseDisplay from "../ContentCourseDisplay.js"
 
-import {updateProfile} from "../Actions/userActions.js"
+import {updateProfile,getCurrentUser} from "../Actions/userActions.js"
 
 @connect((store) => {
   return {
@@ -19,9 +19,18 @@ import {updateProfile} from "../Actions/userActions.js"
 
 
 class ContentProfile extends Component {
-
+    getCurrentUser() {
+        this.props.dispatch(getCurrentUser())
+    }
+    
+    compoentWillMount(){
+        this.getCurrentUser()
+    }
+    
     componentDidUpdate(){
+        
         const {user} = this.props
+        if(user.profile.role==1){
         document.getElementById("legalEntity").value=user.profile.legalEntity;
         document.getElementById("operatingName").value=user.profile.operatingName;
         document.getElementById("address1").value=user.profile.address1;
@@ -179,7 +188,9 @@ class ContentProfile extends Component {
         document.getElementById("email").value=user.profile.email;
         document.getElementById("password").value=user.profile.password;
         document.getElementById("website").value=user.profile.website;
-        
+        }if(user.profile.role==0){
+            
+        }
         
         
     }
@@ -326,6 +337,8 @@ class ContentProfile extends Component {
         console.log(user)
 
         if (profile.menu == 0){
+            if(user.isLoggedIn){
+                if(user.profile.role==1){
             return(
                   <Content className="learn-content">
                         <List>
@@ -444,7 +457,7 @@ class ContentProfile extends Component {
             &nbsp;
             <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
             <br/>
-            <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="natureBusiness"></textarea></h6>
+            <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client1Service"></textarea></h6>
             <hr/>
             <h6>Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).</h6>
             <br/>
@@ -733,6 +746,24 @@ class ContentProfile extends Component {
                         </List>
                     </Content>
             );
+            }else if(user.profile.role==0){
+                return(
+                <Content>
+                <div>
+                <p>pass</p>
+                </div>
+                </Content>
+                )
+            }
+        }else{
+            return(
+                <Content>
+                <div>
+                <p>loading data...</p>
+                </div>
+                </Content>
+            )
+        }
         }else if (profile.menu == 1){
             return(
                 <ContentCourseDisplay/>
