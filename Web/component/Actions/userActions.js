@@ -596,7 +596,7 @@ export function updateProfile(user) {
       .then((data) => {
         var currentUser = firebaseAuthInstance.currentUser
         console.log(currentUser.uid);
-        if (user.role == 1) { // update as a vendor
+        if (currentUser.role == 1) { // update as a vendor
 
           firebaseDb.ref('User/' + currentUser.uid).set({
             legalEntity: user.legalEntity,
