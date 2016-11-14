@@ -108,6 +108,18 @@ export default function reducer(state={
 
             website: "loading",
             password: "loading",
+            
+            // different variables for purchasers
+            gstReg: "loading",
+            billAddress1:"loading",
+            billAddress2:"loading",
+            billCity:"loading",
+            billProvince:"loading",
+            billCountry:"loading",                     
+            billPostalCode:"loading",
+            accntRec: "loading",
+            jointVenture: "loading",                     
+                                 
     },
     profile:{
         role:null,

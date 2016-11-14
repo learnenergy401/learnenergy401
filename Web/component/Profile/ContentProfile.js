@@ -8,7 +8,7 @@ import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
 import ContentCourseDisplay from "../ContentCourseDisplay.js"
 
-import {updateProfile} from "../Actions/userActions.js"
+import {updateProfile,getCurrentUser,logInUser} from "../Actions/userActions.js"
 
 @connect((store) => {
   return {
@@ -19,9 +19,29 @@ import {updateProfile} from "../Actions/userActions.js"
 
 
 class ContentProfile extends Component {
-
+    getCurrentUser() {
+        this.props.dispatch(getCurrentUser())
+    }
+    
+    logInUser(user) {
+        this.props.dispatch(logInUser(user))
+    }
+    
+    updateProfile(user) {
+        this.props.dispatch(updateProfile(user));
+    } 
+    
+    compoentWillMount(){
+        this.getCurrentUser()
+    }
+    
     componentDidUpdate(){
+        
         const {user} = this.props
+        if(!user.isLoggedIn){
+            return
+        }
+        if(user.profile.role==1){
         document.getElementById("legalEntity").value=user.profile.legalEntity;
         document.getElementById("operatingName").value=user.profile.operatingName;
         document.getElementById("address1").value=user.profile.address1;
@@ -34,6 +54,15 @@ class ContentProfile extends Component {
         document.getElementById("fax").value=user.profile.fax;
         document.getElementById("owner1Name").value=user.profile.owner1Name;
         document.getElementById("owner1Pos").value=user.profile.owner1Pos;
+        document.getElementById("owner2Name").value=user.profile.owner2Name;
+        document.getElementById("owner2Pos").value=user.profile.owner2Pos;
+        document.getElementById("owner3Name").value=user.profile.owner3Name;
+        document.getElementById("owner3Pos").value=user.profile.owner3Pos;
+        document.getElementById("owner4Name").value=user.profile.owner4Name;
+        document.getElementById("owner4Pos").value=user.profile.owner4Pos;
+        document.getElementById("owner5Name").value=user.profile.owner5Name;
+        document.getElementById("owner5Pos").value=user.profile.owner5Pos;
+        
         document.getElementById("natureBusiness").value=user.profile.natureBusiness;
         document.getElementById("timeBusiness").value=user.profile.timeBusiness;
         document.getElementById("proAffiliation").value=user.profile.proAffiliation;
@@ -61,6 +90,10 @@ class ContentProfile extends Component {
             document.getElementById("bankNo").checked=true;
         }
         
+        document.getElementById("client1Service").value=user.profile.client1Service;
+        document.getElementById("industryCode").value=user.profile.industryCode;
+        document.getElementById("industryClassification").value=user.profile.industryClassification;
+            
         document.getElementById("numEmployees").value=user.profile.numEmployees;
         document.getElementById("AD1address1").value=user.profile.AD1address1;
         document.getElementById("AD1address2").value=user.profile.AD1address2;
@@ -69,6 +102,21 @@ class ContentProfile extends Component {
         document.getElementById("AD1country").value=user.profile.AD1country;
         document.getElementById("AD1postalCode").value=user.profile.AD1postalCode;
         document.getElementById("AD1phone").value=user.profile.AD1phone;
+        document.getElementById("AD2address1").value=user.profile.AD2address1;
+        document.getElementById("AD2address2").value=user.profile.AD2address2;
+        document.getElementById("AD2city").value=user.profile.AD2city;
+        document.getElementById("AD2province").value=user.profile.AD2province;
+        document.getElementById("AD2country").value=user.profile.AD2country;
+        document.getElementById("AD2postalCode").value=user.profile.AD2postalCode;
+        document.getElementById("AD2phone").value=user.profile.AD2phone;
+        document.getElementById("AD3address1").value=user.profile.AD3address1;
+        document.getElementById("AD3address2").value=user.profile.AD3address2;
+        document.getElementById("AD3city").value=user.profile.AD3city;
+        document.getElementById("AD3province").value=user.profile.AD3province;
+        document.getElementById("AD3country").value=user.profile.AD3country;
+        document.getElementById("AD3postalCode").value=user.profile.AD3postalCode;
+        document.getElementById("AD3phone").value=user.profile.AD3phone;
+        
         document.getElementById("categories").value=user.profile.categories;
         document.getElementById("specialties").value=user.profile.specialties;
         
@@ -76,8 +124,33 @@ class ContentProfile extends Component {
         document.getElementById("client1Location").value=user.profile.client1Location;
         document.getElementById("client1Phone").value=user.profile.client1Phone;
         document.getElementById("client1Email").value=user.profile.client1Email;
+        document.getElementById("client1Service").value=user.profile.client1Service;
+        document.getElementById("client2").value=user.profile.client2;
+        document.getElementById("client2Location").value=user.profile.client2Location;
+        document.getElementById("client2Phone").value=user.profile.client2Phone;
+        document.getElementById("client2Email").value=user.profile.client2Email;
+        document.getElementById("client2Service").value=user.profile.client2Service;
+        document.getElementById("client3").value=user.profile.client3;
+        document.getElementById("client3Location").value=user.profile.client3Location;
+        document.getElementById("client3Phone").value=user.profile.client3Phone;
+        document.getElementById("client3Email").value=user.profile.client3Email;
+        document.getElementById("client3Service").value=user.profile.client3Service;
+        document.getElementById("client4").value=user.profile.client4;
+        document.getElementById("client4Location").value=user.profile.client4Location;
+        document.getElementById("client4Phone").value=user.profile.client4Phone;
+        document.getElementById("client4Email").value=user.profile.client4Email;
+        document.getElementById("client4Service").value=user.profile.client4Service;
+            
         document.getElementById("licence1").value=user.profile.licence1;
         document.getElementById("licence1Location").value=user.profile.licence1Location;
+        document.getElementById("licence2").value=user.profile.licence2;
+        document.getElementById("licence2Location").value=user.profile.licence2Location;
+        document.getElementById("licence3").value=user.profile.licence3;
+        document.getElementById("licence3Location").value=user.profile.licence3Location;
+        document.getElementById("licence4").value=user.profile.licence4;
+        document.getElementById("licence4Location").value=user.profile.licence4Location;
+        document.getElementById("licence5").value=user.profile.licence5;
+        document.getElementById("licence5Location").value=user.profile.licence5Location;
         
         document.getElementById("insurer1").value=user.profile.insurer1;
         document.getElementById("policyLimit1").value=user.profile.policyLimit1;
@@ -179,14 +252,53 @@ class ContentProfile extends Component {
         document.getElementById("email").value=user.profile.email;
         document.getElementById("password").value=user.profile.password;
         document.getElementById("website").value=user.profile.website;
-        
+        }if(user.profile.role==0){
+            document.getElementById("legalEntity").value=user.profile.legalEntity;
+            document.getElementById("operatingName").value=user.profile.operatingName;
+            document.getElementById("address1").value=user.profile.address1;
+            document.getElementById("address2").value=user.profile.address2;
+            document.getElementById("city").value=user.profile.city;
+            document.getElementById("province").value=user.profile.province;
+            document.getElementById("country").value=user.profile.country;
+            document.getElementById("postalCode").value=user.profile.postalCode;
+            document.getElementById("phone").value=user.profile.phone;
+            document.getElementById("fax").value=user.profile.fax;
+            document.getElementById("email").value=user.profile.email;
+            document.getElementById("adminContact").value=user.profile.adminContact;
+            document.getElementById("technicalContact").value=user.profile.technicalContact;
+            document.getElementById("gstReg").value=user.profile.gstReg;
+            document.getElementById("billAddress1").value=user.profile.billAddress1;
+            document.getElementById("billAddress2").value=user.profile.billAddress2;
+            document.getElementById("billCity").value=user.profile.billCity;
+            document.getElementById("billProvince").value=user.profile.billProvince;
+            document.getElementById("billCountry").value=user.profile.billCountry;
+            document.getElementById("billPostalCode").value=user.profile.billPostalCode;
+            document.getElementById("accntRec").value=user.profile.accntRec;
+            document.getElementById("bank").value=user.profile.bank;
+            
+            if(user.profile.ISnumber=="yes"){
+                document.getElementById("ISnumberYes").checked=true
+            }else{
+                document.getElementById("ISnumberNo").checked=true
+            }
+            
+            document.getElementById("website").value=user.profile.website;
+            document.getElementById("password").value=user.profile.password;
+            
+            if(user.profile.jointVenture=="yes"){
+                document.getElementById("jointVentureYes").checked=true
+            }else{
+                document.getElementById("jointVentureNo").checked=true
+            }
+
+            document.getElementById("categories").value=user.profile.categories;
+    
+        }
         
         
     }
     
-    updateProfile(user) {
-        this.props.dispatch(updateProfile(user));
-    } 
+    
     
     requestUpdate() {
     // part A
@@ -202,11 +314,19 @@ class ContentProfile extends Component {
     var fax = document.getElementById("fax").value;
     var owner1Name = document.getElementById("owner1Name").value;
     var owner1Pos = document.getElementById("owner1Pos").value;
+    var owner2Name = document.getElementById("owner2Name").value;
+    var owner2Pos = document.getElementById("owner2Pos").value;
+    var owner3Name = document.getElementById("owner3Name").value;
+    var owner3Pos = document.getElementById("owner3Pos").value;
+    var owner4Name = document.getElementById("owner4Name").value;
+    var owner4Pos = document.getElementById("owner4Pos").value;
+    var owner5Name = document.getElementById("owner5Name").value;
+    var owner5Pos = document.getElementById("owner5Pos").value;
     var natureBusiness = document.getElementById("natureBusiness").value;
     var timeBusiness = document.getElementById("timeBusiness").value;
 
     var proAffiliation = document.getElementById("proAffiliation").value;
-    var report = null
+    var report = "";
     if(document.getElementById("reportEnclosed").checked) {
         report = "enclosed"
     } else if (document.getElementById("reportNotAvailable").checked) {
@@ -224,30 +344,34 @@ class ContentProfile extends Component {
     var bondingLimit = document.getElementById("bondingLimit").value;
     var grossBus = document.getElementById("grossBus").value;
     var grossBusYear = document.getElementById("grossBusYear").value;
-    var bankruptcy = null
+    var bankruptcy = "";
     if(document.getElementById("bankYes").checked) {
         bankruptcy = "yes"
     } else if (document.getElementById("bankNo").checked) {
         bankruptcy = "no"
     }
     var numEmployees = document.getElementById("numEmployees").value;
-    var AD1address1 = document.getElementById("AD1address1").value;
-    var AD1address2 = document.getElementById("AD1address2").value;
-    var AD1city = document.getElementById("AD1city").value;
-    var AD1province = document.getElementById("AD1province").value;
-    var AD1country = document.getElementById("AD1country").value;
-    var AD1postalCode = document.getElementById("AD1postalCode").value;
-    var AD1phone = document.getElementById("AD1phone").value;
+    var AD1address1 = document.getElementById("AD1address1").value; var AD1address2 = document.getElementById("AD1address2").value; var AD1city = document.getElementById("AD1city").value; var AD1province = document.getElementById("AD1province").value;
+    var AD1country = document.getElementById("AD1country").value; var AD1postalCode = document.getElementById("AD1postalCode").value; var AD1phone = document.getElementById("AD1phone").value;
+    var AD2address1 = document.getElementById("AD2address1").value; var AD2address2 = document.getElementById("AD2address2").value; var AD2city = document.getElementById("AD2city").value; var AD2province = document.getElementById("AD2province").value;
+    var AD2country = document.getElementById("AD2country").value; var AD2postalCode = document.getElementById("AD2postalCode").value; var AD2phone = document.getElementById("AD2phone").value;
+    var AD3address1 = document.getElementById("AD3address1").value; var AD3address2 = document.getElementById("AD3address2").value; var AD3city = document.getElementById("AD3city").value; var AD3province = document.getElementById("AD3province").value;
+    var AD3country = document.getElementById("AD3country").value; var AD3postalCode = document.getElementById("AD3postalCode").value; var AD3phone = document.getElementById("AD3phone").value;
 
     var categories = document.getElementById("categories").value;
     var specialties = document.getElementById("specialties").value;
 
-    var client1 = document.getElementById("client1").value;
-    var client1Location = document.getElementById("client1Location").value;
-    var client1Phone = document.getElementById("client1Phone").value;
-    var client1Email = document.getElementById("client1Email").value;
-    var licence1 = document.getElementById("licence1").value;
-    var licence1Location = document.getElementById("licence1Location").value;
+    var client1 = document.getElementById("client1").value; var client1Location = document.getElementById("client1Location").value; var client1Phone = document.getElementById("client1Phone").value; var client1Email = document.getElementById("client1Email").value; var client1Service = document.getElementById("client1Service").value;
+    var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value;
+    var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value;
+    var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value;
+        
+    var licence1 = document.getElementById("licence1").value; var licence1Location = document.getElementById("licence1Location").value;
+    var licence2 = document.getElementById("licence2").value; var licence2Location = document.getElementById("licence2Location").value;
+    var licence3 = document.getElementById("licence3").value; var licence3Location = document.getElementById("licence3Location").value;
+    var licence4 = document.getElementById("licence4").value; var licence4Location = document.getElementById("licence4Location").value;
+    var licence5 = document.getElementById("licence5").value; var licence5Location = document.getElementById("licence5Location").value;
+        
     var insurer1 = document.getElementById("insurer1").value; var policyLimit1 = document.getElementById("policyLimit1").value; var expiry1 = document.getElementById("expiry1").value;
     var insurer2 = document.getElementById("insurer2").value; var policyLimit2 = document.getElementById("policyLimit2").value; var expiry2 = document.getElementById("expiry2").value;
     var insurer3 = document.getElementById("insurer3").value; var policyLimit3 = document.getElementById("policyLimit3").value; var expiry3 = document.getElementById("expiry3").value;
@@ -284,7 +408,7 @@ class ContentProfile extends Component {
     var adminContact = document.getElementById("adminContact").value;
     var technicalContact = document.getElementById("technicalContact").value;
 
-    var ISnumber = null
+    var ISnumber = " ";
     if(document.getElementById("ISnumberYes").checked) {
         ISnumber = "yes"
     } else if (document.getElementById("ISnumberNo").checked) {
@@ -292,26 +416,28 @@ class ContentProfile extends Component {
     }
 
     var website = document.getElementById("website").value;
-
+    const {user} = this.props;
     var role=1;
     
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;    
-    var user = {email, password, role,legalEntity, operatingName, address1, address2,
-      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
+    var userUpdate = {email, password, legalEntity, operatingName, address1, address2,
+      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
-      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
-      AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
+      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees,
+      AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone, AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
+      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Service, client2, client2Location, client2Phone, client2Email, client2Service,
+      client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
       insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
       insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
       insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
       EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
       MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
-      IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
-      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
+      industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,role
       }
-
-    this.updateProfile(user);
+    //this.logInUser(user);
+    this.updateProfile(userUpdate);
     }
 
     /**
@@ -326,6 +452,8 @@ class ContentProfile extends Component {
         console.log(user)
 
         if (profile.menu == 0){
+            if(user.isLoggedIn){
+                if(user.profile.role==1){
             return(
                   <Content className="learn-content">
                         <List>
@@ -365,6 +493,22 @@ class ContentProfile extends Component {
             <Textfield label="owner1Name" className="form-control" ref="owner1Name"  placeholder="Name" id="owner1Name"/>
             &nbsp;
             <Textfield label="owner1Pos" className="form-control" ref="owner1Pos"  placeholder="Postion" id="owner1Pos"/>
+            <br/>
+            <Textfield label="owner2Name" className="form-control" ref="owner2Name"  placeholder="Name" id="owner2Name"/>
+            &nbsp;
+            <Textfield label="owner2Pos" className="form-control" ref="owner2Pos"  placeholder="Postion" id="owner2Pos"/>
+            <br/>
+            <Textfield label="owner3Name" className="form-control" ref="owner3Name"  placeholder="Name" id="owner3Name"/>
+            &nbsp;
+            <Textfield label="owner3Pos" className="form-control" ref="owner3Pos"  placeholder="Postion" id="owner3Pos"/>
+            <br/>
+            <Textfield label="owner4Name" className="form-control" ref="owner4Name"  placeholder="Name" id="owner4Name"/>
+            &nbsp;
+            <Textfield label="owner4Pos" className="form-control" ref="owner4Pos"  placeholder="Postion" id="owner4Pos"/>
+            <br/>
+            <Textfield label="owner5Name" className="form-control" ref="owner5Name"  placeholder="Name" id="owner5Name"/>
+            &nbsp;
+            <Textfield label="owner5Pos" className="form-control" ref="owner5Pos"  placeholder="Postion" id="owner5Pos"/>
             <hr/>
             <h6>Description:</h6>
             <h6>Nature of Business:&nbsp; <textarea rows="4" cols="50" id="natureBusiness"></textarea></h6>
@@ -428,7 +572,34 @@ class ContentProfile extends Component {
             <Textfield label="AD1postalCode" className="form-control" ref="AD1postalCode"  placeholder="Additional 1: Postal Code" id="AD1postalCode"/>
             <br/>
             <Textfield label="AD1phone" className="form-control" ref="AD1phone"  placeholder="Additional 1: Phone Number" id="AD1phone"/>
-
+            <hr/>
+            <Textfield label="AD2address1" className="form-control" ref="AD2address1"  placeholder="Additional 2: Address 1" id="AD2address1"/>
+            &nbsp;
+            <Textfield label="AD2address2" className="form-control" ref="AD2address2"  placeholder="Additional 2: Address 2" id="AD2address2"/>
+            <br/>
+            <Textfield label="AD2city" className="form-control" ref="AD2city"  placeholder="Additional 2: City" id="AD2city"/>
+            &nbsp;
+            <Textfield label="AD2province" className="form-control" ref="AD2province"  placeholder="Additional 2: Province" id="AD2province"/>
+            <br/>
+            <Textfield label="AD2country" className="form-control" ref="AD2country"  placeholder="Additional 2: Country" id="AD2country"/>
+            &nbsp;
+            <Textfield label="AD2postalCode" className="form-control" ref="AD2postalCode"  placeholder="Additional 2: Postal Code" id="AD2postalCode"/>
+            <br/>
+            <Textfield label="AD2phone" className="form-control" ref="AD2phone"  placeholder="Additional 2: Phone Number" id="AD2phone"/>
+            <hr/>
+            <Textfield label="AD3address1" className="form-control" ref="AD3address1"  placeholder="Additional 3: Address 1" id="AD3address1"/>
+            &nbsp;
+            <Textfield label="AD3address2" className="form-control" ref="AD3address2"  placeholder="Additional 3: Address 2" id="AD3address2"/>
+            <br/>
+            <Textfield label="AD3city" className="form-control" ref="AD3city"  placeholder="Additional 3: City" id="AD3city"/>
+            &nbsp;
+            <Textfield label="AD3province" className="form-control" ref="AD3province"  placeholder="Additional 3: Province" id="AD3province"/>
+            <br/>
+            <Textfield label="AD3country" className="form-control" ref="AD3country"  placeholder="Additional 3: Country" id="AD3country"/>
+            &nbsp;
+            <Textfield label="AD3postalCode" className="form-control" ref="AD3postalCode"  placeholder="Additional 3: Postal Code" id="AD3postalCode"/>
+            <br/>
+            <Textfield label="AD3phone" className="form-control" ref="AD3phone"  placeholder="Additional 3: Phone Number" id="AD3phone"/>
             <hr/>
             <h4>Part D: Qualifications and Experience</h4>
             <h6>Categories of services provided - List all types of work you are able to provide:</h6>
@@ -444,13 +615,59 @@ class ContentProfile extends Component {
             &nbsp;
             <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
             <br/>
-            <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="natureBusiness"></textarea></h6>
+            <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client1Service"></textarea></h6>
+            <hr/>
+            <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Name" id="client2"/>
+            &nbsp;
+            <Textfield label="client2Location" className="form-control" ref="client2Location"  placeholder="Client 2: Location" id="client2Location"/>
+            <br/>
+            <Textfield label="client2Phone" className="form-control" ref="client2Phone"  placeholder="Client 2: Phone" id="client2Phone"/>
+            &nbsp;
+            <Textfield label="client2Email" className="form-control" ref="client2Email"  placeholder="Client 2: Email" id="client2Email"/>
+            <br/>
+            <h6>Client 2 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client2Service"></textarea></h6>
+            <hr/>
+            <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Name" id="client3"/>
+            &nbsp;
+            <Textfield label="client3Location" className="form-control" ref="client3Location"  placeholder="Client 3: Location" id="client3Location"/>
+            <br/>
+            <Textfield label="client3Phone" className="form-control" ref="client3Phone"  placeholder="Client 3: Phone" id="client3Phone"/>
+            &nbsp;
+            <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
+            <br/>
+            <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client3Service"></textarea></h6>
+            <hr/>
+            <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Name" id="client4"/>
+            &nbsp;
+            <Textfield label="client4Location" className="form-control" ref="client4Location"  placeholder="Client 4: Location" id="client4Location"/>
+            <br/>
+            <Textfield label="client4Phone" className="form-control" ref="client4Phone"  placeholder="Client 4: Phone" id="client4Phone"/>
+            &nbsp;
+            <Textfield label="client4Email" className="form-control" ref="client4Email"  placeholder="Client 4: Email" id="client4Email"/>
+            <br/>
+            <h6>Client 4 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client4Service"></textarea></h6>
             <hr/>
             <h6>Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).</h6>
             <br/>
             <Textfield label="licence1" className="form-control" ref="licence1"  placeholder="1. Type of Licence" id="licence1"/>
             &nbsp;
             <Textfield label="licence1Location" className="form-control" ref="licence1Location"  placeholder="Location" id="licence1Location"/>
+            <br/>
+            <Textfield label="licence2" className="form-control" ref="licence2"  placeholder="2. Type of Licence" id="licence2"/>
+            &nbsp;
+            <Textfield label="licence2Location" className="form-control" ref="licence2Location"  placeholder="Location" id="licence2Location"/>
+            <br/>
+            <Textfield label="licence3" className="form-control" ref="licence3"  placeholder="3. Type of Licence" id="licence3"/>
+            &nbsp;
+            <Textfield label="licence3Location" className="form-control" ref="licence3Location"  placeholder="Location" id="licence3Location"/>
+            <br/>
+            <Textfield label="licence4" className="form-control" ref="licence4"  placeholder="4. Type of Licence" id="licence4"/>
+            &nbsp;
+            <Textfield label="licence4Location" className="form-control" ref="licence4Location"  placeholder="Location" id="licence4Location"/>
+            <br/>
+            <Textfield label="licence5" className="form-control" ref="licence5"  placeholder="5. Type of Licence" id="licence5"/>
+            &nbsp;
+            <Textfield label="licence5Location" className="form-control" ref="licence5Location"  placeholder="Location" id="licence5Location"/>
             <hr/>
 
             <h4>Part E: Insurance</h4>
@@ -733,6 +950,106 @@ class ContentProfile extends Component {
                         </List>
                     </Content>
             );
+            }else if(user.profile.role==0){
+                return(
+                <Content className="learn-content">
+                        <List>
+                          <ListItem>
+                            <ListItemContent>profile overview</ListItemContent>
+                    <div className="android-content mdl-layout__content">
+        <a name="top" />
+        <div style={{width: '80%', margin: 'auto'}}>
+            <CardActions>
+                <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestUpdate.bind(this)}>Update profile</Button>
+            </CardActions>
+            <hr/>
+            <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
+            <br/>
+            <Textfield label="operatingName" className="form-control" ref="password"  placeholder="Operating Name" id="operatingName"/>
+            <hr/>
+            <h6>Address:</h6>
+            <br/>
+            <Textfield label="address1" className="form-control" ref="address1"  placeholder="Address 1" id="address1"/>
+            <br/>
+            <Textfield label="address2" className="form-control" ref="address2"  placeholder="Address 2" id="address2"/>
+            <br/>
+            <Textfield label="city" className="form-control" ref="city"  placeholder="City" id="city"/>
+            <br/>
+            <Textfield label="province" className="form-control" ref="province"  placeholder="Province" id="province"/>
+            <br/>
+            <Textfield label="country" className="form-control" ref="country"  placeholder="Country" id="country"/>
+            <br/>
+            <Textfield label="postalCode" className="form-control" ref="postalCode"  placeholder="Postal Code" id="postalCode"/>
+            <hr/>
+            <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone Number" id="phone"/>
+            <br/>
+            <Textfield label="fax" className="form-control" ref="fax"  placeholder="Fax Number" id="fax"/>
+            <br/>
+            <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
+            <br/>
+            <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+            <br/>
+            <Textfield label="adminContact" className="form-control" ref="adminContact"  placeholder="Admin Email" id="adminContact"/>
+            <br/>
+            <Textfield label="technicalContact" className="form-control" ref="technicalContact"  placeholder="Technical Email" id="technicalContact"/>
+            <br/>
+            <Textfield label="gstReg" className="form-control" ref="gstReg"  placeholder="GST Registration #" id="gstReg"/>
+            <br/>
+            <hr/>
+            <h6>Billing Address:</h6>
+            <br/>
+            <Textfield label="billAddress1" className="form-control" ref="billAddress1"  placeholder="Address 1" id="billAddress1"/>
+            <br/>
+            <Textfield label="billAddress2" className="form-control" ref="billAddress2"  placeholder="Address 2" id="billAddress2"/>
+            <br/>
+            <Textfield label="billCity" className="form-control" ref="billCity"  placeholder="City" id="billCity"/>
+            <br/>
+            <Textfield label="billProvince" className="form-control" ref="billProvince"  placeholder="Province" id="billProvince"/>
+            <br/>
+            <Textfield label="billCountry" className="form-control" ref="billCountry"  placeholder="Country" id="billCountry"/>
+            <br/>
+            <Textfield label="billPostalCode" className="form-control" ref="billPostalCode"  placeholder="Postal Code" id="billPostalCode"/>
+            <hr/>
+            <Textfield label="accntRec" className="form-control" ref="accntRec"  placeholder="Accounts Receivable" id="accntRec"/>
+            <br/>
+            <Textfield label="bank" className="form-control" ref="bank"  placeholder="Bank" id="bank"/>
+            <br/>
+            <div>
+              <label>ISN Member:
+                <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
+                <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
+              </label>
+            </div>
+            <br/>
+            <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
+            <hr/>
+            <h6>Would you like to be considered for joint ventures in development of new education/training?</h6>
+            <div>
+              <label>
+                <input type="radio" name="JointVentures" value="jvY" id="jointVentureYes"/>Yes
+                <input type="radio" name="JointVentures" value="jvN" id="jointVentureNo"/>No
+              </label>
+            </div>
+            <br/>
+            <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
+            <hr/>
+            
+        </div>
+      </div>
+                </ListItem>
+                        </List>
+                    </Content>
+                )
+            }
+        }else{
+            return(
+                <Content>
+                <div>
+                <p>loading data...</p>
+                </div>
+                </Content>
+            )
+        }
         }else if (profile.menu == 1){
             return(
                 <ContentCourseDisplay/>
