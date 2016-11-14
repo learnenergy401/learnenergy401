@@ -14,12 +14,19 @@ import { fetchVendorCourse } from "./Actions/courseActions"
 })
 
 class ContentCourseDisplay extends Component{
-    componentWillMount(){   
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses
+     */
+    componentWillMount(){
         const {user} = this.props
         this.props.dispatch(fetchVendorCourse(user.user.email));
     }
-    
-    
+
+    /**
+     * Coverts json to array
+     * @param {object} json 
+     * @return {object} arr - return array from converted json object
+     */
     jsonToArray(json){
         var arr = [];
         for (var prop in json) {
@@ -27,11 +34,15 @@ class ContentCourseDisplay extends Component{
         }
         return arr
     }
+    /**
+    * Loads the webpage for course display
+    * @return {html} - returns avaiable courses
+    */
     render(){
         const {course}=this.props
         if (course.currentVendorCourseList){
             var arr = this.jsonToArray(course.currentVendorCourseList)
-            const mappedCourse = arr.map(course => 
+            const mappedCourse = arr.map(course =>
                                         <li key = {course.courseName}>{course.courseName}</li>
                                        )
             return(
@@ -40,16 +51,16 @@ class ContentCourseDisplay extends Component{
                 <ul>{mappedCourse}</ul>
                 </Content>
             )
-                                         
+
         }else{
             return(
 
                 <Content className="learn-content">
-                
+
                 </Content>
             )
         }
-        
+
     }
 }
 

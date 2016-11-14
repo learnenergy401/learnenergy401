@@ -15,22 +15,28 @@ import { connect } from "react-redux"
   };
 })/*dont add semicolon here!*/
 class SignUp extends Component {
-    
+  /**
+   * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses
+   */
     componentWillMount(){
         const {user} = this.props
         console.log(user.isLoggedIn)
     }
+  /**
+  * Loads the user profile
+  * @return {html} - returns course, profile, sidebar
+  */
   render(){
     return (
       <div>
         <LearnHeader/>
         <SideMenuProfile/>
         <Layout fixedHeader fixedDrawer>
-            <ContentProfile/>   
+            <ContentProfile/>
             <LearnFooter/>
         </Layout>
-        
-      </div>    
+
+      </div>
     );
   }
 }
@@ -38,4 +44,3 @@ class SignUp extends Component {
 
 
 export default SignUp
-    

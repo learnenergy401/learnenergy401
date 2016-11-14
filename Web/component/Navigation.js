@@ -12,17 +12,21 @@ var containerStyle={
 
 var navStyle={
     width: '800px',
-    WebkitTransition: 'all', 
-    msTransition: 'all' 
+    WebkitTransition: 'all',
+    msTransition: 'all'
   }
 
 
 class LearnNavigation extends Component {
+    /**
+    * Loads the options on the header for Navigation
+    * @return {html} - returns Component for the header options
+    */
     render(){
         return(
         <div style={containerStyle}>
             <Navigation style={navStyle} className="learn-navigation">
-              <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href="#upload">Courses</a>
+              <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href="#view-course">Courses</a>
               <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href>Pricing</a>
               <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href>How it works</a>
             </Navigation>

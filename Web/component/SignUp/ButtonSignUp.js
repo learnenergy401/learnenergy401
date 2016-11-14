@@ -9,6 +9,11 @@ var divStyle = {
 }
 
 class ButtonSignUp extends Component {
+
+    /**
+    * Loads the button for signup.
+    * @return {html} - returns button and links
+    */  
     render(){
         return(
           <Link to={this.props.to}>

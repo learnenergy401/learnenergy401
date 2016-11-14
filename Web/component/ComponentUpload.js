@@ -2,9 +2,12 @@ import React, { Component } from 'react'
 import LearnHeader from './Header.js'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
 import FirebaseTools from './Firebase.js'
-    
+
 class ComponentUpload extends Component {
-    
+    /**
+     * grabs the filename, file and metadata: then uploads to firebase
+     * @param {object} evt - handles the event when onClick is pressed
+     */
     handleFileSelect(evt) {
       evt.stopPropagation();
       evt.preventDefault();
@@ -32,11 +35,15 @@ class ComponentUpload extends Component {
     }
     */
 
+    /**
+      * Loads the card interface for the vendor
+      * @return {html} - returns button and file
+      */
     render(){
         return(
     <div className="learn-content mdl-typography--text-center">
     <div className="logo-font learn-slogan"></div>
-    <a name="top" /> 
+    <a name="top" />
     <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
         <div className="grid">
         <div className="card mdl-shadow--2dp">

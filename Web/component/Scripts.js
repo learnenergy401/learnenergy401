@@ -16,21 +16,25 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 })/*dont add semicolon here!*/
 
 
-
+/**
+* @ignore
+*/
 class Scripts extends Component {
+  /**
+  * @ignore
+  */
     script(){
-        firebaseDb.ref('User/-KVNpWcpJxoDa_REbOpZ').once("value")
-            .then((snapshot) => {
-                
-                var temp = snapshot.val()
-                temp.role = 1
-                console.log(temp.role)
-                firebaseDb.ref('User/D5WHbqLPSFXJVfItHJbOMw0Lf3c2').set(temp)
-            })
+
+      firebaseDb.ref('Key/KeyName').set({
+        key: null,
+        role: null
+      })
 
     }
-    
-    render(){ 
+    /**
+    * @ignore
+    */
+    render(){
         return(
 
                 <div>
@@ -38,7 +42,7 @@ class Scripts extends Component {
                 </div>
             )
         }
-       
+
 };
 
 export default Scripts

@@ -11,12 +11,17 @@ var formStyle = {
 }
 
 class ContentLogout extends Component {
-
+  /**
+  * calls firebaseTools to logout the current user
+  */
   requestSubmit() {
     // Add signup event
     FirebaseTools.logoutUser();
   }
-
+  /**
+  * Loads the button style for the logout
+  * @return {html} - returns the ContentLogout button component
+  */
   render() {
     return(
 

@@ -24,18 +24,27 @@ var formStyle = {
 
 
 class ContentProfileUpload extends Component {
+    /**
+    * Uploads course
+    * @param {object} course - takes course for upload
+    * @returns {object} arr - return array from converted json object
+    */
     uploadCourse(course){
         var user = this.props.user.user
         var courseName = document.getElementById("courseName").value;
         var courseDescription = document.getElementById("courseDescription").value;
-        // hard code email for test
+        var courseVideoId = document.getElementById("courseVideoId").value;
         var courseVendorEmail = user.email
-        var course = {courseName, courseDescription, courseVendorEmail}
+        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}
         console.log(courseName);
         console.log(courseDescription);
-        this.props.dispatch(uploadCourse(course)); 
+        console.log(courseVideoId);
+        this.props.dispatch(uploadCourse(course));
     }
-    
+    /**
+    * Loads the course profile
+    * @return {html} - returns course profile depending on type of user
+    */
     render(){
         return(
             <Content className="learn-content">
@@ -45,8 +54,11 @@ class ContentProfileUpload extends Component {
                             <CardText style={componentStyle}>
                                 <Textfield floatingLabel label="courseName" className="form-control" ref="courseName" id="courseName"/>
                                 </CardText>
-                            <CardText style={componentStyle}>        
+                            <CardText style={componentStyle}>
                                 <Textfield floatingLabel label="courseDescription" ref="pw" type="courseDescription" className="form-control" id="courseDescription"/>
+                            </CardText>
+                            <CardText style={componentStyle}>
+                                <Textfield floatingLabel label="courseVideoId" ref="pw" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardActions style={componentStyle}>
                                 <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>

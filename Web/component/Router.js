@@ -19,9 +19,18 @@ import SignUpPurchaser from "./SignUp/SignUpPurchaser.js"
 import SignUpVendor from "./SignUp/SignUpVendor.js"
 import SignUpAD from "./SignUp/SignUpAD.js"
 import Upload from "./Vendor/Upload.js"
+<<<<<<< HEAD
 import AdminReview from "./AdminReview.js"
+=======
+import ViewCourse from "./ViewCourse/ViewCourse.js"
+import CourseDetail from "./ViewCourse/CourseDetail.js"
+>>>>>>> refs/remotes/origin/master
 
 class ReactRouter extends Component {
+  /**
+  * Loads the routes for each page
+  * @return {html} - returns a specific path for our pages
+  */
   render() {
     return (
       <Router history={hashHistory}>
@@ -37,6 +46,8 @@ class ReactRouter extends Component {
         <Route path='/scripts' component={Scripts} />
         <Route path='/signup-purchaser' component={SignUpPurchaser} />
         <Route path='/signup-vendor' component={SignUpVendor} />
+        <Route path='/view-course' component={ViewCourse} />
+        <Route path='/view-course-detail' component={CourseDetail} />
         <Route path='/signup-ad' component={SignUpAD} />
         <Route path='/admin-review' component={AdminReview} />
 

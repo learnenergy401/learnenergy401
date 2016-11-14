@@ -2,12 +2,40 @@ import firebase from 'firebase';
 import {FIREBASE_CONFIG} from '../../firebase.config.js';
 import ComponentUpload from './ComponentUpload.js';
 
+/**
+ * Initializes the firebase App 
+ * @ignore
+ */
 export const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');
+
+/**
+ * Auth of firebaseApp 
+ * @ignore
+ */
 export const firebaseAuth = firebaseApp.auth();
+
+/**
+ * Db of firebaseApp
+ * @ignore
+ */
 export const firebaseDb = firebaseApp.database();
+
+/**
+ * Storage of firebaseApp 
+ * @ignore
+ */
 export const firebaseStorage = firebaseApp.storage().ref();
 
+/**
+ * Initializes a second instance of firebase App 
+  * @ignore
+  */
 export const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);
+
+/**
+ * Auth of firebaseApp2
+  * @ignore
+  */
 export const firebaseAuthInstance = firebaseApp2.auth();
 
 import { connect } from "react-redux"
@@ -15,106 +43,11 @@ import { fetchUsers,getCurrentUser } from "./Actions/userActions"
 
 
 var FirebaseTools = {
-
-    checkAuth: () => {
-        firebaseAuth.onAuthStateChanged(function(user) {
-            if (user) {
-//                console.log("logged in 1");
-            } else {
-//                console.log("not logged in 1");
-            }
-        });
-    },
-
-
-  //0: purchaser; 1: vendor; 2: additional user; 3: admin
-	registerPurchaser: (user) => {
-        firebaseDb.ref('PurchaserSignup').push({
-            email: user.email,
-            password: user.password,
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-            ISnumber: user.ISnumber,
-            website: user.website,
-            role: 0
-        });
-		alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
-	},
-
-  //0: purchaser; 1: vendor; 3: additional user; 4: admin
-  registerVendor: (user) => {
-        firebaseDb.ref('VendorSignup').push({
-            email: user.email,
-            password: user.password,
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-            ISnumber: user.ISnumber,
-            website: user.website,
-
-            owners: user.owners,
-            natureBusiness: user.natureBusiness,
-            timeBusiness: user.timeBusiness,
-            proAffiliation: user.proAffiliation,
-            bank: user.bank,
-            bonding: user.bonding,
-            bondingLimit: user.bondingLimit,
-            insurance: user.insurance,
-            bankruptcy: user.bankruptcy,
-            numEmployees: user.numEmployees,
-
-            role: 1
-        });
-    alert("Thank you for registering as a Vendor for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
-  },
-
-  //0: purchaser; 1: vendor; 2: additional user; 3: admin
-	registerAD: (user) => {
-        firebaseDb.ref('ADSignup').push({
-            website: user.website,
-            email: user.email,
-            password: user.password,
-            role: 2
-        });
-		alert("Thank you for registering as a Purchaser for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
-	},
-
-
-
-	loginUser: (user) => {
-		firebaseAuth.signInWithEmailAndPassword(user.email, user.pw);
-        console.log('User signed in!');
-
-		// Until we can link to a homepage that doesn't look the same as when you are not signed in
-		alert("You have signed in:" +"\n" + user.email);
-
-	},
-
-	logoutUser: () => {
-		firebaseAuth.signOut();
-		console.log('User logged out!');
-        alert("You have logged out. See you later.");
-	},
-
+    /**
+    * used for uploading files, gives a url for the file
+    * @param {object} url - returns the url of the file
+    * @return {object} error - returns error if it cannot upload file
+    */
     //function fo vendor upload demo
     vendorUpload: function(fileObj){
         var url='';
@@ -131,4 +64,8 @@ var FirebaseTools = {
 
 }
 
+/**
+ * Exports firebaseTools
+ * @ignore
+ */
 export default FirebaseTools;

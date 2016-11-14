@@ -15,10 +15,14 @@ var cardTitleStyle = {
 }
 
 class ContentLogin extends Component {
+    /**
+    * Loads the card for the login form
+    * @return {html} - returns the ContentLogin component
+    */
     render(){
         return(
           <div  className="learn-content mdl-typography--text-center">
-              <Card shadow={0} style={cardStyle} >
+              <Card  style={cardStyle} >
                 <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Login</CardTitle>
                 <ComponentLogin/>
               </Card>

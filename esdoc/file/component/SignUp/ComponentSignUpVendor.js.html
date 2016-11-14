@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">component/SignUp/ComponentSignUpVendor.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/learnenergy401/learnenergy401" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Admin.js~Admin.html">Admin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonAdmin.js~ButtonAdmin.html">ButtonAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogIn.js~ButtonLogIn.html">ButtonLogIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogOut.js~ButtonLogOut.html">ButtonLogOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentLogin.js~ComponentLogin.html">ComponentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentUpload.js~ComponentUpload.html">ComponentUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentCourseDisplay.js~ContentCourseDisplay.html">ContentCourseDisplay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentHome.js~ContentHome.html">ContentHome</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogin.js~ContentLogin.html">ContentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogout.js~ContentLogout.html">ContentLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Footer.js~LearnFooter.html">LearnFooter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Header.js~LearnHeader.html">LearnHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseDetail">uploadCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchPurchaserSignup">fetchPurchaserSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorSignup">fetchVendorSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCurrentUser">getCurrentUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logInUser">logInUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logOutUser">logOutUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rejectUser">rejectUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateProfile">updateProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Profile</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfile.js~ContentProfile.html">ContentProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfileUpload.js~ContentProfileUpload.html">ContentProfileUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/Profile.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/SideMenuProfile.js~SideMenuProfile.html">SideMenuProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Reducers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">SignUp</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUp.js~ButtonSignUp.html">ButtonSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpAD.js~ButtonSignUpAD.html">ButtonSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpPurchaser.js~ButtonSignUpPurchaser.html">ButtonSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpVendor.js~ButtonSignUpVendor.html">ButtonSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html">ComponentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpPurchaser.js~ComponentSignUpPurchaser.html">ComponentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpVendor.js~ComponentSignUpVendor.html">ComponentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignup.js~ComponentSignUp.html">ComponentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpAD.js~ContentSignUpAD.html">ContentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpPurchaser.js~ContentSignUpPurchaser.html">ContentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpVendor.js~ContentSignUpVendor.html">ContentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignup.js~ContentSignUp.html">ContentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUp.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpAD.js~SignUpAD.html">SignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpPurchaser.js~SignUpPurchaser.html">SignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpVendor.js~SignUpVendor.html">SignUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Vendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Vendor/Upload.js~Upload.html">Upload</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewCourse</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail.html">ContentCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentViewCourse.js~ContentViewCourse.html">ContentViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">component/SignUp/ComponentSignUpVendor.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import React, { Component } from &apos;react&apos;
+import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from &apos;react-mdl&apos;;
+import { signUpVendor } from &quot;../Actions/userActions.js&quot;
+import { connect } from &quot;react-redux&quot;
+var componentStyle = {
+    margin: &apos;auto&apos;,
+}
+var formStyle = {
+    marginTop: &apos;5%&apos;
+}
+@connect((store) =&gt; {
+  return {
+    user: store.user
+  };
+})/*dont add semicolon here!*/
+class ComponentSignUpVendor extends Component {
+
+  /**
+   * Sends information about vendor and adds it to vendor signup list
+   * @param {user} user - object which contains information about the vendor.
+   */    
+  signUpVendor(user) {
+    this.props.dispatch(signUpVendor(user));
+  }
+
+  /**
+   * Sends information to signUpVendor(user)
+   * @return {Object} user - sends information about vendor.
+   */
+  requestSubmit() {
+    // part A
+    var legalEntity = document.getElementById(&quot;legalEntity&quot;).value;
+    var operatingName = document.getElementById(&quot;operatingName&quot;).value;
+    var address1 = document.getElementById(&quot;address1&quot;).value;
+    var address2 = document.getElementById(&quot;address2&quot;).value;
+    var city = document.getElementById(&quot;city&quot;).value;
+    var province = document.getElementById(&quot;province&quot;).value;
+    var country = document.getElementById(&quot;country&quot;).value;
+    var postalCode = document.getElementById(&quot;postalCode&quot;).value;
+    var phone = document.getElementById(&quot;phone&quot;).value;
+    var fax = document.getElementById(&quot;fax&quot;).value;
+    var owner1Name = document.getElementById(&quot;owner1Name&quot;).value;
+    var owner1Pos = document.getElementById(&quot;owner1Pos&quot;).value;
+    var natureBusiness = document.getElementById(&quot;natureBusiness&quot;).value;
+    var timeBusiness = document.getElementById(&quot;timeBusiness&quot;).value;
+
+    var proAffiliation = document.getElementById(&quot;proAffiliation&quot;).value;
+    var report = null
+    if(document.getElementById(&quot;reportEnclosed&quot;).checked) {
+        report = &quot;enclosed&quot;
+    } else if (document.getElementById(&quot;reportNotAvailable&quot;).checked) {
+        report = &quot;not available&quot;
+    } else if (document.getElementById(&quot;reportNotApplicable&quot;).checked) {
+        report = &quot;not applicable&quot;
+    }
+    var bank = document.getElementById(&quot;bank&quot;).value;
+    var bankLocation = document.getElementById(&quot;bankLocation&quot;).value;
+    var bonding = document.getElementById(&quot;bonding&quot;).value;
+    var bondingLocation = document.getElementById(&quot;bondingLocation&quot;).value;
+    var insuranceCompany = document.getElementById(&quot;insuranceCompany&quot;).value;
+    var insuranceLocation = document.getElementById(&quot;insuranceLocation&quot;).value;
+    var bondingLimitDate = document.getElementById(&quot;bondingLimitDate&quot;).value;
+    var bondingLimit = document.getElementById(&quot;bondingLimit&quot;).value;
+    var grossBus = document.getElementById(&quot;grossBus&quot;).value;
+    var grossBusYear = document.getElementById(&quot;grossBusYear&quot;).value;
+    var bankruptcy = null
+    if(document.getElementById(&quot;bankYes&quot;).checked) {
+        bankruptcy = &quot;yes&quot;
+    } else if (document.getElementById(&quot;bankNo&quot;).checked) {
+        bankruptcy = &quot;no&quot;
+    }
+    var numEmployees = document.getElementById(&quot;numEmployees&quot;).value;
+    var AD1address1 = document.getElementById(&quot;AD1address1&quot;).value;
+    var AD1address2 = document.getElementById(&quot;AD1address2&quot;).value;
+    var AD1city = document.getElementById(&quot;AD1city&quot;).value;
+    var AD1province = document.getElementById(&quot;AD1province&quot;).value;
+    var AD1country = document.getElementById(&quot;AD1country&quot;).value;
+    var AD1postalCode = document.getElementById(&quot;AD1postalCode&quot;).value;
+    var AD1phone = document.getElementById(&quot;AD1phone&quot;).value;
+
+    var categories = document.getElementById(&quot;categories&quot;).value;
+    var specialties = document.getElementById(&quot;specialties&quot;).value;
+
+    var client1 = document.getElementById(&quot;client1&quot;).value;
+    var client1Location = document.getElementById(&quot;client1Location&quot;).value;
+    var client1Phone = document.getElementById(&quot;client1Phone&quot;).value;
+    var client1Email = document.getElementById(&quot;client1Email&quot;).value;
+    var licence1 = document.getElementById(&quot;licence1&quot;).value;
+    var licence1Location = document.getElementById(&quot;licence1Location&quot;).value;
+    var insurer1 = document.getElementById(&quot;insurer1&quot;).value; var policyLimit1 = document.getElementById(&quot;policyLimit1&quot;).value; var expiry1 = document.getElementById(&quot;expiry1&quot;).value;
+    var insurer2 = document.getElementById(&quot;insurer2&quot;).value; var policyLimit2 = document.getElementById(&quot;policyLimit2&quot;).value; var expiry2 = document.getElementById(&quot;expiry2&quot;).value;
+    var insurer3 = document.getElementById(&quot;insurer3&quot;).value; var policyLimit3 = document.getElementById(&quot;policyLimit3&quot;).value; var expiry3 = document.getElementById(&quot;expiry3&quot;).value;
+    var insurer4 = document.getElementById(&quot;insurer4&quot;).value; var policyLimit4 = document.getElementById(&quot;policyLimit4&quot;).value; var expiry4 = document.getElementById(&quot;expiry4&quot;).value;
+    var insurer5 = document.getElementById(&quot;insurer5&quot;).value; var policyLimit5 = document.getElementById(&quot;policyLimit5&quot;).value; var expiry5 = document.getElementById(&quot;expiry5&quot;).value;
+    var insurer6 = document.getElementById(&quot;insurer6&quot;).value; var policyLimit6 = document.getElementById(&quot;policyLimit6&quot;).value; var expiry6 = document.getElementById(&quot;expiry6&quot;).value;
+    var insurer7 = document.getElementById(&quot;insurer7&quot;).value; var policyLimit7 = document.getElementById(&quot;policyLimit7&quot;).value; var expiry7 = document.getElementById(&quot;expiry7&quot;).value;
+    var insurer8 = document.getElementById(&quot;insurer8&quot;).value; var policyLimit8 = document.getElementById(&quot;policyLimit8&quot;).value; var expiry8 = document.getElementById(&quot;expiry8&quot;).value;
+    var insurer9 = document.getElementById(&quot;insurer9&quot;).value; var policyLimit9 = document.getElementById(&quot;policyLimit9&quot;).value; var expiry9 = document.getElementById(&quot;expiry9&quot;).value;
+    var insurer10 = document.getElementById(&quot;insurer10&quot;).value; var policyLimit10 = document.getElementById(&quot;policyLimit10&quot;).value; var expiry10 = document.getElementById(&quot;expiry10&quot;).value;
+    var insurer11 = document.getElementById(&quot;insurer11&quot;).value; var policyLimit11 = document.getElementById(&quot;policyLimit11&quot;).value; var expiry11 = document.getElementById(&quot;expiry11&quot;).value;
+    var insurer12 = document.getElementById(&quot;insurer12&quot;).value; var policyLimit12 = document.getElementById(&quot;policyLimit12&quot;).value; var expiry12 = document.getElementById(&quot;expiry12&quot;).value;
+    var insurer13 = document.getElementById(&quot;insurer13&quot;).value; var policyLimit13 = document.getElementById(&quot;policyLimit13&quot;).value; var expiry13 = document.getElementById(&quot;expiry13&quot;).value;
+    var insurer14 = document.getElementById(&quot;insurer14&quot;).value; var policyLimit14 = document.getElementById(&quot;policyLimit14&quot;).value; var expiry14 = document.getElementById(&quot;expiry14&quot;).value;
+    var insurer15 = document.getElementById(&quot;insurer15&quot;).value; var policyLimit15 = document.getElementById(&quot;policyLimit15&quot;).value; var expiry15 = document.getElementById(&quot;expiry15&quot;).value;
+
+    var EHWcurrentYear = document.getElementById(&quot;EHWcurrentYear&quot;).value; var EHWpreviousYear1 = document.getElementById(&quot;EHWpreviousYear1&quot;).value; var EHWpreviousYear2 = document.getElementById(&quot;EHWpreviousYear2&quot;).value; var EHWpreviousYear3 = document.getElementById(&quot;EHWpreviousYear3&quot;).value;
+    var FcurrentYear = document.getElementById(&quot;FcurrentYear&quot;).value; var FpreviousYear1 = document.getElementById(&quot;FpreviousYear1&quot;).value; var FpreviousYear2 = document.getElementById(&quot;FpreviousYear2&quot;).value; var FpreviousYear3 = document.getElementById(&quot;FpreviousYear3&quot;).value;
+    var LTIcurrentYear = document.getElementById(&quot;LTIcurrentYear&quot;).value; var LTIpreviousYear1 = document.getElementById(&quot;LTIpreviousYear1&quot;).value; var LTIpreviousYear2 = document.getElementById(&quot;LTIpreviousYear2&quot;).value; var LTIpreviousYear3 = document.getElementById(&quot;LTIpreviousYear3&quot;).value;
+    var MAIcurrentYear = document.getElementById(&quot;MAIcurrentYear&quot;).value; var MAIpreviousYear1 = document.getElementById(&quot;MAIpreviousYear1&quot;).value; var MAIpreviousYear2 = document.getElementById(&quot;MAIpreviousYear2&quot;).value; var MAIpreviousYear3 = document.getElementById(&quot;MAIpreviousYear3&quot;).value;
+    var ORCcurrentYear = document.getElementById(&quot;ORCcurrentYear&quot;).value; var ORCpreviousYear1 = document.getElementById(&quot;ORCpreviousYear1&quot;).value; var ORCpreviousYear2 = document.getElementById(&quot;ORCpreviousYear2&quot;).value; var ORCpreviousYear3 = document.getElementById(&quot;ORCpreviousYear3&quot;).value;
+    var TRIcurrentYear = document.getElementById(&quot;TRIcurrentYear&quot;).value; var TRIpreviousYear1 = document.getElementById(&quot;TRIpreviousYear1&quot;).value; var TRIpreviousYear2 = document.getElementById(&quot;TRIpreviousYear2&quot;).value; var TRIpreviousYear3 = document.getElementById(&quot;TRIpreviousYear3&quot;).value;
+
+    var IRcurrentYear = document.getElementById(&quot;IRcurrentYear&quot;).value; var IRpreviousYear1 = document.getElementById(&quot;IRpreviousYear1&quot;).value; var IRpreviousYear2 = document.getElementById(&quot;IRpreviousYear2&quot;).value; var IRpreviousYear3 = document.getElementById(&quot;IRpreviousYear3&quot;).value;
+    var PRcurrentYear = document.getElementById(&quot;PRcurrentYear&quot;).value; var PRpreviousYear1 = document.getElementById(&quot;PRpreviousYear1&quot;).value; var PRpreviousYear2 = document.getElementById(&quot;PRpreviousYear2&quot;).value; var PRpreviousYear3 = document.getElementById(&quot;PRpreviousYear3&quot;).value;
+    var PDcurrentYear = document.getElementById(&quot;PDcurrentYear&quot;).value; var PDpreviousYear1 = document.getElementById(&quot;PDpreviousYear1&quot;).value; var PDpreviousYear2 = document.getElementById(&quot;PDpreviousYear2&quot;).value; var PDpreviousYear3 = document.getElementById(&quot;PDpreviousYear3&quot;).value;
+    var PScurrentYear = document.getElementById(&quot;PScurrentYear&quot;).value; var PSpreviousYear1 = document.getElementById(&quot;PSpreviousYear1&quot;).value; var PSpreviousYear2 = document.getElementById(&quot;PSpreviousYear2&quot;).value; var PSpreviousYear3 = document.getElementById(&quot;PSpreviousYear3&quot;).value;
+
+    var drugPolicy = document.getElementById(&quot;drugPolicy&quot;).value;
+    var subcontractors = document.getElementById(&quot;subcontractors&quot;).value;
+    var stopWorkOrder = document.getElementById(&quot;stopWorkOrder&quot;).value;
+
+    var email = document.getElementById(&quot;email&quot;).value;
+    var adminContact = document.getElementById(&quot;adminContact&quot;).value;
+    var technicalContact = document.getElementById(&quot;technicalContact&quot;).value;
+
+    var ISnumber = null
+    if(document.getElementById(&quot;ISnumberYes&quot;).checked) {
+        ISnumber = &quot;yes&quot;
+    } else if (document.getElementById(&quot;ISnumberNo&quot;).checked) {
+        ISnumber = &quot;no&quot;
+    }
+
+    var website = document.getElementById(&quot;website&quot;).value;
+    var password = document.getElementById(&quot;password&quot;).value;
+
+    var user = {email, password, legalEntity, operatingName, address1, address2,
+      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, natureBusiness, timeBusiness, proAffiliation, report,
+      adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
+      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees, AD1address1, AD1address2, AD1city, AD1province,
+      AD1country, AD1postalCode, AD1phone, categories, specialties, client1, client1Location, client1Phone, client1Email, licence1, licence1Location,
+      insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
+      insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
+      insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
+      EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
+      MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
+      IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
+      }
+
+    this.signUpVendor(user);
+    }
+
+    /**
+    * Loads the signup page for vendor.
+    * @return {html} - displays sign up page for vendor.
+    */
+    render() {
+    return(
+      &lt;div className=&quot;android-content mdl-layout__content&quot;&gt;
+        &lt;a name=&quot;top&quot; /&gt;
+        &lt;div style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+            &lt;h4&gt;Part A: Company Structure&lt;/h4&gt;
+            &lt;hr/&gt;
+            &lt;Textfield label=&quot;legalEntity&quot; className=&quot;form-control&quot; ref=&quot;legalEntity&quot; placeholder=&quot;Legal Entity&quot; id=&quot;legalEntity&quot; /&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;operatingName&quot; className=&quot;form-control&quot; ref=&quot;password&quot;  placeholder=&quot;Operating Name&quot; id=&quot;operatingName&quot;/&gt;
+            &lt;hr/&gt;
+            &lt;h6&gt;Address:&lt;/h6&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;address1&quot; className=&quot;form-control&quot; ref=&quot;address1&quot;  placeholder=&quot;Address 1&quot; id=&quot;address1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;address2&quot; className=&quot;form-control&quot; ref=&quot;address2&quot;  placeholder=&quot;Address 2&quot; id=&quot;address2&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;city&quot; className=&quot;form-control&quot; ref=&quot;city&quot;  placeholder=&quot;City&quot; id=&quot;city&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;province&quot; className=&quot;form-control&quot; ref=&quot;province&quot;  placeholder=&quot;Province&quot; id=&quot;province&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;country&quot; className=&quot;form-control&quot; ref=&quot;country&quot;  placeholder=&quot;Country&quot; id=&quot;country&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;postalCode&quot; className=&quot;form-control&quot; ref=&quot;postalCode&quot;  placeholder=&quot;Postal Code&quot; id=&quot;postalCode&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;phone&quot; className=&quot;form-control&quot; ref=&quot;phone&quot;  placeholder=&quot;Phone Number&quot; id=&quot;phone&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;fax&quot; className=&quot;form-control&quot; ref=&quot;fax&quot;  placeholder=&quot;Fax Number&quot; id=&quot;fax&quot;/&gt;
+            &lt;hr/&gt;
+            &lt;h6&gt;Owners:&lt;/h6&gt;
+            &lt;Textfield label=&quot;owner1Name&quot; className=&quot;form-control&quot; ref=&quot;owner1Name&quot;  placeholder=&quot;Name&quot; id=&quot;owner1Name&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;owner1Pos&quot; className=&quot;form-control&quot; ref=&quot;owner1Pos&quot;  placeholder=&quot;Postion&quot; id=&quot;owner1Pos&quot;/&gt;
+            &lt;hr/&gt;
+            &lt;h6&gt;Description:&lt;/h6&gt;
+            &lt;h6&gt;Nature of Business:&amp;nbsp; &lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;natureBusiness&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;br/&gt;
+            &lt;h6&gt;Length of Time in Business:&amp;nbsp; &lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;timeBusiness&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;br/&gt;
+            &lt;h6&gt;Professional Affiliations:&amp;nbsp; &lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;proAffiliation&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;br/&gt;
+            &lt;div&gt;
+            &lt;label&gt;Copy of most recent annual report:
+            &lt;input type=&quot;radio&quot; name=&quot;report&quot; value=&quot;reportEnclosed&quot; id=&quot;reportEnclosed&quot;/&gt;Enclosed
+            &lt;input type=&quot;radio&quot; name=&quot;report&quot; value=&quot;reportNotAvailable&quot; id=&quot;reportNotAvailable&quot;/&gt;Not Available
+            &lt;input type=&quot;radio&quot; name=&quot;report&quot; value=&quot;reportNotAvailable&quot; id=&quot;reportNotApplicable&quot;/&gt;Not Applicable
+            &lt;/label&gt;
+            &lt;/div&gt;
+
+            &lt;hr/&gt;
+            &lt;h4&gt;Part B: Financial&lt;/h4&gt;
+            &lt;Textfield label=&quot;bank&quot; className=&quot;form-control&quot; ref=&quot;bank&quot;  placeholder=&quot;Bank&quot; id=&quot;bank&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;bankLocation&quot; className=&quot;form-control&quot; ref=&quot;bankLocation&quot;  placeholder=&quot;Location&quot; id=&quot;bankLocation&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;bondingbonding&quot; className=&quot;form-control&quot; ref=&quot;bonding&quot;  placeholder=&quot;Bonding Company&quot; id=&quot;bonding&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;bondingLocation&quot; className=&quot;form-control&quot; ref=&quot;bondingLocation&quot;  placeholder=&quot;Location&quot; id=&quot;bondingLocation&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;insuranceCompany&quot; className=&quot;form-control&quot; ref=&quot;insuranceCompany&quot;  placeholder=&quot;Insurance Company&quot; id=&quot;insuranceCompany&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;insuranceLocation&quot; className=&quot;form-control&quot; ref=&quot;insuranceLocation&quot;  placeholder=&quot;Location&quot; id=&quot;insuranceLocation&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;bondingLimitDate&quot; className=&quot;form-control&quot; ref=&quot;bondingLimitDate&quot;  placeholder=&quot;Bonding Limit as of (date)&quot; id=&quot;bondingLimitDate&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;bondingLimit&quot; className=&quot;form-control&quot; ref=&quot;bondingLimit&quot;  placeholder=&quot;is (amount)&quot; id=&quot;bondingLimit&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;grossBus&quot; className=&quot;form-control&quot; ref=&quot;grossBus&quot;  placeholder=&quot;Most recent annual gross business $&quot; id=&quot;grossBus&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;grossBusYear&quot; className=&quot;form-control&quot; ref=&quot;grossBusYear&quot;  placeholder=&quot;Year&quot; id=&quot;grossBusYear&quot;/&gt;
+            &lt;br/&gt;
+            &lt;div&gt;
+            &lt;label&gt;Bankruptcy:
+            &lt;input type=&quot;radio&quot; name=&quot;bankruptcy&quot; value=&quot;bankY&quot; id=&quot;bankYes&quot;/&gt;Yes
+            &lt;input type=&quot;radio&quot; name=&quot;bankruptcy&quot; value=&quot;bankN&quot; id=&quot;bankNo&quot;/&gt;No
+            &lt;/label&gt;
+            &lt;/div&gt;
+
+            &lt;hr/&gt;
+            &lt;h4&gt;Part C: General&lt;/h4&gt;
+            &lt;Textfield label=&quot;numEmployees&quot; className=&quot;form-control&quot; ref=&quot;numEmployees&quot;  placeholder=&quot;Number of Employees&quot; id=&quot;numEmployees&quot;/&gt;
+            &lt;h6&gt;Additional Locations:&lt;/h6&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;AD1address1&quot; className=&quot;form-control&quot; ref=&quot;AD1address1&quot;  placeholder=&quot;Additional 1: Address 1&quot; id=&quot;AD1address1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;AD1address2&quot; className=&quot;form-control&quot; ref=&quot;AD1address2&quot;  placeholder=&quot;Additional 1: Address 2&quot; id=&quot;AD1address2&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;AD1city&quot; className=&quot;form-control&quot; ref=&quot;AD1city&quot;  placeholder=&quot;Additional 1: City&quot; id=&quot;AD1city&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;AD1province&quot; className=&quot;form-control&quot; ref=&quot;AD1province&quot;  placeholder=&quot;Additional 1: Province&quot; id=&quot;AD1province&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;AD1country&quot; className=&quot;form-control&quot; ref=&quot;AD1country&quot;  placeholder=&quot;Additional 1: Country&quot; id=&quot;AD1country&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;AD1postalCode&quot; className=&quot;form-control&quot; ref=&quot;AD1postalCode&quot;  placeholder=&quot;Additional 1: Postal Code&quot; id=&quot;AD1postalCode&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;AD1phone&quot; className=&quot;form-control&quot; ref=&quot;AD1phone&quot;  placeholder=&quot;Additional 1: Phone Number&quot; id=&quot;AD1phone&quot;/&gt;
+
+            &lt;hr/&gt;
+            &lt;h4&gt;Part D: Qualifications and Experience&lt;/h4&gt;
+            &lt;h6&gt;Categories of services provided - List all types of work you are able to provide:&lt;/h6&gt;
+            &lt;Textfield label=&quot;categories&quot; className=&quot;form-control&quot; ref=&quot;categories&quot;  placeholder=&quot;Categories&quot; id=&quot;categories&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;specialties&quot; className=&quot;form-control&quot; ref=&quot;specialties&quot;  placeholder=&quot;Specialties&quot; id=&quot;specialties&quot;/&gt;
+            &lt;h6&gt;Work History:&lt;/h6&gt;
+            &lt;Textfield label=&quot;client1&quot; className=&quot;form-control&quot; ref=&quot;client1&quot;  placeholder=&quot;Client 1: Name&quot; id=&quot;client1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;client1Location&quot; className=&quot;form-control&quot; ref=&quot;client1Location&quot;  placeholder=&quot;Client 1: Location&quot; id=&quot;client1Location&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;client1Phone&quot; className=&quot;form-control&quot; ref=&quot;client1Phone&quot;  placeholder=&quot;Client 1: Phone&quot; id=&quot;client1Phone&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;client1Email&quot; className=&quot;form-control&quot; ref=&quot;client1Email&quot;  placeholder=&quot;Client 1: Email&quot; id=&quot;client1Email&quot;/&gt;
+            &lt;br/&gt;
+            &lt;h6&gt;Client 1 Details of services provided (type, duration, dates, etc.):&amp;nbsp; &lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;natureBusiness&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;hr/&gt;
+            &lt;h6&gt;Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).&lt;/h6&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;licence1&quot; className=&quot;form-control&quot; ref=&quot;licence1&quot;  placeholder=&quot;1. Type of Licence&quot; id=&quot;licence1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;licence1Location&quot; className=&quot;form-control&quot; ref=&quot;licence1Location&quot;  placeholder=&quot;Location&quot; id=&quot;licence1Location&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h4&gt;Part E: Insurance&lt;/h4&gt;
+            &lt;h6&gt;NOTE: Insurance Requirements are subject to change based on individual scopes of service. General Liability Bodily Injury &amp;amp; Property Damage including the following:&lt;/h6&gt;
+            &lt;h6&gt;1. Products/Completed Operations:&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer1&quot; className=&quot;form-control&quot; ref=&quot;insurer1&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit1&quot; className=&quot;form-control&quot; ref=&quot;policyLimit1&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit1&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry1&quot; className=&quot;form-control&quot; ref=&quot;expiry1&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry1&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;2. Sudden/Accidental Pollution:&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer2&quot; className=&quot;form-control&quot; ref=&quot;insurer2&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit2&quot; className=&quot;form-control&quot; ref=&quot;policyLimit2&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit2&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry2&quot; className=&quot;form-control&quot; ref=&quot;expiry2&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry2&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;3. Cross Liability/Severability of Interest&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer3&quot; className=&quot;form-control&quot; ref=&quot;insurer3&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer3&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit3&quot; className=&quot;form-control&quot; ref=&quot;policyLimit3&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit3&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry3&quot; className=&quot;form-control&quot; ref=&quot;expiry3&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;4. Employers Liability&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer4&quot; className=&quot;form-control&quot; ref=&quot;insurer4&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer4&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit4&quot; className=&quot;form-control&quot; ref=&quot;policyLimit4&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit4&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry4&quot; className=&quot;form-control&quot; ref=&quot;expiry4&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry4&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;5. Broad Form Property Damage&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer5&quot; className=&quot;form-control&quot; ref=&quot;insurer5&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer5&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit5&quot; className=&quot;form-control&quot; ref=&quot;policyLimit5&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit5&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry5&quot; className=&quot;form-control&quot; ref=&quot;expiry5&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry5&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;6. Blanket Contractual Liability&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer6&quot; className=&quot;form-control&quot; ref=&quot;insurer6&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer6&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit6&quot; className=&quot;form-control&quot; ref=&quot;policyLimit6&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit6&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry6&quot; className=&quot;form-control&quot; ref=&quot;expiry6&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry6&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;7. Independent Contractors&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer7&quot; className=&quot;form-control&quot; ref=&quot;insurer7&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer7&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit7&quot; className=&quot;form-control&quot; ref=&quot;policyLimit7&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit7&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry7&quot; className=&quot;form-control&quot; ref=&quot;expiry7&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry7&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;8. Non-Owned Automobile&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer8&quot; className=&quot;form-control&quot; ref=&quot;insurer8&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer8&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit8&quot; className=&quot;form-control&quot; ref=&quot;policyLimit8&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit8&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry8&quot; className=&quot;form-control&quot; ref=&quot;expiry8&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry8&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;9. Tenants Legal Liability&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer9&quot; className=&quot;form-control&quot; ref=&quot;insurer9&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer9&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit9&quot; className=&quot;form-control&quot; ref=&quot;policyLimit9&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit9&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry9&quot; className=&quot;form-control&quot; ref=&quot;expiry9&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry9&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;10. No failure to perform exclusion&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer10&quot; className=&quot;form-control&quot; ref=&quot;insurer10&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer10&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit10&quot; className=&quot;form-control&quot; ref=&quot;policyLimit10&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit10&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry10&quot; className=&quot;form-control&quot; ref=&quot;expiry10&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry10&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;11. Errors and Omissions&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer11&quot; className=&quot;form-control&quot; ref=&quot;insurer11&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer11&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit11&quot; className=&quot;form-control&quot; ref=&quot;policyLimit11&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit11&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry11&quot; className=&quot;form-control&quot; ref=&quot;expiry11&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry11&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;12. 30 days&#x2019; notice for cancellation/non-renewal&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer12&quot; className=&quot;form-control&quot; ref=&quot;insurer12&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer12&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit12&quot; className=&quot;form-control&quot; ref=&quot;policyLimit12&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit12&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry12&quot; className=&quot;form-control&quot; ref=&quot;expiry12&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry12&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;13. Automobile Insurance&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer13&quot; className=&quot;form-control&quot; ref=&quot;insurer13&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer13&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit13&quot; className=&quot;form-control&quot; ref=&quot;policyLimit13&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit13&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry13&quot; className=&quot;form-control&quot; ref=&quot;expiry13&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry13&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;14. Excess/Umbrella Liability&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer14&quot; className=&quot;form-control&quot; ref=&quot;insurer14&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer14&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit14&quot; className=&quot;form-control&quot; ref=&quot;policyLimit14&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit14&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry14&quot; className=&quot;form-control&quot; ref=&quot;expiry14&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry14&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;15. Professional Liability&lt;/h6&gt;
+            &lt;Textfield label=&quot;insurer15&quot; className=&quot;form-control&quot; ref=&quot;insurer15&quot;  placeholder=&quot;Insurer&quot; id=&quot;insurer15&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;policyLimit15&quot; className=&quot;form-control&quot; ref=&quot;policyLimit15&quot;  placeholder=&quot;Policy Limit&quot; id=&quot;policyLimit15&quot;/&gt;
+            &lt;br/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;expiry15&quot; className=&quot;form-control&quot; ref=&quot;expiry15&quot;  placeholder=&quot;Expiry Date&quot; id=&quot;expiry15&quot;/&gt;
+
+            &lt;hr/&gt;
+            &lt;h4&gt;Part F: Health, Safety, and Environment (HSE) and Regulatory&lt;/h4&gt;
+            &lt;h6&gt;List your workers&amp;#39; compensation board / insurance plan rate for the previous four (4) years starting with the current year. (If your industry is exempt from the requirement to participate in a workers&amp;#39; compensation jurisdiction, please attach the supporting documentation to establish this exemption).&lt;/h6&gt;
+            &lt;hr/&gt;
+            &lt;h6&gt;HSE Performance&lt;/h6&gt;
+            &lt;h6&gt;1. Employee Hours Worked&lt;/h6&gt;
+            &lt;Textfield label=&quot;EHWcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;EHWcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;EHWcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;EHWpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;EHWpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;EHWpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;EHWpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;EHWpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;EHWpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;EHWpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;EHWpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;EHWpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;2. Fatalities&lt;/h6&gt;
+            &lt;Textfield label=&quot;FcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;FcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;FcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;FpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;FpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;FpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;FpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;FpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;FpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;FpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;FpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;FpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;3. Lost time incidents (cases resulting in time loss beyond the date of injury)&lt;/h6&gt;
+            &lt;Textfield label=&quot;LTIcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;LTIcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;LTIcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;LTIpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;LTIpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;LTIpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;LTIpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;LTIpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;LTIpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;LTIpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;LTIpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;LTIpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;4. Medical aid injuries (cases resulting in care of a medical practitioner beyond first aid treatment)&lt;/h6&gt;
+            &lt;Textfield label=&quot;MAIcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;MAIcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;MAIcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;MAIpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;MAIpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;MAIpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;MAIpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;MAIpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;MAIpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;MAIpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;MAIpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;MAIpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;5. Other recordable cases (cases not classified as medical aid or lost time but resulting in worker unable to perform routine functions)&lt;/h6&gt;
+            &lt;Textfield label=&quot;ORCcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;ORCcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;ORCcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;ORCpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;ORCpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;ORCpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;ORCpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;ORCpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;ORCpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;ORCpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;ORCpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;ORCpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;6. Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries&lt;/h6&gt;
+            &lt;Textfield label=&quot;TRIcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;TRIcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;TRIcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;TRIpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;TRIpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;TRIpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;TRIpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;TRIpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;TRIpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;TRIpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;TRIpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;TRIpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;Worker&#x2019;s Compensation - If Proponent&#x2019;s Rates are higher than applicable Industry Rate(s), provide details as to why and what measures are being taken to address this.&lt;/h6&gt;
+            &lt;Textfield label=&quot;industryCode&quot; className=&quot;form-control&quot; ref=&quot;industryCode&quot;  placeholder=&quot;Industry Code&quot; id=&quot;industryCode&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;industryClassification&quot; className=&quot;form-control&quot; ref=&quot;industryClassification&quot;  placeholder=&quot;industryClassification&quot; id=&quot;industryClassification&quot;/&gt;
+            &lt;br/&gt;
+            &lt;h6&gt;1. Industry Rate&lt;/h6&gt;
+            &lt;Textfield label=&quot;IRcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;IRcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;IRcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;IRpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;IRpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;IRpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;IRpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;IRpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;IRpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;IRpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;IRpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;IRpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;2. Proponent Rate&lt;/h6&gt;
+            &lt;Textfield label=&quot;PRcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;PRcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;PRcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PRpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;PRpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;PRpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PRpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;PRpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;PRpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PRpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;PRpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;PRpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;3. % Discount&lt;/h6&gt;
+            &lt;Textfield label=&quot;PDcurrentYear&quot; className=&quot;form-control&quot; ref=&quot;PDcurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;PDcurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PDpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;PDpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;PDpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PDpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;PDpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;PDpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PDpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;PDpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;PDpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;4. % Surcharge&lt;/h6&gt;
+            &lt;Textfield label=&quot;PScurrentYear&quot; className=&quot;form-control&quot; ref=&quot;PScurrentYear&quot;  placeholder=&quot;Current Year&quot; id=&quot;PScurrentYear&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PSpreviousYear1&quot; className=&quot;form-control&quot; ref=&quot;PSpreviousYear1&quot;  placeholder=&quot;Previous Year 1&quot; id=&quot;PSpreviousYear1&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PSpreviousYear2&quot; className=&quot;form-control&quot; ref=&quot;PSpreviousYear2&quot;  placeholder=&quot;Previous Year 2&quot; id=&quot;PSpreviousYear2&quot;/&gt;
+            &amp;nbsp;
+            &lt;Textfield label=&quot;PSpreviousYear3&quot; className=&quot;form-control&quot; ref=&quot;PSpreviousYear3&quot;  placeholder=&quot;Previous Year 3&quot; id=&quot;PSpreviousYear3&quot;/&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;Advise if your company has a Drug &amp;amp; Alcohol Policy and provide details:&amp;nbsp; &lt;br/&gt;&lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;drugPolicy&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;Advise if your company evaluates the ability of subcontractors to comply with applicable health and safety requirements as part of your selection process and provide details:&amp;nbsp; &lt;br/&gt;&lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;subcontractors&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;Advise if your company has ever received a regulatory agency stop work order or been investigated by a regulatory body in the last three years in respect of its Occupational Health &amp;amp; Safety record or conduct? If so, attach details and state whether all actions required by the regulatory body have been completed:&amp;nbsp; &lt;br/&gt;&lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;stopWorkOrder&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;hr/&gt;
+
+            &lt;h6&gt;Advise if there are any HSE related judgments, claims or suits outstanding against you and if so, provide details:&amp;nbsp; &lt;br/&gt;&lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;HSEjudge&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+            &lt;hr/&gt;
+
+            &lt;Textfield label=&quot;email&quot; className=&quot;form-control&quot; ref=&quot;email&quot;  placeholder=&quot;Email&quot; id=&quot;email&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;password&quot; ref=&quot;pw&quot; type=&quot;password&quot; className=&quot;form-control&quot; placeholder=&quot;Password&quot; id=&quot;password&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;adminContact&quot; className=&quot;form-control&quot; ref=&quot;adminContact&quot;  placeholder=&quot;Admin Email&quot; id=&quot;adminContact&quot;/&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;technicalContact&quot; className=&quot;form-control&quot; ref=&quot;technicalContact&quot;  placeholder=&quot;Technical Email&quot; id=&quot;technicalContact&quot;/&gt;
+            &lt;br/&gt;
+            &lt;div&gt;
+            &lt;label&gt;ISN Member:
+              &lt;input type=&quot;radio&quot; name=&quot;ISNumber&quot; value=&quot;isnY&quot; id=&quot;ISnumberYes&quot;/&gt;Yes
+              &lt;input type=&quot;radio&quot; name=&quot;ISNumber&quot; value=&quot;isnN&quot; id=&quot;ISnumberNo&quot;/&gt;No
+            &lt;/label&gt;
+            &lt;/div&gt;
+            &lt;br/&gt;
+            &lt;Textfield label=&quot;website&quot; className=&quot;form-control&quot; ref=&quot;website&quot;  placeholder=&quot;Website&quot; id=&quot;website&quot;/&gt;
+
+            &lt;CardActions&gt;
+                &lt;Button accent ripple className=&quot;mdl-color-text--indigo btn btn-primary&quot; onClick={this.requestSubmit.bind(this)}&gt;Register&lt;/Button&gt;
+            &lt;/CardActions&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+};
+export default ComponentSignUpVendor
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

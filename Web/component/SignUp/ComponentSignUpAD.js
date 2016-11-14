@@ -19,10 +19,18 @@ var formStyle = {
 
 class ComponentSignUpAD extends Component {
 
-  signUpPurchaser(user) {
+  /**
+   * Sends information about AD and adds it to ADsignup list
+   * @param {user} user - object which contains information about the AD.
+   */
+  signUpAD(user) {
     this.props.dispatch(signUpAD(user));
   }
 
+  /**
+   * Sends information to signUpAD(user)
+   * @return {Object} user - sends information about additional resource.
+   */
   requestSubmit() {
     // Add signup event
     var website = document.getElementById("website").value;
@@ -31,11 +39,14 @@ class ComponentSignUpAD extends Component {
 
     var user = {website, email, password}
 
-    this.signUpPurchaser(user);
-    alert("Thank you for registering as an Additional User for LearnEnergy Marketplace." +"\n" + "We will be in contact with you shortly.");
+    this.signUpAD(user);
 
   }
 
+  /**
+   * Loads the signup page for additional resource.
+   * @return {html} - displays sign up page for additional resource
+   */
   render() {
     return(
 

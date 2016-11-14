@@ -1,0 +1,54 @@
+{
+  "name": "learnenergy401",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "lint": "eslint app",
+    "doc": "esdoc -c esdoc.json",
+    "postinstall": "npm run build && npm run doc",
+    "test":"mocha --reporter spec Web/test/*.js --require babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learnenergy401/learnenergy401.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/learnenergy401/learnenergy401/issues"
+  },
+  "homepage": "https://github.com/learnenergy401/learnenergy401#readme",
+  "dependencies": {
+    "babel-preset-stage-0": "^6.16.0",
+    "decorative-react": "^0.1.3",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-mdl": "^1.7.2",
+    "react-player": "^0.12.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.0",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "esdoc": "^0.4.8",
+    "gulp": "^3.9.1",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.1.2",
+    "react-addons-test-utils": "^15.3.2",
+    "redux-devtools": "^3.3.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
