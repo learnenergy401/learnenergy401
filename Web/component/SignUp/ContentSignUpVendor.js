@@ -16,7 +16,7 @@ var cardStyle = {
 }
 
 var cardTitleStyle = {
-    center:'true'
+    height:'750px'
 }
 
 class ContentSignUpVendor extends Component {
@@ -30,7 +30,7 @@ class ContentSignUpVendor extends Component {
           <div  className="learn-content mdl-typography--text-center">
               <div style={spacerStyle} />
               <Card shadow={0} style={cardStyle} >
-                <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Sign Up: Vendor</CardTitle>
+                <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Sign Up: Vendor</CardTitle>
                 <ComponentSignUpVendor/>
               </Card>
           </div>

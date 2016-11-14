@@ -176,7 +176,7 @@ class ComponentSignUpVendor extends Component {
     */
     render() {
     return(
-      <div className="android-content mdl-layout__content">
+      <div className="mdl-layout__content" style={{textAlign: 'center'}}>
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
             <h4>Part A: Company Structure</h4>
