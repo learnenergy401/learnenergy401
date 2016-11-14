@@ -102,7 +102,7 @@ class CourseList extends Component{
             const filteredCourses = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
             const mappedCourse = filteredCourses.map(course =>
 
-                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp ">
+                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp" onClick={()=>(this.saveACourse(course.courseName))}>
                     <div style={cardTitleStyle} className="mdl-card__title" >
                         <h2  className="mdl-card__title-text">
                             {course.courseName}
