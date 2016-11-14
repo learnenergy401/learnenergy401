@@ -320,31 +320,47 @@ class AdminReview extends Component {
           return (
             <div>
             <LearnHeader/>
-            <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+            <div className="learn-content mdl-typography--text-center" style={{width: '90%', margin: 'auto'}}>
                 <div className="grid">
                   <div className="card mdl-shadow--2dp">
                     <div className="card__title mdl-color--indigo mdl-color-text--white">
                       <h4 className="card__title-text">Purchaser Information</h4>
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
-
+              
+              <h4>NAME:</h4>
               <p>Legal Name: {legalEntity}</p>
               <p>Operating Name: {operatingName}</p>
+              <h4>CONTACT:</h4>
               <p>Address 1: {address1}</p>
               <p>Address 2: {address2}</p>
               <p>City: {city}</p>
-              <p>Postal Code:</p>
-              <p>Province: </p>
-              <p>Country: </p>
-              <p>Postal Code:</p>
-              <p>Phone: </p>
-              <p>Fax:</p>
-              <p>Email:</p>
-              <p>Admin Contact:</p>
-              <p>Techncal Contact:</p>
-              <p>IS Number:</p>
-              <p>Website:</p>
-              <p>Password:</p>
+              <p>Province:{province} </p>
+              <p>Country: {country}</p>
+              <p>Postal Code:{postalCode}</p>
+              <p>Phone:{phone} </p>
+              <p>Fax:{fax}</p>
+              <p>Email:{email}</p>
+              <p>Admin Contact:{adminContact}</p>
+              <p>Techncal Contact:{technicalContact}</p>
+              
+              <h4>BUISNESS:</h4>
+              <p>GST Registration #: {bank}</p>
+              <p>Bank: {bank}</p>
+              <p>Accounts Recieveable: {accntRec}</p>
+              <p>IS Number:{ISnumber}</p>
+              <p>Website:{website}</p>
+              <p>Password:{password}</p>
+              
+              <h1>BILLING:</h1>
+              <p>Address 1:{billAddress1}</p>
+              <p>Address 2:{billAddress2}</p>
+              <p>City:{billCity}</p>
+              <p>Province:{billProvince}</p>
+              <p>Country:{billCountry}</p>
+              <p>Postal Code:{billPostalCode}</p>
+              
+              
 
                 <div>
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
