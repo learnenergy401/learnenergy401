@@ -8,7 +8,7 @@
     "lint": "eslint app",
     "doc": "esdoc -c esdoc.json",
     "postinstall": "npm run build && npm run doc",
-    "test":"mocha --reporter spec Web/test/*.js --require babel-core/register"
+    "test": "mocha --reporter spec Web/test/*.js --require babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "react-player": "^0.12.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-search-input": "^0.10.3",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-promise": "^0.5.3",

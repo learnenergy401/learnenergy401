@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
-import {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList} from 'react-mdl';
+import {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList,Textfield} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
+import SearchInput, {createFilter} from 'react-search-input'
+
 
 import "../../extra/material.js"
 import { fetchCourse,saveACourse } from "../Actions/courseActions"
+
+const KEYS_TO_FILTERS = ['courseName', 'courseDescription']
+
 
 var listStyle = {
     width : "80%",
@@ -37,11 +42,17 @@ var cardTextStyle= {
 })
 
 class CourseList extends Component{
+    constructor (props) {
+        super(props);
+        this.state = { searchTerm: '' }
+    }
+
     onListItemClick(){
         console.log(course.courseName)
     }
     componentWillMount(){
         this.props.dispatch(fetchCourse());
+
     }
 
     /**
@@ -66,17 +77,33 @@ class CourseList extends Component{
         return arr
     }
 
+    componentDidMount (){
+        document.getElementById("courseSearchInput").focus()
+    }
+
+
+    searchUpdated (term) {
+        term = document.getElementById("courseSearchInput").value
+        console.log(term)
+        this.setState({searchTerm: term})
+    }
+
     /**
     * renders the display for the current page.   displays courses
     * @return {html} if there is a courselist return the list
     */
+
+
     render(){
         const {course}=this.props
+
+
         if (course.courseList){
             var arr = this.jsonToArray(course.courseList)
-            const mappedCourse = arr.map(course =>
+            const filteredCourses = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+            const mappedCourse = filteredCourses.map(course =>
 
-                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp " onClick={()=>(this.saveACourse(course.courseName))}>
+                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp ">
                     <div style={cardTitleStyle} className="mdl-card__title" >
                         <h2  className="mdl-card__title-text">
                             {course.courseName}
@@ -89,17 +116,23 @@ class CourseList extends Component{
                 )
 
             return(
-                <div style={listStyle}>
-                    {mappedCourse}
+                <div>
+                     <Textfield autoFocus className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    <div style={listStyle}>
+                        {mappedCourse}
+                    </div>
                 </div>
 
             )
 
         }else{
             return(
+                <div>
+                    <Textfield autoFocus className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    <div style={listStyle}>
 
-                <div style={listStyle}>
-                    loading
+                        loading
+                    </div>
                 </div>
             )
         }
