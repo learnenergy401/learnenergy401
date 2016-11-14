@@ -84,7 +84,6 @@ class CourseList extends Component{
 
     searchUpdated (term) {
         term = document.getElementById("courseSearchInput").value
-        console.log(term)
         this.setState({searchTerm: term})
     }
 
