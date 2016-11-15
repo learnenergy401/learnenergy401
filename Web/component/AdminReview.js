@@ -274,14 +274,15 @@ class AdminReview extends Component {
     return_back() {
       window.location.assign('/#/admin')
     }
-
+    
     render() {
       const {user} = this.props
       if (user.keys_roles != null) {
         console.log("user is", user)
         var key_name = user.keys_roles.key
         var role = user.keys_roles.role
-
+        //GIVE proper display for role:  not jsut number
+        var string_role = {0:'Purchaser', 1:'Vendor', 2:'Admin'}
         if (role==0) {
           var legalEntity = user.purchasers[key_name].legalEntity;
           var operatingName = user.purchasers[key_name].operatingName;
@@ -314,13 +315,15 @@ class AdminReview extends Component {
           var categories = user.purchasers[key_name].categories;
 
           var password = user.purchasers[key_name].password;
-          var role = user.purchasers[key_name].role;
+          //var role = user.purchasers[key_name].role;
+        
+          
 
           // make the page here
           return (
             <div>
             <LearnHeader/>
-            <div className="learn-content mdl-typography--text-center" style={{width: '90%', margin: 'auto'}}>
+            <div className="learn-content mdl-typography--text-center"  style={{width: '80%', margin: 'auto'}}>
                 <div className="grid">
                   <div className="card mdl-shadow--2dp">
                     <div className="card__title mdl-color--indigo mdl-color-text--white">
@@ -328,45 +331,41 @@ class AdminReview extends Component {
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
               
-              <h4>NAME:</h4>
-              <p>Legal Name: {legalEntity}</p>
-              <p>Operating Name: {operatingName}</p>
-              <h4>CONTACT:</h4>
-              <p>Address 1: {address1}</p>
-              <p>Address 2: {address2}</p>
-              <p>City: {city}</p>
-              <p>Province:{province} </p>
-              <p>Country: {country}</p>
-              <p>Postal Code:{postalCode}</p>
-              <p>Phone:{phone} </p>
-              <p>Fax:{fax}</p>
-              <p>Email:{email}</p>
-              <p>Admin Contact:{adminContact}</p>
-              <p>Techncal Contact:{technicalContact}</p>
-              
-              <h4>BUISNESS:</h4>
-              <p>GST Registration #: {bank}</p>
-              <p>Bank: {bank}</p>
-              <p>Accounts Recieveable: {accntRec}</p>
-              <p>IS Number:{ISnumber}</p>
-              <p>Website:{website}</p>
-              <p>Password:{password}</p>
-              
-              <h1>BILLING:</h1>
-              <p>Address 1:{billAddress1}</p>
-              <p>Address 2:{billAddress2}</p>
-              <p>City:{billCity}</p>
-              <p>Province:{billProvince}</p>
-              <p>Country:{billCountry}</p>
-              <p>Postal Code:{billPostalCode}</p>
-              
-              
+                      <p>Legal Name: {legalEntity}</p>
+                      <p>Operating Name: {operatingName}</p>
+                      <p>Role: {string_role[role]}</p>
+                      <p>Address 1: {address1}</p>
+                      <p>Address 2: {address2}</p>
+                      <p>City: {city}</p>
+                      <p>Province:{province} </p>
+                      <p>Country: {country}</p>
+                      <p>Postal Code:{postalCode}</p>
+                      <p>Phone:{phone} </p>
+                      <p>Fax:{fax}</p>
+                      <p>Email:{email}</p>
+                      <p>Admin Contact:{adminContact}</p>
+                      <p>Techncal Contact:{technicalContact}</p>
+
+                      <p>GST Registration: {gstReg}</p>
+                      <p>Bank: {bank}</p>
+                      <p>Accounts Recieveable: {accntRec}</p>
+                      <p>IS Number:{ISnumber}</p>
+                      <p>Website:{website}</p>
+                      <p>Password:{password}</p>
+
+                      <p>Address 1:{billAddress1}</p>
+                      <p>Address 2:{billAddress2}</p>
+                      <p>City:{billCity}</p>
+                      <p>Province:{billProvince}</p>
+                      <p>Country:{billCountry}</p>
+                      <p>Postal Code:{billPostalCode}</p>
+                      <p>Joint Venture:{jointVenture}</p>
+                      <p>Categories:{categories}</p>
 
                 <div>
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-
                 </div>
                 <br/>
               </div>
