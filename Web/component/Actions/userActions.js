@@ -2,12 +2,57 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * sets the eoikey.
+ * @returns {object} dispatch - Returns the state which contains eoikey object
+ * @param {object} info - object which contains information about the eoikey.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeEOIkey(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('EOIdetails/'+user.uid).set({
+          key_name: info.key_name,
+      }).then((data) => {
+        dispatch({type: "STORE_EOI_KEY_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_EOI_KEY_REJECTED", payload: err})
+      })
+      } 
+    })
+  }
+}
+
+/**
+ * Grabs the eoikey from the database.
+ * @returns {object} eoikey - Returns the object of eoikey.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchEOIkey() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('EOIdetails/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_EOI_KEY_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_EOI_KEY_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
  * sets the ReqEOI to the database.
  * @returns {object} dispatch - Returns the state which contains reqeoi object
  * @param {object} data - object which contains information about the reqeoi.
  * @throws {object} err - Returns an error if failed to push to database.
  */
-export function storeReqEOIs(info) { // called on button press
+export function storeReqEOI(info) { // called on button press
   return function(dispatch) {
     // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
     firebaseAuth.onAuthStateChanged((user)=>{
@@ -16,14 +61,16 @@ export function storeReqEOIs(info) { // called on button press
           vendor: info.vendor_uid,
           purchaser: info.purchaser_uid,
           course: info.course_uid,
-    }).then((data) => {
-      dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
+      }).then((data) => {
+        dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_REQ_EOI_REJECTED", payload: err})
+      })
+      // move to eoi page
+      window.location.assign('/#/course-eoi') 
+      } 
     })
-    .catch((err) => {
-      dispatch({type: "STORE_REQ_EOI_REJECTED", payload: err})
-    })
-    // move to eoi page
-    window.location.assign('/#/course-eoi')  
   }
 }
 
@@ -56,14 +103,13 @@ export function fetchReqEOI() {
  */
 export function storeEOIs(info) {
   return function(dispatch) {
-    firebaseAuth.onAuthStateChanged((user)=>{
-      if (user){
-        firebaseDb.ref('EOI/'+user.uid).set({
-          vendor: info.vendor_uid,
-          purchaser: info.purchaser_uid,
-          course: info.course_id,
-          // additional details below
-          email: info.email,
+    firebaseDb.ref('EOI').push({
+      vendor: info.vendor_uid,
+      purchaser: info.purchaser_uid,
+      course: info.course_id,
+
+      // additional details below
+      email: info.email,
           
     }).then((data) => {
       dispatch({type: "STORE_EOI_FULFILLED", payload: user})
@@ -92,6 +138,26 @@ export function fetchEOIs() {
       dispatch({type: "FETCH_EOI_REJECTED", payload: err})
     })
 
+  }
+}
+
+/**
+ * Removes from EOI table
+ * @params {object} key - key name to remove 
+ */
+export function removeEOI(key) {
+  return function(dispatch) {
+    
+    firebaseDb.ref('EOI/'+key.key_name).remove().then(function() {
+
+      console.log("removed")
+      location.reload()
+      }).then((data) => {
+        dispatch({type: "REMOVED_EOI_FULFILLED"})
+      })
+    .catch(function(err) {
+      console.log("failed to remove")
+    })
   }
 }
 
@@ -440,7 +506,7 @@ export function rejectUser(user) {
   return function(dispatch) {
     if (user.role == 0) { // reject purchaser
       firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
-        console.log("purchaseer removed")
+        console.log("purchaser removed")
         location.reload();
       }).then((data) => {
         dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})

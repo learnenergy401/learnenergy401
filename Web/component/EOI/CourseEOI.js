@@ -6,7 +6,7 @@ import LearnNavigation from '../Navigation.js';
 import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
-
+import { connect } from "react-redux"
 import { fetchReqEOI, storeEOIs, storeKeyRole, fetchVendorSignup, fetchPurchaserSignup, 
 	fetchADSignup, getCurrentUser } from "../Actions/userActions"
 
@@ -68,3 +68,5 @@ class CourseEOI extends Component {
 	}
 
 }
+
+export default CourseEOI
