@@ -17,6 +17,8 @@ export default function reducer(state={
     ad: null,
     admin: null, 
     keys_roles: null,
+    eoi: null,
+    reqEOI: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -329,7 +331,6 @@ export default function reducer(state={
             }
         }
 
-    
         case "FETCH_KEYS_ROLES_FULFILLED": {
             return {
                 ...state,
@@ -356,6 +357,72 @@ export default function reducer(state={
         }
 
         case "STORE_KEYS_ROLES_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                eoi: action.payload,
+            }
+        } 
+
+        case "FETCH_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_REQ_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_REQ_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_REQ_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                reqEOI: action.payload,
+            }
+        } 
+
+        case "FETCH_REQ_EOI_REJECTED": {
             return {
                 ...state,
                 fetching: false,

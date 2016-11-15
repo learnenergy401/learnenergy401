@@ -1,5 +1,100 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
+
+/**
+ * sets the ReqEOI to the database.
+ * @returns {object} dispatch - Returns the state which contains reqeoi object
+ * @param {object} data - object which contains information about the reqeoi.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeReqEOIs(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('ReqEOI/'+user.uid).set({
+          vendor: info.vendor_uid,
+          purchaser: info.purchaser_uid,
+          course: info.course_uid,
+    }).then((data) => {
+      dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "STORE_REQ_EOI_REJECTED", payload: err})
+    })
+    // move to eoi page
+    window.location.assign('/#/course-eoi')  
+  }
+}
+
+/**
+ * Grabs the ReqEOIs from the database.
+ * @returns {object} reqeoi - Returns the object of reqeoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchReqEOI() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('ReqEOI/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_REQ_EOI_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_REQ_EOI_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * sets the EOI to the database.
+ * @returns {object} dispatch - Returns the state which contains eoi object
+ * @param {object} data - object which contains information about the eoi.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeEOIs(info) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('EOI/'+user.uid).set({
+          vendor: info.vendor_uid,
+          purchaser: info.purchaser_uid,
+          course: info.course_id,
+          // additional details below
+          email: info.email,
+          
+    }).then((data) => {
+      dispatch({type: "STORE_EOI_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "STORE_EOI_REJECTED", payload: err})
+    })
+    alert("EOI submitted")
+    location.reload()
+  }
+}
+
+/**
+ * Grabs the EOIs from the database.
+ * @returns {object} eoi - Returns the object of eoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchEOIs() {
+  return function(dispatch) {
+
+    firebaseDb.ref('EOI').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_EOI_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_EOI_REJECTED", payload: err})
+    })
+
+  }
+}
+
 /**
  * Grabs the key and role from the database.
  * @returns {object} key - Returns the object of key.
