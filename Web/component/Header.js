@@ -121,6 +121,7 @@ class LearnHeader extends Component {
                       <div style={buttonSpacer}>
                       </div>
                       <ButtonReviewEOI to='review-eoi'/>
+                      <ButtonProfile to='profile' />
                       <ButtonLogOut/>
                 </Header>
                 );
