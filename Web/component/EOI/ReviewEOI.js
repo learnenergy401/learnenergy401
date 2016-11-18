@@ -60,18 +60,21 @@ class ReviewEOI extends Component {
 
 			// grab uid of current user
 			var uid
-		    firebaseAuth.onAuthStateChanged((user)=>{
-      			if (user){
-      				uid = user.uid
-      			}
-      		})
-
-      		// grab information on EOIs if they match out vendor's uid
+			var currentUser = firebaseAuth.currentUser
+			if (currentUser!=null){
+				uid = currentUser.uid
+			}
+			// grab information on EOIs if they match out vendor's uid
 			var keys
-			if (user.eoi != null) {
+			console.log(uid)
+
+			if (user.eoi != null && uid!=null) {
 				keys = Object.keys(user.eoi)
+				console.log('keys are', keys)
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
+					console.log(user.eoi)
+					console.log(uid)
 					if (user.eoi[key_name].vendor == uid) {
 						EOIs.push(user.eoi[key_name].email)
 						EOIs.push(<br/>)
@@ -150,6 +153,7 @@ class ReviewEOI extends Component {
 			);
 
 		}
+
 	}
 
 }

@@ -24,7 +24,7 @@ var cardStyle = {
 }
 
 var cardTitleStyle = {
-    height:'80px'
+    height:'200px'
 }
 
 @connect((store) => {
@@ -48,61 +48,68 @@ class EOIdetails extends Component {
 		this.fetchEOIkey()
 	}
 
+	return_back() {
+		window.location.assign('/#/review-eoi')
+	}
+
 	render() {
 
 		const {user} = this.props
-		
+		console.log(user)
 		if ((user.eoi != null)&&(user.eoiKey != null)) {
-			var purchaser_legal = user.eoi[user.eoiKey].purchaser_legal
-			var purchaser_address1 = user.eoi[user.eoiKey].purchaser_address1
-			var purchaser_address2 = user.eoi[user.eoiKey].purchaser_address2
-			var purchaser_city = user.eoi[user.eoiKey].purchaser_city
-			var purchaser_country = user.eoi[user.eoiKey].purchaser_country
-			var purchaser_phone = user.eoi[user.eoiKey].purchaser_phone
-			var purchaser_fax = user.eoi[user.eoiKey].purchaser_fax
 
-			var vendor = user.eoi[user.eoiKey].vendor
-			var purchaser = user.eoi[user.eoiKey].purchaser
-			var course = user.eoi[user.eoiKey].course
+			var purchaser_legal = user.eoi[user.eoiKey.key_name].purchaser_legal
+			var purchaser_address1 = user.eoi[user.eoiKey.key_name].purchaser_address1
+			var purchaser_address2 = user.eoi[user.eoiKey.key_name].purchaser_address2
+			var purchaser_city = user.eoi[user.eoiKey.key_name].purchaser_city
+			var purchaser_country = user.eoi[user.eoiKey.key_name].purchaser_country
+			var purchaser_phone = user.eoi[user.eoiKey.key_name].purchaser_phone
+			var purchaser_fax = user.eoi[user.eoiKey.key_name].purchaser_fax
 
 
-			var email = user.eoi[user.eoiKey].email
+			var vendor = user.eoi[user.eoiKey.key_name].vendor
+			var purchaser = user.eoi[user.eoiKey.key_name].purchaser
+			var course = user.eoi[user.eoiKey.key_name].course
+			var email = user.eoi[user.eoiKey.key_name].email
 
-	        var date = user.eoi[user.eoiKey].date
-	        var service = user.eoi[user.eoiKey].service
-	        var text1 = user.eoi[user.eoiKey].text1
-	        var text2 = user.eoi[user.eoiKey].text2
-	        var closeDate = user.eoi[user.eoiKey].closeDate
-	        var closeTime = user.eoi[user.eoiKey].closeTime
-	        var name1 = user.eoi[user.eoiKey].name1
-	        var title1 = user.eoi[user.eoiKey].title1
-	        var name2 = user.eoi[user.eoiKey].name2
-	        var title2 = user.eoi[user.eoiKey].title2
-	        var email2 = user.eoi[user.eoiKey].email2
-	        var phone = user.eoi[user.eoiKey].phone
+			var email1 = user.eoi[user.eoiKey.key_name].email1
 
-	        var company_name = user.eoi[user.eoiKey].company_name
-		    var RFP_par = user.eoi[user.eoiKey].RFP_par
+	        var date = user.eoi[user.eoiKey.key_name].date
+	        var service = user.eoi[user.eoiKey.key_name].service
+	        var text1 = user.eoi[user.eoiKey.key_name].text1
+	        var text2 = user.eoi[user.eoiKey.key_name].text2
+	        var closeDate = user.eoi[user.eoiKey.key_name].closeDate
+	        var closeTime = user.eoi[user.eoiKey.key_name].closeTime
+	        var name1 = user.eoi[user.eoiKey.key_name].name1
+	        var title1 = user.eoi[user.eoiKey.key_name].title1
+	        var name2 = user.eoi[user.eoiKey.key_name].name2
+	        var title2 = user.eoi[user.eoiKey.key_name].title2
+	        var email2 = user.eoi[user.eoiKey.key_name].email2
+	        var phone = user.eoi[user.eoiKey.key_name].phone
 
-		    var vendor_company_address = user.eoi[user.eoiKey].vendor_company_address
-		    var vendor_contact_title_position = user.eoi[user.eoiKey].vendor_contact_title_position
-		    var vendor_primary_telephone = user.eoi[user.eoiKey].vendor_primary_telephone
-		    var vendor_alternate_telephone = user.eoi[user.eoiKey].vendor_alternate_telephone
-		    var vendor_fax = user.eoi[user.eoiKey].vendor_fax
-		    var vendor_email = user.eoi[user.eoiKey].vendor_email
+	        var company_name = user.eoi[user.eoiKey.key_name].company_name
+		    var RFP_par = user.eoi[user.eoiKey.key_name].RFP_par
 
-		    var company_approved = user.eoi[user.eoiKey].company_approved
-		    var optional_comments = user.eoi[user.eoiKey].optional_comments
+		    var vendor_company_address = user.eoi[user.eoiKey.key_name].vendor_company_address
+		    var vendor_contact_name = user.eoi[user.eoiKey.key_name].vendor_contact_name
+		    var vendor_contact_title_position = user.eoi[user.eoiKey.key_name].vendor_contact_title_position
+		    var vendor_primary_telephone = user.eoi[user.eoiKey.key_name].vendor_primary_telephone
+		    var vendor_alternate_telephone = user.eoi[user.eoiKey.key_name].vendor_alternate_telephone
+		    var vendor_fax = user.eoi[user.eoiKey.key_name].vendor_fax
+		    var vendor_email = user.eoi[user.eoiKey.key_name].vendor_email
 
-			var scope = user.eoi[user.eoiKey].scope
-			var qualificationA = user.eoi[user.eoiKey].qualificationA
-			var qualificationB = user.eoi[user.eoiKey].qualificationB
-			var qualificationC = user.eoi[user.eoiKey].qualificationC
-			var qualificationD = user.eoi[user.eoiKey].qualificationD
-			var response_date = user.eoi[user.eoiKey].response_date
-			var email3 = user.eoi[user.eoiKey].email3
-			var LMRFPnum = user.eoi[user.eoiKey].LMRFPnum
-			var selection_date = user.eoi[user.eoiKey].selection_date
+		    var company_approved = user.eoi[user.eoiKey.key_name].company_approved
+		    var optional_comments = user.eoi[user.eoiKey.key_name].optional_comments
+
+			var scope = user.eoi[user.eoiKey.key_name].scope
+			var qualificationA = user.eoi[user.eoiKey.key_name].qualificationA
+			var qualificationB = user.eoi[user.eoiKey.key_name].qualificationB
+			var qualificationC = user.eoi[user.eoiKey.key_name].qualificationC
+			var qualificationD = user.eoi[user.eoiKey.key_name].qualificationD
+			var response_date = user.eoi[user.eoiKey.key_name].response_date
+			var email3 = user.eoi[user.eoiKey.key_name].email3
+			var LMRFPnum = user.eoi[user.eoiKey.key_name].LMRFPnum
+			var selection_date = user.eoi[user.eoiKey.key_name].selection_date
 
 		    return (
 			<div>
@@ -133,7 +140,7 @@ class EOIdetails extends Component {
 	            <h6>Phone: &nbsp; {purchaser_phone}</h6>
 	            <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
 
- 				<h6>On behalf of {purchaser}
+ 				<h6>On behalf of {purchaser_legal}
                   ("The Purchaser"), your company ("Respondent") is invited to submit a response to this Expression of Interest. The Purchaser plans
                   to issue a Request for Proposal (RFP) for the provision of {service}
                   services. The current schedule is to issue the RFP {text1} with contract award by
@@ -251,7 +258,7 @@ class EOIdetails extends Component {
 
 					<h6>
 					Interested Vendors must respond to the Purchaser by Noon (12:00 pm local time) on
-					&nbsp;{respond_date}
+					&nbsp;{response_date}
 					Any requests for information, including the response for this expression of interest, can be emailed to the Purchaser at
 					&nbsp;{email3}.
 					The response including Appendices 1, 2, and 3 and any supplemental information must be uploaded to the Purchaser LM RFP#
@@ -275,6 +282,7 @@ class EOIdetails extends Component {
 	            </div>
 	            </div>
 	          </Card>
+	          <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>
 	          </div>
 
 	            <LearnFooter/>

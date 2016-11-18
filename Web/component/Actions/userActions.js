@@ -57,10 +57,12 @@ export function storeReqEOI(info) { // called on button press
     // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){
+        console.log('user id is ',user.uid)
         firebaseDb.ref('ReqEOI/'+user.uid).set({
           vendor: info.vendor_uid,
-          purchaser: info.purchaser_uid,
+          purchaser: user.uid,
           course: info.course_uid,
+          email: info.email,
       }).then((data) => {
         dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
       })
@@ -103,6 +105,7 @@ export function fetchReqEOI() {
  */
 export function storeEOIs(info) {
   return function(dispatch) {
+    console.log(info)
     firebaseDb.ref('EOI').push({
       vendor: info.vendor,
       purchaser: info.uid,
@@ -110,6 +113,7 @@ export function storeEOIs(info) {
 
       // additional details below
       email: info.email,
+      email1: info.email1,
       date: info.date,
       service: info.service,
       text1: info.text1,
@@ -126,6 +130,7 @@ export function storeEOIs(info) {
       company_name: info.company_name,
       RFP_par: info.RFP_par,
       vendor_company_address: info.vendor_company_address,
+      vendor_contact_name: info.vendor_contact_name, 
       vendor_contact_title_position: info.vendor_contact_title_position,
       vendor_primary_telephone: info.vendor_primary_telephone,
       vendor_alternate_telephone: info.vendor_alternate_telephone,
@@ -148,7 +153,7 @@ export function storeEOIs(info) {
       purchaser_legal: info.purchaser_legal,
       purchaser_address1: info.purchaser_address1,
       purchaser_address2: info.purchaser_address2,
-      purchaser_city: info.purchaser_card,
+      purchaser_city: info.purchaser_city,
       purchaser_country: info.purchaser_country,
       purchaser_phone: info.purchaser_phone,
       purchaser_fax: info.purchaser_fax,

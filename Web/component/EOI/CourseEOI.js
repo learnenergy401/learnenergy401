@@ -55,36 +55,42 @@ class CourseEOI extends Component {
 		this.fetchReqEOI()
 	}
 
-	requestSubmit(legal, address1, address2, city, country, phone, fax) { // stores an EOI into the table
+	requestSubmit(legal, address1, address2, city, country, uphone, fax) { // stores an EOI into the table
 
 		const {user} = this.props
-		var vendor = user.reqEOI.vendor_uid
-		var uid = user.reqEOI.user_uid
-		var course = user.reqEOI.course_uid
+		console.log(user)
+		if (user.reqEOI != null) {
+			var vendor = user.reqEOI.vendor
+			var uid = user.reqEOI.purchaser
+			var course = user.reqEOI.course
+			var email = user.reqEOI.email
 
-		var email = document.getElementById("email").value
+			var email1 = document.getElementById("email1").value
 
-        var date = document.getElementById("date").value
-        var service = document.getElementById("service").value
-        var text1 = document.getElementById("text1").value
-        var text2 = document.getElementById("text2").value
-        var closeDate = document.getElementById("closeDate").value
-        var closeTime = document.getElementById("closeTime").value
-        var name1 = document.getElementById("name1").value
-        var title1 = document.getElementById("title1").value
-        var name2 = document.getElementById("name2").value
-        var title2 = document.getElementById("title2").value
-        var email2 = document.getElementById("email2").value
-        var phone = document.getElementById("phone").value
+	        var date = document.getElementById("date").value
+	        var service = document.getElementById("service").value
+	        var text1 = document.getElementById("text1").value
+	        var text2 = document.getElementById("text2").value
+	        var closeDate = document.getElementById("closeDate").value
+	        var closeTime = document.getElementById("closeTime").value
+	        var name1 = document.getElementById("name1").value
+	        var title1 = document.getElementById("title1").value
+	        var name2 = document.getElementById("name2").value
+	        var title2 = document.getElementById("title2").value
+	        var email2 = document.getElementById("email2").value
+	        var phone = document.getElementById("phone").value
 
-        var company_name = document.getElementById("company_name").value
+	        var company_name = document.getElementById("company_name").value
 		    var RFP_par
 		    if(document.getElementById("RFP_parYes").checked) {
 		        RFP_par = "yes"
 		    } else if (document.getElementById("RFP_parNo").checked) {
 		        RFP_par = "no"
 		    }
+
+
 		    var vendor_company_address = document.getElementById("vendor_company_address").value
+		    var vendor_contact_name = document.getElementById("vendor_contact_name").value
 		    var vendor_contact_title_position = document.getElementById("vendor_contact_title_position").value
 		    var vendor_primary_telephone = document.getElementById("vendor_primary_telephone").value
 		    var vendor_alternate_telephone = document.getElementById("vendor_alternate_telephone").value
@@ -113,14 +119,14 @@ class CourseEOI extends Component {
 				var purchaser_legal = legal
 				var purchaser_address1 = address1
 				var purchaser_address2 = address2
-				var purchaser_city = card
+				var purchaser_city = city
 				var purchaser_country = country
 				var purchaser_phone = uphone
 				var purchaser_fax = fax
 
 
-	    	var info = {vendor, uid, course, email1, date, service, text1, text2, closeDate, closeTime,
-	      name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address,
+	    	var info = {vendor, uid, course, email, email1, date, service, text1, text2, closeDate, closeTime,
+	      name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address, vendor_contact_name,
 				vendor_contact_title_position, vendor_primary_telephone, vendor_alternate_telephone, vendor_fax,
 				vendor_email, company_approved, optional_comments, scope, qualificationA, qualificationB, qualificationC,
 				qualificationD, response_date, email3, LMRFPnum, selection_date, purchaser_legal, purchaser_address1, purchaser_address2,
@@ -128,6 +134,7 @@ class CourseEOI extends Component {
 
 
 		this.storeEOIs(info)
+		}
 	}
 
 	return_back() {
@@ -144,7 +151,7 @@ class CourseEOI extends Component {
 			var address2 = user.user.address2
 			var city = user.user.city
 			var country = user.user.country
-			var phone = user.user.phone
+			var uphone = user.user.phone
 			var fax = user.user.fax
 
 			return (
@@ -169,7 +176,7 @@ class CourseEOI extends Component {
 	            <h6>Address Line 2: &nbsp; {address2}</h6>
 	            <h6>City: &nbsp; {city}</h6>
 	            <h6>Country: &nbsp; {country}</h6>
-	            <h6>Phone: &nbsp; {phone}</h6>
+	            <h6>Phone: &nbsp; {uphone}</h6>
 	            <h6>Fax Number: &nbsp; {fax}</h6>
  				<h6>On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser"/>
                   ("The Purchaser"), your company ("Respondent") is invited to submit a response to this Expression of Interest. The Purchaser plans
@@ -313,7 +320,7 @@ class CourseEOI extends Component {
 							<hr/>
 
 	            <CardActions>
-	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, phone, fax)}>Submit</Button>
+	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax)}>Submit</Button>
 	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>
 	            </CardActions>
 	            </div>
