@@ -34,8 +34,6 @@ class ContentProfile extends Component {
     
     compoentWillMount(){
         this.getCurrentUser()
-        const {user}=this.props
-        console.log("***"+user)
     }
     
     componentDidUpdate(){
