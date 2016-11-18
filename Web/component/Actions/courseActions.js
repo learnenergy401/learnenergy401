@@ -44,7 +44,7 @@ export function uploadCourse(course) {
         var pushID = generatePushID()
         course.coureID = pushID
 
-        firebaseDb.ref('Course/'+course.courseName).set(course)
+        firebaseDb.ref('Course/'+course.coureID).set(course)
             .then((data) => {
                 dispatch({type: "UPLOAD_COURSE_FULFILLED"})
             })
