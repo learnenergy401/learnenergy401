@@ -12,6 +12,16 @@ import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchKeyRole, fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
 
+//the styling for the div showing all the information.  Too long to display on the div itself, so i put it here
+var info_div_style={
+    margin: 'auto',
+    width: '80%',
+    height: '80%',
+    overflowY:'auto',
+    position:'relative',
+    border: '2px solid blue',
+}
+
 @connect((store) => {
   return {
     user: store.user
@@ -48,7 +58,6 @@ class AdminReview extends Component {
     fetchADSignup() {
       this.props.dispatch(fetchADSignup())
     }
-
     /**
      * Gets information for review
      * @return {object} keys_roles - Returns keys roles state
@@ -317,19 +326,18 @@ class AdminReview extends Component {
           var password = user.purchasers[key_name].password;
           //var role = user.purchasers[key_name].role;
         
-          
 
           // make the page here
           return (
             <div>
             <LearnHeader/>
-            <div className="learn-content mdl-typography--text-center"  style={{width: '80%', margin: 'auto'}}>
+            <div className="learn-content mdl-typography--text-center" >
                 <div className="grid">
                   <div className="card mdl-shadow--2dp">
-                    <div className="card__title mdl-color--indigo mdl-color-text--white">
+                    <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
                       <h4 className="card__title-text">Purchaser Information</h4>
                     </div>
-                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
               
                       <p>Legal Name: {legalEntity}</p>
                       <p>Operating Name: {operatingName}</p>
@@ -350,7 +358,7 @@ class AdminReview extends Component {
                       <p>Bank: {bank}</p>
                       <p>Accounts Recieveable: {accntRec}</p>
                       <p>IS Number:{ISnumber}</p>
-                      <p>Website:{website}</p>
+                      <p>Website:<a href={website}target="_blank">{website}</a></p>
                       <p>Password:{password}</p>
 
                       <p>Address 1:{billAddress1}</p>
@@ -361,16 +369,17 @@ class AdminReview extends Component {
                       <p>Postal Code:{billPostalCode}</p>
                       <p>Joint Venture:{jointVenture}</p>
                       <p>Categories:{categories}</p>
-
+              
+                    </div>
                 <div>
-                <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-                <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-                <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
+                    <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+                    <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+                    <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
                 </div>
                 <br/>
               </div>
               </div>
-              </div>
+              
             </div>
 
             <LearnFooter/>
@@ -481,14 +490,254 @@ class AdminReview extends Component {
           return (
             <div>
             <LearnHeader/>
-            <h4>LOADING...</h4>
+            <div className="learn-content mdl-typography--text-center" >
+                <div className="grid">
+                  <div className="card mdl-shadow--2dp">
+                    <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
+                      <h4 className="card__title-text">Purchaser Information</h4>
+                    </div>
+                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
+              
+                      <p>Legal Name: {legalEntity}</p>
+                      <p>Operating Name: {operatingName}</p>
+                      <p>Role: {string_role[role]}</p>
+                      <p>Address 1: {address1}</p>
+                      <p>Address 2: {address2}</p>
+                      <p>City: {city}</p>
+                      <p>Province:{province} </p>
+                      <p>Country: {country}</p>
+                      <p>Postal Code:{postalCode}</p>
+                      <p>Phone:{phone} </p>
+                      <p>Fax:{fax}</p>
+                      <p>Email:{email}</p>
+                      <p>Admin Contact:{adminContact}</p>
+                      <p>Techncal Contact:{technicalContact}</p>
+                      <p>IS Number:{ISnumber}</p>
+                      <p>Website:<a href={website}target="_blank">{website}</a></p>
+                      <p>Owner 1:{owner1Name}</p>
+                      <p>Owner 2:{owner2Name}</p>
+                      <p>Owner 3:{owner3Name}</p>
+                      <p>Owner 4: {owner4Name}</p>
+                      <p>Owner 5: {owner5Name}</p>
+                      <p>Nature Buisness : {natureBusiness}</p>
+                      <p>Length of Time in Buisness :{timeBusiness}</p>
+                      <p>Professional Affiliations:{proAffiliation}</p>
+                      <p>Annual Report :{report}</p>
+                      <p>Bank :{bank}</p>
+                      <p>Bank Location:{bankLocation}</p>
+                      <p>Bonding Company:{bonding}</p>
+                      <p>Bonding Company Location:{bondingLocation}</p>
+                      <p>Insurance Company :{insuranceCompany}</p>
+                      <p>Insurance Company Location :{insuranceLocation}</p>
+                      <p>Bonding Limit as of {bondingLimitDate}</p>
+                      <p> is:{bondingLimit}</p>
+                      <p>Annual Gross Buisness:{grossBus}</p>
+                      <p>Bancruptcy:{bankruptcy}</p>              
+                      <p>Number of Employees:{numEmployees}</p>
+                      <p>Additional Address 1 :{AD1address1}</p>
+                      <p>Additional Address Country 1:{AD1country}</p>
+                      <p>Additional Phone Number 1:{categories}</p>
+                      <p>Additional Address 2:{AD2address1}</p>
+                      <p>Additional Address Country 2:{AD2country}</p>
+                      <p>Additional Phone Number 2:{categories}</p>
+                      <p>Additional Address 3:{AD3address1}</p>
+                      <p>Additional Address Country 3:{AD3country}</p>
+                      <p>Additional Phone Number 3:{categories}</p>
+              
+                      
+                      <p>Categories of Service:{categories}</p>
+                      <p>Specialities:{categories}</p>
+                      <p>Client 1 Name:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Phone:{categories}</p>
+                      <p>Emails:{categories}</p>
+                      <p>Details:{categories}</p>
+                      <p>Client 2 Name:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Phone:{categories}</p>
+                      <p>Emails:{categories}</p>
+                      <p>Details:{categories}</p>
+                      <p>Client 3 Name:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Phone:{categories}</p>
+                      <p>Emails:{categories}</p>
+                      <p>Details:{categories}</p>
+                      <p>Client 4 Name:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Phone:{categories}</p>
+                      <p>Emails:{categories}</p>
+                      <p>Details:{categories}</p>
+              
+                      <p>Licence Type 1:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Licence Type 2:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Licence Type 3:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Licence Type 4:{categories}</p>
+                      <p>Location:{categories}</p>
+                      <p>Licence Type 5:{categories}</p>
+                      <p>Location:{categories}</p>
+                        
+                        <h4>Products/Completed Operations</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Sudden/Accidental Pollution</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Cross Liability/Severability of Interest</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Employers Liability</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Broad Form Property Damage</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Blanket Contractual Liability</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Independent Contractors</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Non-Owned Automobile</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Tenants Legal Liability</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>No failure to perform exclusion</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Errors and Omissions</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>30 days’ notice for cancellation/non-renewal</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Automobile Insurance</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Excess/Umbrella Liability</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Professional Liability</h4>
+              <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+                      <p>Categories:{categories}</p>
+              
+              <h4>Employee hours Worked</h4>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              
+              <h4>Fatalities</h4>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              
+              <h4>Lost time incidents </h4>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              
+              <h4>Medical aid injuries</h4>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              
+              <h4>Other recordable cases </h4>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              
+              <h4>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</h4>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              <p>Categories:{categories}</p>
+              
+              <h4>Worker's Compensation</h4>
+              <p>Industry Code:{categories}</p>
+              <p>Industry Classification:{categories}</p>
+              
+              <h4>Industry Rate</h4>
+              <p>Current Year:{categories}</p>
+              <p>Previous Year 1:{categories}</p>
+              <p>Previous Year 2:{categories}</p>
+              <p>Previous Year 3:{categories}</p>
+              
+              <h4>Proponent Rate</h4>
+              <p>Current Year:{categories}</p>
+              <p>Previous Year 1:{categories}</p>
+              <p>Previous Year 2:{categories}</p>
+              <p>Previous Year 3:{categories}</p>
+              
+              <h4>% Discount</h4>
+              <p>Current Year:{categories}</p>
+              <p>Previous Year 1:{categories}</p>
+              <p>Previous Year 2:{categories}</p>
+              <p>Previous Year 3:{categories}</p>
+              
+              <h4>% Surcharge</h4>
+              <p>Current Year:{categories}</p>
+              <p>Previous Year 1:{categories}</p>
+              <p>Previous Year 2:{categories}</p>
+              <p>Previous Year 3:{categories}</p>
+              
+              <p>Drug and Alcohol policy:{categories}</p>
+              <p>Subcontractor OH&S Evaluation:{categories}</p>
+              <p>OH&S Stop Work Order Recieved:{categories}</p>
+              <p>Subcontractor OH&S Evaluation:{categories}</p>
+              <p>HSE related Judgements:{categories}</p>
+              
+              
+                    
+              
+                    </div>
                 <div>
-                <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-                <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-                <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-
+                    <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+                    <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+                    <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
                 </div>
                 <br/>
+              </div>
+              </div>
+              
+            </div>
 
             <LearnFooter/>
             </div>
