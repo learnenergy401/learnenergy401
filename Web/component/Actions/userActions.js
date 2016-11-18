@@ -104,9 +104,9 @@ export function fetchReqEOI() {
 export function storeEOIs(info) {
   return function(dispatch) {
     firebaseDb.ref('EOI').push({
-      vendor: info.vendor_uid,
-      purchaser: info.purchaser_uid,
-      course: info.course_id,
+      vendor: info.vendor,
+      purchaser: info.uid,
+      course: info.course,
 
       // additional details below
       email: info.email,
