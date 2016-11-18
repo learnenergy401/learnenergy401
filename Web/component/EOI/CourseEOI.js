@@ -10,7 +10,7 @@ import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import { fetchReqEOI, storeEOIs, storeKeyRole, fetchVendorSignup, fetchPurchaserSignup, 
+import { fetchReqEOI, storeEOIs, storeKeyRole, fetchVendorSignup, fetchPurchaserSignup,
 	fetchADSignup, getCurrentUser } from "../Actions/userActions"
 
 
@@ -55,7 +55,7 @@ class CourseEOI extends Component {
 		this.fetchReqEOI()
 	}
 
-	requestSubmit() { // stores an EOI into the table
+	requestSubmit(legal, address1, address2, city, country, phone, fax) { // stores an EOI into the table
 
 		const {user} = this.props
 		var vendor = user.reqEOI.vendor_uid
@@ -78,31 +78,53 @@ class CourseEOI extends Component {
         var phone = document.getElementById("phone").value
 
         var company_name = document.getElementById("company_name").value
-	    var RFP_par
-	    if(document.getElementById("RFP_parYes").checked) {
-	        RFP_par = "yes"
-	    } else if (document.getElementById("RFP_parNo").checked) {
-	        RFP_par = "no"
-	    }
-	    var vendor_company_address = document.getElementById("vendor_company_address").value
-	    var vendor_contact_title_position = document.getElementById("vendor_contact_title_position").value
-	    var vendor_primary_telephone = document.getElementById("vendor_primary_telephone").value
-	    var vendor_alternate_telephone = document.getElementById("vendor_alternate_telephone").value
-	    var vendor_fax = document.getElementById('vendor_fax').value
-	    var vendor_email = document.getElementById('vendor_email')
+		    var RFP_par
+		    if(document.getElementById("RFP_parYes").checked) {
+		        RFP_par = "yes"
+		    } else if (document.getElementById("RFP_parNo").checked) {
+		        RFP_par = "no"
+		    }
+		    var vendor_company_address = document.getElementById("vendor_company_address").value
+		    var vendor_contact_title_position = document.getElementById("vendor_contact_title_position").value
+		    var vendor_primary_telephone = document.getElementById("vendor_primary_telephone").value
+		    var vendor_alternate_telephone = document.getElementById("vendor_alternate_telephone").value
+		    var vendor_fax = document.getElementById('vendor_fax').value
+		    var vendor_email = document.getElementById('vendor_email').value
 
-	    var company_approved
-	    if(document.getElementById("company_approvedYes").checked) {
-	        company_approved = "yes"
-	    } else if (document.getElementById("company_approvedNo").checked) {
-	        company_approved = "no"
-	    }
+		    var company_approved
+		    if(document.getElementById("company_approvedYes").checked) {
+		        company_approved = "yes"
+		    } else if (document.getElementById("company_approvedNo").checked) {
+		        company_approved = "no"
+		    }
 
-	    var optional_comments = document.getElementById('optional_comments').value
+		    var optional_comments = document.getElementById('optional_comments').value
+
+				var scope = document.getElementById("scope").value
+				var qualificationA = document.getElementById("qualificationA").value
+				var qualificationB = document.getElementById("qualificationB").value
+				var qualificationC = document.getElementById("qualificationC").value
+				var qualificationD = document.getElementById("qualificationD").value
+				var response_date = document.getElementById("date1").value
+				var email3 = document.getElementById("email3").value
+				var LMRFPnum = document.getElementById("LMRFPnum").value
+				var selection_date = document.getElementById("selection_date").value
+
+				var purchaser_legal = legal
+				var purchaser_address1 = address1
+				var purchaser_address2 = address2
+				var purchaser_city = card
+				var purchaser_country = country
+				var purchaser_phone = uphone
+				var purchaser_fax = fax
 
 
-    	var info = {vendor, uid, course, email1, date, service, text1, text2, closeDate, closeTime,
-        name1, title1, name2, title2, email2, phone}
+	    	var info = {vendor, uid, course, email1, date, service, text1, text2, closeDate, closeTime,
+	      name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address,
+				vendor_contact_title_position, vendor_primary_telephone, vendor_alternate_telephone, vendor_fax,
+				vendor_email, company_approved, optional_comments, scope, qualificationA, qualificationB, qualificationC,
+				qualificationD, date1, email3, LMRFPnum, selection_date, purchaser_legal, purchaser_address1, purchaser_address2,
+				purchaser_city, purchaser_country, purchaser_phone, purchaser_fax}
 
 
 		this.storeEOIs(info)
@@ -120,28 +142,27 @@ class CourseEOI extends Component {
 			var legal = user.user.legalEntity
 			var address1 = user.user.address1
 			var address2 = user.user.address2
-			var city = user.user.card
+			var city = user.user.city
 			var country = user.user.country
 			var phone = user.user.phone
 			var fax = user.user.fax
-			var email = user.user.email
 
 			return (
 				<div>
-				<LearnHeader/>  
+				<LearnHeader/>
 
 	          <div  className="learn-content mdl-typography--text-center">
-	              <div style={spacerStyle} />
-	              <Card shadow={0} style={cardStyle} >
-	                <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Expression of Interest Form</CardTitle>
-              <div className="mdl-layout__content" style={{textAlign: 'center'}}>
+	          <div style={spacerStyle} />
+            <Card shadow={0} style={cardStyle} >
+            <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Expression of Interest Form</CardTitle>
+          	<div className="mdl-layout__content" style={{textAlign: 'center'}}>
         		<a name="top" />
-	            <div style={{width: '80%', margin: 'auto'}}>
+            <div style={{width: '80%', margin: 'auto'}}>
 
-					<h4>Cover Letter</h4>
-                        <hr/>
-                        <Textfield label="date" className="form-control" ref="date"  placeholder="Date" id="date"/>
-                        <br/>
+							<h4>Cover Letter</h4>
+              <hr/>
+              <Textfield label="date" className="form-control" ref="date"  placeholder="Date" id="date"/>
+              <br/>
 	            <h6>Purchaser Details: </h6>
 	            <h6>Legal Name: &nbsp; {legal}</h6>
 	            <h6>Address Line 1: &nbsp; {address1}</h6>
@@ -214,7 +235,7 @@ class CourseEOI extends Component {
 	            <h6>Alternate Telephone Number:&nbsp; <textarea rows="1" cols="50" id="vendor_alternate_telephone"></textarea></h6>
 	            <h6>Fax Number:&nbsp; <textarea rows="1" cols="50" id="vendor_fax"></textarea></h6>
 	            <h6>Email:&nbsp; <textarea rows="1" cols="50" id="vendor_email"></textarea></h6>
-	            
+
 	            <div>
 	              <label>Confirm your company is approved in [jurisdiction] for the work reflected in this EOI.<br/>
 	                <br/>
@@ -223,14 +244,76 @@ class CourseEOI extends Component {
 	              </label>
 	            </div>
 
-				<h6>Comments (optional):&nbsp; <textarea rows="4" cols="50" id="optional_comments"></textarea></h6>
-	            
+							<h6>Comments (optional):&nbsp; <textarea rows="4" cols="50" id="optional_comments"></textarea></h6>
+
 	            <h6>Email: &nbsp;<Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/></h6>
 	            <br/>
 
 
+							<hr/>
+							<h4>Appendix 3</h4>
+							<hr/>
+
+							<h6>Description of Scope / Requirements: &nbsp;<textarea rows="4" cols="50" id="scope"></textarea></h6>
+
+							<h6>
+							During the evaluation process, the Purchaser&#39;s Evaluation Committee reserves the right to
+							request additional information or clarifications. The Evaluation Committee will evaluate
+							Vendors based on the answers to the following questions as well as any additional material
+							provided with the expression of interest (i.e. presentations, brochures, background
+							information, experience etc.):
+							</h6>
+
+							<h6>
+							A. Qualification levels of staff, including experience and/or certifications. Please
+							include the qualifications and experience of the Vendor’s Project Manager in addition
+							to the following details:
+							<br/>i. Familiarity with above noted categories
+							<br/>ii. Number of years’ experience
+							<br/>iii. Experience with [specific requirements, ie. pipeline integrity]
+							<br/>iv. Related experience
+							</h6>
+							<textarea rows="10" cols="120" id="qualificationA"></textarea>
+
+							<h6>
+							B. Vendor to describe how it will ensure requirements are satisfied and are in
+							compliance with the Description of Scope / Requirements.
+							</h6>
+							<textarea rows="6" cols="120" id="qualificationB"></textarea>
+
+							<h6>
+							C. How often, and what methods does the Vendor propose to provide updates and
+							reports to the Purchaser?
+							</h6>
+							<textarea rows="6" cols="120" id="qualificationC"></textarea>
+
+							<h6>
+							D. Does the Vendor have an office in [jurisdiction]?
+							</h6>
+							<textarea rows="6" cols="120" id="qualificationD"></textarea>
+
+							<h6>
+							Interested Vendors must respond to the Purchaser by Noon (12:00 pm local time) on
+							&nbsp;<Textfield label="respond_date" className="form-control" ref="respond_date"  placeholder="Date" id="respond_date"/>
+							Any requests for information, including the response for this expression of interest, can be emailed to the Purchaser at
+							&nbsp;<Textfield label="email3" className="form-control" ref="email3"  placeholder="EOI Email" id="email3"/>.
+							The response including Appendices 1, 2, and 3 and any supplemental information must be uploaded to the Purchaser LM RFP#
+							&nbsp;<Textfield label="LMRFPnum" className="form-control" ref="LMRFPnum"  placeholder="###" id="LMRFPnum"/>
+							folder prior to the above noted time. The Purchasers selection is anticipated to be completed by
+							&nbsp;<Textfield label="selection_date" className="form-control" ref="selection_date"  placeholder="Date" id="selection_date"/>
+							and will be announced via email. Once the selection has been announced, the Purchaser may forward a Request for Proposal (RFP)
+							to those Vendors selected by the Evaluation Committee.
+							</h6>
+
+							<h6>
+							NOTE: The Purchaser will not reimburse Vendors for any expenses incurred in responding
+							to this Expression of Interest. The Purchaser will not be obliged to provide reasons for
+							accepting or rejecting any Expression of Interest.
+							</h6>
+							<hr/>
+
 	            <CardActions>
-	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Submit</Button>
+	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, phone, fax)}>Submit</Button>
 	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>
 	            </CardActions>
 	            </div>
@@ -245,15 +328,15 @@ class CourseEOI extends Component {
 		} else {
 		return (
 				<div>
-				<LearnHeader/>  
+				<LearnHeader/>
 
 	          <div  className="learn-content mdl-typography--text-center">
 	              <div style={spacerStyle} />
 	              <Card shadow={0} style={cardStyle} >
 	                <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Expression of Interest Form</CardTitle>
-	                
+
 	            <div style={{width: '80%', margin: 'auto'}}>
-	            
+
 	      <h4>LOADING...</h4>
 	            </div>
 
