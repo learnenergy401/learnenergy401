@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 
 import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
-import ContentCourseDisplay from "../ContentCourseDisplay.js"
+import ContentCourseDisplay from "./ContentCourseDisplay.js"
 
 import {updateProfile,getCurrentUser,logInUser} from "../Actions/userActions.js"
 
