@@ -105,7 +105,7 @@ class CourseEOI extends Component {
 				var qualificationB = document.getElementById("qualificationB").value
 				var qualificationC = document.getElementById("qualificationC").value
 				var qualificationD = document.getElementById("qualificationD").value
-				var response_date = document.getElementById("date1").value
+				var response_date = document.getElementById("response_date").value
 				var email3 = document.getElementById("email3").value
 				var LMRFPnum = document.getElementById("LMRFPnum").value
 				var selection_date = document.getElementById("selection_date").value
@@ -123,7 +123,7 @@ class CourseEOI extends Component {
 	      name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address,
 				vendor_contact_title_position, vendor_primary_telephone, vendor_alternate_telephone, vendor_fax,
 				vendor_email, company_approved, optional_comments, scope, qualificationA, qualificationB, qualificationC,
-				qualificationD, date1, email3, LMRFPnum, selection_date, purchaser_legal, purchaser_address1, purchaser_address2,
+				qualificationD, response_date, email3, LMRFPnum, selection_date, purchaser_legal, purchaser_address1, purchaser_address2,
 				purchaser_city, purchaser_country, purchaser_phone, purchaser_fax}
 
 
@@ -294,7 +294,7 @@ class CourseEOI extends Component {
 
 							<h6>
 							Interested Vendors must respond to the Purchaser by Noon (12:00 pm local time) on
-							&nbsp;<Textfield label="respond_date" className="form-control" ref="respond_date"  placeholder="Date" id="respond_date"/>
+							&nbsp;<Textfield label="response_date" className="form-control" ref="response_date"  placeholder="Date" id="response_date"/>
 							Any requests for information, including the response for this expression of interest, can be emailed to the Purchaser at
 							&nbsp;<Textfield label="email3" className="form-control" ref="email3"  placeholder="EOI Email" id="email3"/>.
 							The response including Appendices 1, 2, and 3 and any supplemental information must be uploaded to the Purchaser LM RFP#
