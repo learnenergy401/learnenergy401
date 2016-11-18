@@ -4,6 +4,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
 import "../../extra/material.js"
+import { updateCourse } from "../Actions/courseActions"
 import { uploadCourse } from "../Actions/courseActions"
 import { fetchVendorCourse } from "../Actions/courseActions"
 import { fetchACourse} from "../Actions/courseActions"
@@ -40,14 +41,19 @@ class ContentCourseUpdate extends Component {
         document.getElementById("courseVideoId").value=course.aCourse.courseVideoId;
     }
     
-    uploadCourse(course){
+    updateCourse(){
+        const {course} = this.props
+        var prevName=course.aCourse.courseName;
+        var prevID=course.aCourse.courseID;
         var user = this.props.user.user
         var courseName = document.getElementById("courseName").value;
         var courseDescription = document.getElementById("courseDescription").value;
         var courseVideoId = document.getElementById("courseVideoId").value;
         var courseVendorEmail = user.email
-        var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}
-        this.props.dispatch(uploadCourse(course));
+        var courseID=prevID;
+        var newCourse = {courseName, courseDescription, courseVendorEmail,courseVideoId,courseID}
+        this.props.dispatch(updateCourse(newCourse,courseID));
+        
     }
     /**
     * Loads the course profile
@@ -69,7 +75,7 @@ class ContentCourseUpdate extends Component {
                                 <Textfield floatingLabel label="courseVideoId" ref="pw" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardActions style={componentStyle}>
-                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Update Detail</Button>
+                                <Button onClick={this.updateCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Update Detail</Button>
                             </CardActions>
                         </div>
                     </div>

@@ -42,9 +42,9 @@ export function uploadCourse(course) {
     return function(dispatch) {
         dispatch({type: "UPLOAD_COURSE"})
         var pushID = generatePushID()
-        course.coureID = pushID
+        course.courseID = pushID
 
-        firebaseDb.ref('Course/'+course.courseName).set(course)
+        firebaseDb.ref('Course/'+course.courseID).set(course)
             .then((data) => {
                 dispatch({type: "UPLOAD_COURSE_FULFILLED"})
             })
@@ -55,7 +55,21 @@ export function uploadCourse(course) {
     }
 }
 
+export function updateCourse(course,courseID) {
+    return function(dispatch) {
+        dispatch({type: "UPDATE_COURSE"})
+        
 
+        firebaseDb.ref('Course/'+courseID).set(course)
+            .then((data) => {
+                dispatch({type: "UPDATE_COURSE_FULFILLED"})
+            })
+            .catch((err) => {
+                dispatch({type: "UPDATE_COURSE_REJECTED", payload: err.code})
+            })
+                        
+    }
+}
 
 /*------not using yet-----*/
 export function uploadCourseDetail(user,fileObj) {

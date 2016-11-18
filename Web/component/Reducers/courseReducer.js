@@ -85,6 +85,31 @@ export default function reducer(state={
                     fetching: true
             }
         }
+        case "UPLOAD_COURSE_FULFILLED": {
+            return {...state,
+                    uploaded:true,
+                    fetching:false,
+                
+            }
+        }
+        case "UPDATE_COURSE": {
+            return {...state, 
+                    uploaded: false,
+                    fetching: true
+            }
+        }
+        case "UPDATE_COURSE_FULFILLED": {
+            return {...state,
+                    uploaded:true,
+                    fetching:false,
+                
+            }
+        }
+        case "UPDATE_COURSE_REJECTED": {
+            return {...state, 
+                    fetching: false,
+            }
+        }   
         case "FETCH_COURSE_DETAIL_FULFILLED": {
             return{...state, 
                     fetching: false,

@@ -38,7 +38,8 @@ class ContentProfile extends Component {
     
     componentDidUpdate(){
         
-        const {user} = this.props
+        const {user,profile} = this.props
+        if(profile.menu==0){
         if(!user.isLoggedIn){
             return
         }
@@ -296,7 +297,7 @@ class ContentProfile extends Component {
     
         }
         
-        
+    }
     }
     
     
