@@ -20,7 +20,7 @@ export function storeEOIkey(info) { // called on button press
       .catch((err) => {
         dispatch({type: "STORE_EOI_KEY_REJECTED", payload: err})
       })
-      } 
+      }
     })
   }
 }
@@ -68,8 +68,8 @@ export function storeReqEOI(info) { // called on button press
         dispatch({type: "STORE_REQ_EOI_REJECTED", payload: err})
       })
       // move to eoi page
-      window.location.assign('/#/course-eoi') 
-      } 
+      window.location.assign('/#/course-eoi')
+      }
     })
   }
 }
@@ -110,7 +110,55 @@ export function storeEOIs(info) {
 
       // additional details below
       email: info.email,
-          
+      date: info.date,
+      service: info.service,
+      text1: info.text1,
+      text2: info.text2,
+      closeDate: info.closeDate,
+      closeTime: info.closeTime,
+      name1: info.name1,
+      title1: info.title1,
+      name2: info.name2,
+      title2: info.title2,
+      email2: info.email2,
+      phone: info.phone,
+
+      company_name: info.company_name,
+      RFP_par: info.RFP_par,
+      vendor_company_address: info.vendor_company_address,
+      vendor_contact_title_position: info.vendor_contact_title_position,
+      vendor_primary_telephone: info.vendor_primary_telephone,
+      vendor_alternate_telephone: info.vendor_alternate_telephone,
+      vendor_fax: info.vendor_fax,
+      vendor_email: info.vendor_email,
+
+      company_approved: info.company_approved,
+      optional_comments: info.optional_comments,
+
+      scope: info.scope,
+      qualificationA: info.qualificationA,
+      qualificationB: info.qualificationB,
+      qualificationC: info.qualificationC,
+      qualificationD: info.qualificationD,
+      response_date: info.response_date,
+      email3: info.email3,
+      LMRFPnum: info.LMRFPnum,
+      selection_date: info.selection_date,
+
+      purchaser_legal: info.purchaser_legal,
+      purchaser_address1: info.purchaser_address1,
+      purchaser_address2: info.purchaser_address2,
+      purchaser_city: info.purchaser_card,
+      purchaser_country: info.purchaser_country,
+      purchaser_phone: info.purchaser_phone,
+      purchaser_fax: info.purchaser_fax,
+
+
+
+
+
+
+
     }).then((data) => {
       dispatch({type: "STORE_EOI_FULFILLED", payload: user})
     })
@@ -143,11 +191,11 @@ export function fetchEOIs() {
 
 /**
  * Removes from EOI table
- * @params {object} key - key name to remove 
+ * @params {object} key - key name to remove
  */
 export function removeEOI(key) {
   return function(dispatch) {
-    
+
     firebaseDb.ref('EOI/'+key.key_name).remove().then(function() {
 
       console.log("removed")
@@ -378,7 +426,7 @@ export function approveUser(user) {
             timeBusiness: user.timeBusiness,
             proAffiliation: user.proAffiliation,
             report:user.report,
-            
+
             bank: user.bank,
             bankLocation: user.bankLocation,
             bonding: user.bonding,
@@ -609,7 +657,7 @@ export function signUpVendor(user) {
       timeBusiness: user.timeBusiness,
       proAffiliation: user.proAffiliation,
       report:user.report,
-      
+
       bank: user.bank,
       bankLocation: user.bankLocation,
       bonding: user.bonding,
@@ -781,7 +829,7 @@ export function updateProfile(user) {
             timeBusiness: user.timeBusiness,
             proAffiliation: user.proAffiliation,
             report:user.report,
-            
+
             bank: user.bank,
             bankLocation: user.bankLocation,
             bonding: user.bonding,
