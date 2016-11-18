@@ -22,7 +22,7 @@ import Upload from "./Vendor/Upload.js"
 import ViewCourse from "./ViewCourse/ViewCourse.js"
 import CourseDetail from "./ViewCourse/CourseDetail.js"
 import AdminReview from "./AdminReview.js"
-
+import ContentCourseUpdate from "./Profile/ContentCourseUpdate.js"
 class ReactRouter extends Component {
   /**
   * Loads the routes for each page
@@ -47,7 +47,7 @@ class ReactRouter extends Component {
         <Route path='/view-course-detail' component={CourseDetail} />
         <Route path='/signup-ad' component={SignUpAD} />
         <Route path='/admin-review' component={AdminReview} />
-
+        <Route path='/course-update' component={ContentCourseUpdate}/>
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>

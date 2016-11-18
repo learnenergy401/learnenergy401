@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
 import ContentCourseDisplay from "./ContentCourseDisplay.js"
-
+import ContentCourseUpdate from "./ContentCourseUpdate.js"
 import {updateProfile,getCurrentUser,logInUser} from "../Actions/userActions.js"
 
 @connect((store) => {
@@ -1119,11 +1119,15 @@ class ContentProfile extends Component {
             return(
                 <ContentCourseDisplay/>
             )
-        }else{
+        }else if(profile.menu==2){
             return(
                 <ContentProfileUpload/>
             )
-        }
+        }else{
+            return(
+                <ContentCourseUpdate/>
+            )
+                }
     }
 };
 

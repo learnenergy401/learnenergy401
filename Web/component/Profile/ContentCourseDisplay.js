@@ -1,11 +1,12 @@
-    import React, { Component } from 'react'
+import React, { Component } from 'react'
 import {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 import ButtonEdit from './ButtonEdit.js';
 import "../../extra/material.js"
 import { fetchVendorCourse } from "../Actions/courseActions"
-
+import { changeMenu } from "../Actions/profileActions"
+import { fetchCourse,saveACourse } from "../Actions/courseActions"    
 var contentStyle = {
     width : "80%"
 }
@@ -38,6 +39,11 @@ var cardTitleStyle = {
 })
 
 class ContentCourseDisplay extends Component{
+    
+    saveACourse(courseName){
+        this.props.dispatch(saveACourse(courseName));
+        this.props.dispatch(changeMenu(3))
+    }
     /**
      * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses
      */
@@ -67,15 +73,13 @@ class ContentCourseDisplay extends Component{
         if (course.currentVendorCourseList){
             var arr = this.jsonToArray(course.currentVendorCourseList)
             const mappedCourse = arr.map(course =>
-                                        <div style={listItemStyle} key = {course.courseName} className=" mdl-shadow--2dp">
+                                        <div style={listItemStyle} key = {course.courseName} className=" mdl-shadow--2dp" onClick={()=>(this.saveACourse(course.courseName))}>
                                             <div style={cardTitleStyle} className="mdl-card__title" >
                                                 <h2  className="mdl-card__title-text">
                                                     {course.courseName}
                                                 </h2>
                                                 <div className="mdl-layout-spacer" />
-                                                <div style={{display:'inline-block'}} >
-                                                    < ButtonEdit />
-                                                </div>
+                                                
                                             </div>
                                         </div>
                 )

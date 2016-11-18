@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 
 import "../../extra/material.js"
 import { uploadCourse } from "../Actions/courseActions"
+import { fetchVendorCourse } from "../Actions/courseActions"
+import { fetchACourse} from "../Actions/courseActions"
 import Toast from "../Toast.js"
 
 var componentStyle = {
@@ -18,18 +20,26 @@ var formStyle = {
 @connect((store) => {
   return {
     user: store.user,
-    course: store.course
+    course: store.course,
+    profile: store.profile
   };
 })/*dont add semicolon here!*/
 
 
-class ContentProfileUpload extends Component {
+class ContentCourseUpdate extends Component {
+    componentWillMount(){
+        const {user} = this.props
+        const {course}=this.props
+        this.props.dispatch(fetchACourse(course.aCourseName));
+    }
     
-    /**
-    * Uploads course
-    * @param {object} course - takes course for upload
-    * @returns {object} arr - return array from converted json object
-    */
+    componentDidUpdate(){
+        const {course} = this.props
+        document.getElementById("courseName").value=course.aCourse.courseName;
+        document.getElementById("courseDescription").value=course.aCourse.courseDescription;
+        document.getElementById("courseVideoId").value=course.aCourse.courseVideoId;
+    }
+    
     uploadCourse(course){
         var user = this.props.user.user
         var courseName = document.getElementById("courseName").value;
@@ -59,7 +69,7 @@ class ContentProfileUpload extends Component {
                                 <Textfield floatingLabel label="courseVideoId" ref="pw" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardActions style={componentStyle}>
-                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>
+                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Update Detail</Button>
                             </CardActions>
                         </div>
                     </div>
@@ -69,4 +79,4 @@ class ContentProfileUpload extends Component {
 
 
 
-export default ContentProfileUpload
+export default ContentCourseUpdate
