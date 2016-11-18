@@ -27,7 +27,7 @@ var cardStyle = {
 }
 
 var cardTitleStyle = {
-    height:'80px'
+    height:'400px'
 }
 
 @connect((store) => {
