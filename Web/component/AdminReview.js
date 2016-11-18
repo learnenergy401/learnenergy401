@@ -20,6 +20,8 @@ var info_div_style={
     overflowY:'auto',
     position:'relative',
     border: '2px solid blue',
+    backgroundColor: 'silver',
+    fontWeight:'bold',
 }
 
 @connect((store) => {
@@ -339,36 +341,36 @@ class AdminReview extends Component {
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
               
-                      <p>Legal Name: {legalEntity}</p>
-                      <p>Operating Name: {operatingName}</p>
-                      <p>Role: {string_role[role]}</p>
-                      <p>Address 1: {address1}</p>
-                      <p>Address 2: {address2}</p>
-                      <p>City: {city}</p>
-                      <p>Province:{province} </p>
-                      <p>Country: {country}</p>
-                      <p>Postal Code:{postalCode}</p>
-                      <p>Phone:{phone} </p>
-                      <p>Fax:{fax}</p>
-                      <p>Email:{email}</p>
-                      <p>Admin Contact:{adminContact}</p>
-                      <p>Techncal Contact:{technicalContact}</p>
+                      <p><b>Legal Name:</b>{legalEntity}</p>
+                      <p><b>Operating Name:</b> {operatingName}</p>
+                      <p><b>Role:</b> {string_role[role]}</p>
+                      <p><b>Address 1: </b>{address1}</p>
+                      <p><b>Address 2: </b>{address2}</p>
+                      <p><b>City:</b> {city}</p>
+                      <p><b>Province:</b>{province} </p>
+                      <p><b>Country:</b> {country}</p>
+                      <p><b>Postal Code:</b>{postalCode}</p>
+                      <p><b>Phone:</b>{phone} </p>
+                      <p><b>Fax:</b>{fax}</p>
+                      <p><b>Email:</b>{email}</p>
+                      <p><b>Admin Contact:</b>{adminContact}</p>
+                      <p><b>Techncal Contact:</b>{technicalContact}</p>
 
-                      <p>GST Registration: {gstReg}</p>
-                      <p>Bank: {bank}</p>
-                      <p>Accounts Recieveable: {accntRec}</p>
-                      <p>IS Number:{ISnumber}</p>
-                      <p>Website:<a href={website}target="_blank">{website}</a></p>
-                      <p>Password:{password}</p>
+                      <p><b>GST Registration: </b>{gstReg}</p>
+                      <p><b>Bank:</b> {bank}</p>
+                      <p><b>Accounts Recieveable:</b> {accntRec}</p>
+                      <p><b>IS Number:</b>{ISnumber}</p>
+                      <p><b>Website: </b><a href={website}target="_blank">{website}</a></p>
+                      <p><b>Password:</b>{password}</p>
 
-                      <p>Address 1:{billAddress1}</p>
-                      <p>Address 2:{billAddress2}</p>
-                      <p>City:{billCity}</p>
-                      <p>Province:{billProvince}</p>
-                      <p>Country:{billCountry}</p>
-                      <p>Postal Code:{billPostalCode}</p>
-                      <p>Joint Venture:{jointVenture}</p>
-                      <p>Categories:{categories}</p>
+                      <p><b>Address 1:</b>{billAddress1}</p>
+                      <p><b>Address 2:</b>{billAddress2}</p>
+                      <p><b>City:</b>{billCity}</p>
+                      <p><b>Province:</b>{billProvince}</p>
+                      <p><b>Country:</b>{billCountry}</p>
+                      <p><b>Postal Code:</b>{billPostalCode}</p>
+                      <p><b>Joint Venture:</b>{jointVenture}</p>
+                      <p><b>Categories:</b>{categories}</p>
               
                     </div>
                 <div>
@@ -487,6 +489,7 @@ class AdminReview extends Component {
           var password = user.vendors[key_name].password;
 
           // make the page here with our info
+            //MISSING TWO VARIABLES I HAVE TO ADD>  OHS EVAL AND HSE RELATED JUDGEMENTS
           return (
             <div>
             <LearnHeader/>
@@ -498,231 +501,233 @@ class AdminReview extends Component {
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
               
-                      <p>Legal Name: {legalEntity}</p>
-                      <p>Operating Name: {operatingName}</p>
-                      <p>Role: {string_role[role]}</p>
-                      <p>Address 1: {address1}</p>
-                      <p>Address 2: {address2}</p>
-                      <p>City: {city}</p>
-                      <p>Province:{province} </p>
-                      <p>Country: {country}</p>
-                      <p>Postal Code:{postalCode}</p>
-                      <p>Phone:{phone} </p>
-                      <p>Fax:{fax}</p>
-                      <p>Email:{email}</p>
-                      <p>Admin Contact:{adminContact}</p>
-                      <p>Techncal Contact:{technicalContact}</p>
-                      <p>IS Number:{ISnumber}</p>
-                      <p>Website:<a href={website}target="_blank">{website}</a></p>
-                      <p>Owner 1:{owner1Name}</p>
-                      <p>Owner 2:{owner2Name}</p>
-                      <p>Owner 3:{owner3Name}</p>
-                      <p>Owner 4: {owner4Name}</p>
-                      <p>Owner 5: {owner5Name}</p>
-                      <p>Nature Buisness : {natureBusiness}</p>
-                      <p>Length of Time in Buisness :{timeBusiness}</p>
-                      <p>Professional Affiliations:{proAffiliation}</p>
-                      <p>Annual Report :{report}</p>
-                      <p>Bank :{bank}</p>
-                      <p>Bank Location:{bankLocation}</p>
-                      <p>Bonding Company:{bonding}</p>
-                      <p>Bonding Company Location:{bondingLocation}</p>
-                      <p>Insurance Company :{insuranceCompany}</p>
-                      <p>Insurance Company Location :{insuranceLocation}</p>
-                      <p>Bonding Limit as of {bondingLimitDate}</p>
-                      <p> is:{bondingLimit}</p>
-                      <p>Annual Gross Buisness:{grossBus}</p>
-                      <p>Bancruptcy:{bankruptcy}</p>              
-                      <p>Number of Employees:{numEmployees}</p>
-                      <p>Additional Address 1 :{AD1address1}</p>
-                      <p>Additional Address Country 1:{AD1country}</p>
-                      <p>Additional Phone Number 1:{categories}</p>
-                      <p>Additional Address 2:{AD2address1}</p>
-                      <p>Additional Address Country 2:{AD2country}</p>
-                      <p>Additional Phone Number 2:{categories}</p>
-                      <p>Additional Address 3:{AD3address1}</p>
-                      <p>Additional Address Country 3:{AD3country}</p>
-                      <p>Additional Phone Number 3:{categories}</p>
+                      <p><b>Legal Name: </b>{legalEntity}</p>
+                      <p><b>Operating Name:</b> {operatingName}</p>
+                      <p><b>Role: </b>{string_role[role]}</p>
+                      <p><b>Address 1: </b>{address1}</p>
+                      <p><b>Address 2: </b>{address2}</p>
+                      <p><b>City:</b> {city}</p>
+                      <p><b>Province:</b>{province} </p>
+                      <p><b>Country: </b>{country}</p>
+                      <p><b>Postal Code:</b>{postalCode}</p>
+                      <p><b>Phone:</b>{phone} </p>
+                      <p><b>Fax:</b>{fax}</p>
+                      <p><b>Email:</b>{email}</p>
+                      <p><b>Admin Contact:</b>{adminContact}</p>
+                      <p><b>Techncal Contact:</b>{technicalContact}</p>
+                      <p><b>IS Number:</b>{ISnumber}</p>
+                      <p><b>Website:</b><a href={website}target="_blank">{website}</a></p>
+                      <p><b>Owner 1:</b>{owner1Name}</p>
+                      <p><b>Owner 2:</b>{owner2Name}</p>
+                      <p><b>Owner 3:</b>{owner3Name}</p>
+                      <p><b>Owner 4: </b>{owner4Name}</p>
+                      <p><b>Owner 5:</b> {owner5Name}</p>
+                      <p><b>Nature Buisness : </b>{natureBusiness}</p>
+                      <p><b>Length of Time in Buisness :</b>{timeBusiness}</p>
+                      <p><b>Professional Affiliations:</b>{proAffiliation}</p>
+                      <p><b>Annual Report :</b>{report}</p>
+                      <p><b>Bank :</b>{bank}</p>
+                      <p><b>Bank Location:</b>{bankLocation}</p>
+                      <p><b>Bonding Company:</b>{bonding}</p>
+                      <p><b>Bonding Company Location:</b>{bondingLocation}</p>
+                      <p><b>Insurance Company :</b>{insuranceCompany}</p>
+                      <p><b>Insurance Company Location :</b>{insuranceLocation}</p>
+                      <p><b>Bonding Limit as of </b>{bondingLimitDate}</p>
+                      <p> <b>is:</b>{bondingLimit}</p>
+                      <p><b>Annual Gross Buisness:</b>{grossBus}</p>
+                      <p><b>Bancruptcy:</b>{bankruptcy}</p>              
+                      <p><b>Number of Employees:</b>{numEmployees}</p>
+                      <p><b>Additional Address 1 :</b>{AD1address1}</p>
+                      <p><b>Additional Address Country 1:</b>{AD1country}</p>
+                      <p><b>Additional Phone Number 1:</b>{AD1phone}</p>
+                      <p><b>Additional Address 2:</b>{AD2address1}</p>
+                      <p><b>Additional Address Country 2:</b>{AD2country}</p>
+                      <p><b>Additional Phone Number 2:</b>{AD2phone}</p>
+                      <p><b>Additional Address 3:</b>{AD3address1}</p>
+                      <p><b>Additional Address Country 3:</b>{AD3country}</p>
+                      <p><b>Additional Phone Number 3:</b>{AD3phone}</p>
               
-                      
-                      <p>Categories of Service:{categories}</p>
-                      <p>Specialities:{categories}</p>
-                      <p>Client 1 Name:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Phone:{categories}</p>
-                      <p>Emails:{categories}</p>
-                      <p>Details:{categories}</p>
-                      <p>Client 2 Name:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Phone:{categories}</p>
-                      <p>Emails:{categories}</p>
-                      <p>Details:{categories}</p>
-                      <p>Client 3 Name:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Phone:{categories}</p>
-                      <p>Emails:{categories}</p>
-                      <p>Details:{categories}</p>
-                      <p>Client 4 Name:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Phone:{categories}</p>
-                      <p>Emails:{categories}</p>
-                      <p>Details:{categories}</p>
+                      <p><b>Categories of Service:</b>{categories}</p>
+                      <p><b>Specialities:</b>{specialties}</p>
+                      <p><b>Client 1 Name:</b>{client1}</p>
+                      <p><b>Location:</b>{client1Location}</p>
+                      <p><b>Phone:</b>{client1Phone}</p>
+                      <p><b>Emails:</b>{client1Email}</p>
+                      <p><b>Details:</b>{client1Service}</p>
+                      <p><b>Client 2 Name:</b>{client2}</p>
+                      <p><b>Location:</b>{client2Location}</p>
+                      <p><b>Phone:</b>{client2Phone}</p>
+                      <p><b>Emails:</b>{client2Email}</p>
+                      <p><b>Details:</b>{client2Service}</p>
+                      <p><b>Client 3 Name:</b>{client3}</p>
+                      <p><b>Location:</b>{client3Location}</p>
+                      <p><b>Phone:</b>{client3Phone}</p>
+                      <p><b>Emails:</b>{client3Email}</p>
+                      <p><b>Details:</b>{client3Service}</p>
+                      <p><b>Client 4 Name:</b>{client4}</p>
+                      <p><b>Location:</b>{client4Location}</p>
+                      <p><b>Phone:</b>{client4Phone}</p>
+                      <p><b>Emails:</b>{client4Email}</p>
+                      <p><b>Details:</b>{client4Service}</p>
               
-                      <p>Licence Type 1:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Licence Type 2:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Licence Type 3:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Licence Type 4:{categories}</p>
-                      <p>Location:{categories}</p>
-                      <p>Licence Type 5:{categories}</p>
-                      <p>Location:{categories}</p>
-                        
-                        <h4>Products/Completed Operations</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                      <p><b>Licence Type 1:</b>{licence1}</p>
+                      <p><b>Location:</b>{licence1Location}</p>
+                      <p><b>Licence Type 2:</b>{licence2}</p>
+                      <p><b>Location:</b>{licence2Location}</p>
+                      <p><b>Licence Type 3:</b>{licence3}</p>
+                      <p><b>Location:</b>{licence3Location}</p>
+                      <p><b>Licence Type 4:</b>{licence4}</p>
+                      <p><b>Location:</b>{licence4Location}</p>
+                      <p><b>Licence Type 5:</b>{licence5}</p>
+                      <p><b>Location:</b>{licence5Location}</p>
               
-              <h4>Sudden/Accidental Pollution</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h3>Insurance</h3>
+                <h5>Products/Completed Operations</h5>
+                      <p><b>Insurer:</b>{insurer1}</p>
+                      <p><b>Policy Limit:</b>{policyLimit1}</p>
+                      <p><b>Expiry:</b>{expiry1}</p>
               
-              <h4>Cross Liability/Severability of Interest</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Sudden/Accidental Pollution</h5>
+                      <p><b>Insurer:</b>{insurer2}</p>
+                      <p><b>Policy Limit:</b>{policyLimit2}</p>
+                      <p><b>Expiry:</b>{expiry2}</p>
               
-              <h4>Employers Liability</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Cross Liability/Severability of Interest</h5>
+                      <p><b>Insurer:</b>{insurer3}</p>
+                      <p><b>Policy Limit:</b>{policyLimit3}</p>
+                      <p><b>Expiry:</b>{expiry3}</p>
               
-              <h4>Broad Form Property Damage</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Employers Liability</h5>
+                      <p><b>Insurer:</b>{insurer4}</p>
+                      <p><b>Policy Limit:</b>{policyLimit4}</p>
+                      <p><b>Expiry:</b>{expiry4}</p>
               
-              <h4>Blanket Contractual Liability</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Broad Form Property Damage</h5>
+                      <p><b>Insurer:</b>{insurer5}</p>
+                      <p><b>Policy Limit:</b>{policyLimit5}</p>
+                      <p><b>Expiry:</b>{expiry5}</p>
               
-              <h4>Independent Contractors</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Blanket Contractual Liability</h5>
+                      <p><b>Insurer:</b>{insurer6}</p>
+                      <p><b>Policy Limit:</b>{policyLimit6}</p>
+                      <p><b>Expiry:</b>{expiry6}</p>
               
-              <h4>Non-Owned Automobile</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Independent Contractors</h5>
+                      <p><b>Insurer:</b>{insurer7}</p>
+                      <p><b>Policy Limit:</b>{policyLimit7}</p>
+                      <p><b>Expiry:</b>{expiry7}</p>
               
-              <h4>Tenants Legal Liability</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Non-Owned Automobile</h5>
+                      <p><b>Insurer:</b>{insurer8}</p>
+                      <p><b>Policy Limit:</b>{policyLimit8}</p>
+                      <p><b>Expiry:</b>{expiry8}</p>
               
-              <h4>No failure to perform exclusion</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Tenants Legal Liability</h5>
+                      <p><b>Insurer:</b>{insurer9}</p>
+                      <p><b>Policy Limit:</b>{policyLimit9}</p>
+                      <p><b>Expiry:</b>{expiry9}</p>
               
-              <h4>Errors and Omissions</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>No failure to perform exclusion</h5>
+                      <p><b>Insurer:</b>{insurer10}</p>
+                      <p><b>Policy Limit:</b>{policyLimit10}</p>
+                      <p><b>Expiry:</b>{expiry10}</p>
               
-              <h4>30 days’ notice for cancellation/non-renewal</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Errors and Omissions</h5>
+                      <p><b>Insurer:</b>{insurer11}</p>
+                      <p><b>Policy Limit:</b>{policyLimit11}</p>
+                      <p><b>Expiry:</b>{expiry11}</p>
               
-              <h4>Automobile Insurance</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>30 days’ notice for cancellation/non-renewal</h5>
+                      <p><b>Insurer:</b>{insurer12}</p>
+                      <p><b>Policy Limit:</b>{policyLimit12}</p>
+                      <p><b>Expiry:</b>{expiry12}</p>
               
-              <h4>Excess/Umbrella Liability</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Automobile Insurance</h5>
+                      <p><b>Insurer:</b>{insurer13}</p>
+                      <p><b>Policy Limit:</b>{policyLimit13}</p>
+                      <p><b>Expiry:</b>{expiry13}</p>
               
-              <h4>Professional Liability</h4>
-              <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
-                      <p>Categories:{categories}</p>
+                <h5>Excess/Umbrella Liability</h5>
+                      <p><b>Insurer:</b>{insurer14}</p>
+                      <p><b>Policy Limit:</b>{policyLimit14}</p>
+                      <p><b>Expiry:</b>{expiry14}</p>
               
-              <h4>Employee hours Worked</h4>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
+                <h5>Professional Liability</h5>
+                      <p><b>Insurer:</b>{insurer15}</p>
+                      <p><b>Policy Limit:</b>{policyLimit15}</p>
+                      <p><b>Expiry:</b>{expiry15}</p>
               
-              <h4>Fatalities</h4>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
+                <h5>Employee hours Worked</h5>
+                      <p><b>Current Year:</b>{EHWcurrentYear}</p>
+                      <p><b>Current -1:</b>{EHWpreviousYear1}</p>
+                      <p><b>Current -2:</b>{EHWpreviousYear2}</p>
+                      <p><b>Current -3:</b>{EHWpreviousYear3}</p>
               
-              <h4>Lost time incidents </h4>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
+                <h5>Fatalities</h5>
+                      <p><b>Current Year:</b>{FcurrentYear}</p>
+                      <p><b>Current -1:</b>{FpreviousYear1}</p>
+                      <p><b>Current -2:</b>{FpreviousYear2}</p>
+                      <p><b>Current -3:</b>{FpreviousYear3}</p>
               
-              <h4>Medical aid injuries</h4>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
+                <h5>Lost time incidents </h5>
+                      <p><b>Current Year:</b>{LTIcurrentYear}</p>
+                      <p><b>Current -1:</b>{LTIpreviousYear1}</p>
+                      <p><b>Current -2:</b>{LTIpreviousYear2}</p>
+                      <p><b>Current -3:</b>{LTIpreviousYear3}</p>
               
-              <h4>Other recordable cases </h4>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
+                <h5>Medical aid injuries</h5>
+                      <p><b>Current Year:</b>{MAIcurrentYear}</p>
+                      <p><b>Current -1:</b>{MAIpreviousYear1}</p>
+                      <p><b>Current -2:</b>{MAIpreviousYear2}</p>
+                      <p><b>Current -3:</b>{MAIpreviousYear3}</p>
               
-              <h4>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</h4>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
-              <p>Categories:{categories}</p>
+                <h5>Other recordable cases </h5>
+                      <p><b>Current Year:</b>{ORCcurrentYear}</p>
+                      <p><b>Current -1:</b>{ORCpreviousYear1}</p>
+                      <p><b>Current -2:</b>{ORCpreviousYear2}</p>
+                      <p><b>Current -3:</b>{ORCpreviousYear3}</p>
               
-              <h4>Worker's Compensation</h4>
-              <p>Industry Code:{categories}</p>
-              <p>Industry Classification:{categories}</p>
+                <h5>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</h5>
+                      <p><b>Current Year:</b>{TRIcurrentYear}</p>
+                      <p><b>Current -1:</b>{TRIpreviousYear1}</p>
+                      <p><b>Current -2:</b>{TRIpreviousYear2}</p>
+                      <p><b>Current -3:</b>{TRIpreviousYear3}</p>
               
-              <h4>Industry Rate</h4>
-              <p>Current Year:{categories}</p>
-              <p>Previous Year 1:{categories}</p>
-              <p>Previous Year 2:{categories}</p>
-              <p>Previous Year 3:{categories}</p>
+                <h3>Worker's Compensation</h3>
+                      <p><b>Industry Code:</b>{industryCode}</p>
+                      <p><b>Industry Classification:</b>{industryClassification}</p>
               
-              <h4>Proponent Rate</h4>
-              <p>Current Year:{categories}</p>
-              <p>Previous Year 1:{categories}</p>
-              <p>Previous Year 2:{categories}</p>
-              <p>Previous Year 3:{categories}</p>
+                <h5>Industry Rate</h5>
+                      <p><b>Current Year:</b>{IRcurrentYear}</p>
+                      <p><b>Current -1:</b>{IRpreviousYear1}</p>
+                      <p><b>Current -2:</b>{IRpreviousYear2}</p>
+                      <p><b>Current -3:</b>{IRpreviousYear3}</p>
               
-              <h4>% Discount</h4>
-              <p>Current Year:{categories}</p>
-              <p>Previous Year 1:{categories}</p>
-              <p>Previous Year 2:{categories}</p>
-              <p>Previous Year 3:{categories}</p>
+                <h5>Proponent Rate</h5>
+                      <p><b>Current Year:</b>{PRcurrentYear}</p>
+                      <p><b>Current -1:</b>{PRpreviousYear1}</p>
+                      <p><b>Current -2:</b>{PRpreviousYear2}</p>
+                      <p><b>Current -3:</b>{PRpreviousYear3}</p>
               
-              <h4>% Surcharge</h4>
-              <p>Current Year:{categories}</p>
-              <p>Previous Year 1:{categories}</p>
-              <p>Previous Year 2:{categories}</p>
-              <p>Previous Year 3:{categories}</p>
+                <h5>% Discount</h5>
+                      <p><b>Current Year:</b>{PDcurrentYear}</p>
+                      <p><b>Current -1:</b>{PDpreviousYear1}</p>
+                      <p><b>Current -2:</b>{PDpreviousYear2}</p>
+                      <p><b>Current -3:</b>{PDpreviousYear3}</p>
               
-              <p>Drug and Alcohol policy:{categories}</p>
-              <p>Subcontractor OH&S Evaluation:{categories}</p>
-              <p>OH&S Stop Work Order Recieved:{categories}</p>
-              <p>Subcontractor OH&S Evaluation:{categories}</p>
-              <p>HSE related Judgements:{categories}</p>
+                <h5>% Surcharge</h5>
+                      <p><b>Current Year:</b>{PScurrentYear}</p>
+                      <p><b>Current -1:</b>{PSpreviousYear1}</p>
+                      <p><b>Current -2:</b>{PSpreviousYear2}</p>
+                      <p><b>Current -3:</b>{PSpreviousYear3}</p>
+              
+              <h3>Additional Information</h3>
+              
+              <p><b>Drug and Alcohol policy:</b>{drugPolicy}</p>
+              <p><b>Subcontractor OH&S Evaluation:</b>{subcontractors}</p>
+              <p><b>OH&S Stop Work Order Recieved:</b>{stopWorkOrder}</p>
+              <p><b>Subcontractor OH&S Evaluation:</b>{categories}</p>
+              <p><b>HSE related Judgements:</b>{categories}</p>
               
               
                     
