@@ -591,7 +591,7 @@ export function logOutUser() {
 export function updateProfile(user) {
     return function(dispatch) {
         dispatch({type: "UPDATE_USER_PROFILE"})
-      var currentUser = firebaseAuthInstance.currentUser
+      var currentUser = firebaseAuth.currentUser
         
         if (true) { // update as a vendor
           console.log(user)
