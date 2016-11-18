@@ -2,31 +2,30 @@
 import {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-
+import ButtonEdit from './ButtonEdit.js';
 import "../../extra/material.js"
 import { fetchVendorCourse } from "../Actions/courseActions"
 
+var contentStyle = {
+    width : "80%"
+}
+
 var listStyle = {
-    width : "80%",
-    marginLeft: "20%",
+    width : "100px",
 
 }
 
 var listItemStyle =  {
-    width : "100%",
-    height:"100px",
-    margin: "10px"
+    height:"60px!important",
+    margin: "10px",
+    backgroundColor:"white"
 }
 
 var cardTitleStyle = {
     right: "0px",
-    background:"#3F51B5",
-    color:"white"
+
 }
-var cardTextStyle= {
-    textAlign: "left",
-    paddingLeft: "18px"
-}
+
 
 
 
@@ -68,21 +67,22 @@ class ContentCourseDisplay extends Component{
         if (course.currentVendorCourseList){
             var arr = this.jsonToArray(course.currentVendorCourseList)
             const mappedCourse = arr.map(course =>
-                                        <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp" onClick={()=>(this.saveACourse(course.courseName))}>
+                                        <div style={listItemStyle} key = {course.courseName} className=" mdl-shadow--2dp">
                                             <div style={cardTitleStyle} className="mdl-card__title" >
                                                 <h2  className="mdl-card__title-text">
                                                     {course.courseName}
                                                 </h2>
-                                            </div>
-                                             <div style={cardTextStyle} className="mdl-card__supporting-text">
-                                                {course.courseDescription}
+                                                <div className="mdl-layout-spacer" />
+                                                <div style={{display:'inline-block'}} >
+                                                    < ButtonEdit />
+                                                </div>
                                             </div>
                                         </div>
                 )
             return(
 
                 <Content className="learn-content">
-                <ul>{mappedCourse}</ul>
+                <div>{mappedCourse}</div>
                 </Content>
             )
 
