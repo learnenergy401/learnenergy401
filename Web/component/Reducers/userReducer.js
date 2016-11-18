@@ -11,7 +11,7 @@ export default function reducer(state={
     fetched: false,
     error: null,
     isLoggedIn:false,
-    role: null,
+    role: -1,
     purchasers: null,
     vendors: null,
     ad: null,
@@ -122,7 +122,7 @@ export default function reducer(state={
                                  
     },
     profile:{
-        role:null,
+        role:-1,
         firstName: null,
         // *TODO*
         // add more attribute here in model
@@ -232,8 +232,6 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched:true,
-                profile:action.payload,
-                role: action.payload.role,
             }
         }
 
