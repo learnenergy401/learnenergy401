@@ -23,9 +23,7 @@
     "email": "sindresorhus@gmail.com"
   },
   "_npmVersion": "2.13.3",
-  "_phantomChildren": {
-    "is-finite": "1.0.2"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "raw": "indent-string@^2.1.0",
     "scope": null,
