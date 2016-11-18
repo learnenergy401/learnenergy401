@@ -36,9 +36,6 @@ class ContentProfileUpload extends Component {
         var courseVideoId = document.getElementById("courseVideoId").value;
         var courseVendorEmail = user.email
         var course = {courseName, courseDescription, courseVendorEmail,courseVideoId}
-        console.log(courseName);
-        console.log(courseDescription);
-        console.log(courseVideoId);
         this.props.dispatch(uploadCourse(course));
     }
     /**

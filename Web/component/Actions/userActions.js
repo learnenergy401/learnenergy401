@@ -557,7 +557,6 @@ export function logInUser(user) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
               var currentUser = firebaseAuth.currentUser
-              console.log('current user is', currentUser.uid)
               firebaseDb.ref('Notifications/'+currentUser.uid).set({
                   notified: false
                 })

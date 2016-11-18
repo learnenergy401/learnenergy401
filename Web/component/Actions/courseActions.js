@@ -41,7 +41,10 @@ export function fetchCourseList() {
 export function uploadCourse(course) {
     return function(dispatch) {
         dispatch({type: "UPLOAD_COURSE"})
-        firebaseDb.ref('Course/' + course.courseName).set(course)
+        var pushID = generatePushID()
+        course.coureID = pushID
+
+        firebaseDb.ref('Course/'+course.courseName).set(course)
             .then((data) => {
                 dispatch({type: "UPLOAD_COURSE_FULFILLED"})
             })

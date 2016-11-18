@@ -59,10 +59,15 @@ class LearnHeader extends Component {
      * Invoked immediately before a component is unmounted and destroyed, to update our states
      */
     componentWillMount(){
+        const {user} = this.props
         this.getCurrentUser()
-        this.fetchPurchaserSignup()
-        this.fetchVendorSignup()
-        this.fetchADSignup()
+        if (user.role == 3){
+          this.fetchPurchaserSignup()
+          this.fetchVendorSignup()
+          this.fetchADSignup()
+        }
+        
+        
     }
     /**
     * Loads the header with different buttons depending on if user is logged in. Or an admin
@@ -70,7 +75,6 @@ class LearnHeader extends Component {
     */
     render(){
         const {user} = this.props
-        console.log(user)
         if (!user.isLoggedIn){
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -89,10 +93,10 @@ class LearnHeader extends Component {
             );
 
         } else {
-          // console.log(user)
+
           var notified
           var currentUser = firebaseAuth.currentUser
-          //console.log(user)
+
           if (currentUser!=null) {
             firebaseDb.ref('Notifications/'+currentUser.uid).once('value')
             .then((snapshot) => {
