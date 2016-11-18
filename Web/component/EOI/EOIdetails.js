@@ -94,6 +94,16 @@ class EOIdetails extends Component {
 		    var company_approved = user.eoi[user.eoiKey].company_approved
 		    var optional_comments = user.eoi[user.eoiKey].optional_comments
 
+			var scope = user.eoi[user.eoiKey].scope
+			var qualificationA = user.eoi[user.eoiKey].qualificationA
+			var qualificationB = user.eoi[user.eoiKey].qualificationB
+			var qualificationC = user.eoi[user.eoiKey].qualificationC
+			var qualificationD = user.eoi[user.eoiKey].qualificationD
+			var response_date = user.eoi[user.eoiKey].date1
+			var email3 = user.eoi[user.eoiKey].email3
+			var LMRFPnum = user.eoi[user.eoiKey].LMRFPnum
+			var selection_date = user.eoi[user.eoiKey].selection_date
+
 		    return (
 			<div>
 				<LearnHeader/>  
@@ -197,7 +207,67 @@ class EOIdetails extends Component {
 	            
 
 
+					<hr/>
+					<h4>Appendix 3</h4>
+					<hr/>
 
+					<h6>Description of Scope / Requirements: &nbsp; {scope}</h6>
+
+					<h6>
+					During the evaluation process, the Purchaser&#39;s Evaluation Committee reserves the right to
+					request additional information or clarifications. The Evaluation Committee will evaluate
+					Vendors based on the answers to the following questions as well as any additional material
+					provided with the expression of interest (i.e. presentations, brochures, background
+					information, experience etc.):
+					</h6>
+
+					<h6>
+					A. Qualification levels of staff, including experience and/or certifications. Please
+					include the qualifications and experience of the Vendor’s Project Manager in addition
+					to the following details:
+					<br/>i. Familiarity with above noted categories
+					<br/>ii. Number of years’ experience
+					<br/>iii. Experience with [specific requirements, ie. pipeline integrity]
+					<br/>iv. Related experience
+					</h6>
+					{qualificationA}
+
+					<h6>
+					B. Vendor to describe how it will ensure requirements are satisfied and are in
+					compliance with the Description of Scope / Requirements.
+					</h6>
+					{qualificationB}
+
+					<h6>
+					C. How often, and what methods does the Vendor propose to provide updates and
+					reports to the Purchaser?
+					</h6>
+					{qualificationC}
+
+					<h6>
+					D. Does the Vendor have an office in [jurisdiction]?
+					</h6>
+					{qualificationD}
+
+					<h6>
+					Interested Vendors must respond to the Purchaser by Noon (12:00 pm local time) on
+					&nbsp;{respond_date}
+					Any requests for information, including the response for this expression of interest, can be emailed to the Purchaser at
+					&nbsp;{email3}.
+					The response including Appendices 1, 2, and 3 and any supplemental information must be uploaded to the Purchaser LM RFP#
+					&nbsp;{LMRFPnum}
+					folder prior to the above noted time. The Purchasers selection is anticipated to be completed by
+					&nbsp;{selection_date}
+					and will be announced via email. Once the selection has been announced, the Purchaser may forward a Request for Proposal (RFP)
+					to those Vendors selected by the Evaluation Committee.
+					</h6>
+
+					<h6>
+					NOTE: The Purchaser will not reimburse Vendors for any expenses incurred in responding
+					to this Expression of Interest. The Purchaser will not be obliged to provide reasons for
+					accepting or rejecting any Expression of Interest.
+					</h6>
+					<hr/>
 
 
 
