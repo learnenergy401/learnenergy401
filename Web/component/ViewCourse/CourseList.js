@@ -47,9 +47,6 @@ class CourseList extends Component{
         this.state = { searchTerm: '' }
     }
 
-    onListItemClick(){
-        console.log(course.courseName)
-    }
     componentWillMount(){
         this.props.dispatch(fetchCourse());
 

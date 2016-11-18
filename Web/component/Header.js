@@ -70,7 +70,6 @@ class LearnHeader extends Component {
     */
     render(){
         const {user} = this.props
-        console.log(user)
         if (!user.isLoggedIn){
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -89,10 +88,10 @@ class LearnHeader extends Component {
             );
 
         } else {
-          // console.log(user)
+
           var notified
           var currentUser = firebaseAuth.currentUser
-          //console.log(user)
+
           if (currentUser!=null) {
             firebaseDb.ref('Notifications/'+currentUser.uid).once('value')
             .then((snapshot) => {

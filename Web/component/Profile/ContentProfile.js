@@ -56,7 +56,6 @@ class ContentProfile extends Component {
 
         const {profile} = this.props
         const {user} = this.props
-        console.log(user)
 
         if (profile.menu == 0){
             if(user.isLoggedIn){
