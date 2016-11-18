@@ -99,7 +99,7 @@ class EOIdetails extends Component {
 			var qualificationB = user.eoi[user.eoiKey].qualificationB
 			var qualificationC = user.eoi[user.eoiKey].qualificationC
 			var qualificationD = user.eoi[user.eoiKey].qualificationD
-			var response_date = user.eoi[user.eoiKey].date1
+			var response_date = user.eoi[user.eoiKey].response_date
 			var email3 = user.eoi[user.eoiKey].email3
 			var LMRFPnum = user.eoi[user.eoiKey].LMRFPnum
 			var selection_date = user.eoi[user.eoiKey].selection_date
@@ -270,6 +270,7 @@ class EOIdetails extends Component {
 					<hr/>
 
 
+					<h6> Further discussion with purchaser can be done at: {email} </h6>
 
 	            </div>
 	            </div>
