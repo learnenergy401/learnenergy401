@@ -59,10 +59,15 @@ class LearnHeader extends Component {
      * Invoked immediately before a component is unmounted and destroyed, to update our states
      */
     componentWillMount(){
+        const {user} = this.props
         this.getCurrentUser()
-        this.fetchPurchaserSignup()
-        this.fetchVendorSignup()
-        this.fetchADSignup()
+        if (user.role == 3){
+          this.fetchPurchaserSignup()
+          this.fetchVendorSignup()
+          this.fetchADSignup()
+        }
+        
+        
     }
     /**
     * Loads the header with different buttons depending on if user is logged in. Or an admin
