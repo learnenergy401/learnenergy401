@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Content,CardText,CardActions,Card,CardTitle} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import { connect } from "react-redux"
-import { fetchACourse} from "../Actions/courseActions"
+import { storeReqEOI, fetchACourse} from "../Actions/courseActions"
 import YouTube from './Youtube.js'
 
 
@@ -25,6 +25,10 @@ var cardStyle = {
   };
 })
 class ContentCourseDetail extends Component {
+
+  storeReqEOI(info) {
+    this.props.dispatch(storeReqEOI(info))
+  }
   /**
    * Invoked immediately before a component is unmounted and destroyed, to update our states
    */
@@ -39,6 +43,16 @@ class ContentCourseDetail extends Component {
     // access to player in all event handlers via event.target
         event.target.playVideo();
     }
+
+    req_EOI() {
+      var vendor_uid = "gE88Fyh2a8Pbstvq1Yv3QgnoTYf1"
+      var course_id = "ggggg"
+      info = {vendor_uid, course_id}
+
+      this.storeReqEOI(info)
+      
+    }
+
     /**
     * display the layout for coursedetails
     * @return {html} display the layout
@@ -70,6 +84,7 @@ class ContentCourseDetail extends Component {
                             />
                         </div>
                     </div>
+                <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.req_EOI.bind(this)}>request EOI</Button>
                </div>
                </Card>
 

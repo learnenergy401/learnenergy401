@@ -18,6 +18,7 @@ export default function reducer(state={
     admin: null, 
     keys_roles: null,
     eoi: null,
+    eoiKey: null,
     reqEOI: null,
     editProfile:{
             legalEntity: "loading",
@@ -260,6 +261,7 @@ export default function reducer(state={
                 fetching: false,
                 fetched:true,
                 isLoggedIn:true,
+                user: action.payload,
                 profile:action.payload,
                 role: action.payload.role,
             }
@@ -427,6 +429,47 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 error: action.payload,
+            }
+        }
+
+        case "STORE_EOI_KEY_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_EOI_KEY_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_EOI_KEY_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                eoiKey: action.payload,
+            }
+        } 
+
+        case "FETCH_EOI_KEY_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "REMOVED_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
             }
         }
     }
