@@ -64,15 +64,19 @@ class ContentCourseUpdate extends Component {
             <Content className="learn-content">
                 <div className="android-content mdl-layout__content">
                         <a name="top" />
-                        <div style={{width: '80%', margin: 'auto'}}>
+                        <div style={{width: '80%', margin:'auto'}}>
+                            
                             <CardText style={componentStyle}>
-                                <Textfield floatingLabel label="courseName" className="form-control" ref="courseName" id="courseName"/>
+                                <p style={{color:'mediumblue',marginBottom:'0px'}}>Course Name</p>
+                                <Textfield label="" className="form-control" ref="courseName" id="courseName"/>
                                 </CardText>
                             <CardText style={componentStyle}>
-                                <Textfield floatingLabel label="courseDescription" ref="pw" type="courseDescription" className="form-control" id="courseDescription"/>
+                                <p style={{color:'mediumblue',marginBottom:'0px'}}>Course Description</p>
+                                <Textfield  label="" ref="courseDescription" type="courseDescription" className="form-control" id="courseDescription"/>
                             </CardText>
                             <CardText style={componentStyle}>
-                                <Textfield floatingLabel label="courseVideoId" ref="pw" type="courseVideoId" className="form-control" id="courseVideoId"/>
+                                <p style={{color:'mediumblue',marginBottom:'0px'}}>Course Video ID</p>
+                                <Textfield  label="" ref="courseVideoId" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardActions style={componentStyle}>
                                 <Button onClick={this.updateCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Update Detail</Button>
