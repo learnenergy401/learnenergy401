@@ -71,6 +71,7 @@ class RFP extends Component {
         // do this X times for X vendors 
         this.storeRFPs(info)
 
+
     }
 
 	render() {
@@ -78,6 +79,15 @@ class RFP extends Component {
         const {user} = this.props
 
         if (user.user!=null && user.role == 0) {
+
+            var purchaser_legal = user.user.legalEntity
+            var purchaser_address1 = user.user.address1
+            var purchaser_address2 = user.user.address2
+            var purchaser_city = user.user.city
+            var purchaser_country = user.user.country
+            var purchaser_phone = user.user.phone
+            var purchaser_fax = user.user.fax
+            
     		return(
 
               <div>
@@ -95,9 +105,14 @@ class RFP extends Component {
                     <hr/>
                     <Textfield label="date" className="form-control" ref="date"  placeholder="Date" id="date"/>
                     <br/>
-
-                    <h6>Autofill purchaser info if statement</h6>
-
+                    <h6>Purchaser Details: </h6>
+                    <h6>Legal Name: &nbsp; {purchaser_legal}</h6>
+                    <h6>Address Line 1: &nbsp; {purchaser_address1}</h6>
+                    <h6>Address Line 2: &nbsp; {purchaser_address2}</h6>
+                    <h6>City: &nbsp; {purchaser_city}</h6>
+                    <h6>Country: &nbsp; {purchaser_country}</h6>
+                    <h6>Phone: &nbsp; {purchaser_phone}</h6>
+                    <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
                     <h6>
                     On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser"/>
                     ("The Purchaser"), your company ("Vendor") is invited to submit a response to this Request for Proposal. This Request for Proposal (RFP)

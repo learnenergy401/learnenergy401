@@ -19,17 +19,11 @@ export function submitRFPfromEOI(info) {
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){ // remove the EOI as well
         firebaseDb.ref('RFPfromEOI/'+user.uid).set({
-          purchaser_legal: info.purchaser_legal,
-          purchaser_address1: info.purchaser_address1,
-          purchaser_address2: info.purchaser_address2,
-          purchaser_city: info.purchaser_city,
-          purchaser_country: info.purchaser_country,
-          purchaser_phone: info.purchaser_phone,
-          purchaser_fax: info.purchaser_fax,
+          vendor: info.vendor
 
           // INCLUDE RFP NUMBER WHEN WE MAKE IT
 
-          
+
         }).then((data) => {
           dispatch({type: "STORE_RFP_FROM_EOI_FULFILLED", payload: user})
         })

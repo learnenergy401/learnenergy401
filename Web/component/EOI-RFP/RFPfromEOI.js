@@ -81,16 +81,29 @@ class RFPfromEOI extends Component {
 	render() {
 
         const {user} = this.props
+        console.log('user is', user)
 
         if (user.user!=null && user.role == 0 &&user.rfp_from_eoi!=null) {
-            var purchaser_legal = user.rfp_from_eoi.purchaser_legal
-            var purchaser_address1 = user.rfp_from_eoi.purchaser_address1
-            var purchaser_address2 = user.rfp_from_eoi.purchaser_address2
-            var purchaser_city = user.rfp_from_eoi.purchaser_city
-            var purchaser_country = user.rfp_from_eoi.purchaser_country
-            var purchaser_phone = user.rfp_from_eoi.purchaser_phone
-            var purchaser_fax = user.rfp_from_eoi.purchaser_fax
 
+            console.log(user)
+
+            var uid
+            var currentUser = firebaseAuth.currentUser
+            if (currentUser!=null) {
+                uid = currentUser.uid
+            }
+
+            var vendor = user.rfp_from_eoi[uid].vendor
+
+            console.log(vendor)
+
+            var purchaser_legal = user.user.legalEntity
+            var purchaser_address1 = user.user.address1
+            var purchaser_address2 = user.user.address2
+            var purchaser_city = user.user.city
+            var purchaser_country = user.user.country
+            var purchaser_phone = user.user.phone
+            var purchaser_fax = user.user.fax
 
     		return(
 
@@ -110,7 +123,6 @@ class RFPfromEOI extends Component {
                     <Textfield label="date" className="form-control" ref="date"  placeholder="Date" id="date"/>
                     <br/>
 
-                    <h6>Autofill purchaser info if statement</h6>
                     <h6>Purchaser Details: </h6>
                     <h6>Legal Name: &nbsp; {purchaser_legal}</h6>
                     <h6>Address Line 1: &nbsp; {purchaser_address1}</h6>

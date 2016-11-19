@@ -60,7 +60,7 @@ class ReactRouter extends Component {
         <Route path='/course-update' component={ContentCourseUpdate}/>
         <Route path='/rfp' component={RFP} />
         <Route path='/edit-rfp-details' component={RFPdetails} />
-        <Route path='/rfp-from-eoi' component={RFP} />
+        <Route path='/rfp-from-eoi' component={RFPfromEOI} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />

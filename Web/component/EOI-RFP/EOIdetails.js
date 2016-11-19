@@ -52,12 +52,10 @@ class EOIdetails extends Component {
 		this.fetchEOIkey()
 	}
 
-	submit_rfp(purchaser_legal, purchaser_address1, purchaser_address2, purchaser_city,
-			puchaser_country, purchaser_phone, purchaser_fax) {
+	submit_rfp(vendor) {
 		// user is a purchaser and they want to submit a rfp
 		// store information needed and then go to rfp page
-		var info = {purchaser_legal, purchaser_address1, purchaser_address2, purchaser_city,
-			puchaser_country, purchaser_phone, purchaser_fax}
+		var info = {vendor}
 
 		this.submitRFPfromEOI(info)
 
@@ -132,8 +130,7 @@ class EOIdetails extends Component {
 				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
 			} else if (user.role == 0) {
 				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
-				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this,purchaser_legal, purchaser_address1, purchaser_address2, purchaser_city,
-			puchaser_country, purchaser_phone, purchaser_fax)}>Submit RFP</Button>)
+				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this, vendor)}>Submit RFP</Button>)
 
 			}
 
