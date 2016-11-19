@@ -366,40 +366,7 @@ export function approveUser(user) {
         var currentUser = firebaseAuthInstance.currentUser
 
         if (user.role==0) { // push as a purchaser
-          firebaseDb.ref('User/' + currentUser.uid).set({
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-            email: user.email,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-
-            gstReg: user.gstReg,
-            billAddress1: user.billAddress1,
-            billAddress2: user.billAddress2,
-            billCity: user.billCity,
-            billProvince: user.billProvince,
-            billCountry: user.billCountry,
-            billPostalCode: user.billPostalCode,
-            accntRec: user.accntRec,
-            bank: user.bank,
-
-            ISnumber: user.ISnumber,
-            website: user.website,
-            password: user.password,
-
-            jointVenture: user.jointVenture,
-            categories: user.categories,
-
-            role: user.role,
-          })
+          firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
@@ -411,90 +378,8 @@ export function approveUser(user) {
 
         } else if (user.role == 1) { // push as a vendor
 
-          firebaseDb.ref('User/' + currentUser.uid).set({
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-            owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
-            owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
-            owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
-            owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
-            owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
-            natureBusiness: user.natureBusiness,
-            timeBusiness: user.timeBusiness,
-            proAffiliation: user.proAffiliation,
-            report:user.report,
+          firebaseDb.ref('User/' + currentUser.uid).set(user)
 
-            bank: user.bank,
-            bankLocation: user.bankLocation,
-            bonding: user.bonding,
-            bondingLocation: user.bondingLocation,
-            insuranceCompany: user.insuranceCompany,
-            insuranceLocation: user.insuranceLocation,
-            bondingLimitDate: user.bondingLimitDate,
-            bondingLimit: user.bondingLimit,
-            grossBus: user.grossBus,
-            grossBusYear: user.grossBusYear,
-            bankruptcy:user.bankruptcy,
-            numEmployees: user.numEmployees,
-            AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
-            AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
-            AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
-            categories: user.categories,
-            specialties: user.specialties,
-            client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
-            client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
-            client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
-            client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
-            licence1: user.licence1, licence1Location: user.licence1Location,
-            licence2: user.licence2, licence2Location: user.licence2Location,
-            licence3: user.licence3, licence3Location: user.licence3Location,
-            licence4: user.licence4, licence4Location: user.licence4Location,
-            licence5: user.licence5, licence5Location: user.licence5Location,
-            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
-            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
-            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
-            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
-            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
-            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
-            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
-            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
-            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
-            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
-            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
-            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
-            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
-            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
-            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
-            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
-            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
-            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
-            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
-            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
-            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
-            industryCode: user.industryCode, industryClassification: user.industryClassification,
-            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
-            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
-            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
-            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
-            drugPolicy: user.drugPolicy,
-            subcontractors: user.subcontractors,
-            stopWorkOrder: user.stopWorkOrder,
-            email: user.email,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-            ISnumber:user.ISnumber,
-            website: user.website,
-            password: user.password,
-            role: user.role,
-          })
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
             location.reload();
@@ -590,40 +475,8 @@ export function rejectUser(user) {
  */
 export function signUpPurchaser(user) {
   return function(dispatch) {
-    firebaseDb.ref('PurchaserSignup').push({
-      email: user.email,
-      password: user.password,
-      legalEntity: user.legalEntity,
-      operatingName: user.operatingName,
-      address1: user.address1,
-      address2: user.address2,
-      city: user.city,
-      province: user.province,
-      country: user.country,
-      postalCode: user.postalCode,
-      phone: user.phone,
-      fax: user.fax,
-      adminContact: user.adminContact,
-      technicalContact: user.technicalContact,
-
-      gstReg: user.gstReg,
-      billAddress1: user.billAddress1,
-      billAddress2: user.billAddress2,
-      billCity: user.billCity,
-      billProvince: user.billProvince,
-      billCountry: user.billCountry,
-      billPostalCode: user.billPostalCode,
-      accntRec: user.accntRec,
-      bank: user.bank,
-
-      ISnumber: user.ISnumber,
-      website: user.website,
-
-      jointVenture: user.jointVenture,
-      categories: user.categories,
-
-      role: 0,
-    }).then((data) => {
+    user.role = 0
+    firebaseDb.ref('PurchaserSignup').push(user).then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
     })
     .catch((err) => {
@@ -642,90 +495,9 @@ export function signUpPurchaser(user) {
  */
 export function signUpVendor(user) {
   return function(dispatch) {
-    firebaseDb.ref('VendorSignup').push({
-      legalEntity: user.legalEntity,
-      operatingName: user.operatingName,
-      address1: user.address1,
-      address2: user.address2,
-      city: user.city,
-      province: user.province,
-      country: user.country,
-      postalCode: user.postalCode,
-      phone: user.phone,
-      fax: user.fax,
-      owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
-      owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
-      owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
-      owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
-      owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
-      natureBusiness: user.natureBusiness,
-      timeBusiness: user.timeBusiness,
-      proAffiliation: user.proAffiliation,
-      report:user.report,
+    user.role = 1
+    firebaseDb.ref('VendorSignup').push(user).then((data) => {
 
-      bank: user.bank,
-      bankLocation: user.bankLocation,
-      bonding: user.bonding,
-      bondingLocation: user.bondingLocation,
-      insuranceCompany: user.insuranceCompany,
-      insuranceLocation: user.insuranceLocation,
-      bondingLimitDate: user.bondingLimitDate,
-      bondingLimit: user.bondingLimit,
-      grossBus: user.grossBus,
-      grossBusYear: user.grossBusYear,
-      bankruptcy:user.bankruptcy,
-      numEmployees: user.numEmployees,
-      AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
-      AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
-      AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
-      categories: user.categories,
-      specialties: user.specialties,
-      client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
-      client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
-      client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
-      client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
-      licence1: user.licence1, licence1Location: user.licence1Location,
-      licence2: user.licence2, licence2Location: user.licence2Location,
-      licence3: user.licence3, licence3Location: user.licence3Location,
-      licence4: user.licence4, licence4Location: user.licence4Location,
-      licence5: user.licence5, licence5Location: user.licence5Location,
-      insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
-      insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
-      insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
-      insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
-      insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
-      insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
-      insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
-      insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
-      insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
-      insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
-      insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
-      insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
-      insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
-      insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
-      insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
-      EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
-      FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
-      LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
-      MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
-      ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
-      TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
-      industryCode: user.industryCode, industryClassification: user.industryClassification,
-      IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
-      PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
-      PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
-      PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
-      drugPolicy: user.drugPolicy,
-      subcontractors: user.subcontractors,
-      stopWorkOrder: user.stopWorkOrder,
-      email: user.email,
-      adminContact: user.adminContact,
-      technicalContact: user.technicalContact,
-      ISnumber:user.ISnumber,
-      website: user.website,
-      password: user.password,
-      role: 1,
-    }).then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
     })
     .catch((err) => {
@@ -771,7 +543,6 @@ export function logInUser(user) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
             .then((data) => {
               var currentUser = firebaseAuth.currentUser
-              console.log('current user is', currentUser.uid)
               firebaseDb.ref('Notifications/'+currentUser.uid).set({
                   notified: false
                 })
@@ -794,7 +565,6 @@ export function logOutUser() {
 
         firebaseAuth.signOut()
             .then((data) => {
-                console.log(data)
                 dispatch({type: "LOGOUT_USER_FULFILLED"})
             })
             .catch((err) => {
@@ -805,119 +575,16 @@ export function logOutUser() {
 
 export function updateProfile(user) {
     return function(dispatch) {
-        dispatch({type: "SIGNUP_USER_FULFILLED"})
-      firebaseAuthInstance.signInWithEmailAndPassword(user.email, user.password)
-      .then((data) => {
-        var currentUser = firebaseAuthInstance.currentUser
-        console.log(currentUser.uid);
-        if (currentUser.role == 1) { // update as a vendor
-
-          firebaseDb.ref('User/' + currentUser.uid).set({
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-
-            owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
-            owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
-            owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
-            owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
-            owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
-
-            natureBusiness: user.natureBusiness,
-            timeBusiness: user.timeBusiness,
-            proAffiliation: user.proAffiliation,
-            report:user.report,
-
-            bank: user.bank,
-            bankLocation: user.bankLocation,
-            bonding: user.bonding,
-            bondingLocation: user.bondingLocation,
-            insuranceCompany: user.insuranceCompany,
-            insuranceLocation: user.insuranceLocation,
-            bondingLimitDate: user.bondingLimitDate,
-            bondingLimit: user.bondingLimit,
-            grossBus: user.grossBus,
-            grossBusYear: user.grossBusYear,
-            bankruptcy:user.bankruptcy,
-
-            numEmployees: user.numEmployees,
-            AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
-            AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
-            AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
-
-            categories: user.categories,
-            specialties: user.specialties,
-
-            client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
-            client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
-            client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
-            client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
-
-
-            licence1: user.licence1, licence1Location: user.licence1Location,
-            licence2: user.licence2, licence2Location: user.licence2Location,
-            licence3: user.licence3, licence3Location: user.licence3Location,
-            licence4: user.licence4, licence4Location: user.licence4Location,
-            licence5: user.licence5, licence5Location: user.licence5Location,
-
-            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
-            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
-            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
-            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
-            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
-            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
-            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
-            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
-            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
-            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
-            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
-            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
-            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
-            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
-            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
-
-            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
-            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
-            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
-            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
-            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
-            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
-
-            industryCode: user.industryCode, industryClassification: user.industryClassification,
-
-            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
-            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
-            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
-            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
-
-            drugPolicy: user.drugPolicy,
-            subcontractors: user.subcontractors,
-            stopWorkOrder: user.stopWorkOrder,
-
-            email: user.email,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-
-            ISnumber:user.ISnumber,
-
-            website: user.website,
-            password: user.password,
-            role: user.role,
-          })
-
-
-
-        }
-      }).catch((err)=>{
-        dispatch({type:"LOGIN_USER_REJECTED",payload:err})
-      })
-
+      dispatch({type: "UPDATE_USER_PROFILE"})
+      var currentUser = firebaseAuth.currentUser
+        
+      if (true) { // update as a vendor
+        firebaseDb.ref('User/' + currentUser.uid).set(user).then((data) => {
+          dispatch({type: "UPDATE_USER_PROFILE_FULFILLED"})
+        
+        }).catch((err)=>{
+          dispatch({type:"UPDATE_USER_PROFILE_REJECTED",payload:err})
+        })
+      }
     }
 }

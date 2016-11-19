@@ -25,6 +25,7 @@ import AdminReview from "./AdminReview.js"
 import CourseEOI from "./EOI/CourseEOI.js"
 import ReviewEOI from "./EOI/ReviewEOI.js"
 import EOIdetails from "./EOI/EOIdetails.js"
+import ContentCourseUpdate from "./Profile/ContentCourseUpdate.js"
 
 class ReactRouter extends Component {
   /**
@@ -53,6 +54,7 @@ class ReactRouter extends Component {
         <Route path='/course-eoi' component={CourseEOI} />
         <Route path='/review-eoi' component={ReviewEOI} />
         <Route path='/review-eoi/details' component={EOIdetails} />
+        <Route path='/course-update' component={ContentCourseUpdate}/>
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />

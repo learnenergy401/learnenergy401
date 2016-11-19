@@ -6,8 +6,8 @@ import { connect } from "react-redux"
 
 import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
-import ContentCourseDisplay from "../ContentCourseDisplay.js"
-
+import ContentCourseDisplay from "./ContentCourseDisplay.js"
+import ContentCourseUpdate from "./ContentCourseUpdate.js"
 import {updateProfile,getCurrentUser,logInUser} from "../Actions/userActions.js"
 
 @connect((store) => {
@@ -29,6 +29,7 @@ class ContentProfile extends Component {
     
     updateProfile(user) {
         this.props.dispatch(updateProfile(user));
+        this.getCurrentUser()
     } 
     
     compoentWillMount(){
@@ -37,7 +38,8 @@ class ContentProfile extends Component {
     
     componentDidUpdate(){
         
-        const {user} = this.props
+        const {user,profile} = this.props
+        if(profile.menu==0){
         if(!user.isLoggedIn){
             return
         }
@@ -295,12 +297,14 @@ class ContentProfile extends Component {
     
         }
         
-        
+    }
     }
     
     
     
     requestUpdate() {
+    const {user} = this.props
+    if(user.role==1){
     // part A
     var legalEntity = document.getElementById("legalEntity").value;
     var operatingName = document.getElementById("operatingName").value;
@@ -365,7 +369,10 @@ class ContentProfile extends Component {
     var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value;
     var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value;
     var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value;
-        
+    var industryClassification = document.getElementById("industryClassification").value; 
+    var industryCode = document.getElementById("industryCode").value; 
+
+    
     var licence1 = document.getElementById("licence1").value; var licence1Location = document.getElementById("licence1Location").value;
     var licence2 = document.getElementById("licence2").value; var licence2Location = document.getElementById("licence2Location").value;
     var licence3 = document.getElementById("licence3").value; var licence3Location = document.getElementById("licence3Location").value;
@@ -416,8 +423,8 @@ class ContentProfile extends Component {
     }
 
     var website = document.getElementById("website").value;
-    const {user} = this.props;
-    var role=1;
+    
+    var role=user.role;
     
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;    
@@ -436,8 +443,59 @@ class ContentProfile extends Component {
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,role
       }
-    //this.logInUser(user);
     this.updateProfile(userUpdate);
+    }else if(user.role==0){
+    var legalEntity = document.getElementById("legalEntity").value;
+    var operatingName = document.getElementById("operatingName").value;
+    var address1 = document.getElementById("address1").value;
+    var address2 = document.getElementById("address2").value;
+    var city = document.getElementById("city").value;
+    var province = document.getElementById("province").value;
+    var country = document.getElementById("country").value;
+    var postalCode = document.getElementById("postalCode").value;
+    var phone = document.getElementById("phone").value;
+    var fax = document.getElementById("fax").value;
+    var email = document.getElementById("email").value;
+    var adminContact = document.getElementById("adminContact").value;
+    var technicalContact = document.getElementById("technicalContact").value;
+
+    var gstReg = document.getElementById("gstReg").value;
+    var billAddress1 = document.getElementById("billAddress1").value;
+    var billAddress2 = document.getElementById("billAddress2").value;
+    var billCity = document.getElementById("billCity").value;
+    var billProvince = document.getElementById("billProvince").value;
+    var billCountry = document.getElementById("billCountry").value;
+    var billPostalCode = document.getElementById("billPostalCode").value;
+    var accntRec = document.getElementById("accntRec").value;
+    var bank = document.getElementById("bank").value;
+
+    var ISnumber = null
+    if(document.getElementById("ISnumberYes").checked) {
+        ISnumber = "yes"
+    } else if (document.getElementById("ISnumberNo").checked) {
+        ISnumber = "no"
+    }
+
+    var website = document.getElementById("website").value;
+    var password = document.getElementById("password").value;
+
+    var jointVenture = null
+    if(document.getElementById("jointVentureYes").checked) {
+        jointVenture = "yes"
+    } else if (document.getElementById("jointVentureNo").checked) {
+        jointVenture = "no"
+    }
+
+    var categories = document.getElementById("categories").value;
+    var role=user.role;
+    var userUpdate = {email, password, legalEntity, operatingName, address1, address2,
+      city, province, country, postalCode, phone, fax, adminContact, technicalContact,
+      gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
+      accntRec, bank, ISnumber, website, jointVenture, categories,role}
+        
+    this.updateProfile(userUpdate);
+    }
+        
     }
 
     /**
@@ -449,7 +507,7 @@ class ContentProfile extends Component {
 
         const {profile} = this.props
         const {user} = this.props
-        console.log(user)
+
 
         if (profile.menu == 0){
             if(user.isLoggedIn){
@@ -1040,6 +1098,14 @@ class ContentProfile extends Component {
                         </List>
                     </Content>
                 )
+            }else{
+                return(
+                    <Content>
+                    <div>
+                    <p>loading data...</p>
+                    </div>
+                    </Content>
+                )
             }
         }else{
             return(
@@ -1054,11 +1120,15 @@ class ContentProfile extends Component {
             return(
                 <ContentCourseDisplay/>
             )
-        }else{
+        }else if(profile.menu==2){
             return(
                 <ContentProfileUpload/>
             )
-        }
+        }else{
+            return(
+                <ContentCourseUpdate/>
+            )
+                }
     }
 };
 

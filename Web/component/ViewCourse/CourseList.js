@@ -14,7 +14,8 @@ const KEYS_TO_FILTERS = ['courseName', 'courseDescription']
 var listStyle = {
     width : "80%",
     marginLeft: "20%",
-
+    overflow:"scroll",
+    position:"relative"
 }
 
 var listItemStyle =  {
@@ -47,9 +48,6 @@ class CourseList extends Component{
         this.state = { searchTerm: '' }
     }
 
-    onListItemClick(){
-        console.log(course.courseName)
-    }
     componentWillMount(){
         this.props.dispatch(fetchCourse());
 
@@ -116,7 +114,7 @@ class CourseList extends Component{
 
             return(
                 <div>
-                     <Textfield autoFocus className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                     <Textfield style={{position:"relative"}} autoFocus className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
                     <div style={listStyle}>
                         {mappedCourse}
                     </div>
