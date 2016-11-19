@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-mdl';
-
+import TagsInput from "react-tagsinput"
 import store from './Store.js'
 
 import { connect } from "react-redux"
@@ -20,6 +20,15 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 * @ignore
 */
 class Scripts extends Component {
+      constructor () {
+        super()
+        this.state = {tags: []}
+    }
+
+    handleChange (tags) {
+        this.setState({tags})
+        console.log(this.state.tags)
+    }
   /**
   * @ignore
   */
@@ -40,10 +49,7 @@ class Scripts extends Component {
     */
     render(){
         return(
-
-                <div>
-                <Button onClick = {this.script.bind(this)}>ggg</Button>
-                </div>
+            <TagsInput  value={this.state.tags} onChange={::this.handleChange} />
             )
         }
 
