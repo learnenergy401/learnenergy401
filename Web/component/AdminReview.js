@@ -24,6 +24,11 @@ var info_div_style={
     fontWeight:'bold',
 }
 
+var table_style={
+    margin: 'auto',
+    //border: '1px dashed blue',
+}
+
 @connect((store) => {
   return {
     user: store.user
@@ -93,6 +98,29 @@ class AdminReview extends Component {
       this.props.dispatch(rejectUser(user))
     }
 
+    /*  TEMP STORAGE FOR PURCHASER INFORMATION
+                      <p><b>Fax:</b>{fax}</p>
+                      <p><b>Email:</b>{email}</p>
+                      <p><b>Admin Contact:</b>{adminContact}</p>
+                      <p><b>Techncal Contact:</b>{technicalContact}</p>
+
+                      <p><b>GST Registration: </b>{gstReg}</p>
+                      <p><b>Bank:</b> {bank}</p>
+                      <p><b>Accounts Recieveable:</b> {accntRec}</p>
+                      <p><b>IS Number:</b>{ISnumber}</p>
+                      <p><b>Website: </b><a href={website}target="_blank">{website}</a></p>
+                      <p><b>Password:</b>{password}</p>
+
+                      <p><b>Address 1:</b>{billAddress1}</p>
+                      <p><b>Address 2:</b>{billAddress2}</p>
+                      <p><b>City:</b>{billCity}</p>
+                      <p><b>Province:</b>{billProvince}</p>
+                      <p><b>Country:</b>{billCountry}</p>
+                      <p><b>Postal Code:</b>{billPostalCode}</p>
+                      <p><b>Joint Venture:</b>{jointVenture}</p>
+                      <p><b>Categories:</b>{categories}</p>
+    */
+    
     approve(key_name, role) {
       console.log('approve')
       const {user} = this.props
@@ -340,37 +368,127 @@ class AdminReview extends Component {
                       <h4 className="card__title-text">Purchaser Information</h4>
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
+                        
+                      <table style={table_style}> 
               
-                      <p><b>Legal Name:</b>{legalEntity}</p>
-                      <p><b>Operating Name:</b> {operatingName}</p>
-                      <p><b>Role:</b> {string_role[role]}</p>
-                      <p><b>Address 1: </b>{address1}</p>
-                      <p><b>Address 2: </b>{address2}</p>
-                      <p><b>City:</b> {city}</p>
-                      <p><b>Province:</b>{province} </p>
-                      <p><b>Country:</b> {country}</p>
-                      <p><b>Postal Code:</b>{postalCode}</p>
-                      <p><b>Phone:</b>{phone} </p>
-                      <p><b>Fax:</b>{fax}</p>
-                      <p><b>Email:</b>{email}</p>
-                      <p><b>Admin Contact:</b>{adminContact}</p>
-                      <p><b>Techncal Contact:</b>{technicalContact}</p>
+                          <tbody>
+                            <tr>
+                                <td><b>Legal Name:</b></td>
+                                <td>{legalEntity}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Operating Name:</b></td>
+                                <td>{operatingName}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Role:</b></td>
+                                <td>{string_role[role]}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 1: </b></td>
+                                 <td>{address1}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 2: </b></td>
+                                 <td>{address2}</td>
+                            </tr>
+                            <tr>
+                                <td><b>City:</b></td>
+                                 <td>{city}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Province:</b></td>
+                                 <td>{province}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country:</b></td>
+                                 <td>{country}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Postal Code:</b></td>
+                                 <td>{postalCode}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone:</b></td>
+                                 <td>{phone}</td>
+                            </tr>
 
-                      <p><b>GST Registration: </b>{gstReg}</p>
-                      <p><b>Bank:</b> {bank}</p>
-                      <p><b>Accounts Recieveable:</b> {accntRec}</p>
-                      <p><b>IS Number:</b>{ISnumber}</p>
-                      <p><b>Website: </b><a href={website}target="_blank">{website}</a></p>
-                      <p><b>Password:</b>{password}</p>
-
-                      <p><b>Address 1:</b>{billAddress1}</p>
-                      <p><b>Address 2:</b>{billAddress2}</p>
-                      <p><b>City:</b>{billCity}</p>
-                      <p><b>Province:</b>{billProvince}</p>
-                      <p><b>Country:</b>{billCountry}</p>
-                      <p><b>Postal Code:</b>{billPostalCode}</p>
-                      <p><b>Joint Venture:</b>{jointVenture}</p>
-                      <p><b>Categories:</b>{categories}</p>
+                            <tr>
+                                <td><b>Fax:</b></td>
+                                 <td>{fax}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email:</b></td>
+                                 <td>{email}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Admin Contact:</b></td>
+                                 <td>{adminContact}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Techncal Contact:</b></td>
+                                 <td>{technicalContact}</td>
+                            </tr>
+                            <tr>
+                                <td><b>GST Registration: </b></td>
+                                 <td>{gstReg}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Bank:</b></td>
+                                 <td>{bank}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Accounts Recieveable:</b></td>
+                                 <td>{accntRec}</td>
+                            </tr>
+                            <tr>
+                                <td><b>IS Number:</b></td>
+                                 <td>{ISnumber}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Website: </b></td>
+                                 <td><a href={website} link="red" target="_blank">Purchaser's Website</a></td>
+                            </tr>
+                            <tr>
+                                <td><b>Password:</b></td>
+                                 <td>{password}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 1:</b></td>
+                                 <td>{billAddress1}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 2:</b></td>
+                                 <td>{billAddress2}</td>
+                            </tr>
+                            <tr>
+                                <td><b>City:</b></td>
+                                 <td>{billCity}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Province:</b></td>
+                                 <td>{billProvince}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country:</b></td>
+                                 <td>{billCountry}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Postal Code:</b></td>
+                                 <td>{billPostalCode}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Joint Venture:</b></td>
+                                 <td>{jointVenture}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Categories:</b></td>
+                                 <td>{categories}</td>
+                            </tr>
+              
+                          </tbody> 
+                        </table>
+              
               
                     </div>
                 <div>
@@ -497,10 +615,10 @@ class AdminReview extends Component {
                 <div className="grid">
                   <div className="card mdl-shadow--2dp">
                     <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
-                      <h4 className="card__title-text">Purchaser Information</h4>
+                      <h4 className="card__title-text">Vendor Information</h4>
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
-              
+                
                       <p><b>Legal Name: </b>{legalEntity}</p>
                       <p><b>Operating Name:</b> {operatingName}</p>
                       <p><b>Role: </b>{string_role[role]}</p>
@@ -582,6 +700,7 @@ class AdminReview extends Component {
                       <p><b>Location:</b>{licence5Location}</p>
               
                 <h3>Insurance</h3>
+              
                 <h5>Products/Completed Operations</h5>
                       <p><b>Insurer:</b>{insurer1}</p>
                       <p><b>Policy Limit:</b>{policyLimit1}</p>
@@ -723,14 +842,11 @@ class AdminReview extends Component {
               
               <h3>Additional Information</h3>
               
-              <p><b>Drug and Alcohol policy:</b>{drugPolicy}</p>
-              <p><b>Subcontractor OH&S Evaluation:</b>{subcontractors}</p>
-              <p><b>OH&S Stop Work Order Recieved:</b>{stopWorkOrder}</p>
-              <p><b>Subcontractor OH&S Evaluation:</b>{categories}</p>
-              <p><b>HSE related Judgements:</b>{categories}</p>
-              
-              
-                    
+                      <p><b>Drug and Alcohol policy:</b>{drugPolicy}</p>
+                      <p><b>Subcontractor OH&S Evaluation:</b>{subcontractors}</p>
+                      <p><b>OH&S Stop Work Order Recieved:</b>{stopWorkOrder}</p>
+                      <p><b>Subcontractor OH&S Evaluation:</b>{categories}</p>
+                      <p><b>HSE related Judgements:</b>{categories}</p>
               
                     </div>
                 <div>
@@ -747,7 +863,7 @@ class AdminReview extends Component {
             <LearnFooter/>
             </div>
           )
-        } else if (role == 2) { // ad
+        } else if (role == 2) { // vendor
 
           var website = user.ad[key_name].website;
           var email = user.ad[key_name].email;
