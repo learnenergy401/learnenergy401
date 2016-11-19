@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Content,CardText,CardActions,Card,CardTitle} from 'react-mdl';
+import {Content,CardText,CardActions,Card,CardTitle, Button} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import { connect } from "react-redux"
 import { storeReqEOI, fetchACourse} from "../Actions/courseActions"
@@ -25,6 +25,10 @@ var cardStyle = {
   };
 })
 class ContentCourseDetail extends Component {
+
+  fetchACourse(aCourseName) {
+    this.props.dispatch(fetchACourse(aCourseName))
+  }
 
   storeReqEOI(info) {
     this.props.dispatch(storeReqEOI(info))
@@ -67,6 +71,7 @@ class ContentCourseDetail extends Component {
                 controls: 1,
             }
         }
+        console.log('course is', course)
         return(
           <div style={{height:'660px'}} className="learnContent mdl-typography--text-center">
 
