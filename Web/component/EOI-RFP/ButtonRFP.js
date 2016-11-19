@@ -5,7 +5,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 var buttonStyle = {
     marginLeft:'2dp!important'
 }
-class ButtonRFPEmail extends Component {
+class ButtonRFP extends Component {
     /**
     * Loads the button for Admin.
     * @return {html} - returns button and links
@@ -14,11 +14,11 @@ class ButtonRFPEmail extends Component {
         return(
           <Link to={this.props.to}>
               <Button style={buttonStyle} className="mdl-color-text--indigo" >
-                Submit RFP
+                SUBMIT RFP
               </Button>
            </Link>
         );}
 };
 
 
-export default ButtonRFPEmail
+export default ButtonRFP

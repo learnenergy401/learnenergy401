@@ -108,7 +108,8 @@ class ReviewEOI extends Component {
 			// grab information on RFP now and add them to RFP list
 			if (user.rfp != null && uid!=null) {
 				keys = Object.keys(user.rfp)
-				if (keys.length > 0) { // there exists some EOIs
+				if (keys.length > 0) { // there exists some RFPs
+					RFPs.push(<hr/>)
 					RFPs.push(<h4>Request for Proposals</h4>)
 					RFPs.push(<hr/>)
 				}
@@ -139,7 +140,7 @@ class ReviewEOI extends Component {
 		            <div className="grid">
 		              <div className="card mdl-shadow--2dp">
 		                <div className="card__title mdl-color--indigo mdl-color-text--white">
-		                  <h4 className="card__title-text">Candidates</h4>
+		                  <h4 className="card__title-text">EOIs and RFPs</h4>
 		                </div>
 		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
@@ -209,13 +210,15 @@ class ReviewEOI extends Component {
 			// grab information on RFP now and add them to RFP list
 			if (user.rfp != null && uid!=null) {
 				keys = Object.keys(user.rfp)
-				if (keys.length > 0) { // there exists some EOIs
+				if (keys.length > 0) { // there exists some RFPs
+					RFPs.push(<hr/>)
 					RFPs.push(<h4>Request for Proposals</h4>)
 					RFPs.push(<hr/>)
 				}
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].purchaser == uid) {
+
 						RFPs.push(user.rfp[key_name].vendor_email)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
@@ -240,7 +243,7 @@ class ReviewEOI extends Component {
 		            <div className="grid">
 		              <div className="card mdl-shadow--2dp">
 		                <div className="card__title mdl-color--indigo mdl-color-text--white">
-		                  <h4 className="card__title-text">Candidates</h4>
+		                  <h4 className="card__title-text">EOIs and RFPs</h4>
 		                </div>
 		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 

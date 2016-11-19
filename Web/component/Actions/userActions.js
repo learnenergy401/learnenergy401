@@ -1,6 +1,47 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
+export function fetchRFPfromEOI() {
+  return function(dispatch) {
+    firebaseDb.ref('RFPfromEOI').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+    })
+  }
+}
+
+
+export function submitRFPfromEOI(info) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){ // remove the EOI as well
+        firebaseDb.ref('RFPfromEOI/'+user.uid).set({
+          purchaser_legal: info.purchaser_legal,
+          purchaser_address1: info.purchaser_address1,
+          purchaser_address2: info.purchaser_address2,
+          purchaser_city: info.purchaser_city,
+          purchaser_country: info.purchaser_country,
+          purchaser_phone: info.purchaser_phone,
+          purchaser_fax: info.purchaser_fax,
+
+          // INCLUDE RFP NUMBER WHEN WE MAKE IT
+
+          
+        }).then((data) => {
+          dispatch({type: "STORE_RFP_FROM_EOI_FULFILLED", payload: user})
+        })
+        .catch((err) => {
+          dispatch({type: "STORE_RFP_FROM_EOI_REJECTED", payload: err})
+        })
+        // remove from EOI table
+
+      }
+    })
+  }
+}
 
 /**
  * sets the RFP to the database.

@@ -10,7 +10,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
-import { storeRFPs, getCurrentUser } from "../Actions/userActions"
+import { storeRFPs, getCurrentUser, fetchRFPfromEOI } from "../Actions/userActions"
 
 var spacerStyle = {
     height: '50px',
@@ -35,7 +35,7 @@ var cardTitleStyle = {
   };
 })
 
-class RFP extends Component {
+class RFPfromEOI extends Component {
 
     getCurrentUser() {
         this.props.dispatch(getCurrentUser())
@@ -45,8 +45,13 @@ class RFP extends Component {
         this.props.dispatch(storeRFPs(info))
     }
 
+    fetchRFPfromEOI() {
+        this.props.dispatch(fetchRFPfromEOI())
+    }
+
     componentWillMount() {
         this.getCurrentUser()
+        this.fetchRFPfromEOI()
     }
 
     requestSubmit() {
@@ -77,7 +82,16 @@ class RFP extends Component {
 
         const {user} = this.props
 
-        if (user.user!=null && user.role == 0) {
+        if (user.user!=null && user.role == 0 &&user.rfp_from_eoi!=null) {
+            var purchaser_legal = user.rfp_from_eoi.purchaser_legal
+            var purchaser_address1 = user.rfp_from_eoi.purchaser_address1
+            var purchaser_address2 = user.rfp_from_eoi.purchaser_address2
+            var purchaser_city = user.rfp_from_eoi.purchaser_city
+            var purchaser_country = user.rfp_from_eoi.purchaser_country
+            var purchaser_phone = user.rfp_from_eoi.purchaser_phone
+            var purchaser_fax = user.rfp_from_eoi.purchaser_fax
+
+
     		return(
 
               <div>
@@ -97,7 +111,14 @@ class RFP extends Component {
                     <br/>
 
                     <h6>Autofill purchaser info if statement</h6>
-
+                    <h6>Purchaser Details: </h6>
+                    <h6>Legal Name: &nbsp; {purchaser_legal}</h6>
+                    <h6>Address Line 1: &nbsp; {purchaser_address1}</h6>
+                    <h6>Address Line 2: &nbsp; {purchaser_address2}</h6>
+                    <h6>City: &nbsp; {purchaser_city}</h6>
+                    <h6>Country: &nbsp; {purchaser_country}</h6>
+                    <h6>Phone: &nbsp; {purchaser_phone}</h6>
+                    <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
                     <h6>
                     On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser"/>
                     ("The Purchaser"), your company ("Vendor") is invited to submit a response to this Request for Proposal. This Request for Proposal (RFP)
@@ -175,4 +196,4 @@ class RFP extends Component {
 
 }
 
-export default RFP
+export default RFPfromEOI

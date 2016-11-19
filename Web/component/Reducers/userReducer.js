@@ -21,6 +21,7 @@ export default function reducer(state={
     eoiKey: null,
     reqEOI: null,
     rfp: null,
+    rfp_from_eoi: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -513,6 +514,38 @@ export default function reducer(state={
             }
         }
 
+        case "FETCH_RFP_FROM_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                rfp_from_eoi: action.payload,
+            }
+        }
+
+        case "FETCH_RFP_FROM_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_RFP_FROM_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_RFP_FROM_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
     }
 
     return state

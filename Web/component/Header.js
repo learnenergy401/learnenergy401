@@ -6,7 +6,7 @@ import ButtonProfile from './ButtonProfile.js';
 import ButtonLogOut from './ButtonLogOut.js';
 import ButtonAdmin from './ButtonAdmin.js';
 import ButtonReviewEOI from './EOI-RFP/ButtonReviewEOI.js';
-import ButtonRFPEmail from './EOI-RFP/ButtonRFPEmail.js';
+import ButtonRFP from './EOI-RFP/ButtonRFP.js';
 import LearnLogo from './Logo.js';
 import LearnNavigation from './Navigation.js';
 import store from './Store.js'
@@ -125,7 +125,7 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-                      <ButtonRFPEmail to='rfp-email' />
+                      <ButtonRFP to='rfp' />
 
                       <ButtonReviewEOI to='review-eoi-rfp'/>
 

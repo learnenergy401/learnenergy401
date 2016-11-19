@@ -9,7 +9,7 @@ import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import { fetchEOIs, fetchEOIkey } from "../Actions/userActions"
+import { fetchEOIs, fetchEOIkey, submitRFPfromEOI } from "../Actions/userActions"
 
 var spacerStyle = {
     height: '50px',
@@ -43,17 +43,25 @@ class EOIdetails extends Component {
 		this.props.dispatch(fetchEOIkey())
 	}
 
+	submitRFPfromEOI(info) {
+		this.props.dispatch(submitRFPfromEOI(info))
+	}
+
 	componentWillMount() {
 		this.fetchEOIs()
 		this.fetchEOIkey()
 	}
 
-	submit_rfp() {
+	submit_rfp(purchaser_legal, purchaser_address1, purchaser_address2, purchaser_city,
+			puchaser_country, purchaser_phone, purchaser_fax) {
 		// user is a purchaser and they want to submit a rfp
 		// store information needed and then go to rfp page
+		var info = {purchaser_legal, purchaser_address1, purchaser_address2, purchaser_city,
+			puchaser_country, purchaser_phone, purchaser_fax}
 
+		this.submitRFPfromEOI(info)
 
-		window.location.assign('/#/rfp')
+		window.location.assign('/#/rfp-from-eoi')
 	}
 
 	return_back() {
@@ -124,7 +132,8 @@ class EOIdetails extends Component {
 				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
 			} else if (user.role == 0) {
 				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
-				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this)}>Submit RFP</Button>)
+				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this,purchaser_legal, purchaser_address1, purchaser_address2, purchaser_city,
+			puchaser_country, purchaser_phone, purchaser_fax)}>Submit RFP</Button>)
 
 			}
 
