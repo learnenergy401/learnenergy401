@@ -28,6 +28,7 @@ import EOIdetails from "./EOI-RFP/EOIdetails.js"
 import ContentCourseUpdate from "./Profile/ContentCourseUpdate.js"
 import RFP from "./EOI-RFP/RFP.js"
 import RFPEmail from "./EOI-RFP/RFPEmail.js"
+import RFPdetails from "./EOI-RFP/RFPdetails.js"
 
 class ReactRouter extends Component {
   /**
@@ -55,10 +56,11 @@ class ReactRouter extends Component {
         <Route path='/admin-review' component={AdminReview} />
         <Route path='/course-eoi' component={CourseEOI} />
         <Route path='/review-eoi-rfp' component={ReviewEOI} />
-        <Route path='/review-eoi-rfp/details' component={EOIdetails} />
+        <Route path='/review-eoi-details' component={EOIdetails} />
         <Route path='/course-update' component={ContentCourseUpdate}/>
         <Route path='/rfp-email' component={RFPEmail} />
         <Route path='/rfp' component={RFP} />
+        <Route path='/edit-rfp-details' component={RFPdetails} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
