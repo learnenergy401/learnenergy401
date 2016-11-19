@@ -53,10 +53,10 @@ class ContentProfileUpload extends Component {
                                 <Textfield floatingLabel label="courseName" className="form-control" ref="courseName" id="courseName"/>
                                 </CardText>
                             <CardText style={componentStyle}>
-                                <Textfield floatingLabel label="courseDescription" ref="pw" type="courseDescription" className="form-control" id="courseDescription"/>
+                                <Textfield floatingLabel label="courseDescription" ref="courseDescription" type="courseDescription" className="form-control" id="courseDescription"/>
                             </CardText>
                             <CardText style={componentStyle}>
-                                <Textfield floatingLabel label="courseVideoId" ref="pw" type="courseVideoId" className="form-control" id="courseVideoId"/>
+                                <Textfield floatingLabel label="courseVideoId" ref="courseVideoId" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardActions style={componentStyle}>
                                 <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>
