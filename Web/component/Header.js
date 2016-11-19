@@ -6,6 +6,7 @@ import ButtonProfile from './ButtonProfile.js';
 import ButtonLogOut from './ButtonLogOut.js';
 import ButtonAdmin from './ButtonAdmin.js';
 import ButtonReviewEOI from './EOI-RFP/ButtonReviewEOI.js';
+import ButtonRFPEmail from './EOI-RFP/ButtonRFPEmail.js';
 import LearnLogo from './Logo.js';
 import LearnNavigation from './Navigation.js';
 import store from './Store.js'
@@ -112,7 +113,7 @@ class LearnHeader extends Component {
               }
             })
           }
-          if (user.role == 1) { // vendor can see review EOI
+          if (user.role == 0) { // vendor can see review EOI
             return(
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
@@ -124,7 +125,7 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-                      <ButtonSubmitRFP to='rfp-email' />
+                      <ButtonRFPEmail to='rfp-email' />
 
                       <ButtonReviewEOI to='review-eoi-rfp'/>
 
@@ -132,6 +133,25 @@ class LearnHeader extends Component {
                       <ButtonLogOut/>
                 </Header>
                 );
+          } else if (user.role == 1) {
+            return(
+                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
+                      <span  className="learn-title mdl-layout-title ">
+                        <LearnLogo to=''/>
+                      </span>
+                      {/* Add spacer, to align navigation to the right in desktop */}
+                      <div className="mdl-layout-spacer" />
+                      {/* Navigation */}
+                      <LearnNavigation />
+                      <div style={buttonSpacer}>
+                      </div>
+                      <ButtonReviewEOI to='review-eoi-rfp'/>
+
+                      <ButtonProfile to='profile' />
+                      <ButtonLogOut/>
+                </Header>
+                );
+
           } else if (user.role == 3) {
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
