@@ -6,7 +6,8 @@
  */
 export default function reducer(state={
     user: null,
-    userName:null,
+    users: null,
+    userName: null,
     fetching: false,
     fetched: false,
     error: null,
@@ -20,6 +21,8 @@ export default function reducer(state={
     eoi: null,
     eoiKey: null,
     reqEOI: null,
+    rfp: null,
+    rfp_from_eoi: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -470,6 +473,98 @@ export default function reducer(state={
                 fetched: true,
             }
         }
+
+        case "REMOVED_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+            }
+        }   
+
+        case "FETCH_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                rfp: action.payload,
+            }
+        } 
+
+        case "FETCH_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_RFP_FROM_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                rfp_from_eoi: action.payload,
+            }
+        }
+
+        case "FETCH_RFP_FROM_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_RFP_FROM_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_RFP_FROM_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_USERS_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                users: action.payload,
+            }
+        }
+
+        case "FETCH_USERS_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
     }
+
     return state
 }

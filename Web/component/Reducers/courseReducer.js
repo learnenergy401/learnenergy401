@@ -16,7 +16,7 @@ export default function reducer(state={
     courseName:null,
     courseDescription: null,
     courseVendorEmail: null,
-
+    coursePurchasers: null,
   }, action) {
 
     switch (action.type) {
@@ -153,6 +153,13 @@ export default function reducer(state={
         case "SAVE_A_COURSE": {
             return {...state,
                     aCourseName : action.payload
+            }
+        }
+
+        case "ADDING_PURCHASER": {
+            return {...state,
+                uploaded:true,
+                fetching: false,
             }
         }
         

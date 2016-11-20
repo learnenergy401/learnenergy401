@@ -5,7 +5,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 var buttonStyle = {
     marginLeft:'2dp!important'
 }
-class ButtonReviewEOI extends Component {
+class ButtonRFP extends Component {
     /**
     * Loads the button for Admin.
     * @return {html} - returns button and links
@@ -14,11 +14,11 @@ class ButtonReviewEOI extends Component {
         return(
           <Link to={this.props.to}>
               <Button style={buttonStyle} className="mdl-color-text--indigo" >
-                REVIEW EOIS
+                SUBMIT RFP
               </Button>
            </Link>
         );}
 };
 
 
-export default ButtonReviewEOI
+export default ButtonRFP

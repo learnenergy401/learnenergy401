@@ -2,6 +2,185 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * Grabs the Users from the database.
+ * @returns {object} users - Returns the object of users.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchUsers() {
+  return function(dispatch) {
+    firebaseDb.ref('User').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_USERS_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_USERS_REJECTED", payload: err})
+    })    
+  }
+}
+
+/**
+ * Grabs the RFPfromEOIs from the database.
+ * @returns {object} rfpfromeoi - Returns the object of rfpfromeoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPfromEOI() {
+  return function(dispatch) {
+    firebaseDb.ref('RFPfromEOI').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+    })
+  }
+}
+
+/**
+ * submits RFP prompt from EOI details.
+ * @returns {object} dispatch - Returns the state which contains rfp object
+ * @param {object} info - object which contains information about the vendor for rfp.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function submitRFPfromEOI(info) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){ // remove the EOI as well
+        firebaseDb.ref('RFPfromEOI/'+user.uid).set({
+          vendor: info.vendor
+
+          // INCLUDE RFP NUMBER WHEN WE MAKE IT
+
+
+        }).then((data) => {
+          dispatch({type: "STORE_RFP_FROM_EOI_FULFILLED", payload: user})
+        })
+        .catch((err) => {
+          dispatch({type: "STORE_RFP_FROM_EOI_REJECTED", payload: err})
+        })
+        // remove from EOI table
+
+      }
+    })
+  }
+}
+
+/**
+ * sets the RFP to the database.
+ * @returns {object} dispatch - Returns the state which contains rfp object
+ * @param {object} data - object which contains information about the rfp.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeRFPs(info) {
+  return function(dispatch) {
+    console.log(info)
+    firebaseDb.ref('RFP').push({
+      vendor: info.vendor,
+      purchaser: info.uid,
+      course: info.course,
+
+      // additional details below
+      email: info.email,
+      email1: info.email1,
+      date: info.date,
+      service: info.service,
+      text1: info.text1,
+      text2: info.text2,
+      closeDate: info.closeDate,
+      closeTime: info.closeTime,
+      name1: info.name1,
+      title1: info.title1,
+      name2: info.name2,
+      title2: info.title2,
+      email2: info.email2,
+      phone: info.phone,
+
+      company_name: info.company_name,
+      RFP_par: info.RFP_par,
+      vendor_company_address: info.vendor_company_address,
+      vendor_contact_name: info.vendor_contact_name, 
+      vendor_contact_title_position: info.vendor_contact_title_position,
+      vendor_primary_telephone: info.vendor_primary_telephone,
+      vendor_alternate_telephone: info.vendor_alternate_telephone,
+      vendor_fax: info.vendor_fax,
+      vendor_email: info.vendor_email,
+
+      company_approved: info.company_approved,
+      optional_comments: info.optional_comments,
+
+      scope: info.scope,
+      qualificationA: info.qualificationA,
+      qualificationB: info.qualificationB,
+      qualificationC: info.qualificationC,
+      qualificationD: info.qualificationD,
+      response_date: info.response_date,
+      email3: info.email3,
+      LMRFPnum: info.LMRFPnum,
+      selection_date: info.selection_date,
+
+      purchaser_legal: info.purchaser_legal,
+      purchaser_address1: info.purchaser_address1,
+      purchaser_address2: info.purchaser_address2,
+      purchaser_city: info.purchaser_city,
+      purchaser_country: info.purchaser_country,
+      purchaser_phone: info.purchaser_phone,
+      purchaser_fax: info.purchaser_fax,
+
+
+
+
+
+
+
+    }).then((data) => {
+      dispatch({type: "STORE_RFP_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "STORE_RFP_REJECTED", payload: err})
+    })
+    alert("RFP submitted")
+    location.reload()
+  }
+}
+
+
+/**
+ * Removes from RFP table
+ * @params {object} key - key name to remove
+ */
+export function removeRFP(key) {
+  return function(dispatch) {
+
+    firebaseDb.ref('RFP/'+key.key_name).remove().then(function() {
+
+      //console.log("removed")
+      location.reload()
+      }).then((data) => {
+        dispatch({type: "REMOVED_RFP_FULFILLED"})
+      })
+    .catch(function(err) {
+      console.log("failed to remove")
+    })
+  }
+}
+
+/**
+ * Grabs the RFPs from the database.
+ * @returns {object} rfp - Returns the object of rfp.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPs() {
+  return function(dispatch) {
+    firebaseDb.ref('RFP').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_RFP_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_RFP_REJECTED", payload: err})
+    })
+  }
+}
+
+/**
  * sets the eoikey.
  * @returns {object} dispatch - Returns the state which contains eoikey object
  * @param {object} info - object which contains information about the eoikey.
@@ -573,6 +752,12 @@ export function logOutUser() {
     }
 }
 
+/**
+ * Updates user profile.
+ * @params {object} user - info on the user
+ * @returns {object} dispatch - Returns the state which contains user object
+ * @throws {object} err - Returns an error if fail to logout.
+ */
 export function updateProfile(user) {
     return function(dispatch) {
       dispatch({type: "UPDATE_USER_PROFILE"})
