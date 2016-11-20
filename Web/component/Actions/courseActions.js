@@ -43,6 +43,7 @@ export function uploadCourse(course) {
         dispatch({type: "UPLOAD_COURSE"})
         var pushID = generatePushID()
         course.courseID = pushID
+        course.courseFiles = ['0']
 
 
         firebaseDb.ref('Course/'+course.courseID).set(course)
@@ -72,6 +73,34 @@ export function updateCourse(course,courseID) {
     }
 }
 
+export function uploadCourseFiles(courseID,coursePrev,fileObj) {
+    return function(dispatch) {
+        dispatch({type:"UPLOAD_COURSE_FILES"})
+        firebaseStorage.child(courseID+'/'+fileObj.fileName).put(fileObj.file,fileObj.metadata)
+            .then((snapshot) =>{
+                var url = snapshot.metadata.downloadURLs[0];
+                var tempList = coursePrev.courseFiles;
+                if(tempList[0]=='0'){
+                    var courseFiles = [url]
+                }else{
+                    var courseFiles = [...tempList,url]
+                }
+                
+                firebaseDb.ref('Course/'+courseID).set({
+                    courseDescription:coursePrev.courseDescription,
+                    courseID:coursePrev.courseID,
+                    courseName:coursePrev.courseName,
+                    courseVendorEmail:coursePrev.courseVendorEmail,
+                    courseVideoId:coursePrev.courseVideoId,
+                    courseFiles:courseFiles
+                });
+                dispatch({type:"UPLOAD_COURSE_FILES_FULFILLED"})
+            }).catch((err) => {
+                dispatch({type: "UPLOAD_COURSE_FILES_REJECTED", payload:err})
+            })
+    }
+}   
+    
 /*------not using yet-----*/
 export function uploadCourseDetail(user,fileObj) {
     return function(dispatch) {

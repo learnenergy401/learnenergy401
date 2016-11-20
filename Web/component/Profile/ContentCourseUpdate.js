@@ -4,10 +4,7 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
 import "../../extra/material.js"
-import { updateCourse } from "../Actions/courseActions"
-import { uploadCourse } from "../Actions/courseActions"
-import { fetchVendorCourse } from "../Actions/courseActions"
-import { fetchACourse} from "../Actions/courseActions"
+import { updateCourse,uploadCourse,uploadCourseFiles,fetchVendorCourse,fetchACourse } from "../Actions/courseActions"
 import Toast from "../Toast.js"
 
 var componentStyle = {
@@ -28,6 +25,8 @@ var formStyle = {
 
 
 class ContentCourseUpdate extends Component {
+    
+    
     componentWillMount(){
         const {user} = this.props
         const {course}=this.props
@@ -39,6 +38,21 @@ class ContentCourseUpdate extends Component {
         document.getElementById("courseName").value=course.aCourse.courseName;
         document.getElementById("courseDescription").value=course.aCourse.courseDescription;
         document.getElementById("courseVideoId").value=course.aCourse.courseVideoId;
+    }
+    
+    handleFileSelect(evt) {
+      const {course}=this.props
+      var courseID = course.aCourse.courseID;
+      var coursePrev = course.aCourse;
+      evt.stopPropagation();
+      evt.preventDefault();
+      var file = evt.target.files[0];
+      var fileName = file.name;
+      var metadata = {
+        'contentType': file.type
+      };
+      
+      this.props.dispatch(uploadCourseFiles(courseID,coursePrev,{fileName,file,metadata}));
     }
     
     updateCourse(){
@@ -78,6 +92,15 @@ class ContentCourseUpdate extends Component {
                                 <p style={{color:'mediumblue',marginBottom:'0px'}}>Course Video ID</p>
                                 <Textfield  label="" ref="courseVideoId" type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
+                            <CardText style={componentStyle}>
+                                <p style={{color:'mediumblue',marginBottom:'0px'}}>Course Files</p>
+                                <Textfield  label="Empty" ref="courseFiles" type="courseFiles" className="form-control" id="courseVideoId"/>
+                            </CardText>
+                        <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+                        <h6>Choose File to upload</h6>
+                        <input type="file" id="file" name="file" onChange={this.handleFileSelect.bind(this)}/>
+                        <span id="linkbox"></span>
+                        </div>
                             <CardActions style={componentStyle}>
                                 <Button onClick={this.updateCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Update Detail</Button>
                             </CardActions>

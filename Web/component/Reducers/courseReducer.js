@@ -122,32 +122,27 @@ export default function reducer(state={
                     error: acion.payload,
             }
         }    
-        case "UPLOAD_COURSE_DETAIL_FULFILLED": {
-            return {...state,
-                    uploaded: true,
-                    fetching: false,
-            }
-        }
+        
         case "UPLOAD_COURSE_REJECTED": {
             return {...state, 
                     fetching: false,
             }
         }        
-        case "UPLOAD_COURSE_DETAIL": {
+        case "UPLOAD_COURSE_FILES": {
             return {...state,
                     uploaded: false,
                     fetching: true           
             }
         }
 
-        case "UPLOAD_COURSE_DETAIL_FULFILLED": {
+        case "UPLOAD_COURSE_FILES_FULFILLED": {
             return {...state,
                     uploaded: true,
                     fetching: false,
             
             }
         }
-        case "UPLOAD_COURSE_DETAIL_REJECTED": {
+        case "UPLOAD_COURSE_FILES_REJECTED": {
             return {...state,
                     fetching: false,
             
