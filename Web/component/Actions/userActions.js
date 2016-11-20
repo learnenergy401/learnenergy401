@@ -1,6 +1,18 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
+export function fetchUsers() {
+  return function(dispatch) {
+    firebaseDb.ref('User').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_USERS_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_USERS_REJECTED", payload: err})
+    })    
+  }
+}
+
 export function fetchRFPfromEOI() {
   return function(dispatch) {
     firebaseDb.ref('RFPfromEOI').once('value')
