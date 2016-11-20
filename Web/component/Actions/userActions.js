@@ -148,7 +148,7 @@ export function storeRFPs(info) {
 
       // additional details below
       date: info.date,
-      purchaser: info.purchaser,
+      purchaser1: info.purchaser1,
       service: info.service,
       LMRFPnum: info.LMRFPnum,
       closeDate: info.closeDate,
