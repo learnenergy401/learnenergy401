@@ -199,8 +199,8 @@ class RFP extends Component {
 
         const {user} = this.props
 
-        if (user.user!=null && user.role == 0) {
-
+        if ((user.user!=null) && (user.role == 0) && (user.users!=null)) {
+            console.log(user)
             var purchaser_legal = user.user.legalEntity
             var purchaser_address1 = user.user.address1
             var purchaser_address2 = user.user.address2
@@ -211,7 +211,7 @@ class RFP extends Component {
 
             var vendors = []
             var keys = Object.keys(user.users) 
-
+            console.log(keys)
             for (var count=0; count<keys.length; count++) {
                 if (user.users[keys[count]].role == 1) {
                     vendors.push(user.users[keys[count]].email)
