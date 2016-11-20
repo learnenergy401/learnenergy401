@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {Content,CardText,CardActions,Card,CardTitle, Button} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import { connect } from "react-redux"
-import { storeReqEOI, fetchACourse, addCoursePurchaser } from "../Actions/courseActions"
-import { fetchUsers } from "../Actions/userActions"
+import { fetchACourse, addCoursePurchaser } from "../Actions/courseActions"
+import { fetchUsers, storeReqEOI } from "../Actions/userActions"
 import YouTube from './Youtube.js'
 
 var componentStyle = {
@@ -55,38 +55,39 @@ class ContentCourseDetail extends Component {
     this.props.dispatch(fetchACourse(course.aCourseName));
     
     this.fetchUsers()
-    }
+  }
     /**
      * plays video
      */
-    _onReady(event) {
-    // access to player in all event handlers via event.target
-        event.target.playVideo();
-    }
+  _onReady(event) {
+  // access to player in all event handlers via event.target
+      event.target.playVideo();
+  }
 
-    req_EOI() {
-      const {course} = this.props
-      const {user} = this.props
+  req_EOI() {
+    const {course} = this.props
+    const {user} = this.props
 
-      var course_id = course.aCourse.courseID
-      //console.log('course id is', course_id)
+    var courseid = course.aCourse.courseID
+    //console.log('course id is', course_id)
 
-      var keys = Object.keys(user.users)
-      //console.log('keys is', keys)
+    var keys = Object.keys(user.users)
+    //console.log('keys is', keys)
 
-      var vendor_uid
-      for (var count=0; count<keys.length;count++) {
-        if (user.users[keys[count]].email == course.aCourse.courseVendorEmail) {
-          vendor_uid = keys[count]
-          break
-        }
+    var vendor
+    for (var count=0; count<keys.length;count++) {
+      if (user.users[keys[count]].email == course.aCourse.courseVendorEmail) {
+        vendor = keys[count]
+        break
       }
-
-      var info = {vendor_uid, course_id}
-      //console.log('info is', info)
-      this.storeReqEOI(info)
-      
     }
+    var email = course.aCourse.courseVendorEmail
+
+    var info = {vendor, courseid, email}
+    //console.log('info is', info)
+    this.storeReqEOI(info)
+    
+  }
 
     /**
     * purchaser course

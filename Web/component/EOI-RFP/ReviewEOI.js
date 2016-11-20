@@ -9,7 +9,7 @@ import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import { removeEOI, storeEOIkey, fetchEOIs, fetchRFPs } from "../Actions/userActions"
+import { removeEOI, removeRFP, storeEOIkey, fetchEOIs, fetchRFPs, storeRFPkey } from "../Actions/userActions"
 
 @connect((store) => {
   return {
@@ -19,32 +19,46 @@ import { removeEOI, storeEOIkey, fetchEOIs, fetchRFPs } from "../Actions/userAct
 
 class ReviewEOI extends Component {
     /**
-    * Fetches EOIs
-    * @returns {object} EOI - return EOIs
-    */
+     * Fetches EOIs
+     * @returns {object} EOI - return EOIs
+     */
 	fetchEOIs() {
 		this.props.dispatch(fetchEOIs())
 	}
     /**
-    * Fetches RFPs
-    * @returns {object} RFP - return RFPs
-    */
+     * Fetches RFPs
+     * @returns {object} RFP - return RFPs
+     */
 	fetchRFPs() {
 		this.props.dispatch(fetchRFPs())
 	}
     /**
-    * Removes EOIs
-    * @params {object} key - key to remove
-    */
-	removeEOI(key) {
-		this.props.dispatch(removeEOI(key))
+     * Removes EOIs
+     * @params {object} info - key to remove
+     */
+	removeEOI(info) {
+		this.props.dispatch(removeEOI(info))
 	}
     /**
-    * store EOIkey
-    * @params {object} EOIkey - EOIkey to store
-    */
+     * Removes RFPs
+     * @params {object} key - key to remove
+     */
+	removeRFP(key) {
+		this.props.dispatch(removeRFP(key))
+	}
+    /**
+     * store EOIkey
+     * @params {object} EOIkey - EOIkey to store
+     */
 	storeEOIkey(info) {
 		this.props.dispatch(storeEOIkey(info))
+	}
+    /**
+     * store RFPkey
+     * @params {object} RFPkey - RFPkey to store
+     */
+	storeRFPkey(info) {
+		this.props.dispatch(storeRFPkey(info))
 	}
     /**
      * Invoked immediately before a component is unmounted and destroyed, to update our states
@@ -54,19 +68,20 @@ class ReviewEOI extends Component {
 		this.fetchRFPs()
 	}
     /**
-    * Removes EOIs
-    * @params {object} key - key to remove
-    */
-	removeEOI(key_name) {
-		console.log("remove")
-		var key = {key_name}
-		this.removeEOI(key) // automatically reloads page
+     * Removes EOIs
+     * @params {object} key - key to remove
+     */
+	callremoveEOI(key_name) {
+		console.log("remove", key_name)
+		var info = {key_name}
+		console.log('info is', info)
+		this.removeEOI(info) // automatically reloads page
 
 	}
     /**
-    * review EOIs
-    * @params {object} key - key to review
-    */
+     * review EOIs
+     * @params {object} key - key to review
+     */
 	reviewEOI(key_name) {
 		console.log("review")
 
@@ -76,32 +91,31 @@ class ReviewEOI extends Component {
 		window.location.assign('/#/review-eoi-details')
 	}
     /**
-    * Removes RFPs
-    * @params {object} key - key to remove
-    */
-	removeRFP(key_name) {
+     * Removes RFPs
+     * @params {object} key - key to remove
+     */
+	callremoveRFP(key_name) {
 		console.log("remove")
 		var key = {key_name}
 		this.removeRFP(key) // automatically reloads page
 
 	}
     /**
-    * RFP edit
-    * @params {object} key - key to edit
-    */
+     * RFP edit
+     * @params {object} key - key to edit
+     */
 	editRFP(key_name) {
 		const {user} = this.props
-
-
 		var info = {key_name}
+		this.storeRFPkey(info)
 
-		window.location.assign('/#/review-rfp-details')
+		window.location.assign('/#/edit-rfp-details')
 
 	}
     /**
-      * Loads the details 
-      * @return {html} - returns html details
-      */
+	 * Loads the details 
+	 * @return {html} - returns html details
+	 */
 	render() {
 
 		const {user} = this.props
@@ -126,10 +140,10 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].vendor == uid) {
-						EOIs.push(user.eoi[key_name].email)
+						EOIs.push(user.eoi[key_name].LMRFPnum)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
-	              		<Button accent ripple onClick={this.removeEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.reviewEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
 	        			</div>)
 	        			EOIs.push(<br/>)
@@ -147,10 +161,10 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].vendor == uid) {
-						RFPs.push(user.rfp[key_name].email)
+						RFPs.push(user.rfp[key_name].LMRFPnum)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
-	              		<Button accent ripple onClick={this.removeRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
 	        			</div>)
 	        			RFPs.push(<br/>)
@@ -228,10 +242,10 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].purchaser == uid) {
-						EOIs.push(user.eoi[key_name].vendor_email)
+						EOIs.push(user.eoi[key_name].LMRFPnum)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
-	              		<Button accent ripple onClick={this.removeEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.reviewEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
 	        			</div>)
 	        			EOIs.push(<br/>)
@@ -250,10 +264,10 @@ class ReviewEOI extends Component {
 					var key_name = keys[count]
 					if (user.rfp[key_name].purchaser == uid) {
 
-						RFPs.push(user.rfp[key_name].vendor_email)
+						RFPs.push(user.rfp[key_name].LMRFPnum)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
-	              		<Button accent ripple onClick={this.removeRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
 	        			</div>)
 	        			RFPs.push(<br/>)

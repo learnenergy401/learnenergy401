@@ -32,7 +32,7 @@ class ContentProfile extends Component {
         this.getCurrentUser()
     } 
     
-    compoentWillMount(){
+    componentWillMount(){
         this.getCurrentUser()
     }
     
