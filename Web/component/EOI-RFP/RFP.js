@@ -10,7 +10,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
-import { storeRFPs, getCurrentUser } from "../Actions/userActions"
+import { storeRFPs, getCurrentUser, fetchUsers } from "../Actions/userActions"
 
 var spacerStyle = {
     height: '50px',
@@ -45,8 +45,13 @@ class RFP extends Component {
         this.props.dispatch(storeRFPs(info))
     }
 
+    fetchUsers() {
+        this.props.dispatch(fetchUsers())
+    }
+
     componentWillMount() {
         this.getCurrentUser()
+        this.fetchUsers()
     }
 
     requestSubmit() {
@@ -66,7 +71,6 @@ class RFP extends Component {
         var phone = document.getElementById("phone").value
 
 
-/*NEW*/
         var TSissue_date = document.getElementById("TSissue_date").value
         var TSclosing_date = document.getElementById("TSclosing_date").value
         var company_background = document.getElementById("company_background").value
@@ -133,8 +137,6 @@ class RFP extends Component {
         var additional_info = document.getElementById("additional_info").value
 
 
-/*NEW*/
-
         var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
         name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
         rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
@@ -169,6 +171,16 @@ class RFP extends Component {
             var purchaser_country = user.user.country
             var purchaser_phone = user.user.phone
             var purchaser_fax = user.user.fax
+
+            var vendors = []
+            var keys = Object.keys(user.users) 
+
+            for (var count=0; count<keys.length; count++) {
+                if (user.users[keys[count]].role == 1) {
+                    vendors.push(user.users[keys[count]].email)
+                    vendors.push(<br/>)
+                }
+            }
 
     		return(
 
@@ -238,7 +250,6 @@ class RFP extends Component {
                     <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone" id="phone"/>
 
 
-/*NEW*/
 
                     <hr/>
                     <hr/>
@@ -495,9 +506,9 @@ class RFP extends Component {
                     <textarea rows="4" cols="100" id="additional_info"></textarea>
 
                     <hr/>
+                    <h6>Vendors to send RFP to:</h6>
 
-/*NEW*/
-
+                    {vendors}
 
                   </div>
                   </div>

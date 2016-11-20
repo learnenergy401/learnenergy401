@@ -36,25 +36,25 @@ var cardTitleStyle = {
 class EOIdetails extends Component {
 
     /**
-    * Fetches EOIs
-    * @returns {object} EOI - return EOIs
-    */
+     * Fetches EOIs
+     * @returns {object} EOI - return EOIs
+     */
 	fetchEOIs() {
 		this.props.dispatch(fetchEOIs())
 	}
 
     /**
-    * Fetches EOIkey
-    * @returns {object} EOIkey - return EOIs
-    */
+     * Fetches EOIkey
+     * @returns {object} EOIkey - return EOIs
+     */
 	fetchEOIkey() {
 		this.props.dispatch(fetchEOIkey())
 	}
 
     /**
-    * Prompts RFP page from EOI details page
-    * @params {object} info - sends information of vendor 
-    */
+     * Prompts RFP page from EOI details page
+     * @params {object} info - sends information of vendor 
+     */
 	submitRFPfromEOI(info) {
 		this.props.dispatch(submitRFPfromEOI(info))
 	}
@@ -88,9 +88,9 @@ class EOIdetails extends Component {
 		window.location.assign('/#/review-eoi-rfp')
 	}
     /**
-      * Loads the details 
-      * @return {html} - returns html details
-      */
+     * Loads the details 
+     * @return {html} - returns html details
+     */
 	render() {
 
 		const {user} = this.props
