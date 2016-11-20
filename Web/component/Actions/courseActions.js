@@ -16,15 +16,32 @@ function jsonToArray(json){
 export function addCoursePurchaser(info, courseID) {
     return function(dispatch) {
         dispatch({type: "ADDING_PURCHASER"})
-        console.log('info is', info, ' courseid is', courseID)
+        
         var purchasers = []
         if (info.coursePurchasers != null) {
             for (var count=0; count<info.coursePurchasers.length; count++) {
-                purchasers.push(info.coursePurchasers[count])
+                // just keep unique purchasers 
+                var unique = true
+                for (var i=0; i<purchasers.length; i++) {
+                    if (info.coursePurchasers[count] == purchasers[i]) {
+                        unique = false
+                    }
+                }
+                if (unique) {
+                    purchasers.push(info.coursePurchasers[count])
+                }
             }
         }
-        purchasers.push(info.purchaserToAdd)
-        console.log('purchasers is', purchasers)
+
+        var unique = true
+        for (var count=0; count<purchasers.length; count++) {
+            if (info.purchaserToAdd == purchasers[count]) {
+                unique = false
+            } 
+        }
+        if (unique) {
+            purchasers.push(info.purchaserToAdd)
+        }
 
         firebaseDb.ref('Course/' + courseID).set({
             courseDescription: info.courseDescription,
