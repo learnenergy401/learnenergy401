@@ -145,7 +145,7 @@ class RFP extends Component {
         ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
         additional_info,}
 
-3        // do this X times for X vendors
+        // do this X times for X vendors
         this.storeRFPs(info)
 
 
