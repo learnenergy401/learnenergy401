@@ -56,6 +56,8 @@ class RFP extends Component {
 
     requestSubmit() {
 
+        const {user} = this.props
+
         var date = document.getElementById("date").value
         var purchaser = document.getElementById("purchaser").value
         var service = document.getElementById("service").value
@@ -137,18 +139,43 @@ class RFP extends Component {
         var additional_info = document.getElementById("additional_info").value
 
 
-        var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
-        name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
-        rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
-        description1, daily_rate1, package_rate1, details1, description2, daily_rate2, package_rate2, details2,
-        description3, daily_rate3, package_rate3, details3, description4, daily_rate4, package_rate4, details4,
-        markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
-        sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
-        ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
-        additional_info,}
-
         // do this X times for X vendors
-        this.storeRFPs(info)
+        var vendor_email = document.getElementById("vendor_email").value.replace(/\s/g, "")
+        //console.log('vendor email', vendor_email)
+        var list_of_emails = vendor_email.split(';')
+
+        console.log('list of emails', list_of_emails)
+
+        var vendor_ids = []
+        for (var count=0; count<list_of_emails.length; count++) {
+            var keys = Object.keys(user.users)
+            for (var i=0; i<keys.length; i++) {
+                if ((list_of_emails[count] == user.users[keys[i]].email) && (user.users[keys[i]].role==1)) {
+                    vendor_ids.push(keys[i])
+                } 
+            }
+        }
+        if (vendor_ids.length != list_of_emails.length) {
+            alert("There is a non-valid vendor inputted, please try again.")
+        } else { // we have valid vendors
+
+            for (var count=0; count<vendor_ids.length; count++) {
+                var vendor = vendor_ids[count]
+                
+                var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
+                name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
+                rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
+                description1, daily_rate1, package_rate1, details1, description2, daily_rate2, package_rate2, details2,
+                description3, daily_rate3, package_rate3, details3, description4, daily_rate4, package_rate4, details4,
+                markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
+                sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
+                ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
+                additional_info, vendor}
+
+                this.storeRFPs(info)
+            }
+        }
+        //this.storeRFPs(info)
 
 
     }
@@ -506,10 +533,12 @@ class RFP extends Component {
                     <textarea rows="4" cols="100" id="additional_info"></textarea>
 
                     <hr/>
-                    <h6>Vendors to send RFP to:</h6>
+                    <h6>List of Vendors:</h6>
 
                     {vendors}
 
+                    <h6>Type vendors that you want to send RFP to (for multiple, separate by semi-colons): &nbsp; <Textfield label="vendor_email" className="form-control" ref="vendor_email"  placeholder="Vendor Email" id="vendor_email"/></h6>
+                    <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Submit</Button>
                   </div>
                   </div>
                   </Card>

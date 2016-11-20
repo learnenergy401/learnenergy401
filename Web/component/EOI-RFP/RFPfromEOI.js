@@ -165,13 +165,7 @@ class RFPfromEOI extends Component {
 
             console.log(user)
 
-            var uid
-            var currentUser = firebaseAuth.currentUser
-            if (currentUser!=null) {
-                uid = currentUser.uid
-            }
-
-            var vendor = user.rfp_from_eoi[uid].vendor
+            var vendor = user.rfp_from_eoi.vendor
 
             console.log(vendor)
 
