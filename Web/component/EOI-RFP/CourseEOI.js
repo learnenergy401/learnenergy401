@@ -38,23 +38,23 @@ var cardTitleStyle = {
 
 class CourseEOI extends Component {
     /**
-    * Fetches curretUser
-    * @returns {object} currentUser - returns information on current user
-    */
+     * Fetches curretUser
+     * @returns {object} currentUser - returns information on current user
+     */
 	getCurrentUser() {
 		this.props.dispatch(getCurrentUser())
 	}
     /**
-    * stores EOI
-    * @params {object} EOIs - information of EOI
-    */
+     * stores EOI
+     * @params {object} EOIs - information of EOI
+     */
 	storeEOIs(info) {
 		this.props.dispatch(storeEOIs(info))
 	}
     /**
-    * Fetches reqEOIs
-    * @returns {object} ReqEOIs - return ReqEOIs
-    */
+     * Fetches reqEOIs
+     * @returns {object} ReqEOIs - return ReqEOIs
+     */
 	fetchReqEOI() {
 		this.props.dispatch(fetchReqEOI())
 	}
@@ -66,16 +66,16 @@ class CourseEOI extends Component {
 		this.fetchReqEOI()
 	}
     /**
-    * stores EOI
-    * @params {object} legal, address1, address2, city, country, uphone, fax - information of EOI
-    */
-	requestSubmit(legal, address1, address2, city, country, uphone, fax) { // stores an EOI into the table
+     * stores EOI
+     * @params {object} legal, address1, address2, city, country, uphone, fax - information of EOI
+     */
+	requestSubmit(legal, address1, address2, city, country, uphone, fax, LMRFPnum) { // stores an EOI into the table
 
 		const {user} = this.props
 		console.log(user)
 		if (user.reqEOI != null) {
 			var vendor = user.reqEOI.vendor
-			var uid = user.reqEOI.purchaser
+			var purchaser = user.reqEOI.purchaser
 			var course = user.reqEOI.course
 			var email = user.reqEOI.email
 
@@ -120,34 +120,33 @@ class CourseEOI extends Component {
 
 		    var optional_comments = document.getElementById('optional_comments').value
 
-				var scope = document.getElementById("scope").value
-				var qualificationA = document.getElementById("qualificationA").value
-				var qualificationB = document.getElementById("qualificationB").value
-				var qualificationC = document.getElementById("qualificationC").value
-				var qualificationD = document.getElementById("qualificationD").value
-				var response_date = document.getElementById("response_date").value
-				var email3 = document.getElementById("email3").value
-				var LMRFPnum = document.getElementById("LMRFPnum").value
-				var selection_date = document.getElementById("selection_date").value
+			var scope = document.getElementById("scope").value
+			var qualificationA = document.getElementById("qualificationA").value
+			var qualificationB = document.getElementById("qualificationB").value
+			var qualificationC = document.getElementById("qualificationC").value
+			var qualificationD = document.getElementById("qualificationD").value
+			var response_date = document.getElementById("response_date").value
+			var email3 = document.getElementById("email3").value
+			var LMRFPnum = LMRFPnum
+			var selection_date = document.getElementById("selection_date").value
 
-				var purchaser_legal = legal
-				var purchaser_address1 = address1
-				var purchaser_address2 = address2
-				var purchaser_city = city
-				var purchaser_country = country
-				var purchaser_phone = uphone
-				var purchaser_fax = fax
+			var purchaser_legal = legal
+			var purchaser_address1 = address1
+			var purchaser_address2 = address2
+			var purchaser_city = city
+			var purchaser_country = country
+			var purchaser_phone = uphone
+			var purchaser_fax = fax
 
-
-	    	var info = {vendor, uid, course, email, email1, date, service, text1, text2, closeDate, closeTime,
-	      name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address, vendor_contact_name,
+	    	var info = {vendor, purchaser, course, email, email1, date, service, text1, text2, closeDate, closeTime,
+	      		name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address, vendor_contact_name,
 				vendor_contact_title_position, vendor_primary_telephone, vendor_alternate_telephone, vendor_fax,
 				vendor_email, company_approved, optional_comments, scope, qualificationA, qualificationB, qualificationC,
 				qualificationD, response_date, email3, LMRFPnum, selection_date, purchaser_legal, purchaser_address1, purchaser_address2,
 				purchaser_city, purchaser_country, purchaser_phone, purchaser_fax}
 
-
-		this.storeEOIs(info)
+			console.log("before storing info", info)
+			this.storeEOIs(info)
 		}
 	}
     /**
@@ -157,9 +156,9 @@ class CourseEOI extends Component {
 		window.location.assign('/#/view-course')
 	}
     /**
-      * Loads the details 
-      * @return {html} - returns html details
-      */
+     * Loads the details 
+     * @return {html} - returns html details
+     */
 	render() {
 		const {user} = this.props
 
@@ -172,7 +171,7 @@ class CourseEOI extends Component {
 			var country = user.user.country
 			var uphone = user.user.phone
 			var fax = user.user.fax
-
+			var LMRFPnum = generateNumberId()
 			return (
 				<div>
 				<LearnHeader/>
@@ -324,7 +323,7 @@ class CourseEOI extends Component {
 							Any requests for information, including the response for this expression of interest, can be emailed to the Purchaser at
 							&nbsp;<Textfield label="email3" className="form-control" ref="email3"  placeholder="EOI Email" id="email3"/>.
 							The response including Appendices 1, 2, and 3 and any supplemental information must be uploaded to the Purchaser LM RFP#
-							&nbsp;<Textfield label="LMRFPnum" className="form-control" ref="LMRFPnum"  placeholder="###" id="LMRFPnum"/>
+							&nbsp;{LMRFPnum}&nbsp;
 							folder prior to the above noted time. The Purchasers selection is anticipated to be completed by
 							&nbsp;<Textfield label="selection_date" className="form-control" ref="selection_date"  placeholder="Date" id="selection_date"/>
 							and will be announced via email. Once the selection has been announced, the Purchaser may forward a Request for Proposal (RFP)
@@ -339,7 +338,7 @@ class CourseEOI extends Component {
 							<hr/>
 
 	            <CardActions>
-	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax)}>Submit</Button>
+	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax, LMRFPnum)}>Submit</Button>
 	              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>
 	            </CardActions>
 	            </div>

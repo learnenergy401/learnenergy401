@@ -2,6 +2,72 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * updates RFP
+ * @param {object} RFP - information on RFP
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ * @returns {object} dispatch
+ */
+export function updateRFP(info) {
+    return function(dispatch) {
+        dispatch({type: "UPDATE_RFP"})
+        //console.log("OUR INFO IS", info)
+        firebaseDb.ref('RFP/'+info.key).set(info)
+            .then((data) => {
+                dispatch({type: "UPDATE_RFP_FULFILLED"})
+            })
+            .catch((err) => {
+                dispatch({type: "UPDATE_RFP_REJECTED", payload: err.code})
+            })
+
+    }
+}
+
+/**
+ * Grabs the rfpkey from the database.
+ * @returns {object} rfpkey - Returns the object of rfpkey.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPkey() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPdetails/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_RFP_KEY_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_RFP_KEY_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * sets the rfpkey.
+ * @returns {object} dispatch - Returns the state which contains rfpkey object
+ * @param {object} info - object which contains information about the eoikey.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeRFPkey(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPdetails/'+user.uid).set({
+          key_name: info.key_name,
+      }).then((data) => {
+        dispatch({type: "STORE_RFP_KEY_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_RFP_KEY_REJECTED", payload: err})
+      })
+      }
+    })
+  }
+}
+
+/**
  * Grabs the Users from the database.
  * @returns {object} users - Returns the object of users.
  * @throws {object} err - Returns an error if failed to fetch from database.
@@ -14,7 +80,7 @@ export function fetchUsers() {
     })
     .catch((err) => {
       dispatch({type: "FETCH_USERS_REJECTED", payload: err})
-    })    
+    })
   }
 }
 
@@ -25,12 +91,16 @@ export function fetchUsers() {
  */
 export function fetchRFPfromEOI() {
   return function(dispatch) {
-    firebaseDb.ref('RFPfromEOI').once('value')
-    .then((snapshot) => {
-      dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
-    })
-    .catch((err) => {
-      dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPfromEOI/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+        })
+      }
     })
   }
 }
@@ -46,10 +116,9 @@ export function submitRFPfromEOI(info) {
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){ // remove the EOI as well
         firebaseDb.ref('RFPfromEOI/'+user.uid).set({
-          vendor: info.vendor
-
-          // INCLUDE RFP NUMBER WHEN WE MAKE IT
-
+          vendor: info.vendor,
+          LMRFPnum: info.LMRFPnum,
+          purchaser: info.purchaser,
 
         }).then((data) => {
           dispatch({type: "STORE_RFP_FROM_EOI_FULFILLED", payload: user})
@@ -75,56 +144,88 @@ export function storeRFPs(info) {
     console.log(info)
     firebaseDb.ref('RFP').push({
       vendor: info.vendor,
-      purchaser: info.uid,
-      course: info.course,
+      purchaser: info.purchaser,
 
       // additional details below
-      email: info.email,
-      email1: info.email1,
       date: info.date,
+      purchaser: info.purchaser,
       service: info.service,
-      text1: info.text1,
-      text2: info.text2,
+      LMRFPnum: info.LMRFPnum,
       closeDate: info.closeDate,
       closeTime: info.closeTime,
       name1: info.name1,
       title1: info.title1,
+      email1: info.email1,
       name2: info.name2,
       title2: info.title2,
       email2: info.email2,
       phone: info.phone,
 
-      company_name: info.company_name,
-      RFP_par: info.RFP_par,
-      vendor_company_address: info.vendor_company_address,
-      vendor_contact_name: info.vendor_contact_name, 
-      vendor_contact_title_position: info.vendor_contact_title_position,
-      vendor_primary_telephone: info.vendor_primary_telephone,
-      vendor_alternate_telephone: info.vendor_alternate_telephone,
-      vendor_fax: info.vendor_fax,
-      vendor_email: info.vendor_email,
 
-      company_approved: info.company_approved,
-      optional_comments: info.optional_comments,
+      TSissue_date: info.TSissue_date,
+      TSclosing_date: info.TSclosing_date,
+      company_background: info.company_background,
+      rfp_overview: info.rfp_overview,
+      rfp_title: info.rfp_title,
+      rfp_contact: info.rfp_contact,
+      rfp_closing_date: info.rfp_closing_date,
+      rfp_question_close: info.rfp_question_close,
+      conflict_interest: info.conflict_interest,
+      attachment1: info.attachment1,
+      description1: info.description1,
+      daily_rate1: info.daily_rate1,
+      package_rate1: info.package_rate1,
+      details1: info.details1,
 
-      scope: info.scope,
-      qualificationA: info.qualificationA,
-      qualificationB: info.qualificationB,
-      qualificationC: info.qualificationC,
-      qualificationD: info.qualificationD,
-      response_date: info.response_date,
-      email3: info.email3,
-      LMRFPnum: info.LMRFPnum,
-      selection_date: info.selection_date,
+      description2: info.description2,
+      daily_rate2: info.daily_rate2,
+      package_rate2: info.package_rate2,
+      details2: info.details2,
 
-      purchaser_legal: info.purchaser_legal,
-      purchaser_address1: info.purchaser_address1,
-      purchaser_address2: info.purchaser_address2,
-      purchaser_city: info.purchaser_city,
-      purchaser_country: info.purchaser_country,
-      purchaser_phone: info.purchaser_phone,
-      purchaser_fax: info.purchaser_fax,
+      description3: info.description3,
+      daily_rate3: info.daily_rate3,
+      package_rate3: info.package_rate3,
+      details3: info.details3,
 
+      description4: info.description4,
+      daily_rate4: info.daily_rate4,
+      package_rate4: info.package_rate4,
+      details4: info.details4,
+
+      markup_dollar: info.markup_dollar,
+      markup_percent: info.markup_percent,
+
+      schedule_start: info.schedule_start,
+      schedule_completion: info.schedule_completion,
+
+      sub1: info.sub1,
+      sub_description1: info.sub_description1,
+      sub2: info.sub2,
+      sub_description2: info.sub_description2,
+      sub3: info.sub3,
+      sub_description3: info.sub_description3,
+      sub4: info.sub4,
+      sub_description4: info.sub_description4,
+
+      ref1: info.ref1,
+      ref_company1: info.ref_company1,
+      ref_contact1: info.ref_contact1,
+      ref_phone1: info.ref_phone1,
+      ref_email1: info.ref_email1,
+
+      ref2: info.ref2,
+      ref_company2: info.ref_company2,
+      ref_contact2: info.ref_contact2,
+      ref_phone2: info.ref_phone2,
+      ref_email2: info.ref_email2,
+
+      ref3: info.ref3,
+      ref_company3: info.ref_company3,
+      ref_contact3: info.ref_contact3,
+      ref_phone3: info.ref_phone3,
+      ref_email3: info.ref_email3,
+
+      additional_info: info.additional_info,
 
 
 
@@ -137,8 +238,11 @@ export function storeRFPs(info) {
     .catch((err) => {
       dispatch({type: "STORE_RFP_REJECTED", payload: err})
     })
+    if (info.remove!=null) {
+      removeEOI(info.remove.key_name)
+    }
     alert("RFP submitted")
-    location.reload()
+    window.location.assign("/#/review-eoi-rfp")
   }
 }
 
@@ -238,9 +342,9 @@ export function storeReqEOI(info) { // called on button press
       if (user){
         console.log('user id is ',user.uid)
         firebaseDb.ref('ReqEOI/'+user.uid).set({
-          vendor: info.vendor_uid,
+          vendor: info.vendor,
           purchaser: user.uid,
-          course: info.course_uid,
+          course: info.courseid,
           email: info.email,
       }).then((data) => {
         dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
@@ -284,10 +388,11 @@ export function fetchReqEOI() {
  */
 export function storeEOIs(info) {
   return function(dispatch) {
-    console.log(info)
+    console.log("pushing", info)
+
     firebaseDb.ref('EOI').push({
       vendor: info.vendor,
-      purchaser: info.uid,
+      purchaser: info.purchaser,
       course: info.course,
 
       // additional details below
@@ -309,7 +414,7 @@ export function storeEOIs(info) {
       company_name: info.company_name,
       RFP_par: info.RFP_par,
       vendor_company_address: info.vendor_company_address,
-      vendor_contact_name: info.vendor_contact_name, 
+      vendor_contact_name: info.vendor_contact_name,
       vendor_contact_title_position: info.vendor_contact_title_position,
       vendor_primary_telephone: info.vendor_primary_telephone,
       vendor_alternate_telephone: info.vendor_alternate_telephone,
@@ -350,7 +455,7 @@ export function storeEOIs(info) {
       dispatch({type: "STORE_EOI_REJECTED", payload: err})
     })
     alert("EOI submitted")
-    location.reload()
+    window.location.assign("/#/review-eoi-rfp")
   }
 }
 
@@ -377,12 +482,12 @@ export function fetchEOIs() {
  * Removes from EOI table
  * @params {object} key - key name to remove
  */
-export function removeEOI(key) {
+export function removeEOI(info) {
   return function(dispatch) {
+    console.log("key is", info)
+    firebaseDb.ref('EOI/'+info.key_name).remove().then(function() {
 
-    firebaseDb.ref('EOI/'+key.key_name).remove().then(function() {
-
-      console.log("removed")
+      console.log("removed,", info.key_name)
       location.reload()
       }).then((data) => {
         dispatch({type: "REMOVED_EOI_FULFILLED"})
@@ -626,21 +731,21 @@ export function rejectUser(user) {
         console.log("purchaser removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     } else if (user.role == 1) { // reject vendor
       firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
         console.log("vendor removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     } else if (user.role == 2) { // reject additional resource
       firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
         console.log("ad removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     }
   }
@@ -762,11 +867,11 @@ export function updateProfile(user) {
     return function(dispatch) {
       dispatch({type: "UPDATE_USER_PROFILE"})
       var currentUser = firebaseAuth.currentUser
-        
+
       if (true) { // update as a vendor
         firebaseDb.ref('User/' + currentUser.uid).set(user).then((data) => {
           dispatch({type: "UPDATE_USER_PROFILE_FULFILLED"})
-        
+
         }).catch((err)=>{
           dispatch({type:"UPDATE_USER_PROFILE_REJECTED",payload:err})
         })
