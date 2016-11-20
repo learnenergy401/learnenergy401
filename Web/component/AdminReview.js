@@ -24,9 +24,15 @@ var info_div_style={
 }
 //the styling for the large tables.  
 var table_style={
-    border:'1px solid',
     margin: 'auto',
     width: '600px',
+    //border: '5px groove black'
+    
+}
+
+var table_style2={
+    margin: 'auto',
+    width: '800px',
     //border: '5px groove black'
     
 }
@@ -35,11 +41,17 @@ var table_style_sub={
     margin: 'auto',
     width: '400px',
     marginBottom: '15px',
-    border: '1px dotted black'
+    //border: '1px dotted black'
 }
 //formatting for the cells in the tables
 var cell_format={
     verticalAlign: 'top',
+}
+
+var row_format={
+    paddingBottom:'10px',
+    width:'400px',
+    //border:'1px solid'
 }
 
 var header_align={
@@ -610,6 +622,7 @@ class AdminReview extends Component {
           var drugPolicy = user.vendors[key_name].drugPolicy;
           var subcontractors = user.vendors[key_name].subcontractors;
           var stopWorkOrder = user.vendors[key_name].stopWorkOrder;
+            var hsejudgement = user.vendors[key_name].HSEjudge;
 
           var email = user.vendors[key_name].email;
           var adminContact = user.vendors[key_name].adminContact;
@@ -1458,34 +1471,30 @@ class AdminReview extends Component {
               </table>
               
               <h3>Additional Information</h3>
-              <table style={table_style}>
+              <table style={table_style2}>
                     <tr>
-                        <td style={{width:'100px'}}><b>Categories of Service:</b></td>
-                        <td style={{width:'1000px'}}>{categories}</td></tr>
+                        <td style={row_format}><b>Categories of Service:</b></td>
+                        <td style={row_format}>{categories}</td></tr>
                    
                     <tr>
-                        <td><b>Specialities:</b></td>
-                        <td>{specialties}</td>
+                        <td style = {row_format}><b>Specialities:</b></td>
+                        <td style = {row_format}>{specialties}</td>
                     </tr>
                     <tr>
-                        <td><b>Drug and Alcohol policy:</b></td>      
-                        <td>{drugPolicy}</td>
+                        <td style = {row_format}><b>Drug and Alcohol policy:</b></td>      
+                        <td style = {row_format}>{drugPolicy}</td>
                     </tr>
                     <tr>
-                        <td><b>Subcontractor OH&S Evaluation:</b></td>      
-                        <td>{subcontractors}</td>
+                        <td style = {row_format}><b>Subcontractor OH&S Evaluation:</b></td>      
+                        <td style = {row_format}>{subcontractors}</td>
                     </tr>
                     <tr>
-                        <td><b>OH&S Stop Work Order Recieved:</b></td>      
-                        <td>{stopWorkOrder}</td>
+                        <td style = {row_format}><b>OH&S Stop Work Order Recieved:</b></td>      
+                        <td style = {row_format}>{stopWorkOrder}</td>
                     </tr>
                     <tr>
-                        <td><b>Subcontractor OH&S Evaluation:</b></td>      
-                        <td>{}</td>
-                    </tr>
-                    <tr>
-                        <td><b>HSE related Judgements:</b></td>      
-                        <td>{}</td>
+                        <td style = {row_format}><b>HSE related Judgements:</b></td>      
+                        <td style = {row_format}>{hsejudgement}</td>
                     </tr>
               </table>
 
