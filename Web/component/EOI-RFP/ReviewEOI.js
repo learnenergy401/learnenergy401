@@ -34,10 +34,10 @@ class ReviewEOI extends Component {
 	}
     /**
      * Removes EOIs
-     * @params {object} key - key to remove
+     * @params {object} info - key to remove
      */
-	removeEOI(key) {
-		this.props.dispatch(removeEOI(key))
+	removeEOI(info) {
+		this.props.dispatch(removeEOI(info))
 	}
     /**
      * Removes RFPs
@@ -71,10 +71,11 @@ class ReviewEOI extends Component {
      * Removes EOIs
      * @params {object} key - key to remove
      */
-	removeEOI(key_name) {
-		console.log("remove")
-		var key = {key_name}
-		this.removeEOI(key) // automatically reloads page
+	callremoveEOI(key_name) {
+		console.log("remove", key_name)
+		var info = {key_name}
+		console.log('info is', info)
+		this.removeEOI(info) // automatically reloads page
 
 	}
     /**
@@ -93,7 +94,7 @@ class ReviewEOI extends Component {
      * Removes RFPs
      * @params {object} key - key to remove
      */
-	removeRFP(key_name) {
+	callremoveRFP(key_name) {
 		console.log("remove")
 		var key = {key_name}
 		this.removeRFP(key) // automatically reloads page
@@ -108,7 +109,7 @@ class ReviewEOI extends Component {
 		var info = {key_name}
 		this.storeRFPkey(info)
 
-		window.location.assign('/#/review-rfp-details')
+		window.location.assign('/#/edit-rfp-details')
 
 	}
     /**
@@ -139,10 +140,10 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].vendor == uid) {
-						EOIs.push(user.eoi[key_name].email)
+						EOIs.push(user.eoi[key_name].LMRFPnum)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
-	              		<Button accent ripple onClick={this.removeEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.reviewEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
 	        			</div>)
 	        			EOIs.push(<br/>)
@@ -160,10 +161,10 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].vendor == uid) {
-						RFPs.push(user.rfp[key_name].email)
+						RFPs.push(user.rfp[key_name].LMRFPnum)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
-	              		<Button accent ripple onClick={this.removeRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
 	        			</div>)
 	        			RFPs.push(<br/>)
@@ -241,10 +242,10 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].purchaser == uid) {
-						EOIs.push(user.eoi[key_name].vendor_email)
+						EOIs.push(user.eoi[key_name].LMRFPnum)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
-	              		<Button accent ripple onClick={this.removeEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.reviewEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
 	        			</div>)
 	        			EOIs.push(<br/>)
@@ -263,10 +264,10 @@ class ReviewEOI extends Component {
 					var key_name = keys[count]
 					if (user.rfp[key_name].purchaser == uid) {
 
-						RFPs.push(user.rfp[key_name].vendor_email)
+						RFPs.push(user.rfp[key_name].LMRFPnum)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
-	              		<Button accent ripple onClick={this.removeRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
 	        			</div>)
 	        			RFPs.push(<br/>)

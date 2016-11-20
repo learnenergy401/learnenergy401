@@ -10,7 +10,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 
-import { storeRFPs, getCurrentUser, fetchRFPfromEOI } from "../Actions/userActions"
+import { storeRFPs, getCurrentUser, fetchRFPfromEOI, removeEOI } from "../Actions/userActions"
 
 var spacerStyle = {
     height: '50px',
@@ -36,7 +36,13 @@ var cardTitleStyle = {
 })
 
 class RFPfromEOI extends Component {
-
+    /**
+     * Removes EOIs
+     * @params {object} info - key to remove
+     */
+    removeEOI(info) {
+        this.props.dispatch(removeEOI(info))
+    }
     getCurrentUser() {
         this.props.dispatch(getCurrentUser())
     }
@@ -55,11 +61,11 @@ class RFPfromEOI extends Component {
     }
 
     requestSubmit() {
-
+        const {user} = this.props
         var date = document.getElementById("date").value
-        var purchaser = document.getElementById("purchaser").value
+        var purchaser1 = document.getElementById("purchaser").value
         var service = document.getElementById("service").value
-        var LMRFPnum = document.getElementById("LMRFPnum").value
+        
         var closeDate = document.getElementById("closeDate").value
         var closeTime = document.getElementById("closeTime").value
         var name1 = document.getElementById("name1").value
@@ -135,10 +141,11 @@ class RFPfromEOI extends Component {
 
         var additional_info = document.getElementById("additional_info").value
 
-
+        var LMRFPnum = user.rfp_from_eoi.LMRFPnum
         var vendor = user.rfp_from_eoi.vendor
+        var purchaser = user.rfp_from_eoi.purchaser
 
-        var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
+        var info = {date, purchaser1, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
         name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
         rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
         description1, daily_rate1, package_rate1, details1, description2, daily_rate2, package_rate2, details2,
@@ -146,17 +153,20 @@ class RFPfromEOI extends Component {
         markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
         sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
         ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
-        additional_info, vendor}
+        additional_info, vendor, purchaser}
 
         // do this X times for X vendors
         this.storeRFPs(info)
 
+        var key_name = user.eoiKey.key_name
+        var key = {key_name}
+
+        this.removeEOI(key)
+        window.location.assign("/#/review-eoi-rfp")
+
     }
 
 	render() {
-
-        /*grab number from somewhere*/
-        var LMRFPnum = 123
 
         const {user} = this.props
         console.log('user is', user)
@@ -166,6 +176,7 @@ class RFPfromEOI extends Component {
             console.log(user)
 
             var vendor = user.rfp_from_eoi.vendor
+            var LMRFPnum = user.rfp_from_eoi.LMRFPnum
 
             console.log(vendor)
 
@@ -211,7 +222,7 @@ class RFPfromEOI extends Component {
                     </h6>
                     <h6>
                     Please review the Request for Proposal and Attachment 1, complete the Response Form Attachment 2, add any supplemental
-                    information and upload to the Purchaser&#39;s LM RFP# <Textfield label="LMRFPnum" className="form-control" ref="LMRFPnum"  placeholder="###" id="LMRFPnum"/>
+                    information and upload to the Purchaser&#39;s LM RFP# {LMRFPnum} &nbsp;
                     response folder. And emailed to our contact below by the Closing Date and Time.
                     </h6>
 

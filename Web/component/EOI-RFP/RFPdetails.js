@@ -89,100 +89,100 @@ class RFPdetails extends Component {
         }
         // now auto fill the document user user.rfp[user.rfpKey].X
         // check to see if the user is a purchaser or vendor
-        if (user.user.role == 1 || user.user.role == 0) {             
+        if ((user.user.role == 1 || user.user.role == 0) && (user.rfpKey !=null)){             
             // check to see that these are the valid users
             var valid_user = false
             var keys = Object.keys(user.users)
             for (var count=0; count<keys.length;count++) {
 
                 // found valid user for this rfp
-                if ((user.rfp.vendor == keys[count]) || (user.rfp.purchaser == keys[count])) {
+                if ((user.rfp[user.rfpKey.key_name].vendor == keys[count]) || (user.rfp[user.rfpKey.key_name].purchaser == keys[count])) {
                     valid_user = true
                     break
                 }
             }
-
+            console.log('valid user')
             // we have a valid user now 
-            if ((valid_user) && (user.rfp!=null)) {
+            if ((valid_user) && (user.rfp!=null) && (user.rfpKey!=null)) {
                 // fill out our form now
-                document.getElementById("date").value = user.rfp.date
-                document.getElementById("purchaser").value = user.rfp.purchaser
-                document.getElementById("service").value = user.rfp.service
-                document.getElementById("LMRFPnum").value = user.rfp.LMRFPnum
-                document.getElementById("closeDate").value = user.rfp.closeDate
-                document.getElementById("closeTime").value = user.rfp.closeTime
-                document.getElementById("name1").value = user.rfp.name1
-                document.getElementById("title1").value = user.rfp.title1
-                document.getElementById("email1").value = user.rfp.email1
-                document.getElementById("name2").value = user.rfp.name2
-                document.getElementById("title2").value = user.rfp.title2
-                document.getElementById("email2").value = user.rfp.email2
-                document.getElementById("phone").value = user.rfp.phone
+                document.getElementById("date").value = user.rfp[user.rfpKey.key_name].date
+                document.getElementById("purchaser").value = user.rfp[user.rfpKey.key_name].purchaser1
+                document.getElementById("service").value = user.rfp[user.rfpKey.key_name].service
+                //document.getElementById("LMRFPnum").value = user.rfp[user.rfpKey.key_name].LMRFPnum
+                document.getElementById("closeDate").value = user.rfp[user.rfpKey.key_name].closeDate
+                document.getElementById("closeTime").value = user.rfp[user.rfpKey.key_name].closeTime
+                document.getElementById("name1").value = user.rfp[user.rfpKey.key_name].name1
+                document.getElementById("title1").value = user.rfp[user.rfpKey.key_name].title1
+                document.getElementById("email1").value = user.rfp[user.rfpKey.key_name].email1
+                document.getElementById("name2").value = user.rfp[user.rfpKey.key_name].name2
+                document.getElementById("title2").value = user.rfp[user.rfpKey.key_name].title2
+                document.getElementById("email2").value = user.rfp[user.rfpKey.key_name].email2
+                document.getElementById("phone").value = user.rfp[user.rfpKey.key_name].phone
 
-                document.getElementById("TSissue_date").value = user.rfp.TSissue_date
-                document.getElementById("TSclosing_date").value = user.rfp.TSclosing_date
-                document.getElementById("company_background").value = user.rfp.company_background
-                document.getElementById("rfp_overview").value = user.rfp.rfp_overview
-                document.getElementById("rfp_title").value = user.rfp.rfp_title
-                document.getElementById("rfp_contact").value = user.rfp.rfp_contact
-                document.getElementById("rfp_closing_date").value = user.rfp.rfp_closing_date
-                document.getElementById("rfp_question_close").value = user.rfp.rfp_question_close
-                document.getElementById("conflict_interest").value = user.rfp.conflict_interest
-                document.getElementById("attachment1").value = user.rfp.attachment1
-                document.getElementById("description1").value = user.rfp.description1
-                document.getElementById("daily_rate1").value = user.rfp.daily_rate1
-                document.getElementById("package_rate1").value = user.rfp.package_rate1
-                document.getElementById("details1").value = user.rfp.details1
+                document.getElementById("TSissue_date").value = user.rfp[user.rfpKey.key_name].TSissue_date
+                document.getElementById("TSclosing_date").value = user.rfp[user.rfpKey.key_name].TSclosing_date
+                document.getElementById("company_background").value = user.rfp[user.rfpKey.key_name].company_background
+                document.getElementById("rfp_overview").value = user.rfp[user.rfpKey.key_name].rfp_overview
+                document.getElementById("rfp_title").value = user.rfp[user.rfpKey.key_name].rfp_title
+                document.getElementById("rfp_contact").value = user.rfp[user.rfpKey.key_name].rfp_contact
+                document.getElementById("rfp_closing_date").value = user.rfp[user.rfpKey.key_name].rfp_closing_date
+                document.getElementById("rfp_question_close").value = user.rfp[user.rfpKey.key_name].rfp_question_close
+                document.getElementById("conflict_interest").value = user.rfp[user.rfpKey.key_name].conflict_interest
+                document.getElementById("attachment1").value = user.rfp[user.rfpKey.key_name].attachment1
+                document.getElementById("description1").value = user.rfp[user.rfpKey.key_name].description1
+                document.getElementById("daily_rate1").value = user.rfp[user.rfpKey.key_name].daily_rate1
+                document.getElementById("package_rate1").value = user.rfp[user.rfpKey.key_name].package_rate1
+                document.getElementById("details1").value = user.rfp[user.rfpKey.key_name].details1
 
-                document.getElementById("description2").value = user.rfp.description2
-                document.getElementById("daily_rate2").value = user.rfp.daily_rate2
-                document.getElementById("package_rate2").value = user.rfp.package_rate2
-                document.getElementById("details2").value = user.rfp.details2
+                document.getElementById("description2").value = user.rfp[user.rfpKey.key_name].description2
+                document.getElementById("daily_rate2").value = user.rfp[user.rfpKey.key_name].daily_rate2
+                document.getElementById("package_rate2").value = user.rfp[user.rfpKey.key_name].package_rate2
+                document.getElementById("details2").value = user.rfp[user.rfpKey.key_name].details2
 
-                document.getElementById("description3").value = user.rfp.description3
-                document.getElementById("daily_rate3").value = user.rfp.daily_rate3
-                document.getElementById("package_rate3").value = user.rfp.package_rate3
-                document.getElementById("details3").value = user.rfp.details3
+                document.getElementById("description3").value = user.rfp[user.rfpKey.key_name].description3
+                document.getElementById("daily_rate3").value = user.rfp[user.rfpKey.key_name].daily_rate3
+                document.getElementById("package_rate3").value = user.rfp[user.rfpKey.key_name].package_rate3
+                document.getElementById("details3").value = user.rfp[user.rfpKey.key_name].details3
 
-                document.getElementById("description4").value = user.rfp.description4
-                document.getElementById("daily_rate4").value = user.rfp.daily_rate4
-                document.getElementById("package_rate4").value = user.rfp.package_rate4
-                document.getElementById("details4").value = user.rfp.details4
+                document.getElementById("description4").value = user.rfp[user.rfpKey.key_name].description4
+                document.getElementById("daily_rate4").value = user.rfp[user.rfpKey.key_name].daily_rate4
+                document.getElementById("package_rate4").value = user.rfp[user.rfpKey.key_name].package_rate4
+                document.getElementById("details4").value = user.rfp[user.rfpKey.key_name].details4
 
-                document.getElementById("markup_dollar").value = user.rfp.markup_dollar
-                document.getElementById("markup_percent").value = user.rfp.markup_percent
+                document.getElementById("markup_dollar").value = user.rfp[user.rfpKey.key_name].markup_dollar
+                document.getElementById("markup_percent").value = user.rfp[user.rfpKey.key_name].markup_percent
 
-                document.getElementById("schedule_start").value = user.rfp.schedule_start
-                document.getElementById("schedule_completion").value = user.rfp.schedule_completion
+                document.getElementById("schedule_start").value = user.rfp[user.rfpKey.key_name].schedule_start
+                document.getElementById("schedule_completion").value = user.rfp[user.rfpKey.key_name].schedule_completion
 
-                document.getElementById("sub1").value = user.rfp.sub1
-                document.getElementById("sub_description1").value = user.rfp.sub_description1
-                document.getElementById("sub2").value = user.rfp.sub2
-                document.getElementById("sub_description2").value = user.rfp.sub_description2
-                document.getElementById("sub3").value = user.rfp.sub3
-                document.getElementById("sub_description3").value = user.rfp.sub_description3
-                document.getElementById("sub4").value = user.rfp.sub4
-                document.getElementById("sub_description4").value = user.rfp.sub_description4
+                document.getElementById("sub1").value = user.rfp[user.rfpKey.key_name].sub1
+                document.getElementById("sub_description1").value = user.rfp[user.rfpKey.key_name].sub_description1
+                document.getElementById("sub2").value = user.rfp[user.rfpKey.key_name].sub2
+                document.getElementById("sub_description2").value = user.rfp[user.rfpKey.key_name].sub_description2
+                document.getElementById("sub3").value = user.rfp[user.rfpKey.key_name].sub3
+                document.getElementById("sub_description3").value = user.rfp[user.rfpKey.key_name].sub_description3
+                document.getElementById("sub4").value = user.rfp[user.rfpKey.key_name].sub4
+                document.getElementById("sub_description4").value = user.rfp[user.rfpKey.key_name].sub_description4
 
-                document.getElementById("ref1").value = user.rfp.ref1
-                document.getElementById("ref_company1").value = user.rfp.ref_company1
-                document.getElementById("ref_contact1").value = user.rfp.ref_contact1
-                document.getElementById("ref_phone1").value = user.rfp.ref_phone1
-                document.getElementById("ref_email1").value = user.rfp.ref_email1
+                document.getElementById("ref1").value = user.rfp[user.rfpKey.key_name].ref1
+                document.getElementById("ref_company1").value = user.rfp[user.rfpKey.key_name].ref_company1
+                document.getElementById("ref_contact1").value = user.rfp[user.rfpKey.key_name].ref_contact1
+                document.getElementById("ref_phone1").value = user.rfp[user.rfpKey.key_name].ref_phone1
+                document.getElementById("ref_email1").value = user.rfp[user.rfpKey.key_name].ref_email1
 
-                document.getElementById("ref2").value = user.rfp.ref2
-                document.getElementById("ref_company2").value = user.rfp.ref_company2
-                document.getElementById("ref_contact2").value = user.rfp.ref_contact2
-                document.getElementById("ref_phone2").value = user.rfp.ref_phone2
-                document.getElementById("ref_email2").value = user.rfp.ref_email2
+                document.getElementById("ref2").value = user.rfp[user.rfpKey.key_name].ref2
+                document.getElementById("ref_company2").value = user.rfp[user.rfpKey.key_name].ref_company2
+                document.getElementById("ref_contact2").value = user.rfp[user.rfpKey.key_name].ref_contact2
+                document.getElementById("ref_phone2").value = user.rfp[user.rfpKey.key_name].ref_phone2
+                document.getElementById("ref_email2").value = user.rfp[user.rfpKey.key_name].ref_email2
 
-                document.getElementById("ref3").value = user.rfp.ref3
-                document.getElementById("ref_company3").value = user.rfp.ref_company3
-                document.getElementById("ref_contact3").value = user.rfp.ref_contact3
-                document.getElementById("ref_phone3").value = user.rfp.ref_phone3
-                document.getElementById("ref_email3").value = user.rfp.ref_email3
+                document.getElementById("ref3").value = user.rfp[user.rfpKey.key_name].ref3
+                document.getElementById("ref_company3").value = user.rfp[user.rfpKey.key_name].ref_company3
+                document.getElementById("ref_contact3").value = user.rfp[user.rfpKey.key_name].ref_contact3
+                document.getElementById("ref_phone3").value = user.rfp[user.rfpKey.key_name].ref_phone3
+                document.getElementById("ref_email3").value = user.rfp[user.rfpKey.key_name].ref_email3
 
-                document.getElementById("additional_info").value = user.rfp.additional_info
+                document.getElementById("additional_info").value = user.rfp[user.rfpKey.key_name].additional_info
 
 
             }
@@ -191,11 +191,11 @@ class RFPdetails extends Component {
 
     requestUpdate() {
         const {user} = this.props
-
+        if (user.rfpKey !=null) {
         var date = document.getElementById("date").value
-        var purchaser = document.getElementById("purchaser").value
+        var purchaser1 = document.getElementById("purchaser").value
         var service = document.getElementById("service").value
-        var LMRFPnum = document.getElementById("LMRFPnum").value
+        var LMRFPnum = user.rfp[user.rfpKey.key_name].LMRFPnum
         var closeDate = document.getElementById("closeDate").value
         var closeTime = document.getElementById("closeTime").value
         var name1 = document.getElementById("name1").value
@@ -272,8 +272,11 @@ class RFPdetails extends Component {
 
         var additional_info = document.getElementById("additional_info").value
 
+        var vendor = user.rfp[user.rfpKey.key_name].vendor
+        var purchaser = user.rfp[user.rfpKey.key_name].purchaser
+        var key = user.rfpKey.key_name
 
-        var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
+        var info = {date, purchaser1, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
         name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
         rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
         description1, daily_rate1, package_rate1, details1, description2, daily_rate2, package_rate2, details2,
@@ -281,10 +284,13 @@ class RFPdetails extends Component {
         markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
         sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
         ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
-        additional_info,}
+        additional_info,vendor, purchaser, key}
 
         // ADD VENDOR INFO
+        //console.log("new info", info)
         this.updateRFP(info)
+        location.reload()
+        }
     }
 
     /**
@@ -295,15 +301,15 @@ class RFPdetails extends Component {
 
         const {user} = this.props
 
-        if((user.isLoggedIn) && ((user.user.role==1)||(user.user.role==0))) {
-            var purchaser_legal = user.users[user.rfp.purchaser].legalEntity
-            var purchaser_address1 = user.users[user.rfp.purchaser].address1
-            var purchaser_address2 = user.users[user.rfp.purchaser].address2
-            var purchaser_city = user.users[user.rfp.purchaser].city
-            var purchaser_country = user.users[user.rfp.purchaser].country
-            var purchaser_phone = user.users[user.rfp.purchaser].phone
-            var purchaser_fax = user.users[user.rfp.purchaser].fax
-            
+        if((user.isLoggedIn) && ((user.user.role==1)||(user.user.role==0)) && (user.rfpKey !=null)) {
+            var purchaser_legal = user.users[user.rfp[user.rfpKey.key_name].purchaser].legalEntity
+            var purchaser_address1 = user.users[user.rfp[user.rfpKey.key_name].purchaser].address1
+            var purchaser_address2 = user.users[user.rfp[user.rfpKey.key_name].purchaser].address2
+            var purchaser_city = user.users[user.rfp[user.rfpKey.key_name].purchaser].city
+            var purchaser_country = user.users[user.rfp[user.rfpKey.key_name].purchaser].country
+            var purchaser_phone = user.users[user.rfp[user.rfpKey.key_name].purchaser].phone
+            var purchaser_fax = user.users[user.rfp[user.rfpKey.key_name].purchaser].fax
+            var LMRFPnum = user.rfp[user.rfpKey.key_name].LMRFPnum
             return(
 
               <div>
@@ -337,7 +343,7 @@ class RFPdetails extends Component {
                     </h6>
                     <h6>
                     Please review the Request for Proposal and Attachment 1, complete the Response Form Attachment 2, add any supplemental
-                    information and upload to the Purchaser&#39;s LM RFP# <Textfield label="LMRFPnum" className="form-control" ref="LMRFPnum"  placeholder="###" id="LMRFPnum"/>
+                    information and upload to the Purchaser&#39;s LM RFP# {LMRFPnum}
                     response folder. And emailed to our contact below by the Closing Date and Time.
                     </h6>
 
@@ -628,6 +634,7 @@ class RFPdetails extends Component {
                     <textarea rows="4" cols="100" id="additional_info"></textarea>
 
                     <hr/>
+<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestUpdate.bind(this)}>Update</Button>
 
                   </div>
                   </div>

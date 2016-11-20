@@ -59,9 +59,10 @@ class RFP extends Component {
         const {user} = this.props
 
         var date = document.getElementById("date").value
-        var purchaser = document.getElementById("purchaser").value
+        var purchaser1 = document.getElementById("purchaser1").value
         var service = document.getElementById("service").value
-        var LMRFPnum = document.getElementById("LMRFPnum").value
+        var LMRFPnum = LMRFPnum
+
         var closeDate = document.getElementById("closeDate").value
         var closeTime = document.getElementById("closeTime").value
         var name1 = document.getElementById("name1").value
@@ -155,14 +156,25 @@ class RFP extends Component {
                 } 
             }
         }
+
+        var purchaser
+        var keys = Object.keys(user.users)
+        for (var i=0; i<keys.length; i++) {
+            if ((user.user.email) == (user.users[keys[i]].email)) {
+                purchaser = keys[i]
+                break
+            }
+        }
         if (vendor_ids.length != list_of_emails.length) {
             alert("There is a non-valid vendor inputted, please try again.")
         } else { // we have valid vendors
 
             for (var count=0; count<vendor_ids.length; count++) {
                 var vendor = vendor_ids[count]
-                
-                var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
+                var LMRFPnum = generateNumberId()
+
+
+                var info = {date, purchaser1, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
                 name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
                 rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
                 description1, daily_rate1, package_rate1, details1, description2, daily_rate2, package_rate2, details2,
@@ -170,7 +182,7 @@ class RFP extends Component {
                 markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
                 sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
                 ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
-                additional_info, vendor}
+                additional_info, vendor, purchaser}
 
                 this.storeRFPs(info)
             }
@@ -181,10 +193,8 @@ class RFP extends Component {
     }
 
 	render() {
-/*NEW*/
-        /*grab number from somewhere*/
-        var LMRFPnum = 123
-/*NEW*/
+
+        var LMRFPnum = 1
 
 
         const {user} = this.props
@@ -235,14 +245,14 @@ class RFP extends Component {
                     <h6>Phone: &nbsp; {purchaser_phone}</h6>
                     <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
                     <h6>
-                    On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser"/>
+                    On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser1"/>
                     ("The Purchaser"), your company ("Vendor") is invited to submit a response to this Request for Proposal. This Request for Proposal (RFP)
                     is for the provision of <Textfield label="service" className="form-control" ref="service"  placeholder="service" id="service"/>
                     services.
                     </h6>
                     <h6>
                     Please review the Request for Proposal and Attachment 1, complete the Response Form Attachment 2, add any supplemental
-                    information and upload to the Purchaser&#39;s LM RFP# <Textfield label="LMRFPnum" className="form-control" ref="LMRFPnum"  placeholder="###" id="LMRFPnum"/>
+                    information and upload to the Purchaser&#39;s LM RFP# {LMRFPnum} &nbsp;
                     response folder. And emailed to our contact below by the Closing Date and Time.
                     </h6>
 

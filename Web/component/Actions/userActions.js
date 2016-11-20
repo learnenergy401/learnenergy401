@@ -10,7 +10,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 export function updateRFP(info) {
     return function(dispatch) {
         dispatch({type: "UPDATE_RFP"})
-
+        //console.log("OUR INFO IS", info)
         firebaseDb.ref('RFP/'+info.key).set(info)
             .then((data) => {
                 dispatch({type: "UPDATE_RFP_FULFILLED"})
@@ -116,10 +116,9 @@ export function submitRFPfromEOI(info) {
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){ // remove the EOI as well
         firebaseDb.ref('RFPfromEOI/'+user.uid).set({
-          vendor: info.vendor
-
-          // INCLUDE RFP NUMBER WHEN WE MAKE IT
-
+          vendor: info.vendor,
+          LMRFPnum: info.LMRFPnum,
+          purchaser: info.purchaser,
 
         }).then((data) => {
           dispatch({type: "STORE_RFP_FROM_EOI_FULFILLED", payload: user})
@@ -239,8 +238,11 @@ export function storeRFPs(info) {
     .catch((err) => {
       dispatch({type: "STORE_RFP_REJECTED", payload: err})
     })
+    if (info.remove!=null) {
+      removeEOI(info.remove.key_name)
+    }
     alert("RFP submitted")
-    location.reload()
+    window.location.assign("/#/review-eoi-rfp")
   }
 }
 
@@ -340,9 +342,9 @@ export function storeReqEOI(info) { // called on button press
       if (user){
         console.log('user id is ',user.uid)
         firebaseDb.ref('ReqEOI/'+user.uid).set({
-          vendor: info.vendor_uid,
+          vendor: info.vendor,
           purchaser: user.uid,
-          course: info.course_uid,
+          course: info.courseid,
           email: info.email,
       }).then((data) => {
         dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
@@ -386,10 +388,11 @@ export function fetchReqEOI() {
  */
 export function storeEOIs(info) {
   return function(dispatch) {
-    console.log(info)
+    console.log("pushing", info)
+
     firebaseDb.ref('EOI').push({
       vendor: info.vendor,
-      purchaser: info.uid,
+      purchaser: info.purchaser,
       course: info.course,
 
       // additional details below
@@ -452,7 +455,7 @@ export function storeEOIs(info) {
       dispatch({type: "STORE_EOI_REJECTED", payload: err})
     })
     alert("EOI submitted")
-    location.reload()
+    window.location.assign("/#/review-eoi-rfp")
   }
 }
 
@@ -479,12 +482,12 @@ export function fetchEOIs() {
  * Removes from EOI table
  * @params {object} key - key name to remove
  */
-export function removeEOI(key) {
+export function removeEOI(info) {
   return function(dispatch) {
+    console.log("key is", info)
+    firebaseDb.ref('EOI/'+info.key_name).remove().then(function() {
 
-    firebaseDb.ref('EOI/'+key.key_name).remove().then(function() {
-
-      console.log("removed")
+      console.log("removed,", info.key_name)
       location.reload()
       }).then((data) => {
         dispatch({type: "REMOVED_EOI_FULFILLED"})
@@ -728,21 +731,21 @@ export function rejectUser(user) {
         console.log("purchaser removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     } else if (user.role == 1) { // reject vendor
       firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
         console.log("vendor removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     } else if (user.role == 2) { // reject additional resource
       firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
         console.log("ad removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     }
   }

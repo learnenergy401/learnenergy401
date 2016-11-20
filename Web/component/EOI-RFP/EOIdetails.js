@@ -71,10 +71,10 @@ class EOIdetails extends Component {
      * submit rfp from eoi
      * @param {object} vendor - object which contains information about the vendor
      */
-	submit_rfp(vendor) {
+	submit_rfp(vendor, LMRFPnum, purchaser) {
 		// user is a purchaser and they want to submit a rfp
 		// store information needed and then go to rfp page
-		var info = {vendor}
+		var info = {vendor, LMRFPnum, purchaser}
 
 		this.submitRFPfromEOI(info)
 
@@ -155,7 +155,7 @@ class EOIdetails extends Component {
 				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
 			} else if (user.role == 0) {
 				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
-				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this, vendor)}>Submit RFP</Button>)
+				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this, vendor, LMRFPnum, purchaser)}>Submit RFP</Button>)
 
 			}
 
