@@ -9,7 +9,7 @@ import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import { removeEOI, storeEOIkey, fetchEOIs, fetchRFPs } from "../Actions/userActions"
+import { removeEOI, removeRFP, storeEOIkey, fetchEOIs, fetchRFPs, storeRFPkey } from "../Actions/userActions"
 
 @connect((store) => {
   return {
@@ -19,32 +19,46 @@ import { removeEOI, storeEOIkey, fetchEOIs, fetchRFPs } from "../Actions/userAct
 
 class ReviewEOI extends Component {
     /**
-    * Fetches EOIs
-    * @returns {object} EOI - return EOIs
-    */
+     * Fetches EOIs
+     * @returns {object} EOI - return EOIs
+     */
 	fetchEOIs() {
 		this.props.dispatch(fetchEOIs())
 	}
     /**
-    * Fetches RFPs
-    * @returns {object} RFP - return RFPs
-    */
+     * Fetches RFPs
+     * @returns {object} RFP - return RFPs
+     */
 	fetchRFPs() {
 		this.props.dispatch(fetchRFPs())
 	}
     /**
-    * Removes EOIs
-    * @params {object} key - key to remove
-    */
+     * Removes EOIs
+     * @params {object} key - key to remove
+     */
 	removeEOI(key) {
 		this.props.dispatch(removeEOI(key))
 	}
     /**
-    * store EOIkey
-    * @params {object} EOIkey - EOIkey to store
-    */
+     * Removes RFPs
+     * @params {object} key - key to remove
+     */
+	removeRFP(key) {
+		this.props.dispatch(removeRFP(key))
+	}
+    /**
+     * store EOIkey
+     * @params {object} EOIkey - EOIkey to store
+     */
 	storeEOIkey(info) {
 		this.props.dispatch(storeEOIkey(info))
+	}
+    /**
+     * store RFPkey
+     * @params {object} RFPkey - RFPkey to store
+     */
+	storeRFPkey(info) {
+		this.props.dispatch(storeRFPkey(info))
 	}
     /**
      * Invoked immediately before a component is unmounted and destroyed, to update our states
@@ -54,9 +68,9 @@ class ReviewEOI extends Component {
 		this.fetchRFPs()
 	}
     /**
-    * Removes EOIs
-    * @params {object} key - key to remove
-    */
+     * Removes EOIs
+     * @params {object} key - key to remove
+     */
 	removeEOI(key_name) {
 		console.log("remove")
 		var key = {key_name}
@@ -64,9 +78,9 @@ class ReviewEOI extends Component {
 
 	}
     /**
-    * review EOIs
-    * @params {object} key - key to review
-    */
+     * review EOIs
+     * @params {object} key - key to review
+     */
 	reviewEOI(key_name) {
 		console.log("review")
 
@@ -76,9 +90,9 @@ class ReviewEOI extends Component {
 		window.location.assign('/#/review-eoi-details')
 	}
     /**
-    * Removes RFPs
-    * @params {object} key - key to remove
-    */
+     * Removes RFPs
+     * @params {object} key - key to remove
+     */
 	removeRFP(key_name) {
 		console.log("remove")
 		var key = {key_name}
@@ -86,22 +100,21 @@ class ReviewEOI extends Component {
 
 	}
     /**
-    * RFP edit
-    * @params {object} key - key to edit
-    */
+     * RFP edit
+     * @params {object} key - key to edit
+     */
 	editRFP(key_name) {
 		const {user} = this.props
-
-
 		var info = {key_name}
+		this.storeRFPkey(info)
 
 		window.location.assign('/#/review-rfp-details')
 
 	}
     /**
-      * Loads the details 
-      * @return {html} - returns html details
-      */
+	 * Loads the details 
+	 * @return {html} - returns html details
+	 */
 	render() {
 
 		const {user} = this.props

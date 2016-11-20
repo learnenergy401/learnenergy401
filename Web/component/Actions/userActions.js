@@ -2,6 +2,51 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * Grabs the rfpkey from the database.
+ * @returns {object} rfpkey - Returns the object of rfpkey.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPkey() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPdetails/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_RFP_KEY_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_RFP_KEY_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * sets the rfpkey.
+ * @returns {object} dispatch - Returns the state which contains rfpkey object
+ * @param {object} info - object which contains information about the eoikey.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeRFPkey(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPdetails/'+user.uid).set({
+          key_name: info.key_name,
+      }).then((data) => {
+        dispatch({type: "STORE_RFP_KEY_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_RFP_KEY_REJECTED", payload: err})
+      })
+      }
+    })
+  }
+}
+
+/**
  * Grabs the Users from the database.
  * @returns {object} users - Returns the object of users.
  * @throws {object} err - Returns an error if failed to fetch from database.
