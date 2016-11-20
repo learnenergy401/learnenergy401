@@ -136,7 +136,7 @@ class RFPfromEOI extends Component {
         var additional_info = document.getElementById("additional_info").value
 
 
-/*NEW*/
+        var vendor = user.rfp_from_eoi.vendor
 
         var info = {date, purchaser, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
         name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
@@ -146,7 +146,7 @@ class RFPfromEOI extends Component {
         markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
         sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
         ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
-        additional_info,}
+        additional_info, vendor}
 
         // do this X times for X vendors
         this.storeRFPs(info)
@@ -508,7 +508,7 @@ class RFPfromEOI extends Component {
 
                     <hr/>
 
-
+                    <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Submit</Button>
                   </div>
                   </div>
                   </Card>

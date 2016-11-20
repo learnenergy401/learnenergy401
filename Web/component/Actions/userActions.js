@@ -91,12 +91,16 @@ export function fetchUsers() {
  */
 export function fetchRFPfromEOI() {
   return function(dispatch) {
-    firebaseDb.ref('RFPfromEOI').once('value')
-    .then((snapshot) => {
-      dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
-    })
-    .catch((err) => {
-      dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPfromEOI/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+        })
+      }
     })
   }
 }
