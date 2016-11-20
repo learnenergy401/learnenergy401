@@ -189,7 +189,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 ad: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
