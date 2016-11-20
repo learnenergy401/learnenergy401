@@ -598,6 +598,30 @@ export default function reducer(state={
                 error: action.payload
             }  
         }
+
+        case "UPDATE_RFP": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,
+            }
+        }
+
+        case "UPDATE_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,   
+            }
+        }
+        
+        case "UPDATE_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
     }
 
     return state

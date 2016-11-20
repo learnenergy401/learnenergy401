@@ -2,6 +2,27 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * updates RFP
+ * @param {object} RFP - information on RFP
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ * @returns {object} dispatch 
+ */
+export function updateRFP(info) {
+    return function(dispatch) {
+        dispatch({type: "UPDATE_RFP"})
+        
+        firebaseDb.ref('RFP/'+info.key).set(info)
+            .then((data) => {
+                dispatch({type: "UPDATE_RFP_FULFILLED"})
+            })
+            .catch((err) => {
+                dispatch({type: "UPDATE_RFP_REJECTED", payload: err.code})
+            })
+                        
+    }
+}
+
+/**
  * Grabs the rfpkey from the database.
  * @returns {object} rfpkey - Returns the object of rfpkey.
  * @throws {object} err - Returns an error if failed to fetch from database.
