@@ -135,6 +135,7 @@ class ComponentSignUpVendor extends Component {
     var drugPolicy = document.getElementById("drugPolicy").value;
     var subcontractors = document.getElementById("subcontractors").value;
     var stopWorkOrder = document.getElementById("stopWorkOrder").value;
+    var HSEjudge = document.getElementById("HSEjudge").value;
 
     var email = document.getElementById("email").value;
     var adminContact = document.getElementById("adminContact").value;
@@ -164,7 +165,7 @@ class ComponentSignUpVendor extends Component {
       EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
       MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
-      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,
       }
 
     this.signUpVendor(info);
