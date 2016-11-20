@@ -13,10 +13,16 @@ function jsonToArray(json){
         return arr
     }
 
+/**
+ * adds purchasers to coursePurchasers
+ * @param {object} info, courseID - information on course and purchaser id
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ * @returns {object} dispatch 
+ */
 export function addCoursePurchaser(info, courseID) {
     return function(dispatch) {
         dispatch({type: "ADDING_PURCHASER"})
-        
+
         var purchasers = []
         if (info.coursePurchasers != null) {
             for (var count=0; count<info.coursePurchasers.length; count++) {
@@ -101,6 +107,12 @@ export function uploadCourse(course) {
     }
 }
 
+/**
+ * updates course
+ * @param {object} course, courseID - information on course
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ * @returns {object} dispatch 
+ */
 export function updateCourse(course,courseID) {
     return function(dispatch) {
         dispatch({type: "UPDATE_COURSE"})

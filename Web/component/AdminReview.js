@@ -81,7 +81,10 @@ class AdminReview extends Component {
     rejectUser(user) {
       this.props.dispatch(rejectUser(user))
     }
-
+    /**
+     * Accepts a user
+     * @param {object} key_name, role - information about user to approve
+     */
     approve(key_name, role) {
       console.log('approve')
       const {user} = this.props
@@ -260,7 +263,10 @@ class AdminReview extends Component {
 
       window.location.assign('/#/admin')
     }
-
+    /**
+     * rejects a user
+     * @param {object} key_name, role - information about user to reject
+     */
     reject(key_name, role) {
       console.log('reject')
       const {user} = this.props
@@ -270,11 +276,16 @@ class AdminReview extends Component {
 
       window.location.assign('/#/admin')
     }
-
+    /**
+     * returns back to previous page
+     */
     return_back() {
       window.location.assign('/#/admin')
     }
-
+    /**
+      * Loads the details 
+      * @return {html} - returns html details
+      */
     render() {
       const {user} = this.props
       if (user.keys_roles != null) {

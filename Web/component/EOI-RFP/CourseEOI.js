@@ -37,24 +37,38 @@ var cardTitleStyle = {
 })
 
 class CourseEOI extends Component {
-
+    /**
+    * Fetches curretUser
+    * @returns {object} currentUser - returns information on current user
+    */
 	getCurrentUser() {
 		this.props.dispatch(getCurrentUser())
 	}
-
+    /**
+    * stores EOI
+    * @params {object} EOIs - information of EOI
+    */
 	storeEOIs(info) {
 		this.props.dispatch(storeEOIs(info))
 	}
-
+    /**
+    * Fetches reqEOIs
+    * @returns {object} ReqEOIs - return ReqEOIs
+    */
 	fetchReqEOI() {
 		this.props.dispatch(fetchReqEOI())
 	}
-
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our states
+     */
 	componentWillMount() {
 		this.getCurrentUser()
 		this.fetchReqEOI()
 	}
-
+    /**
+    * stores EOI
+    * @params {object} legal, address1, address2, city, country, uphone, fax - information of EOI
+    */
 	requestSubmit(legal, address1, address2, city, country, uphone, fax) { // stores an EOI into the table
 
 		const {user} = this.props
@@ -136,11 +150,16 @@ class CourseEOI extends Component {
 		this.storeEOIs(info)
 		}
 	}
-
+    /**
+     * returns back to previous page
+     */
 	return_back() {
 		window.location.assign('/#/view-course')
 	}
-
+    /**
+      * Loads the details 
+      * @return {html} - returns html details
+      */
 	render() {
 		const {user} = this.props
 
