@@ -142,7 +142,7 @@ export function uploadCourseFiles(courseID,coursePrev,fileObj) {
                 }else{
                     var courseFiles = [...tempList,url]
                 }
-                
+                if(coursePrev.coursePurchasers!=null){
                 firebaseDb.ref('Course/'+courseID).set({
                     courseDescription:coursePrev.courseDescription,
                     courseID:coursePrev.courseID,
@@ -152,6 +152,17 @@ export function uploadCourseFiles(courseID,coursePrev,fileObj) {
                     coursePurchasers:coursePrev.coursePurchasers,
                     courseFiles:courseFiles
                 });
+                }else{
+                firebaseDb.ref('Course/'+courseID).set({
+                    courseDescription:coursePrev.courseDescription,
+                    courseID:coursePrev.courseID,
+                    courseName:coursePrev.courseName,
+                    courseVendorEmail:coursePrev.courseVendorEmail,
+                    courseVideoId:coursePrev.courseVideoId,
+                    courseFiles:courseFiles
+                    });
+                }
+            
                 dispatch({type:"UPLOAD_COURSE_FILES_FULFILLED"})
             }).catch((err) => {
                 dispatch({type: "UPLOAD_COURSE_FILES_REJECTED", payload:err})
