@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import TagsInput from "react-tagsinput"
 import {findDOMNode, render} from 'react-dom'
+
 
 import "../../extra/material.js"
 import { uploadCourse } from "../Actions/courseActions"
@@ -23,6 +23,9 @@ var formStyle = {
     course: store.course
   };
 })/*dont add semicolon here!*/
+
+
+
 
 
 class ContentProfileUpload extends Component {
@@ -72,7 +75,7 @@ class ContentProfileUpload extends Component {
                                 <Textfield floatingLabel label="courseVideoId"  type="courseVideoId" className="form-control" id="courseVideoId"/>
                             </CardText>
                             <CardText style={componentStyle}>
-                                <TagsInput  value={this.state.tags} onChange={::this.handleChange} />
+                              
                             </CardText>
                         
 
