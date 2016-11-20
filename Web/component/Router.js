@@ -22,10 +22,13 @@ import Upload from "./Vendor/Upload.js"
 import ViewCourse from "./ViewCourse/ViewCourse.js"
 import CourseDetail from "./ViewCourse/CourseDetail.js"
 import AdminReview from "./AdminReview.js"
-import CourseEOI from "./EOI/CourseEOI.js"
-import ReviewEOI from "./EOI/ReviewEOI.js"
-import EOIdetails from "./EOI/EOIdetails.js"
+import CourseEOI from "./EOI-RFP/CourseEOI.js"
+import ReviewEOI from "./EOI-RFP/ReviewEOI.js"
+import EOIdetails from "./EOI-RFP/EOIdetails.js"
 import ContentCourseUpdate from "./Profile/ContentCourseUpdate.js"
+import RFP from "./EOI-RFP/RFP.js"
+import RFPdetails from "./EOI-RFP/RFPdetails.js"
+import RFPfromEOI from "./EOI-RFP/RFPfromEOI.js"
 
 class ReactRouter extends Component {
   /**
@@ -52,9 +55,12 @@ class ReactRouter extends Component {
         <Route path='/signup-ad' component={SignUpAD} />
         <Route path='/admin-review' component={AdminReview} />
         <Route path='/course-eoi' component={CourseEOI} />
-        <Route path='/review-eoi' component={ReviewEOI} />
-        <Route path='/review-eoi/details' component={EOIdetails} />
+        <Route path='/review-eoi-rfp' component={ReviewEOI} />
+        <Route path='/review-eoi-details' component={EOIdetails} />
         <Route path='/course-update' component={ContentCourseUpdate}/>
+        <Route path='/rfp' component={RFP} />
+        <Route path='/edit-rfp-details' component={RFPdetails} />
+        <Route path='/rfp-from-eoi' component={RFPfromEOI} />
 
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />

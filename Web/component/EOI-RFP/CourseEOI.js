@@ -145,7 +145,7 @@ class CourseEOI extends Component {
 		const {user} = this.props
 
 		console.log(user)
-		if (user.user != null) {
+		if (user.user != null && user.role == 0) {
 			var legal = user.user.legalEntity
 			var address1 = user.user.address1
 			var address2 = user.user.address2
@@ -344,7 +344,7 @@ class CourseEOI extends Component {
 
 	            <div style={{width: '80%', margin: 'auto'}}>
 
-	      <h4>LOADING...</h4>
+	      <h4>NOT A VALID USER</h4>
 	            </div>
 
 	          </Card>

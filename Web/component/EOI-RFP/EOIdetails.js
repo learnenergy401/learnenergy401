@@ -9,7 +9,7 @@ import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import { fetchEOIs, fetchEOIkey } from "../Actions/userActions"
+import { fetchEOIs, fetchEOIkey, submitRFPfromEOI } from "../Actions/userActions"
 
 var spacerStyle = {
     height: '50px',
@@ -43,20 +43,34 @@ class EOIdetails extends Component {
 		this.props.dispatch(fetchEOIkey())
 	}
 
+	submitRFPfromEOI(info) {
+		this.props.dispatch(submitRFPfromEOI(info))
+	}
+
 	componentWillMount() {
 		this.fetchEOIs()
 		this.fetchEOIkey()
 	}
 
+	submit_rfp(vendor) {
+		// user is a purchaser and they want to submit a rfp
+		// store information needed and then go to rfp page
+		var info = {vendor}
+
+		this.submitRFPfromEOI(info)
+
+		window.location.assign('/#/rfp-from-eoi')
+	}
+
 	return_back() {
-		window.location.assign('/#/review-eoi')
+		window.location.assign('/#/review-eoi-rfp')
 	}
 
 	render() {
 
 		const {user} = this.props
 		console.log(user)
-		if ((user.eoi != null)&&(user.eoiKey != null)&&(user.role==1)) {
+		if ((user.eoi != null)&&(user.eoiKey != null)&&((user.role==1)||(user.role==0))) {
 
 			var purchaser_legal = user.eoi[user.eoiKey.key_name].purchaser_legal
 			var purchaser_address1 = user.eoi[user.eoiKey.key_name].purchaser_address1
@@ -110,6 +124,15 @@ class EOIdetails extends Component {
 			var email3 = user.eoi[user.eoiKey.key_name].email3
 			var LMRFPnum = user.eoi[user.eoiKey.key_name].LMRFPnum
 			var selection_date = user.eoi[user.eoiKey.key_name].selection_date
+
+			var buttons = []
+			if (user.role == 1) {
+				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
+			} else if (user.role == 0) {
+				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
+				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this, vendor)}>Submit RFP</Button>)
+
+			}
 
 		    return (
 			<div>
@@ -282,8 +305,9 @@ class EOIdetails extends Component {
 	            </div>
 	            </div>
 	          </Card>
-	          <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>
-	          </div>
+
+	          {buttons}
+	          	          </div>
 
 	            <LearnFooter/>
 	            </div>
@@ -294,7 +318,7 @@ class EOIdetails extends Component {
 			return (
 		      <div>
 		      <LearnHeader/>
-		      <h4>LOADING...</h4>
+		      <h4>NOT A VALID USER</h4>
 		      <LearnFooter/>
 		      </div>
 		    )

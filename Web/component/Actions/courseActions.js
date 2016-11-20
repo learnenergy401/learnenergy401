@@ -13,6 +13,34 @@ function jsonToArray(json){
         return arr
     }
 
+export function addCoursePurchaser(info, courseID) {
+    return function(dispatch) {
+        dispatch({type: "ADDING_PURCHASER"})
+        console.log('info is', info, ' courseid is', courseID)
+        var purchasers = []
+        if (info.coursePurchasers != null) {
+            for (var count=0; count<info.coursePurchasers.length; count++) {
+                purchasers.push(info.coursePurchasers[count])
+            }
+        }
+        purchasers.push(info.purchaserToAdd)
+        console.log('purchasers is', purchasers)
+
+        firebaseDb.ref('Course/' + courseID).set({
+            courseDescription: info.courseDescription,
+            courseID: info.courseID,
+            courseName: info.courseName,
+            courseVendorEmail: info.courseVendorEmail,
+            courseVideoId: info.courseVideoId,
+            coursePurchasers: purchasers
+        }).then((data) => {
+            dispatch({type: "UPDATE_COURSE_FULFILLED"})
+        }).catch((err) => {
+            dispatch({type: "UPDATE_COURSE_REJECTED", payload: err.code})
+        })
+    }
+}
+
 /**
  * Grabs the courses from the course child in the database.
  * @returns {object} courses - Returns the object of courses.
