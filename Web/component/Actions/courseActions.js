@@ -149,6 +149,7 @@ export function uploadCourseFiles(courseID,coursePrev,fileObj) {
                     courseName:coursePrev.courseName,
                     courseVendorEmail:coursePrev.courseVendorEmail,
                     courseVideoId:coursePrev.courseVideoId,
+                    coursePurchasers:coursePrev.coursePurchasers,
                     courseFiles:courseFiles
                 });
                 dispatch({type:"UPLOAD_COURSE_FILES_FULFILLED"})
