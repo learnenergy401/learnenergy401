@@ -5,12 +5,12 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
  * updates RFP
  * @param {object} RFP - information on RFP
  * @throws {object} err - Returns an error if failed to fetch from database.
- * @returns {object} dispatch 
+ * @returns {object} dispatch
  */
 export function updateRFP(info) {
     return function(dispatch) {
         dispatch({type: "UPDATE_RFP"})
-        
+
         firebaseDb.ref('RFP/'+info.key).set(info)
             .then((data) => {
                 dispatch({type: "UPDATE_RFP_FULFILLED"})
@@ -18,7 +18,7 @@ export function updateRFP(info) {
             .catch((err) => {
                 dispatch({type: "UPDATE_RFP_REJECTED", payload: err.code})
             })
-                        
+
     }
 }
 
@@ -80,7 +80,7 @@ export function fetchUsers() {
     })
     .catch((err) => {
       dispatch({type: "FETCH_USERS_REJECTED", payload: err})
-    })    
+    })
   }
 }
 
@@ -145,56 +145,88 @@ export function storeRFPs(info) {
     console.log(info)
     firebaseDb.ref('RFP').push({
       vendor: info.vendor,
-      purchaser: info.uid,
-      course: info.course,
+      purchaser: info.purchaser,
 
       // additional details below
-      email: info.email,
-      email1: info.email1,
       date: info.date,
+      purchaser: info.purchaser,
       service: info.service,
-      text1: info.text1,
-      text2: info.text2,
+      LMRFPnum: info.LMRFPnum,
       closeDate: info.closeDate,
       closeTime: info.closeTime,
       name1: info.name1,
       title1: info.title1,
+      email1: info.email1,
       name2: info.name2,
       title2: info.title2,
       email2: info.email2,
       phone: info.phone,
 
-      company_name: info.company_name,
-      RFP_par: info.RFP_par,
-      vendor_company_address: info.vendor_company_address,
-      vendor_contact_name: info.vendor_contact_name, 
-      vendor_contact_title_position: info.vendor_contact_title_position,
-      vendor_primary_telephone: info.vendor_primary_telephone,
-      vendor_alternate_telephone: info.vendor_alternate_telephone,
-      vendor_fax: info.vendor_fax,
-      vendor_email: info.vendor_email,
 
-      company_approved: info.company_approved,
-      optional_comments: info.optional_comments,
+      TSissue_date: info.TSissue_date,
+      TSclosing_date: info.TSclosing_date,
+      company_background: info.company_background,
+      rfp_overview: info.rfp_overview,
+      rfp_title: info.rfp_title,
+      rfp_contact: info.rfp_contact,
+      rfp_closing_date: info.rfp_closing_date,
+      rfp_question_close: info.rfp_question_close,
+      conflict_interest: info.conflict_interest,
+      attachment1: info.attachment1,
+      description1: info.description1,
+      daily_rate1: info.daily_rate1,
+      package_rate1: info.package_rate1,
+      details1: info.details1,
 
-      scope: info.scope,
-      qualificationA: info.qualificationA,
-      qualificationB: info.qualificationB,
-      qualificationC: info.qualificationC,
-      qualificationD: info.qualificationD,
-      response_date: info.response_date,
-      email3: info.email3,
-      LMRFPnum: info.LMRFPnum,
-      selection_date: info.selection_date,
+      description2: info.description2,
+      daily_rate2: info.daily_rate2,
+      package_rate2: info.package_rate2,
+      details2: info.details2,
 
-      purchaser_legal: info.purchaser_legal,
-      purchaser_address1: info.purchaser_address1,
-      purchaser_address2: info.purchaser_address2,
-      purchaser_city: info.purchaser_city,
-      purchaser_country: info.purchaser_country,
-      purchaser_phone: info.purchaser_phone,
-      purchaser_fax: info.purchaser_fax,
+      description3: info.description3,
+      daily_rate3: info.daily_rate3,
+      package_rate3: info.package_rate3,
+      details3: info.details3,
 
+      description4: info.description4,
+      daily_rate4: info.daily_rate4,
+      package_rate4: info.package_rate4,
+      details4: info.details4,
+
+      markup_dollar: info.markup_dollar,
+      markup_percent: info.markup_percent,
+
+      schedule_start: info.schedule_start,
+      schedule_completion: info.schedule_completion,
+
+      sub1: info.sub1,
+      sub_description1: info.sub_description1,
+      sub2: info.sub2,
+      sub_description2: info.sub_description2,
+      sub3: info.sub3,
+      sub_description3: info.sub_description3,
+      sub4: info.sub4,
+      sub_description4: info.sub_description4,
+
+      ref1: info.ref1,
+      ref_company1: info.ref_company1,
+      ref_contact1: info.ref_contact1,
+      ref_phone1: info.ref_phone1,
+      ref_email1: info.ref_email1,
+
+      ref2: info.ref2,
+      ref_company2: info.ref_company2,
+      ref_contact2: info.ref_contact2,
+      ref_phone2: info.ref_phone2,
+      ref_email2: info.ref_email2,
+
+      ref3: info.ref3,
+      ref_company3: info.ref_company3,
+      ref_contact3: info.ref_contact3,
+      ref_phone3: info.ref_phone3,
+      ref_email3: info.ref_email3,
+
+      additional_info: info.additional_info,
 
 
 
@@ -379,7 +411,7 @@ export function storeEOIs(info) {
       company_name: info.company_name,
       RFP_par: info.RFP_par,
       vendor_company_address: info.vendor_company_address,
-      vendor_contact_name: info.vendor_contact_name, 
+      vendor_contact_name: info.vendor_contact_name,
       vendor_contact_title_position: info.vendor_contact_title_position,
       vendor_primary_telephone: info.vendor_primary_telephone,
       vendor_alternate_telephone: info.vendor_alternate_telephone,
@@ -832,11 +864,11 @@ export function updateProfile(user) {
     return function(dispatch) {
       dispatch({type: "UPDATE_USER_PROFILE"})
       var currentUser = firebaseAuth.currentUser
-        
+
       if (true) { // update as a vendor
         firebaseDb.ref('User/' + currentUser.uid).set(user).then((data) => {
           dispatch({type: "UPDATE_USER_PROFILE_FULFILLED"})
-        
+
         }).catch((err)=>{
           dispatch({type:"UPDATE_USER_PROFILE_REJECTED",payload:err})
         })
