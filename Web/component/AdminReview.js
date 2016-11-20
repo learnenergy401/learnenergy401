@@ -24,8 +24,9 @@ var info_div_style={
 }
 //the styling for the large tables.  
 var table_style={
+    border:'1px solid',
     margin: 'auto',
-    width: '400px',
+    width: '600px',
     //border: '5px groove black'
     
 }
@@ -39,6 +40,10 @@ var table_style_sub={
 //formatting for the cells in the tables
 var cell_format={
     verticalAlign: 'top',
+}
+
+var header_align={
+    textAlign:'center'
 }
 
 
@@ -781,7 +786,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td>
-                                <table style={table_style_sub}>
+                                    <table style={table_style_sub}>
                                     <tr>
                                        <td><b>Client Name:</b></td>
                                         <td>{client2}</td>
@@ -1188,86 +1193,304 @@ class AdminReview extends Component {
                                 </table>
                                 </td>
                             </tr>
+                        </table> 
+              
+                    <h3>Employee Information</h3>
+                      <table style={table_style}>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Employee hours Worked</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{EHWcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{EHWpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{EHWpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{EHWpreviousYear3}</td>
+                                    </tr>
 
-                        </table>              
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Fatalities</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{FcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{FpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{FpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{FpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Lost Time Incidents</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{LTIcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{LTIpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{LTIpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{LTIpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Medical aid injuries</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{MAIcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{MAIpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{MAIpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{MAIpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Other Recordable Incidents</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{ORCcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{ORCpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{ORCpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{ORCpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{TRIcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{TRIpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{TRIpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{TRIpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                        </table>
               
-              <p><b>Categories of Service:</b>{categories}</p>
-                      <p><b>Specialities:</b>{specialties}</p>
-              
-              
-                <h5>Employee hours Worked</h5>
-                      <p><b>Current Year:</b>{EHWcurrentYear}</p>
-                      <p><b>Current -1:</b>{EHWpreviousYear1}</p>
-                      <p><b>Current -2:</b>{EHWpreviousYear2}</p>
-                      <p><b>Current -3:</b>{EHWpreviousYear3}</p>
-              
-                <h5>Fatalities</h5>
-                      <p><b>Current Year:</b>{FcurrentYear}</p>
-                      <p><b>Current -1:</b>{FpreviousYear1}</p>
-                      <p><b>Current -2:</b>{FpreviousYear2}</p>
-                      <p><b>Current -3:</b>{FpreviousYear3}</p>
-              
-                <h5>Lost time incidents </h5>
-                      <p><b>Current Year:</b>{LTIcurrentYear}</p>
-                      <p><b>Current -1:</b>{LTIpreviousYear1}</p>
-                      <p><b>Current -2:</b>{LTIpreviousYear2}</p>
-                      <p><b>Current -3:</b>{LTIpreviousYear3}</p>
-              
-                <h5>Medical aid injuries</h5>
-                      <p><b>Current Year:</b>{MAIcurrentYear}</p>
-                      <p><b>Current -1:</b>{MAIpreviousYear1}</p>
-                      <p><b>Current -2:</b>{MAIpreviousYear2}</p>
-                      <p><b>Current -3:</b>{MAIpreviousYear3}</p>
-              
-                <h5>Other recordable cases </h5>
-                      <p><b>Current Year:</b>{ORCcurrentYear}</p>
-                      <p><b>Current -1:</b>{ORCpreviousYear1}</p>
-                      <p><b>Current -2:</b>{ORCpreviousYear2}</p>
-                      <p><b>Current -3:</b>{ORCpreviousYear3}</p>
-              
-                <h5>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</h5>
-                      <p><b>Current Year:</b>{TRIcurrentYear}</p>
-                      <p><b>Current -1:</b>{TRIpreviousYear1}</p>
-                      <p><b>Current -2:</b>{TRIpreviousYear2}</p>
-                      <p><b>Current -3:</b>{TRIpreviousYear3}</p>
-              
-                <h3>Worker's Compensation</h3>
-                      <p><b>Industry Code:</b>{industryCode}</p>
-                      <p><b>Industry Classification:</b>{industryClassification}</p>
-              
-                <h5>Industry Rate</h5>
-                      <p><b>Current Year:</b>{IRcurrentYear}</p>
-                      <p><b>Current -1:</b>{IRpreviousYear1}</p>
-                      <p><b>Current -2:</b>{IRpreviousYear2}</p>
-                      <p><b>Current -3:</b>{IRpreviousYear3}</p>
-              
-                <h5>Proponent Rate</h5>
-                      <p><b>Current Year:</b>{PRcurrentYear}</p>
-                      <p><b>Current -1:</b>{PRpreviousYear1}</p>
-                      <p><b>Current -2:</b>{PRpreviousYear2}</p>
-                      <p><b>Current -3:</b>{PRpreviousYear3}</p>
-              
-                <h5>% Discount</h5>
-                      <p><b>Current Year:</b>{PDcurrentYear}</p>
-                      <p><b>Current -1:</b>{PDpreviousYear1}</p>
-                      <p><b>Current -2:</b>{PDpreviousYear2}</p>
-                      <p><b>Current -3:</b>{PDpreviousYear3}</p>
-              
-                <h5>% Surcharge</h5>
-                      <p><b>Current Year:</b>{PScurrentYear}</p>
-                      <p><b>Current -1:</b>{PSpreviousYear1}</p>
-                      <p><b>Current -2:</b>{PSpreviousYear2}</p>
-                      <p><b>Current -3:</b>{PSpreviousYear3}</p>
+                    <h3>Workers Compensation</h3>
+                      <table style={table_style}>
+                          <tr>
+                            <table style={table_style_sub}>
+                            <th>General</th>
+                            <tr>
+                            <td><b>Industry Code:</b></td>
+                            <td>{industryCode}</td>
+                            </tr>
+                          <tr>
+                            <td><b>Industry Classification:</b></td>
+                            <td>{industryClassification}</td>
+                          </tr>  
+                
+                          </table>
+                          </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Industry Rate</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{IRcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{IRpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{IRpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{IRpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Proponent Rate</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{PRcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{PRpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{PRpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{PRpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>% Discoun</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{PDcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{PDpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{PDpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{PDpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>% Surcharge</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{PScurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{PSpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{PSpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{PSpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+              </table>
               
               <h3>Additional Information</h3>
-              
-                      <p><b>Drug and Alcohol policy:</b>{drugPolicy}</p>
-                      <p><b>Subcontractor OH&S Evaluation:</b>{subcontractors}</p>
-                      <p><b>OH&S Stop Work Order Recieved:</b>{stopWorkOrder}</p>
-                      <p><b>Subcontractor OH&S Evaluation:</b>{categories}</p>
-                      <p><b>HSE related Judgements:</b>{categories}</p>
-              
+              <table style={table_style}>
+                    <tr>
+                        <td style={{width:'100px'}}><b>Categories of Service:</b></td>
+                        <td style={{width:'1000px'}}>{categories}</td></tr>
+                   
+                    <tr>
+                        <td><b>Specialities:</b></td>
+                        <td>{specialties}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Drug and Alcohol policy:</b></td>      
+                        <td>{drugPolicy}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Subcontractor OH&S Evaluation:</b></td>      
+                        <td>{subcontractors}</td>
+                    </tr>
+                    <tr>
+                        <td><b>OH&S Stop Work Order Recieved:</b></td>      
+                        <td>{stopWorkOrder}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Subcontractor OH&S Evaluation:</b></td>      
+                        <td>{}</td>
+                    </tr>
+                    <tr>
+                        <td><b>HSE related Judgements:</b></td>      
+                        <td>{}</td>
+                    </tr>
+              </table>
+
                     </div>
+              
                 <div>
                     <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                     <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
