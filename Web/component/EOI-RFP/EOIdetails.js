@@ -35,23 +35,42 @@ var cardTitleStyle = {
 
 class EOIdetails extends Component {
 
+    /**
+    * Fetches EOIs
+    * @returns {object} EOI - return EOIs
+    */
 	fetchEOIs() {
 		this.props.dispatch(fetchEOIs())
 	}
 
+    /**
+    * Fetches EOIkey
+    * @returns {object} EOIkey - return EOIs
+    */
 	fetchEOIkey() {
 		this.props.dispatch(fetchEOIkey())
 	}
 
+    /**
+    * Prompts RFP page from EOI details page
+    * @params {object} info - sends information of vendor 
+    */
 	submitRFPfromEOI(info) {
 		this.props.dispatch(submitRFPfromEOI(info))
 	}
 
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our states
+     */
 	componentWillMount() {
 		this.fetchEOIs()
 		this.fetchEOIkey()
 	}
 
+    /**
+     * submit rfp from eoi
+     * @param {object} vendor - object which contains information about the vendor
+     */
 	submit_rfp(vendor) {
 		// user is a purchaser and they want to submit a rfp
 		// store information needed and then go to rfp page
@@ -62,10 +81,16 @@ class EOIdetails extends Component {
 		window.location.assign('/#/rfp-from-eoi')
 	}
 
+    /**
+     * returns back to previous page
+     */
 	return_back() {
 		window.location.assign('/#/review-eoi-rfp')
 	}
-
+    /**
+      * Loads the details 
+      * @return {html} - returns html details
+      */
 	render() {
 
 		const {user} = this.props

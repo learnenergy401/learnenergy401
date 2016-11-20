@@ -18,35 +18,55 @@ import { removeEOI, storeEOIkey, fetchEOIs, fetchRFPs } from "../Actions/userAct
 })
 
 class ReviewEOI extends Component {
-
+    /**
+    * Fetches EOIs
+    * @returns {object} EOI - return EOIs
+    */
 	fetchEOIs() {
 		this.props.dispatch(fetchEOIs())
 	}
-
+    /**
+    * Fetches RFPs
+    * @returns {object} RFP - return RFPs
+    */
 	fetchRFPs() {
 		this.props.dispatch(fetchRFPs())
 	}
-
+    /**
+    * Removes EOIs
+    * @params {object} key - key to remove
+    */
 	removeEOI(key) {
 		this.props.dispatch(removeEOI(key))
 	}
-
+    /**
+    * store EOIkey
+    * @params {object} EOIkey - EOIkey to store
+    */
 	storeEOIkey(info) {
 		this.props.dispatch(storeEOIkey(info))
 	}
-
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our states
+     */
 	componentWillMount() {
 		this.fetchEOIs()
 		this.fetchRFPs()
 	}
-
+    /**
+    * Removes EOIs
+    * @params {object} key - key to remove
+    */
 	removeEOI(key_name) {
 		console.log("remove")
 		var key = {key_name}
 		this.removeEOI(key) // automatically reloads page
 
 	}
-
+    /**
+    * review EOIs
+    * @params {object} key - key to review
+    */
 	reviewEOI(key_name) {
 		console.log("review")
 
@@ -55,22 +75,33 @@ class ReviewEOI extends Component {
 		this.storeEOIkey(info)
 		window.location.assign('/#/review-eoi-details')
 	}
-
+    /**
+    * Removes RFPs
+    * @params {object} key - key to remove
+    */
 	removeRFP(key_name) {
 		console.log("remove")
 		var key = {key_name}
 		this.removeRFP(key) // automatically reloads page
 
 	}
-
+    /**
+    * RFP edit
+    * @params {object} key - key to edit
+    */
 	editRFP(key_name) {
 		const {user} = this.props
+
+
 		var info = {key_name}
 
 		window.location.assign('/#/review-rfp-details')
 
 	}
-
+    /**
+      * Loads the details 
+      * @return {html} - returns html details
+      */
 	render() {
 
 		const {user} = this.props

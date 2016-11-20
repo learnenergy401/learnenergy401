@@ -26,15 +26,24 @@ var cardStyle = {
 })
 
 class ContentCourseDetail extends Component {
-
+/**
+ * add course purchasers
+ * @param {object} info, courseID - object which contains information about the course
+ */
   addCoursePurchaser(info, courseID) {
     this.props.dispatch(addCoursePurchaser(info, courseID))
   }
-
+  /**
+  * store reqEOI
+  * @params {object} info - reqEOI to store
+  */
   storeReqEOI(info) {
     this.props.dispatch(storeReqEOI(info))
   }
-
+  /**
+  * Fetches users
+  * @returns {object} users - return users
+  */
   fetchUsers() {
     this.props.dispatch(fetchUsers())
   }
@@ -79,6 +88,9 @@ class ContentCourseDetail extends Component {
       
     }
 
+    /**
+    * purchaser course
+    */
     purchase_course() {
 
       const {course} = this.props

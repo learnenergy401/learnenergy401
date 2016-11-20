@@ -1,6 +1,11 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
+/**
+ * Grabs the Users from the database.
+ * @returns {object} users - Returns the object of users.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchUsers() {
   return function(dispatch) {
     firebaseDb.ref('User').once('value')
@@ -13,6 +18,11 @@ export function fetchUsers() {
   }
 }
 
+/**
+ * Grabs the RFPfromEOIs from the database.
+ * @returns {object} rfpfromeoi - Returns the object of rfpfromeoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function fetchRFPfromEOI() {
   return function(dispatch) {
     firebaseDb.ref('RFPfromEOI').once('value')
@@ -25,7 +35,12 @@ export function fetchRFPfromEOI() {
   }
 }
 
-
+/**
+ * submits RFP prompt from EOI details.
+ * @returns {object} dispatch - Returns the state which contains rfp object
+ * @param {object} info - object which contains information about the vendor for rfp.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
 export function submitRFPfromEOI(info) {
   return function(dispatch) {
     firebaseAuth.onAuthStateChanged((user)=>{
@@ -737,6 +752,12 @@ export function logOutUser() {
     }
 }
 
+/**
+ * Updates user profile.
+ * @params {object} user - info on the user
+ * @returns {object} dispatch - Returns the state which contains user object
+ * @throws {object} err - Returns an error if fail to logout.
+ */
 export function updateProfile(user) {
     return function(dispatch) {
       dispatch({type: "UPDATE_USER_PROFILE"})
