@@ -7,6 +7,7 @@
 export default function reducer(state={
     vendorList:[],
     user: null,
+    userID: null,
     users: null,
     userName: null,
     fetching: false,
@@ -263,6 +264,7 @@ export default function reducer(state={
                 isLoggedIn:true,
                 user: action.payload,
                 profile:action.payload,
+                userID: action.userid,
                 role: action.payload.role,
             }
         }
