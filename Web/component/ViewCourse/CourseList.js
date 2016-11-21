@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import {Content, Layout,Button,List, ListItem,ListItemContent,Card,CardText,CardTitle,CardList,Textfield} from 'react-mdl';
+ import React, { Component } from 'react'
+import {Content, Layout,Button,List, ListItem,ListItemContent,Chip,Card,CardText,CardTitle,CardList,Textfield} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 import SearchInput, {createFilter} from 'react-search-input'
@@ -11,21 +11,19 @@ import { fetchCourse,saveACourse } from "../Actions/courseActions"
 const KEYS_TO_FILTERS = ['courseName', 'courseDescription']
 
 
+
 var listStyle = {
-    width : "80%",
-    marginLeft: "20%",
-    overflow:"scroll",
-    position:"relative"
+
+    overflow:"scroll"
 }
 
 var listItemStyle =  {
-    width : "100%",
+    width : "96%",
     height:"100px",
     margin: "10px"
 }
 
 var cardTitleStyle = {
-    right: "0px",
     background:"#3F51B5",
     color:"white"
 }
@@ -46,6 +44,7 @@ class CourseList extends Component{
     constructor (props) {
         super(props);
         this.state = { searchTerm: '' }
+        this.saveACourse = this.saveACourse.bind(this)
     }
 
     componentWillMount(){
@@ -98,36 +97,46 @@ class CourseList extends Component{
         if (course.courseList){
             var arr = this.jsonToArray(course.courseList)
             const filteredCourses = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-            const mappedCourse = filteredCourses.map(course =>
-
-                <div style={listItemStyle} key = {course.courseName} className="mdl-card mdl-shadow--2dp" onClick={()=>(this.saveACourse(course.courseName))}>
-                    <div style={cardTitleStyle} className="mdl-card__title" >
-                        <h2  className="mdl-card__title-text">
-                            {course.courseName}
-                        </h2>
+            const mappedCourse = filteredCourses.map(
+                function(course){
+                    var mappedTags = "loading"
+                    if(course.courseTags){
+                        var mappedTags = course.courseTags.map(tag => 
+                            <Chip style={{marginRight:"3px"}} key={tag.text} >{tag.text}</Chip>
+                        )
+    
+                    }
+                return(
+                    <div style={listItemStyle} key = {course.courseID} className="mdl-card mdl-shadow--2dp" onClick={()=>(this.saveACourse(course.courseName))}>
+                        <div style={cardTitleStyle} className="mdl-card__title" >
+                            <h2  className="mdl-card__title-text">
+                                {course.courseName}
+                            </h2>
+                        </div>
+                         <div style={cardTextStyle} className="mdl-card__supporting-text">
+                            {course.courseDescription}
+                        </div>
+                        <div style={cardTextStyle} className="mdl-card__supporting-text">
+                           {mappedTags}
+                        </div>
                     </div>
-                     <div style={cardTextStyle} className="mdl-card__supporting-text">
-                        {course.courseDescription}
-                    </div>
-                </div>
-                )
+                )},this)
 
             return(
-                <div>
-                     <Textfield style={{position:"relative"}} autoFocus className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+
+                <div ref="courseList" style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
+                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
                     <div style={listStyle}>
                         {mappedCourse}
                     </div>
                 </div>
-
             )
 
         }else{
             return(
-                <div>
-                    <Textfield autoFocus className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+               <div style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
+                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
                     <div style={listStyle}>
-
                         loading
                     </div>
                 </div>
@@ -136,5 +145,7 @@ class CourseList extends Component{
 
     }
 }
+
+
 
 export default CourseList
