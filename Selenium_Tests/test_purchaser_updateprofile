@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:8100/" />
-<title>Logout</title>
+<title>test_purchaser_updateprofile</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Logout</td></tr>
+<tr><td rowspan="1" colspan="3">test_purchaser_updateprofile</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -17,8 +17,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//div[@id='root']/div/header/div/a/button</td>
+	<td>//div[@id='root']/div/header/div/a[3]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=legalEntity</td>
+	<td>P Legal Entity Update</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/div/ul/li/div/div/div/button</td>
 	<td></td>
 </tr>
 

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8100/" />
+<title>test_submitrfp</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test_submitrfp</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/#/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/header/div/a/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=date</td>
+	<td>November.20.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=purchaser1</td>
+	<td>Purchaser Legal Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service</td>
+	<td>Educational</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=closeDate</td>
+	<td>November.30.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=closeTime</td>
+	<td>12:00 Local Time</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name1</td>
+	<td>Jared Smith</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title1</td>
+	<td>CEO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email1</td>
+	<td>jaredsmith@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name2</td>
+	<td>Jared Smith</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title2</td>
+	<td>CEO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email2</td>
+	<td>jaredsmith@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phone</td>
+	<td>780-342-3422</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TSissue_date</td>
+	<td>November.20.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TSclosing_date</td>
+	<td>November.30.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=company_background</td>
+	<td>This is company background.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rfp_overview</td>
+	<td>This is the rfp overview.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rfp_title</td>
+	<td>RFP Title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rfp_contact</td>
+	<td>rfp@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rfp_closing_date</td>
+	<td>November.30.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=rfp_question_close</td>
+	<td>November.30.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=conflict_interest</td>
+	<td>conflicts of interst polcies.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=attachment1</td>
+	<td>This is attachment 1 details.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description1</td>
+	<td>1.3 Description 1.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=daily_rate1</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=package_rate1</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=details1</td>
+	<td>1.3 Details 1.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description2</td>
+	<td>1.3 Description 2.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=daily_rate2</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=package_rate2</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=details2</td>
+	<td>1.3 Details 2.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description3</td>
+	<td>1.3 Description 3.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=daily_rate3</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=package_rate3</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=details3</td>
+	<td>1.3 Details 3.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description4</td>
+	<td>1.3 Description 4.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=daily_rate4</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=package_rate4</td>
+	<td>400</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=details4</td>
+	<td>1.3 Details 4.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=markup_dollar</td>
+	<td>140</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=markup_percent</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=schedule_start</td>
+	<td>December.01.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=schedule_completion</td>
+	<td>December.31.2016</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub1</td>
+	<td>sub1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub_description1</td>
+	<td>task 1.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub2</td>
+	<td>sub2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub_description2</td>
+	<td>task 2.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub3</td>
+	<td>sub3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub_description3</td>
+	<td>task 3.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub4</td>
+	<td>sub4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sub_description4</td>
+	<td>task 4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref1</td>
+	<td>ref1 name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_company1</td>
+	<td>ref2 company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_contact1</td>
+	<td>ref3 contact</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_company1</td>
+	<td>ref1 company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_contact1</td>
+	<td>ref1 contact</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_phone1</td>
+	<td>ref1 phone</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_email1</td>
+	<td>ref1 email</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref2</td>
+	<td>ref2 name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_company2</td>
+	<td>ref2 company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_contact2</td>
+	<td>ref2 contact</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_phone2</td>
+	<td>ref2 phone</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_email2</td>
+	<td>ref2 email</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref3</td>
+	<td>ref3 name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_company3</td>
+	<td>ref3 company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_contact3</td>
+	<td>ref3 contact</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_phone3</td>
+	<td>ref3 phone</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ref_email3</td>
+	<td>ref3 email</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=additional_info</td>
+	<td>5.1 additional information.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_email</td>
+	<td>vendor2016@gmail.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/button</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

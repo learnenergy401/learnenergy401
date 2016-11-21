@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:8100/" />
-<title>Login</title>
+<title>test_ad_signup</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Login</td></tr>
+<tr><td rowspan="1" colspan="3">test_ad_signup</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,22 +18,32 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='root']/div/header/div/a/button</td>
+	<td>//div[@id='root']/div/header/div/a[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[3]/a/button</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=email</td>
-	<td>test@gmail.com</td>
+	<td>id=website</td>
+	<td>www.adtest2016.com</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=pw</td>
+	<td>id=email</td>
+	<td>adtest2016@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
 	<td>123456</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//button[@type='submit']</td>
+	<td>clickAndWait</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[4]/button</td>
 	<td></td>
 </tr>
 

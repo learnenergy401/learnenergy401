@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:8100/" />
-<title>VendorSignup</title>
+<title>test_vendor_signup</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">VendorSignup</td></tr>
+<tr><td rowspan="1" colspan="3">test_vendor_signup</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -29,62 +29,57 @@
 <tr>
 	<td>type</td>
 	<td>id=legalEntity</td>
-	<td>Vendor Legal Entity</td>
+	<td>V Legal Entity</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=operatingName</td>
-	<td>Vendor Operating Name</td>
+	<td>V Operating Name</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=address1</td>
-	<td>123 Street</td>
+	<td>V Address 1</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=address2</td>
-	<td>RR #2</td>
+	<td>V Address 2</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=city</td>
-	<td>Edmonton</td>
+	<td>V City</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=province</td>
-	<td>Alberta</td>
+	<td>V Province</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=country</td>
-	<td>Canada</td>
+	<td>V Country</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=postalCode</td>
-	<td>T5Y2W9</td>
+	<td>V Postal Code</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=phone</td>
-	<td>780-876-6543</td>
+	<td>V Phone Number</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=fax</td>
-	<td>780-123-4567</td>
+	<td>V Fax Number</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=owner1Name</td>
-	<td>John</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=owner1Name</td>
-	<td>John Smith</td>
+	<td>V John Smith</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -93,18 +88,58 @@
 </tr>
 <tr>
 	<td>type</td>
+	<td>id=owner2Name</td>
+	<td>V Bob Dole</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner2Pos</td>
+	<td>CTO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner3Name</td>
+	<td>V Rick Shaw</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner3Pos</td>
+	<td>HR</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner4Name</td>
+	<td>V Jane Locke</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner4Pos</td>
+	<td>Media</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner5Name</td>
+	<td>V Julie Wick</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=owner5Pos</td>
+	<td>VP</td>
+</tr>
+<tr>
+	<td>type</td>
 	<td>id=natureBusiness</td>
-	<td>Test Nature</td>
+	<td>V Nature of Business description.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=timeBusiness</td>
-	<td>Test Length</td>
+	<td>V Length of time in Business description.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=proAffiliation</td>
-	<td>Test Professional</td>
+	<td>Professional affilation description.</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -114,7 +149,7 @@
 <tr>
 	<td>type</td>
 	<td>id=bank</td>
-	<td>BMO</td>
+	<td>V Bank</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -124,42 +159,42 @@
 <tr>
 	<td>type</td>
 	<td>id=bonding</td>
-	<td>Bonding Company</td>
+	<td>V Bonding Company</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=bondingLocation</td>
-	<td>124 Street</td>
+	<td>321 Ave.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insuranceCompany</td>
-	<td>Sun Life</td>
+	<td>V Insurance Company</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insuranceLocation</td>
-	<td>125 Street</td>
+	<td>456 Road</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=bondingLimitDate</td>
-	<td>Nov-12-2016</td>
+	<td>September 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=bondingLimit</td>
-	<td>1000</td>
+	<td>2000</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=grossBus</td>
-	<td>10000</td>
+	<td>16000</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=grossBusYear</td>
-	<td>2016</td>
+	<td>2015</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -169,97 +204,277 @@
 <tr>
 	<td>type</td>
 	<td>id=numEmployees</td>
-	<td>12</td>
+	<td>300</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1address1</td>
-	<td>124 Street</td>
+	<td>V AD 1 Address 1</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1address2</td>
-	<td>RR #4</td>
+	<td>V AD 1 Address 2</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1city</td>
-	<td>Calgary</td>
+	<td>V AD 1 City</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1province</td>
-	<td>Alberta</td>
+	<td>V AD 1 Province</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1country</td>
-	<td>Canada</td>
+	<td>V AD 1 Country</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1postalCode</td>
-	<td>T3W9Q2</td>
+	<td>V AD 1 Postal Code</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=AD1phone</td>
-	<td>780-321-3456</td>
+	<td>V AD 1 Phone Number</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2address1</td>
+	<td>V AD 2 Address 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2address2</td>
+	<td>V AD 2 Address 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2city</td>
+	<td>V AD 2 City</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2province</td>
+	<td>V AD 2 Province</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2country</td>
+	<td>V AD 2 Country</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2postalCode</td>
+	<td>V AD 2 Postal Code</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD2phone</td>
+	<td>V AD 2 Phone Number</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3address1</td>
+	<td>V AD 3 Address 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3address2</td>
+	<td>V AD 3 Address 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3city</td>
+	<td>V AD 3 City</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3province</td>
+	<td>V AD 3 Province</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3country</td>
+	<td>V AD 3 Country</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3postalCode</td>
+	<td>V AD 3 Postal Code</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AD3phone</td>
+	<td>V AD 3 Phone Number</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=categories</td>
-	<td>Oil</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=specialties</td>
 	<td>Gas</td>
 </tr>
 <tr>
 	<td>type</td>
+	<td>id=specialties</td>
+	<td>Oil</td>
+</tr>
+<tr>
+	<td>type</td>
 	<td>id=client1</td>
-	<td>Jared Lettuc</td>
+	<td>Joe Matt</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=client1Location</td>
-	<td>143 Street</td>
+	<td>123 Road</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=client1Phone</td>
-	<td>780-343-2345</td>
+	<td>780-456-7890</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=client1Email</td>
-	<td>jared@telus.net</td>
+	<td>joematt@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>xpath=(//textarea[@id='natureBusiness'])[2]</td>
-	<td>test details of services</td>
+	<td>id=client1Service</td>
+	<td>work history details for Joe Matt.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client2</td>
+	<td>Jake Long</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client2Location</td>
+	<td>432 Street</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client2Phone</td>
+	<td>780-454-2342</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client2Email</td>
+	<td>jakelong@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client2Service</td>
+	<td>work history details for jake long.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client3</td>
+	<td>Judy Eye</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client3Location</td>
+	<td>534 Avenue</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client3Phone</td>
+	<td>780-422-3423</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client3Email</td>
+	<td>judyeye@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client3Service</td>
+	<td>work history 3 for judy eye.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client4</td>
+	<td>Alex Jure</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client4Location</td>
+	<td>34 West</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client4Phone</td>
+	<td>780-432-2343</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client4Email</td>
+	<td>alexjure@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=client4Service</td>
+	<td>work history details 4 for alex jure.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=licence1</td>
-	<td>Drivers Licence</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=licence1</td>
-	<td>Professional Engineers</td>
+	<td>Pro Licence 1</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=licence1Location</td>
-	<td>3423 Avenue</td>
+	<td>Professional Engineers</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence2</td>
+	<td>Pro Licence 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence2Location</td>
+	<td>Technicians</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence3</td>
+	<td>Pro Licence 3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence3Location</td>
+	<td>Mechanics</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence4</td>
+	<td>Pro Licence 4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence4Location</td>
+	<td>Computer Scientists</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence5</td>
+	<td>Pro Licence 5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=licence5Location</td>
+	<td>Welders</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer1</td>
-	<td>Insurer 1</td>
+	<td>Insure 1</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -269,12 +484,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry1</td>
-	<td>December-31-2016</td>
+	<td>June 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer2</td>
-	<td>Insurer 2</td>
+	<td>Insure 2</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -284,12 +499,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry2</td>
-	<td>December-31-2017</td>
+	<td>July 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer3</td>
-	<td>Insurer 3</td>
+	<td>Insure 3</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -299,12 +514,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry3</td>
-	<td>December-31-2018</td>
+	<td>August 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer4</td>
-	<td>Insurer 4</td>
+	<td>Insure 4</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -314,12 +529,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry4</td>
-	<td>December-31-2019</td>
+	<td>September 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer5</td>
-	<td>Insurer 5</td>
+	<td>Insure 5</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -329,12 +544,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry5</td>
-	<td>December-31-2020</td>
+	<td>October 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer6</td>
-	<td>Insurer 6</td>
+	<td>Insure 6</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -344,12 +559,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry6</td>
-	<td>December-31-2021</td>
+	<td>November 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer7</td>
-	<td>Insurer 7</td>
+	<td>Insure 7</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -359,12 +574,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry7</td>
-	<td>December-31-2022</td>
+	<td>December 2016</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer8</td>
-	<td>Insurer 8</td>
+	<td>Insure 8</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -374,12 +589,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry8</td>
-	<td>December-31-2023</td>
+	<td>January 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer9</td>
-	<td>Insurer 9</td>
+	<td>Insure 9</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -389,12 +604,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry9</td>
-	<td>December-31-2024</td>
+	<td>Feburary 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer10</td>
-	<td>Insurer 10</td>
+	<td>Insure 10</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -404,12 +619,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry10</td>
-	<td>December-31-2025</td>
+	<td>March 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer11</td>
-	<td>Insurer 11</td>
+	<td>Insure 11</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -419,12 +634,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry11</td>
-	<td>December-31-2026</td>
+	<td>April 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer12</td>
-	<td>Insurer 12</td>
+	<td>Insure 12</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -434,12 +649,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry12</td>
-	<td>December-31-2027</td>
+	<td>May 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer13</td>
-	<td>Insurer 13</td>
+	<td>Insure 13</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -449,12 +664,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry13</td>
-	<td>December-31-2028</td>
+	<td>June 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer14</td>
-	<td>Insurer 14</td>
+	<td>Insure 14</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -464,12 +679,12 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry14</td>
-	<td>December-31-2029</td>
+	<td>July 2017</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=insurer15</td>
-	<td>Insurer 15</td>
+	<td>Insure 15</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -479,7 +694,7 @@
 <tr>
 	<td>type</td>
 	<td>id=expiry15</td>
-	<td>December-31-2030</td>
+	<td>August 2017</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -489,237 +704,247 @@
 <tr>
 	<td>type</td>
 	<td>id=EHWpreviousYear1</td>
-	<td>200</td>
+	<td>101</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=EHWpreviousYear2</td>
-	<td>300</td>
+	<td>102</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=EHWpreviousYear3</td>
-	<td>400</td>
+	<td>103</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=FcurrentYear</td>
-	<td>1</td>
+	<td>200</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=FpreviousYear1</td>
-	<td>2</td>
+	<td>201</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=FpreviousYear2</td>
-	<td>3</td>
+	<td>202</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=FpreviousYear3</td>
-	<td>4</td>
+	<td>203</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=LTIcurrentYear</td>
-	<td>5</td>
+	<td>300</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=LTIpreviousYear1</td>
-	<td>3</td>
+	<td>301</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=LTIpreviousYear2</td>
-	<td>3</td>
+	<td>302</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=LTIpreviousYear3</td>
-	<td>6</td>
+	<td>303</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=MAIcurrentYear</td>
-	<td>2</td>
+	<td>400</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=MAIpreviousYear1</td>
-	<td>9</td>
+	<td>401</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=MAIpreviousYear2</td>
-	<td>3</td>
+	<td>402</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=MAIpreviousYear3</td>
-	<td>4</td>
+	<td>403</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=ORCcurrentYear</td>
-	<td>1</td>
+	<td>500</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=ORCpreviousYear1</td>
-	<td>4</td>
+	<td>501</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=ORCpreviousYear2</td>
-	<td>3</td>
+	<td>502</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=ORCpreviousYear3</td>
-	<td>5</td>
+	<td>503</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=TRIcurrentYear</td>
-	<td>2</td>
+	<td>600</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=TRIpreviousYear1</td>
-	<td>4</td>
+	<td>601</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=TRIpreviousYear2</td>
-	<td>9</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=TRIpreviousYear3</td>
-	<td></td>
+	<td>602</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=TRIpreviousYear3</td>
-	<td>9</td>
+	<td>603</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=industryCode</td>
-	<td>234</td>
+	<td>Code 123</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=industryClassification</td>
-	<td>EVN</td>
+	<td>C Classification</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=IRcurrentYear</td>
-	<td>3%</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=IRpreviousYear1</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=IRpreviousYear1</td>
-	<td>3%</td>
+	<td>11</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=IRpreviousYear2</td>
-	<td>3%</td>
+	<td>12</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=IRpreviousYear3</td>
-	<td>6%</td>
+	<td>13</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PRcurrentYear</td>
-	<td>2%</td>
+	<td>2</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PRpreviousYear1</td>
-	<td>4%</td>
+	<td>21</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PRpreviousYear2</td>
-	<td>3%</td>
+	<td>22</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PRpreviousYear3</td>
-	<td>6%</td>
+	<td>23</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PDcurrentYear</td>
-	<td>4%</td>
+	<td>3</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PDpreviousYear1</td>
-	<td>5%</td>
+	<td>31</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=PDpreviousYear2</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PDpreviousYear2</td>
-	<td>6%</td>
+	<td>32</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PDpreviousYear3</td>
-	<td>5%</td>
+	<td>33</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PScurrentYear</td>
-	<td>2%</td>
+	<td>4</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PSpreviousYear1</td>
-	<td>1%</td>
+	<td>41</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PSpreviousYear2</td>
-	<td>7%</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=PSpreviousYear3</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=PSpreviousYear3</td>
-	<td>6%</td>
+	<td>43</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=drugPolicy</td>
-	<td>No Drugs</td>
+	<td>Drug and alcohol policy.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=subcontractors</td>
-	<td>We do</td>
+	<td>Subcontractors comply with health and safety reqs.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=stopWorkOrder</td>
-	<td>Never</td>
+	<td>We received a agency stop work order.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=HSEjudge</td>
-	<td>None</td>
+	<td>HSE judgements.</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=email</td>
-	<td>vendor@gmail.com</td>
+	<td>vendor2016@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -729,26 +954,26 @@
 <tr>
 	<td>type</td>
 	<td>id=adminContact</td>
-	<td>vendorAdmin@gmail.com</td>
+	<td>vendoradmin2016@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=technicalContact</td>
-	<td>vendorTech@gmail.com</td>
+	<td>vendortech2016@gmail.com</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=ISnumberYes</td>
+	<td>id=ISnumberNo</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=website</td>
-	<td>www.vendor.com</td>
+	<td>www.vendor2016.com</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[134]/button</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[176]/button</td>
 	<td></td>
 </tr>
 
