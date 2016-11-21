@@ -127,28 +127,7 @@ class AdminReview extends Component {
     rejectUser(user) {
       this.props.dispatch(rejectUser(user))
     }
-    /*  TEMP STORAGE FOR PURCHASER INFORMATION
-                      <p><b>Fax:</b>{fax}</p>
-                      <p><b>Email:</b>{email}</p>
-                      <p><b>Admin Contact:</b>{adminContact}</p>
-                      <p><b>Techncal Contact:</b>{technicalContact}</p>
-
-                      <p><b>GST Registration: </b>{gstReg}</p>
-                      <p><b>Bank:</b> {bank}</p>
-                      <p><b>Accounts Recieveable:</b> {accntRec}</p>
-                      <p><b>IS Number:</b>{ISnumber}</p>
-                      <p><b>Website: </b><a href={website}target="_blank">{website}</a></p>
-                      <p><b>Password:</b>{password}</p>
-
-                      <p><b>Address 1:</b>{billAddress1}</p>
-                      <p><b>Address 2:</b>{billAddress2}</p>
-                      <p><b>City:</b>{billCity}</p>
-                      <p><b>Province:</b>{billProvince}</p>
-                      <p><b>Country:</b>{billCountry}</p>
-                      <p><b>Postal Code:</b>{billPostalCode}</p>
-                      <p><b>Joint Venture:</b>{jointVenture}</p>
-                      <p><b>Categories:</b>{categories}</p>
-    */
+    
     
     /**
      * Accepts a user
@@ -1534,19 +1513,47 @@ class AdminReview extends Component {
           var role = user.ad[key_name].role;
           return (
             <div>
+            
             <LearnHeader/>
-            <h4>Website: {website}</h4>
-            <h4>Email: {email}</h4>
-            <h4>Password: {password}</h4>
+            <div className="learn-content mdl-typography--text-center" >
+                <div className="grid">
+                  <div className="card mdl-shadow--2dp">
+                    <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
+                      <h4 className="card__title-text">Additional User Information</h4>
+                    </div>
+              
+                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
+              
+                        <h3>Details</h3>
+                        <table style={table_style}>
+                          <tr>
+                        <td style = {row_format}><b>Website:</b></td>      
+                        <td style = {row_format}><a href={website} link="red" target="_blank">{website}</a></td>
+                          </tr>
+                          <tr>
+                        <td style = {row_format}><b>Email:</b></td>      
+                        <td style = {row_format}>{email}</td>
+                          </tr>
+                          <tr>
+                        <td style = {row_format}><b>Password:</b></td>      
+                        <td style = {row_format}>{password}</td>
+                          </tr>
+                        </table>
+
+                    </div>
         
 
                 <div>
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-
-                </div>
+               </div>
                 <br/>
+              </div>
+              </div>
+              
+            </div>
+
             <LearnFooter/>
             </div>
           )
