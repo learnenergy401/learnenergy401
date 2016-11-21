@@ -26,7 +26,9 @@ const tags = (state = [], action) => {
 
 	case "SAVE_TAGS": 
         return action.payload 
-       
+  
+  case "RESET_TAGS": 
+        return action.payload 
     default:
       return state
   }

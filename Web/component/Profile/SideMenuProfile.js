@@ -3,6 +3,7 @@ import {Drawer,Navigation,List,ListItem,ListItemContent,Button} from 'react-mdl'
 import { connect } from "react-redux"
 import { getCurrentUser } from "../Actions/userActions"
 import { changeMenu } from "../Actions/profileActions"
+import {resetTags} from "../Actions/tagActions"
 
 
 
@@ -50,6 +51,7 @@ class SideMenuProfile extends Component {
     */
     changeMenuNumberTwo(){
         this.props.dispatch(changeMenu(2))
+        this.props.dispatch(resetTags())
     }
     /**
     * Loads the user profile sidebar

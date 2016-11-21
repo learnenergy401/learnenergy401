@@ -17,4 +17,9 @@ export const saveTags = (tags) => ({
   payload: tags
 })
 
+export const resetTags = () => ({
+  type: 'RESET_TAGS',
+  payload: []
+})
+
 

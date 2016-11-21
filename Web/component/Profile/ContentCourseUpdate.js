@@ -80,7 +80,6 @@ class ContentCourseUpdate extends Component {
       var coursePrev = course.aCourse;
       evt.stopPropagation();
       evt.preventDefault();
-      console.log(evt.target.files)
       var file = evt.target.files[0];
 
       var fileName = file.name;
