@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "lint": "eslint app",
-    "doc": "esdoc -c esdoc.json",
+    "esdoc": "esdoc -c esdoc.json",
     "postinstall": "npm run build && npm run doc",
     "test": "mocha --reporter spec Web/test/*.js --require babel-core/register"
   },
