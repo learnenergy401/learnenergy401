@@ -5,6 +5,7 @@
  * @return {state} state
  */
 export default function reducer(state={
+    vendorList:[],
     user: null,
     userid: null,
     users: null,
