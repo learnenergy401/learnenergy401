@@ -6,6 +6,7 @@
  */
 export default function reducer(state={
     user: null,
+    userid: null,
     users: null,
     userName: null,
     fetching: false,
@@ -262,6 +263,7 @@ export default function reducer(state={
                 isLoggedIn:true,
                 user: action.payload,
                 profile:action.payload,
+                userid: action.userid,
                 role: action.payload.role,
             }
         }

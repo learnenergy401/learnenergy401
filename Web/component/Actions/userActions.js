@@ -666,7 +666,7 @@ export function getCurrentUser() {
         dispatch({type: "FETCH_USER_FULFILLED", payload: user,isLoggedIn: true})
         firebaseDb.ref('User/' + user.uid).once("value")
         .then((snapshot) => {
-            dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val()})
+            dispatch({type: "FETCH_USER_PROFILE_FULFILLED", payload: snapshot.val(), userid:user.uid})
         })
         .catch((err) => {
             dispatch({type: "FETCH_USER_PROFILE_REJECTED", payload: err})
