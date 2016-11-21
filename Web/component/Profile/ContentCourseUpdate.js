@@ -57,6 +57,7 @@ class ContentCourseUpdate extends Component {
     
     updateCourse(){
         const {course} = this.props
+        /*the purchaser part is missing!!!!!!!!!!!*/
         var prevName=course.aCourse.courseName;
         var prevID=course.aCourse.courseID;
         var user = this.props.user.user
