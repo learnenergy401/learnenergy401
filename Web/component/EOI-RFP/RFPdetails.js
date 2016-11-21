@@ -24,7 +24,7 @@ var cardStyle = {
 }
 
 var cardTitleStyle = {
-    height:'200px'
+    height:'700px'
 }
 
 @connect((store) => {
@@ -89,7 +89,7 @@ class RFPdetails extends Component {
         }
         // now auto fill the document user user.rfp[user.rfpKey].X
         // check to see if the user is a purchaser or vendor
-        if ((user.user.role == 1 || user.user.role == 0) && (user.rfpKey !=null)){             
+        if ((user.user.role == 1 || user.user.role == 0) && (user.rfpKey !=null)){
             // check to see that these are the valid users
             var valid_user = false
             var keys = Object.keys(user.users)
@@ -102,7 +102,7 @@ class RFPdetails extends Component {
                 }
             }
             console.log('valid user')
-            // we have a valid user now 
+            // we have a valid user now
             if ((valid_user) && (user.rfp!=null) && (user.rfpKey!=null)) {
                 // fill out our form now
                 document.getElementById("date").value = user.rfp[user.rfpKey.key_name].date
@@ -294,7 +294,7 @@ class RFPdetails extends Component {
     }
 
     /**
-     * Loads the details 
+     * Loads the details
      * @return {html} - returns html details
      */
     render() {
@@ -646,7 +646,7 @@ class RFPdetails extends Component {
             )
 
         } else {
-            return ( 
+            return (
             <div>
               <LearnHeader/>
 
