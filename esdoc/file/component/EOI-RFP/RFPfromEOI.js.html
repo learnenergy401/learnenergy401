@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">component/EOI-RFP/RFPfromEOI.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/learnenergy401/learnenergy401" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ADpage.js~ADpage.html">ADpage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Admin.js~Admin.html">Admin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/AdminReview.js~AdminReview.html">AdminReview</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonAdmin.js~ButtonAdmin.html">ButtonAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogIn.js~ButtonLogIn.html">ButtonLogIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogOut.js~ButtonLogOut.html">ButtonLogOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonProfile.js~ButtonProfile.html">ButtonProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentLogin.js~ComponentLogin.html">ComponentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentUpload.js~ComponentUpload.html">ComponentUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentHome.js~ContentHome.html">ContentHome</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogin.js~ContentLogin.html">ContentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogout.js~ContentLogout.html">ContentLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Footer.js~LearnFooter.html">LearnFooter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Header.js~LearnHeader.html">LearnHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCoursePurchaser">addCoursePurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateCourse">updateCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseDetail">uploadCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseFiles">uploadCourseFiles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAdminSignup">fetchAdminSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchEOIkey">fetchEOIkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchEOIs">fetchEOIs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchKeyRole">fetchKeyRole</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchNotificationAdmin">fetchNotificationAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchPurchaserSignup">fetchPurchaserSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPfromEOI">fetchRFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPkey">fetchRFPkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPs">fetchRFPs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchReqEOI">fetchReqEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchUsers">fetchUsers</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorSignup">fetchVendorSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCurrentUser">getCurrentUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logInUser">logInUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logOutUser">logOutUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rejectUser">rejectUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeEOI">removeEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeRFP">removeRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setNotificationAdmin">setNotificationAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeEOIkey">storeEOIkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeEOIs">storeEOIs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeKeyRole">storeKeyRole</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeRFPkey">storeRFPkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeRFPs">storeRFPs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeReqEOI">storeReqEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-submitRFPfromEOI">submitRFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateProfile">updateProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateRFP">updateRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addTag">addTag</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-deleteTag">deleteTag</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-resetTags">resetTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-saveTags">saveTags</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">EOI-RFP</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ButtonRFP.js~ButtonRFP.html">ButtonRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ButtonReviewEOI.js~ButtonReviewEOI.html">ButtonReviewEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ContentEOI.js~ContentEOI.html">ContentEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/CourseEOI.js~CourseEOI.html">CourseEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/EOIdetails.js~EOIdetails.html">EOIdetails</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFP.js~RFP.html">RFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFPdetails.js~RFPdetails.html">RFPdetails</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFPfromEOI.js~RFPfromEOI.html">RFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ReviewEOI.js~ReviewEOI.html">ReviewEOI</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Profile</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ButtonEdit.js~ButtonEdit.html">ButtonEdit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentCourseDisplay.js~ContentCourseDisplay.html">ContentCourseDisplay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentCourseUpdate.js~ContentCourseUpdate.html">ContentCourseUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfile.js~ContentProfile.html">ContentProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfileUpload.js~ContentProfileUpload.html">ContentProfileUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/Profile.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/SideMenuProfile.js~SideMenuProfile.html">SideMenuProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Reducers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tags">tags</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">SignUp</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUp.js~ButtonSignUp.html">ButtonSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpAD.js~ButtonSignUpAD.html">ButtonSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpPurchaser.js~ButtonSignUpPurchaser.html">ButtonSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpVendor.js~ButtonSignUpVendor.html">ButtonSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html">ComponentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpPurchaser.js~ComponentSignUpPurchaser.html">ComponentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpVendor.js~ComponentSignUpVendor.html">ComponentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignup.js~ComponentSignUp.html">ComponentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpAD.js~ContentSignUpAD.html">ContentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpPurchaser.js~ContentSignUpPurchaser.html">ContentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpVendor.js~ContentSignUpVendor.html">ContentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignup.js~ContentSignUp.html">ContentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUp.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpAD.js~SignUpAD.html">SignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpPurchaser.js~SignUpPurchaser.html">SignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpVendor.js~SignUpVendor.html">SignUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Vendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Vendor/Upload.js~Upload.html">Upload</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewCourse</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail.html">ContentCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentViewCourse.js~ContentViewCourse.html">ContentViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewVendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/ContentViewVendor.js~ContentViewVendor.html">ContentViewVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/VendorList.js~VendorList.html">VendorList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/ViewVendor.js~ViewVendor.html">ViewVendor</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">component/EOI-RFP/RFPfromEOI.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
+import { Header, Layout, Textfield,Grid,Cell,Card,CardText, Content, CardTitle, CardActions, Button } from &apos;react-mdl&apos;;
+import LearnHeader from &apos;../Header.js&apos;
+import LearnFooter from &apos;../Footer.js&apos;
+
+import LearnLogo from &apos;../Logo.js&apos;;
+import LearnNavigation from &apos;../Navigation.js&apos;;
+import store from &apos;../Store.js&apos;
+import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from &apos;../Firebase&apos;
+import { Router, Route, Link, browserHistory, IndexRoute  } from &apos;react-router&apos;
+import { connect } from &quot;react-redux&quot;
+
+import { storeRFPs, getCurrentUser, fetchRFPfromEOI, removeEOI } from &quot;../Actions/userActions&quot;
+
+var spacerStyle = {
+    height: &apos;50px&apos;,
+    backgroundColor: &apos;#f3f3f3&apos;,
+    backgroundSize: &apos;cover&apos;
+}
+
+var cardStyle = {
+    width: &apos;80%&apos;,
+    margin: &apos;auto&apos;,
+    height:&apos;500px&apos;
+}
+
+var cardTitleStyle = {
+    height:&apos;50px&apos;
+}
+
+
+@connect((store) =&gt; {
+  return {
+    user: store.user
+  };
+})
+
+class RFPfromEOI extends Component {
+    /**
+     * Removes EOIs
+     * @params {object} info - key to remove
+     */
+    removeEOI(info) {
+        this.props.dispatch(removeEOI(info))
+    }
+    getCurrentUser() {
+        this.props.dispatch(getCurrentUser())
+    }
+
+    storeRFPs(info) {
+        this.props.dispatch(storeRFPs(info))
+    }
+
+    fetchRFPfromEOI() {
+        this.props.dispatch(fetchRFPfromEOI())
+    }
+
+    componentWillMount() {
+        this.getCurrentUser()
+        this.fetchRFPfromEOI()
+    }
+
+    requestSubmit() {
+        const {user} = this.props
+        var date = document.getElementById(&quot;date&quot;).value
+        var purchaser1 = document.getElementById(&quot;purchaser&quot;).value
+        var service = document.getElementById(&quot;service&quot;).value
+        
+        var closeDate = document.getElementById(&quot;closeDate&quot;).value
+        var closeTime = document.getElementById(&quot;closeTime&quot;).value
+        var name1 = document.getElementById(&quot;name1&quot;).value
+        var title1 = document.getElementById(&quot;title1&quot;).value
+        var email1 = document.getElementById(&quot;email1&quot;).value
+        var name2 = document.getElementById(&quot;name2&quot;).value
+        var title2 = document.getElementById(&quot;title2&quot;).value
+        var email2 = document.getElementById(&quot;email2&quot;).value
+        var phone = document.getElementById(&quot;phone&quot;).value
+
+        var TSissue_date = document.getElementById(&quot;TSissue_date&quot;).value
+        var TSclosing_date = document.getElementById(&quot;TSclosing_date&quot;).value
+        var company_background = document.getElementById(&quot;company_background&quot;).value
+        var rfp_overview = document.getElementById(&quot;rfp_overview&quot;).value
+        var rfp_title = document.getElementById(&quot;rfp_title&quot;).value
+        var rfp_contact = document.getElementById(&quot;rfp_contact&quot;).value
+        var rfp_closing_date = document.getElementById(&quot;rfp_closing_date&quot;).value
+        var rfp_question_close = document.getElementById(&quot;rfp_question_close&quot;).value
+        var conflict_interest = document.getElementById(&quot;conflict_interest&quot;).value
+        var attachment1 = document.getElementById(&quot;attachment1&quot;).value
+        var description1 = document.getElementById(&quot;description1&quot;).value
+        var daily_rate1 = document.getElementById(&quot;daily_rate1&quot;).value
+        var package_rate1 = document.getElementById(&quot;package_rate1&quot;).value
+        var details1 = document.getElementById(&quot;details1&quot;).value
+
+        var description2 = document.getElementById(&quot;description2&quot;).value
+        var daily_rate2 = document.getElementById(&quot;daily_rate2&quot;).value
+        var package_rate2 = document.getElementById(&quot;package_rate2&quot;).value
+        var details2 = document.getElementById(&quot;details2&quot;).value
+
+        var description3 = document.getElementById(&quot;description3&quot;).value
+        var daily_rate3 = document.getElementById(&quot;daily_rate3&quot;).value
+        var package_rate3 = document.getElementById(&quot;package_rate3&quot;).value
+        var details3 = document.getElementById(&quot;details3&quot;).value
+
+        var description4 = document.getElementById(&quot;description4&quot;).value
+        var daily_rate4 = document.getElementById(&quot;daily_rate4&quot;).value
+        var package_rate4 = document.getElementById(&quot;package_rate4&quot;).value
+        var details4 = document.getElementById(&quot;details4&quot;).value
+
+        var markup_dollar = document.getElementById(&quot;markup_dollar&quot;).value
+        var markup_percent = document.getElementById(&quot;markup_percent&quot;).value
+
+        var schedule_start = document.getElementById(&quot;schedule_start&quot;).value
+        var schedule_completion = document.getElementById(&quot;schedule_completion&quot;).value
+
+        var sub1 = document.getElementById(&quot;sub1&quot;).value
+        var sub_description1 = document.getElementById(&quot;sub_description1&quot;).value
+        var sub2 = document.getElementById(&quot;sub2&quot;).value
+        var sub_description2 = document.getElementById(&quot;sub_description2&quot;).value
+        var sub3 = document.getElementById(&quot;sub3&quot;).value
+        var sub_description3 = document.getElementById(&quot;sub_description3&quot;).value
+        var sub4 = document.getElementById(&quot;sub4&quot;).value
+        var sub_description4 = document.getElementById(&quot;sub_description4&quot;).value
+
+        var ref1 = document.getElementById(&quot;ref1&quot;).value
+        var ref_company1 = document.getElementById(&quot;ref_company1&quot;).value
+        var ref_contact1 = document.getElementById(&quot;ref_contact1&quot;).value
+        var ref_phone1 = document.getElementById(&quot;ref_phone1&quot;).value
+        var ref_email1 = document.getElementById(&quot;ref_email1&quot;).value
+
+        var ref2 = document.getElementById(&quot;ref2&quot;).value
+        var ref_company2 = document.getElementById(&quot;ref_company2&quot;).value
+        var ref_contact2 = document.getElementById(&quot;ref_contact2&quot;).value
+        var ref_phone2 = document.getElementById(&quot;ref_phone2&quot;).value
+        var ref_email2 = document.getElementById(&quot;ref_email2&quot;).value
+
+        var ref3 = document.getElementById(&quot;ref3&quot;).value
+        var ref_company3 = document.getElementById(&quot;ref_company3&quot;).value
+        var ref_contact3 = document.getElementById(&quot;ref_contact3&quot;).value
+        var ref_phone3 = document.getElementById(&quot;ref_phone3&quot;).value
+        var ref_email3 = document.getElementById(&quot;ref_email3&quot;).value
+
+        var additional_info = document.getElementById(&quot;additional_info&quot;).value
+
+        var LMRFPnum = user.rfp_from_eoi.LMRFPnum
+        var vendor = user.rfp_from_eoi.vendor
+        var purchaser = user.rfp_from_eoi.purchaser
+
+        var info = {date, purchaser1, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
+        name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
+        rfp_title, rfp_contact, rfp_closing_date, rfp_question_close, conflict_interest, attachment1,
+        description1, daily_rate1, package_rate1, details1, description2, daily_rate2, package_rate2, details2,
+        description3, daily_rate3, package_rate3, details3, description4, daily_rate4, package_rate4, details4,
+        markup_dollar, markup_percent, schedule_start, schedule_completion, sub1, sub_description1,
+        sub2, sub_description2, sub3, sub_description3, sub4, sub_description4, ref1, ref_company1, ref_contact1, ref_phone1, ref_email1,
+        ref2, ref_company2, ref_contact2, ref_phone2, ref_email2, ref3, ref_company3, ref_contact3, ref_phone3, ref_email3,
+        additional_info, vendor, purchaser}
+
+        // do this X times for X vendors
+        this.storeRFPs(info)
+
+        var key_name = user.eoiKey.key_name
+        var key = {key_name}
+
+        this.removeEOI(key)
+        window.location.assign(&quot;/#/review-eoi-rfp&quot;)
+
+    }
+
+	render() {
+
+        const {user} = this.props
+        console.log(&apos;user is&apos;, user)
+
+        if (user.user!=null &amp;&amp; user.role == 0 &amp;&amp;user.rfp_from_eoi!=null) {
+
+            console.log(user)
+
+            var vendor = user.rfp_from_eoi.vendor
+            var LMRFPnum = user.rfp_from_eoi.LMRFPnum
+
+            console.log(vendor)
+
+            var purchaser_legal = user.user.legalEntity
+            var purchaser_address1 = user.user.address1
+            var purchaser_address2 = user.user.address2
+            var purchaser_city = user.user.city
+            var purchaser_country = user.user.country
+            var purchaser_phone = user.user.phone
+            var purchaser_fax = user.user.fax
+
+    		return(
+
+              &lt;div&gt;
+                &lt;LearnHeader/&gt;
+
+                  &lt;div className=&quot;learn-content mdl-typography--text-center&quot;&gt;
+                  &lt;div style={spacerStyle} /&gt;
+                  &lt;Card shadow={0} style={cardStyle} &gt;
+                  &lt;CardTitle style={cardTitleStyle} className=&quot;mdl-color--indigo mdl-color-text--white mdl-shadow--2dp&quot;&gt;Request For Proposal Form&lt;/CardTitle&gt;
+                  &lt;div className=&quot;mdl-layout__content&quot; style={{textAlign: &apos;center&apos;}}&gt;
+                  &lt;a name=&quot;top&quot; /&gt;
+                  &lt;div style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+
+                    &lt;h4&gt;Cover Letter&lt;/h4&gt;
+                    &lt;hr/&gt;
+                    &lt;Textfield label=&quot;date&quot; className=&quot;form-control&quot; ref=&quot;date&quot;  placeholder=&quot;Date&quot; id=&quot;date&quot;/&gt;
+                    &lt;br/&gt;
+
+                    &lt;h6&gt;Purchaser Details: &lt;/h6&gt;
+                    &lt;h6&gt;Legal Name: &amp;nbsp; {purchaser_legal}&lt;/h6&gt;
+                    &lt;h6&gt;Address Line 1: &amp;nbsp; {purchaser_address1}&lt;/h6&gt;
+                    &lt;h6&gt;Address Line 2: &amp;nbsp; {purchaser_address2}&lt;/h6&gt;
+                    &lt;h6&gt;City: &amp;nbsp; {purchaser_city}&lt;/h6&gt;
+                    &lt;h6&gt;Country: &amp;nbsp; {purchaser_country}&lt;/h6&gt;
+                    &lt;h6&gt;Phone: &amp;nbsp; {purchaser_phone}&lt;/h6&gt;
+                    &lt;h6&gt;Fax Number: &amp;nbsp; {purchaser_fax}&lt;/h6&gt;
+                    &lt;h6&gt;
+                    On behalf of &lt;Textfield label=&quot;purchaser&quot; className=&quot;form-control&quot; ref=&quot;purchaser&quot;  placeholder=&quot;purchaser&quot; id=&quot;purchaser&quot;/&gt;
+                    (&quot;The Purchaser&quot;), your company (&quot;Vendor&quot;) is invited to submit a response to this Request for Proposal. This Request for Proposal (RFP)
+                    is for the provision of &lt;Textfield label=&quot;service&quot; className=&quot;form-control&quot; ref=&quot;service&quot;  placeholder=&quot;service&quot; id=&quot;service&quot;/&gt;
+                    services.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;
+                    Please review the Request for Proposal and Attachment 1, complete the Response Form Attachment 2, add any supplemental
+                    information and upload to the Purchaser&amp;#39;s LM RFP# {LMRFPnum} &amp;nbsp;
+                    response folder. And emailed to our contact below by the Closing Date and Time.
+                    &lt;/h6&gt;
+
+                    &lt;Textfield label=&quot;closeDate&quot; className=&quot;form-control&quot; ref=&quot;closeDate&quot;  placeholder=&quot;Close Date:&quot; id=&quot;closeDate&quot;/&gt;
+                    &amp;nbsp;
+                    &lt;Textfield label=&quot;closeTime&quot; className=&quot;form-control&quot; ref=&quot;closeTime&quot;  placeholder=&quot;Close Time:&quot; id=&quot;closeTime&quot;/&gt;
+                    &lt;h6&gt;Questions sent to:
+                    &amp;nbsp;&lt;Textfield label=&quot;name1&quot; className=&quot;form-control&quot; ref=&quot;name1&quot;  placeholder=&quot;Name&quot; id=&quot;name1&quot;/&gt;
+                    &amp;nbsp;&lt;Textfield label=&quot;title1&quot; className=&quot;form-control&quot; ref=&quot;title1&quot;  placeholder=&quot;Title&quot; id=&quot;title1&quot;/&gt;
+                    &lt;/h6&gt;
+                    &lt;Textfield label=&quot;email1&quot; className=&quot;form-control&quot; ref=&quot;email1&quot;  placeholder=&quot;Email&quot; id=&quot;email1&quot;/&gt;
+
+                    &lt;h6&gt;
+                    Vendor assumes full responsibility for delivery of the completed Response to the Request for Proposal
+                    before the Closing Date and time. The Purchaser is not responsible for any loss or delay with respect to
+                    the delivery of these documents. In addition, any and all costs incurred in responding to this RFP,
+                    meetings, or any other related activities are the sole responsibility of the Vendor.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;
+                    This Request for Proposal will be issued to multiple companies and the Purchaser reserves the right to reject any or all responses provided.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;
+                    Should you require additional information, please contact the undersigned.
+                    &lt;/h6&gt;
+                    &lt;h6&gt; With Best Regards,&lt;/h6&gt;
+                    &lt;Textfield label=&quot;name2&quot; className=&quot;form-control&quot; ref=&quot;name2&quot;  placeholder=&quot;Name&quot; id=&quot;name2&quot;/&gt;
+                    &lt;br/&gt;
+                    &lt;Textfield label=&quot;title2&quot; className=&quot;form-control&quot; ref=&quot;title2&quot;  placeholder=&quot;Title&quot; id=&quot;title2&quot;/&gt;
+                    &lt;br/&gt;
+                    &lt;Textfield label=&quot;email2&quot; className=&quot;form-control&quot; ref=&quot;email2&quot;  placeholder=&quot;Email&quot; id=&quot;email2&quot;/&gt;
+                    &lt;br/&gt;
+                    &lt;Textfield label=&quot;phone&quot; className=&quot;form-control&quot; ref=&quot;phone&quot;  placeholder=&quot;Phone&quot; id=&quot;phone&quot;/&gt;
+
+
+                    &lt;hr/&gt;
+                    &lt;hr/&gt;
+                    &lt;h4&gt;Training Services Request for Proposal&lt;/h4&gt;
+                    &lt;h6&gt;LM RFP#: &amp;nbsp; {LMRFPnum}&lt;/h6&gt;
+                    &lt;h6&gt;Issue Date: &amp;nbsp; &lt;Textfield label=&quot;TSissue_date&quot; className=&quot;form-control&quot; ref=&quot;TSissue_date&quot;  placeholder=&quot;Issue Date&quot; id=&quot;TSissue_date&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Closing Date: &amp;nbsp; &lt;Textfield label=&quot;TSclosing_date&quot; className=&quot;form-control&quot; ref=&quot;TSclosing_date&quot;  placeholder=&quot;Closing Date&quot; id=&quot;TSclosing_date&quot;/&gt; at 14:00 (Local Time)&lt;/h6&gt;
+                    &lt;hr/&gt;
+
+                    &lt;h5&gt;1. Introduction&lt;/h5&gt;
+                    &lt;h6&gt;&lt;u&gt;1.1 Company Background&lt;/u&gt;&lt;/h6&gt;
+                    &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;company_background&quot;&gt;&lt;/textarea&gt;
+                    &lt;h6&gt;&lt;u&gt;1.2 RFP Overview&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h7&gt;The intent of this RFP is to find successful Vendors capable of providing the following Training Services:&lt;/h7&gt;
+                    &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;rfp_overview&quot;&gt;&lt;/textarea&gt;
+                    &lt;hr/&gt;
+
+                    &lt;h5&gt;2. Response Guidelines&lt;/h5&gt;
+                    &lt;h6&gt;&lt;u&gt;2.1 RFP Details&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;RFP Title: &amp;nbsp; &lt;Textfield label=&quot;rfp_title&quot; className=&quot;form-control&quot; ref=&quot;rfp_title&quot;  placeholder=&quot;RFP Title&quot; id=&quot;rfp_title&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;RFP Number: &amp;nbsp; {LMRFPnum}&lt;/h6&gt;
+                    &lt;h6&gt;RFP Contact: &amp;nbsp; &lt;Textfield label=&quot;rfp_contact&quot; className=&quot;form-control&quot; ref=&quot;rfp_contact&quot;  placeholder=&quot;RFP Contact&quot; id=&quot;rfp_contact&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Closing Date: &amp;nbsp; &lt;Textfield label=&quot;rfp_closing_date&quot; className=&quot;form-control&quot; ref=&quot;rfp_closing_date&quot;  placeholder=&quot;Closing Date&quot; id=&quot;rfp_closing_date&quot;/&gt;(local time)&lt;/h6&gt;
+                    &lt;h6&gt;Close of Questions: &amp;nbsp; &lt;Textfield label=&quot;rfp_closing_date&quot; className=&quot;form-control&quot; ref=&quot;rfp_question_close&quot;  placeholder=&quot;Close of Questions&quot; id=&quot;rfp_question_close&quot;/&gt;(local time)&lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.2 Submission of Response&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Replies must uploaded to the {purchaser_legal}s LM RFP# {LMRFPnum} folder and be received by the email inbox of the RFP Contact on or before the Closing Date.
+                    {purchaser_legal} (&quot;The Purchaser&quot;) takes no responsibility for Replies that are undeliverable due to incorrect email address, filters, hardware and/or software outages,
+                    file size estrictions or similar issues. Vendors should confirm receipt of its response with the RFP Contact prior to the Closing Date.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.3 Vendors Qualifications&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    The Purchaser reserves the right to interview Vendors, contact references provided and request security clearance checks to assess Vendor&#x2019;s suitability for a contract.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.4 Inquiries&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Should any additional details be required, Vendors are request clarification prior to submitting a response. Questions regarding this RFP are to be submitted in writing prior to the closing date.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.5 Permits, Licenses, Authorizations and Approvals&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    If required, the successful Vendor(s) will obtain permits, licenses and approvals required in connection with the scope of work and include the cost of obtaining these in their response.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.6 Policies, Procedures and Other Requirements for Contractors (as applicable)&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    The successful Vendor will be required to adhere to all applicable legislation and regulations governing the site of the Services and all applicable Purchaser policies,
+                    procedures and other requirements for contractors including, but not limited to, Health, Safety and Environment Policies and Requirements. It is the responsibility of Vendors to
+                    familiarize themselves with all associated policies and requirements prior to submitting a response.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.7 Modification or Cancellation of RFP&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    The Purchaser reserves the right to modify, cancel or withdraw this RFP, and/or to issue a subsequent RFP at Purchaser&#x2019;s sole discretion.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.8 Confidentiality&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Information in this RFP, or information obtained by a Vendor in related discussions is confidential and shall not be disclosed unless authorized by Purchaser in writing. Vendor&#x2019;s responses
+                    shall become the property of Purchaser subject to claims of confidentiality.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;2.8 Governing Law&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of [jurisdiction]. In submitting a response the Vendor agrees to submit to the
+                    jurisdiction of the Courts of [jurisdiction] and be governed by the laws of [jurisdiction].
+                    &lt;/h6&gt;
+                    &lt;hr/&gt;
+
+                    &lt;h5&gt;3. Format of Response&lt;/h5&gt;
+                    &lt;h6&gt;&lt;u&gt;3.1 Instructions&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Vendors are to use the attached Response Forms and clearly label all supplementary information. The Purchaser will not be bound by any disclaimer in a response.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;3.2 Contract Form&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    The Contract between the Purchaser and a successful Vendor will include the terms and conditions that will govern the services between the parties. The Purchaser reserves the
+                    right to negotiate the final terms of any Contract.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;3.3 Vendor Pricing and Assumptions&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Vendors are to conform to the pricing requirements identified in the Response Forms.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;3.4 Vendor Pricing and Assumptions&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Conflict of Interest (insert company policies as applicable)
+                    &lt;/h6&gt;
+                    &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;conflict_interest&quot;&gt;&lt;/textarea&gt;
+                    &lt;hr/&gt;
+
+                    &lt;h5&gt;4. Evaluation Criteria&lt;/h5&gt;
+                    &lt;h6&gt;&lt;u&gt;4.1 Vendor Pricing and Assumptions&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Each response will be evaluated based upon the quality of the response and scored in accordance with pre-established criteria.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;4.2 Demonstrations and Presentations&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    The Purchaser may choose to conduct face-to- face meetings to interview Vendors and allow them to present qualifications or demonstrate
+                    qualifications that are the same as, or similar to that sought by the Purchaser.
+                    &lt;/h6&gt;
+
+                    &lt;hr/&gt;
+                    &lt;hr/&gt;
+                    &lt;h4&gt;LM RFP# {LMRFPnum} ATTACHMENT 1 &#x2013; SCOPE OF SERVICES&lt;/h4&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;&lt;u&gt;1.0 General&lt;/u&gt;&lt;/h6&gt;
+                    &lt;h6&gt;
+                    Vendors are invited to submit a Reply to this Request for Proposals (RFP) to provide Training Services to {purchaser_legal}.
+                    The scope of Training services includes the Training requirements stated below.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;Considerations to include in the scope:&lt;/u&gt;&amp;nbsp;Purchasers Detailed description Schedule OR may be replaced with Vendors recommended solution and timelines&lt;/h6&gt;
+                    &lt;h6&gt;&lt;u&gt;Key items/requirements for the Purchaser to consider when developing the scope of services:&lt;/u&gt;&lt;/h6&gt;
+                    &lt;ul&gt;
+                    &lt;li&gt;Continuity of Key Project Resources&lt;/li&gt;
+                    &lt;li&gt;Regulatory Requirements&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;ul type=&quot;circle&quot;&gt;
+                    &lt;li&gt;Site Access&lt;/li&gt;
+                    &lt;li&gt;Orientation(s)&lt;/li&gt;
+                    &lt;li&gt;Security clearance&lt;/li&gt;
+                    &lt;li&gt;Workers compensation requirements (jurisdiction specific)&lt;/li&gt;
+                    &lt;li&gt;Insurance&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;ul&gt;
+                    &lt;li&gt;HSE (jurisdiction specific):&lt;/li&gt;
+                    &lt;li&gt;Personal Protective Equipment (PPE)&lt;/li&gt;
+                    &lt;li&gt;COR / CSTS (Canada only)&lt;/li&gt;
+                    &lt;li&gt;Hazard Identification&lt;/li&gt;
+                    &lt;li&gt;Hazardous goods&lt;/li&gt;
+                    &lt;li&gt;WHMIS / GHS&lt;/li&gt;
+                    &lt;li&gt;Emergency preparedness and response&lt;/li&gt;
+                    &lt;li&gt;Incident management&lt;/li&gt;
+                    &lt;li&gt;Worker health &amp; hygiene&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;ul&gt;
+                    &lt;li&gt;Objectives and Targets&lt;/li&gt;
+                    &lt;li&gt;Communication / Reporting / Documentation&lt;/li&gt;
+                    &lt;li&gt;Performance Measurement&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;ul type=&quot;circle&quot;&gt;
+                    &lt;li&gt;Legislated requirements:&lt;/li&gt;
+                    &lt;li&gt;Codes&lt;/li&gt;
+                    &lt;li&gt;Standards&lt;/li&gt;
+                    &lt;li&gt;Laws&lt;/li&gt;
+                    &lt;li&gt;Foreign Worker permits&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;ul&gt;
+                    &lt;li&gt;Payment&lt;/li&gt;
+                    &lt;li&gt;Holdbacks&lt;/li&gt;
+                    &lt;li&gt;Local, Regional and Federal Taxes&lt;/li&gt;
+                    &lt;li&gt;Non-Resident Withholding Taxes for foreign service providers&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;h6&gt;Attachement 1:&lt;/h6&gt;
+                    &lt;textarea rows=&quot;20&quot; cols=&quot;100&quot; id=&quot;attachment1&quot;&gt;&lt;/textarea&gt;
+
+
+                    &lt;hr/&gt;
+                    &lt;hr/&gt;
+                    &lt;h4&gt;LM RFP# {LMRFPnum} ATTACHMENT 2 &#x2013; RESPONSE FORMS&lt;/h4&gt;
+                    &lt;hr/&gt;
+                    &lt;h5&gt;1. Pricing&lt;/h5&gt;
+                    &lt;h6&gt;1.1 Pricing is to be in [selected currency] currency and all duties, taxes, and levies will be deemed to be included. All taxes are to be shown separately.&lt;/h6&gt;
+                    &lt;h6&gt;1.2 Pricing is to be inclusive of wages, travel, expenses, materials, tools and equipment, company overheads, etc..&lt;/h6&gt;
+                    &lt;h6&gt;1.3 Provide pricing and details which will cover all training requirements and sessions listed in the RFP Document Article 1.2 in the table below:&lt;/h6&gt;
+
+                    &lt;h6&gt;Description 1: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;description1&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Daily Rate 1: &amp;nbsp; &lt;Textfield label=&quot;daily_rate1&quot; className=&quot;form-control&quot; ref=&quot;daily_rate1&quot;  placeholder=&quot;Daily Rate 1&quot; id=&quot;daily_rate1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Package Rate 1: &amp;nbsp; &lt;Textfield label=&quot;package_rate1&quot; className=&quot;form-control&quot; ref=&quot;package_rate1&quot;  placeholder=&quot;Package Rate 1&quot; id=&quot;package_rate1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Details 1: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;details1&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Description 2: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;description2&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Daily Rate 2: &amp;nbsp; &lt;Textfield label=&quot;daily_rate2&quot; className=&quot;form-control&quot; ref=&quot;daily_rate2&quot;  placeholder=&quot;Daily Rate 2&quot; id=&quot;daily_rate2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Package Rate 2: &amp;nbsp; &lt;Textfield label=&quot;package_rate2&quot; className=&quot;form-control&quot; ref=&quot;package_rate2&quot;  placeholder=&quot;Package Rate 2&quot; id=&quot;package_rate2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Details 2: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;details2&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Description 3: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;description3&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Daily Rate 3: &amp;nbsp; &lt;Textfield label=&quot;daily_rate3&quot; className=&quot;form-control&quot; ref=&quot;daily_rate3&quot;  placeholder=&quot;Daily Rate 3&quot; id=&quot;daily_rate3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Package Rate 3: &amp;nbsp; &lt;Textfield label=&quot;package_rate3&quot; className=&quot;form-control&quot; ref=&quot;package_rate3&quot;  placeholder=&quot;Package Rate 3&quot; id=&quot;package_rate3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Details 3: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;details3&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Description 4: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;description4&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Daily Rate 4: &amp;nbsp; &lt;Textfield label=&quot;daily_rate4&quot; className=&quot;form-control&quot; ref=&quot;daily_rate4&quot;  placeholder=&quot;Daily Rate 4&quot; id=&quot;daily_rate4&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Package Rate 4: &amp;nbsp; &lt;Textfield label=&quot;package_rate4&quot; className=&quot;form-control&quot; ref=&quot;package_rate4&quot;  placeholder=&quot;Package Rate 4&quot; id=&quot;package_rate4&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Details 4: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;details4&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+
+                    &lt;h6&gt;1.4 Provide (where applicable), the Vendors markup applied to the actual cost of travel and living expenses:&lt;/h6&gt;
+                    &lt;h6&gt;$: &amp;nbsp; &lt;Textfield label=&quot;markup_dollar&quot; className=&quot;form-control&quot; ref=&quot;markup_dollar&quot;  placeholder=&quot;$$$&quot; id=&quot;markup_dollar&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;OR&lt;/h6&gt;
+                    &lt;h6&gt;%: &amp;nbsp; &lt;Textfield label=&quot;markup_percent&quot; className=&quot;form-control&quot; ref=&quot;markup_percent&quot;  placeholder=&quot;%%%&quot; id=&quot;markup_percent&quot;/&gt;&lt;/h6&gt;
+
+                    &lt;h6&gt;NOTE: Travel expenses will be reimbursed by {purchaser_legal} upon submission of receipts or satisfactory proof of payment for reimbursement of expenses. Receipts or satisfactory proof of payment is required for:&lt;/h6&gt;
+
+                    &lt;ul&gt;
+                    &lt;li&gt;Air fare&lt;/li&gt;
+                    &lt;li&gt;Automobile: Fuel, Claims for mileage shall not exceed the rates stipulated in [state applicable government agency]&lt;/li&gt;
+                    &lt;li&gt;Automobile Allowance rates for the applicable period&lt;/li&gt;
+                    &lt;li&gt;Fares: Rail, Taxi Fares, Bus Fares&lt;/li&gt;
+                    &lt;li&gt;Accommodation: Consistent with pricing for a typical mid-tier establishment in the area&lt;/li&gt;
+                    &lt;li&gt;Meals: consistent with typical pricing for a mid-tier restaurant in the area&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;hr/&gt;
+                    &lt;h5&gt;2. Schedule&lt;/h5&gt;
+                    &lt;h6&gt;2.1 Provide details of the Vendor&#x2019;s schedule to meet the requirements as stated in Attachment 1 &#x2013; Scope of Services.&lt;/h6&gt;
+                    &lt;h6&gt;Start Date: &amp;nbsp; &lt;Textfield label=&quot;schedule_start&quot; className=&quot;form-control&quot; ref=&quot;schedule_start&quot;  placeholder=&quot;Start Date&quot; id=&quot;schedule_start&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Completion Date: &amp;nbsp; &lt;Textfield label=&quot;schedule_completion&quot; className=&quot;form-control&quot; ref=&quot;schedule_completion&quot;  placeholder=&quot;Completion Date&quot; id=&quot;schedule_completion&quot;/&gt;&lt;/h6&gt;
+
+                    &lt;hr/&gt;
+                    &lt;h5&gt;3. Subcontractors&lt;/h5&gt;
+                    &lt;h6&gt;3.1 Provide the names of any Subcontractors proposed to be used:&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Name 1: &amp;nbsp; &lt;Textfield label=&quot;sub1&quot; className=&quot;form-control&quot; ref=&quot;sub1&quot;  placeholder=&quot;Name&quot; id=&quot;sub1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Task / Description of Work Performed: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;sub_description1&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Name 2: &amp;nbsp; &lt;Textfield label=&quot;sub2&quot; className=&quot;form-control&quot; ref=&quot;sub2&quot;  placeholder=&quot;Name&quot; id=&quot;sub2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Task / Description of Work Performed: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;sub_description2&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Name 3: &amp;nbsp; &lt;Textfield label=&quot;sub3&quot; className=&quot;form-control&quot; ref=&quot;sub3&quot;  placeholder=&quot;Name&quot; id=&quot;sub3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Task / Description of Work Performed: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;sub_description3&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Name 4: &amp;nbsp; &lt;Textfield label=&quot;sub4&quot; className=&quot;form-control&quot; ref=&quot;sub4&quot;  placeholder=&quot;Name&quot; id=&quot;sub4&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Task / Description of Work Performed: &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;sub_description4&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+
+                    &lt;hr/&gt;
+                    &lt;h5&gt;4. References&lt;/h5&gt;
+                    &lt;h6&gt;4.1 Provide names and contact information for Vendor&#x2019;s clients who had the same, or similar requirements to the Services requested in Attachment 1 &#x2013; Scope of Services in the last 2 years.&lt;/h6&gt;
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Reference 1: &amp;nbsp; &lt;Textfield label=&quot;ref1&quot; className=&quot;form-control&quot; ref=&quot;ref1&quot;  placeholder=&quot;Name&quot; id=&quot;ref1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Company: &amp;nbsp; &lt;Textfield label=&quot;ref_company1&quot; className=&quot;form-control&quot; ref=&quot;ref_company1&quot;  placeholder=&quot;Company&quot; id=&quot;ref_company1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Contact: &amp;nbsp; &lt;Textfield label=&quot;ref_contact1&quot; className=&quot;form-control&quot; ref=&quot;ref_contact1&quot;  placeholder=&quot;Contact&quot; id=&quot;ref_contact1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Phone: &amp;nbsp; &lt;Textfield label=&quot;ref_phone1&quot; className=&quot;form-control&quot; ref=&quot;ref_phone1&quot;  placeholder=&quot;Phone&quot; id=&quot;ref_phone1&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Email: &amp;nbsp; &lt;Textfield label=&quot;ref_email1&quot; className=&quot;form-control&quot; ref=&quot;ref_email1&quot;  placeholder=&quot;Company&quot; id=&quot;ref_email1&quot;/&gt;&lt;/h6&gt;
+
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Reference 2: &amp;nbsp; &lt;Textfield label=&quot;ref2&quot; className=&quot;form-control&quot; ref=&quot;ref2&quot;  placeholder=&quot;Name&quot; id=&quot;ref2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Company: &amp;nbsp; &lt;Textfield label=&quot;ref_company2&quot; className=&quot;form-control&quot; ref=&quot;ref_company2&quot;  placeholder=&quot;Company&quot; id=&quot;ref_company2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Contact: &amp;nbsp; &lt;Textfield label=&quot;ref_contact2&quot; className=&quot;form-control&quot; ref=&quot;ref_contact2&quot;  placeholder=&quot;Contact&quot; id=&quot;ref_contact2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Phone: &amp;nbsp; &lt;Textfield label=&quot;ref_phone2&quot; className=&quot;form-control&quot; ref=&quot;ref_phone2&quot;  placeholder=&quot;Phone&quot; id=&quot;ref_phone2&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Email: &amp;nbsp; &lt;Textfield label=&quot;ref_email2&quot; className=&quot;form-control&quot; ref=&quot;ref_email2&quot;  placeholder=&quot;Company&quot; id=&quot;ref_email2&quot;/&gt;&lt;/h6&gt;
+
+                    &lt;hr/&gt;
+                    &lt;h6&gt;Reference 3: &amp;nbsp; &lt;Textfield label=&quot;ref3&quot; className=&quot;form-control&quot; ref=&quot;ref3&quot;  placeholder=&quot;Name&quot; id=&quot;ref3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Company: &amp;nbsp; &lt;Textfield label=&quot;ref_company3&quot; className=&quot;form-control&quot; ref=&quot;ref_company3&quot;  placeholder=&quot;Company&quot; id=&quot;ref_company3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Contact: &amp;nbsp; &lt;Textfield label=&quot;ref_contact3&quot; className=&quot;form-control&quot; ref=&quot;ref_contact3&quot;  placeholder=&quot;Contact&quot; id=&quot;ref_contact3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Phone: &amp;nbsp; &lt;Textfield label=&quot;ref_phone3&quot; className=&quot;form-control&quot; ref=&quot;ref_phone3&quot;  placeholder=&quot;Phone&quot; id=&quot;ref_phone3&quot;/&gt;&lt;/h6&gt;
+                    &lt;h6&gt;Email: &amp;nbsp; &lt;Textfield label=&quot;ref_email3&quot; className=&quot;form-control&quot; ref=&quot;ref_email3&quot;  placeholder=&quot;Company&quot; id=&quot;ref_email3&quot;/&gt;&lt;/h6&gt;
+
+                    &lt;hr/&gt;
+                    &lt;hr/&gt;
+                    &lt;h5&gt;5. Additional Information&lt;/h5&gt;
+                    &lt;h6&gt;5.1 Advise of any suggestions, recommendations, options or additional opportunities toimproving training results.&lt;/h6&gt;
+                    &lt;textarea rows=&quot;4&quot; cols=&quot;100&quot; id=&quot;additional_info&quot;&gt;&lt;/textarea&gt;
+
+                    &lt;hr/&gt;
+
+                    &lt;Button accent ripple className=&quot;mdl-color-text--indigo btn btn-primary&quot; onClick={this.requestSubmit.bind(this)}&gt;Submit&lt;/Button&gt;
+                  &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;/Card&gt;
+                  &lt;/div&gt;
+
+                &lt;LearnFooter/&gt;
+              &lt;/div&gt;
+
+    		)
+    	} else {
+            return (
+                &lt;div&gt;
+                &lt;LearnHeader/&gt;
+
+              &lt;div  className=&quot;learn-content mdl-typography--text-center&quot;&gt;
+                  &lt;div style={spacerStyle} /&gt;
+                  &lt;Card shadow={0} style={cardStyle} &gt;
+                    &lt;CardTitle className=&quot;mdl-color--indigo mdl-color-text--white mdl-shadow--2dp&quot;&gt;Request for Proposal Form&lt;/CardTitle&gt;
+
+                &lt;div style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+
+          &lt;h4&gt;NOT A VALID USER&lt;/h4&gt;
+                &lt;/div&gt;
+
+              &lt;/Card&gt;
+              &lt;/div&gt;
+                &lt;LearnFooter/&gt;
+                &lt;/div&gt;
+        )
+        }
+    }
+
+}
+
+export default RFPfromEOI
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
