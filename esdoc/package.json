@@ -6,9 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server",
     "lint": "eslint app",
-    "doc": "esdoc -c esdoc.json",
+    "esdoc": "esdoc -c esdoc.json",
     "postinstall": "npm run build && npm run doc",
-    "test":"mocha --reporter spec Web/test/*.js --require babel-core/register"
+    "test": "mocha --reporter spec Web/test/*.js --require babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -24,17 +24,21 @@
   "dependencies": {
     "babel-preset-stage-0": "^6.16.0",
     "decorative-react": "^0.1.3",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
     "react-mdl": "^1.7.2",
     "react-player": "^0.12.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-search-input": "^0.10.3",
+    "react-tagsinput": "^3.13.6",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-promise": "^0.5.3",
+    "redux-promise-middleware": "^4.1.0",
     "redux-thunk": "^2.1.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "youtube-player": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
@@ -48,6 +52,7 @@
     "mocha": "^3.1.2",
     "react-addons-test-utils": "^15.3.2",
     "redux-devtools": "^3.3.1",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   }

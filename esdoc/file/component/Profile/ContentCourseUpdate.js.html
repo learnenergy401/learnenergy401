@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">component/Profile/ContentCourseUpdate.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/learnenergy401/learnenergy401" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ADpage.js~ADpage.html">ADpage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Admin.js~Admin.html">Admin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/AdminReview.js~AdminReview.html">AdminReview</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonAdmin.js~ButtonAdmin.html">ButtonAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogIn.js~ButtonLogIn.html">ButtonLogIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogOut.js~ButtonLogOut.html">ButtonLogOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonProfile.js~ButtonProfile.html">ButtonProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentLogin.js~ComponentLogin.html">ComponentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentUpload.js~ComponentUpload.html">ComponentUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentHome.js~ContentHome.html">ContentHome</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogin.js~ContentLogin.html">ContentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogout.js~ContentLogout.html">ContentLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Footer.js~LearnFooter.html">LearnFooter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Header.js~LearnHeader.html">LearnHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCoursePurchaser">addCoursePurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateCourse">updateCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseDetail">uploadCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseFiles">uploadCourseFiles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAdminSignup">fetchAdminSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchEOIkey">fetchEOIkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchEOIs">fetchEOIs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchKeyRole">fetchKeyRole</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchNotificationAdmin">fetchNotificationAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchPurchaserSignup">fetchPurchaserSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPfromEOI">fetchRFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPkey">fetchRFPkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPs">fetchRFPs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchReqEOI">fetchReqEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchUsers">fetchUsers</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorSignup">fetchVendorSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCurrentUser">getCurrentUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logInUser">logInUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logOutUser">logOutUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rejectUser">rejectUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeEOI">removeEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeRFP">removeRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setNotificationAdmin">setNotificationAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeEOIkey">storeEOIkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeEOIs">storeEOIs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeKeyRole">storeKeyRole</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeRFPkey">storeRFPkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeRFPs">storeRFPs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeReqEOI">storeReqEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-submitRFPfromEOI">submitRFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateProfile">updateProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateRFP">updateRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addTag">addTag</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-deleteTag">deleteTag</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-resetTags">resetTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-saveTags">saveTags</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">EOI-RFP</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ButtonRFP.js~ButtonRFP.html">ButtonRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ButtonReviewEOI.js~ButtonReviewEOI.html">ButtonReviewEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ContentEOI.js~ContentEOI.html">ContentEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/CourseEOI.js~CourseEOI.html">CourseEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/EOIdetails.js~EOIdetails.html">EOIdetails</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFP.js~RFP.html">RFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFPdetails.js~RFPdetails.html">RFPdetails</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFPfromEOI.js~RFPfromEOI.html">RFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ReviewEOI.js~ReviewEOI.html">ReviewEOI</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Profile</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ButtonEdit.js~ButtonEdit.html">ButtonEdit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentCourseDisplay.js~ContentCourseDisplay.html">ContentCourseDisplay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentCourseUpdate.js~ContentCourseUpdate.html">ContentCourseUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfile.js~ContentProfile.html">ContentProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfileUpload.js~ContentProfileUpload.html">ContentProfileUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/Profile.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/SideMenuProfile.js~SideMenuProfile.html">SideMenuProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Reducers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tags">tags</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">SignUp</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUp.js~ButtonSignUp.html">ButtonSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpAD.js~ButtonSignUpAD.html">ButtonSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpPurchaser.js~ButtonSignUpPurchaser.html">ButtonSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpVendor.js~ButtonSignUpVendor.html">ButtonSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html">ComponentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpPurchaser.js~ComponentSignUpPurchaser.html">ComponentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpVendor.js~ComponentSignUpVendor.html">ComponentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignup.js~ComponentSignUp.html">ComponentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpAD.js~ContentSignUpAD.html">ContentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpPurchaser.js~ContentSignUpPurchaser.html">ContentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpVendor.js~ContentSignUpVendor.html">ContentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignup.js~ContentSignUp.html">ContentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUp.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpAD.js~SignUpAD.html">SignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpPurchaser.js~SignUpPurchaser.html">SignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpVendor.js~SignUpVendor.html">SignUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Vendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Vendor/Upload.js~Upload.html">Upload</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewCourse</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail.html">ContentCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentViewCourse.js~ContentViewCourse.html">ContentViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewVendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/ContentViewVendor.js~ContentViewVendor.html">ContentViewVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/VendorList.js~VendorList.html">VendorList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/ViewVendor.js~ViewVendor.html">ViewVendor</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">component/Profile/ContentCourseUpdate.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;
+import {Content, Card,CardTitle,CardText,Layout,Textfield,Chip,CardActions,Button} from &apos;react-mdl&apos;;
+import { Router, Route, Link, browserHistory, IndexRoute  } from &apos;react-router&apos;
+import { connect } from &quot;react-redux&quot;
+
+import &quot;../../extra/material.js&quot;
+
+import { updateCourse,uploadCourse,uploadCourseFiles,fetchVendorCourse,fetchACourse } from &quot;../Actions/courseActions&quot;
+import { saveTags,addTag,deleteTag} from &quot;../Actions/tagActions&quot;
+
+import Toast from &quot;../Toast.js&quot;
+
+var componentStyle = {
+    margin: &apos;auto&apos;,
+}
+var formStyle = {
+    marginTop: &apos;5%&apos;
+}
+var count = 1
+
+@connect((store) =&gt; {
+  return {
+    user: store.user,
+    course: store.course,
+    profile: store.profile,
+    tags: store.tags
+  };
+})/*dont add semicolon here!*/
+
+
+
+class ContentCourseUpdate extends Component {
+    /**
+     * Check if array contains tag text
+     * @param {array,text} array, text 
+     * @return {boolean} boolean - return boolean
+     */
+    contains(a, text) {
+        var i = a.length;
+        while (i--) {
+           if (a[i].text == text) {
+               return true;
+           }
+        }
+        return false;
+    }
+
+    /**
+     * Handle add tag
+     */
+    handleAddTag(){
+      const tags = this.props.tags
+        var tagText = document.getElementById(&quot;addTagUpd&quot;).value
+        if (tagText){
+          if(!this.contains(tags,tagText)){
+            if(tags.length&lt;5){
+              this.props.dispatch(addTag(tagText));
+            }
+          }
+        }
+        
+    }
+    /**
+     * Handle delete tag
+     */
+    handleDelete(text){
+        this.props.dispatch(deleteTag(text))
+    }
+
+    /**
+     * Invoked immediately before a component is mounted, to get our state to current course
+     */
+    componentWillMount(){
+        const {user} = this.props
+        const {course}=this.props
+        this.props.dispatch(fetchACourse(course.aCourseName));
+    }
+    
+     /**
+     * Invoked immediately after a component is mounted, to get text on textfield
+     */
+    componentDidUpdate(){
+        const {course} = this.props
+        document.getElementById(&quot;courseName&quot;).value=course.aCourse.courseName;
+        document.getElementById(&quot;courseDescription&quot;).value=course.aCourse.courseDescription;
+        document.getElementById(&quot;courseVideoId&quot;).value=course.aCourse.courseVideoId;
+        if (course.aCourse.courseTags&amp;&amp;count==1){
+            this.props.dispatch(saveTags(course.aCourse.courseTags));
+            count--
+        }
+
+    }
+    
+    /**
+     * Handle file selecting
+     */
+    handleFileSelect(evt) {
+      const {course}=this.props
+      var courseID = course.aCourse.courseID;
+      var coursePrev = course.aCourse;
+      evt.stopPropagation();
+      evt.preventDefault();
+      var file = evt.target.files[0];
+
+      var fileName = file.name;
+      var metadata = {
+        &apos;contentType&apos;: file.type
+      };
+      
+      this.props.dispatch(uploadCourseFiles(courseID,coursePrev,{fileName,file,metadata}));
+    }
+    
+
+    /**
+     * Handle updating course
+     */
+    updateCourse(){
+        const {course} = this.props
+        var prevName=course.aCourse.courseName;
+        var prevID=course.aCourse.courseID;
+        var user = this.props.user.user
+        var courseName = document.getElementById(&quot;courseName&quot;).value;
+        var courseDescription = document.getElementById(&quot;courseDescription&quot;).value;
+        var courseVideoId = document.getElementById(&quot;courseVideoId&quot;).value;
+        var courseVendorEmail = user.email
+        var courseID=prevID;
+        const tags = this.props.tags
+        var courseTags = tags
+        var newCourse = {courseName, courseDescription, courseVendorEmail,courseVideoId,courseID,courseTags}
+        this.props.dispatch(updateCourse(newCourse,courseID));
+        
+    }
+    /**
+    * Loads the course profile
+    * @return {html} - returns course profile depending on type of user
+    */
+    render(){
+        const tags = this.props.tags
+        const mappedTags = tags.map(tag =&gt; 
+            &lt;Chip style={{marginRight:&quot;3px&quot;}} key={tag.text} onClose={()=&gt;(this.handleDelete(tag.text))}&gt;{tag.text}&lt;/Chip&gt;
+        )
+        return(
+            &lt;Content className=&quot;learn-content&quot;&gt;
+                &lt;div className=&quot;android-content mdl-layout__content&quot;&gt;
+                        &lt;a name=&quot;top&quot; /&gt;
+                        &lt;div style={{width: &apos;80%&apos;, margin:&apos;auto&apos;}}&gt;
+                            
+                            &lt;CardText style={componentStyle}&gt;
+
+                                &lt;p style={{color:&apos;mediumblue&apos;,marginBottom:&apos;0px&apos;}}&gt;Course Name&lt;/p&gt;
+                                &lt;Textfield label=&quot;&quot; className=&quot;form-control&quot; ref=&quot;courseName&quot; id=&quot;courseName&quot;/&gt;
+                                &lt;/CardText&gt;
+                            &lt;CardText style={componentStyle}&gt;
+                                &lt;p style={{color:&apos;mediumblue&apos;,marginBottom:&apos;0px&apos;}}&gt;Course Description&lt;/p&gt;
+                                &lt;Textfield  label=&quot;&quot; ref=&quot;courseDescription&quot; type=&quot;courseDescription&quot; className=&quot;form-control&quot; id=&quot;courseDescription&quot;/&gt;
+                            &lt;/CardText&gt;
+                            &lt;CardText style={componentStyle}&gt;
+                                &lt;p style={{color:&apos;mediumblue&apos;,marginBottom:&apos;0px&apos;}}&gt;Course Video ID&lt;/p&gt;
+                                &lt;Textfield  label=&quot;&quot; ref=&quot;courseVideoId&quot; type=&quot;courseVideoId&quot; className=&quot;form-control&quot; id=&quot;courseVideoId&quot;/&gt;
+                            &lt;/CardText&gt;
+                            &lt;CardText style={componentStyle}&gt;
+                                &lt;Textfield style={{width:&quot;100px&quot;}} floatingLabel maxLength=&quot;20&quot; label=&quot;Tags&quot;  type=&quot;addTag&quot; className=&quot;form-control&quot; id=&quot;addTagUpd&quot;/&gt;
+                                &lt;Button onClick = {this.handleAddTag.bind(this)}&gt;add tag&lt;/Button&gt;
+                                
+                            &lt;/CardText&gt;
+
+                            &lt;CardText&gt;{mappedTags}&lt;/CardText&gt;
+                            &lt;CardText style={componentStyle}&gt;
+                                &lt;p style={{color:&apos;mediumblue&apos;,marginBottom:&apos;0px&apos;}}&gt;Course Files&lt;/p&gt;
+                                &lt;Textfield  label=&quot;Empty&quot; ref=&quot;courseFiles&quot; type=&quot;courseFiles&quot; className=&quot;form-control&quot; id=&quot;courseVideoId&quot;/&gt;
+                            &lt;/CardText&gt;
+                        &lt;div className=&quot;card__supporting-text mdl-color-text--white-600&quot; id=&quot;messagesDiv&quot;&gt;
+                        &lt;h6&gt;Choose File to upload&lt;/h6&gt;
+                        &lt;input type=&quot;file&quot; id=&quot;file&quot; name=&quot;file&quot; onChange={this.handleFileSelect.bind(this)}/&gt;
+                        &lt;span id=&quot;linkbox&quot;&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+
+                            &lt;CardActions style={componentStyle}&gt;
+                                &lt;Button onClick={this.updateCourse.bind(this)} accent ripple  className=&quot;mdl-color-text--indigo btn btn-primary&quot;&gt;Update Detail&lt;/Button&gt;
+                            &lt;/CardActions&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+            &lt;/Content&gt;
+    )}
+};
+
+
+
+export default ContentCourseUpdate
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

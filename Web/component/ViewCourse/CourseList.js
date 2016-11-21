@@ -41,12 +41,18 @@ var cardTextStyle= {
 })
 
 class CourseList extends Component{
+    /**
+    * constuctor of courseList
+    */
     constructor (props) {
         super(props);
         this.state = { searchTerm: '' }
         this.saveACourse = this.saveACourse.bind(this)
     }
 
+    /**
+    * called before dom elements is mounted, fetch course
+    */
     componentWillMount(){
         this.props.dispatch(fetchCourse());
 
@@ -74,11 +80,17 @@ class CourseList extends Component{
         return arr
     }
 
+    /**
+    * Called dom elements is mounted, set focus on search bar
+    */
     componentDidMount (){
         document.getElementById("courseSearchInput").focus()
     }
 
-
+    /**
+    * update search term after user imput
+    * @param {string} term   pass a search term
+    */
     searchUpdated (term) {
         term = document.getElementById("courseSearchInput").value
         this.setState({searchTerm: term})

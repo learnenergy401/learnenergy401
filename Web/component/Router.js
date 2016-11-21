@@ -30,6 +30,8 @@ import RFP from "./EOI-RFP/RFP.js"
 import RFPdetails from "./EOI-RFP/RFPdetails.js"
 import RFPfromEOI from "./EOI-RFP/RFPfromEOI.js"
 import ADpage from "./ADpage.js"
+import ViewVendor from "./ViewVendor/ViewVendor.js"
+
 
 class ReactRouter extends Component {
   /**
@@ -63,7 +65,7 @@ class ReactRouter extends Component {
         <Route path='/edit-rfp-details' component={RFPdetails} />
         <Route path='/rfp-from-eoi' component={RFPfromEOI} />
         <Route path='/ad-page' component={ADpage} />
-
+        <Route path='/view-vendor' component={ViewVendor} />
         {/* 404 not fond page, make sure it stay at bottom */}
         <Route path='*' component={NotFound} />
       </Router>

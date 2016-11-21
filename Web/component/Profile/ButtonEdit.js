@@ -22,7 +22,7 @@ class ButtonEdit extends Component {
     }
     
     /**
-    * Loads the button for Login.
+    * Loads the button for edit.
     * @return {html} - returns button and links
     */
     render(){

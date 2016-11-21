@@ -30,7 +30,11 @@ var count = 1
 
 
 class ContentCourseUpdate extends Component {
-
+    /**
+     * Check if array contains tag text
+     * @param {array,text} array, text 
+     * @return {boolean} boolean - return boolean
+     */
     contains(a, text) {
         var i = a.length;
         while (i--) {
@@ -40,6 +44,10 @@ class ContentCourseUpdate extends Component {
         }
         return false;
     }
+
+    /**
+     * Handle add tag
+     */
     handleAddTag(){
       const tags = this.props.tags
         var tagText = document.getElementById("addTagUpd").value
@@ -52,16 +60,25 @@ class ContentCourseUpdate extends Component {
         }
         
     }
+    /**
+     * Handle delete tag
+     */
     handleDelete(text){
         this.props.dispatch(deleteTag(text))
     }
 
+    /**
+     * Invoked immediately before a component is mounted, to get our state to current course
+     */
     componentWillMount(){
         const {user} = this.props
         const {course}=this.props
         this.props.dispatch(fetchACourse(course.aCourseName));
     }
     
+     /**
+     * Invoked immediately after a component is mounted, to get text on textfield
+     */
     componentDidUpdate(){
         const {course} = this.props
         document.getElementById("courseName").value=course.aCourse.courseName;
@@ -74,6 +91,9 @@ class ContentCourseUpdate extends Component {
 
     }
     
+    /**
+     * Handle file selecting
+     */
     handleFileSelect(evt) {
       const {course}=this.props
       var courseID = course.aCourse.courseID;
@@ -90,6 +110,10 @@ class ContentCourseUpdate extends Component {
       this.props.dispatch(uploadCourseFiles(courseID,coursePrev,{fileName,file,metadata}));
     }
     
+
+    /**
+     * Handle updating course
+     */
     updateCourse(){
         const {course} = this.props
         /*the purchaser part is missing!!!!!!!!!!!*/

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">component/EOI-RFP/CourseEOI.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/learnenergy401/learnenergy401" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ADpage.js~ADpage.html">ADpage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Admin.js~Admin.html">Admin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/AdminReview.js~AdminReview.html">AdminReview</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonAdmin.js~ButtonAdmin.html">ButtonAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogIn.js~ButtonLogIn.html">ButtonLogIn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonLogOut.js~ButtonLogOut.html">ButtonLogOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ButtonProfile.js~ButtonProfile.html">ButtonProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentLogin.js~ComponentLogin.html">ComponentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ComponentUpload.js~ComponentUpload.html">ComponentUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentHome.js~ContentHome.html">ContentHome</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogin.js~ContentLogin.html">ContentLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ContentLogout.js~ContentLogout.html">ContentLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Footer.js~LearnFooter.html">LearnFooter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Header.js~LearnHeader.html">LearnHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Logo.js~SignUpButton.html">SignUpButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Navigation.js~LearnNavigation.html">LearnNavigation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Router.js~ReactRouter.html">ReactRouter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Actions</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCoursePurchaser">addCoursePurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchACourse">fetchACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourse">fetchCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchCourseList">fetchCourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorCourse">fetchVendorCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveACourse">saveACourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateCourse">updateCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourse">uploadCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseDetail">uploadCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uploadCourseFiles">uploadCourseFiles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-changeMenu">changeMenu</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approveUser">approveUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchADSignup">fetchADSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchAdminSignup">fetchAdminSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchEOIkey">fetchEOIkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchEOIs">fetchEOIs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchKeyRole">fetchKeyRole</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchNotificationAdmin">fetchNotificationAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchPurchaserSignup">fetchPurchaserSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPfromEOI">fetchRFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPkey">fetchRFPkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchRFPs">fetchRFPs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchReqEOI">fetchReqEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchUsers">fetchUsers</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fetchVendorSignup">fetchVendorSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getCurrentUser">getCurrentUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logInUser">logInUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logOutUser">logOutUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rejectUser">rejectUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeEOI">removeEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-removeRFP">removeRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setNotificationAdmin">setNotificationAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpAD">signUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpPurchaser">signUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUpVendor">signUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeEOIkey">storeEOIkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeEOIs">storeEOIs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeKeyRole">storeKeyRole</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeRFPkey">storeRFPkey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeRFPs">storeRFPs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-storeReqEOI">storeReqEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-submitRFPfromEOI">submitRFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateProfile">updateProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateRFP">updateRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addTag">addTag</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-deleteTag">deleteTag</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-resetTags">resetTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-saveTags">saveTags</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">EOI-RFP</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ButtonRFP.js~ButtonRFP.html">ButtonRFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ButtonReviewEOI.js~ButtonReviewEOI.html">ButtonReviewEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ContentEOI.js~ContentEOI.html">ContentEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/CourseEOI.js~CourseEOI.html">CourseEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/EOIdetails.js~EOIdetails.html">EOIdetails</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFP.js~RFP.html">RFP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFPdetails.js~RFPdetails.html">RFPdetails</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/RFPfromEOI.js~RFPfromEOI.html">RFPfromEOI</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/EOI-RFP/ReviewEOI.js~ReviewEOI.html">ReviewEOI</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Home</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Home/Home.js~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Login-Logout</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Login.js~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Login-Logout/Logout.js~Logout.html">Logout</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Profile</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ButtonEdit.js~ButtonEdit.html">ButtonEdit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentCourseDisplay.js~ContentCourseDisplay.html">ContentCourseDisplay</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentCourseUpdate.js~ContentCourseUpdate.html">ContentCourseUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfile.js~ContentProfile.html">ContentProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/ContentProfileUpload.js~ContentProfileUpload.html">ContentProfileUpload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/Profile.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Profile/SideMenuProfile.js~SideMenuProfile.html">SideMenuProfile</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Reducers</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-reducer">reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tags">tags</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">SignUp</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUp.js~ButtonSignUp.html">ButtonSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpAD.js~ButtonSignUpAD.html">ButtonSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpPurchaser.js~ButtonSignUpPurchaser.html">ButtonSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ButtonSignUpVendor.js~ButtonSignUpVendor.html">ButtonSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpAD.js~ComponentSignUpAD.html">ComponentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpPurchaser.js~ComponentSignUpPurchaser.html">ComponentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignUpVendor.js~ComponentSignUpVendor.html">ComponentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ComponentSignup.js~ComponentSignUp.html">ComponentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpAD.js~ContentSignUpAD.html">ContentSignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpPurchaser.js~ContentSignUpPurchaser.html">ContentSignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignUpVendor.js~ContentSignUpVendor.html">ContentSignUpVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/ContentSignup.js~ContentSignUp.html">ContentSignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUp.js~SignUp.html">SignUp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpAD.js~SignUpAD.html">SignUpAD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpPurchaser.js~SignUpPurchaser.html">SignUpPurchaser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/SignUp/SignUpVendor.js~SignUpVendor.html">SignUpVendor</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Vendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/Vendor/Upload.js~Upload.html">Upload</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewCourse</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentCourseDetail.js~ContentCourseDetail.html">ContentCourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ContentViewCourse.js~ContentViewCourse.html">ContentViewCourse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseDetail.js~CourseDetail.html">CourseDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/CourseList.js~CourseList.html">CourseList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewCourse/ViewCourse.js~ViewCourse.html">ViewCourse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">ViewVendor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/ContentViewVendor.js~ContentViewVendor.html">ContentViewVendor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/VendorList.js~VendorList.html">VendorList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/component/ViewVendor/ViewVendor.js~ViewVendor.html">ViewVendor</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">component/EOI-RFP/CourseEOI.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
+import {Layout,Header} from &apos;react-mdl&apos;;
+import LearnHeader from &apos;../Header.js&apos;
+import LearnFooter from &apos;../Footer.js&apos;
+import { Textfield,Grid,Cell,Card,CardText, Content, CardTitle, CardActions, Button } from &apos;react-mdl&apos;;
+
+import LearnLogo from &apos;../Logo.js&apos;;
+import LearnNavigation from &apos;../Navigation.js&apos;;
+import store from &apos;../Store.js&apos;
+import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from &apos;../Firebase&apos;
+import { Router, Route, Link, browserHistory, IndexRoute  } from &apos;react-router&apos;
+import { connect } from &quot;react-redux&quot;
+import { fetchReqEOI, storeEOIs, storeKeyRole, fetchVendorSignup, fetchPurchaserSignup,
+	fetchADSignup, getCurrentUser } from &quot;../Actions/userActions&quot;
+
+
+var spacerStyle = {
+    height: &apos;50px&apos;,
+    backgroundColor: &apos;#f3f3f3&apos;,
+    backgroundSize: &apos;cover&apos;
+}
+
+var cardStyle = {
+    width: &apos;80%&apos;,
+    margin: &apos;auto&apos;,
+    height:&apos;500px&apos;
+}
+
+var cardTitleStyle = {
+    height:&apos;400px&apos;
+}
+
+@connect((store) =&gt; {
+  return {
+    user: store.user
+  };
+})
+
+class CourseEOI extends Component {
+    /**
+     * Fetches curretUser
+     * @returns {object} currentUser - returns information on current user
+     */
+	getCurrentUser() {
+		this.props.dispatch(getCurrentUser())
+	}
+    /**
+     * stores EOI
+     * @params {object} EOIs - information of EOI
+     */
+	storeEOIs(info) {
+		this.props.dispatch(storeEOIs(info))
+	}
+    /**
+     * Fetches reqEOIs
+     * @returns {object} ReqEOIs - return ReqEOIs
+     */
+	fetchReqEOI() {
+		this.props.dispatch(fetchReqEOI())
+	}
+    /**
+     * Invoked immediately before a component is unmounted and destroyed, to update our states
+     */
+	componentWillMount() {
+		this.getCurrentUser()
+		this.fetchReqEOI()
+	}
+    /**
+     * stores EOI
+     * @params {object} legal, address1, address2, city, country, uphone, fax - information of EOI
+     */
+	requestSubmit(legal, address1, address2, city, country, uphone, fax, LMRFPnum) { // stores an EOI into the table
+
+		const {user} = this.props
+		console.log(user)
+		if (user.reqEOI != null) {
+			var vendor = user.reqEOI.vendor
+			var purchaser = user.reqEOI.purchaser
+			var course = user.reqEOI.course
+			var email = user.reqEOI.email
+
+			var email1 = document.getElementById(&quot;email1&quot;).value
+
+	        var date = document.getElementById(&quot;date&quot;).value
+	        var service = document.getElementById(&quot;service&quot;).value
+	        var text1 = document.getElementById(&quot;text1&quot;).value
+	        var text2 = document.getElementById(&quot;text2&quot;).value
+	        var closeDate = document.getElementById(&quot;closeDate&quot;).value
+	        var closeTime = document.getElementById(&quot;closeTime&quot;).value
+	        var name1 = document.getElementById(&quot;name1&quot;).value
+	        var title1 = document.getElementById(&quot;title1&quot;).value
+	        var name2 = document.getElementById(&quot;name2&quot;).value
+	        var title2 = document.getElementById(&quot;title2&quot;).value
+	        var email2 = document.getElementById(&quot;email2&quot;).value
+	        var phone = document.getElementById(&quot;phone&quot;).value
+
+	        var company_name = document.getElementById(&quot;company_name&quot;).value
+		    var RFP_par
+		    if(document.getElementById(&quot;RFP_parYes&quot;).checked) {
+		        RFP_par = &quot;yes&quot;
+		    } else if (document.getElementById(&quot;RFP_parNo&quot;).checked) {
+		        RFP_par = &quot;no&quot;
+		    }
+
+
+		    var vendor_company_address = document.getElementById(&quot;vendor_company_address&quot;).value
+		    var vendor_contact_name = document.getElementById(&quot;vendor_contact_name&quot;).value
+		    var vendor_contact_title_position = document.getElementById(&quot;vendor_contact_title_position&quot;).value
+		    var vendor_primary_telephone = document.getElementById(&quot;vendor_primary_telephone&quot;).value
+		    var vendor_alternate_telephone = document.getElementById(&quot;vendor_alternate_telephone&quot;).value
+		    var vendor_fax = document.getElementById(&apos;vendor_fax&apos;).value
+		    var vendor_email = document.getElementById(&apos;vendor_email&apos;).value
+
+		    var company_approved
+		    if(document.getElementById(&quot;company_approvedYes&quot;).checked) {
+		        company_approved = &quot;yes&quot;
+		    } else if (document.getElementById(&quot;company_approvedNo&quot;).checked) {
+		        company_approved = &quot;no&quot;
+		    }
+
+		    var optional_comments = document.getElementById(&apos;optional_comments&apos;).value
+
+			var scope = document.getElementById(&quot;scope&quot;).value
+			var qualificationA = document.getElementById(&quot;qualificationA&quot;).value
+			var qualificationB = document.getElementById(&quot;qualificationB&quot;).value
+			var qualificationC = document.getElementById(&quot;qualificationC&quot;).value
+			var qualificationD = document.getElementById(&quot;qualificationD&quot;).value
+			var response_date = document.getElementById(&quot;response_date&quot;).value
+			var email3 = document.getElementById(&quot;email3&quot;).value
+			var LMRFPnum = LMRFPnum
+			var selection_date = document.getElementById(&quot;selection_date&quot;).value
+
+			var purchaser_legal = legal
+			var purchaser_address1 = address1
+			var purchaser_address2 = address2
+			var purchaser_city = city
+			var purchaser_country = country
+			var purchaser_phone = uphone
+			var purchaser_fax = fax
+
+	    	var info = {vendor, purchaser, course, email, email1, date, service, text1, text2, closeDate, closeTime,
+	      		name1, title1, name2, title2, email2, phone, company_name, RFP_par, vendor_company_address, vendor_contact_name,
+				vendor_contact_title_position, vendor_primary_telephone, vendor_alternate_telephone, vendor_fax,
+				vendor_email, company_approved, optional_comments, scope, qualificationA, qualificationB, qualificationC,
+				qualificationD, response_date, email3, LMRFPnum, selection_date, purchaser_legal, purchaser_address1, purchaser_address2,
+				purchaser_city, purchaser_country, purchaser_phone, purchaser_fax}
+
+			console.log(&quot;before storing info&quot;, info)
+			this.storeEOIs(info)
+		}
+	}
+    /**
+     * returns back to previous page
+     */
+	return_back() {
+		window.location.assign(&apos;/#/view-course&apos;)
+	}
+    /**
+     * Loads the details 
+     * @return {html} - returns html details
+     */
+	render() {
+		const {user} = this.props
+
+		console.log(user)
+		if (user.user != null &amp;&amp; user.role == 0) {
+			var legal = user.user.legalEntity
+			var address1 = user.user.address1
+			var address2 = user.user.address2
+			var city = user.user.city
+			var country = user.user.country
+			var uphone = user.user.phone
+			var fax = user.user.fax
+			var LMRFPnum = generateNumberId()
+			return (
+				&lt;div&gt;
+				&lt;LearnHeader/&gt;
+
+	          &lt;div  className=&quot;learn-content mdl-typography--text-center&quot;&gt;
+	          &lt;div style={spacerStyle} /&gt;
+            &lt;Card shadow={0} style={cardStyle} &gt;
+            &lt;CardTitle style={cardTitleStyle} className=&quot;mdl-color--indigo mdl-color-text--white mdl-shadow--2dp&quot;&gt;Expression of Interest Form&lt;/CardTitle&gt;
+          	&lt;div className=&quot;mdl-layout__content&quot; style={{textAlign: &apos;center&apos;}}&gt;
+        		&lt;a name=&quot;top&quot; /&gt;
+            &lt;div style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+
+							&lt;h4&gt;Cover Letter&lt;/h4&gt;
+              &lt;hr/&gt;
+              &lt;Textfield label=&quot;date&quot; className=&quot;form-control&quot; ref=&quot;date&quot;  placeholder=&quot;Date&quot; id=&quot;date&quot;/&gt;
+              &lt;br/&gt;
+	            &lt;h6&gt;Purchaser Details: &lt;/h6&gt;
+	            &lt;h6&gt;Legal Name: &amp;nbsp; {legal}&lt;/h6&gt;
+	            &lt;h6&gt;Address Line 1: &amp;nbsp; {address1}&lt;/h6&gt;
+	            &lt;h6&gt;Address Line 2: &amp;nbsp; {address2}&lt;/h6&gt;
+	            &lt;h6&gt;City: &amp;nbsp; {city}&lt;/h6&gt;
+	            &lt;h6&gt;Country: &amp;nbsp; {country}&lt;/h6&gt;
+	            &lt;h6&gt;Phone: &amp;nbsp; {uphone}&lt;/h6&gt;
+	            &lt;h6&gt;Fax Number: &amp;nbsp; {fax}&lt;/h6&gt;
+ 				&lt;h6&gt;On behalf of &lt;Textfield label=&quot;purchaser&quot; className=&quot;form-control&quot; ref=&quot;purchaser&quot;  placeholder=&quot;purchaser&quot; id=&quot;purchaser&quot;/&gt;
+                  (&quot;The Purchaser&quot;), your company (&quot;Respondent&quot;) is invited to submit a response to this Expression of Interest. The Purchaser plans
+                  to issue a Request for Proposal (RFP) for the provision of &lt;Textfield label=&quot;service&quot; className=&quot;form-control&quot; ref=&quot;service&quot;  placeholder=&quot;service&quot; id=&quot;service&quot;/&gt;
+                  services. The current schedule is to issue the RFP &lt;Textfield label=&quot;text1&quot; className=&quot;form-control&quot; ref=&quot;text1&quot;  placeholder=&quot;text1&quot; id=&quot;text1&quot;/&gt; with contract award by
+                &lt;Textfield label=&quot;text2&quot; className=&quot;form-control&quot; ref=&quot;text2&quot;  placeholder=&quot;text2&quot; id=&quot;text2&quot;/&gt;. Please complete the attached EOI Questionnaire and Confidentiality Agreement
+                and return, via email, as detailed below:
+				&lt;/h6&gt;
+
+                &lt;Textfield label=&quot;closeDate&quot; className=&quot;form-control&quot; ref=&quot;closeDate&quot;  placeholder=&quot;Close Date:&quot; id=&quot;closeDate&quot;/&gt;
+                &amp;nbsp;
+                &lt;Textfield label=&quot;closeTime&quot; className=&quot;form-control&quot; ref=&quot;closeTime&quot;  placeholder=&quot;Close Time:&quot; id=&quot;closeTime&quot;/&gt;
+                &lt;h6&gt;Response sent to:
+                    &amp;nbsp;&lt;Textfield label=&quot;name1&quot; className=&quot;form-control&quot; ref=&quot;name1&quot;  placeholder=&quot;Name&quot; id=&quot;name1&quot;/&gt;
+                    &amp;nbsp;&lt;Textfield label=&quot;title1&quot; className=&quot;form-control&quot; ref=&quot;title1&quot;  placeholder=&quot;Title&quot; id=&quot;title1&quot;/&gt;
+                &lt;/h6&gt;
+                    &lt;Textfield label=&quot;email1&quot; className=&quot;form-control&quot; ref=&quot;email1&quot;  placeholder=&quot;Email&quot; id=&quot;email1&quot;/&gt;
+
+                    &lt;h6&gt;
+                    Respondent assumes full responsibility for delivery of the completed EOI Questionnaire and Confidentiality
+                    Agreement before the Closing Date and time. The Purchaser is not responsible for any loss or delay with
+                    respect to the delivery of these documents. In addition, any and all costs incurred in responding to this EOI,
+                    meetings, or any other related activities are the sole responsibility of the Respondent.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;
+                    This Expression of Interest will be issued to multiple companies and the Purchaser reserves the right to
+                    reject any or all responses provided. Issuance of this EOI does not constitute any representation or
+                    commitment by the Purchaser that your company will receive a Request for Proposal.
+                    &lt;/h6&gt;
+                    &lt;h6&gt;
+                    Should you require additional information, please contact the undersigned.
+                    &lt;/h6&gt;
+
+                    &lt;h6&gt; With Best Regards,&lt;/h6&gt;
+                    &lt;Textfield label=&quot;name2&quot; className=&quot;form-control&quot; ref=&quot;name2&quot;  placeholder=&quot;Name&quot; id=&quot;name2&quot;/&gt;
+                    &lt;br/&gt;
+                    &lt;Textfield label=&quot;title2&quot; className=&quot;form-control&quot; ref=&quot;title2&quot;  placeholder=&quot;Title&quot; id=&quot;title2&quot;/&gt;
+                    &lt;br/&gt;
+                    &lt;Textfield label=&quot;email2&quot; className=&quot;form-control&quot; ref=&quot;email2&quot;  placeholder=&quot;Email&quot; id=&quot;email2&quot;/&gt;
+                    &lt;br/&gt;
+                    &lt;Textfield label=&quot;phone&quot; className=&quot;form-control&quot; ref=&quot;phone&quot;  placeholder=&quot;Phone&quot; id=&quot;phone&quot;/&gt;
+
+
+
+
+                &lt;hr/&gt;
+                &lt;h4&gt;Appendix 1: EOI Questionnaire&lt;/h4&gt;
+                &lt;hr/&gt;
+                &lt;h6&gt;Vendor&apos;s{/*&apos;*/} Legal Company Name:&lt;/h6&gt;
+                &lt;Textfield label=&quot;company_name&quot; className=&quot;form-control&quot; ref=&quot;company_name&quot;  placeholder=&quot;Company Name&quot; id=&quot;company_name&quot;/&gt;
+	            &lt;div&gt;
+	              &lt;label&gt;Based upon the information provided in this EOI, advise if your company would like to be considered for participation in the Request for Proposal (RFP).&lt;br/&gt;
+	                &lt;br/&gt;
+	                &lt;input type=&quot;radio&quot; name=&quot;RFP_par&quot; value=&quot;RFP_parY&quot; id=&quot;RFP_parYes&quot;/&gt;Yes, we would like to be considered for the RFP.&lt;br/&gt;
+	                &lt;input type=&quot;radio&quot; name=&quot;RFP_par&quot; value=&quot;RFP_parN&quot; id=&quot;RFP_parNo&quot;/&gt;No, we do not want to be considered for the RFP.&lt;br/&gt;
+	              &lt;/label&gt;
+	            &lt;/div&gt;
+	            &lt;h6&gt;If your response is in the affirmative, the Vendor is to provide the information requested in sections 1 through 4 below.&lt;/h6&gt;
+	            &lt;h6&gt;Company Address:&amp;nbsp; &lt;textarea rows=&quot;2&quot; cols=&quot;50&quot; id=&quot;vendor_company_address&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+	            &lt;h6&gt;Contact Name:&amp;nbsp; &lt;textarea rows=&quot;2&quot; cols=&quot;50&quot; id=&quot;vendor_contact_name&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+	            &lt;h6&gt;Contact&apos;s{/*&apos;*/} Title and Position:&amp;nbsp; &lt;textarea rows=&quot;1&quot; cols=&quot;50&quot; id=&quot;vendor_contact_title_position&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+	            &lt;h6&gt;Primary Telephone Number:&amp;nbsp; &lt;textarea rows=&quot;1&quot; cols=&quot;50&quot; id=&quot;vendor_primary_telephone&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+	            &lt;h6&gt;Alternate Telephone Number:&amp;nbsp; &lt;textarea rows=&quot;1&quot; cols=&quot;50&quot; id=&quot;vendor_alternate_telephone&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+	            &lt;h6&gt;Fax Number:&amp;nbsp; &lt;textarea rows=&quot;1&quot; cols=&quot;50&quot; id=&quot;vendor_fax&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+	            &lt;h6&gt;Email:&amp;nbsp; &lt;textarea rows=&quot;1&quot; cols=&quot;50&quot; id=&quot;vendor_email&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+
+	            &lt;div&gt;
+	              &lt;label&gt;Confirm your company is approved in [jurisdiction] for the work reflected in this EOI.&lt;br/&gt;
+	                &lt;br/&gt;
+	                &lt;input type=&quot;radio&quot; name=&quot;company_approved&quot; value=&quot;company_approvedY&quot; id=&quot;company_approvedYes&quot;/&gt;Yes &amp;nbsp;
+	                &lt;input type=&quot;radio&quot; name=&quot;company_approved&quot; value=&quot;company_approvedN&quot; id=&quot;company_approvedNo&quot;/&gt;No
+	              &lt;/label&gt;
+	            &lt;/div&gt;
+
+							&lt;h6&gt;Comments (optional):&amp;nbsp; &lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;optional_comments&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+
+	            &lt;h6&gt;Email: &amp;nbsp;&lt;Textfield label=&quot;email&quot; className=&quot;form-control&quot; ref=&quot;email&quot;  placeholder=&quot;Email&quot; id=&quot;email&quot;/&gt;&lt;/h6&gt;
+	            &lt;br/&gt;
+
+
+							&lt;hr/&gt;
+							&lt;h4&gt;Appendix 3&lt;/h4&gt;
+							&lt;hr/&gt;
+
+							&lt;h6&gt;Description of Scope / Requirements: &amp;nbsp;&lt;textarea rows=&quot;4&quot; cols=&quot;50&quot; id=&quot;scope&quot;&gt;&lt;/textarea&gt;&lt;/h6&gt;
+
+							&lt;h6&gt;
+							During the evaluation process, the Purchaser&amp;#39;s Evaluation Committee reserves the right to
+							request additional information or clarifications. The Evaluation Committee will evaluate
+							Vendors based on the answers to the following questions as well as any additional material
+							provided with the expression of interest (i.e. presentations, brochures, background
+							information, experience etc.):
+							&lt;/h6&gt;
+
+							&lt;h6&gt;
+							A. Qualification levels of staff, including experience and/or certifications. Please
+							include the qualifications and experience of the Vendor&#x2019;s Project Manager in addition
+							to the following details:
+							&lt;br/&gt;i. Familiarity with above noted categories
+							&lt;br/&gt;ii. Number of years&#x2019; experience
+							&lt;br/&gt;iii. Experience with [specific requirements, ie. pipeline integrity]
+							&lt;br/&gt;iv. Related experience
+							&lt;/h6&gt;
+							&lt;textarea rows=&quot;10&quot; cols=&quot;120&quot; id=&quot;qualificationA&quot;&gt;&lt;/textarea&gt;
+
+							&lt;h6&gt;
+							B. Vendor to describe how it will ensure requirements are satisfied and are in
+							compliance with the Description of Scope / Requirements.
+							&lt;/h6&gt;
+							&lt;textarea rows=&quot;6&quot; cols=&quot;120&quot; id=&quot;qualificationB&quot;&gt;&lt;/textarea&gt;
+
+							&lt;h6&gt;
+							C. How often, and what methods does the Vendor propose to provide updates and
+							reports to the Purchaser?
+							&lt;/h6&gt;
+							&lt;textarea rows=&quot;6&quot; cols=&quot;120&quot; id=&quot;qualificationC&quot;&gt;&lt;/textarea&gt;
+
+							&lt;h6&gt;
+							D. Does the Vendor have an office in [jurisdiction]?
+							&lt;/h6&gt;
+							&lt;textarea rows=&quot;6&quot; cols=&quot;120&quot; id=&quot;qualificationD&quot;&gt;&lt;/textarea&gt;
+
+							&lt;h6&gt;
+							Interested Vendors must respond to the Purchaser by Noon (12:00 pm local time) on
+							&amp;nbsp;&lt;Textfield label=&quot;response_date&quot; className=&quot;form-control&quot; ref=&quot;response_date&quot;  placeholder=&quot;Date&quot; id=&quot;response_date&quot;/&gt;
+							Any requests for information, including the response for this expression of interest, can be emailed to the Purchaser at
+							&amp;nbsp;&lt;Textfield label=&quot;email3&quot; className=&quot;form-control&quot; ref=&quot;email3&quot;  placeholder=&quot;EOI Email&quot; id=&quot;email3&quot;/&gt;.
+							The response including Appendices 1, 2, and 3 and any supplemental information must be uploaded to the Purchaser LM RFP#
+							&amp;nbsp;{LMRFPnum}&amp;nbsp;
+							folder prior to the above noted time. The Purchasers selection is anticipated to be completed by
+							&amp;nbsp;&lt;Textfield label=&quot;selection_date&quot; className=&quot;form-control&quot; ref=&quot;selection_date&quot;  placeholder=&quot;Date&quot; id=&quot;selection_date&quot;/&gt;
+							and will be announced via email. Once the selection has been announced, the Purchaser may forward a Request for Proposal (RFP)
+							to those Vendors selected by the Evaluation Committee.
+							&lt;/h6&gt;
+
+							&lt;h6&gt;
+							NOTE: The Purchaser will not reimburse Vendors for any expenses incurred in responding
+							to this Expression of Interest. The Purchaser will not be obliged to provide reasons for
+							accepting or rejecting any Expression of Interest.
+							&lt;/h6&gt;
+							&lt;hr/&gt;
+
+	            &lt;CardActions&gt;
+	              &lt;Button accent ripple className=&quot;mdl-color-text--indigo btn btn-primary&quot; onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax, LMRFPnum)}&gt;Submit&lt;/Button&gt;
+	              &lt;Button accent ripple className=&quot;mdl-color-text--indigo btn btn-primary&quot; onClick={this.return_back.bind(this)}&gt;Back&lt;/Button&gt;
+	            &lt;/CardActions&gt;
+	            &lt;/div&gt;
+	            &lt;/div&gt;
+	          &lt;/Card&gt;
+	          &lt;/div&gt;
+
+	            &lt;LearnFooter/&gt;
+	            &lt;/div&gt;
+			)
+
+		} else {
+		return (
+				&lt;div&gt;
+				&lt;LearnHeader/&gt;
+
+	          &lt;div  className=&quot;learn-content mdl-typography--text-center&quot;&gt;
+	              &lt;div style={spacerStyle} /&gt;
+	              &lt;Card shadow={0} style={cardStyle} &gt;
+	                &lt;CardTitle className=&quot;mdl-color--indigo mdl-color-text--white mdl-shadow--2dp&quot;&gt;Expression of Interest Form&lt;/CardTitle&gt;
+
+	            &lt;div style={{width: &apos;80%&apos;, margin: &apos;auto&apos;}}&gt;
+
+	      &lt;h4&gt;NOT A VALID USER&lt;/h4&gt;
+	            &lt;/div&gt;
+
+	          &lt;/Card&gt;
+	          &lt;/div&gt;
+	            &lt;LearnFooter/&gt;
+	            &lt;/div&gt;
+	    )
+		}
+	}
+
+}
+
+export default CourseEOI
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
