@@ -5,7 +5,8 @@ import CourseList from "./CourseList.js"
 
 
 var contentStyle = {
-
+  height: "600px",
+  overflow:"scroll",
   backgroundColor: "#f3f3f3"
 }
 
@@ -16,7 +17,7 @@ class ContentViewCourse extends Component {
     */
     render(){
         return(
-          <div style={contentStyle} >
+          <div style={contentStyle} className="mdl-typography--text-center">
               <CourseList/>
           </div>
         );

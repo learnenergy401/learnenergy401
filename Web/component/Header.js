@@ -94,23 +94,23 @@ class LearnHeader extends Component {
 
         } else {
 
-          // var notified
-          // var currentUser = firebaseAuth.currentUser
+          var notified
+          var currentUser = firebaseAuth.currentUser
 
-          // if (currentUser!=null) {
-          //   firebaseDb.ref('Notifications/'+currentUser.uid).once('value')
-          //   .then((snapshot) => {
-          //     notified = snapshot.val().notified
-          //     if (user.role == 3) {
-          //       if ((user.purchasers != null || user.vendors != null || user.ad != null)&&(notified==false)) {
-          //         alert("There are users to be approved")
-          //         firebaseDb.ref('Notifications/'+currentUser.uid).set({
-          //           notified: true
-          //         })
-          //       }
-          //     }
-          //   })
-          // }
+          if (currentUser!=null) {
+            firebaseDb.ref('Notifications/'+currentUser.uid).once('value')
+            .then((snapshot) => {
+              notified = snapshot.val().notified
+              if (user.role == 3) {
+                if ((user.purchasers != null || user.vendors != null || user.ad != null)&&(notified==false)) {
+                  alert("There are users to be approved")
+                  firebaseDb.ref('Notifications/'+currentUser.uid).set({
+                    notified: true
+                  })
+                }
+              }
+            })
+          }
           if (user.role ==3) {
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
