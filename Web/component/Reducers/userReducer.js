@@ -6,17 +6,25 @@
  */
 export default function reducer(state={
     user: null,
-    userName:null,
+    users: null,
+    userName: null,
     fetching: false,
     fetched: false,
     error: null,
     isLoggedIn:false,
-    role: null,
+    notification:null,
+    role: -1,
     purchasers: null,
     vendors: null,
     ad: null,
     admin: null, 
     keys_roles: null,
+    eoi: null,
+    eoiKey: null,
+    reqEOI: null,
+    rfp: null,
+    rfpKey: null,
+    rfp_from_eoi: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -122,7 +130,7 @@ export default function reducer(state={
                                  
     },
     profile:{
-        role:null,
+        role:-1,
         firstName: null,
         // *TODO*
         // add more attribute here in model
@@ -162,7 +170,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 purchasers: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -172,7 +179,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 vendors: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -182,7 +188,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 ad: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -193,7 +198,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 admin: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -232,8 +236,6 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched:true,
-                profile:action.payload,
-                role: action.payload.role,
             }
         }
 
@@ -258,6 +260,7 @@ export default function reducer(state={
                 fetching: false,
                 fetched:true,
                 isLoggedIn:true,
+                user: action.payload,
                 profile:action.payload,
                 role: action.payload.role,
             }
@@ -329,7 +332,6 @@ export default function reducer(state={
             }
         }
 
-    
         case "FETCH_KEYS_ROLES_FULFILLED": {
             return {
                 ...state,
@@ -362,6 +364,295 @@ export default function reducer(state={
                 error: action.payload,
             }
         }
+
+        case "STORE_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                eoi: action.payload,
+            }
+        } 
+
+        case "FETCH_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_REQ_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_REQ_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_REQ_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                reqEOI: action.payload,
+            }
+        } 
+
+        case "FETCH_REQ_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_EOI_KEY_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_EOI_KEY_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_EOI_KEY_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                eoiKey: action.payload,
+            }
+        } 
+
+        case "FETCH_EOI_KEY_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "REMOVED_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+            }
+        }
+
+        case "REMOVED_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+            }
+        }   
+
+        case "FETCH_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                rfp: action.payload,
+            }
+        } 
+
+        case "FETCH_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_RFP_FROM_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                rfp_from_eoi: action.payload,
+            }
+        }
+
+        case "FETCH_RFP_FROM_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_RFP_FROM_EOI_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,                
+            }
+        }
+
+        case "STORE_RFP_FROM_EOI_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_USERS_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                users: action.payload,
+            }
+        }
+
+        case "FETCH_USERS_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload,
+            }
+        }
+
+        case "STORE_RFP_KEY_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,   
+            }
+        }
+
+        case "STORE_RFP_KEY_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_RFP_KEY_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                rfpKey: action.payload
+            }  
+        }
+
+        case "FETCH_RFP_KEY_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }  
+        }
+
+        case "UPDATE_RFP": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,
+            }
+        }
+
+        case "UPDATE_RFP_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,   
+            }
+        }
+        
+        case "UPDATE_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_NOTIFICATION_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                notification: action.payload,
+            }
+        }
+
+        case "FETCH_NOTIFICATION_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }      
+        }
+
+        case "SET_NOTIFICATION_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,   
+            }           
+        } 
+
+        case "SET_NOTIFICATION_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
     }
+
     return state
 }

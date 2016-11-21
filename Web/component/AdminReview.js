@@ -127,7 +127,6 @@ class AdminReview extends Component {
     rejectUser(user) {
       this.props.dispatch(rejectUser(user))
     }
-
     /*  TEMP STORAGE FOR PURCHASER INFORMATION
                       <p><b>Fax:</b>{fax}</p>
                       <p><b>Email:</b>{email}</p>
@@ -151,6 +150,10 @@ class AdminReview extends Component {
                       <p><b>Categories:</b>{categories}</p>
     */
     
+    /**
+     * Accepts a user
+     * @param {object} key_name, role - information about user to approve
+     */
     approve(key_name, role) {
       console.log('approve')
       const {user} = this.props
@@ -329,7 +332,10 @@ class AdminReview extends Component {
 
       window.location.assign('/#/admin')
     }
-
+    /**
+     * rejects a user
+     * @param {object} key_name, role - information about user to reject
+     */
     reject(key_name, role) {
       console.log('reject')
       const {user} = this.props
@@ -339,11 +345,17 @@ class AdminReview extends Component {
 
       window.location.assign('/#/admin')
     }
-
+    /**
+     * returns back to previous page
+     */
     return_back() {
       window.location.assign('/#/admin')
     }
-    
+
+    /**
+      * Loads the details 
+      * @return {html} - returns html details
+      */
     render() {
       const {user} = this.props
       if (user.keys_roles != null) {
@@ -1514,7 +1526,7 @@ class AdminReview extends Component {
             <LearnFooter/>
             </div>
           )
-        } else if (role == 2) { // vendor
+        } else if (role == 2) { // additional resource
 
           var website = user.ad[key_name].website;
           var email = user.ad[key_name].email;
@@ -1523,7 +1535,10 @@ class AdminReview extends Component {
           return (
             <div>
             <LearnHeader/>
-            <h4>LOADING...</h4>
+            <h4>Website: {website}</h4>
+            <h4>Email: {email}</h4>
+            <h4>Password: {password}</h4>
+        
 
                 <div>
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>

@@ -24,7 +24,6 @@ class SignUp extends Component {
    */
     componentWillMount(){
         const {user} = this.props
-        console.log(user.isLoggedIn)
     }
   /**
   * Loads the user profile

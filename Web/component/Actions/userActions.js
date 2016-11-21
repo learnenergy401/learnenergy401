@@ -1,5 +1,547 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
+
+/**
+ * sets the notifcation from the database.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function setNotificationAdmin() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      //console.log('notified')
+      if (user){
+        firebaseDb.ref('Notifications/'+user.uid).set({
+          notified: true,
+        })
+        .then((data) => {
+            dispatch({type: "SET_NOTIFICATION_FULFILLED"})
+        })
+        .catch((err) => {
+            dispatch({type: "SET_NOTIFICATION_REJECTED", payload: err.code})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * Grabs the notifcation from the database.
+ * @returns {object} notification - Returns the object of notification.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchNotificationAdmin() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('Notifications/'+user.uid).once('value')
+          .then((snapshot) => {
+            dispatch({type: "FETCH_NOTIFICATION_FULFILLED", payload: snapshot.val()})
+          })
+          .catch((err) => {
+            dispatch({type: "FETCH_NOTIFICATION_REJECTED", payload: err})
+          })
+      }
+    })
+  }
+}
+
+/**
+ * updates RFP
+ * @param {object} RFP - information on RFP
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ * @returns {object} dispatch
+ */
+export function updateRFP(info) {
+    return function(dispatch) {
+        dispatch({type: "UPDATE_RFP"})
+        //console.log("OUR INFO IS", info)
+        firebaseDb.ref('RFP/'+info.key).set(info)
+            .then((data) => {
+                dispatch({type: "UPDATE_RFP_FULFILLED"})
+            })
+            .catch((err) => {
+                dispatch({type: "UPDATE_RFP_REJECTED", payload: err.code})
+            })
+
+    }
+}
+
+/**
+ * Grabs the rfpkey from the database.
+ * @returns {object} rfpkey - Returns the object of rfpkey.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPkey() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPdetails/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_RFP_KEY_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_RFP_KEY_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * sets the rfpkey.
+ * @returns {object} dispatch - Returns the state which contains rfpkey object
+ * @param {object} info - object which contains information about the eoikey.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeRFPkey(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPdetails/'+user.uid).set({
+          key_name: info.key_name,
+      }).then((data) => {
+        dispatch({type: "STORE_RFP_KEY_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_RFP_KEY_REJECTED", payload: err})
+      })
+      }
+    })
+  }
+}
+
+/**
+ * Grabs the Users from the database.
+ * @returns {object} users - Returns the object of users.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchUsers() {
+  return function(dispatch) {
+    firebaseDb.ref('User').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_USERS_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_USERS_REJECTED", payload: err})
+    })
+  }
+}
+
+/**
+ * Grabs the RFPfromEOIs from the database.
+ * @returns {object} rfpfromeoi - Returns the object of rfpfromeoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPfromEOI() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('RFPfromEOI/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_RFP_FROM_EOI_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_RFP_FROM_EOI_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * submits RFP prompt from EOI details.
+ * @returns {object} dispatch - Returns the state which contains rfp object
+ * @param {object} info - object which contains information about the vendor for rfp.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function submitRFPfromEOI(info) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){ // remove the EOI as well
+        firebaseDb.ref('RFPfromEOI/'+user.uid).set({
+          vendor: info.vendor,
+          LMRFPnum: info.LMRFPnum,
+          purchaser: info.purchaser,
+
+        }).then((data) => {
+          dispatch({type: "STORE_RFP_FROM_EOI_FULFILLED", payload: user})
+        })
+        .catch((err) => {
+          dispatch({type: "STORE_RFP_FROM_EOI_REJECTED", payload: err})
+        })
+        // remove from EOI table
+
+      }
+    })
+  }
+}
+
+/**
+ * sets the RFP to the database.
+ * @returns {object} dispatch - Returns the state which contains rfp object
+ * @param {object} data - object which contains information about the rfp.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeRFPs(info) {
+  return function(dispatch) {
+    console.log(info)
+    firebaseDb.ref('RFP').push({
+      vendor: info.vendor,
+      purchaser: info.purchaser,
+
+      // additional details below
+      date: info.date,
+      purchaser1: info.purchaser1,
+      service: info.service,
+      LMRFPnum: info.LMRFPnum,
+      closeDate: info.closeDate,
+      closeTime: info.closeTime,
+      name1: info.name1,
+      title1: info.title1,
+      email1: info.email1,
+      name2: info.name2,
+      title2: info.title2,
+      email2: info.email2,
+      phone: info.phone,
+
+
+      TSissue_date: info.TSissue_date,
+      TSclosing_date: info.TSclosing_date,
+      company_background: info.company_background,
+      rfp_overview: info.rfp_overview,
+      rfp_title: info.rfp_title,
+      rfp_contact: info.rfp_contact,
+      rfp_closing_date: info.rfp_closing_date,
+      rfp_question_close: info.rfp_question_close,
+      conflict_interest: info.conflict_interest,
+      attachment1: info.attachment1,
+      description1: info.description1,
+      daily_rate1: info.daily_rate1,
+      package_rate1: info.package_rate1,
+      details1: info.details1,
+
+      description2: info.description2,
+      daily_rate2: info.daily_rate2,
+      package_rate2: info.package_rate2,
+      details2: info.details2,
+
+      description3: info.description3,
+      daily_rate3: info.daily_rate3,
+      package_rate3: info.package_rate3,
+      details3: info.details3,
+
+      description4: info.description4,
+      daily_rate4: info.daily_rate4,
+      package_rate4: info.package_rate4,
+      details4: info.details4,
+
+      markup_dollar: info.markup_dollar,
+      markup_percent: info.markup_percent,
+
+      schedule_start: info.schedule_start,
+      schedule_completion: info.schedule_completion,
+
+      sub1: info.sub1,
+      sub_description1: info.sub_description1,
+      sub2: info.sub2,
+      sub_description2: info.sub_description2,
+      sub3: info.sub3,
+      sub_description3: info.sub_description3,
+      sub4: info.sub4,
+      sub_description4: info.sub_description4,
+
+      ref1: info.ref1,
+      ref_company1: info.ref_company1,
+      ref_contact1: info.ref_contact1,
+      ref_phone1: info.ref_phone1,
+      ref_email1: info.ref_email1,
+
+      ref2: info.ref2,
+      ref_company2: info.ref_company2,
+      ref_contact2: info.ref_contact2,
+      ref_phone2: info.ref_phone2,
+      ref_email2: info.ref_email2,
+
+      ref3: info.ref3,
+      ref_company3: info.ref_company3,
+      ref_contact3: info.ref_contact3,
+      ref_phone3: info.ref_phone3,
+      ref_email3: info.ref_email3,
+
+      additional_info: info.additional_info,
+
+
+
+
+
+
+    }).then((data) => {
+      dispatch({type: "STORE_RFP_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "STORE_RFP_REJECTED", payload: err})
+    })
+    if (info.remove!=null) {
+      removeEOI(info.remove.key_name)
+    }
+    alert("RFP submitted")
+    window.location.assign("/#/review-eoi-rfp")
+  }
+}
+
+
+/**
+ * Removes from RFP table
+ * @params {object} key - key name to remove
+ */
+export function removeRFP(key) {
+  return function(dispatch) {
+
+    firebaseDb.ref('RFP/'+key.key_name).remove().then(function() {
+
+      //console.log("removed")
+      location.reload()
+      }).then((data) => {
+        dispatch({type: "REMOVED_RFP_FULFILLED"})
+      })
+    .catch(function(err) {
+      console.log("failed to remove")
+    })
+  }
+}
+
+/**
+ * Grabs the RFPs from the database.
+ * @returns {object} rfp - Returns the object of rfp.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchRFPs() {
+  return function(dispatch) {
+    firebaseDb.ref('RFP').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_RFP_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_RFP_REJECTED", payload: err})
+    })
+  }
+}
+
+/**
+ * sets the eoikey.
+ * @returns {object} dispatch - Returns the state which contains eoikey object
+ * @param {object} info - object which contains information about the eoikey.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeEOIkey(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('EOIdetails/'+user.uid).set({
+          key_name: info.key_name,
+      }).then((data) => {
+        dispatch({type: "STORE_EOI_KEY_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_EOI_KEY_REJECTED", payload: err})
+      })
+      }
+    })
+  }
+}
+
+/**
+ * Grabs the eoikey from the database.
+ * @returns {object} eoikey - Returns the object of eoikey.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchEOIkey() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('EOIdetails/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_EOI_KEY_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_EOI_KEY_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * sets the ReqEOI to the database.
+ * @returns {object} dispatch - Returns the state which contains reqeoi object
+ * @param {object} data - object which contains information about the reqeoi.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeReqEOI(info) { // called on button press
+  return function(dispatch) {
+    // THIS IS USED TO KEEP TRACK OF CURRENT COURSE/VENDOR VIEWED
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        console.log('user id is ',user.uid)
+        firebaseDb.ref('ReqEOI/'+user.uid).set({
+          vendor: info.vendor,
+          purchaser: user.uid,
+          course: info.courseid,
+          email: info.email,
+      }).then((data) => {
+        dispatch({type: "STORE_REQ_EOI_FULFILLED", payload: user})
+      })
+      .catch((err) => {
+        dispatch({type: "STORE_REQ_EOI_REJECTED", payload: err})
+      })
+      // move to eoi page
+      window.location.assign('/#/course-eoi')
+      }
+    })
+  }
+}
+
+/**
+ * Grabs the ReqEOIs from the database.
+ * @returns {object} reqeoi - Returns the object of reqeoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchReqEOI() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('ReqEOI/'+user.uid).once('value')
+        .then((snapshot) => {
+          dispatch({type: "FETCH_REQ_EOI_FULFILLED", payload: snapshot.val()})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_REQ_EOI_REJECTED", payload: err})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * sets the EOI to the database.
+ * @returns {object} dispatch - Returns the state which contains eoi object
+ * @param {object} data - object which contains information about the eoi.
+ * @throws {object} err - Returns an error if failed to push to database.
+ */
+export function storeEOIs(info) {
+  return function(dispatch) {
+    console.log("pushing", info)
+
+    firebaseDb.ref('EOI').push({
+      vendor: info.vendor,
+      purchaser: info.purchaser,
+      course: info.course,
+
+      // additional details below
+      email: info.email,
+      email1: info.email1,
+      date: info.date,
+      service: info.service,
+      text1: info.text1,
+      text2: info.text2,
+      closeDate: info.closeDate,
+      closeTime: info.closeTime,
+      name1: info.name1,
+      title1: info.title1,
+      name2: info.name2,
+      title2: info.title2,
+      email2: info.email2,
+      phone: info.phone,
+
+      company_name: info.company_name,
+      RFP_par: info.RFP_par,
+      vendor_company_address: info.vendor_company_address,
+      vendor_contact_name: info.vendor_contact_name,
+      vendor_contact_title_position: info.vendor_contact_title_position,
+      vendor_primary_telephone: info.vendor_primary_telephone,
+      vendor_alternate_telephone: info.vendor_alternate_telephone,
+      vendor_fax: info.vendor_fax,
+      vendor_email: info.vendor_email,
+
+      company_approved: info.company_approved,
+      optional_comments: info.optional_comments,
+
+      scope: info.scope,
+      qualificationA: info.qualificationA,
+      qualificationB: info.qualificationB,
+      qualificationC: info.qualificationC,
+      qualificationD: info.qualificationD,
+      response_date: info.response_date,
+      email3: info.email3,
+      LMRFPnum: info.LMRFPnum,
+      selection_date: info.selection_date,
+
+      purchaser_legal: info.purchaser_legal,
+      purchaser_address1: info.purchaser_address1,
+      purchaser_address2: info.purchaser_address2,
+      purchaser_city: info.purchaser_city,
+      purchaser_country: info.purchaser_country,
+      purchaser_phone: info.purchaser_phone,
+      purchaser_fax: info.purchaser_fax,
+
+
+
+
+
+
+
+    }).then((data) => {
+      dispatch({type: "STORE_EOI_FULFILLED", payload: user})
+    })
+    .catch((err) => {
+      dispatch({type: "STORE_EOI_REJECTED", payload: err})
+    })
+    alert("EOI submitted")
+    window.location.assign("/#/review-eoi-rfp")
+  }
+}
+
+/**
+ * Grabs the EOIs from the database.
+ * @returns {object} eoi - Returns the object of eoi.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchEOIs() {
+  return function(dispatch) {
+
+    firebaseDb.ref('EOI').once('value')
+    .then((snapshot) => {
+      dispatch({type: "FETCH_EOI_FULFILLED", payload: snapshot.val()})
+    })
+    .catch((err) => {
+      dispatch({type: "FETCH_EOI_REJECTED", payload: err})
+    })
+
+  }
+}
+
+/**
+ * Removes from EOI table
+ * @params {object} key - key name to remove
+ */
+export function removeEOI(info) {
+  return function(dispatch) {
+    console.log("key is", info)
+    firebaseDb.ref('EOI/'+info.key_name).remove().then(function() {
+
+      console.log("removed,", info.key_name)
+      location.reload()
+      }).then((data) => {
+        dispatch({type: "REMOVED_EOI_FULFILLED"})
+      })
+    .catch(function(err) {
+      console.log("failed to remove")
+    })
+  }
+}
+
 /**
  * Grabs the key and role from the database.
  * @returns {object} key - Returns the object of key.
@@ -152,40 +694,7 @@ export function approveUser(user) {
         var currentUser = firebaseAuthInstance.currentUser
 
         if (user.role==0) { // push as a purchaser
-          firebaseDb.ref('User/' + currentUser.uid).set({
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-            email: user.email,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-
-            gstReg: user.gstReg,
-            billAddress1: user.billAddress1,
-            billAddress2: user.billAddress2,
-            billCity: user.billCity,
-            billProvince: user.billProvince,
-            billCountry: user.billCountry,
-            billPostalCode: user.billPostalCode,
-            accntRec: user.accntRec,
-            bank: user.bank,
-
-            ISnumber: user.ISnumber,
-            website: user.website,
-            password: user.password,
-
-            jointVenture: user.jointVenture,
-            categories: user.categories,
-
-            role: user.role,
-          })
+          firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
@@ -197,90 +706,8 @@ export function approveUser(user) {
 
         } else if (user.role == 1) { // push as a vendor
 
-          firebaseDb.ref('User/' + currentUser.uid).set({
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
-            owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
-            owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
-            owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
-            owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
-            owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
-            natureBusiness: user.natureBusiness,
-            timeBusiness: user.timeBusiness,
-            proAffiliation: user.proAffiliation,
-            report:user.report,
-            
-            bank: user.bank,
-            bankLocation: user.bankLocation,
-            bonding: user.bonding,
-            bondingLocation: user.bondingLocation,
-            insuranceCompany: user.insuranceCompany,
-            insuranceLocation: user.insuranceLocation,
-            bondingLimitDate: user.bondingLimitDate,
-            bondingLimit: user.bondingLimit,
-            grossBus: user.grossBus,
-            grossBusYear: user.grossBusYear,
-            bankruptcy:user.bankruptcy,
-            numEmployees: user.numEmployees,
-            AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
-            AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
-            AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
-            categories: user.categories,
-            specialties: user.specialties,
-            client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
-            client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
-            client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
-            client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
-            licence1: user.licence1, licence1Location: user.licence1Location,
-            licence2: user.licence2, licence2Location: user.licence2Location,
-            licence3: user.licence3, licence3Location: user.licence3Location,
-            licence4: user.licence4, licence4Location: user.licence4Location,
-            licence5: user.licence5, licence5Location: user.licence5Location,
-            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
-            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
-            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
-            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
-            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
-            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
-            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
-            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
-            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
-            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
-            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
-            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
-            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
-            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
-            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
-            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
-            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
-            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
-            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
-            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
-            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
-            industryCode: user.industryCode, industryClassification: user.industryClassification,
-            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
-            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
-            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
-            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
-            drugPolicy: user.drugPolicy,
-            subcontractors: user.subcontractors,
-            stopWorkOrder: user.stopWorkOrder,
-            email: user.email,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-            ISnumber:user.ISnumber,
-            website: user.website,
-            password: user.password,
-            role: user.role,
-          })
+          firebaseDb.ref('User/' + currentUser.uid).set(user)
+
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
             console.log("removed")
             location.reload();
@@ -345,24 +772,24 @@ export function rejectUser(user) {
   return function(dispatch) {
     if (user.role == 0) { // reject purchaser
       firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
-        console.log("purchaseer removed")
+        console.log("purchaser removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     } else if (user.role == 1) { // reject vendor
       firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
         console.log("vendor removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     } else if (user.role == 2) { // reject additional resource
       firebaseDb.ref('ADSignup/'+user.key_name).remove().then(function() {
         console.log("ad removed")
         location.reload();
       }).then((data) => {
-        dispatch({type: "SIGNUP_USER_REJECTED", paylod: data})
+        dispatch({type: "SIGNUP_USER_REJECTED", payload: data})
       })
     }
   }
@@ -376,40 +803,8 @@ export function rejectUser(user) {
  */
 export function signUpPurchaser(user) {
   return function(dispatch) {
-    firebaseDb.ref('PurchaserSignup').push({
-      email: user.email,
-      password: user.password,
-      legalEntity: user.legalEntity,
-      operatingName: user.operatingName,
-      address1: user.address1,
-      address2: user.address2,
-      city: user.city,
-      province: user.province,
-      country: user.country,
-      postalCode: user.postalCode,
-      phone: user.phone,
-      fax: user.fax,
-      adminContact: user.adminContact,
-      technicalContact: user.technicalContact,
-
-      gstReg: user.gstReg,
-      billAddress1: user.billAddress1,
-      billAddress2: user.billAddress2,
-      billCity: user.billCity,
-      billProvince: user.billProvince,
-      billCountry: user.billCountry,
-      billPostalCode: user.billPostalCode,
-      accntRec: user.accntRec,
-      bank: user.bank,
-
-      ISnumber: user.ISnumber,
-      website: user.website,
-
-      jointVenture: user.jointVenture,
-      categories: user.categories,
-
-      role: 0,
-    }).then((data) => {
+    user.role = 0
+    firebaseDb.ref('PurchaserSignup').push(user).then((data) => {
       dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
     })
     .catch((err) => {
@@ -428,90 +823,9 @@ export function signUpPurchaser(user) {
  */
 export function signUpVendor(user) {
   return function(dispatch) {
-    firebaseDb.ref('VendorSignup').push({
-      legalEntity: user.legalEntity,
-      operatingName: user.operatingName,
-      address1: user.address1,
-      address2: user.address2,
-      city: user.city,
-      province: user.province,
-      country: user.country,
-      postalCode: user.postalCode,
-      phone: user.phone,
-      fax: user.fax,
-      owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
-      owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
-      owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
-      owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
-      owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
-      natureBusiness: user.natureBusiness,
-      timeBusiness: user.timeBusiness,
-      proAffiliation: user.proAffiliation,
-      report:user.report,
-      
-      bank: user.bank,
-      bankLocation: user.bankLocation,
-      bonding: user.bonding,
-      bondingLocation: user.bondingLocation,
-      insuranceCompany: user.insuranceCompany,
-      insuranceLocation: user.insuranceLocation,
-      bondingLimitDate: user.bondingLimitDate,
-      bondingLimit: user.bondingLimit,
-      grossBus: user.grossBus,
-      grossBusYear: user.grossBusYear,
-      bankruptcy:user.bankruptcy,
-      numEmployees: user.numEmployees,
-      AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
-      AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
-      AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
-      categories: user.categories,
-      specialties: user.specialties,
-      client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
-      client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
-      client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
-      client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
-      licence1: user.licence1, licence1Location: user.licence1Location,
-      licence2: user.licence2, licence2Location: user.licence2Location,
-      licence3: user.licence3, licence3Location: user.licence3Location,
-      licence4: user.licence4, licence4Location: user.licence4Location,
-      licence5: user.licence5, licence5Location: user.licence5Location,
-      insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
-      insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
-      insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
-      insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
-      insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
-      insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
-      insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
-      insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
-      insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
-      insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
-      insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
-      insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
-      insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
-      insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
-      insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
-      EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
-      FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
-      LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
-      MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
-      ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
-      TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
-      industryCode: user.industryCode, industryClassification: user.industryClassification,
-      IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
-      PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
-      PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
-      PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
-      drugPolicy: user.drugPolicy,
-      subcontractors: user.subcontractors,
-      stopWorkOrder: user.stopWorkOrder,
-      email: user.email,
-      adminContact: user.adminContact,
-      technicalContact: user.technicalContact,
-      ISnumber:user.ISnumber,
-      website: user.website,
-      password: user.password,
-      role: 1,
-    }).then((data) => {
+    user.role = 1
+    firebaseDb.ref('VendorSignup').push(user).then((data) => {
+
       dispatch({type: "SIGNUP_USER_FULFILLED", payload: user})
     })
     .catch((err) => {
@@ -555,17 +869,21 @@ export function signUpAD(user) {
 export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
-            .then((data) => {
-              var currentUser = firebaseAuth.currentUser
-              console.log('current user is', currentUser.uid)
-              firebaseDb.ref('Notifications/'+currentUser.uid).set({
-                  notified: false
-                })
-              dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
-            })
-            .catch((err) => {
-              dispatch({type: "LOGIN_USER_REJECTED", payload: err})
-            })
+        .then((data) => {
+          firebaseAuth.onAuthStateChanged((user)=>{
+            if (user){
+              //var currentUser = firebaseAuth.currentUser
+              firebaseDb.ref('Notifications/'+user.uid).set({
+                notified: false
+              })
+            }
+            dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+          })
+          
+        })
+        .catch((err) => {
+          dispatch({type: "LOGIN_USER_REJECTED", payload: err})
+        })
 
     }
 }
@@ -580,7 +898,6 @@ export function logOutUser() {
 
         firebaseAuth.signOut()
             .then((data) => {
-                console.log(data)
                 dispatch({type: "LOGOUT_USER_FULFILLED"})
             })
             .catch((err) => {
@@ -589,121 +906,25 @@ export function logOutUser() {
     }
 }
 
+/**
+ * Updates user profile.
+ * @params {object} user - info on the user
+ * @returns {object} dispatch - Returns the state which contains user object
+ * @throws {object} err - Returns an error if fail to logout.
+ */
 export function updateProfile(user) {
     return function(dispatch) {
-        dispatch({type: "SIGNUP_USER_FULFILLED"})
-      firebaseAuthInstance.signInWithEmailAndPassword(user.email, user.password)
-      .then((data) => {
-        var currentUser = firebaseAuthInstance.currentUser
-        console.log(currentUser.uid);
-        if (currentUser.role == 1) { // update as a vendor
+      dispatch({type: "UPDATE_USER_PROFILE"})
+      var currentUser = firebaseAuth.currentUser
 
-          firebaseDb.ref('User/' + currentUser.uid).set({
-            legalEntity: user.legalEntity,
-            operatingName: user.operatingName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            province: user.province,
-            country: user.country,
-            postalCode: user.postalCode,
-            phone: user.phone,
-            fax: user.fax,
+      if (true) { // update as a vendor
+        firebaseDb.ref('User/' + currentUser.uid).set(user).then((data) => {
+          dispatch({type: "UPDATE_USER_PROFILE_FULFILLED"})
 
-            owner1Name: user.owner1Name, owner1Pos: user.owner1Pos,
-            owner2Name: user.owner2Name, owner2Pos: user.owner2Pos,
-            owner3Name: user.owner3Name, owner3Pos: user.owner3Pos,
-            owner4Name: user.owner4Name, owner4Pos: user.owner4Pos,
-            owner5Name: user.owner5Name, owner5Pos: user.owner5Pos,
-
-            natureBusiness: user.natureBusiness,
-            timeBusiness: user.timeBusiness,
-            proAffiliation: user.proAffiliation,
-            report:user.report,
-            
-            bank: user.bank,
-            bankLocation: user.bankLocation,
-            bonding: user.bonding,
-            bondingLocation: user.bondingLocation,
-            insuranceCompany: user.insuranceCompany,
-            insuranceLocation: user.insuranceLocation,
-            bondingLimitDate: user.bondingLimitDate,
-            bondingLimit: user.bondingLimit,
-            grossBus: user.grossBus,
-            grossBusYear: user.grossBusYear,
-            bankruptcy:user.bankruptcy,
-
-            numEmployees: user.numEmployees,
-            AD1address1: user.AD1address1, AD1address2: user.AD1address2, AD1city: user.AD1city, AD1province: user.AD1province, AD1country: user.AD1country, AD1postalCode: user.AD1postalCode, AD1phone: user.AD1phone,
-            AD2address1: user.AD2address1, AD2address2: user.AD2address2, AD2city: user.AD2city, AD2province: user.AD2province, AD2country: user.AD2country, AD2postalCode: user.AD2postalCode, AD2phone: user.AD2phone,
-            AD3address1: user.AD3address1, AD3address2: user.AD3address2, AD3city: user.AD3city, AD3province: user.AD3province, AD3country: user.AD3country, AD3postalCode: user.AD3postalCode, AD3phone: user.AD3phone,
-
-            categories: user.categories,
-            specialties: user.specialties,
-
-            client1: user.client1, client1Location: user.client1Location, client1Phone: user.client1Phone, client1Email: user.client1Email, client1Service: user.client1Service,
-            client2: user.client2, client2Location: user.client2Location, client2Phone: user.client2Phone, client2Email: user.client2Email, client2Service: user.client2Service,
-            client3: user.client3, client3Location: user.client3Location, client3Phone: user.client3Phone, client3Email: user.client3Email, client3Service: user.client3Service,
-            client4: user.client4, client4Location: user.client4Location, client4Phone: user.client4Phone, client4Email: user.client4Email, client4Service: user.client4Service,
-
-
-            licence1: user.licence1, licence1Location: user.licence1Location,
-            licence2: user.licence2, licence2Location: user.licence2Location,
-            licence3: user.licence3, licence3Location: user.licence3Location,
-            licence4: user.licence4, licence4Location: user.licence4Location,
-            licence5: user.licence5, licence5Location: user.licence5Location,
-
-            insurer1: user.insurer1,  policyLimit1: user.policyLimit1,  expiry1: user.expiry1,
-            insurer2: user.insurer2,  policyLimit2: user.policyLimit2,  expiry2: user.expiry2,
-            insurer3: user.insurer3,  policyLimit3: user.policyLimit3,  expiry3: user.expiry3,
-            insurer4: user.insurer4,  policyLimit4: user.policyLimit4,  expiry4: user.expiry4,
-            insurer5: user.insurer5,  policyLimit5: user.policyLimit5,  expiry5: user.expiry5,
-            insurer6: user.insurer6,  policyLimit6: user.policyLimit6,  expiry6: user.expiry6,
-            insurer7: user.insurer7,  policyLimit7: user.policyLimit7,  expiry7: user.expiry7,
-            insurer8: user.insurer8,  policyLimit8: user.policyLimit8,  expiry8: user.expiry8,
-            insurer9: user.insurer9,  policyLimit9: user.policyLimit9,  expiry9: user.expiry9,
-            insurer10: user.insurer10,  policyLimit10: user.policyLimit10,  expiry10: user.expiry10,
-            insurer11: user.insurer11,  policyLimit11: user.policyLimit11,  expiry11: user.expiry11,
-            insurer12: user.insurer12,  policyLimit12: user.policyLimit12,  expiry12: user.expiry12,
-            insurer13: user.insurer13,  policyLimit13: user.policyLimit13,  expiry13: user.expiry13,
-            insurer14: user.insurer14,  policyLimit14: user.policyLimit14,  expiry14: user.expiry14,
-            insurer15: user.insurer15,  policyLimit15: user.policyLimit15,  expiry15: user.expiry15,
-
-            EHWcurrentYear: user.EHWcurrentYear,  EHWpreviousYear1: user.EHWpreviousYear1,  EHWpreviousYear2: user.EHWpreviousYear2,  EHWpreviousYear3: user.EHWpreviousYear3,
-            FcurrentYear: user.FcurrentYear,  FpreviousYear1: user.FpreviousYear1,  FpreviousYear2: user.FpreviousYear2,  FpreviousYear3: user.FpreviousYear3,
-            LTIcurrentYear: user.LTIcurrentYear,  LTIpreviousYear1: user.LTIpreviousYear1,  LTIpreviousYear2: user.LTIpreviousYear2,  LTIpreviousYear3: user.LTIpreviousYear3,
-            MAIcurrentYear: user.MAIcurrentYear,  MAIpreviousYear1: user.MAIpreviousYear1,  MAIpreviousYear2: user.MAIpreviousYear2,  MAIpreviousYear3: user.MAIpreviousYear3,
-            ORCcurrentYear: user.ORCcurrentYear,  ORCpreviousYear1: user.ORCpreviousYear1, ORCpreviousYear2: user.ORCpreviousYear2,  ORCpreviousYear3: user.ORCpreviousYear3,
-            TRIcurrentYear: user.TRIcurrentYear,  TRIpreviousYear1: user.TRIpreviousYear1,  TRIpreviousYear2: user.TRIpreviousYear2,  TRIpreviousYear3: user.TRIpreviousYear3,
-
-            industryCode: user.industryCode, industryClassification: user.industryClassification,
-
-            IRcurrentYear: user.IRcurrentYear,  IRpreviousYear1: user.IRpreviousYear1,  IRpreviousYear2: user.IRpreviousYear2,  IRpreviousYear3: user.IRpreviousYear3,
-            PRcurrentYear: user.PRcurrentYear,  PRpreviousYear1: user.PRpreviousYear1,  PRpreviousYear2: user.PRpreviousYear2,  PRpreviousYear3: user.PRpreviousYear3,
-            PDcurrentYear: user.PDcurrentYear,  PDpreviousYear1: user.PDpreviousYear1,  PDpreviousYear2: user.PDpreviousYear2,  PDpreviousYear3: user.PDpreviousYear3,
-            PScurrentYear: user.PScurrentYear,  PSpreviousYear1: user.PSpreviousYear1,  PSpreviousYear2: user.PSpreviousYear2,  PSpreviousYear3: user.PSpreviousYear3,
-
-            drugPolicy: user.drugPolicy,
-            subcontractors: user.subcontractors,
-            stopWorkOrder: user.stopWorkOrder,
-
-            email: user.email,
-            adminContact: user.adminContact,
-            technicalContact: user.technicalContact,
-
-            ISnumber:user.ISnumber,
-
-            website: user.website,
-            password: user.password,
-            role: user.role,
-          })
-
-
-
-        }
-      }).catch((err)=>{
-        dispatch({type:"LOGIN_USER_REJECTED",payload:err})
-      })
-
+        }).catch((err)=>{
+          dispatch({type:"UPDATE_USER_PROFILE_REJECTED",payload:err})
+        })
+      }
     }
 }
+

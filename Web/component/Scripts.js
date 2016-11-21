@@ -4,7 +4,7 @@ import {Button} from 'react-mdl';
 import store from './Store.js'
 
 import { connect } from "react-redux"
-import { fetchUsers,getCurrentUser } from "./Actions/userActions"
+import { fetchUsers,getCurrentUser,storeReqEOI } from "./Actions/userActions"
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 
@@ -20,20 +20,20 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage} from './Firebase'
 * @ignore
 */
 class Scripts extends Component {
+  
+  storeReqEOI(info) {
+    this.props.dispatch(storeReqEOI(info))
+  }
   /**
   * @ignore
   */
     script(){
+      var vendor_uid = "gE88Fyh2a8Pbstvq1Yv3QgnoTYf1"
+      var course_uid = "ggggg"
+      var email = "purchasereoi@gmail.com"
+      var info = {vendor_uid, course_uid, email}
 
-          firebaseDb.ref('Notifications/cykehSsWUIfvWZykWq1mnOLEHu32').set({
-            notified: false,
-          })
-          firebaseDb.ref('Keys_Roles/cykehSsWUIfvWZykWq1mnOLEHu32').set({
-            // set with base values
-            key: "test",
-            role: 0,
-          })
-
+      this.storeReqEOI(info)
     }
     /**
     * @ignore
