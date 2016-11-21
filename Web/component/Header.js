@@ -105,6 +105,7 @@ class LearnHeader extends Component {
 
         } else { // you are logged in!
 
+
           if (user.role == 3) {
             if (user.purchasers != null || user.vendors != null || user.ad != null) {
               if (user.notification != null) {
@@ -161,6 +162,7 @@ class LearnHeader extends Component {
                 );
 
           } else if (user.role == 3) {
+
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
