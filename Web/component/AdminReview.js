@@ -12,6 +12,53 @@ import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { fetchKeyRole, fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
 
+//the styling for the div showing all the information.  Too long to display on the div itself, so i put it here
+var info_div_style={
+    margin: 'auto',
+    width: '80%',
+    height: '80%',
+    overflowY:'auto',
+    position:'relative',
+    border: '2px solid blue',
+    backgroundColor: 'silver',
+}
+//the styling for the large tables.  
+var table_style={
+    margin: 'auto',
+    width: '600px',
+    //border: '5px groove black'
+    
+}
+
+var table_style2={
+    margin: 'auto',
+    width: '800px',
+    //border: '5px groove black'
+    
+}
+//styling for the sub-tables of the large tables
+var table_style_sub={
+    margin: 'auto',
+    width: '400px',
+    marginBottom: '15px',
+    //border: '1px dotted black'
+}
+//formatting for the cells in the tables
+var cell_format={
+    verticalAlign: 'top',
+}
+
+var row_format={
+    paddingBottom:'10px',
+    width:'400px',
+    //border:'1px solid'
+}
+
+var header_align={
+    textAlign:'center'
+}
+
+
 @connect((store) => {
   return {
     user: store.user
@@ -48,7 +95,6 @@ class AdminReview extends Component {
     fetchADSignup() {
       this.props.dispatch(fetchADSignup())
     }
-
     /**
      * Gets information for review
      * @return {object} keys_roles - Returns keys roles state
@@ -81,6 +127,8 @@ class AdminReview extends Component {
     rejectUser(user) {
       this.props.dispatch(rejectUser(user))
     }
+    
+    
     /**
      * Accepts a user
      * @param {object} key_name, role - information about user to approve
@@ -282,6 +330,7 @@ class AdminReview extends Component {
     return_back() {
       window.location.assign('/#/admin')
     }
+
     /**
       * Loads the details 
       * @return {html} - returns html details
@@ -292,7 +341,8 @@ class AdminReview extends Component {
         console.log("user is", user)
         var key_name = user.keys_roles.key
         var role = user.keys_roles.role
-
+        //GIVE proper display for role:  not jsut number
+        var string_role = {0:'Purchaser', 1:'Vendor', 2:'Admin'}
         if (role==0) {
           var legalEntity = user.purchasers[key_name].legalEntity;
           var operatingName = user.purchasers[key_name].operatingName;
@@ -325,48 +375,150 @@ class AdminReview extends Component {
           var categories = user.purchasers[key_name].categories;
 
           var password = user.purchasers[key_name].password;
-          var role = user.purchasers[key_name].role;
+          //var role = user.purchasers[key_name].role;
+        
 
           // make the page here
           return (
             <div>
             <LearnHeader/>
-            <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+            <div className="learn-content mdl-typography--text-center" >
                 <div className="grid">
                   <div className="card mdl-shadow--2dp">
-                    <div className="card__title mdl-color--indigo mdl-color-text--white">
+                    <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
                       <h4 className="card__title-text">Purchaser Information</h4>
                     </div>
-                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
+                        
+                      <table style={table_style}> 
+                          <tbody>
+                            <tr>
+                                <td><b>Legal Name:</b></td>
+                                <td>{legalEntity}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Operating Name:</b></td>
+                                <td>{operatingName}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Role:</b></td>
+                                <td>{string_role[role]}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 1: </b></td>
+                                 <td>{address1}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 2: </b></td>
+                                 <td>{address2}</td>
+                            </tr>
+                            <tr>
+                                <td><b>City:</b></td>
+                                 <td>{city}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Province:</b></td>
+                                 <td>{province}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country:</b></td>
+                                 <td>{country}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Postal Code:</b></td>
+                                 <td>{postalCode}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone:</b></td>
+                                 <td>{phone}</td>
+                            </tr>
 
-              <p>Legal Name: {legalEntity}</p>
-              <p>Operating Name: {operatingName}</p>
-              <p>Address 1: {address1}</p>
-              <p>Address 2: {address2}</p>
-              <p>City: {city}</p>
-              <p>Postal Code:</p>
-              <p>Province: </p>
-              <p>Country: </p>
-              <p>Postal Code:</p>
-              <p>Phone: </p>
-              <p>Fax:</p>
-              <p>Email:</p>
-              <p>Admin Contact:</p>
-              <p>Techncal Contact:</p>
-              <p>IS Number:</p>
-              <p>Website:</p>
-              <p>Password:</p>
-
+                            <tr>
+                                <td><b>Fax:</b></td>
+                                 <td>{fax}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email:</b></td>
+                                 <td>{email}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Admin Contact:</b></td>
+                                 <td>{adminContact}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Techncal Contact:</b></td>
+                                 <td>{technicalContact}</td>
+                            </tr>
+                            <tr>
+                                <td><b>GST Registration: </b></td>
+                                 <td>{gstReg}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Bank:</b></td>
+                                 <td>{bank}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Accounts Recieveable:</b></td>
+                                 <td>{accntRec}</td>
+                            </tr>
+                            <tr>
+                                <td><b>IS Number:</b></td>
+                                 <td>{ISnumber}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Website: </b></td>
+                                 <td><a href={website} link="red" target="_blank">Purchaser's Website</a></td>
+                            </tr>
+                            <tr>
+                                <td><b>Password:</b></td>
+                                 <td>{password}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 1:</b></td>
+                                 <td>{billAddress1}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 2:</b></td>
+                                 <td>{billAddress2}</td>
+                            </tr>
+                            <tr>
+                                <td><b>City:</b></td>
+                                 <td>{billCity}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Province:</b></td>
+                                 <td>{billProvince}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country:</b></td>
+                                 <td>{billCountry}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Postal Code:</b></td>
+                                 <td>{billPostalCode}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Joint Venture:</b></td>
+                                 <td>{jointVenture}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Categories:</b></td>
+                                 <td>{categories}</td>
+                            </tr>
+                          </tbody> 
+                        </table>
+              
+              
+                    </div>
                 <div>
-                <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-                <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-                <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-
+                    <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+                    <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+                    <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
                 </div>
                 <br/>
               </div>
               </div>
-              </div>
+              
             </div>
 
             <LearnFooter/>
@@ -413,8 +565,6 @@ class AdminReview extends Component {
           var AD2country = user.vendors[key_name].AD2country; var AD2postalCode = user.vendors[key_name].AD2postalCode; var AD2phone = user.vendors[key_name].AD2phone;
           var AD3address1 = user.vendors[key_name].AD3address1; var AD3address2 = user.vendors[key_name].AD3address2; var AD3city = user.vendors[key_name].AD3city; var AD3province = user.vendors[key_name].AD3province;
           var AD3country = user.vendors[key_name].AD3country; var AD3postalCode = user.vendors[key_name].AD3postalCode; var AD3phone = user.vendors[key_name].AD3phone;
-
-
 
           var categories = user.vendors[key_name].categories;
           var specialties = user.vendors[key_name].specialties;
@@ -463,6 +613,7 @@ class AdminReview extends Component {
           var drugPolicy = user.vendors[key_name].drugPolicy;
           var subcontractors = user.vendors[key_name].subcontractors;
           var stopWorkOrder = user.vendors[key_name].stopWorkOrder;
+            var hsejudgement = user.vendors[key_name].HSEjudge;
 
           var email = user.vendors[key_name].email;
           var adminContact = user.vendors[key_name].adminContact;
@@ -474,22 +625,887 @@ class AdminReview extends Component {
           var password = user.vendors[key_name].password;
 
           // make the page here with our info
+            //MISSING TWO VARIABLES I HAVE TO ADD>  OHS EVAL AND HSE RELATED JUDGEMENTS
           return (
             <div>
             <LearnHeader/>
-            <h4>LOADING...</h4>
-                <div>
-                <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
-                <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
-                <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
+            <div className="learn-content mdl-typography--text-center" >
+                <div className="grid">
+                  <div className="card mdl-shadow--2dp">
+                    <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
+                      <h4 className="card__title-text">Vendor Information</h4>
+                    </div>
+              
+                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
+              
+                        <h3>Contact Information</h3>
+                        <table style={table_style}>
+                            <tr>
+                                <td><b>Legal Name: </b></td>
+                                <td>{legalEntity}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Operating Name:</b> </td>
+                                <td>{operatingName}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Role: </b></td>
+                                <td>{string_role[role]}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 1: </b></td>
+                                <td>{address1}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address 2: </b></td>
+                                <td>{address2}</td>
+                            </tr>
+                            <tr>
+                                <td><b>City:</b> </td>
+                                <td>{city}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Province:</b></td>
+                                <td>{province}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country: </b></td>
+                                <td>{country}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Postal Code:</b></td>
+                                <td>{postalCode}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone:</b></td>
+                                <td>{phone}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Fax:</b></td>
+                                <td>{fax}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email:</b></td>
+                                <td>{email}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Admin Contact:</b></td>
+                                <td>{adminContact}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Techncal Contact:</b></td>
+                                <td>{technicalContact}</td>
+                            </tr>
+                        </table>
+              
+                      
+                        <h3>Buisness Information</h3>
+                        <table style={table_style}>
+                            <tr>
+                                <td><b>IS Number:</b></td>
+                                <td>{ISnumber}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Website:</b></td>
+                                <td><a href={website}target="_blank">Vendor's Website'</a></td>
+                            </tr>
+                            <tr>
+                                <td><b>Owner 1:</b></td>
+                                <td>{owner1Name}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Owner 2:</b></td>
+                                <td>{owner2Name}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Owner 3: </b></td>
+                                <td>{owner3Name}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Owner 4:</b> </td>
+                                <td>{owner4Name}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Owner 5:</b></td>
+                                <td>{owner5Name}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country: </b></td>
+                                <td>{country}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Postal Code:</b></td>
+                                <td>{postalCode}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone:</b></td>
+                                <td>{phone}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Fax:</b></td>
+                                <td>{fax}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email:</b></td>
+                                <td>{email}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Admin Contact:</b></td>
+                                <td>{adminContact}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+              
+                        <h3>References</h3>
+                        <table style={table_style}>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <tr>
+                                       <td><b>Client Name:</b></td>
+                                        <td>{client1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Location:</b></td>
+                                        <td>{client1Location}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Phone:</b></td>
+                                        <td>{client1Phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Emails:</b></td>
+                                        <td>{client1Email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={cell_format}><b>Details:</b></td>
+                                        <td>{client1Service}</td>
+                                    </tr>
+                                </table>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <tr>
+                                       <td><b>Client Name:</b></td>
+                                        <td>{client2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Location:</b></td>
+                                        <td>{client2Location}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Phone:</b></td>
+                                        <td>{client2Phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Emails:</b></td>
+                                        <td>{client2Email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={cell_format}><b>Details:</b></td>
+                                        <td>{client2Service}</td>
+                                    </tr>
+                                </table>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <tr>
+                                       <td><b>Client Name:</b></td>
+                                        <td>{client3}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Location:</b></td>
+                                        <td>{client3Location}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Phone:</b></td>
+                                        <td>{client3Phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Emails:</b></td>
+                                        <td>{client3Email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={cell_format}><b>Details:</b></td>
+                                        <td>{client3Service}</td>
+                                    </tr>
+                                </table>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <tr>
+                                       <td><b>Client Name:</b></td>
+                                        <td>{client4}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Location:</b></td>
+                                        <td>{client4Location}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Phone:</b></td>
+                                        <td>{client4Phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Emails:</b></td>
+                                        <td>{client4Email}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style={cell_format}><b>Details:</b></td>
+                                        <td>{client4Service}</td>
+                                    </tr>
+                                </table>
+                                </td>
+                            </tr>
+                        </table>
+              
+                        <h3>Licensing</h3>
+                        <table style={table_style}>
+                            <tr>
+                                <td><b>Licence Type 1:</b></td>
+                                <td>{licence1}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Licence Type 2:</b></td>
+                                <td>{licence2}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Licence Type 3:</b></td>
+                                <td>{licence3}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Licence Type 4:</b></td>
+                                <td>{licence4}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Licence Type 5:</b></td>
+                                <td>{licence5}</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Insurance</h3>
+                        <table style={table_style}>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Products/Completed Operations</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry1}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Sudden/Accidental Pollution</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry2}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Cross Liability/Severability of Interest</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer3}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit3}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry3}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Employers Liability</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer4}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit4}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry4}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Broad Form Property Damage</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer5}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit5}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry5}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Blanket Contractual Liability</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer6}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit6}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry6}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Intependent Contractor</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer7}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit7}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry7}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Non-Owned Automobile</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer8}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit8}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry8}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Tenant Legal liability</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer9}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit9}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry9}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>No Failiure to Preform</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer10}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit10}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry10}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Errors and Omission</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer11}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit11}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry11}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Cancellation Insurance</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer12}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit12}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry12}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Automobile Insurance</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer13}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit13}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry13}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Umbrella Liability</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer14}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit14}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry14}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Professional Liability</th>
+                                    <tr>
+                                       <td><b>Insurer:</b></td>
+                                        <td>{insurer15}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Policy Limit:</b></td>
+                                        <td>{policyLimit15}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Expiry:</b></td>
+                                        <td>{expiry15}</td>
+                                    </tr>
+                                    
+                                </table>
+                                </td>
+                            </tr>
+                        </table> 
+              
+                    <h3>Employee Information</h3>
+                      <table style={table_style}>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Employee hours Worked</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{EHWcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{EHWpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{EHWpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{EHWpreviousYear3}</td>
+                                    </tr>
 
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Fatalities</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{FcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{FpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{FpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{FpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Lost Time Incidents</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{LTIcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{LTIpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{LTIpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{LTIpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Medical aid injuries</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{MAIcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{MAIpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{MAIpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{MAIpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Other Recordable Incidents</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{ORCcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{ORCpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{ORCpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{ORCpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{TRIcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1:</b></td>
+                                        <td>{TRIpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{TRIpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{TRIpreviousYear3}</td>
+                                    </tr>
+
+                                </table>
+                                </td>
+                            </tr>
+                        </table>
+              
+                    <h3>Workers Compensation</h3>
+                      <table style={table_style}>
+                          <tr>
+                            <table style={table_style_sub}>
+                            <th>General</th>
+                            <tr>
+                            <td><b>Industry Code:</b></td>
+                            <td>{industryCode}</td>
+                            </tr>
+                          <tr>
+                            <td><b>Industry Classification:</b></td>
+                            <td>{industryClassification}</td>
+                          </tr>  
+                
+                          </table>
+                          </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Industry Rate</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{IRcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{IRpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{IRpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{IRpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>Proponent Rate</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{PRcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{PRpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{PRpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{PRpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>% Discoun</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{PDcurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{PDpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{PDpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{PDpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style={table_style_sub}>
+                                    <th>% Surcharge</th>
+                                    <tr>
+                                       <td><b>Current Year:</b></td>
+                                        <td>{PScurrentYear}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -1</b></td>
+                                        <td>{PSpreviousYear1}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -2:</b></td>
+                                        <td>{PSpreviousYear2}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current -3:</b></td>
+                                        <td>{PSpreviousYear3}</td>
+                                    </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+              </table>
+              
+              <h3>Additional Information</h3>
+              <table style={table_style2}>
+                    <tr>
+                        <td style={row_format}><b>Categories of Service:</b></td>
+                        <td style={row_format}>{categories}</td></tr>
+                   
+                    <tr>
+                        <td style = {row_format}><b>Specialities:</b></td>
+                        <td style = {row_format}>{specialties}</td>
+                    </tr>
+                    <tr>
+                        <td style = {row_format}><b>Drug and Alcohol policy:</b></td>      
+                        <td style = {row_format}>{drugPolicy}</td>
+                    </tr>
+                    <tr>
+                        <td style = {row_format}><b>Subcontractor OH&S Evaluation:</b></td>      
+                        <td style = {row_format}>{subcontractors}</td>
+                    </tr>
+                    <tr>
+                        <td style = {row_format}><b>OH&S Stop Work Order Recieved:</b></td>      
+                        <td style = {row_format}>{stopWorkOrder}</td>
+                    </tr>
+                    <tr>
+                        <td style = {row_format}><b>HSE related Judgements:</b></td>      
+                        <td style = {row_format}>{hsejudgement}</td>
+                    </tr>
+              </table>
+
+                    </div>
+              
+                <div>
+                    <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
+                    <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
+                    <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
                 </div>
                 <br/>
+              </div>
+              </div>
+              
+            </div>
 
             <LearnFooter/>
             </div>
           )
-        } else if (role == 2) { // ad
+        } else if (role == 2) { // additional resource
 
           var website = user.ad[key_name].website;
           var email = user.ad[key_name].email;
@@ -497,16 +1513,47 @@ class AdminReview extends Component {
           var role = user.ad[key_name].role;
           return (
             <div>
+            
             <LearnHeader/>
-            <h4>LOADING...</h4>
+            <div className="learn-content mdl-typography--text-center" >
+                <div className="grid">
+                  <div className="card mdl-shadow--2dp">
+                    <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
+                      <h4 className="card__title-text">Additional User Information</h4>
+                    </div>
+              
+                    <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
+              
+                        <h3>Details</h3>
+                        <table style={table_style}>
+                          <tr>
+                        <td style = {row_format}><b>Website:</b></td>      
+                        <td style = {row_format}><a href={website} link="red" target="_blank">{website}</a></td>
+                          </tr>
+                          <tr>
+                        <td style = {row_format}><b>Email:</b></td>      
+                        <td style = {row_format}>{email}</td>
+                          </tr>
+                          <tr>
+                        <td style = {row_format}><b>Password:</b></td>      
+                        <td style = {row_format}>{password}</td>
+                          </tr>
+                        </table>
+
+                    </div>
+        
 
                 <div>
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                 <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
                 <Button accent ripple onClick={this.return_back.bind(this)} className="mdl-color-text--indigo btn btn-primary">Back</Button>
-
-                </div>
+               </div>
                 <br/>
+              </div>
+              </div>
+              
+            </div>
+
             <LearnFooter/>
             </div>
           )

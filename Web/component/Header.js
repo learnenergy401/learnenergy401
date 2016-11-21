@@ -14,7 +14,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 import { connect } from "react-redux"
-import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
+import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser, fetchNotificationAdmin, setNotificationAdmin } from "./Actions/userActions"
 
 
 var buttonSpacer={
@@ -28,7 +28,19 @@ var buttonSpacer={
 })/*dont add semicolon here!*/
 
 class LearnHeader extends Component {
-
+    /**
+    * Sets notification
+    */
+    setNotificationAdmin() {
+      this.props.dispatch(setNotificationAdmin())
+    }
+    /**
+    * Gets Notification
+    * @return {object} notification - Returns notification object
+    */
+    fetchNotificationAdmin() {
+      this.props.dispatch(fetchNotificationAdmin())
+    }
     /**
     * Gets current user
     * @return {object} user - Returns current user logged in
@@ -61,15 +73,12 @@ class LearnHeader extends Component {
      * Invoked immediately before a component is unmounted and destroyed, to update our states
      */
     componentWillMount(){
-        const {user} = this.props
-        this.getCurrentUser()
-        if (user.role == 3){
-          this.fetchPurchaserSignup()
-          this.fetchVendorSignup()
-          this.fetchADSignup()
-        }
-        
-        
+      this.fetchNotificationAdmin()
+      this.getCurrentUser()
+      this.fetchPurchaserSignup()
+      this.fetchVendorSignup()
+      this.fetchADSignup()
+      
     }
     /**
     * Loads the header with different buttons depending on if user is logged in. Or an admin
@@ -94,25 +103,25 @@ class LearnHeader extends Component {
                 </Header>
             );
 
-        } else {
+        } else { // you are logged in!
 
-          var notified
-          var currentUser = firebaseAuth.currentUser
 
-          if (currentUser!=null) {
-            firebaseDb.ref('Notifications/'+currentUser.uid).once('value')
-            .then((snapshot) => {
-              notified = snapshot.val().notified
-              if (user.role == 3) {
-                if ((user.purchasers != null || user.vendors != null || user.ad != null)&&(notified==false)) {
+          if (user.role == 3) {
+            if (user.purchasers != null || user.vendors != null || user.ad != null) {
+              if (user.notification != null) {
+                console.log('notified is', user.notification.notified)
+
+                if (user.notification.notified == false) {
+                  console.log('notifying')
+                  this.setNotificationAdmin()
+                  this.fetchNotificationAdmin()
                   alert("There are users to be approved")
-                  firebaseDb.ref('Notifications/'+currentUser.uid).set({
-                    notified: true
-                  })
+
                 }
               }
-            })
+            } 
           }
+
           if (user.role == 0) { // vendor can see review EOI
             return(
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -153,6 +162,7 @@ class LearnHeader extends Component {
                 );
 
           } else if (user.role == 3) {
+
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">

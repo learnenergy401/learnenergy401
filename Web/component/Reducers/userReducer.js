@@ -12,6 +12,7 @@ export default function reducer(state={
     fetched: false,
     error: null,
     isLoggedIn:false,
+    notification:null,
     role: -1,
     purchasers: null,
     vendors: null,
@@ -169,7 +170,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 purchasers: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -179,7 +179,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 vendors: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -189,7 +188,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 ad: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -200,7 +198,6 @@ export default function reducer(state={
                 fetching: false,
                 fetched: true,
                 admin: action.payload,
-                isLoggedIn: action.isLoggedIn,
             }
         }
 
@@ -616,6 +613,39 @@ export default function reducer(state={
         }
         
         case "UPDATE_RFP_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_NOTIFICATION_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                notification: action.payload,
+            }
+        }
+
+        case "FETCH_NOTIFICATION_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }      
+        }
+
+        case "SET_NOTIFICATION_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,   
+            }           
+        } 
+
+        case "SET_NOTIFICATION_REJECTED": {
             return {
                 ...state,
                 fetching: false,

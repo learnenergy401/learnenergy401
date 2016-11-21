@@ -140,7 +140,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].vendor == uid) {
-						EOIs.push(user.eoi[key_name].LMRFPnum)
+						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}</h5>)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
@@ -161,7 +161,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].vendor == uid) {
-						RFPs.push(user.rfp[key_name].LMRFPnum)
+						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}</h5>)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
@@ -189,8 +189,8 @@ class ReviewEOI extends Component {
 		                </div>
 		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-		                  <h4> {EOIs} </h4>
-		                  <h4> {RFPs} </h4>
+		                   {EOIs} 
+		                   {RFPs} 
 
 		                </div>
 		                </div>
@@ -242,7 +242,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].purchaser == uid) {
-						EOIs.push(user.eoi[key_name].LMRFPnum)
+						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}</h5>)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
@@ -263,9 +263,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].purchaser == uid) {
-
-						RFPs.push(user.rfp[key_name].LMRFPnum)
-						RFPs.push(<br/>)
+						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}</h5>)
 						RFPs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
@@ -292,8 +290,8 @@ class ReviewEOI extends Component {
 		                </div>
 		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-		                  <h4> {EOIs} </h4>
-		                  <h4> {RFPs} </h4>
+		                   {EOIs} 
+		                   {RFPs} 
 
 		                </div>
 		                </div>

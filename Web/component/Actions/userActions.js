@@ -2,6 +2,50 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * sets the notifcation from the database.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function setNotificationAdmin() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      //console.log('notified')
+      if (user){
+        firebaseDb.ref('Notifications/'+user.uid).set({
+          notified: true,
+        })
+        .then((data) => {
+            dispatch({type: "SET_NOTIFICATION_FULFILLED"})
+        })
+        .catch((err) => {
+            dispatch({type: "SET_NOTIFICATION_REJECTED", payload: err.code})
+        })
+      }
+    })
+  }
+}
+
+/**
+ * Grabs the notifcation from the database.
+ * @returns {object} notification - Returns the object of notification.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchNotificationAdmin() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('Notifications/'+user.uid).once('value')
+          .then((snapshot) => {
+            dispatch({type: "FETCH_NOTIFICATION_FULFILLED", payload: snapshot.val()})
+          })
+          .catch((err) => {
+            dispatch({type: "FETCH_NOTIFICATION_REJECTED", payload: err})
+          })
+      }
+    })
+  }
+}
+
+/**
  * updates RFP
  * @param {object} RFP - information on RFP
  * @throws {object} err - Returns an error if failed to fetch from database.
@@ -148,7 +192,7 @@ export function storeRFPs(info) {
 
       // additional details below
       date: info.date,
-      purchaser: info.purchaser,
+      purchaser1: info.purchaser1,
       service: info.service,
       LMRFPnum: info.LMRFPnum,
       closeDate: info.closeDate,
@@ -825,16 +869,21 @@ export function signUpAD(user) {
 export function logInUser(user) {
     return function(dispatch) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.pw)
-            .then((data) => {
-              var currentUser = firebaseAuth.currentUser
-              firebaseDb.ref('Notifications/'+currentUser.uid).set({
-                  notified: false
-                })
-              dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
-            })
-            .catch((err) => {
-              dispatch({type: "LOGIN_USER_REJECTED", payload: err})
-            })
+        .then((data) => {
+          firebaseAuth.onAuthStateChanged((user)=>{
+            if (user){
+              //var currentUser = firebaseAuth.currentUser
+              firebaseDb.ref('Notifications/'+user.uid).set({
+                notified: false
+              })
+            }
+            dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+          })
+          
+        })
+        .catch((err) => {
+          dispatch({type: "LOGIN_USER_REJECTED", payload: err})
+        })
 
     }
 }
@@ -878,3 +927,4 @@ export function updateProfile(user) {
       }
     }
 }
+

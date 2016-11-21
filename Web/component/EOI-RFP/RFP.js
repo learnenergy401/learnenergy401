@@ -25,7 +25,7 @@ var cardStyle = {
 }
 
 var cardTitleStyle = {
-    height:'50px'
+    height:'700px'
 }
 
 
@@ -153,7 +153,7 @@ class RFP extends Component {
             for (var i=0; i<keys.length; i++) {
                 if ((list_of_emails[count] == user.users[keys[i]].email) && (user.users[keys[i]].role==1)) {
                     vendor_ids.push(keys[i])
-                } 
+                }
             }
         }
 
@@ -199,8 +199,8 @@ class RFP extends Component {
 
         const {user} = this.props
 
-        if (user.user!=null && user.role == 0) {
-
+        if ((user.user!=null) && (user.role == 0) && (user.users!=null)) {
+            console.log(user)
             var purchaser_legal = user.user.legalEntity
             var purchaser_address1 = user.user.address1
             var purchaser_address2 = user.user.address2
@@ -210,8 +210,8 @@ class RFP extends Component {
             var purchaser_fax = user.user.fax
 
             var vendors = []
-            var keys = Object.keys(user.users) 
-
+            var keys = Object.keys(user.users)
+            console.log(keys)
             for (var count=0; count<keys.length; count++) {
                 if (user.users[keys[count]].role == 1) {
                     vendors.push(user.users[keys[count]].email)

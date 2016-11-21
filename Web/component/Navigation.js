@@ -27,8 +27,8 @@ class LearnNavigation extends Component {
         <div style={containerStyle}>
             <Navigation style={navStyle} className="learn-navigation">
               <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href="#view-course">Courses</a>
-              <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href>Pricing</a>
-              <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href>How it works</a>
+              <a className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800" href="#ad-page">Additional Resources</a>
+              
             </Navigation>
         </div>
         );}
