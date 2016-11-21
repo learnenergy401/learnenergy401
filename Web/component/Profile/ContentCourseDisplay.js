@@ -39,7 +39,9 @@ var cardTitleStyle = {
 })
 
 class ContentCourseDisplay extends Component{
-    
+    /** 
+    * Save a coure for course Detail
+    */
     saveACourse(courseName){
         this.props.dispatch(saveACourse(courseName));
         this.props.dispatch(changeMenu(3))

@@ -11,7 +11,6 @@ import { connect } from "react-redux"
 var contentStyle = {
     height: '800px!important',
 }
-//      <LearnHeader/>
 
 @connect((store) => {
   return {

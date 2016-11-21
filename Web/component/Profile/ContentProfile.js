@@ -19,23 +19,38 @@ import {updateProfile,getCurrentUser,logInUser} from "../Actions/userActions.js"
 
 
 class ContentProfile extends Component {
+    /**
+     * Get current user
+     */
     getCurrentUser() {
         this.props.dispatch(getCurrentUser())
     }
-    
+    /**
+     * Log in user
+     */ 
     logInUser(user) {
         this.props.dispatch(logInUser(user))
     }
     
+    /**
+     * update profile
+     * @param {user} user updated user file
+     */
     updateProfile(user) {
         this.props.dispatch(updateProfile(user));
         this.getCurrentUser()
     } 
     
+    /**
+     * called before dom elements are mounted, to get current user
+     */
     componentWillMount(){
         this.getCurrentUser()
     }
     
+    /**
+     * called after dom elements are mounted, set all the text on textfields
+     */
     componentDidUpdate(){
         
         const {user,profile} = this.props

@@ -11,7 +11,7 @@ var contentStyle = {
 
 class ContentViewVendor extends Component {
     /**
-    * view course render
+    * view vendor render
     * @return {html} display courses
     */
     render(){

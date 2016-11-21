@@ -1,3 +1,11 @@
+
+/**
+ * Tag Reducer
+ * @exports {state} reducer
+ * @param {object} action
+ * @return {state} tag
+ */
+
 const tag = (state, action) => {
   switch (action.type) {
     case 'ADD_TAG':
@@ -12,6 +20,13 @@ const tag = (state, action) => {
       return state
   }
 }
+
+/**
+ * Tags Reducer
+ * @exports {state} reducer
+ * @param {object} action
+ * @return {state} tags
+ */
 
 const tags = (state = [], action) => {
   switch (action.type) {

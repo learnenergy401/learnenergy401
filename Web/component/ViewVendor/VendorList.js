@@ -41,11 +41,17 @@ var cardTextStyle= {
 })
 
 class VendorList extends Component{
+    /**
+    * constructor of class VendorList
+    */
     constructor (props) {
         super(props);
         this.state = { searchTerm: '' }
     }
 
+    /**
+    * called before dom elements is mounted, fetching user list
+    */
     componentWillMount(){
         this.props.dispatch(fetchUsers());
 
@@ -66,11 +72,17 @@ class VendorList extends Component{
         return arr
     }
 
+    /**
+    * called after dom elements is mounted, set focus on search bar
+    */
     componentDidMount (){
         document.getElementById("vendorSearchInput").focus()
     }
 
-
+    /**
+    * update search team after user input
+    * @param {string} term   pass a search term
+    */
     searchUpdated (term) {
         term = document.getElementById("vendorSearchInput").value
         this.setState({searchTerm: term})

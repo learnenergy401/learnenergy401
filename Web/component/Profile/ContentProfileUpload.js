@@ -31,6 +31,11 @@ var formStyle = {
 
 
 class ContentProfileUpload extends Component {
+    /**
+     * Check if array contains tag text
+     * @param {array,text} array, text 
+     * @return {boolean} boolean - return boolean
+     */
     contains(a, text) {
         var i = a.length;
         while (i--) {
@@ -40,6 +45,10 @@ class ContentProfileUpload extends Component {
         }
         return false;
     }
+
+    /**
+     * Handle add tag
+     */
     handleAddTag(){
       const tags = this.props.tags
         var tagText = document.getElementById("addTag").value
@@ -52,6 +61,10 @@ class ContentProfileUpload extends Component {
         }
         
     }
+
+    /**
+     * Handle delete tag
+     */
     handleDelete(text){
         this.props.dispatch(deleteTag(text))
     }
