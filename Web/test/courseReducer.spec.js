@@ -175,7 +175,83 @@ describe('course reducer', () => {
 	      }
 	   )
 	})
-
+    
+    it('should handle UPLOAD_COURSE_FILES', () => {
+        expect(
+            reducer([],{
+                type: 'UPLOAD_COURSE_FILES',
+            })
+        ).toEqual(
+            {
+                uploaded: true,
+                fetching: false,
+            }
+        )
+    })
+    
+    it('should handle UPLOAD_COURSE_FILES_FULFILLED', () => {
+	    expect(
+	      reducer([], {
+	        type: 'UPLOAD_COURSE_FILES_FULFILLED',
+	      })
+	    ).toEqual(
+	      	{
+	        	uploaded: true,
+                fetching: false,
+	      	}
+	   )
+	})
+    
+    it('should handle UPLOAD_COURSE_FILES_REJECTED', () => {
+	    expect(
+	      reducer([], {
+	        type: 'UPLOAD_COURSE_FILES_REJECTED',
+	      })
+	    ).toEqual(
+	      {
+	        fetching: false,
+	      }
+	   )
+	})
+    
+    it('should handle UPDATE_COURSE', () => {
+        expect(
+            reducer([],{
+                type: 'UPDATE_COURSE',
+            })
+        ).toEqual(
+            {
+                uploaded: true,
+                fetching: false,
+            }
+        )
+    })
+    
+    it('should handle UPDATE_COURSE_FULFILLED', () => {
+	    expect(
+	      reducer([], {
+	        type: 'UPDATE_COURSE_FULFILLED',
+	      })
+	    ).toEqual(
+	      	{
+	        	uploaded: true,
+                fetching: false,
+	      	}
+	   )
+	})
+    
+    it('should handle UPDATE_COURSE_REJECTED', () => {
+	    expect(
+	      reducer([], {
+	        type: 'UPDATE_COURSE_REJECTED',
+	      })
+	    ).toEqual(
+	      {
+	        fetching: false,
+	      }
+	   )
+	})
+    
 	it('should handle SAVE_A_COURSE', () => {
 	    expect(
 	      reducer([], {
