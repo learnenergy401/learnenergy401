@@ -2,13 +2,14 @@ module.exports = {
   entry: './Web/component/main.js',
   output: {
     path: './Web/component/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     inline: true,
     contentBase: './Web',
     port: 8100
   },
+
   module: {
     loaders: [
       {
