@@ -6,7 +6,7 @@ import LearnFooter from '../Footer.js'
 import LearnLogo from '../Logo.js';
 import LearnNavigation from '../Navigation.js';
 import store from '../Store.js'
-import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
+import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseStorageNorm, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 import { removeEOI, removeRFP, storeEOIkey, fetchEOIs, fetchRFPs, storeRFPkey } from "../Actions/userActions"
@@ -112,8 +112,16 @@ class ReviewEOI extends Component {
 		window.location.assign('/#/edit-rfp-details')
 
 	}
+
+  download_appendix() {
+    var storageRef = firebaseStorageNorm.ref("Appendix_2_EOI.pdf");
+    storageRef.getDownloadURL().then(function(url) {
+    window.location.assign(url)
+    });
+  }
+
     /**
-	 * Loads the details 
+	 * Loads the details
 	 * @return {html} - returns html details
 	 */
 	render() {
@@ -187,10 +195,14 @@ class ReviewEOI extends Component {
 		                <div className="card__title mdl-color--indigo mdl-color-text--white">
 		                  <h4 className="card__title-text">EOIs and RFPs</h4>
 		                </div>
+
+                    <Button accent ripple onClick={this.download_appendix} className="mdl-color-text--indigo btn btn-primary">Download Appendix 2</Button>
+                    <hr/>
+
 		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-		                   {EOIs} 
-		                   {RFPs} 
+		                   {EOIs}
+		                   {RFPs}
 
 		                </div>
 		                </div>
@@ -202,7 +214,7 @@ class ReviewEOI extends Component {
 		        </div>
 				);
 			} else {
-				return ( 
+				return (
 
 		        <div>
 		          <LearnHeader/>
@@ -288,10 +300,14 @@ class ReviewEOI extends Component {
 		                <div className="card__title mdl-color--indigo mdl-color-text--white">
 		                  <h4 className="card__title-text">EOIs and RFPs</h4>
 		                </div>
+
+                    <Button accent ripple onClick={this.download_appendix} className="mdl-color-text--indigo btn btn-primary">Download Appendix 2</Button>
+                    <hr/>
+
 		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
-		                   {EOIs} 
-		                   {RFPs} 
+		                   {EOIs}
+		                   {RFPs}
 
 		                </div>
 		                </div>
@@ -303,7 +319,7 @@ class ReviewEOI extends Component {
 		        </div>
 				);
 			} else {
-				return ( 
+				return (
 
 		        <div>
 		          <LearnHeader/>
@@ -323,9 +339,9 @@ class ReviewEOI extends Component {
 			}
 
 
-		} else { 
+		} else {
 
-			return ( 
+			return (
 
 	        <div>
 	          <LearnHeader/>

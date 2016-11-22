@@ -3,13 +3,13 @@ import {FIREBASE_CONFIG} from '../../firebase.config.js';
 import ComponentUpload from './ComponentUpload.js';
 
 /**
- * Initializes the firebase App 
+ * Initializes the firebase App
  * @ignore
  */
 export const firebaseApp = firebase.initializeApp(FIREBASE_CONFIG,'LearnEnergy');
 
 /**
- * Auth of firebaseApp 
+ * Auth of firebaseApp
  * @ignore
  */
 export const firebaseAuth = firebaseApp.auth();
@@ -21,13 +21,19 @@ export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 
 /**
- * Storage of firebaseApp 
+ * Storage of firebaseApp
  * @ignore
  */
 export const firebaseStorage = firebaseApp.storage().ref();
 
 /**
- * Initializes a second instance of firebase App 
+ * Storage of firebaseApp for own refs
+ * @ignore
+ */
+export const firebaseStorageNorm = firebaseApp.storage();
+
+/**
+ * Initializes a second instance of firebase App
   * @ignore
   */
 export const firebaseApp2 = firebase.initializeApp(FIREBASE_CONFIG);
