@@ -879,6 +879,7 @@ export function logInUser(user) {
               })
             }
             dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+            window.location.assign("/")
           })
           
         })

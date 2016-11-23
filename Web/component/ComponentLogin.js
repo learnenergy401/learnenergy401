@@ -78,8 +78,12 @@ class ComponentLogin extends Component {
                 </div>
             );
         } else {
-            return (
-                window.location.assign('/')
+          return (
+                <div className="android-content mdl-layout__content">
+                    <a name="top" />
+                    <div style={{width: '80%', margin: 'auto'}}>
+                    </div>
+                </div>
             );
 
         }

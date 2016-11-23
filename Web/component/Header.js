@@ -112,11 +112,11 @@ class LearnHeader extends Component {
                 console.log('notified is', user.notification.notified)
 
                 if (user.notification.notified == false) {
-                  console.log('notifying')
+                  //console.log('notifying')
                   this.setNotificationAdmin()
                   this.fetchNotificationAdmin()
                   alert("There are users to be approved")
-
+                  //console.log('notify true?', user.notification.notified)
                 }
               }
             } 
