@@ -96,68 +96,71 @@ class ComponentSignUpPurchaser extends Component {
       <div className="android-content mdl-layout__content">
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
+
+            <br/><br/><br/>
             <hr/>
-            <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Email" id="email"/>
             <br/>
-            <Textfield label="operatingName" className="form-control" ref="password"  placeholder="Operating Name" id="operatingName"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
             <hr/>
-            <h6>Address:</h6>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
             <br/>
-            <Textfield label="address1" className="form-control" ref="address1"  placeholder="Address 1" id="address1"/>
-            <br/>
-            <Textfield label="address2" className="form-control" ref="address2"  placeholder="Address 2" id="address2"/>
-            <br/>
-            <Textfield label="city" className="form-control" ref="city"  placeholder="City" id="city"/>
-            <br/>
-            <Textfield label="province" className="form-control" ref="province"  placeholder="Province" id="province"/>
-            <br/>
-            <Textfield label="country" className="form-control" ref="country"  placeholder="Country" id="country"/>
-            <br/>
-            <Textfield label="postalCode" className="form-control" ref="postalCode"  placeholder="Postal Code" id="postalCode"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
             <hr/>
-            <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone Number" id="phone"/>
+            <u><h5>Address:</h5></u>
             <br/>
-            <Textfield label="fax" className="form-control" ref="fax"  placeholder="Fax Number" id="fax"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
+            &nbsp;
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
             <br/>
-            <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="City" id="city"/>
+            &nbsp;
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Province" id="province"/>
             <br/>
-            <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Country" id="country"/>
+            &nbsp;
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>
+            <hr/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>
             <br/>
-            <Textfield label="adminContact" className="form-control" ref="adminContact"  placeholder="Admin Email" id="adminContact"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <br/>
-            <Textfield label="technicalContact" className="form-control" ref="technicalContact"  placeholder="Technical Email" id="technicalContact"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Admin Email" id="adminContact"/>
             <br/>
-            <Textfield label="gstReg" className="form-control" ref="gstReg"  placeholder="GST Registration #" id="gstReg"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Technical Email" id="technicalContact"/>
+            <br/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="GST Registration #" id="gstReg"/>
             <br/>
             <hr/>
-            <h6>Billing Address:</h6>
+            <u><h5>Billing Address:</h5></u>
             <br/>
-            <Textfield label="billAddress1" className="form-control" ref="billAddress1"  placeholder="Address 1" id="billAddress1"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 1" id="billAddress1"/>
+            &nbsp;
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 2" id="billAddress2"/>
             <br/>
-            <Textfield label="billAddress2" className="form-control" ref="billAddress2"  placeholder="Address 2" id="billAddress2"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="City" id="billCity"/>
+            &nbsp;
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Province" id="billProvince"/>
             <br/>
-            <Textfield label="billCity" className="form-control" ref="billCity"  placeholder="City" id="billCity"/>
-            <br/>
-            <Textfield label="billProvince" className="form-control" ref="billProvince"  placeholder="Province" id="billProvince"/>
-            <br/>
-            <Textfield label="billCountry" className="form-control" ref="billCountry"  placeholder="Country" id="billCountry"/>
-            <br/>
-            <Textfield label="billPostalCode" className="form-control" ref="billPostalCode"  placeholder="Postal Code" id="billPostalCode"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Country" id="billCountry"/>
+            &nbsp;
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Postal Code" id="billPostalCode"/>
             <hr/>
-            <Textfield label="accntRec" className="form-control" ref="accntRec"  placeholder="Accounts Receivable" id="accntRec"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Accounts Receivable" id="accntRec"/>
             <br/>
-            <Textfield label="bank" className="form-control" ref="bank"  placeholder="Bank" id="bank"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>
             <br/>
+            <u><h6>ISN Member?</h6></u>
             <div>
-              <label>ISN Member:
+              <label>
                 <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
                 <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
               </label>
             </div>
             <br/>
-            <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Website" id="website"/>
             <hr/>
-            <h6>Would you like to be considered for joint ventures in development of new education/training?</h6>
+            <u><h6>Would you like to be considered for joint ventures in development of new education/training?</h6></u>
             <div>
               <label>
                 <input type="radio" name="JointVentures" value="jvY" id="jointVentureYes"/>Yes
@@ -165,10 +168,10 @@ class ComponentSignUpPurchaser extends Component {
               </label>
             </div>
             <br/>
-            <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Categories" id="categories"/>
             <hr/>
             <CardActions>
-              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
+              <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
         </div>
       </div>
