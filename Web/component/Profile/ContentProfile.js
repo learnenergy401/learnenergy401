@@ -40,7 +40,6 @@ class ContentProfile extends Component {
         this.props.dispatch(updateProfile(user));
         this.getCurrentUser()
     }
-
     /**
      * called before dom elements are mounted, to get current user
      */
@@ -1139,6 +1138,10 @@ class ContentProfile extends Component {
         }else if(profile.menu==2){
             return(
                 <ContentProfileUpload/>
+            )
+        } else if(profile.menu==3) {
+            return(
+                <ContentBookmarks/>
             )
         }else{
             return(

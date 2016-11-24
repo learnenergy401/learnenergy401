@@ -53,16 +53,17 @@ class SideMenuProfile extends Component {
         this.props.dispatch(changeMenu(2))
         this.props.dispatch(resetTags())
     }
-    /**
-    * Loads the user profile sidebar
-    * @return {html} - returns Bookmarks, profile, sidebar, RFPs
-    */
+
 
     showBookmarks() {
         
         this.props.dispatch(changeMenu(1))
     }
     
+    /**
+    * Loads the user profile sidebar
+    * @return {html} - returns Bookmarks, profile, sidebar, RFPs
+    */
     render(){
         const {user,profile} = this.props
         if (user.role == 0){
