@@ -54,15 +54,15 @@ class ComponentSignUpAD extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
 
-            <Textfield label="website" className="form-control" ref="website"  placeholder="Website" id="website"/>
+            <br/><br/><br/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Website" id="website"/>
             <br/>
-            <Textfield label="email" className="form-control" ref="email"  placeholder="Email" id="email"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Email" id="email"/>
             <br/>
-            <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="password"/>
+            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <br/>
+            <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
 
-            <CardActions>
-              <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
-            </CardActions>
         </div>
       </div>
     );
