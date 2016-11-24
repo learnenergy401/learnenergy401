@@ -2,6 +2,49 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * Grabs the bookmarks from the database.
+ * @returns {object} bookmarks - Returns the object of bookmarks.
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function fetchBookmarks() {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      if (user){
+        firebaseDb.ref('Bookmarks/'+user.uid).once('value')
+          .then((snapshot) => {
+            dispatch({type: "FETCH_BOOKMARKS_FULFILLED", payload: snapshot.val()})
+          })
+          .catch((err) => {
+            dispatch({type: "FETCH_BOOKMARKS_REJECTED", payload: err})
+          })
+      }
+    })
+  }
+}
+
+/**
+ * sets the notifcation from the database.
+ * @param {object} bookmarks - information on bookmarks
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function setBookmarks(bookmarks) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      //console.log('notified')
+      if (user){
+        firebaseDb.ref('Bookmarks/'+user.uid).set(bookmarks)
+        .then((data) => {
+            dispatch({type: "SET_BOOKMARKS_FULFILLED"})
+        })
+        .catch((err) => {
+            dispatch({type: "SET_BOOKMARKS_REJECTED", payload: err.code})
+        })
+      }
+    })
+  }
+}
+
+/**
  * sets the notifcation from the database.
  * @throws {object} err - Returns an error if failed to fetch from database.
  */

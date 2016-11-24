@@ -57,6 +57,12 @@ class SideMenuProfile extends Component {
     * Loads the user profile sidebar
     * @return {html} - returns Bookmarks, profile, sidebar, RFPs
     */
+
+    showBookmarks() {
+        
+        this.props.dispatch(changeMenu(1))
+    }
+    
     render(){
         const {user,profile} = this.props
         if (user.role == 0){
@@ -67,10 +73,7 @@ class SideMenuProfile extends Component {
                             <ListItemContent >Profile</ListItemContent>
                           </ListItem>
                           <ListItem>
-                            <ListItemContent >Bookmarks</ListItemContent>
-                          </ListItem>
-                          <ListItem>
-                            <ListItemContent >My RFP</ListItemContent>
+                            <Button onClick={this.showBookmarks.bind(this)} style={sidemenuItemStyle}>Bookmarks</Button>
                           </ListItem>
                         </List>
                     </aside>

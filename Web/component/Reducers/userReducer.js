@@ -27,6 +27,7 @@ export default function reducer(state={
     rfp: null,
     rfpKey: null,
     rfp_from_eoi: null,
+    bookmarks: null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -649,6 +650,39 @@ export default function reducer(state={
         } 
 
         case "SET_NOTIFICATION_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
+        case "FETCH_BOOKMARKS_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                bookmarks: action.payload,
+            }
+        }
+
+        case "FETCH_BOOKMARKS_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }      
+        }
+
+        case "SET_BOOKMARKS_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                fetched:true,   
+            }           
+        } 
+
+        case "SET_BOOKMARKS_REJECTED": {
             return {
                 ...state,
                 fetching: false,
