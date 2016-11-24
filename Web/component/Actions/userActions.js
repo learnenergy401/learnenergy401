@@ -8,6 +8,7 @@ import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstan
  */
 export function fetchBookmarks() {
   return function(dispatch) {
+    console.log('fetching bookmarks')
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){
         firebaseDb.ref('Bookmarks/'+user.uid).once('value')
