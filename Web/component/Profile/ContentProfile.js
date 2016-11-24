@@ -27,11 +27,11 @@ class ContentProfile extends Component {
     }
     /**
      * Log in user
-     */ 
+     */
     logInUser(user) {
         this.props.dispatch(logInUser(user))
     }
-    
+
     /**
      * update profile
      * @param {user} user updated user file
@@ -39,20 +39,20 @@ class ContentProfile extends Component {
     updateProfile(user) {
         this.props.dispatch(updateProfile(user));
         this.getCurrentUser()
-    } 
-    
+    }
+
     /**
      * called before dom elements are mounted, to get current user
      */
     componentWillMount(){
         this.getCurrentUser()
     }
-    
+
     /**
      * called after dom elements are mounted, set all the text on textfields
      */
     componentDidUpdate(){
-        
+
         const {user,profile} = this.props
         if(profile.menu==0){
         if(!user.isLoggedIn){
@@ -79,7 +79,7 @@ class ContentProfile extends Component {
         document.getElementById("owner4Pos").value=user.profile.owner4Pos;
         document.getElementById("owner5Name").value=user.profile.owner5Name;
         document.getElementById("owner5Pos").value=user.profile.owner5Pos;
-        
+
         document.getElementById("natureBusiness").value=user.profile.natureBusiness;
         document.getElementById("timeBusiness").value=user.profile.timeBusiness;
         document.getElementById("proAffiliation").value=user.profile.proAffiliation;
@@ -90,7 +90,7 @@ class ContentProfile extends Component {
         }else if(user.profile.report=="not applicable"){
             document.getElementById("reportNotApplicable").checked=true;
         }
-        
+
         document.getElementById("bank").value=user.profile.bank;
         document.getElementById("bankLocation").value=user.profile.bankLocation;
         document.getElementById("bonding").value=user.profile.bonding;
@@ -106,11 +106,11 @@ class ContentProfile extends Component {
         }else if(user.profile.bankruptcy=="no"){
             document.getElementById("bankNo").checked=true;
         }
-        
+
         document.getElementById("client1Service").value=user.profile.client1Service;
         document.getElementById("industryCode").value=user.profile.industryCode;
         document.getElementById("industryClassification").value=user.profile.industryClassification;
-            
+
         document.getElementById("numEmployees").value=user.profile.numEmployees;
         document.getElementById("AD1address1").value=user.profile.AD1address1;
         document.getElementById("AD1address2").value=user.profile.AD1address2;
@@ -133,10 +133,10 @@ class ContentProfile extends Component {
         document.getElementById("AD3country").value=user.profile.AD3country;
         document.getElementById("AD3postalCode").value=user.profile.AD3postalCode;
         document.getElementById("AD3phone").value=user.profile.AD3phone;
-        
+
         document.getElementById("categories").value=user.profile.categories;
         document.getElementById("specialties").value=user.profile.specialties;
-        
+
         document.getElementById("client1").value=user.profile.client1;
         document.getElementById("client1Location").value=user.profile.client1Location;
         document.getElementById("client1Phone").value=user.profile.client1Phone;
@@ -157,7 +157,7 @@ class ContentProfile extends Component {
         document.getElementById("client4Phone").value=user.profile.client4Phone;
         document.getElementById("client4Email").value=user.profile.client4Email;
         document.getElementById("client4Service").value=user.profile.client4Service;
-            
+
         document.getElementById("licence1").value=user.profile.licence1;
         document.getElementById("licence1Location").value=user.profile.licence1Location;
         document.getElementById("licence2").value=user.profile.licence2;
@@ -168,7 +168,7 @@ class ContentProfile extends Component {
         document.getElementById("licence4Location").value=user.profile.licence4Location;
         document.getElementById("licence5").value=user.profile.licence5;
         document.getElementById("licence5Location").value=user.profile.licence5Location;
-        
+
         document.getElementById("insurer1").value=user.profile.insurer1;
         document.getElementById("policyLimit1").value=user.profile.policyLimit1;
         document.getElementById("expiry1").value=user.profile.expiry1;
@@ -214,7 +214,7 @@ class ContentProfile extends Component {
         document.getElementById("insurer15").value=user.profile.insurer15;
         document.getElementById("policyLimit15").value=user.profile.policyLimit15;
         document.getElementById("expiry15").value=user.profile.expiry15;
-        
+
         document.getElementById("EHWcurrentYear").value=user.profile.EHWcurrentYear;
         document.getElementById("EHWpreviousYear1").value=user.profile.EHWpreviousYear1;
         document.getElementById("EHWpreviousYear2").value=user.profile.EHWpreviousYear2;
@@ -255,10 +255,11 @@ class ContentProfile extends Component {
         document.getElementById("PSpreviousYear1").value=user.profile.PSpreviousYear1;
         document.getElementById("PSpreviousYear2").value=user.profile.PSpreviousYear2;
         document.getElementById("PSpreviousYear3").value=user.profile.PSpreviousYear3;
-        
+
         document.getElementById("drugPolicy").value=user.profile.drugPolicy;
         document.getElementById("subcontractors").value=user.profile.subcontractors;
         document.getElementById("stopWorkOrder").value=user.profile.stopWorkOrder;
+        document.getElementById("HSEjudge").value=user.profile.HSEjudge;
         document.getElementById("adminContact").value=user.profile.adminContact;
         document.getElementById("technicalContact").value=user.profile.technicalContact;
         if(user.profile.ISnumber=="yes"){
@@ -292,16 +293,16 @@ class ContentProfile extends Component {
             document.getElementById("billPostalCode").value=user.profile.billPostalCode;
             document.getElementById("accntRec").value=user.profile.accntRec;
             document.getElementById("bank").value=user.profile.bank;
-            
+
             if(user.profile.ISnumber=="yes"){
                 document.getElementById("ISnumberYes").checked=true
             }else{
                 document.getElementById("ISnumberNo").checked=true
             }
-            
+
             document.getElementById("website").value=user.profile.website;
             document.getElementById("password").value=user.profile.password;
-            
+
             if(user.profile.jointVenture=="yes"){
                 document.getElementById("jointVentureYes").checked=true
             }else{
@@ -309,14 +310,14 @@ class ContentProfile extends Component {
             }
 
             document.getElementById("categories").value=user.profile.categories;
-    
+
         }
-        
+
     }
     }
-    
-    
-    
+
+
+
     requestUpdate() {
     const {user} = this.props
     if(user.role==1){
@@ -384,16 +385,16 @@ class ContentProfile extends Component {
     var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value;
     var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value;
     var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value;
-    var industryClassification = document.getElementById("industryClassification").value; 
-    var industryCode = document.getElementById("industryCode").value; 
+    var industryClassification = document.getElementById("industryClassification").value;
+    var industryCode = document.getElementById("industryCode").value;
 
-    
+
     var licence1 = document.getElementById("licence1").value; var licence1Location = document.getElementById("licence1Location").value;
     var licence2 = document.getElementById("licence2").value; var licence2Location = document.getElementById("licence2Location").value;
     var licence3 = document.getElementById("licence3").value; var licence3Location = document.getElementById("licence3Location").value;
     var licence4 = document.getElementById("licence4").value; var licence4Location = document.getElementById("licence4Location").value;
     var licence5 = document.getElementById("licence5").value; var licence5Location = document.getElementById("licence5Location").value;
-        
+
     var insurer1 = document.getElementById("insurer1").value; var policyLimit1 = document.getElementById("policyLimit1").value; var expiry1 = document.getElementById("expiry1").value;
     var insurer2 = document.getElementById("insurer2").value; var policyLimit2 = document.getElementById("policyLimit2").value; var expiry2 = document.getElementById("expiry2").value;
     var insurer3 = document.getElementById("insurer3").value; var policyLimit3 = document.getElementById("policyLimit3").value; var expiry3 = document.getElementById("expiry3").value;
@@ -425,7 +426,7 @@ class ContentProfile extends Component {
     var drugPolicy = document.getElementById("drugPolicy").value;
     var subcontractors = document.getElementById("subcontractors").value;
     var stopWorkOrder = document.getElementById("stopWorkOrder").value;
-
+    var HSEjudge = document.getElementById("HSEjudge").value;
 
     var adminContact = document.getElementById("adminContact").value;
     var technicalContact = document.getElementById("technicalContact").value;
@@ -438,11 +439,11 @@ class ContentProfile extends Component {
     }
 
     var website = document.getElementById("website").value;
-    
+
     var role=user.role;
-    
+
     var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;    
+    var password = document.getElementById("password").value;
     var userUpdate = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
@@ -456,7 +457,7 @@ class ContentProfile extends Component {
       EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
       MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
-      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder,role
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,role
       }
     this.updateProfile(userUpdate);
     }else if(user.role==0){
@@ -507,10 +508,10 @@ class ContentProfile extends Component {
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
       gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
       accntRec, bank, ISnumber, website, jointVenture, categories,role}
-        
+
     this.updateProfile(userUpdate);
     }
-        
+
     }
 
     /**
@@ -1106,7 +1107,7 @@ class ContentProfile extends Component {
             <br/>
             <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
             <hr/>
-            
+
         </div>
       </div>
                 </ListItem>

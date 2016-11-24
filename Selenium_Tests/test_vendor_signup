@@ -976,7 +976,11 @@
 	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[176]/button</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>verifyAlert</td>
+	<td>Thank you for registering as a Vendor for LearnEnergy Marketplace. We will be in contact with you shortly.</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>
