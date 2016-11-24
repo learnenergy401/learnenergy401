@@ -64,13 +64,12 @@ class ComponentLogin extends Component {
                 <div className="android-content mdl-layout__content">
                     <a name="top" />
                     <div style={{width: '80%', margin: 'auto'}}>
-                        <CardText style={componentStyle}>
-                            <Textfield label="email" className="form-control" ref="email" placeholder="Email" id="email"/>
-                            </CardText>
-                        <CardText style={componentStyle}>
-                            <Textfield label="password" ref="pw" type="password" className="form-control" placeholder="Password" id="pw"/>
-                        </CardText>
-                            {/*errors*/}
+
+                        <br/><br/><br/>
+                        <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+                        <br/>
+                        <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} type="password" label="Password" id="pw"/>
+
                         <CardActions style={componentStyle}>
                             <Button onClick={this.loginSubmit.bind(this)} accent ripple type="submit" className="mdl-color-text--indigo btn btn-primary">Login</Button>
                         </CardActions>
