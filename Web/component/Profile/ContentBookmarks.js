@@ -24,9 +24,6 @@ var formStyle = {
 })/*dont add semicolon here!*/
 
 
-
-
-
 class ContentBookmarks extends Component {
 
     /**

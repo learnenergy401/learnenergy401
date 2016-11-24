@@ -55,11 +55,11 @@ class SideMenuProfile extends Component {
     }
 
 
-    showBookmarks() {
+    changeMenuNumberThree() {
         
-        this.props.dispatch(changeMenu(1))
+        this.props.dispatch(changeMenu(3))
     }
-    
+
     /**
     * Loads the user profile sidebar
     * @return {html} - returns Bookmarks, profile, sidebar, RFPs
@@ -74,7 +74,7 @@ class SideMenuProfile extends Component {
                             <ListItemContent >Profile</ListItemContent>
                           </ListItem>
                           <ListItem>
-                            <Button onClick={this.showBookmarks.bind(this)} style={sidemenuItemStyle}>Bookmarks</Button>
+                            <Button onClick={this.changeMenuNumberThree.bind(this)} style={sidemenuItemStyle}>Bookmarks</Button>
                           </ListItem>
                         </List>
                     </aside>
