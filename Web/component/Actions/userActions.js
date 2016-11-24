@@ -920,9 +920,10 @@ export function logInUser(user) {
               firebaseDb.ref('Notifications/'+user.uid).set({
                 notified: false
               })
+              dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
+              window.location.assign("/")
             }
-            dispatch({type: "LOGIN_USER_FULFILLED", payload: data})
-            window.location.assign("/")
+
           })
           
         })
