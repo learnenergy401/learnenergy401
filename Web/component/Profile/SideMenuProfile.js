@@ -71,7 +71,7 @@ class SideMenuProfile extends Component {
                     <aside style={sidemenuStyle} className="mdl-typography--headline">
                         <List style={listStyle}>
                           <ListItem>
-                            <ListItemContent >Profile</ListItemContent>
+                            <Button onClick={this.changeMenuNumberZero.bind(this)} style={sidemenuItemStyle} >Profile</Button>
                           </ListItem>
                           <ListItem>
                             <Button onClick={this.changeMenuNumberThree.bind(this)} style={sidemenuItemStyle}>Bookmarks</Button>
