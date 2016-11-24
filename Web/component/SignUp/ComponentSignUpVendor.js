@@ -180,21 +180,21 @@ class ComponentSignUpVendor extends Component {
       <div className="mdl-layout__content" style={{textAlign: 'center'}}>
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
-            <h4>Part A: Company Structure</h4>
+            <u><h4>Part A: Company Structure</h4></u>
             <hr/>
-            <Textfield label="legalEntity" className="form-control" ref="legalEntity" placeholder="Legal Entity" id="legalEntity" />
+            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
             <br/>
-            <Textfield label="operatingName" className="form-control" ref="password"  placeholder="Operating Name" id="operatingName"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
             <hr/>
-            <h6>Address:</h6>
+            <u><h5>Address:</h5></u>
             <br/>
-            <Textfield label="address1" className="form-control" ref="address1"  placeholder="Address 1" id="address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
             &nbsp;
-            <Textfield label="address2" className="form-control" ref="address2"  placeholder="Address 2" id="address2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
             <br/>
-            <Textfield label="city" className="form-control" ref="city"  placeholder="City" id="city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>
             &nbsp;
-            <Textfield label="province" className="form-control" ref="province"  placeholder="Province" id="province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>
             <br/>
             <Textfield label="country" className="form-control" ref="country"  placeholder="Country" id="country"/>
             &nbsp;

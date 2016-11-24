@@ -66,9 +66,9 @@ class ComponentLogin extends Component {
                     <div style={{width: '80%', margin: 'auto'}}>
 
                         <br/><br/><br/>
-                        <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+                        <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
                         <br/>
-                        <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} type="password" label="Password" id="pw"/>
+                        <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="pw"/>
                         <br/>
                         <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.loginSubmit.bind(this)}>Login</Button>
 

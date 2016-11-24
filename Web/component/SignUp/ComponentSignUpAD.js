@@ -55,11 +55,11 @@ class ComponentSignUpAD extends Component {
         <div style={{width: '80%', margin: 'auto'}}>
 
             <br/><br/><br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Website" id="website"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
             <br/>
             <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
 

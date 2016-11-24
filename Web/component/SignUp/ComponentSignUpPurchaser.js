@@ -99,56 +99,56 @@ class ComponentSignUpPurchaser extends Component {
 
             <br/><br/><br/>
             <hr/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
             <hr/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
             <hr/>
             <u><h5>Address:</h5></u>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
             &nbsp;
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="City" id="city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>
             &nbsp;
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Province" id="province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Country" id="country"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>
             &nbsp;
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>
             <hr/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Admin Email" id="adminContact"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Admin Email" id="adminContact"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Technical Email" id="technicalContact"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Technical Email" id="technicalContact"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="GST Registration #" id="gstReg"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="GST Registration #" id="gstReg"/>
             <br/>
             <hr/>
             <u><h5>Billing Address:</h5></u>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 1" id="billAddress1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="billAddress1"/>
             &nbsp;
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Address 2" id="billAddress2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 2" id="billAddress2"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="City" id="billCity"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="City" id="billCity"/>
             &nbsp;
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Province" id="billProvince"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="billProvince"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Country" id="billCountry"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="billCountry"/>
             &nbsp;
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Postal Code" id="billPostalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="billPostalCode"/>
             <hr/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Accounts Receivable" id="accntRec"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Accounts Receivable" id="accntRec"/>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>
             <br/>
             <u><h6>ISN Member?</h6></u>
             <div>
@@ -158,7 +158,7 @@ class ComponentSignUpPurchaser extends Component {
               </label>
             </div>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Website" id="website"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
             <hr/>
             <u><h6>Would you like to be considered for joint ventures in development of new education/training?</h6></u>
             <div>
@@ -168,7 +168,7 @@ class ComponentSignUpPurchaser extends Component {
               </label>
             </div>
             <br/>
-            <Textfield onChange={() => {}} floatingLabel style={{width:'300px'}} label="Categories" id="categories"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Categories" id="categories"/>
             <hr/>
             <CardActions>
               <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
