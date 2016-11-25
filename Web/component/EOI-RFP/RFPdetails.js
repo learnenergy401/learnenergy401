@@ -16,15 +16,22 @@ var spacerStyle = {
     backgroundColor: '#f3f3f3',
     backgroundSize: 'cover'
 }
+var buttonStyle = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"40px",
+    zIndex: "900"
+}
 
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    height:'500px'
+    paddingBottom: "100px"
 }
 
 var cardTitleStyle = {
-    height:'700px'
 }
 
 @connect((store) => {
@@ -315,11 +322,11 @@ class RFPdetails extends Component {
               <div>
                 <LearnHeader/>
 
-                  <div className="learn-content mdl-typography--text-center">
+                  <div className="learn-content mdl-typography--text-left">
                   <div style={spacerStyle} />
                   <Card shadow={0} style={cardStyle} >
                   <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Request For Proposal Form</CardTitle>
-                  <div className="mdl-layout__content" style={{textAlign: 'center'}}>
+                  <div className="mdl-layout__content" style={{textAlign: 'left'}}>
                   <a name="top" />
                   <div style={{width: '80%', margin: 'auto'}}>
 
@@ -634,11 +641,12 @@ class RFPdetails extends Component {
                     <textarea rows="4" cols="100" id="additional_info"></textarea>
 
                     <hr/>
-<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestUpdate.bind(this)}>Update</Button>
+
 
                   </div>
                   </div>
                   </Card>
+                  <Button raised accent className="mdl-color-text--indigo  btn btn-primary" style={buttonStyle} onClick={this.requestUpdate.bind(this)}>Update</Button>
                   </div>
 
                 <LearnFooter/>

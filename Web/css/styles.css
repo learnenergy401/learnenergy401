@@ -42,8 +42,7 @@ a img{
 
 
 .learn-content{
-  overflow: scroll;
-  height: 800px;
+
   background-color: #f3f3f3;
 
 }
@@ -394,6 +393,3 @@ a img{
     margin-left: 0;
     padding: 16px;
   }
-
-
- 
