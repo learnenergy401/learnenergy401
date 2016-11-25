@@ -50,18 +50,26 @@ class ComponentSignUpAD extends Component {
   render() {
     return(
 
-      <div className="android-content mdl-layout__content">
+      <div className="mdl-layout__content" style={{textAlign: 'left'}}>
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
 
             <br/><br/><br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
-            <br/>
+            <u><h4>Login Information</h4></u>
+            <hr/>
             <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
             <br/>
             <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
             <br/>
-            <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
+            <u><h4>Website Information</h4></u>
+            <hr/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
+
+
+            <hr/>
+            <CardActions>
+              <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
+            </CardActions>
 
         </div>
       </div>

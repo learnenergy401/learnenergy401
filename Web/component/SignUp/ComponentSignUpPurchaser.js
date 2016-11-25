@@ -93,15 +93,17 @@ class ComponentSignUpPurchaser extends Component {
   render() {
     return(
 
-      <div className="android-content mdl-layout__content">
+      <div className="mdl-layout__content" style={{textAlign: 'left'}}>
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
-
             <br/><br/><br/>
+            <u><h4>Login Information</h4></u>
             <hr/>
             <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
             <br/>
             <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+
+            <u><h4>Company Structure</h4></u>
             <hr/>
             <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
             <br/>
