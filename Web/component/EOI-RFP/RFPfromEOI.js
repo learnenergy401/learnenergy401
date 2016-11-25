@@ -65,7 +65,7 @@ class RFPfromEOI extends Component {
         var date = document.getElementById("date").value
         var purchaser1 = document.getElementById("purchaser").value
         var service = document.getElementById("service").value
-        
+
         var closeDate = document.getElementById("closeDate").value
         var closeTime = document.getElementById("closeTime").value
         var name1 = document.getElementById("name1").value
