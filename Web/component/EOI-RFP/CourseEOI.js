@@ -227,9 +227,9 @@ class CourseEOI extends Component {
 							</h6>
 
 							<hr/>
-							<Textfield floatingLabel style={{width:'300px'}} label="Close Date:" id="closeDate"/>
+							<Textfield floatingLabel style={{width:'200px'}} type="date" label="Close Date:" id="closeDate"/>
               &nbsp;
-							<Textfield floatingLabel style={{width:'300px'}} label="Close Time:" id="closeTime"/>
+							<Textfield floatingLabel style={{width:'200px'}} type="time" label="Close Time:" id="closeTime"/>&nbsp;(Local Time)
 							<hr/>
 							<h6>Response sent to:<br/>
 								<Textfield floatingLabel style={{width:'300px'}} label="Name" id="name1"/>
