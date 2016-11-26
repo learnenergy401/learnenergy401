@@ -12,11 +12,10 @@ var spacerStyle = {
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    height:'500px'
+    paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
-    height:'177.5px'
 }
 
 class ContentSignUpPurchaser extends Component {

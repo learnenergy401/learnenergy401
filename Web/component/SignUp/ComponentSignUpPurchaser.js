@@ -7,6 +7,15 @@ var componentStyle = {
     margin: 'auto',
 }
 
+var buttonStyle = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"40px",
+    zIndex: "900"
+}
+
 var formStyle = {
     marginTop: '5%'
 }
