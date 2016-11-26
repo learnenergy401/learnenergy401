@@ -244,10 +244,10 @@ class CourseEOI extends Component {
 							<Textfield floatingLabel style={{width:'300px'}} label="Email" id="email2"/>
               <br/>
 							<Textfield floatingLabel style={{width:'300px'}} label="Phone" id="phone"/>
-
-
               <hr/>
+
 							<br/><br/><br/>
+							<hr/>
 							<h4>Appendix 1: EOI Questionnaire</h4>
               <hr/>
               <h6>Vendor's{/*'*/} Legal Company Name:&nbsp;<Textfield floatingLabel style={{width:'300px'}} label="Company Name" id="company_name"/></h6>
