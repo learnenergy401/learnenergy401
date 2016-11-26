@@ -202,7 +202,7 @@ class RFP extends Component {
 
 	render() {
 
-        var LMRFPnum = 1
+        var LMRFPnum = "(Assigned after submission)"
 
 
         const {user} = this.props
@@ -270,9 +270,9 @@ class RFP extends Component {
                     </h6>
 
                     <hr/>
-                    <Textfield floatingLabel style={{width:'300px'}} label="Close Date:" id="closeDate"/>
+                    <Textfield floatingLabel style={{width:'200px'}} type="date" label="Close Date:" id="closeDate"/>
                     &nbsp;
-                    <Textfield floatingLabel style={{width:'300px'}} label="Close Time:" id="closeTime"/>
+                    <Textfield floatingLabel style={{width:'200px'}} type="time" label="Close Time:" id="closeTime"/>&nbsp; (Local Time)
                     <hr/>
 
                     <h6>Questions sent to:<br/>

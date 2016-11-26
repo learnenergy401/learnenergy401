@@ -20,14 +20,31 @@ var spacerStyle = {
     backgroundSize: 'cover'
 }
 
+var buttonStyle = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"40px",
+    zIndex: "900"
+}
+
+var buttonStyle1 = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"80px",
+    zIndex: "900"
+}
+
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    height:'500px'
+		paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
-    height:'400px'
 }
 
 @connect((store) => {
@@ -351,15 +368,14 @@ class CourseEOI extends Component {
 							</h6>
 							<hr/>
 
-	            <CardActions>
-	              <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax, LMRFPnum)}>Submit</Button>
-								&nbsp;
-								<Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>
-	            </CardActions>
 	            </div>
 	            </div>
 	          </Card>
 	          </div>
+						<Button raised ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax, LMRFPnum)}>Submit</Button>
+						&nbsp;
+						<Button raised ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle1} onClick={this.return_back.bind(this)}>Back</Button>
+
 
 	            <LearnFooter/>
 	            </div>
