@@ -16,6 +16,7 @@ var spacerStyle = {
     backgroundColor: '#f3f3f3',
     backgroundSize: 'cover'
 }
+
 var buttonStyle = {
     position: "fixed",
     right: "0",
@@ -623,24 +624,24 @@ class RFPdetails extends Component {
                     <u><h6>4.1 Provide names and contact information for Vendor’s clients who had the same, or similar requirements to the Services requested in Attachment 1 – Scope of Services in the last 2 years.</h6></u>
                     <hr/>
                     <h6>Reference 1: &nbsp; <Textfield label="ref1" className="form-control" ref="ref1"  placeholder="Name" id="ref1"/></h6>
-                    <h6>Company: &nbsp; <Textfield label="ref_company1" className="form-control" ref="ref_company1"  placeholder="Company" id="ref_company1"/></h6>
-                    <h6>Contact: &nbsp; <Textfield label="ref_contact1" className="form-control" ref="ref_contact1"  placeholder="Contact" id="ref_contact1"/></h6>
-                    <h6>Phone: &nbsp; <Textfield label="ref_phone1" className="form-control" ref="ref_phone1"  placeholder="Phone" id="ref_phone1"/></h6>
-                    <h6>Email: &nbsp; <Textfield label="ref_email1" className="form-control" ref="ref_email1"  placeholder="Company" id="ref_email1"/></h6>
+                    <h6>Company: &nbsp; <Textfield label="ref_company1" className="form-control" ref="ref_company1"  placeholder="Company" id="ref_company1"/>
+                    &nbsp;Contact: &nbsp; <Textfield label="ref_contact1" className="form-control" ref="ref_contact1"  placeholder="Contact" id="ref_contact1"/></h6>
+                    <h6>Phone: &nbsp; <Textfield label="ref_phone1" className="form-control" ref="ref_phone1"  placeholder="Phone" id="ref_phone1"/>
+                    &nbsp;Email: &nbsp; <Textfield label="ref_email1" className="form-control" ref="ref_email1"  placeholder="Company" id="ref_email1"/></h6>
 
                     <hr/>
                     <h6>Reference 2: &nbsp; <Textfield label="ref2" className="form-control" ref="ref2"  placeholder="Name" id="ref2"/></h6>
-                    <h6>Company: &nbsp; <Textfield label="ref_company2" className="form-control" ref="ref_company2"  placeholder="Company" id="ref_company2"/></h6>
-                    <h6>Contact: &nbsp; <Textfield label="ref_contact2" className="form-control" ref="ref_contact2"  placeholder="Contact" id="ref_contact2"/></h6>
-                    <h6>Phone: &nbsp; <Textfield label="ref_phone2" className="form-control" ref="ref_phone2"  placeholder="Phone" id="ref_phone2"/></h6>
-                    <h6>Email: &nbsp; <Textfield label="ref_email2" className="form-control" ref="ref_email2"  placeholder="Company" id="ref_email2"/></h6>
+                    <h6>Company: &nbsp; <Textfield label="ref_company2" className="form-control" ref="ref_company2"  placeholder="Company" id="ref_company2"/>
+                    &nbsp;Contact: &nbsp; <Textfield label="ref_contact2" className="form-control" ref="ref_contact2"  placeholder="Contact" id="ref_contact2"/></h6>
+                    <h6>Phone: &nbsp; <Textfield label="ref_phone2" className="form-control" ref="ref_phone2"  placeholder="Phone" id="ref_phone2"/>
+                    &nbsp;Email: &nbsp; <Textfield label="ref_email2" className="form-control" ref="ref_email2"  placeholder="Company" id="ref_email2"/></h6>
 
                     <hr/>
                     <h6>Reference 3: &nbsp; <Textfield label="ref3" className="form-control" ref="ref3"  placeholder="Name" id="ref3"/></h6>
-                    <h6>Company: &nbsp; <Textfield label="ref_company3" className="form-control" ref="ref_company3"  placeholder="Company" id="ref_company3"/></h6>
-                    <h6>Contact: &nbsp; <Textfield label="ref_contact3" className="form-control" ref="ref_contact3"  placeholder="Contact" id="ref_contact3"/></h6>
-                    <h6>Phone: &nbsp; <Textfield label="ref_phone3" className="form-control" ref="ref_phone3"  placeholder="Phone" id="ref_phone3"/></h6>
-                    <h6>Email: &nbsp; <Textfield label="ref_email3" className="form-control" ref="ref_email3"  placeholder="Company" id="ref_email3"/></h6>
+                    <h6>Company: &nbsp; <Textfield label="ref_company3" className="form-control" ref="ref_company3"  placeholder="Company" id="ref_company3"/>
+                    &nbsp;Contact: &nbsp; <Textfield label="ref_contact3" className="form-control" ref="ref_contact3"  placeholder="Contact" id="ref_contact3"/></h6>
+                    <h6>Phone: &nbsp; <Textfield label="ref_phone3" className="form-control" ref="ref_phone3"  placeholder="Phone" id="ref_phone3"/>
+                    &nbsp;Email: &nbsp; <Textfield label="ref_email3" className="form-control" ref="ref_email3"  placeholder="Company" id="ref_email3"/></h6>
 
                     <hr/>
                     <hr/>

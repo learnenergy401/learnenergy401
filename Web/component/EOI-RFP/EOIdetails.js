@@ -17,14 +17,31 @@ var spacerStyle = {
     backgroundSize: 'cover'
 }
 
+var buttonStyle = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"40px",
+    zIndex: "900"
+}
+
+var buttonStyle1 = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"80px",
+    zIndex: "900"
+}
+
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    height:'500px'
+    paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
-    height:'200px'
 }
 
 @connect((store) => {
@@ -152,25 +169,26 @@ class EOIdetails extends Component {
 
 			var buttons = []
 			if (user.role == 1) {
-				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
+				buttons.push(<Button raised accent ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.return_back.bind(this)}>Back</Button>)
 			} else if (user.role == 0) {
-				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.return_back.bind(this)}>Back</Button>)
-				buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.submit_rfp.bind(this, vendor, LMRFPnum, purchaser)}>Submit RFP</Button>)
+				buttons.push(<Button raised accent ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle1} onClick={this.return_back.bind(this)}>Back</Button>)
+        buttons.push(<br/>,<br/>)
+        buttons.push(<Button raised accent ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.submit_rfp.bind(this, vendor, LMRFPnum, purchaser)}>Submit RFP</Button>)
 
 			}
 
 		    return (
 			<div>
 				<LearnHeader/>
-	        <div className="learn-content mdl-typography--text-center">
+	        <div className="learn-content mdl-typography--text-left">
 	          <div style={spacerStyle} />
 	            <Card shadow={0} style={cardStyle} >
 	              <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Expression of Interest Form</CardTitle>
-             	    <div className="mdl-layout__content" style={{textAlign: 'center'}}>
+             	    <div className="mdl-layout__content" style={{textAlign: 'left'}}>
         		        <a name="top" />
 	                     <div style={{width: '80%', margin: 'auto'}}>
 
-			                    <h4>Cover Letter</h4>
+			                    <u><h4>Cover Letter</h4></u>
                           <hr/>
                           {date}
                           <br/>
@@ -182,23 +200,29 @@ class EOIdetails extends Component {
             	            <h6>Country: &nbsp; {purchaser_country}</h6>
             	            <h6>Phone: &nbsp; {purchaser_phone}</h6>
             	            <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
+                          <hr/>
 
- 				                  <h6>On behalf of {purchaser_legal}
+ 				                  <h6>
+                          On behalf of {purchaser_legal}&nbsp;
                           ("The Purchaser"), your company ("Respondent") is invited to submit a response to this Expression of Interest. The Purchaser plans
-                          to issue a Request for Proposal (RFP) for the provision of {service}
+                          to issue a Request for Proposal (RFP) for the provision of {service}&nbsp;
                           services. The current schedule is to issue the RFP {text1} with contract award by
                           {text2}. Please complete the attached EOI Questionnaire and Confidentiality Agreement
                           and return, via email, as detailed below:
 				                  </h6>
 
-                          {closeDate}
-                          &nbsp;
-                          {closeTime}
-                          <h6>Response sent to:
-                          &nbsp;{name1}
-                          &nbsp;{title1}
+                          <hr/>
+                          <h6>
+                          Close Date:&nbsp;{closeDate}
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          Close Time:&nbsp;{closeTime}
                           </h6>
-                          {email1}
+
+                          <u><h6>Response sent to:</h6></u>
+                          <h6>Name:&nbsp;{name1}</h6>
+                          <h6>Title:&nbsp;{title1}</h6>
+                          <h6>Email:&nbsp;{email1}</h6>
+                          <hr/>
 
                           <h6>
                           Respondent assumes full responsibility for delivery of the completed EOI Questionnaire and Confidentiality
@@ -223,20 +247,21 @@ class EOIdetails extends Component {
                           {email2}
                           <br/>
                           {phone}
+                          <hr/>
 
+                          <br/><br/><br/>
                           <hr/>
-                          <h4>Appendix 1: EOI Questionnaire</h4>
+                          <u><h4>Appendix 1: EOI Questionnaire</h4></u>
                           <hr/>
-                          <h6>Vendor's{/*'*/} Legal Company Name:</h6>
-                          {company_name}
-            	            <div>
-            	              <label>Based upon the information provided in this EOI, advise if your company would like to be considered for participation in the Request for Proposal (RFP).<br/>
-            	                <br/>
-            	                {RFP_par}
-            	              </label>
-            	            </div>
+                          <h6>Vendor's{/*'*/} Legal Company Name:&nbsp;{company_name}</h6>
+
+            	            <h6>Based upon the information provided in this EOI, advise if your company would like to be considered for participation in the Request for Proposal (RFP).</h6>
+            	            <h6>Considered for the RFP?:&nbsp;{RFP_par}</h6>
+
             	            <h6>If your response is in the affirmative, the Vendor is to provide the information requested in sections 1 through 4 below.</h6>
-            	            <h6>Company Address:&nbsp; {vendor_company_address}</h6>
+
+                          <h6>1. Vendor's{/*'*/} Contact Information</h6>
+                          <h6>Company Address:&nbsp; {vendor_company_address}</h6>
             	            <h6>Contact Name:&nbsp; {vendor_contact_name}</h6>
             	            <h6>Contact's{/*'*/} Title and Position:&nbsp; {vendor_contact_title_position}</h6>
             	            <h6>Primary Telephone Number:&nbsp; {vendor_primary_telephone}</h6>
@@ -244,15 +269,14 @@ class EOIdetails extends Component {
             	            <h6>Fax Number:&nbsp; {vendor_fax}</h6>
             	            <h6>Email:&nbsp; {vendor_email}</h6>
 
-            	            <div>
-            	              <label>Confirm your company is approved in [jurisdiction] for the work reflected in this EOI.<br/>
-            	                <br/>
-            	                {company_approved}
-            	              </label>
-            	            </div>
+            	            <h6>2. Confirm your company is approved in [jurisdiction] for the work reflected in this EOI:&nbsp;{company_approved}</h6>
 
-				                  <h6>Comments (optional):&nbsp; {optional_comments}</h6>
 
+				                  <h6>3. Comments (optional):&nbsp; {optional_comments}</h6>
+                          <hr/>
+
+
+            							<br/><br/><br/>
                 					<hr/>
                 					<h4>Appendix 3</h4>
                 					<hr/>

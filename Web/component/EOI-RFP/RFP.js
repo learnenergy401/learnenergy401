@@ -18,14 +18,22 @@ var spacerStyle = {
     backgroundSize: 'cover'
 }
 
+var buttonStyle = {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    marginRight: "40px",
+    marginBottom:"40px",
+    zIndex: "900"
+}
+
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    height:'500px'
+    paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
-    height:'700px'
 }
 
 
@@ -224,18 +232,19 @@ class RFP extends Component {
               <div>
                 <LearnHeader/>
 
-                  <div className="learn-content mdl-typography--text-center">
+                  <div className="learn-content mdl-typography--text-left">
                   <div style={spacerStyle} />
                   <Card shadow={0} style={cardStyle} >
                   <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Request For Proposal Form</CardTitle>
-                  <div className="mdl-layout__content" style={{textAlign: 'center'}}>
+                  <div className="mdl-layout__content" style={{textAlign: 'left'}}>
                   <a name="top" />
                   <div style={{width: '80%', margin: 'auto'}}>
 
-                    <h4>Cover Letter</h4>
+                    <u><h4>Cover Letter</h4></u>
                     <hr/>
-                    <Textfield label="date" className="form-control" ref="date"  placeholder="Date" id="date"/>
+                    <Textfield floatingLabel style={{width:'200px'}} type="date" label="Date" id="date"/>
                     <br/>
+
                     <h6>Purchaser Details: </h6>
                     <h6>Legal Name: &nbsp; {purchaser_legal}</h6>
                     <h6>Address Line 1: &nbsp; {purchaser_address1}</h6>
@@ -245,25 +254,33 @@ class RFP extends Component {
                     <h6>Phone: &nbsp; {purchaser_phone}</h6>
                     <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
                     <h6>
-                    On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser1"/>
+                    On behalf of
+                    &nbsp;<Textfield floatingLabel style={{width:'300px'}} label="Purchaser" id="purchaser1"/>&nbsp;
                     ("The Purchaser"), your company ("Vendor") is invited to submit a response to this Request for Proposal. This Request for Proposal (RFP)
-                    is for the provision of <Textfield label="service" className="form-control" ref="service"  placeholder="service" id="service"/>
+                    is for the provision of
+                    &nbsp;<Textfield floatingLabel style={{width:'300px'}} label="Service" id="service"/>&nbsp;
                     services.
                     </h6>
+                    <hr/>
+
                     <h6>
                     Please review the Request for Proposal and Attachment 1, complete the Response Form Attachment 2, add any supplemental
                     information and upload to the Purchaser&#39;s LM RFP# {LMRFPnum} &nbsp;
                     response folder. And emailed to our contact below by the Closing Date and Time.
                     </h6>
 
-                    <Textfield label="closeDate" className="form-control" ref="closeDate"  placeholder="Close Date:" id="closeDate"/>
+                    <hr/>
+                    <Textfield floatingLabel style={{width:'300px'}} label="Close Date:" id="closeDate"/>
                     &nbsp;
-                    <Textfield label="closeTime" className="form-control" ref="closeTime"  placeholder="Close Time:" id="closeTime"/>
-                    <h6>Questions sent to:
-                    &nbsp;<Textfield label="name1" className="form-control" ref="name1"  placeholder="Name" id="name1"/>
-                    &nbsp;<Textfield label="title1" className="form-control" ref="title1"  placeholder="Title" id="title1"/>
+                    <Textfield floatingLabel style={{width:'300px'}} label="Close Time:" id="closeTime"/>
+                    <hr/>
+
+                    <h6>Questions sent to:<br/>
+                    <Textfield floatingLabel style={{width:'300px'}} label="Name" id="name1"/>
+                    &nbsp;<Textfield floatingLabel style={{width:'300px'}} label="Title" id="title1"/>
                     </h6>
-                    <Textfield label="email1" className="form-control" ref="email1"  placeholder="Email" id="email1"/>
+                    <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email1"/>
+                    <hr/>
 
                     <h6>
                     Vendor assumes full responsibility for delivery of the completed Response to the Request for Proposal
@@ -278,22 +295,21 @@ class RFP extends Component {
                     Should you require additional information, please contact the undersigned.
                     </h6>
                     <h6> With Best Regards,</h6>
-                    <Textfield label="name2" className="form-control" ref="name2"  placeholder="Name" id="name2"/>
+                    <Textfield floatingLabel style={{width:'300px'}} label="Name" id="name2"/>
                     <br/>
-                    <Textfield label="title2" className="form-control" ref="title2"  placeholder="Title" id="title2"/>
+      							<Textfield floatingLabel style={{width:'300px'}} label="Title" id="title2"/>
                     <br/>
-                    <Textfield label="email2" className="form-control" ref="email2"  placeholder="Email" id="email2"/>
+      							<Textfield floatingLabel style={{width:'300px'}} label="Email" id="email2"/>
                     <br/>
-                    <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone" id="phone"/>
-
-
-
+      							<Textfield floatingLabel style={{width:'300px'}} label="Phone" id="phone"/>
                     <hr/>
+
+      							<br/><br/><br/>
                     <hr/>
                     <h4>Training Services Request for Proposal</h4>
                     <h6>LM RFP#: &nbsp; {LMRFPnum}</h6>
-                    <h6>Issue Date: &nbsp; <Textfield label="TSissue_date" className="form-control" ref="TSissue_date"  placeholder="Issue Date" id="TSissue_date"/></h6>
-                    <h6>Closing Date: &nbsp; <Textfield label="TSclosing_date" className="form-control" ref="TSclosing_date"  placeholder="Closing Date" id="TSclosing_date"/> at 14:00 (Local Time)</h6>
+                    <h6>Issue Date:&nbsp;<Textfield floatingLabel style={{width:'200px'}} type="date" label="" id="TSissue_date"/></h6>
+                    <h6>Closing Date:&nbsp;<Textfield floatingLabel style={{width:'200px'}} type="date" label="" id="TSclosing_date"/> at 14:00 (Local Time)</h6>
                     <hr/>
 
                     <h5>1. Introduction</h5>
@@ -306,11 +322,11 @@ class RFP extends Component {
 
                     <h5>2. Response Guidelines</h5>
                     <h6><u>2.1 RFP Details</u></h6>
-                    <h6>RFP Title: &nbsp; <Textfield label="rfp_title" className="form-control" ref="rfp_title"  placeholder="RFP Title" id="rfp_title"/></h6>
+                    <h6>RFP Title:&nbsp;<Textfield floatingLabel style={{width:'300px'}} label="" id="rfp_title"/></h6>
                     <h6>RFP Number: &nbsp; {LMRFPnum}</h6>
-                    <h6>RFP Contact: &nbsp; <Textfield label="rfp_contact" className="form-control" ref="rfp_contact"  placeholder="RFP Contact" id="rfp_contact"/></h6>
-                    <h6>Closing Date: &nbsp; <Textfield label="rfp_closing_date" className="form-control" ref="rfp_closing_date"  placeholder="Closing Date" id="rfp_closing_date"/>(local time)</h6>
-                    <h6>Close of Questions: &nbsp; <Textfield label="rfp_closing_date" className="form-control" ref="rfp_question_close"  placeholder="Close of Questions" id="rfp_question_close"/>(local time)</h6>
+                    <h6>RFP Contact:&nbsp;<Textfield floatingLabel style={{width:'300px'}} label="" id="rfp_contact"/></h6>
+                    <h6>Closing Date:&nbsp;<Textfield floatingLabel style={{width:'200px'}} type="date" label="" id="rfp_closing_date"/></h6>
+                    <h6>Closing of Questions:&nbsp;<Textfield floatingLabel style={{width:'200px'}} type="date" label="" id="rfp_question_close"/></h6>
                     <h6><u>2.2 Submission of Response</u></h6>
                     <h6>
                     Replies must uploaded to the {purchaser_legal}s LM RFP# {LMRFPnum} folder and be received by the email inbox of the RFP Contact on or before the Closing Date.
@@ -382,8 +398,9 @@ class RFP extends Component {
                     The Purchaser may choose to conduct face-to- face meetings to interview Vendors and allow them to present qualifications or demonstrate
                     qualifications that are the same as, or similar to that sought by the Purchaser.
                     </h6>
-
                     <hr/>
+
+                    <br/><br/><br/>
                     <hr/>
                     <h4>LM RFP# {LMRFPnum} ATTACHMENT 1 – SCOPE OF SERVICES</h4>
                     <hr/>
@@ -441,10 +458,10 @@ class RFP extends Component {
                     </ul>
 
                     <h6>Attachement 1:</h6>
-                    <textarea rows="20" cols="100" id="attachment1"></textarea>
-
-
+                    <textarea rows="50" cols="120" id="attachment1"></textarea>
                     <hr/>
+
+                    <br/><br/><br/>
                     <hr/>
                     <h4>LM RFP# {LMRFPnum} ATTACHMENT 2 – RESPONSE FORMS</h4>
                     <hr/>
@@ -493,8 +510,8 @@ class RFP extends Component {
                     <hr/>
                     <h5>2. Schedule</h5>
                     <h6>2.1 Provide details of the Vendor’s schedule to meet the requirements as stated in Attachment 1 – Scope of Services.</h6>
-                    <h6>Start Date: &nbsp; <Textfield label="schedule_start" className="form-control" ref="schedule_start"  placeholder="Start Date" id="schedule_start"/></h6>
-                    <h6>Completion Date: &nbsp; <Textfield label="schedule_completion" className="form-control" ref="schedule_completion"  placeholder="Completion Date" id="schedule_completion"/></h6>
+                    <h6>Start Date: &nbsp; <Textfield label="schedule_start" className="form-control" ref="schedule_start" type="date" style={{width:'200px'}} placeholder="Start Date" id="schedule_start"/></h6>
+                    <h6>Completion Date: &nbsp; <Textfield label="schedule_completion" className="form-control" ref="schedule_completion" type="date" style={{width:'200px'}} placeholder="Completion Date" id="schedule_completion"/></h6>
 
                     <hr/>
                     <h5>3. Subcontractors</h5>
@@ -517,24 +534,24 @@ class RFP extends Component {
                     <h6>4.1 Provide names and contact information for Vendor’s clients who had the same, or similar requirements to the Services requested in Attachment 1 – Scope of Services in the last 2 years.</h6>
                     <hr/>
                     <h6>Reference 1: &nbsp; <Textfield label="ref1" className="form-control" ref="ref1"  placeholder="Name" id="ref1"/></h6>
-                    <h6>Company: &nbsp; <Textfield label="ref_company1" className="form-control" ref="ref_company1"  placeholder="Company" id="ref_company1"/></h6>
-                    <h6>Contact: &nbsp; <Textfield label="ref_contact1" className="form-control" ref="ref_contact1"  placeholder="Contact" id="ref_contact1"/></h6>
-                    <h6>Phone: &nbsp; <Textfield label="ref_phone1" className="form-control" ref="ref_phone1"  placeholder="Phone" id="ref_phone1"/></h6>
-                    <h6>Email: &nbsp; <Textfield label="ref_email1" className="form-control" ref="ref_email1"  placeholder="Company" id="ref_email1"/></h6>
+                    <h6>Company: &nbsp; <Textfield label="ref_company1" className="form-control" ref="ref_company1"  placeholder="Company" id="ref_company1"/>
+                    &nbsp;Contact: &nbsp; <Textfield label="ref_contact1" className="form-control" ref="ref_contact1"  placeholder="Contact" id="ref_contact1"/></h6>
+                    <h6>Phone: &nbsp; <Textfield label="ref_phone1" className="form-control" ref="ref_phone1"  placeholder="Phone" id="ref_phone1"/>
+                    &nbsp;Email: &nbsp; <Textfield label="ref_email1" className="form-control" ref="ref_email1"  placeholder="Company" id="ref_email1"/></h6>
 
                     <hr/>
                     <h6>Reference 2: &nbsp; <Textfield label="ref2" className="form-control" ref="ref2"  placeholder="Name" id="ref2"/></h6>
-                    <h6>Company: &nbsp; <Textfield label="ref_company2" className="form-control" ref="ref_company2"  placeholder="Company" id="ref_company2"/></h6>
-                    <h6>Contact: &nbsp; <Textfield label="ref_contact2" className="form-control" ref="ref_contact2"  placeholder="Contact" id="ref_contact2"/></h6>
-                    <h6>Phone: &nbsp; <Textfield label="ref_phone2" className="form-control" ref="ref_phone2"  placeholder="Phone" id="ref_phone2"/></h6>
-                    <h6>Email: &nbsp; <Textfield label="ref_email2" className="form-control" ref="ref_email2"  placeholder="Company" id="ref_email2"/></h6>
+                    <h6>Company: &nbsp; <Textfield label="ref_company2" className="form-control" ref="ref_company2"  placeholder="Company" id="ref_company2"/>
+                    &nbsp;Contact: &nbsp; <Textfield label="ref_contact2" className="form-control" ref="ref_contact2"  placeholder="Contact" id="ref_contact2"/></h6>
+                    <h6>Phone: &nbsp; <Textfield label="ref_phone2" className="form-control" ref="ref_phone2"  placeholder="Phone" id="ref_phone2"/>
+                    &nbsp;Email: &nbsp; <Textfield label="ref_email2" className="form-control" ref="ref_email2"  placeholder="Company" id="ref_email2"/></h6>
 
                     <hr/>
                     <h6>Reference 3: &nbsp; <Textfield label="ref3" className="form-control" ref="ref3"  placeholder="Name" id="ref3"/></h6>
-                    <h6>Company: &nbsp; <Textfield label="ref_company3" className="form-control" ref="ref_company3"  placeholder="Company" id="ref_company3"/></h6>
-                    <h6>Contact: &nbsp; <Textfield label="ref_contact3" className="form-control" ref="ref_contact3"  placeholder="Contact" id="ref_contact3"/></h6>
-                    <h6>Phone: &nbsp; <Textfield label="ref_phone3" className="form-control" ref="ref_phone3"  placeholder="Phone" id="ref_phone3"/></h6>
-                    <h6>Email: &nbsp; <Textfield label="ref_email3" className="form-control" ref="ref_email3"  placeholder="Company" id="ref_email3"/></h6>
+                    <h6>Company: &nbsp; <Textfield label="ref_company3" className="form-control" ref="ref_company3"  placeholder="Company" id="ref_company3"/>
+                    &nbsp;Contact: &nbsp; <Textfield label="ref_contact3" className="form-control" ref="ref_contact3"  placeholder="Contact" id="ref_contact3"/></h6>
+                    <h6>Phone: &nbsp; <Textfield label="ref_phone3" className="form-control" ref="ref_phone3"  placeholder="Phone" id="ref_phone3"/>
+                    &nbsp;Email: &nbsp; <Textfield label="ref_email3" className="form-control" ref="ref_email3"  placeholder="Company" id="ref_email3"/></h6>
 
                     <hr/>
                     <hr/>
@@ -548,10 +565,11 @@ class RFP extends Component {
                     {vendors}
 
                     <h6>Type vendors that you want to send RFP to (for multiple, separate by semi-colons): &nbsp; <Textfield label="vendor_email" className="form-control" ref="vendor_email"  placeholder="Vendor Email" id="vendor_email"/></h6>
-                    <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Submit</Button>
                   </div>
                   </div>
                   </Card>
+                  <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestSubmit.bind(this)}>Submit</Button>
+
                   </div>
 
                 <LearnFooter/>
