@@ -361,7 +361,7 @@ class RFPdetails extends Component {
                     <h6>
                     Close Date:&nbsp;<Textfield label="closeDate" className="form-control" ref="closeDate" type="date" style={{width:'200px'}} placeholder="Close Date:" id="closeDate"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Close Time:&nbsp;<Textfield label="closeTime" className="form-control" ref="closeTime" type="date" style={{width:'200px'}} placeholder="Close Time:" id="closeTime"/>
+                    Close Time:&nbsp;<Textfield label="closeTime" className="form-control" ref="closeTime" type="time" style={{width:'200px'}} placeholder="Close Time:" id="closeTime"/>
                     </h6>
                     <hr/>
 
