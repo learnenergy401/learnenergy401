@@ -28,7 +28,7 @@ var buttonStyle = {
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-    paddingBottom: "100px"
+    paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
@@ -330,10 +330,9 @@ class RFPdetails extends Component {
                   <a name="top" />
                   <div style={{width: '80%', margin: 'auto'}}>
 
-                    <h4>Cover Letter</h4>
+                    <u><h4>Cover Letter</h4></u>
                     <hr/>
-                    <Textfield label="date" className="form-control" ref="date"  placeholder="Date" id="date"/>
-                    <br/>
+                    <h6>Date:&nbsp;<Textfield label="date" className="form-control" ref="date" type="date" style={{width:'200px'}} placeholder="Date" id="date"/></h6>
                     <h6>Purchaser Details: </h6>
                     <h6>Legal Name: &nbsp; {purchaser_legal}</h6>
                     <h6>Address Line 1: &nbsp; {purchaser_address1}</h6>
@@ -342,10 +341,13 @@ class RFPdetails extends Component {
                     <h6>Country: &nbsp; {purchaser_country}</h6>
                     <h6>Phone: &nbsp; {purchaser_phone}</h6>
                     <h6>Fax Number: &nbsp; {purchaser_fax}</h6>
+                    <hr/>
                     <h6>
-                    On behalf of <Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser"/>
+                    On behalf of
+                    &nbsp;<Textfield label="purchaser" className="form-control" ref="purchaser"  placeholder="purchaser" id="purchaser"/>&nbsp;
                     ("The Purchaser"), your company ("Vendor") is invited to submit a response to this Request for Proposal. This Request for Proposal (RFP)
-                    is for the provision of <Textfield label="service" className="form-control" ref="service"  placeholder="service" id="service"/>
+                    is for the provision of
+                    &nbsp;<Textfield label="service" className="form-control" ref="service"  placeholder="service" id="service"/>&nbsp;
                     services.
                     </h6>
                     <h6>
@@ -354,14 +356,19 @@ class RFPdetails extends Component {
                     response folder. And emailed to our contact below by the Closing Date and Time.
                     </h6>
 
-                    <Textfield label="closeDate" className="form-control" ref="closeDate"  placeholder="Close Date:" id="closeDate"/>
-                    &nbsp;
-                    <Textfield label="closeTime" className="form-control" ref="closeTime"  placeholder="Close Time:" id="closeTime"/>
-                    <h6>Questions sent to:
-                    &nbsp;<Textfield label="name1" className="form-control" ref="name1"  placeholder="Name" id="name1"/>
-                    &nbsp;<Textfield label="title1" className="form-control" ref="title1"  placeholder="Title" id="title1"/>
+                    <hr/>
+                    <h6>
+                    Close Date:&nbsp;<Textfield label="closeDate" className="form-control" ref="closeDate" type="date" style={{width:'200px'}} placeholder="Close Date:" id="closeDate"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Close Time:&nbsp;<Textfield label="closeTime" className="form-control" ref="closeTime" type="date" style={{width:'200px'}} placeholder="Close Time:" id="closeTime"/>
                     </h6>
-                    <Textfield label="email1" className="form-control" ref="email1"  placeholder="Email" id="email1"/>
+                    <hr/>
+
+                    <u><h6>Questions sent to:</h6></u>
+                    <h6>Name:&nbsp;<Textfield label="name1" className="form-control" ref="name1"  placeholder="Name" id="name1"/></h6>
+                    <h6>Title:&nbsp;<Textfield label="title1" className="form-control" ref="title1"  placeholder="Title" id="title1"/></h6>
+                    <h6>Email:&nbsp;<Textfield label="email1" className="form-control" ref="email1"  placeholder="Email" id="email1"/></h6>
+                    <hr/>
 
                     <h6>
                     Vendor assumes full responsibility for delivery of the completed Response to the Request for Proposal
@@ -383,15 +390,14 @@ class RFPdetails extends Component {
                     <Textfield label="email2" className="form-control" ref="email2"  placeholder="Email" id="email2"/>
                     <br/>
                     <Textfield label="phone" className="form-control" ref="phone"  placeholder="Phone" id="phone"/>
-
-
-
                     <hr/>
+
+                    <br/><br/><br/>
                     <hr/>
-                    <h4>Training Services Request for Proposal</h4>
+                    <u><h4>Training Services Request for Proposal</h4></u>
                     <h6>LM RFP#: &nbsp; {LMRFPnum}</h6>
-                    <h6>Issue Date: &nbsp; <Textfield label="TSissue_date" className="form-control" ref="TSissue_date"  placeholder="Issue Date" id="TSissue_date"/></h6>
-                    <h6>Closing Date: &nbsp; <Textfield label="TSclosing_date" className="form-control" ref="TSclosing_date"  placeholder="Closing Date" id="TSclosing_date"/> at 14:00 (Local Time)</h6>
+                    <h6>Issue Date: &nbsp; <Textfield label="TSissue_date" className="form-control" ref="TSissue_date" type="date" style={{width:'200px'}} placeholder="Issue Date" id="TSissue_date"/></h6>
+                    <h6>Closing Date: &nbsp; <Textfield label="TSclosing_date" className="form-control" ref="TSclosing_date" type="date" style={{width:'200px'}} placeholder="Closing Date" id="TSclosing_date"/> at 14:00 (Local Time)</h6>
                     <hr/>
 
                     <h5>1. Introduction</h5>
@@ -407,8 +413,8 @@ class RFPdetails extends Component {
                     <h6>RFP Title: &nbsp; <Textfield label="rfp_title" className="form-control" ref="rfp_title"  placeholder="RFP Title" id="rfp_title"/></h6>
                     <h6>RFP Number: &nbsp; {LMRFPnum}</h6>
                     <h6>RFP Contact: &nbsp; <Textfield label="rfp_contact" className="form-control" ref="rfp_contact"  placeholder="RFP Contact" id="rfp_contact"/></h6>
-                    <h6>Closing Date: &nbsp; <Textfield label="rfp_closing_date" className="form-control" ref="rfp_closing_date"  placeholder="Closing Date" id="rfp_closing_date"/>(local time)</h6>
-                    <h6>Close of Questions: &nbsp; <Textfield label="rfp_closing_date" className="form-control" ref="rfp_question_close"  placeholder="Close of Questions" id="rfp_question_close"/>(local time)</h6>
+                    <h6>Closing Date: &nbsp; <Textfield label="rfp_closing_date" className="form-control" ref="rfp_closing_date" type="date" style={{width:'200px'}} placeholder="Closing Date" id="rfp_closing_date"/></h6>
+                    <h6>Close of Questions: &nbsp; <Textfield label="rfp_closing_date" className="form-control" ref="rfp_question_close" type="date" style={{width:'200px'}} placeholder="Close of Questions" id="rfp_question_close"/></h6>
                     <h6><u>2.2 Submission of Response</u></h6>
                     <h6>
                     Replies must uploaded to the {purchaser_legal}s LM RFP# {LMRFPnum} folder and be received by the email inbox of the RFP Contact on or before the Closing Date.
@@ -480,8 +486,9 @@ class RFPdetails extends Component {
                     The Purchaser may choose to conduct face-to- face meetings to interview Vendors and allow them to present qualifications or demonstrate
                     qualifications that are the same as, or similar to that sought by the Purchaser.
                     </h6>
-
                     <hr/>
+
+                    <br/><br/><br/>
                     <hr/>
                     <h4>LM RFP# {LMRFPnum} ATTACHMENT 1 – SCOPE OF SERVICES</h4>
                     <hr/>
@@ -539,17 +546,18 @@ class RFPdetails extends Component {
                     </ul>
 
                     <h6>Attachement 1:</h6>
-                    <textarea rows="20" cols="100" id="attachment1"></textarea>
-
-
+                    <textarea rows="50" cols="120" id="attachment1"></textarea>
                     <hr/>
+
+
+                    <br/><br/><br/>
                     <hr/>
                     <h4>LM RFP# {LMRFPnum} ATTACHMENT 2 – RESPONSE FORMS</h4>
                     <hr/>
                     <h5>1. Pricing</h5>
-                    <h6>1.1 Pricing is to be in [selected currency] currency and all duties, taxes, and levies will be deemed to be included. All taxes are to be shown separately.</h6>
-                    <h6>1.2 Pricing is to be inclusive of wages, travel, expenses, materials, tools and equipment, company overheads, etc..</h6>
-                    <h6>1.3 Provide pricing and details which will cover all training requirements and sessions listed in the RFP Document Article 1.2 in the table below:</h6>
+                    <u><h6>1.1 Pricing is to be in [selected currency] currency and all duties, taxes, and levies will be deemed to be included. All taxes are to be shown separately.</h6></u>
+                    <u><h6>1.2 Pricing is to be inclusive of wages, travel, expenses, materials, tools and equipment, company overheads, etc..</h6></u>
+                    <u><h6>1.3 Provide pricing and details which will cover all training requirements and sessions listed in the RFP Document Article 1.2 in the table below:</h6></u>
 
                     <h6>Description 1: <textarea rows="4" cols="100" id="description1"></textarea></h6>
                     <h6>Daily Rate 1: &nbsp; <Textfield label="daily_rate1" className="form-control" ref="daily_rate1"  placeholder="Daily Rate 1" id="daily_rate1"/></h6>
@@ -572,7 +580,7 @@ class RFPdetails extends Component {
                     <h6>Details 4: <textarea rows="4" cols="100" id="details4"></textarea></h6>
                     <hr/>
 
-                    <h6>1.4 Provide (where applicable), the Vendors markup applied to the actual cost of travel and living expenses:</h6>
+                    <u><h6>1.4 Provide (where applicable), the Vendors markup applied to the actual cost of travel and living expenses:</h6></u>
                     <h6>$: &nbsp; <Textfield label="markup_dollar" className="form-control" ref="markup_dollar"  placeholder="$$$" id="markup_dollar"/></h6>
                     <h6>OR</h6>
                     <h6>%: &nbsp; <Textfield label="markup_percent" className="form-control" ref="markup_percent"  placeholder="%%%" id="markup_percent"/></h6>
@@ -590,13 +598,13 @@ class RFPdetails extends Component {
 
                     <hr/>
                     <h5>2. Schedule</h5>
-                    <h6>2.1 Provide details of the Vendor’s schedule to meet the requirements as stated in Attachment 1 – Scope of Services.</h6>
-                    <h6>Start Date: &nbsp; <Textfield label="schedule_start" className="form-control" ref="schedule_start"  placeholder="Start Date" id="schedule_start"/></h6>
-                    <h6>Completion Date: &nbsp; <Textfield label="schedule_completion" className="form-control" ref="schedule_completion"  placeholder="Completion Date" id="schedule_completion"/></h6>
+                    <u><h6>2.1 Provide details of the Vendor’s schedule to meet the requirements as stated in Attachment 1 – Scope of Services.</h6></u>
+                    <h6>Start Date: &nbsp; <Textfield label="schedule_start" className="form-control" ref="schedule_start" type="date" style={{width:'200px'}} placeholder="Start Date" id="schedule_start"/></h6>
+                    <h6>Completion Date: &nbsp; <Textfield label="schedule_completion" className="form-control" ref="schedule_completion" type="date" style={{width:'200px'}} placeholder="Completion Date" id="schedule_completion"/></h6>
 
                     <hr/>
                     <h5>3. Subcontractors</h5>
-                    <h6>3.1 Provide the names of any Subcontractors proposed to be used:</h6>
+                    <u><h6>3.1 Provide the names of any Subcontractors proposed to be used:</h6></u>
                     <hr/>
                     <h6>Name 1: &nbsp; <Textfield label="sub1" className="form-control" ref="sub1"  placeholder="Name" id="sub1"/></h6>
                     <h6>Task / Description of Work Performed: <textarea rows="4" cols="100" id="sub_description1"></textarea></h6>
@@ -612,7 +620,7 @@ class RFPdetails extends Component {
 
                     <hr/>
                     <h5>4. References</h5>
-                    <h6>4.1 Provide names and contact information for Vendor’s clients who had the same, or similar requirements to the Services requested in Attachment 1 – Scope of Services in the last 2 years.</h6>
+                    <u><h6>4.1 Provide names and contact information for Vendor’s clients who had the same, or similar requirements to the Services requested in Attachment 1 – Scope of Services in the last 2 years.</h6></u>
                     <hr/>
                     <h6>Reference 1: &nbsp; <Textfield label="ref1" className="form-control" ref="ref1"  placeholder="Name" id="ref1"/></h6>
                     <h6>Company: &nbsp; <Textfield label="ref_company1" className="form-control" ref="ref_company1"  placeholder="Company" id="ref_company1"/></h6>
@@ -637,16 +645,14 @@ class RFPdetails extends Component {
                     <hr/>
                     <hr/>
                     <h5>5. Additional Information</h5>
-                    <h6>5.1 Advise of any suggestions, recommendations, options or additional opportunities toimproving training results.</h6>
+                    <u><h6>5.1 Advise of any suggestions, recommendations, options or additional opportunities toimproving training results.</h6></u>
                     <textarea rows="4" cols="100" id="additional_info"></textarea>
-
                     <hr/>
-
 
                   </div>
                   </div>
                   </Card>
-                  <Button raised accent className="mdl-color-text--indigo  btn btn-primary" style={buttonStyle} onClick={this.requestUpdate.bind(this)}>Update</Button>
+                  <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestUpdate.bind(this)}>Update</Button>
                   </div>
 
                 <LearnFooter/>
