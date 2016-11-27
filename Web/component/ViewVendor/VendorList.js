@@ -1,12 +1,12 @@
- import React, { Component } from 'react'
-import {Content, Layout,Button,List, ListItem,ListItemContent,Chip,Card,CardText,CardTitle,CardList,Textfield} from 'react-mdl';
+import React, { Component } from 'react'
+import {Icons, Content, Layout,Button,List, ListItem,ListItemContent,Chip,Card,CardText,CardTitle,CardList,Textfield} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 import SearchInput, {createFilter} from 'react-search-input'
 
 
 import "../../extra/material.js"
-import { fetchUsers } from "../Actions/userActions"
+import { fetchUsers, fetchBookmarks, setBookmarks } from "../Actions/userActions"
 
 const KEYS_TO_FILTERS = ['website', 'legalEntity','email']
 
@@ -50,13 +50,27 @@ class VendorList extends Component{
     }
 
     /**
+     * fetches bookmarks
+     */
+    fetchBookmarks() {
+        this.props.dispatch(fetchBookmarks())
+    }
+    /**
+     * sets bookmarks
+     * {params} bookmarks - information of bookmarks
+     */    
+    setBookmarks(bookmarks) {
+        this.props.dispatch(setBookmarks(bookmarks))
+    }
+
+    /**
     * called before dom elements is mounted, fetching user list
     */
     componentWillMount(){
-        this.props.dispatch(fetchUsers());
+        this.props.dispatch(fetchUsers())
+        this.fetchBookmarks()
 
     }
-
 
 
     /**
@@ -88,12 +102,16 @@ class VendorList extends Component{
         this.setState({searchTerm: term})
     }
 
+
+    bookmark(vendorID) {
+        // update the bookmarks 
+        console.log('in bookmark', vendorID)
+    }
+
     /**
     * renders the display for the current page.   displays courses
     * @return {html} if there is a courselist return the list
     */
-
-
     render(){
         const {user}=this.props
 
@@ -116,6 +134,48 @@ class VendorList extends Component{
      
                     </div>
                 ),this)
+
+            // display bookmark button if user is purchaser and logged in
+            if (user.user) { // there is a user logged in
+                if (user.user.role == 0) { // user is a purchaser
+                    
+                    const mappedVendors = filteredVendors.map((vendor)=>(
+                            <div style={listItemStyle} key={vendor.userID} className="mdl-card mdl-shadow--2dp" >
+                               <div style={cardTitleStyle} className="mdl-card__title" >
+                                    <h2  className="mdl-card__title-text">
+                                        {vendor.legalEntity}
+                                    </h2>
+                                    <div className="mdl-layout-spacer" />
+                                    <Button accent ripple onClick={this.bookmark.bind(this,vendor.userID)} className="mdl-button mdl-button--icon">
+                                        <i className="material-icons">turned_in_not</i>
+                                    </Button>
+                                </div>
+                                 <div style={cardTextStyle} className="mdl-card__supporting-text">
+                                    {vendor.email}
+                                </div>
+             
+                            </div>
+                        ),this)
+
+                    if (user.bookmarks) { // there are bookmarks for that user
+
+                        
+
+
+
+                    }
+
+                return(
+
+                <div ref="vendorList" style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
+                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    <div style={listStyle}>
+                        {mappedVendors}
+                    </div>
+                </div>
+                )
+                }
+            }
 
             return(
 
