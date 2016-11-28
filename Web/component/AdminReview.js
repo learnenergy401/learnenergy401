@@ -22,19 +22,19 @@ var info_div_style={
     border: '2px solid blue',
     backgroundColor: 'silver',
 }
-//the styling for the large tables.  
+//the styling for the large tables.
 var table_style={
     margin: 'auto',
     width: '600px',
     //border: '5px groove black'
-    
+
 }
 
 var table_style2={
     margin: 'auto',
     width: '800px',
     //border: '5px groove black'
-    
+
 }
 //styling for the sub-tables of the large tables
 var table_style_sub={
@@ -127,8 +127,8 @@ class AdminReview extends Component {
     rejectUser(user) {
       this.props.dispatch(rejectUser(user))
     }
-    
-    
+
+
     /**
      * Accepts a user
      * @param {object} key_name, role - information about user to approve
@@ -332,7 +332,7 @@ class AdminReview extends Component {
     }
 
     /**
-      * Loads the details 
+      * Loads the details
       * @return {html} - returns html details
       */
     render() {
@@ -372,11 +372,12 @@ class AdminReview extends Component {
           var website = user.purchasers[key_name].website;
 
           var jointVenture = user.purchasers[key_name].jointVenture;
-          var categories = user.purchasers[key_name].categories;
+
+          var categories = user.purchasers[key_name].categories.toString();
 
           var password = user.purchasers[key_name].password;
           //var role = user.purchasers[key_name].role;
-        
+
 
           // make the page here
           return (
@@ -389,8 +390,8 @@ class AdminReview extends Component {
                       <h4 className="card__title-text">Purchaser Information</h4>
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
-                        
-                      <table style={table_style}> 
+
+                      <table style={table_style}>
                           <tbody>
                             <tr>
                                 <td><b>Legal Name:</b></td>
@@ -505,10 +506,10 @@ class AdminReview extends Component {
                                 <td><b>Categories:</b></td>
                                  <td>{categories}</td>
                             </tr>
-                          </tbody> 
+                          </tbody>
                         </table>
-              
-              
+
+
                     </div>
                 <div>
                     <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
@@ -518,7 +519,7 @@ class AdminReview extends Component {
                 <br/>
               </div>
               </div>
-              
+
             </div>
 
             <LearnFooter/>
@@ -635,9 +636,9 @@ class AdminReview extends Component {
                     <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
                       <h4 className="card__title-text">Vendor Information</h4>
                     </div>
-              
+
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
-              
+
                         <h3>Contact Information</h3>
                         <table style={table_style}>
                             <tr>
@@ -697,8 +698,8 @@ class AdminReview extends Component {
                                 <td>{technicalContact}</td>
                             </tr>
                         </table>
-              
-                      
+
+
                         <h3>Buisness Information</h3>
                         <table style={table_style}>
                             <tr>
@@ -758,7 +759,7 @@ class AdminReview extends Component {
                                 <td></td>
                             </tr>
                         </table>
-              
+
                         <h3>References</h3>
                         <table style={table_style}>
                             <tr>
@@ -786,7 +787,7 @@ class AdminReview extends Component {
                                     </tr>
                                 </table>
                                 </td>
-                                
+
                             </tr>
                             <tr>
                                 <td>
@@ -813,7 +814,7 @@ class AdminReview extends Component {
                                     </tr>
                                 </table>
                                 </td>
-                                
+
                             </tr>
                             <tr>
                                 <td>
@@ -840,7 +841,7 @@ class AdminReview extends Component {
                                     </tr>
                                 </table>
                                 </td>
-                                
+
                             </tr>
                             <tr>
                                 <td>
@@ -869,7 +870,7 @@ class AdminReview extends Component {
                                 </td>
                             </tr>
                         </table>
-              
+
                         <h3>Licensing</h3>
                         <table style={table_style}>
                             <tr>
@@ -893,7 +894,7 @@ class AdminReview extends Component {
                                 <td>{licence5}</td>
                             </tr>
                         </table>
-                        
+
                         <h3>Insurance</h3>
                         <table style={table_style}>
                             <tr>
@@ -912,7 +913,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry1}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -932,7 +933,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry2}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -952,7 +953,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry3}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -972,7 +973,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry4}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -992,7 +993,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry5}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1012,7 +1013,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry6}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1032,7 +1033,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry7}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1052,7 +1053,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry8}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1072,7 +1073,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry9}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1092,7 +1093,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry10}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1112,7 +1113,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry11}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1132,7 +1133,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry12}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1152,7 +1153,7 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry13}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
@@ -1172,12 +1173,12 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry14}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
                             <tr>
-                                
+
                                 <td>
                                     <table style={table_style_sub}>
                                     <th>Professional Liability</th>
@@ -1193,12 +1194,12 @@ class AdminReview extends Component {
                                         <td><b>Expiry:</b></td>
                                         <td>{expiry15}</td>
                                     </tr>
-                                    
+
                                 </table>
                                 </td>
                             </tr>
-                        </table> 
-              
+                        </table>
+
                     <h3>Employee Information</h3>
                       <table style={table_style}>
                             <tr>
@@ -1346,7 +1347,7 @@ class AdminReview extends Component {
                                 </td>
                             </tr>
                         </table>
-              
+
                     <h3>Workers Compensation</h3>
                       <table style={table_style}>
                           <tr>
@@ -1359,8 +1360,8 @@ class AdminReview extends Component {
                           <tr>
                             <td><b>Industry Classification:</b></td>
                             <td>{industryClassification}</td>
-                          </tr>  
-                
+                          </tr>
+
                           </table>
                           </tr>
                             <tr>
@@ -1460,37 +1461,37 @@ class AdminReview extends Component {
                                 </td>
                             </tr>
               </table>
-              
+
               <h3>Additional Information</h3>
               <table style={table_style2}>
                     <tr>
                         <td style={row_format}><b>Categories of Service:</b></td>
                         <td style={row_format}>{categories}</td></tr>
-                   
+
                     <tr>
                         <td style = {row_format}><b>Specialities:</b></td>
                         <td style = {row_format}>{specialties}</td>
                     </tr>
                     <tr>
-                        <td style = {row_format}><b>Drug and Alcohol policy:</b></td>      
+                        <td style = {row_format}><b>Drug and Alcohol policy:</b></td>
                         <td style = {row_format}>{drugPolicy}</td>
                     </tr>
                     <tr>
-                        <td style = {row_format}><b>Subcontractor OH&S Evaluation:</b></td>      
+                        <td style = {row_format}><b>Subcontractor OH&S Evaluation:</b></td>
                         <td style = {row_format}>{subcontractors}</td>
                     </tr>
                     <tr>
-                        <td style = {row_format}><b>OH&S Stop Work Order Recieved:</b></td>      
+                        <td style = {row_format}><b>OH&S Stop Work Order Recieved:</b></td>
                         <td style = {row_format}>{stopWorkOrder}</td>
                     </tr>
                     <tr>
-                        <td style = {row_format}><b>HSE related Judgements:</b></td>      
+                        <td style = {row_format}><b>HSE related Judgements:</b></td>
                         <td style = {row_format}>{hsejudgement}</td>
                     </tr>
               </table>
 
                     </div>
-              
+
                 <div>
                     <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
                     <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
@@ -1499,7 +1500,7 @@ class AdminReview extends Component {
                 <br/>
               </div>
               </div>
-              
+
             </div>
 
             <LearnFooter/>
@@ -1513,7 +1514,7 @@ class AdminReview extends Component {
           var role = user.ad[key_name].role;
           return (
             <div>
-            
+
             <LearnHeader/>
             <div className="learn-content mdl-typography--text-center" >
                 <div className="grid">
@@ -1521,27 +1522,27 @@ class AdminReview extends Component {
                     <div className="card__title mdl-color--indigo mdl-color-text--white" style={{width: '80%', margin: 'auto'}}>
                       <h4 className="card__title-text">Additional User Information</h4>
                     </div>
-              
+
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
-              
+
                         <h3>Details</h3>
                         <table style={table_style}>
                           <tr>
-                        <td style = {row_format}><b>Website:</b></td>      
+                        <td style = {row_format}><b>Website:</b></td>
                         <td style = {row_format}><a href={website} link="red" target="_blank">{website}</a></td>
                           </tr>
                           <tr>
-                        <td style = {row_format}><b>Email:</b></td>      
+                        <td style = {row_format}><b>Email:</b></td>
                         <td style = {row_format}>{email}</td>
                           </tr>
                           <tr>
-                        <td style = {row_format}><b>Password:</b></td>      
+                        <td style = {row_format}><b>Password:</b></td>
                         <td style = {row_format}>{password}</td>
                           </tr>
                         </table>
 
                     </div>
-        
+
 
                 <div>
                 <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
@@ -1551,7 +1552,7 @@ class AdminReview extends Component {
                 <br/>
               </div>
               </div>
-              
+
             </div>
 
             <LearnFooter/>
