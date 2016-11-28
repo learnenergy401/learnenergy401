@@ -20,6 +20,9 @@ var formStyle = {
     marginTop: '5%'
 }
 
+var intTextBox = 0;
+var catnum = 1;
+
 @connect((store) => {
   return {
     user: store.user
@@ -84,8 +87,12 @@ class ComponentSignUpPurchaser extends Component {
         jointVenture = "no"
     }
 
-
-    var categories = document.getElementById("categories").value;
+    var categories = []
+    while(0 < intTextBox){
+      categories.push(document.getElementById("cat_" + catnum).value)
+      intTextBox--;
+      catnum++;
+    }
 
     var user = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
@@ -94,6 +101,35 @@ class ComponentSignUpPurchaser extends Component {
 
     this.signUpPurchaser(user);
   }
+
+  /**
+   * Add category to list
+   */
+  addElement() {
+    if(5 > intTextBox){
+      intTextBox++;
+      var objNewDiv = document.createElement('div');
+      objNewDiv.setAttribute('id', 'div_' + intTextBox);
+      objNewDiv.innerHTML = 'Category ' + intTextBox + ': <input type="text" id="cat_' + intTextBox + '"/>';
+      console.log(document.getElementById('content').appendChild(objNewDiv));
+    } else {
+      alert("Reached limit of 5 categories.");
+    }
+  }
+
+  /**
+   * Remove category from list
+   */
+  removeElement() {
+    if(0 < intTextBox) {
+        document.getElementById('div_' + intTextBox).remove();
+        intTextBox--;
+    } else {
+        alert("No categories to remove.");
+    }
+  }
+
+
 
   /**
    * Loads the signup page for purchaser.
@@ -179,8 +215,17 @@ class ComponentSignUpPurchaser extends Component {
               </label>
             </div>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Categories" id="categories"/>
+
+            <u><h6>If you answered yes to the above question please enter categories of interest.</h6></u>
+            <div id="content"></div>
+            <br/>
+            <p>
+                <button onClick={this.addElement}>Add</button>
+                <button onClick={this.removeElement}>Remove</button>
+            </p>
+
             <hr/>
+
             <CardActions>
               <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
