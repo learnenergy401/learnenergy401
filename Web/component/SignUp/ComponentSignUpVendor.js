@@ -10,14 +10,15 @@ var formStyle = {
     marginTop: '5%'
 }
 
+//categories
 var intTextBox = 0;
 var catnum = 1;
 var catfill = 1;
-
+//Specialties
 var intTextBox1 = 0;
 var specnum = 1;
 var specfill = 1;
-
+//owners
 var intTextBox2 = 0;
 var ownernum = 1;
 var ownerfill = 1;
@@ -353,30 +354,7 @@ class ComponentSignUpVendor extends Component {
                 <button onClick={this.addElementowner}>Add</button>
                 <button onClick={this.removeElementowner}>Remove</button>
             </p>
-            <hr/>
 
-
-            <hr/>
-
-            <Textfield label="owner1Name" className="form-control" ref="owner1Name"  placeholder="Name" id="owner1Name"/>
-            &nbsp;
-            <Textfield label="owner1Pos" className="form-control" ref="owner1Pos"  placeholder="Postion" id="owner1Pos"/>
-            <br/>
-            <Textfield label="owner2Name" className="form-control" ref="owner2Name"  placeholder="Name" id="owner2Name"/>
-            &nbsp;
-            <Textfield label="owner2Pos" className="form-control" ref="owner2Pos"  placeholder="Postion" id="owner2Pos"/>
-            <br/>
-            <Textfield label="owner3Name" className="form-control" ref="owner3Name"  placeholder="Name" id="owner3Name"/>
-            &nbsp;
-            <Textfield label="owner3Pos" className="form-control" ref="owner3Pos"  placeholder="Postion" id="owner3Pos"/>
-            <br/>
-            <Textfield label="owner4Name" className="form-control" ref="owner4Name"  placeholder="Name" id="owner4Name"/>
-            &nbsp;
-            <Textfield label="owner4Pos" className="form-control" ref="owner4Pos"  placeholder="Postion" id="owner4Pos"/>
-            <br/>
-            <Textfield label="owner5Name" className="form-control" ref="owner5Name"  placeholder="Name" id="owner5Name"/>
-            &nbsp;
-            <Textfield label="owner5Pos" className="form-control" ref="owner5Pos"  placeholder="Postion" id="owner5Pos"/>
             <hr/>
             <u><h5>Description:</h5></u>
             <h6>Nature of Business:<br/> <textarea rows="4" cols="80" id="natureBusiness"></textarea></h6>
@@ -428,6 +406,18 @@ class ComponentSignUpVendor extends Component {
             <u><h4>Part C: General</h4></u>
             <Textfield floatingLabel style={{width:'300px'}} label="Number of Employees" id="numEmployees"/>
             <u><h5>Additional Locations:</h5></u>
+
+
+            <div id="content3"></div>
+            <br/>
+            <p>
+                <button onClick={this.addElementAD}>Add</button>
+                <button onClick={this.removeElementAD}>Remove</button>
+            </p>
+
+            <hr/>
+
+
             <br/>
             <Textfield label="AD1address1" className="form-control" ref="AD1address1"  placeholder="Additional 1: Address 1" id="AD1address1"/>
             &nbsp;
