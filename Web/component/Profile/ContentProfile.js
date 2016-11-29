@@ -134,28 +134,41 @@ class ContentProfile extends Component {
         document.getElementById("AD3postalCode").value=user.profile.AD3postalCode;
         document.getElementById("AD3phone").value=user.profile.AD3phone;
 
-        document.getElementById("categories").value=user.profile.categories;
-        document.getElementById("specialties").value=user.profile.specialties;
+        document.getElementById("cat_1").value=user.profile.categories[0];
+        document.getElementById("cat_2").value=user.profile.categories[1];
+        document.getElementById("cat_3").value=user.profile.categories[2];
+        document.getElementById("cat_4").value=user.profile.categories[3];
+        document.getElementById("cat_5").value=user.profile.categories[4];
+
+        document.getElementById("spec_1").value=user.profile.specialties[0];
+        document.getElementById("spec_2").value=user.profile.specialties[1];
+        document.getElementById("spec_3").value=user.profile.specialties[2];
+        document.getElementById("spec_4").value=user.profile.specialties[3];
+        document.getElementById("spec_5").value=user.profile.specialties[4];
 
         document.getElementById("client1").value=user.profile.client1;
         document.getElementById("client1Location").value=user.profile.client1Location;
         document.getElementById("client1Phone").value=user.profile.client1Phone;
         document.getElementById("client1Email").value=user.profile.client1Email;
+        document.getElementById("client1Name").value=user.profile.client1Name;
         document.getElementById("client1Service").value=user.profile.client1Service;
         document.getElementById("client2").value=user.profile.client2;
         document.getElementById("client2Location").value=user.profile.client2Location;
         document.getElementById("client2Phone").value=user.profile.client2Phone;
         document.getElementById("client2Email").value=user.profile.client2Email;
+        document.getElementById("client2Name").value=user.profile.client2Name;
         document.getElementById("client2Service").value=user.profile.client2Service;
         document.getElementById("client3").value=user.profile.client3;
         document.getElementById("client3Location").value=user.profile.client3Location;
         document.getElementById("client3Phone").value=user.profile.client3Phone;
         document.getElementById("client3Email").value=user.profile.client3Email;
+        document.getElementById("client3Name").value=user.profile.client3Name;
         document.getElementById("client3Service").value=user.profile.client3Service;
         document.getElementById("client4").value=user.profile.client4;
         document.getElementById("client4Location").value=user.profile.client4Location;
         document.getElementById("client4Phone").value=user.profile.client4Phone;
         document.getElementById("client4Email").value=user.profile.client4Email;
+        document.getElementById("client4Name").value=user.profile.client4Name;
         document.getElementById("client4Service").value=user.profile.client4Service;
 
         document.getElementById("licence1").value=user.profile.licence1;
@@ -382,13 +395,24 @@ class ContentProfile extends Component {
     var AD3address1 = document.getElementById("AD3address1").value; var AD3address2 = document.getElementById("AD3address2").value; var AD3city = document.getElementById("AD3city").value; var AD3province = document.getElementById("AD3province").value;
     var AD3country = document.getElementById("AD3country").value; var AD3postalCode = document.getElementById("AD3postalCode").value; var AD3phone = document.getElementById("AD3phone").value;
 
-    var categories = document.getElementById("categories").value;
+    var cat_1 = document.getElementById("cat_1").value;
+    var cat_2 = document.getElementById("cat_2").value;
+    var cat_3 = document.getElementById("cat_3").value;
+    var cat_4 = document.getElementById("cat_4").value;
+    var cat_5 = document.getElementById("cat_5").value;
+    var categories = [cat_1,cat_2,cat_3,cat_4,cat_5];
     var specialties = document.getElementById("specialties").value;
+    var spec_1 = document.getElementById("spec_1").value;
+    var spec_2 = document.getElementById("spec_2").value;
+    var spec_3 = document.getElementById("spec_3").value;
+    var spec_4 = document.getElementById("spec_4").value;
+    var spec_5 = document.getElementById("spec_5").value;
+    var specialties = [spec_1,spec_2,spec_3,spec_4,spec_5];
 
-    var client1 = document.getElementById("client1").value; var client1Location = document.getElementById("client1Location").value; var client1Phone = document.getElementById("client1Phone").value; var client1Email = document.getElementById("client1Email").value; var client1Service = document.getElementById("client1Service").value;
-    var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value;
-    var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value;
-    var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value;
+    var client1 = document.getElementById("client1").value; var client1Location = document.getElementById("client1Location").value; var client1Phone = document.getElementById("client1Phone").value; var client1Email = document.getElementById("client1Email").value; var client1Service = document.getElementById("client1Service").value; var client1Name = document.getElementById("client1Name").value;
+    var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value; var client2Name = document.getElementById("client2Name").value;
+    var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value; var client3Name = document.getElementById("client3Name").value;
+    var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value; var client4Name = document.getElementById("client4Name").value;
     var industryClassification = document.getElementById("industryClassification").value;
     var industryCode = document.getElementById("industryCode").value;
 
@@ -453,8 +477,8 @@ class ContentProfile extends Component {
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
       bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees,
       AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone, AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
-      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Service, client2, client2Location, client2Phone, client2Email, client2Service,
-      client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
+      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Name, client1Service, client2, client2Location, client2Phone, client2Email, client2Name, client2Service,
+      client3, client3Location, client3Phone, client3Email, client3Name, client3Service, client4, client4Location, client4Phone, client4Email, client4Name, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
       insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
       insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
       insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
@@ -686,10 +710,22 @@ class ContentProfile extends Component {
             <Textfield label="AD3phone" className="form-control" ref="AD3phone"  placeholder="Additional 3: Phone Number" id="AD3phone"/>
             <hr/>
             <h4>Part D: Qualifications and Experience</h4>
-            <h6>Categories of services provided - List all types of work you are able to provide:</h6>
-            <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
-            <br/>
-            <Textfield label="specialties" className="form-control" ref="specialties"  placeholder="Specialties" id="specialties"/>
+            <u><h6>Categories of services provided - List all types of work you are able to provide:</h6></u>
+            <hr/>
+            <Textfield label='cat_1' placeholder='Category 1' id = 'cat_1'/>
+            <Textfield label='cat_2' placeholder='Category 1' id = 'cat_2'/>
+            <Textfield label='cat_3' placeholder='Category 1' id = 'cat_3'/>
+            <Textfield label='cat_4' placeholder='Category 1' id = 'cat_4'/>
+            <Textfield label='cat_5' placeholder='Category 1' id = 'cat_5'/>
+            <hr/>
+            <u><h6>Specialities:</h6></u>
+            <Textfield label='spec_1' placeholder='Specialty 1' id = 'spec_1'/>
+            <Textfield label='spec_2' placeholder='Specialty 1' id = 'spec_2'/>
+            <Textfield label='spec_3' placeholder='Specialty 1' id = 'spec_3'/>
+            <Textfield label='spec_4' placeholder='Specialty 1' id = 'spec_4'/>
+            <Textfield label='spec_5' placeholder='Specialty 1' id = 'spec_5'/>
+
+            <hr/>
             <h6>Work History:</h6>
             <Textfield label="client1" className="form-control" ref="client1"  placeholder="Client 1: Name" id="client1"/>
             &nbsp;
@@ -699,6 +735,7 @@ class ContentProfile extends Component {
             &nbsp;
             <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
             <br/>
+            <Textfield label="client1name" className="form-control" ref="client1name"  placeholder="Client 1: Contact Name" id="client1Name"/>
             <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client1Service"></textarea></h6>
             <hr/>
             <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Name" id="client2"/>
@@ -709,6 +746,7 @@ class ContentProfile extends Component {
             &nbsp;
             <Textfield label="client2Email" className="form-control" ref="client2Email"  placeholder="Client 2: Email" id="client2Email"/>
             <br/>
+            <Textfield label="client2name" className="form-control" ref="client2name"  placeholder="Client 2: Contact Name" id="client2Name"/>
             <h6>Client 2 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client2Service"></textarea></h6>
             <hr/>
             <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Name" id="client3"/>
@@ -719,6 +757,8 @@ class ContentProfile extends Component {
             &nbsp;
             <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
             <br/>
+            <Textfield label="client3name" className="form-control" ref="client3name"  placeholder="Client 3: Contact Name" id="client3Name"/>
+
             <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client3Service"></textarea></h6>
             <hr/>
             <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Name" id="client4"/>
@@ -729,6 +769,7 @@ class ContentProfile extends Component {
             &nbsp;
             <Textfield label="client4Email" className="form-control" ref="client4Email"  placeholder="Client 4: Email" id="client4Email"/>
             <br/>
+            <Textfield label="client4name" className="form-control" ref="client4name"  placeholder="Client 4: Contact Name" id="client4Name"/>
             <h6>Client 4 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="50" id="client4Service"></textarea></h6>
             <hr/>
             <h6>Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).</h6>

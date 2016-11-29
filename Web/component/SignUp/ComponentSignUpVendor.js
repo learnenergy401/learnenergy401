@@ -9,6 +9,16 @@ var componentStyle = {
 var formStyle = {
     marginTop: '5%'
 }
+
+var intTextBox = 0;
+var catnum = 1;
+var catfill = 1;
+
+var intTextBox1 = 0;
+var specnum = 1;
+var specfill = 1;
+
+
 @connect((store) => {
   return {
     user: store.user
@@ -52,7 +62,7 @@ class ComponentSignUpVendor extends Component {
     var timeBusiness = document.getElementById("timeBusiness").value;
 
     var proAffiliation = document.getElementById("proAffiliation").value;
-    var report = null
+    var report = "null"
     if(document.getElementById("reportEnclosed").checked) {
         report = "enclosed"
     } else if (document.getElementById("reportNotAvailable").checked) {
@@ -70,7 +80,7 @@ class ComponentSignUpVendor extends Component {
     var bondingLimit = document.getElementById("bondingLimit").value;
     var grossBus = document.getElementById("grossBus").value;
     var grossBusYear = document.getElementById("grossBusYear").value;
-    var bankruptcy = null
+    var bankruptcy = "null"
     if(document.getElementById("bankYes").checked) {
         bankruptcy = "yes"
     } else if (document.getElementById("bankNo").checked) {
@@ -85,13 +95,32 @@ class ComponentSignUpVendor extends Component {
     var AD3address1 = document.getElementById("AD3address1").value; var AD3address2 = document.getElementById("AD3address2").value; var AD3city = document.getElementById("AD3city").value; var AD3province = document.getElementById("AD3province").value;
     var AD3country = document.getElementById("AD3country").value; var AD3postalCode = document.getElementById("AD3postalCode").value; var AD3phone = document.getElementById("AD3phone").value;
 
-    var categories = document.getElementById("categories").value;
-    var specialties = document.getElementById("specialties").value;
+    var categories = []
+    while(0 < intTextBox){
+      categories.push(document.getElementById("cat_" + catnum).value)
+      intTextBox--;
+      catnum++;
+    }
+    while(catfill <= 5 ){
+      categories.push("Category " + catfill)
+      catfill++;
+    }
 
-    var client1 = document.getElementById("client1").value; var client1Location = document.getElementById("client1Location").value; var client1Phone = document.getElementById("client1Phone").value; var client1Email = document.getElementById("client1Email").value; var client1Service = document.getElementById("client1Service").value;
-    var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value;
-    var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value;
-    var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value;
+    var specialties = []
+    while(0 < intTextBox1){
+      specialties.push(document.getElementById("spec_" + specnum).value)
+      intTextBox1--;
+      specnum++;
+    }
+    while(specfill <= 5 ){
+      specialties.push("Specialty " + specfill)
+      specfill++;
+    }
+
+    var client1 = document.getElementById("client1").value; var client1Location = document.getElementById("client1Location").value; var client1Phone = document.getElementById("client1Phone").value; var client1Email = document.getElementById("client1Email").value; var client1Service = document.getElementById("client1Service").value; var client1Name = document.getElementById("client1Name").value;
+    var client2 = document.getElementById("client2").value; var client2Location = document.getElementById("client2Location").value; var client2Phone = document.getElementById("client2Phone").value; var client2Email = document.getElementById("client2Email").value; var client2Service = document.getElementById("client2Service").value; var client2Name = document.getElementById("client2Name").value;
+    var client3 = document.getElementById("client3").value; var client3Location = document.getElementById("client3Location").value; var client3Phone = document.getElementById("client3Phone").value; var client3Email = document.getElementById("client3Email").value; var client3Service = document.getElementById("client3Service").value; var client3Name = document.getElementById("client3Name").value;
+    var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value; var client4Name = document.getElementById("client4Name").value;
 
 
 
@@ -157,8 +186,8 @@ class ComponentSignUpVendor extends Component {
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
       bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees,
       AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone, AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
-      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Service, client2, client2Location, client2Phone, client2Email, client2Service,
-      client3, client3Location, client3Phone, client3Email, client3Service, client4, client4Location, client4Phone, client4Email, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
+      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Name, client1Service, client2, client2Location, client2Phone, client2Email, client2Name, client2Service,
+      client3, client3Location, client3Phone, client3Email, client3Name, client3Service, client4, client4Location, client4Phone, client4Email, client4Name, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
       insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
       insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
       insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
@@ -169,6 +198,64 @@ class ComponentSignUpVendor extends Component {
       }
 
     this.signUpVendor(info);
+    }
+
+    /**
+     * Add category to list
+     */
+    addElement() {
+      if(5 > intTextBox){
+        intTextBox++;
+        catfill++;
+        var objNewDiv = document.createElement('div');
+        objNewDiv.setAttribute('id', 'div_' + intTextBox);
+        objNewDiv.innerHTML = 'Category ' + intTextBox + ': <input type="text" id="cat_' + intTextBox + '"/>';
+        document.getElementById('content').appendChild(objNewDiv);
+      } else {
+        alert("Reached limit of 5 categories.");
+      }
+    }
+
+    /**
+     * Remove category from list
+     */
+    removeElement() {
+      if(0 < intTextBox) {
+          document.getElementById('div_' + intTextBox).remove();
+          intTextBox--;
+          catfill--;
+      } else {
+          alert("No categories to remove.");
+      }
+    }
+
+    /**
+     * Add specialty to list
+     */
+    addElementspec() {
+      if(5 > intTextBox1){
+        intTextBox1++;
+        specfill++;
+        var objNewDiv1 = document.createElement('div');
+        objNewDiv1.setAttribute('id', 'div_' + intTextBox1);
+        objNewDiv1.innerHTML = 'Specialty ' + intTextBox1 + ': <input type="text" id="spec_' + intTextBox1 + '"/>';
+        document.getElementById('content1').appendChild(objNewDiv1);
+      } else {
+        alert("Reached limit of 5 specialties.");
+      }
+    }
+
+    /**
+     * Remove specialty from list
+     */
+    removeElementspec() {
+      if(0 < intTextBox1) {
+          document.getElementById('div_' + intTextBox1).remove();
+          intTextBox1--;
+          specfill--;
+      } else {
+          alert("No specialties to remove.");
+      }
     }
 
     /**
@@ -328,11 +415,25 @@ class ComponentSignUpVendor extends Component {
             <hr/>
             <u><h4>Part D: Qualifications and Experience</h4></u>
             <u><h6>Categories of services provided - List all types of work you are able to provide:</h6></u>
-            <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
+
+            <div id="content"></div>
             <br/>
-            <Textfield label="specialties" className="form-control" ref="specialties"  placeholder="Specialties" id="specialties"/>
+            <p>
+                <button onClick={this.addElement}>Add</button>
+                <button onClick={this.removeElement}>Remove</button>
+            </p>
+            <hr/>
+            <u><h6>Specialties:</h6></u>
+            <div id="content1"></div>
+            <br/>
+            <p>
+                <button onClick={this.addElementspec}>Add</button>
+                <button onClick={this.removeElementspec}>Remove</button>
+            </p>
+            <hr/>
+            <br/>
             <h6>Work History:</h6>
-            <Textfield label="client1" className="form-control" ref="client1"  placeholder="Client 1: Name" id="client1"/>
+            <Textfield label="client1" className="form-control" ref="client1"  placeholder="Client 1: Operating Name" id="client1"/>
             &nbsp;
             <Textfield label="client1Location" className="form-control" ref="client1Location"  placeholder="Client 1: Location" id="client1Location"/>
             <br/>
@@ -340,9 +441,10 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
             <br/>
+            <Textfield label="client1name" className="form-control" ref="client1name"  placeholder="Client 1: Contact Name" id="client1Name"/>
             <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client1Service"></textarea></h6>
             <hr/>
-            <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Name" id="client2"/>
+            <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Operating Name" id="client2"/>
             &nbsp;
             <Textfield label="client2Location" className="form-control" ref="client2Location"  placeholder="Client 2: Location" id="client2Location"/>
             <br/>
@@ -350,9 +452,10 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="client2Email" className="form-control" ref="client2Email"  placeholder="Client 2: Email" id="client2Email"/>
             <br/>
+            <Textfield label="client2name" className="form-control" ref="client2name"  placeholder="Client 2: Contact Name" id="client2Name"/>
             <h6>Client 2 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client2Service"></textarea></h6>
             <hr/>
-            <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Name" id="client3"/>
+            <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Operating Name" id="client3"/>
             &nbsp;
             <Textfield label="client3Location" className="form-control" ref="client3Location"  placeholder="Client 3: Location" id="client3Location"/>
             <br/>
@@ -360,9 +463,10 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
             <br/>
+            <Textfield label="client3name" className="form-control" ref="client3name"  placeholder="Client 3: Contact Name" id="client3Name"/>
             <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client3Service"></textarea></h6>
             <hr/>
-            <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Name" id="client4"/>
+            <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Operating Name" id="client4"/>
             &nbsp;
             <Textfield label="client4Location" className="form-control" ref="client4Location"  placeholder="Client 4: Location" id="client4Location"/>
             <br/>
@@ -370,6 +474,7 @@ class ComponentSignUpVendor extends Component {
             &nbsp;
             <Textfield label="client4Email" className="form-control" ref="client4Email"  placeholder="Client 4: Email" id="client4Email"/>
             <br/>
+            <Textfield label="client4name" className="form-control" ref="client4name"  placeholder="Client 4: Contact Name" id="client4Name"/>
             <h6>Client 4 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client4Service"></textarea></h6>
 
             <hr/>
