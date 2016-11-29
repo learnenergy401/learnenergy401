@@ -109,7 +109,10 @@ class VendorList extends Component{
         this.setState({searchTerm: term})
     }
 
-
+    /**
+     * sets the bookmarks from the database.
+     * @param {key} key - information on bookmarks
+     */
     bookmark(key) {
         // update the bookmarks 
         console.log('in bookmark', key)
@@ -117,7 +120,10 @@ class VendorList extends Component{
         this.setBookmarks(bookmarks)
         location.reload()
     }
-
+    /**
+     * removes the bookmarks from the database.
+     * @param {key} key - information on bookmarks
+     */
     removebookmark(key) {
         var bookmarks = {key}
         this.removeBookmark(bookmarks)

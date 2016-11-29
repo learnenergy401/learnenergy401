@@ -1,7 +1,11 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
-
+/**
+ * removes the bookmark from the database.
+ * @param {object} bookmarks - information on bookmarks
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
 export function removeBookmark(bookmarks) {
   return function(dispatch) {
     firebaseAuth.onAuthStateChanged((user)=>{
@@ -41,7 +45,7 @@ export function fetchBookmarks() {
 }
 
 /**
- * sets the notifcation from the database.
+ * sets the bookmarks from the database.
  * @param {object} bookmarks - information on bookmarks
  * @throws {object} err - Returns an error if failed to fetch from database.
  */
