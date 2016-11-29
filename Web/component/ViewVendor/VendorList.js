@@ -6,7 +6,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 
 
 import "../../extra/material.js"
-import { fetchUsers, fetchBookmarks, setBookmarks } from "../Actions/userActions"
+import { fetchUsers, fetchBookmarks, setBookmarks, removeBookmark } from "../Actions/userActions"
 
 const KEYS_TO_FILTERS = ['website', 'legalEntity','email']
 
@@ -62,6 +62,13 @@ class VendorList extends Component{
     setBookmarks(bookmarks) {
         this.props.dispatch(setBookmarks(bookmarks))
     }
+    /**
+     * removes bookmarks
+     * {params} bookmarks - information of bookmarks
+     */    
+    removeBookmark(bookmarks) {
+        this.props.dispatch(removeBookmark(bookmarks))
+    }
 
     /**
     * called before dom elements is mounted, fetching user list
@@ -103,9 +110,19 @@ class VendorList extends Component{
     }
 
 
-    bookmark(vendorID) {
+    bookmark(key) {
         // update the bookmarks 
-        console.log('in bookmark', vendorID)
+        console.log('in bookmark', key)
+        var bookmarks = {key} 
+        this.setBookmarks(bookmarks)
+        location.reload()
+    }
+
+    removebookmark(key) {
+        var bookmarks = {key}
+        this.removeBookmark(bookmarks)
+        location.reload()
+
     }
 
     /**
@@ -156,13 +173,44 @@ class VendorList extends Component{
              
                             </div>
                         ),this)
+                    
+                    console.log('mapped vendors is', mappedVendors)
+                    var keys = Object.keys(mappedVendors)
+                    console.log('keys are', keys)
 
+                    for (var i=0; i<keys.length; i++) {
+                        console.log(mappedVendors[keys[i]].key)
+                    }
+
+                    console.log(user)
                     if (user.bookmarks) { // there are bookmarks for that user
-
-                        
-
-
-
+                        var Vkeys = Object.keys(mappedVendors)
+                        var Bkeys = Object.keys(user.bookmarks)
+                        console.log('bkeys is', Bkeys)
+                        for (var j=0; j<Bkeys.length; j++) {
+                            for (var i=0; i<Vkeys.length; i++) {
+                                // if they are matching, user has bookmarked this vendor. update icon
+                                if (mappedVendors[Vkeys[i]].key == user.bookmarks[Bkeys[j]].key) {
+                                    // change the div of this mappedVendors
+                                    mappedVendors[Vkeys[i]] = (
+                                    <div style={listItemStyle} key={mappedVendors[Vkeys[i]].key} className="mdl-card mdl-shadow--2dp" >
+                                       <div style={cardTitleStyle} className="mdl-card__title" >
+                                            <h2  className="mdl-card__title-text">
+                                                {user.users[mappedVendors[Vkeys[i]].key].legalEntity}
+                                            </h2>
+                                            <div className="mdl-layout-spacer" />
+                                            <Button accent ripple onClick={this.removebookmark.bind(this,Bkeys[j])} className="mdl-button mdl-button--icon">
+                                                <i className="material-icons">turned_in</i>
+                                            </Button>
+                                        </div>
+                                         <div style={cardTextStyle} className="mdl-card__supporting-text">
+                                            {user.users[mappedVendors[Vkeys[i]].key].email}
+                                        </div>
+                     
+                                    </div>)
+                                }
+                            }
+                        }
                     }
 
                 return(

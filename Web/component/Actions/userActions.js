@@ -1,6 +1,23 @@
 
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
+
+export function removeBookmark(bookmarks) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      console.log('removing bookmarks', bookmarks)
+      if (user){
+        firebaseDb.ref('Bookmarks/'+user.uid+'/'+bookmarks.key).remove()
+        .then((data) => {
+            dispatch({type: "SET_BOOKMARKS_FULFILLED"})
+        })
+        .catch((err) => {
+            dispatch({type: "SET_BOOKMARKS_REJECTED", payload: err.code})
+        })
+      }
+    })
+  }
+}
 /**
  * Grabs the bookmarks from the database.
  * @returns {object} bookmarks - Returns the object of bookmarks.
@@ -31,9 +48,9 @@ export function fetchBookmarks() {
 export function setBookmarks(bookmarks) {
   return function(dispatch) {
     firebaseAuth.onAuthStateChanged((user)=>{
-      //console.log('notified')
+      console.log('setting bookmarks')
       if (user){
-        firebaseDb.ref('Bookmarks/'+user.uid).set(bookmarks)
+        firebaseDb.ref('Bookmarks/'+user.uid).push(bookmarks)
         .then((data) => {
             dispatch({type: "SET_BOOKMARKS_FULFILLED"})
         })
