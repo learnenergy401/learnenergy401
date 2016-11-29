@@ -138,7 +138,6 @@ class VendorList extends Component{
     render(){
         const {user}=this.props
 
-
         if (user.users){
             var arr = this.jsonToArray(user.users)
             const arr = arr.filter(createFilter("1", "role"))
