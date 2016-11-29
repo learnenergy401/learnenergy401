@@ -351,7 +351,9 @@ class Admin extends Component {
             EMAILS.push(<hr/>)
           }
         }
-
+        if (EMAILS.length == 0) {
+          EMAILS.push(<h5> No users to approve </h5>)
+        }
 
         return(
 
