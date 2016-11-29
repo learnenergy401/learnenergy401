@@ -309,7 +309,11 @@ class ContentProfile extends Component {
                 document.getElementById("jointVentureNo").checked=true
             }
 
-            document.getElementById("categories").value=user.profile.categories;
+            document.getElementById("cat_1").value=user.profile.categories[0];
+            document.getElementById("cat_2").value=user.profile.categories[1];
+            document.getElementById("cat_3").value=user.profile.categories[2];
+            document.getElementById("cat_4").value=user.profile.categories[3];
+            document.getElementById("cat_5").value=user.profile.categories[4];
 
         }
 
@@ -502,7 +506,13 @@ class ContentProfile extends Component {
         jointVenture = "no"
     }
 
-    var categories = document.getElementById("categories").value;
+    var cat_1 = document.getElementById("cat_1").value;
+    var cat_2 = document.getElementById("cat_2").value;
+    var cat_3 = document.getElementById("cat_3").value;
+    var cat_4 = document.getElementById("cat_4").value;
+    var cat_5 = document.getElementById("cat_5").value;
+    var categories = [cat_1,cat_2,cat_3,cat_4,cat_5];
+
     var role=user.role;
     var userUpdate = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
@@ -1105,7 +1115,15 @@ class ContentProfile extends Component {
               </label>
             </div>
             <br/>
-            <Textfield label="categories" className="form-control" ref="categories"  placeholder="Categories" id="categories"/>
+
+            <hr/>
+            <h6>Categories:</h6>
+            <Textfield label='cat_1' placeholder='Category 1' id = 'cat_1'/>
+            <Textfield label='cat_2' placeholder='Category 1' id = 'cat_2'/>
+            <Textfield label='cat_3' placeholder='Category 1' id = 'cat_3'/>
+            <Textfield label='cat_4' placeholder='Category 1' id = 'cat_4'/>
+            <Textfield label='cat_5' placeholder='Category 1' id = 'cat_5'/>
+
             <hr/>
 
         </div>

@@ -22,6 +22,7 @@ var formStyle = {
 
 var intTextBox = 0;
 var catnum = 1;
+var catfill = 1;
 
 @connect((store) => {
   return {
@@ -94,6 +95,13 @@ class ComponentSignUpPurchaser extends Component {
       catnum++;
     }
 
+    while(catfill <= 5 ){
+      categories.push("Category " + catfill)
+      catfill++;
+    }
+
+    console.log(categories);
+
     var user = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
       gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
@@ -108,6 +116,7 @@ class ComponentSignUpPurchaser extends Component {
   addElement() {
     if(5 > intTextBox){
       intTextBox++;
+      catfill++;
       var objNewDiv = document.createElement('div');
       objNewDiv.setAttribute('id', 'div_' + intTextBox);
       objNewDiv.innerHTML = 'Category ' + intTextBox + ': <input type="text" id="cat_' + intTextBox + '"/>';
@@ -124,6 +133,7 @@ class ComponentSignUpPurchaser extends Component {
     if(0 < intTextBox) {
         document.getElementById('div_' + intTextBox).remove();
         intTextBox--;
+        catfill--;
     } else {
         alert("No categories to remove.");
     }
