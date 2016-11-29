@@ -2,12 +2,34 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * removes the bookmark from the database.
+ * @param {object} bookmarks - information on bookmarks
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function removeBookmark(bookmarks) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      console.log('removing bookmarks', bookmarks)
+      if (user){
+        firebaseDb.ref('Bookmarks/'+user.uid+'/'+bookmarks.key).remove()
+        .then((data) => {
+            dispatch({type: "SET_BOOKMARKS_FULFILLED"})
+        })
+        .catch((err) => {
+            dispatch({type: "SET_BOOKMARKS_REJECTED", payload: err.code})
+        })
+      }
+    })
+  }
+}
+/**
  * Grabs the bookmarks from the database.
  * @returns {object} bookmarks - Returns the object of bookmarks.
  * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function fetchBookmarks() {
   return function(dispatch) {
+    console.log('fetching bookmarks')
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){
         firebaseDb.ref('Bookmarks/'+user.uid).once('value')
@@ -23,16 +45,16 @@ export function fetchBookmarks() {
 }
 
 /**
- * sets the notifcation from the database.
+ * sets the bookmarks from the database.
  * @param {object} bookmarks - information on bookmarks
  * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function setBookmarks(bookmarks) {
   return function(dispatch) {
     firebaseAuth.onAuthStateChanged((user)=>{
-      //console.log('notified')
+      console.log('setting bookmarks')
       if (user){
-        firebaseDb.ref('Bookmarks/'+user.uid).set(bookmarks)
+        firebaseDb.ref('Bookmarks/'+user.uid).push(bookmarks)
         .then((data) => {
             dispatch({type: "SET_BOOKMARKS_FULFILLED"})
         })

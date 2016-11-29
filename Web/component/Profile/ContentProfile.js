@@ -8,6 +8,7 @@ import "../../extra/material.js"
 import ContentProfileUpload from "./ContentProfileUpload.js"
 import ContentCourseDisplay from "./ContentCourseDisplay.js"
 import ContentCourseUpdate from "./ContentCourseUpdate.js"
+import ContentBookmarks from "./ContentBookmarks.js"
 import {updateProfile,getCurrentUser,logInUser} from "../Actions/userActions.js"
 
 @connect((store) => {
@@ -40,7 +41,6 @@ class ContentProfile extends Component {
         this.props.dispatch(updateProfile(user));
         this.getCurrentUser()
     }
-
     /**
      * called before dom elements are mounted, to get current user
      */
@@ -1139,6 +1139,10 @@ class ContentProfile extends Component {
         }else if(profile.menu==2){
             return(
                 <ContentProfileUpload/>
+            )
+        } else if(profile.menu==3) {
+            return(
+                <ContentBookmarks/>
             )
         }else{
             return(
