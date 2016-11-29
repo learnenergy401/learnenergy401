@@ -406,18 +406,7 @@ class ComponentSignUpVendor extends Component {
             <u><h4>Part C: General</h4></u>
             <Textfield floatingLabel style={{width:'300px'}} label="Number of Employees" id="numEmployees"/>
             <u><h5>Additional Locations:</h5></u>
-
-
-            <div id="content3"></div>
-            <br/>
-            <p>
-                <button onClick={this.addElementAD}>Add</button>
-                <button onClick={this.removeElementAD}>Remove</button>
-            </p>
-
             <hr/>
-
-
             <br/>
             <Textfield label="AD1address1" className="form-control" ref="AD1address1"  placeholder="Additional 1: Address 1" id="AD1address1"/>
             &nbsp;
