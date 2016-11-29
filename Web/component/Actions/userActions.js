@@ -774,6 +774,7 @@ export function approveUser(user) {
 
         } else if (user.role == 1) { // push as a vendor
           user.userID = currentUser.uid
+          console.log(user)
           firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {

@@ -5,6 +5,7 @@ import ButtonLogIn from './ButtonLogIn.js';
 import ButtonProfile from './ButtonProfile.js';
 import ButtonLogOut from './ButtonLogOut.js';
 import ButtonAdmin from './ButtonAdmin.js';
+import ButtonNotifyAdmin from './ButtonNotifyAdmin.js';
 import ButtonReviewEOI from './EOI-RFP/ButtonReviewEOI.js';
 import ButtonRFP from './EOI-RFP/ButtonRFP.js';
 import LearnLogo from './Logo.js';
@@ -115,10 +116,27 @@ class LearnHeader extends Component {
                   //console.log('notifying')
                   this.setNotificationAdmin()
                   this.fetchNotificationAdmin()
-                  alert("There are users to be approved")
+                  //alert("There are users to be approved")
                   //console.log('notify true?', user.notification.notified)
                 }
               }
+              console.log('returning...')
+              return (
+                <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
+                      <span  className="learn-title mdl-layout-title ">
+                        <LearnLogo to=''/>
+                      </span>
+                      {/* Add spacer, to align navigation to the right in desktop */}
+                      <div className="mdl-layout-spacer" />
+                      {/* Navigation */}
+                      <LearnNavigation />
+                      <div style={buttonSpacer}>
+                      </div>
+                      <ButtonNotifyAdmin to='admin'/>
+                      <ButtonLogOut/>
+                </Header>
+              );
+              console.log('no statement')
             } 
           }
 

@@ -301,51 +301,54 @@ class Admin extends Component {
         var keys
         if (user.purchasers != null) {
           keys = Object.keys(user.purchasers)
+          EMAILS.push(<h4> Purchasers</h4>)
+          EMAILS.push(<hr/>)
           var role = 0 // pass role in for purchaser
           for (var count=0; count<=keys.length-1; count++) {
             var key_name = keys[count]
-            EMAILS.push(user.purchasers[key_name].email)
-            EMAILS.push(<br/>)
+            EMAILS.push(<h5> Email: {user.purchasers[key_name].email} <br/> Legal Name: {user.purchasers[key_name].legalEntity}</h5>)
             EMAILS.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<br/>)
+            EMAILS.push(<hr/>)
           }
         }
 
         var keys
         if (user.vendors != null) {
           keys = Object.keys(user.vendors)
+          EMAILS.push(<h4>Vendors</h4>)
+          EMAILS.push(<hr/>)
           var role = 1 // role for vendor
           for (var count=0; count<=keys.length-1; count++) {
             var key_name = keys[count]
-            EMAILS.push(user.vendors[key_name].email)
-            EMAILS.push(<br/>)
+            EMAILS.push(<h5> Email: {user.vendors[key_name].email} <br/> Legal Name: {user.vendors[key_name].legalEntity}</h5>)
             EMAILS.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<br/>)
+            EMAILS.push(<hr/>)
           }
         }
 
         var keys
         if (user.ad != null) {
           keys = Object.keys(user.ad)
+          EMAILS.push(<h4>Additional Resource</h4>)
+          EMAILS.push(<hr/>)
           var role = 2 // role for additional user
           for (var count=0; count<=keys.length-1; count++) {
             var key_name = keys[count]
-            EMAILS.push(user.ad[key_name].email)
-            EMAILS.push(<br/>)
+            EMAILS.push(<h5> Email: {user.ad[key_name].email} <br/> Website: {user.ad[key_name].website} </h5>)
             EMAILS.push(<div>
               <Button accent ripple onClick={this.approve.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Approve</Button>
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<br/>)
+            EMAILS.push(<hr/>)
           }
         }
 
@@ -356,13 +359,12 @@ class Admin extends Component {
           <LearnHeader/>
 
           <div className="learn-content mdl-typography--text-center">
-          <div className="logo-font learn-slogan"></div>
           <a name="top" />
           <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
             <div className="grid">
               <div className="card mdl-shadow--2dp">
                 <div className="card__title mdl-color--indigo mdl-color-text--white">
-                  <h4 className="card__title-text">Candidates</h4>
+                  <h4 className="card__title-text">Review the following Candidates</h4>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
@@ -379,7 +381,7 @@ class Admin extends Component {
 
       );
     } else {
-        console.log(user.role)
+        
         return(
         <div>
           <LearnHeader/>
