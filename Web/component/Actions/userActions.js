@@ -22,6 +22,7 @@ export function removeBookmark(bookmarks) {
     })
   }
 }
+
 /**
  * Grabs the bookmarks from the database.
  * @returns {object} bookmarks - Returns the object of bookmarks.

@@ -115,7 +115,7 @@ class VendorList extends Component{
      */
     bookmark(key) {
         // update the bookmarks 
-        console.log('in bookmark', key)
+
         var bookmarks = {key} 
         this.setBookmarks(bookmarks)
         location.reload()
@@ -180,9 +180,10 @@ class VendorList extends Component{
                             </div>
                         ),this)
                     
-                    console.log('mapped vendors is', mappedVendors)
+
+                    //console.log('mapped vendors is', mappedVendors)
                     var keys = Object.keys(mappedVendors)
-                    console.log('keys are', keys)
+                    //console.log('keys are', keys)
 
                     for (var i=0; i<keys.length; i++) {
                         console.log(mappedVendors[keys[i]].key)
@@ -191,8 +192,10 @@ class VendorList extends Component{
                     console.log(user)
                     if (user.bookmarks) { // there are bookmarks for that user
                         var Vkeys = Object.keys(mappedVendors)
+                        //console.log('vkeys is ', Vkeys)
                         var Bkeys = Object.keys(user.bookmarks)
-                        console.log('bkeys is', Bkeys)
+                        //console.log('bkeys is', Bkeys)
+
                         for (var j=0; j<Bkeys.length; j++) {
                             for (var i=0; i<Vkeys.length; i++) {
                                 // if they are matching, user has bookmarked this vendor. update icon
