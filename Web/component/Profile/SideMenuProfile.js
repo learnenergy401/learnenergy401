@@ -53,16 +53,17 @@ class SideMenuProfile extends Component {
         this.props.dispatch(changeMenu(2))
         this.props.dispatch(resetTags())
     }
+
+
+    changeMenuNumberThree() {
+        
+        this.props.dispatch(changeMenu(3))
+    }
+
     /**
     * Loads the user profile sidebar
     * @return {html} - returns Bookmarks, profile, sidebar, RFPs
     */
-
-    showBookmarks() {
-        
-        this.props.dispatch(changeMenu(1))
-    }
-    
     render(){
         const {user,profile} = this.props
         if (user.role == 0){
@@ -70,10 +71,10 @@ class SideMenuProfile extends Component {
                     <aside style={sidemenuStyle} className="mdl-typography--headline">
                         <List style={listStyle}>
                           <ListItem>
-                            <ListItemContent >Profile</ListItemContent>
+                            <Button onClick={this.changeMenuNumberZero.bind(this)} style={sidemenuItemStyle} >Profile</Button>
                           </ListItem>
                           <ListItem>
-                            <Button onClick={this.showBookmarks.bind(this)} style={sidemenuItemStyle}>Bookmarks</Button>
+                            <Button onClick={this.changeMenuNumberThree.bind(this)} style={sidemenuItemStyle}>Bookmarks</Button>
                           </ListItem>
                         </List>
                     </aside>

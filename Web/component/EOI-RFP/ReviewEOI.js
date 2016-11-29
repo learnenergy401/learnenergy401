@@ -113,12 +113,12 @@ class ReviewEOI extends Component {
 
 	}
 
-  download_appendix() {
-    var storageRef = firebaseStorageNorm.ref("Appendix_2_EOI.pdf");
-    storageRef.getDownloadURL().then(function(url) {
-    window.location.assign(url)
-    });
-  }
+  	download_appendix() {
+    	var storageRef = firebaseStorageNorm.ref("Appendix_2_EOI.pdf");
+    	storageRef.getDownloadURL().then(function(url) {
+    	window.location.assign(url)
+    	});
+  	}
 
     /**
 	 * Loads the details

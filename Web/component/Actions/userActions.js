@@ -2,12 +2,35 @@
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseAuthInstance } from '../Firebase'
 
 /**
+ * removes the bookmark from the database.
+ * @param {object} bookmarks - information on bookmarks
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ */
+export function removeBookmark(bookmarks) {
+  return function(dispatch) {
+    firebaseAuth.onAuthStateChanged((user)=>{
+      console.log('removing bookmarks', bookmarks)
+      if (user){
+        firebaseDb.ref('Bookmarks/'+user.uid+'/'+bookmarks.key).remove()
+        .then((data) => {
+            dispatch({type: "SET_BOOKMARKS_FULFILLED"})
+        })
+        .catch((err) => {
+            dispatch({type: "SET_BOOKMARKS_REJECTED", payload: err.code})
+        })
+      }
+    })
+  }
+}
+
+/**
  * Grabs the bookmarks from the database.
  * @returns {object} bookmarks - Returns the object of bookmarks.
  * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function fetchBookmarks() {
   return function(dispatch) {
+    console.log('fetching bookmarks')
     firebaseAuth.onAuthStateChanged((user)=>{
       if (user){
         firebaseDb.ref('Bookmarks/'+user.uid).once('value')
@@ -23,16 +46,16 @@ export function fetchBookmarks() {
 }
 
 /**
- * sets the notifcation from the database.
+ * sets the bookmarks from the database.
  * @param {object} bookmarks - information on bookmarks
  * @throws {object} err - Returns an error if failed to fetch from database.
  */
 export function setBookmarks(bookmarks) {
   return function(dispatch) {
     firebaseAuth.onAuthStateChanged((user)=>{
-      //console.log('notified')
+      console.log('setting bookmarks')
       if (user){
-        firebaseDb.ref('Bookmarks/'+user.uid).set(bookmarks)
+        firebaseDb.ref('Bookmarks/'+user.uid).push(bookmarks)
         .then((data) => {
             dispatch({type: "SET_BOOKMARKS_FULFILLED"})
         })
@@ -738,6 +761,7 @@ export function approveUser(user) {
         var currentUser = firebaseAuthInstance.currentUser
 
         if (user.role==0) { // push as a purchaser
+          user.userID = currentUser.uid
           firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
@@ -749,7 +773,7 @@ export function approveUser(user) {
           })
 
         } else if (user.role == 1) { // push as a vendor
-
+          user.userID = currentUser.uid
           firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
@@ -762,7 +786,7 @@ export function approveUser(user) {
 
 
         } else if (user.role == 2) { //push as an additional resource
-
+          user.userID = currentUser.uid
           firebaseDb.ref('User/' + currentUser.uid).set({
             website: user.website,
             email: user.email,
