@@ -761,6 +761,7 @@ export function approveUser(user) {
         var currentUser = firebaseAuthInstance.currentUser
 
         if (user.role==0) { // push as a purchaser
+          user.userID = currentUser.uid
           firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('PurchaserSignup/'+user.key_name).remove().then(function() {
@@ -772,7 +773,7 @@ export function approveUser(user) {
           })
 
         } else if (user.role == 1) { // push as a vendor
-
+          user.userID = currentUser.uid
           firebaseDb.ref('User/' + currentUser.uid).set(user)
 
           firebaseDb.ref('VendorSignup/'+user.key_name).remove().then(function() {
@@ -785,7 +786,7 @@ export function approveUser(user) {
 
 
         } else if (user.role == 2) { //push as an additional resource
-
+          user.userID = currentUser.uid
           firebaseDb.ref('User/' + currentUser.uid).set({
             website: user.website,
             email: user.email,
