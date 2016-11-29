@@ -12,7 +12,7 @@ class ContentHome extends Component {
           <div  className="learn-content mdl-typography--text-center">
             <a name="top" />
               <div className="logo-font learn-slogan">Learn Energy</div>
-              <div className="logo-font learn-sub-slogan">some introduction text here.</div>
+              <div className="logo-font learn-sub-slogan">Our mission is to create an international community for the sharing of knowledge and the collaborative development of new education and training.</div>
               <a href="#screens">
               </a>
           </div>

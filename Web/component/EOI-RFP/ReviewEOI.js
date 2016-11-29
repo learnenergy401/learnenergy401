@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,Layout,Header} from 'react-mdl';
+import { Header, Layout, Textfield,Grid,Cell,Card,CardText, Content, CardTitle, CardActions, Button } from 'react-mdl';
 import LearnHeader from '../Header.js'
 import LearnFooter from '../Footer.js'
 
@@ -9,8 +9,20 @@ import store from '../Store.js'
 import {firebaseApp,firebaseAuth,firebaseDb, firebaseStorage, firebaseStorageNorm, firebaseAuthInstance } from '../Firebase'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
-import { removeEOI, removeRFP, storeEOIkey, fetchEOIs, fetchRFPs, storeRFPkey } from "../Actions/userActions"
+import { removeEOI, removeRFP, storeEOIkey, fetchUsers, fetchEOIs, fetchRFPs, storeRFPkey } from "../Actions/userActions"
 
+var spacerStyle = {
+    height: '50px',
+    backgroundColor: '#f3f3f3',
+    backgroundSize: 'cover'
+}
+var cardStyle = {
+    width: '80%',
+    margin: 'auto',
+}
+
+var cardTitleStyle = {
+}
 @connect((store) => {
   return {
     user: store.user
@@ -61,11 +73,18 @@ class ReviewEOI extends Component {
 		this.props.dispatch(storeRFPkey(info))
 	}
     /**
+     * fetches users
+     */
+    fetchUsers() {
+        this.props.dispatch(fetchUsers())
+    }
+    /**
      * Invoked immediately before a component is unmounted and destroyed, to update our states
      */
 	componentWillMount() {
 		this.fetchEOIs()
 		this.fetchRFPs()
+		this.fetchUsers()
 	}
     /**
      * Removes EOIs
@@ -148,7 +167,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].vendor == uid) {
-						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}</h5>)
+						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}<br/> Email: {user.users[user.eoi[key_name].vendor].email}</h5>)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
@@ -169,7 +188,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].vendor == uid) {
-						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}</h5>)
+						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}<br/> Email: {user.users[user.rfp[key_name].vendor].email}</h5>)
 						RFPs.push(<br/>)
 						RFPs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
@@ -187,13 +206,12 @@ class ReviewEOI extends Component {
 		          <LearnHeader/>
 
 		          <div className="learn-content mdl-typography--text-center">
-		          <div className="logo-font learn-slogan"></div>
-		          <a name="top" />
-		          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+                	<div style={spacerStyle} />
+                	<Card shadow={0} style={cardStyle} >
+		          <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', margin: 'auto'}}>
 		            <div className="grid">
 		              <div className="card mdl-shadow--2dp">
-		                <div className="card__title mdl-color--indigo mdl-color-text--white">
-		                  <h4 className="card__title-text">EOIs and RFPs</h4>
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Request For Proposal Form</CardTitle>
 		                </div>
 
                     <Button accent ripple onClick={this.download_appendix} className="mdl-color-text--indigo btn btn-primary">Download Appendix 2</Button>
@@ -205,10 +223,12 @@ class ReviewEOI extends Component {
 		                   {RFPs}
 
 		                </div>
-		                </div>
 		            </div>
 		          </div>
+		          </Card>
+		          <div style={spacerStyle} />
 		        </div>
+
 
 		          <LearnFooter/>
 		        </div>
@@ -220,7 +240,6 @@ class ReviewEOI extends Component {
 		          <LearnHeader/>
 
 		          <div className="learn-content mdl-typography--text-center">
-		          <div className="logo-font learn-slogan"></div>
 		          <a name="top" />
 		          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
 
@@ -254,7 +273,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].purchaser == uid) {
-						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}</h5>)
+						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}<br/> Email: {user.users[user.eoi[key_name].vendor].email}</h5>)
 						EOIs.push(<br/>)
 						EOIs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
@@ -275,7 +294,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].purchaser == uid) {
-						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}</h5>)
+						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum} <br/> Email: {user.users[user.rfp[key_name].vendor].email}</h5>)
 						RFPs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
@@ -292,13 +311,12 @@ class ReviewEOI extends Component {
 		          <LearnHeader/>
 
 		          <div className="learn-content mdl-typography--text-center">
-		          <div className="logo-font learn-slogan"></div>
-		          <a name="top" />
-		          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+                	<div style={spacerStyle} />
+                	<Card shadow={0} style={cardStyle} >
+		          <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', margin: 'auto'}}>
 		            <div className="grid">
 		              <div className="card mdl-shadow--2dp">
-		                <div className="card__title mdl-color--indigo mdl-color-text--white">
-		                  <h4 className="card__title-text">EOIs and RFPs</h4>
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Request For Proposal Form</CardTitle>
 		                </div>
 
                     <Button accent ripple onClick={this.download_appendix} className="mdl-color-text--indigo btn btn-primary">Download Appendix 2</Button>
@@ -310,10 +328,12 @@ class ReviewEOI extends Component {
 		                   {RFPs}
 
 		                </div>
-		                </div>
 		            </div>
 		          </div>
+		          </Card>
+		          <div style={spacerStyle} />
 		        </div>
+
 
 		          <LearnFooter/>
 		        </div>
@@ -325,7 +345,6 @@ class ReviewEOI extends Component {
 		          <LearnHeader/>
 
 		          <div className="learn-content mdl-typography--text-center">
-		          <div className="logo-font learn-slogan"></div>
 		          <a name="top" />
 		          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
 
@@ -347,7 +366,6 @@ class ReviewEOI extends Component {
 	          <LearnHeader/>
 
 	          <div className="learn-content mdl-typography--text-center">
-	          <div className="logo-font learn-slogan"></div>
 	          <a name="top" />
 	          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
 
