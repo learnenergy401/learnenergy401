@@ -18,6 +18,9 @@ var intTextBox1 = 0;
 var specnum = 1;
 var specfill = 1;
 
+var intTextBox2 = 0;
+var ownernum = 1;
+var ownerfill = 1;
 
 @connect((store) => {
   return {
@@ -51,18 +54,32 @@ class ComponentSignUpVendor extends Component {
     var phone = document.getElementById("phone").value;
     var fax = document.getElementById("fax").value;
 
-    var owner1Name = document.getElementById("owner1Name").value; var owner1Pos = document.getElementById("owner1Pos").value;
-    var owner2Name = document.getElementById("owner2Name").value; var owner2Pos = document.getElementById("owner2Pos").value;
-    var owner3Name = document.getElementById("owner3Name").value; var owner3Pos = document.getElementById("owner3Pos").value;
-    var owner4Name = document.getElementById("owner4Name").value; var owner4Pos = document.getElementById("owner4Pos").value;
-    var owner5Name = document.getElementById("owner5Name").value; var owner5Pos = document.getElementById("owner5Pos").value;
+    var owners = []
+    var owners_pos = []
+    while(0 < intTextBox2){
+      owners.push(document.getElementById("owner_" + ownernum).value)
+      owners_pos.push(document.getElementById("owner_pos_" + ownernum).value)
+      intTextBox2--;
+      ownernum++;
+    }
+    while(ownerfill <= 5 ){
+      owners.push("Owner " + ownerfill)
+      owners_pos.push("Position " + ownerfill)
+      ownerfill++;
+    }
+
+    var owner1Name = owners[0]; var owner1Pos = owners_pos[0];
+    var owner2Name = owners[1]; var owner2Pos = owners_pos[1];
+    var owner3Name = owners[2]; var owner3Pos = owners_pos[2];
+    var owner4Name = owners[3]; var owner4Pos = owners_pos[3];
+    var owner5Name = owners[4]; var owner5Pos = owners_pos[4];
 
 
     var natureBusiness = document.getElementById("natureBusiness").value;
     var timeBusiness = document.getElementById("timeBusiness").value;
 
     var proAffiliation = document.getElementById("proAffiliation").value;
-    var report = "null"
+    var report = null
     if(document.getElementById("reportEnclosed").checked) {
         report = "enclosed"
     } else if (document.getElementById("reportNotAvailable").checked) {
@@ -80,7 +97,7 @@ class ComponentSignUpVendor extends Component {
     var bondingLimit = document.getElementById("bondingLimit").value;
     var grossBus = document.getElementById("grossBus").value;
     var grossBusYear = document.getElementById("grossBusYear").value;
-    var bankruptcy = "null"
+    var bankruptcy = null
     if(document.getElementById("bankYes").checked) {
         bankruptcy = "yes"
     } else if (document.getElementById("bankNo").checked) {
@@ -201,6 +218,36 @@ class ComponentSignUpVendor extends Component {
     }
 
     /**
+     * Add owner and position to list
+     */
+    addElementowner() {
+      if(5 > intTextBox2){
+        intTextBox2++;
+        ownerfill++;
+        var objNewDiv2 = document.createElement('div');
+        objNewDiv2.setAttribute('id', 'div_' + intTextBox2);
+        objNewDiv2.innerHTML = 'Owner ' + intTextBox2 + ': <input type="text" id="owner_' + intTextBox2 + '"/>' + '&nbsp;' + 'Postion' + ': <input type="text" id="owner_pos_' + intTextBox2 + '"/>';
+        console.log(document.getElementById('content2').appendChild(objNewDiv2))
+      } else {
+        alert("Reached limit of 5 Owners.");
+      }
+    }
+
+    /**
+     * Remove onwer and position from list
+     */
+    removeElementowner() {
+      if(0 < intTextBox2) {
+          document.getElementById('div_' + intTextBox2).remove();
+          intTextBox2--;
+          ownerfill--;
+      } else {
+          alert("No owners to remove.");
+      }
+    }
+
+
+    /**
      * Add category to list
      */
     addElement() {
@@ -299,6 +346,18 @@ class ComponentSignUpVendor extends Component {
             <Textfield floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <hr/>
             <u><h5>Owners:</h5></u>
+
+            <div id="content2"></div>
+            <br/>
+            <p>
+                <button onClick={this.addElementowner}>Add</button>
+                <button onClick={this.removeElementowner}>Remove</button>
+            </p>
+            <hr/>
+
+
+            <hr/>
+
             <Textfield label="owner1Name" className="form-control" ref="owner1Name"  placeholder="Name" id="owner1Name"/>
             &nbsp;
             <Textfield label="owner1Pos" className="form-control" ref="owner1Pos"  placeholder="Postion" id="owner1Pos"/>

@@ -361,7 +361,6 @@ class ContentProfile extends Component {
     var owner5Pos = document.getElementById("owner5Pos").value;
     var natureBusiness = document.getElementById("natureBusiness").value;
     var timeBusiness = document.getElementById("timeBusiness").value;
-
     var proAffiliation = document.getElementById("proAffiliation").value;
     var report = "";
     if(document.getElementById("reportEnclosed").checked) {
@@ -387,6 +386,7 @@ class ContentProfile extends Component {
     } else if (document.getElementById("bankNo").checked) {
         bankruptcy = "no"
     }
+
     var numEmployees = document.getElementById("numEmployees").value;
     var AD1address1 = document.getElementById("AD1address1").value; var AD1address2 = document.getElementById("AD1address2").value; var AD1city = document.getElementById("AD1city").value; var AD1province = document.getElementById("AD1province").value;
     var AD1country = document.getElementById("AD1country").value; var AD1postalCode = document.getElementById("AD1postalCode").value; var AD1phone = document.getElementById("AD1phone").value;
@@ -415,7 +415,7 @@ class ContentProfile extends Component {
     var client4 = document.getElementById("client4").value; var client4Location = document.getElementById("client4Location").value; var client4Phone = document.getElementById("client4Phone").value; var client4Email = document.getElementById("client4Email").value; var client4Service = document.getElementById("client4Service").value; var client4Name = document.getElementById("client4Name").value;
     var industryClassification = document.getElementById("industryClassification").value;
     var industryCode = document.getElementById("industryCode").value;
-
+    
 
     var licence1 = document.getElementById("licence1").value; var licence1Location = document.getElementById("licence1Location").value;
     var licence2 = document.getElementById("licence2").value; var licence2Location = document.getElementById("licence2Location").value;
