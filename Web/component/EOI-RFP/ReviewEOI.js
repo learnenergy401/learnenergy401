@@ -377,6 +377,117 @@ class ReviewEOI extends Component {
 			}
 
 
+		} else if (user.role == 3) {
+			var EOIs = []
+			var RFPs = []
+			// grab uid of current user
+			var uid
+			var currentUser = firebaseAuth.currentUser
+			if (currentUser!=null){
+				uid = currentUser.uid
+			}
+			// grab information on EOIs if they match out vendor's uid
+			var keys
+			if (user.eoi != null && uid!=null) {
+				keys = Object.keys(user.eoi)
+				if (keys.length > 0) { // there exists some EOIs
+					EOIs.push(<h4>Expression Of Interests</h4>)
+					EOIs.push(<hr/>)
+				}
+				for (var count=0; count<=keys.length-1; count++) {
+					var key_name = keys[count]
+					
+					EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}<br/> Email: {user.users[user.eoi[key_name].vendor].email}</h5>)
+					EOIs.push(<div>
+              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+              		<Button accent ripple onClick={this.reviewEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
+        			</div>)
+        			EOIs.push(<br/>)
+	        		
+				}
+			}
+			// grab information on RFP now and add them to RFP list
+			if (user.rfp != null && uid!=null) {
+				keys = Object.keys(user.rfp)
+				if (keys.length > 0) { // there exists some RFPs
+					RFPs.push(<hr/>)
+					RFPs.push(<h4>Request for Proposals</h4>)
+					RFPs.push(<hr/>)
+				}
+				for (var count=0; count<=keys.length-1; count++) {
+					var key_name = keys[count]
+					RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}<br/> Email: {user.users[user.rfp[key_name].vendor].email}</h5>)
+					RFPs.push(<div>
+              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
+        			</div>)
+        			RFPs.push(<br/>)
+	        		
+				}
+			}
+// Display our EOIs if any
+			if (EOIs.length != 0 || RFPs.length != 0) {
+				return (
+		          <div>
+		          <LearnHeader/>
+
+		          <div className="learn-content mdl-typography--text-center">
+                	<div style={spacerStyle} />
+                	<Card shadow={0} style={cardStyle} >
+		          <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', margin: 'auto'}}>
+		            <div className="grid">
+		              <div className="card mdl-shadow--2dp">
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Review EOIs/RFPs</CardTitle>
+		                </div>
+
+                    <Button accent ripple onClick={this.download_appendix} className="mdl-color-text--indigo btn btn-primary">Download Appendix 2</Button>
+                    <hr/>
+
+		                <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+
+		                   {EOIs}
+		                   {RFPs}
+
+		                </div>
+		            </div>
+		          </div>
+		          </Card>
+		          <div style={spacerStyle} />
+		        </div>
+
+
+		          <LearnFooter/>
+		        </div>
+				);
+			} else {
+				return (
+
+		        <div>
+		          <LearnHeader/>
+
+		          <div className="learn-content mdl-typography--text-center">
+                	<div style={spacerStyle} />
+                	<Card shadow={0} style={cardStyle} >
+		          <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', height: '50%', margin: 'auto'}}>
+		            <div className="grid">
+		              <div className="card mdl-shadow--2dp">
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Review EOIs/RFPs</CardTitle>
+		                </div>
+
+                    <h4>NO EOIs or RFPs CURRENTLY</h4>
+
+
+		            </div>
+		          </div>
+		          </Card>
+		          <div style={spacerStyle} />
+		        </div>
+		          <LearnFooter/>
+		        </div>
+				);
+
+			}
+
 		} else {
 
 			return (

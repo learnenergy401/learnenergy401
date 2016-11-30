@@ -20,7 +20,10 @@ var info_div_style={
     overflowY:'auto',
     position:'relative',
     border: '2px solid blue',
-    backgroundColor: 'silver',
+    //backgroundColor: 'silver',
+}
+var link_ = {
+    color:'blue',
 }
 //the styling for the large tables.
 var table_style={
@@ -49,7 +52,7 @@ var row_format_head={
     verticalAlign: 'top',
     paddingBottom:'10px',
     width:'800px',
-    border:'1px dotted'
+    //border:'1px dotted'
 }
 
 var row_format={
@@ -69,7 +72,7 @@ var row_format_right={
 var row_format_additional={
     verticalAlign: 'top',
     paddingBottom:'10px',
-    width:'250px',
+    width:'200px',
     border:'1px dotted'
 }
 
@@ -398,11 +401,20 @@ class AdminReview extends Component {
 
           var jointVenture = user.purchasers[key_name].jointVenture;
 
-          var categories = user.purchasers[key_name].categories.toString();
-
+          var categories = user.purchasers[key_name].categories;
+            var webtest = '//'+website;
           var password = user.purchasers[key_name].password;
+         var cat2 = []
+          var i =0
 
-         
+          while(categories[i] != 'N/A'){
+              cat2.push(categories[i])
+              cat2.push(', ')
+              i++
+          }
+          cat2.pop()
+
+          
              // size format test variable
           var Test='ajfhsdklfjhsfkljfhdflaskjfhdlkdj sfhlsdkjsdhsdkljfhsflksjadfhasdklfjh kasjdfhasdlfjhaljdksdajfhasdkljhasljsdfhlaskdjfhaskl fjhaksjdfhasklfjshsdljfh'
           //var role = user.purchasers[key_name].role;
@@ -419,12 +431,12 @@ class AdminReview extends Component {
                       <h4 className="card__title-text">Purchaser Information</h4>
                     </div>
                     <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv" style={info_div_style}>
-
+                    <h3><b>Contact Information</b></h3>
                       <table style={table_style}>
-                          <tbody>
+                          
                             <tr>
                                 <td style = {row_format}><b>Legal Name:</b></td>
-                                <td style = {row_format_right}>legalEntity}</td>
+                                <td style = {row_format_right}>{legalEntity}</td>
                             </tr>
                             <tr>
                                 <td style = {row_format}><b>Operating Name:</b></td>
@@ -442,6 +454,7 @@ class AdminReview extends Component {
                                 <td style = {row_format}><b>Address 2: </b></td>
                                  <td style = {row_format_right}>{address2}</td>
                             </tr>
+                            
                             <tr>
                                 <td style = {row_format}><b>City:</b></td>
                                  <td style = {row_format_right}>{city}</td>
@@ -479,6 +492,10 @@ class AdminReview extends Component {
                                 <td style = {row_format}><b>Techncal Contact:</b></td>
                                  <td style = {row_format_right}>{technicalContact}</td>
                             </tr>
+                            </table>
+
+                            <h3><b>Buisness Information</b></h3>
+                            <table style={table_style}>
                             <tr>
                                 <td style = {row_format}><b>GST Registration: </b></td>
                                  <td style = {row_format_right}>{gstReg}</td>
@@ -497,7 +514,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format}><b>Website: </b></td>
-                                 <td style = {row_format_right}><a href={website} link="red" target="_blank">Purchaser's Website</a></td>
+                                 <td style = {row_format_right}><a href= {webtest} link="red" target="_blank" style = {link_}>{legalEntity}</a></td>
                             </tr>
                             <tr>
                                 <td style = {row_format}><b>Password:</b></td>
@@ -533,9 +550,9 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format}><b>Categories:</b></td>
-                                 <td style = {row_format_right}>{categories}</td>
+                                 <td style = {row_format_right}>{cat2}</td>
                             </tr>
-                          </tbody>
+
                         </table>
 
 
@@ -656,23 +673,23 @@ class AdminReview extends Component {
           var cat2 = []
           var spec2 = []
           var i =0
-          for (i; i<=4; i++){
-              if (i == 4){
-                  if (categories[i] != 'N/A'){
+           var webtest = '//'+website;
+          for (i; i< categories.length; i++){
+              if(categories[i]=='N/A'){break}
+              else{
                   cat2.push(categories[i])
-                  }
-                  if (specialties[i] != 'N/A'){
-                  spec2.push(categories[i])
-                  }
-              }else{
-                  if (categories[i] != 'N/A'){
-                  cat2.push(categories[i])
-                  }
-                  if (specialties[i] != 'N/A'){
-                  spec2.push(categories[i])
-                  }
+                  cat2.push(', ')
               }
           }
+          for (i; i< specialties.length; i++){
+              if(categories[i]=='N/A'){break}
+              else{
+                  spec2.push(specialties[i])
+                  spec2.push(', ')
+              }
+          } 
+          if (cat2.length > 0){cat2.pop()}
+          if (spec2.length > 0){spec2.pop()}
         // size format test variable
           var Test='ajfhsdklfjhsfkljfhdflaskjfhdlkdj sfhlsdkjsdhsdkljfhsflksjadfhasdklfjh kasjdfhasdlfjhaljdksdajfhasdkljhasljsdfhlaskdjfhaskl fjhaksjdfhasklfjshsdljfh'
 
@@ -793,7 +810,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format}><b>Website:</b></td>
-                                <td style = {row_format_right}><a href={website}target="_blank">Vendor's Website'</a></td>
+                                <td style = {row_format_right}><a href={webtest}target="_blank" style={link_}>{legalEntity}</a></td>
                             </tr>
                             
                             <tr>
@@ -822,7 +839,7 @@ class AdminReview extends Component {
                             </tr>
                         </table>
 
-                        <h3 style={header_align}>References</h3>
+                        <h3 style={header_align}>Work History</h3>
                         <table style={table_style}>
                             <tr>
                                 <td style = {row_format}>
@@ -1122,7 +1139,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>Non-Owned Automobile</h6>
+                                <h6 style={sub_header_style}><b>Non-Owned Automobile</b></h6>
                                     <table style={table_style_sub}>
                                     
                                     <tr>
@@ -1143,7 +1160,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>Tenant Legal liability</h6>
+                                <h6 style={sub_header_style}><b>Tenant Legal liability</b></h6>
                                     <table style={table_style_sub}>
                                     
                                     <tr>
@@ -1164,7 +1181,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>No Failiure to Preform</h6>
+                                <h6 style={sub_header_style}><b>No Failiure to Preform</b></h6>
                                     <table style={table_style_sub}>
                                     
                                     <tr>
@@ -1185,7 +1202,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>Errors and Omission</h6>
+                                <h6 style={sub_header_style}><b>Errors and Omission</b></h6>
                                     <table style={table_style_sub}>
                                     
                                     <tr>
@@ -1206,7 +1223,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                 <h6 style={sub_header_style}>Cancellation Insurance</h6>
+                                 <h6 style={sub_header_style}><b>Cancellation Insurance</b></h6>
                                     <table style={table_style_sub}>
                                    
                                     <tr>
@@ -1227,7 +1244,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>Automobile Insurance</h6>
+                                <h6 style={sub_header_style}><b>Automobile Insurance</b></h6>
                                     <table style={table_style_sub}>
                                     
                                     <tr>
@@ -1248,7 +1265,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>Umbrella Liability</h6>
+                                <h6 style={sub_header_style}><b>Umbrella Liability</b></h6>
                                     <table style={table_style_sub}>
                                     <tr>
                                        <td style = {row_format}><b>Insurer:</b></td>
@@ -1269,7 +1286,7 @@ class AdminReview extends Component {
                             <tr>
 
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}>Professional Liability</h6>
+                                <h6 style={sub_header_style}><b>Professional Liability</b></h6>
                                     <table style={table_style_sub}>
                                     
                                     <tr>
@@ -1294,22 +1311,23 @@ class AdminReview extends Component {
                       <table style={table_style}>
                             <tr>
                                 <td style = {row_format_right}>
+                                 <h6 style={sub_header_style}><b>Employee hours Worked</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Employee hours Worked</th>
+                                   
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{EHWcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1</b></td>
+                                        <td style = {row_format}><b>Previous Year 1</b></td>
                                         <td style = {row_format_right}>{EHWpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{EHWpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{EHWpreviousYear3}</td>
                                     </tr>
 
@@ -1318,22 +1336,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Fatalities</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Fatalities</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{FcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1</b></td>
+                                        <td style = {row_format}><b>Previous Year 1</b></td>
                                         <td style = {row_format_right}>{FpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{FpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{FpreviousYear3}</td>
                                     </tr>
 
@@ -1342,22 +1361,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Lost Time Incidents</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Lost Time Incidents</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{LTIcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1:</b></td>
+                                        <td style = {row_format}><b>Previous Year 1:</b></td>
                                         <td style = {row_format_right}>{LTIpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{LTIpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{LTIpreviousYear3}</td>
                                     </tr>
 
@@ -1366,22 +1386,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Medical aid injuries</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Medical aid injuries</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{MAIcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1:</b></td>
+                                        <td style = {row_format}><b>Previous Year 1:</b></td>
                                         <td style = {row_format_right}>{MAIpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{MAIpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{MAIpreviousYear3}</td>
                                     </tr>
 
@@ -1390,22 +1411,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Other Recordable Incidents</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Other Recordable Incidents</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{ORCcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1:</b></td>
+                                        <td style = {row_format}><b>Previous Year 1:</b></td>
                                         <td style = {row_format_right}>{ORCpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{ORCpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{ORCpreviousYear3}</td>
                                     </tr>
 
@@ -1414,22 +1436,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Total recordable injuries - Fatalities + Lost time + Medical Aid + Restricted Duty Injuries</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{TRIcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1:</b></td>
+                                        <td style = {row_format}><b>Previous Year 1:</b></td>
                                         <td style = {row_format_right}>{TRIpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{TRIpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{TRIpreviousYear3}</td>
                                     </tr>
 
@@ -1441,8 +1464,9 @@ class AdminReview extends Component {
                     <h3 style={header_align}>Workers Compensation</h3>
                       <table style={table_style}>
                           <tr>
+                            <h6 style={sub_header_style}><b>General</b></h6>
                             <table style={table_style_sub}>
-                            <th style={sub_header_style}>General</th>
+                            
                             <tr>
                             <td style = {row_format}><b>Industry Code:</b></td>
                             <td style = {row_format_right}>{industryCode}</td>
@@ -1456,22 +1480,23 @@ class AdminReview extends Component {
                           </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Industry Rate</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Industry Rate</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{IRcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1</b></td>
+                                        <td style = {row_format}><b>Previous Year 1</b></td>
                                         <td style = {row_format_right}>{IRpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{IRpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{IRpreviousYear3}</td>
                                     </tr>
 
@@ -1480,22 +1505,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>Proponent Rate</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>Proponent Rate</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{PRcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1</b></td>
+                                        <td style = {row_format}><b>Previous Year 1</b></td>
                                         <td style = {row_format_right}>{PRpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{PRpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{PRpreviousYear3}</td>
                                     </tr>
 
@@ -1504,22 +1530,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                 <h6 style={sub_header_style}><b>% Discount</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>% Discoun</th>
+                                   
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{PDcurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1</b></td>
+                                        <td style = {row_format}><b>Previous Year 1</b></td>
                                         <td style = {row_format_right}>{PDpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{PDpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{PDpreviousYear3}</td>
                                     </tr>
 
@@ -1528,22 +1555,23 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
+                                <h6 style={sub_header_style}><b>% Surcharge</b></h6>
                                     <table style={table_style_sub}>
-                                    <th style={sub_header_style}>% Surcharge</th>
+                                    
                                     <tr>
                                        <td style = {row_format}><b>Current Year:</b></td>
                                         <td style = {row_format_right}>{PScurrentYear}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -1</b></td>
+                                        <td style = {row_format}><b>Previous Year 1</b></td>
                                         <td style = {row_format_right}>{PSpreviousYear1}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -2:</b></td>
+                                        <td style = {row_format}><b>Previous Year 2:</b></td>
                                         <td style = {row_format_right}>{PSpreviousYear2}</td>
                                     </tr>
                                     <tr>
-                                        <td style = {row_format}><b>Current -3:</b></td>
+                                        <td style = {row_format}><b>Previous Year 3:</b></td>
                                         <td style = {row_format_right}>{PSpreviousYear3}</td>
                                     </tr>
 

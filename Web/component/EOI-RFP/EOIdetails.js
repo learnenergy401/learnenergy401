@@ -112,7 +112,7 @@ class EOIdetails extends Component {
 
 		const {user} = this.props
 		console.log(user)
-		if ((user.eoi != null)&&(user.eoiKey != null)&&((user.role==1)||(user.role==0))) {
+		if (((user.eoi != null)&&(user.eoiKey != null)&&((user.role==1)||(user.role==0))) || ((user.role==3)&&(user.eoi != null)&&(user.eoiKey != null))) {
 
 			var purchaser_legal = user.eoi[user.eoiKey.key_name].purchaser_legal
 			var purchaser_address1 = user.eoi[user.eoiKey.key_name].purchaser_address1
