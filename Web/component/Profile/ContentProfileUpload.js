@@ -85,6 +85,7 @@ class ContentProfileUpload extends Component {
         var course = {courseName, courseDescription, courseVendorEmail,courseVideoId,courseTags}
 
         this.props.dispatch(uploadCourse(course));
+        alert("Course submitted.")
     }
     /**
     * Loads the course profile
@@ -122,7 +123,7 @@ class ContentProfileUpload extends Component {
                         
 
                             <CardActions style={componentStyle}>
-                                <Button onClick={this.uploadCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Submit Course</Button>
+                                <Button onClick={this.uploadCourse.bind(this)} accent raised ripple  className="mdl-color--indigo mdl-color-text--white mdl-color-text--indigo btn btn-primary">Submit Course</Button>
                             </CardActions>
                         </div>
                     </div>

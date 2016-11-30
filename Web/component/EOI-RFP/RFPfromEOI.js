@@ -331,8 +331,8 @@ class RFPfromEOI extends Component {
                     </h6>
                     <h6><u>2.8 Governing Law</u></h6>
                     <h6>
-                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of [jurisdiction]. In submitting a response the Vendor agrees to submit to the
-                    jurisdiction of the Courts of [jurisdiction] and be governed by the laws of [jurisdiction].
+                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of {purchaser_city}. In submitting a response the Vendor agrees to submit to the
+                    jurisdiction of the Courts of {purchaser_city} and be governed by the laws of {purchaser_city}.
                     </h6>
                     <hr/>
 
