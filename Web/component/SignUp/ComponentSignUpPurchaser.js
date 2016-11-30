@@ -182,9 +182,9 @@ class ComponentSignUpPurchaser extends Component {
             <br/>
             <Textfield floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Admin Email" id="adminContact"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Admin Contact" id="adminContact"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Technical Email" id="technicalContact"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Technical Contact" id="technicalContact"/>
             <br/>
             <Textfield floatingLabel style={{width:'300px'}} label="GST Registration #" id="gstReg"/>
             <br/>
@@ -203,7 +203,7 @@ class ComponentSignUpPurchaser extends Component {
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="billPostalCode"/>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Accounts Receivable" id="accntRec"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Accounts Payable" id="accntRec"/>
             <br/>
             <Textfield floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>
             <br/>

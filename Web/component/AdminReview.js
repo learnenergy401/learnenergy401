@@ -505,7 +505,7 @@ class AdminReview extends Component {
                                  <td style = {row_format_right}>{bank}</td>
                             </tr>
                             <tr>
-                                <td style = {row_format}><b>Accounts Recieveable:</b></td>
+                                <td style = {row_format}><b>Accounts Payable:</b></td>
                                  <td style = {row_format_right}>{accntRec}</td>
                             </tr>
                             <tr>
