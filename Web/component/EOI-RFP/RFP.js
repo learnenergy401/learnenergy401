@@ -595,13 +595,15 @@ class RFP extends Component {
               <div  className="learn-content mdl-typography--text-center">
                   <div style={spacerStyle} />
                   <Card shadow={0} style={cardStyle} >
+                  <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', height: '50%', margin: 'auto'}}>
+
                     <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Request for Proposal Form</CardTitle>
 
                 <div style={{width: '80%', margin: 'auto'}}>
 
           <h4>NOT A VALID USER</h4>
                 </div>
-
+                </div>
               </Card>
               <div style={spacerStyle} />
               </div>
