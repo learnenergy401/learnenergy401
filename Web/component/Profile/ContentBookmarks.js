@@ -79,8 +79,7 @@ class ContentBookmarks extends Component {
         var bookmarks = {key: key}
         console.log('bookmarks is', bookmarks)
         this.removeBookmark(bookmarks)
-        this.props.dispatch(changeMenu(3))
-        location.reload()
+        this.fetchBookmarks()
     }
 
     /**
