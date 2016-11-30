@@ -163,6 +163,11 @@ export default function reducer(state={
             }
         }
         
+        case "SORT_LIST": {
+            return {...state,
+                courseList: action.payload,
+            }
+        }
 
     }
 

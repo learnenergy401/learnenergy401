@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Content} from 'react-mdl';
+import {Content,Grid,Cell} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import VendorList from "./VendorList.js"
 

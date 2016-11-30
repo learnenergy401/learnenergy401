@@ -14,7 +14,6 @@ class ViewVendor extends Component {
       <div>
         <LearnHeader/>
         <ContentViewVendor/>
-        <LearnFooter/>
       </div>
     );
   }

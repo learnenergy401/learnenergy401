@@ -18,7 +18,7 @@ var listStyle = {
 }
 
 var listItemStyle =  {
-    width : "96%",
+    width : "98%",
     height:"100px",
     margin: "10px"
 }
@@ -28,8 +28,7 @@ var cardTitleStyle = {
     color:"white"
 }
 var cardTextStyle= {
-    textAlign: "left",
-    paddingLeft: "18px"
+    textAlign: "left"
 }
 
 @connect((store) => {
@@ -246,8 +245,10 @@ class VendorList extends Component{
 
                 return(
 
-                <div ref="vendorList" style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
-                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                <div ref="vendorList" style={{ height: "600px", overflow:"scroll",}}>
+                    <div style={{background:"white",position: "relative",zIndex: "10",margin:"10px"}} className="mdl-shadow--2dp" >
+                        <Textfield style={{display: "block",margin:"10px",width:"98%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    </div>
                     <div style={listStyle}>
                         {mappedVendors}
                     </div>
@@ -258,8 +259,10 @@ class VendorList extends Component{
 
             return(
 
-                <div ref="vendorList" style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
-                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                <div ref="vendorList" style={{  height: "600px", overflow:"scroll",}}>
+                    <div style={{background:"white",position: "relative",zIndex: "10",margin:"10px"}} className="mdl-shadow--2dp" >
+                        <Textfield style={{display: "block",margin:"10px",width:"98%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    </div>
                     <div style={listStyle}>
                         {mappedVendors}
                     </div>
@@ -268,8 +271,8 @@ class VendorList extends Component{
 
         }else{
             return(
-               <div style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
-                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+               <div style={{  height: "600px", overflow:"scroll",}}>
+                    <Textfield style={{display: "block",margin:"10px",width:"98%"}} autoFocus  className="search-input" id="vendorSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
                     <div style={listStyle}>
                         loading
                     </div>

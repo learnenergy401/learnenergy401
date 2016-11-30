@@ -13,6 +13,7 @@ function jsonToArray(json){
         return arr
     }
 
+
 /**
  * adds purchasers to coursePurchasers
  * @param {object} info, courseID - information on course and purchaser id
@@ -214,7 +215,7 @@ export function fetchCourse() {
     return function(dispatch) {
         dispatch({type: "FETCH_COURSE"})
         firebaseDb.ref('Course').on("value",function(snapshot){
-            dispatch({type:"FETCH_COURSE_FULFILLED",payload:snapshot.val()})
+            dispatch({type:"FETCH_COURSE_FULFILLED",payload:jsonToArray(snapshot.val())})
         },function(errorObject){
             dispatch({type:"FETCH_COURSE_REJECTED",payload:errorObject.code})
         })
@@ -254,3 +255,32 @@ export function saveACourse(courseName) {
     }
 }
 
+
+export function sortByName(courseList) {
+    return function(dispatch) {
+        courseList.sort(function(a, b){
+             var nameA=a.courseName.toLowerCase(), nameB=b.courseName.toLowerCase();
+             if (nameA < nameB) //sort string ascending
+              return -1;
+             if (nameA > nameB)
+              return 1;
+             return 0; //default return value (no sorting)
+        })
+        dispatch({type: "SORT_LIST",payload: courseList})
+    }
+}
+
+
+export function sortByVendorEmail(courseList) {
+    return function(dispatch) {
+        courseList.sort(function(a, b){
+             var nameA=a.courseVendorEmail.toLowerCase(), nameB=b.courseVendorEmail.toLowerCase();
+             if (nameA < nameB) //sort string ascending
+              return -1;
+             if (nameA > nameB)
+              return 1;
+             return 0; //default return value (no sorting)
+        })
+        dispatch({type: "SORT_LIST",payload: courseList})
+    }
+}

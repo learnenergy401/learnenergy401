@@ -8,7 +8,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import "../../extra/material.js"
 import { fetchCourse,saveACourse } from "../Actions/courseActions"
 
-const KEYS_TO_FILTERS = ['courseName', 'courseDescription']
+const KEYS_TO_FILTERS = ['courseName', 'courseDescription','courseTags']
 
 
 
@@ -127,7 +127,10 @@ class CourseList extends Component{
                             </h2>
                         </div>
                          <div style={cardTextStyle} className="mdl-card__supporting-text">
-                            {course.courseDescription}
+                            Course Description {course.courseDescription}
+                        </div>
+                        <div style={cardTextStyle} className="mdl-card__supporting-text">
+                            Vendor Email: {course.courseVendorEmail}
                         </div>
                         <div style={cardTextStyle} className="mdl-card__supporting-text">
                            {mappedTags}
