@@ -18,6 +18,7 @@ var spacerStyle = {
 var cardStyle = {
     width: '80%',
     margin: 'auto',
+    paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
@@ -386,7 +387,7 @@ class Admin extends Component {
               <div className="learn-content mdl-typography--text-center">
                   <div style={spacerStyle} />
                   <Card shadow={0} style={cardStyle} >
-          <div className="learn-content mdl-typography--text-center mdl-color--white" style={{width: '100%', margin: 'auto'}}>
+          <div className="learn-content mdl-typography--text-center mdl-color--white" style={{width: '100%', height: '50%', margin: 'auto'}}>
             <div className="grid">
               <div className="card mdl-shadow--2dp">
 <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Review the following Candidates</CardTitle>
@@ -409,7 +410,7 @@ class Admin extends Component {
 
       );
     } else {
-        
+
         return(
         <div>
           <LearnHeader/>
