@@ -682,7 +682,7 @@ class AdminReview extends Component {
               }
           }
           for (i; i< specialties.length; i++){
-              if(categories[i]=='N/A'){break}
+              if(specialties[i]=='N/A'){break}
               else{
                   spec2.push(specialties[i])
                   spec2.push(', ')
