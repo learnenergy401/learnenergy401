@@ -249,6 +249,29 @@ export default function reducer(state={
                 error: action.payload
             }
         }
+            
+        case "UPLOAD_ANNUAL_REPORT": {
+            return {
+                ...state, 
+                uploaded: false,
+                fetching: true
+            }
+        }
+        
+        case "UPLOAD_ANNUAL_REPORT_FULFILLED": {
+            return {
+                ...state, 
+                uploaded: true,
+                fetching: false
+            }
+        }
+        
+        case "UPLOAD_ANNUAL_REPORT_REJECTED": {
+            return {
+                ...state, 
+                fetching: false
+            }
+        }
 
         case "FETCH_USER_PROFILE": {
             return {
