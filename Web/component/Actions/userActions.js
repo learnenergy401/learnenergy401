@@ -970,10 +970,12 @@ export function logOutUser() {
         firebaseAuth.signOut()
             .then((data) => {
                 dispatch({type: "LOGOUT_USER_FULFILLED"})
+                window.location.assign('/')
             })
             .catch((err) => {
                 dispatch({type: "LOGOUT_USER_REJECTED", payload: err})
             })
+
     }
 }
 

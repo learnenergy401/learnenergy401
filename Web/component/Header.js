@@ -93,7 +93,16 @@ class LearnHeader extends Component {
     */
     render(){
         const {user} = this.props
-        var front = {overlay: {zIndex: 100000000000000000}};
+      var role
+      if (user.role == 0) {
+        role = " (P) "
+      } else if (user.role == 1) {
+        role = " (V) "
+      } else if (user.role == 2) {
+        role = " (A) "
+      } else if (user.role == 3) {
+        
+      }
         if (!user.isLoggedIn){
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -140,10 +149,11 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+                      {user.user.legalEntity} {role}
                 </Header>
 
                     <div style={headerStyle}>
-                    <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
+                    <Button id="console" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                       <i className="material-icons">account_box</i>
                     </Button>
                   
@@ -171,7 +181,9 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-
+                      <div className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800">
+                      {user.user.legalEntity} {role}
+                      </div>
                 </Header>
 
                     <div style={headerStyle}>
@@ -180,11 +192,12 @@ class LearnHeader extends Component {
                     </Button>
                   
                     <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
+                      <ButtonProfile to='profile' />
                       <ButtonRFP to='rfp' />
 
                       <ButtonReviewEOI to='review-eoi-rfp'/>
 
-                      <ButtonProfile to='profile' />
+                      
                       <ButtonLogOut/>
                         
                     </Menu>
@@ -204,7 +217,9 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-
+                      <div className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800">
+                      {user.user.legalEntity} {role}
+                      </div>
                 </Header>
                     <div style={headerStyle}>
                     <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
@@ -212,9 +227,9 @@ class LearnHeader extends Component {
                     </Button>
                   
                     <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
+                      <ButtonProfile to='profile' />
                       <ButtonReviewEOI to='review-eoi-rfp'/>
 
-                      <ButtonProfile to='profile' />
                       <ButtonLogOut/>
                         
                     </Menu>
@@ -237,7 +252,9 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-
+                      <div className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800">
+                      {user.user.legalEntity} {role}
+                      </div>
                 </Header>
                     <div style={headerStyle}>
                     <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
@@ -266,7 +283,9 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-
+                      <div className="mdl-navigation__link mdl-typography--text-uppercase mdl-color-text--grey-800">
+                      {user.user.legalEntity} {role}
+                      </div>
                 </Header>
                     <div style={headerStyle}>
                     <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
