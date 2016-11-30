@@ -181,8 +181,8 @@ class ContentCourseDetail extends Component {
                                 onReady={this._onReady}
                             />
                     </Cell>
-                    <Cell style={{margin:"0px",marginLeft:"70px",padding:"20px",paddingTop:"40px", background:"#F3F3F3"}} col={4}>
-                      <div>
+                    <Cell className="mdl-shadow--2dp" style={{margin:"0px",marginLeft:"70px",padding:"20px",paddingTop:"40px", background:"#F3F3F3",borderRadius: "5px"}} col={4}>
+                      <div >
                       <center>
                         <div className="mdl-typography--headline">
                           About The Vendor
