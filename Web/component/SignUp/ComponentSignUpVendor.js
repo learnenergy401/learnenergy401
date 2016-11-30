@@ -228,7 +228,7 @@ class ComponentSignUpVendor extends Component {
         var objNewDiv2 = document.createElement('div');
         objNewDiv2.setAttribute('id', 'div_' + intTextBox2);
         objNewDiv2.innerHTML = 'Owner ' + intTextBox2 + ': <input type="text" id="owner_' + intTextBox2 + '"/>' + '&nbsp;' + 'Postion' + ': <input type="text" id="owner_pos_' + intTextBox2 + '"/>';
-        console.log(document.getElementById('content2').appendChild(objNewDiv2))
+        document.getElementById('content2').appendChild(objNewDiv2);
       } else {
         alert("Reached limit of 5 Owners.");
       }
