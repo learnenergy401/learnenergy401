@@ -5,7 +5,8 @@ import { getCurrentUser } from './Actions/userActions'
 import { connect } from "react-redux"
 import store from './Store.js'
 var buttonStyle = {
-    marginLeft:'2dp!important'
+  width: '150px',
+  marginLeft:'0px'
 }
 @connect((store) => {
   return {
