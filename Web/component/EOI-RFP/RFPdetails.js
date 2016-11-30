@@ -449,10 +449,10 @@ class RFPdetails extends Component {
                     Information in this RFP, or information obtained by a Vendor in related discussions is confidential and shall not be disclosed unless authorized by Purchaser in writing. Vendor’s responses
                     shall become the property of Purchaser subject to claims of confidentiality.
                     </h6>
-                    <h6><u>2.8 Governing Law</u></h6>
+                    <h6><u>2.9 Governing Law</u></h6>
                     <h6>
-                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of [jurisdiction]. In submitting a response the Vendor agrees to submit to the
-                    jurisdiction of the Courts of [jurisdiction] and be governed by the laws of [jurisdiction].
+                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of {purchaser_city}. In submitting a response the Vendor agrees to submit to the
+                    jurisdiction of the Courts of {purchaser_city} and be governed by the laws of {purchaser_city}.
                     </h6>
                     <hr/>
 
@@ -656,7 +656,7 @@ class RFPdetails extends Component {
                   <div style={spacerStyle} />
                   <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestUpdate.bind(this)}>Update</Button>
                   </div>
-                  
+
                 <LearnFooter/>
               </div>
             )
