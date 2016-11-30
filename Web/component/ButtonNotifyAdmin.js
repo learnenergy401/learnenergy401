@@ -6,7 +6,9 @@ import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser,
 import store from './Store.js'
 
 var buttonStyle = {
-    marginLeft:'2dp!important'
+
+  width: '150px',
+    marginLeft:'0px'
 }
 
 @connect((store) => {

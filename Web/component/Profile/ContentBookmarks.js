@@ -23,6 +23,7 @@ var spacerStyle = {
 var cardStyle = {
     width: '80%',
     margin: 'auto',
+    paddingBottom: '40px'
 }
 
 var cardTitleStyle = {
@@ -79,8 +80,7 @@ class ContentBookmarks extends Component {
         var bookmarks = {key: key}
         console.log('bookmarks is', bookmarks)
         this.removeBookmark(bookmarks)
-        this.props.dispatch(changeMenu(3))
-        location.reload()
+        this.fetchBookmarks()
     }
 
     /**
@@ -103,7 +103,7 @@ class ContentBookmarks extends Component {
                         bookmarks.push(<div>
                         <Button accent ripple onClick={this.removebookmark.bind(this,bookmarkKeys[i])} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
                         </div>)
-                        if (i<bookmarkKeys.length) {
+                        if (i<bookmarkKeys.length-1) {
                             bookmarks.push(<hr/>)
                         }
                     }
@@ -137,11 +137,22 @@ class ContentBookmarks extends Component {
         } else {
             return(
                 <Content className="learn-content">
-                    <div className="android-content mdl-layout__content">
-
-                                <CardText>No vendors bookmarked</CardText>
+                  <div className="learn-content mdl-typography--text-center">
+                    <div style={spacerStyle} />
+                    <Card shadow={0} style={cardStyle} >
+                  <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', margin: 'auto'}}>
+                    <div className="grid">
+                      <div className="card mdl-shadow--2dp">
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Bookmarks</CardTitle>
+                        </div>
+                                <h4> NO VENDORS BOOKMARKED </h4>
 
                         </div>
+                    </div>
+                  
+                  </Card>
+                  </div>
+                  <div style={spacerStyle} />
 
                 </Content>
 

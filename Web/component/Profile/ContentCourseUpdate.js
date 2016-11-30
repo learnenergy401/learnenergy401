@@ -161,7 +161,7 @@ class ContentCourseUpdate extends Component {
                             </CardText>
                             <CardText style={componentStyle}>
                                 <Textfield style={{width:"100px"}} floatingLabel maxLength="20" label="Tags"  type="addTag" className="form-control" id="addTagUpd"/>
-                                <Button onClick = {this.handleAddTag.bind(this)}>add tag</Button>
+                                <Button onClick={this.handleAddTag.bind(this)}>add tag</Button>
                                 
                             </CardText>
 
@@ -177,7 +177,7 @@ class ContentCourseUpdate extends Component {
                         </div>
 
                             <CardActions style={componentStyle}>
-                                <Button onClick={this.updateCourse.bind(this)} accent ripple  className="mdl-color-text--indigo btn btn-primary">Update Detail</Button>
+                                <Button onClick={this.updateCourse.bind(this)} accent ripple raised className="mdl-color--indigo mdl-color-text--white mdl-color-text--indigo btn btn-primary">Update Detail</Button>
                             </CardActions>
                         </div>
                     </div>

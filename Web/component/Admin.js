@@ -332,6 +332,9 @@ class Admin extends Component {
         var keys
         if (user.vendors != null) {
           keys = Object.keys(user.vendors)
+          if (user.purchasers!=null) {
+            EMAILS.push(<hr/>)
+          }
           EMAILS.push(<h4>Vendors</h4>)
           EMAILS.push(<hr/>)
           var role = 1 // role for vendor
@@ -352,6 +355,9 @@ class Admin extends Component {
         var keys
         if (user.ad != null) {
           keys = Object.keys(user.ad)
+          if (user.purchasers!=null || user.vendors!=null) {
+            EMAILS.push(<hr/>)
+          }
           EMAILS.push(<h4>Additional Resource</h4>)
           EMAILS.push(<hr/>)
           var role = 2 // role for additional user

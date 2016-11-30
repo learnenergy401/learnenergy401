@@ -5,7 +5,8 @@ import { connect } from "react-redux"
 import { logOutUser } from "./Actions/userActions"
 
 var buttonStyle = {
-    marginLeft:'2dp!important'
+  width: '150px',
+  marginLeft:'0px'
 }
 
 @connect((store) => {

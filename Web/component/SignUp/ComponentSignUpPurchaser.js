@@ -96,7 +96,7 @@ class ComponentSignUpPurchaser extends Component {
     }
 
     while(catfill <= 5 ){
-      categories.push("Category " + catfill)
+      categories.push("N/A")
       catfill++;
     }
 
