@@ -166,7 +166,7 @@ class LearnHeader extends Component {
 
                     <div style={headerStyle}>
                     <Button id="console" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i className="material-icons mdl-badge mdl-badge--overlap" data-badge={num}>account_box</i>
+                      <i className="material-icons">account_box</i>
                     </Button>
                   
                     <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
@@ -175,6 +175,7 @@ class LearnHeader extends Component {
                         <ButtonLogOut/>
                         
                     </Menu>
+                    {num}
                     </div>
                 </div>
               );
