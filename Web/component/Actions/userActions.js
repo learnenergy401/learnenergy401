@@ -58,6 +58,7 @@ export function setBookmarks(bookmarks) {
         firebaseDb.ref('Bookmarks/'+user.uid).push(bookmarks)
         .then((data) => {
             dispatch({type: "SET_BOOKMARKS_FULFILLED"})
+            
         })
         .catch((err) => {
             dispatch({type: "SET_BOOKMARKS_REJECTED", payload: err.code})

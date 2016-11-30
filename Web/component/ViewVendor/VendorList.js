@@ -118,7 +118,8 @@ class VendorList extends Component{
 
         var bookmarks = {key} 
         this.setBookmarks(bookmarks)
-        location.reload()
+        this.fetchBookmarks()
+        // location.reload()
     }
     /**
      * removes the bookmarks from the database.
@@ -127,7 +128,8 @@ class VendorList extends Component{
     removebookmark(key) {
         var bookmarks = {key}
         this.removeBookmark(bookmarks)
-        location.reload()
+        this.fetchBookmarks()
+        // location.reload()
 
     }
 
