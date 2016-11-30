@@ -8,7 +8,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import "../../extra/material.js"
 import { fetchCourse,saveACourse } from "../Actions/courseActions"
 
-const KEYS_TO_FILTERS = ['courseName', 'courseDescription','courseTags']
+const KEYS_TO_FILTERS = ['courseName', 'courseDescription','courseTags.text']
 
 
 
