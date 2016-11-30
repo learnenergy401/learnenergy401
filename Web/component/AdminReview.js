@@ -672,7 +672,8 @@ class AdminReview extends Component {
           var password = user.vendors[key_name].password;
           var cat2 = []
           var spec2 = []
-          var i =0
+          var i = 0
+          var j = 0
            var webtest = '//'+website;
           for (i; i< categories.length; i++){
               if(categories[i]=='N/A'){break}
@@ -681,10 +682,10 @@ class AdminReview extends Component {
                   cat2.push(', ')
               }
           }
-          for (i; i< specialties.length; i++){
-              if(specialties[i]=='N/A'){break}
+          for (j; j< specialties.length; j++){
+              if(specialties[j]=='N/A'){break}
               else{
-                  spec2.push(specialties[i])
+                  spec2.push(specialties[j])
                   spec2.push(', ')
               }
           }
