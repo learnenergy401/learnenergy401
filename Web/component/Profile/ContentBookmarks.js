@@ -103,7 +103,7 @@ class ContentBookmarks extends Component {
                         bookmarks.push(<div>
                         <Button accent ripple onClick={this.removebookmark.bind(this,bookmarkKeys[i])} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
                         </div>)
-                        if (i<bookmarkKeys.length-1) {
+                        if (i<bookmarkKeys.length) {
                             bookmarks.push(<hr/>)
                         }
                     }

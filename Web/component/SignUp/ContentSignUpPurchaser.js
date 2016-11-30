@@ -32,6 +32,7 @@ class ContentSignUpPurchaser extends Component {
                 <CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Sign Up: Purchaser</CardTitle>
                 <ComponentSignUpPurchaser/>
               </Card>
+              <div style={spacerStyle} />
           </div>
         );
     }

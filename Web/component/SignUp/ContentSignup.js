@@ -33,6 +33,7 @@ class ContentSignUp extends Component {
                 <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Sign Up</CardTitle>
                 <ComponentSignUp/>
               </Card>
+              <div style={spacerStyle} />
           </div>
         );
     }

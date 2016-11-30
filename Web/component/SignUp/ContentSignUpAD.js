@@ -31,6 +31,7 @@ class ContentSignUpAD extends Component {
                 <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Sign Up: Additional Resource</CardTitle>
                 <ComponentSignUpAD/>
               </Card>
+              <div style={spacerStyle} />
           </div>
         );
     }

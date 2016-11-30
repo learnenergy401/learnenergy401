@@ -54,9 +54,10 @@ class SideMenuProfile extends Component {
         this.props.dispatch(resetTags())
     }
 
-
+    /**
+    * Changes state of sidebar menu
+    */
     changeMenuNumberThree() {
-        
         this.props.dispatch(changeMenu(3))
     }
 

@@ -81,6 +81,7 @@ class ADpage extends Component {
                 </div>
 
               </Card>
+              <div style={spacerStyle} />
               </div>
                 <LearnFooter/>
                 </div>
@@ -102,6 +103,7 @@ class ADpage extends Component {
                     </div>
 
                   </Card>
+                  <div style={spacerStyle} />
                   </div>
                     <LearnFooter/>
                     </div>
@@ -124,6 +126,7 @@ class ADpage extends Component {
                     </div>
 
                   </Card>
+                  <div style={spacerStyle} />
                   </div>
                     <LearnFooter/>
                     </div>

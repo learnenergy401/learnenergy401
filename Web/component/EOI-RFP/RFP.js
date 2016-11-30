@@ -578,6 +578,7 @@ class RFP extends Component {
                   </div>
                   </div>
                   </Card>
+                  <div style={spacerStyle} />
                   <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestSubmit.bind(this)}>Submit</Button>
 
                   </div>
@@ -602,6 +603,7 @@ class RFP extends Component {
                 </div>
 
               </Card>
+              <div style={spacerStyle} />
               </div>
                 <LearnFooter/>
                 </div>
