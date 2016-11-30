@@ -19,7 +19,6 @@ class CourseDetail extends Component {
       <div>
         <LearnHeader/>
         <ContentCourseDetail/>
-        <LearnFooter/>
       </div>
     );
   }
