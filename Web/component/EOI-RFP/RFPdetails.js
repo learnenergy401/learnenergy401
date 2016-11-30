@@ -97,21 +97,23 @@ class RFPdetails extends Component {
         }
         // now auto fill the document user user.rfp[user.rfpKey].X
         // check to see if the user is a purchaser or vendor
-        if ((user.user.role == 1 || user.user.role == 0) && (user.rfpKey !=null)){
+        if (((user.user.role == 1 || user.user.role == 0) && (user.rfpKey !=null))||((user.role ==3)&& (user.rfpKey !=null))){
             // check to see that these are the valid users
             var valid_user = false
             var keys = Object.keys(user.users)
-            for (var count=0; count<keys.length;count++) {
+            if(user.role!=3) {
+                for (var count=0; count<keys.length;count++) {
 
-                // found valid user for this rfp
-                if ((user.rfp[user.rfpKey.key_name].vendor == keys[count]) || (user.rfp[user.rfpKey.key_name].purchaser == keys[count])) {
-                    valid_user = true
-                    break
+                    // found valid user for this rfp
+                    if ((user.rfp[user.rfpKey.key_name].vendor == keys[count]) || (user.rfp[user.rfpKey.key_name].purchaser == keys[count])) {
+                        valid_user = true
+                        break
+                    }
                 }
             }
             console.log('valid user')
             // we have a valid user now
-            if ((valid_user) && (user.rfp!=null) && (user.rfpKey!=null)) {
+            if (((valid_user) && (user.rfp!=null) && (user.rfpKey!=null))||((user.role ==3)&& (user.rfpKey !=null))) {
                 // fill out our form now
                 document.getElementById("date").value = user.rfp[user.rfpKey.key_name].date
                 document.getElementById("purchaser").value = user.rfp[user.rfpKey.key_name].purchaser1
@@ -297,7 +299,8 @@ class RFPdetails extends Component {
         // ADD VENDOR INFO
         //console.log("new info", info)
         this.updateRFP(info)
-        location.reload()
+        this.fetchRFPs()
+        alert("RFP has been updated.")
         }
     }
 
@@ -309,7 +312,7 @@ class RFPdetails extends Component {
 
         const {user} = this.props
 
-        if((user.isLoggedIn) && ((user.user.role==1)||(user.user.role==0)) && (user.rfpKey !=null)) {
+        if(((user.isLoggedIn) && ((user.user.role==1)||(user.user.role==0)) && (user.rfpKey !=null))||((user.role==3)&&(user.rfpKey !=null))) {
             var purchaser_legal = user.users[user.rfp[user.rfpKey.key_name].purchaser].legalEntity
             var purchaser_address1 = user.users[user.rfp[user.rfpKey.key_name].purchaser].address1
             var purchaser_address2 = user.users[user.rfp[user.rfpKey.key_name].purchaser].address2
@@ -449,10 +452,10 @@ class RFPdetails extends Component {
                     Information in this RFP, or information obtained by a Vendor in related discussions is confidential and shall not be disclosed unless authorized by Purchaser in writing. Vendor’s responses
                     shall become the property of Purchaser subject to claims of confidentiality.
                     </h6>
-                    <h6><u>2.8 Governing Law</u></h6>
+                    <h6><u>2.9 Governing Law</u></h6>
                     <h6>
-                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of [jurisdiction]. In submitting a response the Vendor agrees to submit to the
-                    jurisdiction of the Courts of [jurisdiction] and be governed by the laws of [jurisdiction].
+                    All matters in connection with this RFP shall be governed by and construed in accordance with the laws of {purchaser_city}. In submitting a response the Vendor agrees to submit to the
+                    jurisdiction of the Courts of {purchaser_city} and be governed by the laws of {purchaser_city}.
                     </h6>
                     <hr/>
 
@@ -656,7 +659,7 @@ class RFPdetails extends Component {
                   <div style={spacerStyle} />
                   <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestUpdate.bind(this)}>Update</Button>
                   </div>
-                  
+
                 <LearnFooter/>
               </div>
             )

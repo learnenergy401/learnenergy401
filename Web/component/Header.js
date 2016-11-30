@@ -136,7 +136,19 @@ class LearnHeader extends Component {
                   //console.log('notify true?', user.notification.notified)
                 }
               }
-
+              var num = 0
+              if (user.purchasers!=null) {
+                var purchasers = Object.keys(user.purchasers)
+                num += purchasers.length
+              }
+              if (user.vendors!=null) {
+                var vendors = Object.keys(user.vendors)
+                num += vendors.length
+              }
+              if (user.ad!=null) {
+                var ad = Object.keys(user.ad)
+                num += ad.length
+              }
               return (
                 <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -159,9 +171,11 @@ class LearnHeader extends Component {
                   
                     <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                         <ButtonNotifyAdmin to='admin'/>
+                        <ButtonReviewEOI to='review-eoi-rfp'/>
                         <ButtonLogOut/>
                         
                     </Menu>
+                    {num}
                     </div>
                 </div>
               );

@@ -488,6 +488,7 @@ class ContentProfile extends Component {
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,role
       }
     this.updateProfile(userUpdate);
+    alert("Profile Updated")
     }else if(user.role==0){
     var legalEntity = document.getElementById("legalEntity").value;
     var operatingName = document.getElementById("operatingName").value;
@@ -544,6 +545,7 @@ class ContentProfile extends Component {
       accntRec, bank, ISnumber, website, jointVenture, categories,role}
 
     this.updateProfile(userUpdate);
+    alert("Profile Updated")
     }
 
     }
@@ -571,7 +573,7 @@ class ContentProfile extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
             <CardActions>
-                <Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestUpdate.bind(this)}>Update profile</Button>
+                <Button accent raised ripple className="mdl-color--indigo mdl-color-text--white mdl-color-text--indigo btn btn-primary" onClick={this.requestUpdate.bind(this)}>Update profile</Button>
             </CardActions>
             <h4>Part A: Company Structure</h4>
             <hr/>

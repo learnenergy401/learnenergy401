@@ -955,6 +955,7 @@ export function logInUser(user) {
         })
         .catch((err) => {
           dispatch({type: "LOGIN_USER_REJECTED", payload: err})
+          alert("Wrong Username/Password. Please try again.")
         })
 
     }
@@ -992,6 +993,7 @@ export function updateProfile(user) {
       var currentUser = firebaseAuth.currentUser
 
       if (true) { // update as a vendor
+        user.userID = currentUser.uid
         firebaseDb.ref('User/' + currentUser.uid).set(user).then((data) => {
           dispatch({type: "UPDATE_USER_PROFILE_FULFILLED"})
 

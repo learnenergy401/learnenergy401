@@ -8,7 +8,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import "../../extra/material.js"
 import { fetchUsers, fetchBookmarks, setBookmarks, removeBookmark } from "../Actions/userActions"
 
-const KEYS_TO_FILTERS = ['website', 'legalEntity','email']
+const KEYS_TO_FILTERS = ['website', 'legalEntity','email', 'natureBusiness']
 
 
 
@@ -58,14 +58,14 @@ class VendorList extends Component{
     /**
      * sets bookmarks
      * {params} bookmarks - information of bookmarks
-     */    
+     */
     setBookmarks(bookmarks) {
         this.props.dispatch(setBookmarks(bookmarks))
     }
     /**
      * removes bookmarks
      * {params} bookmarks - information of bookmarks
-     */    
+     */
     removeBookmark(bookmarks) {
         this.props.dispatch(removeBookmark(bookmarks))
     }
@@ -114,9 +114,9 @@ class VendorList extends Component{
      * @param {key} key - information on bookmarks
      */
     bookmark(key) {
-        // update the bookmarks 
+        // update the bookmarks
 
-        var bookmarks = {key} 
+        var bookmarks = {key}
         this.setBookmarks(bookmarks)
         this.fetchBookmarks()
         // location.reload()
@@ -153,16 +153,23 @@ class VendorList extends Component{
                             </h2>
                         </div>
                          <div style={cardTextStyle} className="mdl-card__supporting-text">
+                            {vendor.phone}
+                            <br/>
                             {vendor.email}
+                            <br/>
+                            {vendor.website}
+                            <br/>
+                            <hr/>
+                            {vendor.natureBusiness}
                         </div>
-     
+
                     </div>
                 ),this)
 
             // display bookmark button if user is purchaser and logged in
             if (user.user) { // there is a user logged in
                 if (user.user.role == 0) { // user is a purchaser
-                    
+
                     const mappedVendors = filteredVendors.map((vendor)=>(
                             <div style={listItemStyle} key={vendor.userID} className="mdl-card mdl-shadow--2dp" >
                                <div style={cardTitleStyle} className="mdl-card__title" >
@@ -175,12 +182,19 @@ class VendorList extends Component{
                                     </Button>
                                 </div>
                                  <div style={cardTextStyle} className="mdl-card__supporting-text">
+                                    {vendor.phone}
+                                    <br/>
                                     {vendor.email}
+                                    <br/>
+                                    {vendor.website}
+                                    <br/>
+                                    <hr/>
+                                    {vendor.natureBusiness}
                                 </div>
-             
+
                             </div>
                         ),this)
-                    
+
 
                     //console.log('mapped vendors is', mappedVendors)
                     var keys = Object.keys(mappedVendors)
@@ -214,9 +228,16 @@ class VendorList extends Component{
                                             </Button>
                                         </div>
                                          <div style={cardTextStyle} className="mdl-card__supporting-text">
+                                            {user.users[mappedVendors[Vkeys[i]].key].phone}
+                                            <br/>
                                             {user.users[mappedVendors[Vkeys[i]].key].email}
+                                            <br/>
+                                            {user.users[mappedVendors[Vkeys[i]].key].website}
+                                            <br/>
+                                            <hr/>
+                                            {user.users[mappedVendors[Vkeys[i]].key].natureBusiness}
                                         </div>
-                     
+
                                     </div>)
                                 }
                             }

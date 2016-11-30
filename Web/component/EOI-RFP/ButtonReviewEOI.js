@@ -3,7 +3,8 @@ import {Button} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 var buttonStyle = {
-    marginLeft:'2dp!important'
+  width: '150px',
+  marginLeft:'0px'
 }
 class ButtonReviewEOI extends Component {
     /**

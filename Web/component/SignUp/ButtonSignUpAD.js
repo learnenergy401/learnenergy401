@@ -7,6 +7,10 @@ var divStyle = {
     WebkitTransition: 'all',
     msTransition: 'all'
 }
+var buttonStyle = {
+  width: '250px',
+  marginLeft:'0px'
+}
 
 class ButtonSignUpAD extends Component {
 
@@ -17,7 +21,7 @@ class ButtonSignUpAD extends Component {
     render(){
         return(
           <Link to={this.props.to}>
-              <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" >
+              <Button raised ripple accent style={buttonStyle} className="mdl-color--indigo mdl-color-text--white" >
                 Additional Resource
               </Button>
            </Link>

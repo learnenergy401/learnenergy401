@@ -23,6 +23,7 @@ var spacerStyle = {
 var buttonStyle = {
     position: "fixed",
     right: "0",
+    width: '80px',
     bottom: "0",
     marginRight: "40px",
     marginBottom:"40px",
@@ -31,6 +32,7 @@ var buttonStyle = {
 
 var buttonStyle1 = {
     position: "fixed",
+    width: '80px',
     right: "0",
     bottom: "0",
     marginRight: "40px",
@@ -41,7 +43,7 @@ var buttonStyle1 = {
 var cardStyle = {
     width: '80%',
     margin: 'auto',
-		paddingBottom: "80px"
+	paddingBottom: "40px"
 }
 
 var cardTitleStyle = {
@@ -371,9 +373,10 @@ class CourseEOI extends Component {
 	            </div>
 	            </div>
 	          </Card>
+	          <div style={spacerStyle} />
 	          </div>
+
 						<Button raised ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestSubmit.bind(this, legal, address1, address2, city, country, uphone, fax, LMRFPnum)}>Submit</Button>
-						&nbsp;
 						<Button raised ripple className="mdl-color--indigo mdl-color-text--white" style={buttonStyle1} onClick={this.return_back.bind(this)}>Back</Button>
 
 
