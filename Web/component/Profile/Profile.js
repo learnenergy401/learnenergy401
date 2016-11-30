@@ -35,7 +35,6 @@ class SignUp extends Component {
         <SideMenuProfile style={contentStyle}/>
         <Layout fixedHeader fixedDrawer>
             <ContentProfile/>
-            <LearnFooter/>
         </Layout>
 
       </div>

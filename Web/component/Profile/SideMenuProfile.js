@@ -8,7 +8,8 @@ import {resetTags} from "../Actions/tagActions"
 
 
 var sidemenuItemStyle = {
-    width:"100%"
+    width:"100%",
+    color:"white"
 }
 
 var sidemenuStyle={
@@ -19,7 +20,8 @@ var sidemenuStyle={
     top: "0",
     left: "0",
     marginTop: "64px",
-    zIndex:"99"
+    zIndex:"99",
+    background:"#37474F",
 }
 
 var listStyle={

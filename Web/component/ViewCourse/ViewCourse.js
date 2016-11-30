@@ -15,7 +15,6 @@ class ViewCourse extends Component {
       <div>
         <LearnHeader/>
         <ContentViewCourse/>
-        <LearnFooter/>
       </div>
     );
   }

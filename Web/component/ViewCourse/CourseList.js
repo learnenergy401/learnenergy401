@@ -14,13 +14,14 @@ const KEYS_TO_FILTERS = ['courseName', 'courseDescription']
 
 var listStyle = {
 
-    overflow:"scroll"
+    overflow:"scroll",
+    height:"100%"
 }
 
 var listItemStyle =  {
-    width : "96%",
+    width : "99.9%",
     height:"100px",
-    margin: "10px"
+    marginTop: "10px"
 }
 
 var cardTitleStyle = {
@@ -111,7 +112,7 @@ class CourseList extends Component{
             const filteredCourses = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
             const mappedCourse = filteredCourses.map(
                 function(course){
-                    var mappedTags = "loading"
+                    var mappedTags = " "
                     if(course.courseTags){
                         var mappedTags = course.courseTags.map(tag => 
                             <Chip style={{marginRight:"3px"}} key={tag.text} >{tag.text}</Chip>
@@ -136,8 +137,10 @@ class CourseList extends Component{
 
             return(
 
-                <div ref="courseList" style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
-                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                <div ref="courseList" style={{  overflow:"scroll",}}>
+                    <div style={{background:"white",position: "relative",zIndex: "10"}} className="mdl-shadow--2dp" >
+                        <Textfield autoFocus style={{display: "block",marginLeft:"20px",width:"96%",marginRight:"0px"}} className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    </div>
                     <div style={listStyle}>
                         {mappedCourse}
                     </div>
@@ -146,8 +149,10 @@ class CourseList extends Component{
 
         }else{
             return(
-               <div style={{marginLeft:"20%",  height: "600px", overflow:"scroll",}}>
-                    <Textfield style={{display: "block",margin:"10px",width:"96%"}} autoFocus  className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+               <div style={{overflow:"scroll",}}>
+                    <div style={{background:"white",position: "relative",zIndex: "10"}} className="mdl-shadow--2dp" >
+                        <Textfield autoFocus style={{display: "block",marginLeft:"20px",width:"96%",marginRight:"0px"}} className="search-input" id="courseSearchInput" onChange={this.searchUpdated.bind(this)} label="Search" />
+                    </div>
                     <div style={listStyle}>
                         loading
                     </div>
