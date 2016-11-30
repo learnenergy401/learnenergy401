@@ -237,7 +237,7 @@ class VendorList extends Component{
                                             <br/>
                                             {user.users[mappedVendors[Vkeys[i]].key].website}
                                             <br/>
-                                            {user.users[mappedVendors[Vkeys[i]].key].city}, {user.users[mappedVendors[Vkeys[i]].key].city},  {user.users[mappedVendors[Vkeys[i]].key].country}
+                                            {user.users[mappedVendors[Vkeys[i]].key].city}, {user.users[mappedVendors[Vkeys[i]].key].province},  {user.users[mappedVendors[Vkeys[i]].key].country}
                                             <br/>
                                             <hr/>
                                             {user.users[mappedVendors[Vkeys[i]].key].natureBusiness}

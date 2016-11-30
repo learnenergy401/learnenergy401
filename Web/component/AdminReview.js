@@ -494,7 +494,7 @@ class AdminReview extends Component {
                             </tr>
                             </table>
 
-                            <h3><b>Buisness Information</b></h3>
+                            <h3><b>Business Information</b></h3>
                             <table style={table_style}>
                             <tr>
                                 <td style = {row_format}><b>GST Registration: </b></td>
@@ -769,7 +769,7 @@ class AdminReview extends Component {
                         </table>
 
 
-                        <h3 style={header_align}>Buisness Information</h3>
+                        <h3 style={header_align}>Business Information</h3>
                         <table style={table_style}>
                             <tr>
                                 <td style = {row_format}><b>Owner 1:</b></td>
