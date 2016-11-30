@@ -64,8 +64,8 @@ class ComponentSignUpVendor extends Component {
       ownernum++;
     }
     while(ownerfill <= 5 ){
-      owners.push("Owner " + ownerfill)
-      owners_pos.push("Position " + ownerfill)
+      owners.push("N/A")
+      owners_pos.push("N/A")
       ownerfill++;
     }
 
@@ -120,7 +120,7 @@ class ComponentSignUpVendor extends Component {
       catnum++;
     }
     while(catfill <= 5 ){
-      categories.push("Category " + catfill)
+      categories.push("N/A")
       catfill++;
     }
 
@@ -131,7 +131,7 @@ class ComponentSignUpVendor extends Component {
       specnum++;
     }
     while(specfill <= 5 ){
-      specialties.push("Specialty " + specfill)
+      specialties.push("N/A")
       specfill++;
     }
 
