@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Content,CardText,CardActions,Card,CardTitle, Button} from 'react-mdl';
+import {Content,CardText,CardActions,Card,CardTitle, Button,Navigation} from 'react-mdl';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import { connect } from "react-redux"
 import { fetchACourse, addCoursePurchaser } from "../Actions/courseActions"
@@ -11,9 +11,9 @@ var componentStyle = {
 }
 
 var cardStyle = {
-    width: '80%',
+    width: '100%',
     margin: 'auto',
-    top: '50px',
+    top: '0px',
     height:'550px'
 }
 
@@ -120,10 +120,10 @@ class ContentCourseDetail extends Component {
     */
     render(){
     	const {course}=this.props
-      const {user} = this.props
+        const {user} = this.props
         const opts = {
             height: '480',
-            width: '560',
+            width: '640',
             playerVars: { // https://developers.google.com/youtube/player_parameters
                 autoplay: 0,
                 controls: 1,
@@ -135,32 +135,52 @@ class ContentCourseDetail extends Component {
         if (course.aCourse.courseDescription != null) {
           details = course.aCourse.courseDescription
         }
-        var buttons = []
+        var buttons1 = []
+        var buttons2 = []
         if (user.role == 0) {
-          buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.req_EOI.bind(this)}>request EOI</Button>)
-          buttons.push(<Button accent ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.purchase_course.bind(this)}>Purchase Course</Button> )
+          buttons1.push(<Button accent ripple className="mdl-color--indigo mdl-color-text--white btn btn-primary" onClick={this.req_EOI.bind(this)}>Request EOI</Button>)
+          buttons2.push(<Button accent ripple className="mdl-color--indigo mdl-color-text--white btn btn-primary" onClick={this.purchase_course.bind(this)}>Check out</Button> )
         }
 
 
         return(
-          <div style={{height:'660px'}} className="learnContent mdl-typography--text-center">
+          <div style={{height:'660px'}}>
 
           	  <Card  style={cardStyle} >
           	  <CardTitle className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">{course.aCourse.courseName}</CardTitle>
           	  <div className="mdl-layout__content">
               <a name="top" />
-                    <div style={{width: '80%', margin: 'auto'}}>
+                    <div style={{width: '90%',marginLeft:'80px'}}>
             {/*<CardText style={componentStyle}>{course.aCourse.courseDescription}</CardText>*/}
-                        <div>
-                            <YouTube style={{height:'600px'}}
+                        <Navigation style={{width:'100%'}}>
+                        <div style={{height:'360px',width:'720px',marginTop:'24px',marginLeft:'0px!important'}}>
+                            <YouTube 
                                 videoId={course.aCourse.courseVideoId}
                                 opts={opts}
                                 onReady={this._onReady}
                             />
                         </div>
-                      {details}
+                        <div style={{marginLeft:'12px',marginTop:'24px',marginRight:'12px',width:'40%'}}>
+                            <Card style={{width:'100%'}}>
+                                
+                                <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp">Course Description:</CardTitle>
+                                <div style={{marginLeft:'12px',marginTop:'12px'}}><h7>{details}</h7></div>
+                                
+                                <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp" style={{marginTop:'24px'}}>Have more requirement? Request EOI form here:</CardTitle>
+                                <div style={{marginLeft:'12px',marginTop:'24px'}}><center>{buttons1}</center></div>
+            
+                                <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp" style={{marginTop:'24px'}}>Purchase this course:</CardTitle>
+                                <div style={{marginLeft:'12px',marginTop:'24px'}}><center>{buttons2}</center></div>
+            
+                            </Card>
+                            <div>
+                                
+                            </div>
+                        </div>
+                        
+                        </Navigation>
                     </div>
-                    {buttons}           
+                               
                 </div>
                </Card>
 
