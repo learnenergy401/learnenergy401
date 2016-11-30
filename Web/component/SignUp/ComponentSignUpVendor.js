@@ -304,7 +304,7 @@ class ComponentSignUpVendor extends Component {
           alert("No specialties to remove.");
       }
     }
-    
+
     /**
      * Handle file selecting
      */
@@ -318,7 +318,7 @@ class ComponentSignUpVendor extends Component {
       var metadata = {
         'contentType': file.type
       };
-      
+
       this.props.dispatch(uploadAnnualReport(useremail,{fileName,file,metadata}));
     }
 
@@ -429,49 +429,51 @@ class ComponentSignUpVendor extends Component {
             <u><h5>Additional Locations:</h5></u>
             <hr/>
             <br/>
-            <Textfield label="AD1address1" className="form-control" ref="AD1address1"  placeholder="Additional 1: Address 1" id="AD1address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Address 1" id="AD1address1"/>
             &nbsp;
-            <Textfield label="AD1address2" className="form-control" ref="AD1address2"  placeholder="Additional 1: Address 2" id="AD1address2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Address 2" id="AD1address2"/>
             <br/>
-            <Textfield label="AD1city" className="form-control" ref="AD1city"  placeholder="Additional 1: City" id="AD1city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: City" id="AD1city"/>
             &nbsp;
-            <Textfield label="AD1province" className="form-control" ref="AD1province"  placeholder="Additional 1: Province" id="AD1province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Province" id="AD1province"/>
             <br/>
-            <Textfield label="AD1country" className="form-control" ref="AD1country"  placeholder="Additional 1: Country" id="AD1country"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Country" id="AD1country"/>
             &nbsp;
-            <Textfield label="AD1postalCode" className="form-control" ref="AD1postalCode"  placeholder="Additional 1: Postal Code" id="AD1postalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Postal Code" id="AD1postalCode"/>
             <br/>
-            <Textfield label="AD1phone" className="form-control" ref="AD1phone"  placeholder="Additional 1: Phone Number" id="AD1phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Phone Number" id="AD1phone"/>
             <hr/>
-            <Textfield label="AD2address1" className="form-control" ref="AD2address1"  placeholder="Additional 2: Address 1" id="AD2address1"/>
-            &nbsp;
-            <Textfield label="AD2address2" className="form-control" ref="AD2address2"  placeholder="Additional 2: Address 2" id="AD2address2"/>
-            <br/>
-            <Textfield label="AD2city" className="form-control" ref="AD2city"  placeholder="Additional 2: City" id="AD2city"/>
-            &nbsp;
-            <Textfield label="AD2province" className="form-control" ref="AD2province"  placeholder="Additional 2: Province" id="AD2province"/>
-            <br/>
-            <Textfield label="AD2country" className="form-control" ref="AD2country"  placeholder="Additional 2: Country" id="AD2country"/>
-            &nbsp;
-            <Textfield label="AD2postalCode" className="form-control" ref="AD2postalCode"  placeholder="Additional 2: Postal Code" id="AD2postalCode"/>
-            <br/>
-            <Textfield label="AD2phone" className="form-control" ref="AD2phone"  placeholder="Additional 2: Phone Number" id="AD2phone"/>
-            <hr/>
-            <Textfield label="AD3address1" className="form-control" ref="AD3address1"  placeholder="Additional 3: Address 1" id="AD3address1"/>
-            &nbsp;
-            <Textfield label="AD3address2" className="form-control" ref="AD3address2"  placeholder="Additional 3: Address 2" id="AD3address2"/>
-            <br/>
-            <Textfield label="AD3city" className="form-control" ref="AD3city"  placeholder="Additional 3: City" id="AD3city"/>
-            &nbsp;
-            <Textfield label="AD3province" className="form-control" ref="AD3province"  placeholder="Additional 3: Province" id="AD3province"/>
-            <br/>
-            <Textfield label="AD3country" className="form-control" ref="AD3country"  placeholder="Additional 3: Country" id="AD3country"/>
-            &nbsp;
-            <Textfield label="AD3postalCode" className="form-control" ref="AD3postalCode"  placeholder="Additional 3: Postal Code" id="AD3postalCode"/>
-            <br/>
-            <Textfield label="AD3phone" className="form-control" ref="AD3phone"  placeholder="Additional 3: Phone Number" id="AD3phone"/>
 
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Address 1" id="AD2address1"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Address 2" id="AD2address2"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: City" id="AD2city"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Province" id="AD2province"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Country" id="AD2country"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Postal Code" id="AD2postalCode"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Phone Number" id="AD2phone"/>
             <hr/>
+
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Address 1" id="AD3address1"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Address 2" id="AD3address2"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: City" id="AD3city"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Province" id="AD3province"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Country" id="AD3country"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Postal Code" id="AD3postalCode"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Phone Number" id="AD3phone"/>
+            <hr/>
+
             <u><h4>Part D: Qualifications and Experience</h4></u>
             <u><h6>Categories of services provided - List all types of work you are able to provide:</h6></u>
 
@@ -492,72 +494,72 @@ class ComponentSignUpVendor extends Component {
             <hr/>
             <br/>
             <h6>Work History:</h6>
-            <Textfield label="client1" className="form-control" ref="client1"  placeholder="Client 1: Operating Name" id="client1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Operating Name" id="client1"/>
             &nbsp;
-            <Textfield label="client1Location" className="form-control" ref="client1Location"  placeholder="Client 1: Location" id="client1Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Location" id="client1Location"/>
             <br/>
-            <Textfield label="client1Phone" className="form-control" ref="client1Phone"  placeholder="Client 1: Phone" id="client1Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Phone" id="client1Phone"/>
             &nbsp;
-            <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Email" id="client1Email"/>
             <br/>
-            <Textfield label="client1name" className="form-control" ref="client1name"  placeholder="Client 1: Contact Name" id="client1Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Contact Name" id="client1Name"/>
             <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client1Service"></textarea></h6>
             <hr/>
-            <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Operating Name" id="client2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Operating Name" id="client2"/>
             &nbsp;
-            <Textfield label="client2Location" className="form-control" ref="client2Location"  placeholder="Client 2: Location" id="client2Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Location" id="client2Location"/>
             <br/>
-            <Textfield label="client2Phone" className="form-control" ref="client2Phone"  placeholder="Client 2: Phone" id="client2Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Phone" id="client2Phone"/>
             &nbsp;
-            <Textfield label="client2Email" className="form-control" ref="client2Email"  placeholder="Client 2: Email" id="client2Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Email" id="client2Email"/>
             <br/>
-            <Textfield label="client2name" className="form-control" ref="client2name"  placeholder="Client 2: Contact Name" id="client2Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Contact Name" id="client2Name"/>
             <h6>Client 2 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client2Service"></textarea></h6>
             <hr/>
-            <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Operating Name" id="client3"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Operating Name" id="client3"/>
             &nbsp;
-            <Textfield label="client3Location" className="form-control" ref="client3Location"  placeholder="Client 3: Location" id="client3Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Location" id="client3Location"/>
             <br/>
-            <Textfield label="client3Phone" className="form-control" ref="client3Phone"  placeholder="Client 3: Phone" id="client3Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Phone" id="client3Phone"/>
             &nbsp;
-            <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Email" id="client3Email"/>
             <br/>
-            <Textfield label="client3name" className="form-control" ref="client3name"  placeholder="Client 3: Contact Name" id="client3Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Contact Name" id="client3Name"/>
             <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client3Service"></textarea></h6>
             <hr/>
-            <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Operating Name" id="client4"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Operating Name" id="client4"/>
             &nbsp;
-            <Textfield label="client4Location" className="form-control" ref="client4Location"  placeholder="Client 4: Location" id="client4Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Location" id="client4Location"/>
             <br/>
-            <Textfield label="client4Phone" className="form-control" ref="client4Phone"  placeholder="Client 4: Phone" id="client4Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Phone" id="client4Phone"/>
             &nbsp;
-            <Textfield label="client4Email" className="form-control" ref="client4Email"  placeholder="Client 4: Email" id="client4Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Email" id="client4Email"/>
             <br/>
-            <Textfield label="client4name" className="form-control" ref="client4name"  placeholder="Client 4: Contact Name" id="client4Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Contact Name" id="client4Name"/>
             <h6>Client 4 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client4Service"></textarea></h6>
 
             <hr/>
             <h6>Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).</h6>
             <br/>
-            <Textfield label="licence1" className="form-control" ref="licence1"  placeholder="1. Type of Licence" id="licence1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="1. Type of Licence" id="licence1"/>
             &nbsp;
-            <Textfield label="licence1Location" className="form-control" ref="licence1Location"  placeholder="Location" id="licence1Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence1Location"/>
             <br/>
-            <Textfield label="licence2" className="form-control" ref="licence2"  placeholder="2. Type of Licence" id="licence2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="2. Type of Licence" id="licence2"/>
             &nbsp;
-            <Textfield label="licence2Location" className="form-control" ref="licence2Location"  placeholder="Location" id="licence2Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence2Location"/>
             <br/>
-            <Textfield label="licence3" className="form-control" ref="licence3"  placeholder="3. Type of Licence" id="licence3"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="3. Type of Licence" id="licence3"/>
             &nbsp;
-            <Textfield label="licence3Location" className="form-control" ref="licence3Location"  placeholder="Location" id="licence3Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence3Location"/>
             <br/>
-            <Textfield label="licence4" className="form-control" ref="licence4"  placeholder="4. Type of Licence" id="licence4"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="4. Type of Licence" id="licence4"/>
             &nbsp;
-            <Textfield label="licence4Location" className="form-control" ref="licence4Location"  placeholder="Location" id="licence4Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence4Location"/>
             <br/>
-            <Textfield label="licence5" className="form-control" ref="licence5"  placeholder="5. Type of Licence" id="licence5"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="5. Type of Licence" id="licence5"/>
             &nbsp;
-            <Textfield label="licence5Location" className="form-control" ref="licence5Location"  placeholder="Location" id="licence5Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence5Location"/>
             <hr/>
 
             <u><h4>Part E: Insurance</h4></u>
