@@ -22,7 +22,7 @@ class ContentHome extends Component {
     */
     render(){
         const opts = {
-            height: '300',
+            height: '400',
             width: '300',
             playerVars: { // https://developers.google.com/youtube/player_parameters
                 autoplay: 0,
@@ -58,13 +58,13 @@ class ContentHome extends Component {
               
               <div className="video-section">
                   <Grid>
-                    <Cell style= {{paddingTop:"10%"}} col={4}>
+                    <Cell style= {{paddingTop:"15%"}} col={4}>
                       <div style={{textAlign: "right"}} className="mdl-typography--display-1 mdl-typography--font-thin">More About Us</div>
                       <p style={{textAlign: "right"}}  className=" mdl-typography--font-thin">
                         Learn how to get started with LearnEnergy
                       </p>
                     </Cell>
-                    <Cell style={{marginTop:"15px", marginLeft:"10px"}} col={6}>
+                    <Cell style={{marginTop:"40px", marginLeft:"10px"}} col={6}>
                         <YouTube style={{height:'200px'}}
                                 videoId={"YnJNAXIFJ2E"}
                                 opts={opts}
