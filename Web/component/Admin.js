@@ -1,7 +1,7 @@
 import firebase from 'firebase'
 import {FIREBASE_CONFIG} from '../../firebase.config.js'
 import React, { Component } from 'react'
-import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
+import { Textfield,Grid,Cell,Card,CardText,CardTitle, CardActions, Button } from 'react-mdl';
 import store from './Store.js'
 import LearnHeader from './Header.js'
 import LearnFooter from './Footer.js'
@@ -10,7 +10,18 @@ import { approveUser } from './Actions/userActions.js'
 import { rejectUser } from './Actions/userActions.js'
 import { connect } from "react-redux"
 import { storeKeyRole, fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser } from "./Actions/userActions"
+var spacerStyle = {
+    height: '50px',
+    backgroundColor: '#f3f3f3',
+    backgroundSize: 'cover'
+}
+var cardStyle = {
+    width: '80%',
+    margin: 'auto',
+}
 
+var cardTitleStyle = {
+}
 @connect((store) => {
   return {
     user: store.user
@@ -312,7 +323,9 @@ class Admin extends Component {
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<hr/>)
+            if (count<keys.length-1) {
+              EMAILS.push(<hr/>)
+            }
           }
         }
 
@@ -330,7 +343,9 @@ class Admin extends Component {
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<hr/>)
+            if (count<keys.length-1) {
+              EMAILS.push(<hr/>)
+            }
           }
         }
 
@@ -348,7 +363,9 @@ class Admin extends Component {
               <Button accent ripple onClick={this.reject.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Reject</Button>
               <Button accent ripple onClick={this.review.bind(this,key_name,role)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
               </div>)
-            EMAILS.push(<hr/>)
+            if (count<keys.length-1) {
+              EMAILS.push(<hr/>)
+            }
           }
         }
         if (EMAILS.length == 0) {
@@ -360,22 +377,25 @@ class Admin extends Component {
           <div>
           <LearnHeader/>
 
-          <div className="learn-content mdl-typography--text-center">
-          <a name="top" />
-          <div className="learn-content mdl-typography--text-center" style={{width: '80%', margin: 'auto'}}>
+              <div className="learn-content mdl-typography--text-center">
+                  <div style={spacerStyle} />
+                  <Card shadow={0} style={cardStyle} >
+          <div className="learn-content mdl-typography--text-center" style={{width: '100%', margin: 'auto'}}>
             <div className="grid">
               <div className="card mdl-shadow--2dp">
-                <div className="card__title mdl-color--indigo mdl-color-text--white">
-                  <h4 className="card__title-text">Review the following Candidates</h4>
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Review the following Candidates</CardTitle>
                 </div>
                 <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
 
                   <h4> {EMAILS} </h4>
 
                 </div>
-                </div>
+
             </div>
+
           </div>
+          </Card>
+          <div style={spacerStyle} />
         </div>
 
           <LearnFooter/>

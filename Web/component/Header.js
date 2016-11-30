@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,Layout,Header} from 'react-mdl';
+import {Button,Layout,Header,Menu,MenuItem} from 'react-mdl';
 import ButtonSignUp from './SignUp/ButtonSignUp.js';
 import ButtonLogIn from './ButtonLogIn.js';
 import ButtonProfile from './ButtonProfile.js';
@@ -17,6 +17,12 @@ import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 import { fetchVendorSignup, fetchPurchaserSignup, fetchADSignup, getCurrentUser, fetchNotificationAdmin, setNotificationAdmin } from "./Actions/userActions"
 
+var headerStyle={
+  top: "15px",
+  right: "15px",
+  position:"absolute",
+  zIndex:"100"
+}
 
 var buttonSpacer={
     padding:'4px'
@@ -87,6 +93,7 @@ class LearnHeader extends Component {
     */
     render(){
         const {user} = this.props
+        var front = {overlay: {zIndex: 100000000000000000}};
         if (!user.isLoggedIn){
             return (
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -120,8 +127,9 @@ class LearnHeader extends Component {
                   //console.log('notify true?', user.notification.notified)
                 }
               }
-              console.log('returning...')
+
               return (
+                <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
@@ -132,16 +140,27 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
-                      <ButtonNotifyAdmin to='admin'/>
-                      <ButtonLogOut/>
                 </Header>
+
+                    <div style={headerStyle}>
+                    <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
+                      <i className="material-icons">account_box</i>
+                    </Button>
+                  
+                    <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
+                        <ButtonNotifyAdmin to='admin'/>
+                        <ButtonLogOut/>
+                        
+                    </Menu>
+                    </div>
+                </div>
               );
-              console.log('no statement')
             } 
           }
 
           if (user.role == 0) { // vendor can see review EOI
             return(
+              <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
@@ -152,16 +171,29 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+
+                </Header>
+
+                    <div style={headerStyle}>
+                    <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
+                      <i className="material-icons">account_box</i>
+                    </Button>
+                  
+                    <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                       <ButtonRFP to='rfp' />
 
                       <ButtonReviewEOI to='review-eoi-rfp'/>
 
                       <ButtonProfile to='profile' />
                       <ButtonLogOut/>
-                </Header>
+                        
+                    </Menu>
+                    </div>
+                </div>
                 );
           } else if (user.role == 1) {
             return(
+              <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
@@ -172,16 +204,29 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+
+                </Header>
+                    <div style={headerStyle}>
+                    <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
+                      <i className="material-icons">account_box</i>
+                    </Button>
+                  
+                    <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                       <ButtonReviewEOI to='review-eoi-rfp'/>
 
                       <ButtonProfile to='profile' />
                       <ButtonLogOut/>
-                </Header>
+                        
+                    </Menu>
+                    </div>
+                </div>
+
                 );
 
           } else if (user.role == 3) {
 
             return (
+              <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
@@ -192,13 +237,25 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+
+                </Header>
+                    <div style={headerStyle}>
+                    <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
+                      <i className="material-icons">account_box</i>
+                    </Button>
+                  
+                    <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                       <ButtonAdmin to='admin'/>
                       <ButtonLogOut/>
-                </Header>
+                        
+                    </Menu>
+                    </div>
+                </div>
             );
           } else {
 
             return (
+              <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
                       <span  className="learn-title mdl-layout-title ">
                         <LearnLogo to=''/>
@@ -209,10 +266,21 @@ class LearnHeader extends Component {
                       <LearnNavigation />
                       <div style={buttonSpacer}>
                       </div>
+
+                </Header>
+                    <div style={headerStyle}>
+                    <Button id="console" className="mdl-button mdl-js-button mdl-button--icon">
+                      <i className="material-icons">account_box</i>
+                    </Button>
+                  
+                    <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                       <ButtonProfile to='profile' />
 
                       <ButtonLogOut/>
-                </Header>
+                        
+                    </Menu>
+                    </div>
+                </div>
         );
       }
     }

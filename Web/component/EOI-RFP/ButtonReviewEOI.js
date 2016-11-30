@@ -14,7 +14,7 @@ class ButtonReviewEOI extends Component {
         return(
           <Link to={this.props.to}>
               <Button style={buttonStyle} className="mdl-color-text--indigo" >
-                VIEW EOIs/RFPs
+                EOIs/RFPs
               </Button>
            </Link>
         );}
