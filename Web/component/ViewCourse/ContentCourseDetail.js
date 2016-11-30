@@ -138,8 +138,8 @@ class ContentCourseDetail extends Component {
         var buttons1 = []
         var buttons2 = []
         if (user.role == 0) {
-          buttons1.push(<Button accent ripple className="mdl-color--indigo mdl-color-text--white btn btn-primary" onClick={this.req_EOI.bind(this)}>Request EOI</Button>)
-          buttons2.push(<Button accent ripple className="mdl-color--indigo mdl-color-text--white btn btn-primary" onClick={this.purchase_course.bind(this)}>Check out</Button> )
+          buttons1.push(<Button accent ripple className="mdl-color--indigo mdl-color-text--white btn btn-primary mdl-shadow--2dp" style={{width:'40%'}} onClick={this.req_EOI.bind(this)}>Request EOI</Button>)
+          buttons2.push(<Button accent ripple className="mdl-color--indigo mdl-color-text--white btn btn-primary mdl-shadow--2dp" style={{width:'40%'}} onClick={this.purchase_course.bind(this)}>Check out</Button> )
         }
 
 
@@ -166,7 +166,7 @@ class ContentCourseDetail extends Component {
                                 <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp">Course Description:</CardTitle>
                                 <div style={{marginLeft:'12px',marginTop:'12px'}}><h7>{details}</h7></div>
                                 
-                                <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp" style={{marginTop:'24px'}}>Have more requirement? Request EOI form here:</CardTitle>
+                                <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp" style={{marginTop:'24px'}}>Want custom training?</CardTitle>
                                 <div style={{marginLeft:'12px',marginTop:'24px'}}><center>{buttons1}</center></div>
             
                                 <CardTitle className="mdl-color--white mdl-color-text--black mdl-shadow--2dp" style={{marginTop:'24px'}}>Purchase this course:</CardTitle>

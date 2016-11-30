@@ -1004,3 +1004,18 @@ export function updateProfile(user) {
     }
 }
 
+export function uploadAnnualReport(email,fileObj){
+    return function(dispatch){
+        dispatch({type:"UPLOAD_ANNUAL_REPORT"})
+        firebaseStorage.child('AnnualReport'+'/'+email+'/'+fileObj.fileName).put(fileObj.file,fileObj.metadata)
+            .then((snapshot) =>{
+            var url = snapshot.metadata.downloadURLs[0];
+            
+            
+            
+            dispatch({type: "UPLOAD_ANNUAL_REPORT_FULFILLED"})
+        }).catch((err)=>{
+            dispatch({type: "UPLOAD_ANNUAL_REPORT_REJECTED", payload:err})
+        })
+    }
+}

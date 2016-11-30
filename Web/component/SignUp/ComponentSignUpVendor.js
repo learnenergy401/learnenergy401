@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { Textfield,Grid,Cell,Card,CardText, CardActions, Button } from 'react-mdl';
-import { signUpVendor } from "../Actions/userActions.js"
+import { signUpVendor,uploadAnnualReport } from "../Actions/userActions.js"
 import { connect } from "react-redux"
 var componentStyle = {
     margin: 'auto',
@@ -304,6 +304,23 @@ class ComponentSignUpVendor extends Component {
           alert("No specialties to remove.");
       }
     }
+    
+    /**
+     * Handle file selecting
+     */
+    handleFileSelect(evt) {
+      var useremail=document.getElementById("email").value;
+      evt.stopPropagation();
+      evt.preventDefault();
+      var file = evt.target.files[0];
+
+      var fileName = file.name;
+      var metadata = {
+        'contentType': file.type
+      };
+      
+      this.props.dispatch(uploadAnnualReport(useremail,{fileName,file,metadata}));
+    }
 
     /**
     * Loads the signup page for vendor.
@@ -369,6 +386,11 @@ class ComponentSignUpVendor extends Component {
             <input type="radio" name="report" value="reportNotAvailable" id="reportNotAvailable"/>Not Available
             <input type="radio" name="report" value="reportNotAvailable" id="reportNotApplicable"/>Not Applicable
             </label>
+            <div className="card__supporting-text mdl-color-text--white-600" id="messagesDiv">
+            <h6>Choose Annual report(pdf) to upload if 'Enclosed' is checked</h6>
+            <input type="file" id="file" name="file" onChange={this.handleFileSelect.bind(this)}/>
+            <span id="linkbox"></span>
+            </div>
             </div>
 
             <hr/>
