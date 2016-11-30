@@ -1205,6 +1205,7 @@ class ContentProfile extends Component {
             )
         }else{
             return(
+                /*the profile.menu for course's content is 10 right now*/
                 <ContentCourseUpdate/>
             )
                 }

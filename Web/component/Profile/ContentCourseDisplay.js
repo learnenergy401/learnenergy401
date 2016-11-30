@@ -44,7 +44,7 @@ class ContentCourseDisplay extends Component{
     */
     saveACourse(courseName){
         this.props.dispatch(saveACourse(courseName));
-        this.props.dispatch(changeMenu(3))
+        this.props.dispatch(changeMenu(10))
     }
     /**
      * Invoked immediately before a component is unmounted and destroyed, to update our state to get vendor courses
