@@ -62,6 +62,10 @@ class RFP extends Component {
         this.fetchUsers()
     }
 
+    get_vendors() {
+      console.log(document.getElementById('content').innerHTML="<option value=" + 'hotmail@gmail.com' + "/>");
+    }
+
     requestSubmit() {
 
         const {user} = this.props
@@ -151,9 +155,9 @@ class RFP extends Component {
         // do this X times for X vendors
         var vendor_email = document.getElementById("vendor_email").value.replace(/\s/g, "")
         //console.log('vendor email', vendor_email)
-        var list_of_emails = vendor_email.split(';')
+        var list_of_emails = vendor_email.split(',')
 
-        console.log('list of emails', list_of_emails)
+        //console.log('list of emails', list_of_emails)
 
         var vendor_ids = []
         for (var count=0; count<list_of_emails.length; count++) {
@@ -195,7 +199,6 @@ class RFP extends Component {
                 this.storeRFPs(info)
             }
         }
-        //this.storeRFPs(info)
 
 
     }
@@ -217,16 +220,15 @@ class RFP extends Component {
             var purchaser_phone = user.user.phone
             var purchaser_fax = user.user.fax
 
-            var vendors = []
+
+            var list_of_vendors = []
             var keys = Object.keys(user.users)
-            console.log(keys)
+            //console.log(keys)
             for (var count=0; count<keys.length; count++) {
                 if (user.users[keys[count]].role == 1) {
-                    vendors.push(user.users[keys[count]].email)
-                    vendors.push(<br/>)
+                    list_of_vendors.push(<option value={user.users[keys[count]].email}/>)
                 }
             }
-
     		return(
 
               <div>
@@ -560,14 +562,23 @@ class RFP extends Component {
                     <textarea rows="4" cols="100" id="additional_info"></textarea>
 
                     <hr/>
-                    <h6>List of Vendors:</h6>
+                    <u><h6>List of Vendors to send RFP to:</h6></u>
+                    <h6>(To select more than one vendor, type a comma after the previous email)</h6>
 
-                    {vendors}
+                    <div>
 
-                    <h6>Type vendors that you want to send RFP to (for multiple, separate by semi-colons): &nbsp; <Textfield label="vendor_email" className="form-control" ref="vendor_email"  placeholder="Vendor Email" id="vendor_email"/></h6>
+                    <input style={{width:'600px'}} type="email" list="emails" id="vendor_email" multiple/>
+                    <datalist id="emails">
+                      <div id='content'>
+                        {list_of_vendors}
+                      </div>
+                    </datalist>
+                    </div>
+
                   </div>
                   </div>
                   </Card>
+                  <div style={spacerStyle} />
                   <Button raised ripple accent className="mdl-color--indigo mdl-color-text--white" style={buttonStyle} onClick={this.requestSubmit.bind(this)}>Submit</Button>
 
                   </div>
@@ -592,6 +603,7 @@ class RFP extends Component {
                 </div>
 
               </Card>
+              <div style={spacerStyle} />
               </div>
                 <LearnFooter/>
                 </div>

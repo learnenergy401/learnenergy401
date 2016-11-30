@@ -3,10 +3,10 @@ import {Content, Card,CardTitle,CardText,Layout,Textfield,CardActions,Button,Chi
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 import { connect } from "react-redux"
 import {findDOMNode, render} from 'react-dom'
-
+import { changeMenu } from "../Actions/profileActions"
 
 import "../../extra/material.js"
-import { fetchBookmarks, setBookmarks, fetchUsers } from "../Actions/userActions.js"
+import { fetchBookmarks, setBookmarks, fetchUsers, removeBookmark } from "../Actions/userActions.js"
 import Toast from "../Toast.js"
 
 var componentStyle = {
@@ -15,7 +15,18 @@ var componentStyle = {
 var formStyle = {
     marginTop: '5%'
 }
+var spacerStyle = {
+    height: '50px',
+    backgroundColor: '#f3f3f3',
+    backgroundSize: 'cover'
+}
+var cardStyle = {
+    width: '80%',
+    margin: 'auto',
+}
 
+var cardTitleStyle = {
+}
 
 @connect((store) => {
   return {
@@ -45,6 +56,14 @@ class ContentBookmarks extends Component {
         this.props.dispatch(setBookmarks(bookmarks))
     }
     /**
+     * removes bookmarks
+     * {params} bookmarks - information of bookmarks
+     */    
+    removeBookmark(bookmarks) {
+        this.props.dispatch(removeBookmark(bookmarks))
+    }
+
+    /**
      * called before dom elements are mounted, to get current user
      */
     componentWillMount() {
@@ -55,14 +74,12 @@ class ContentBookmarks extends Component {
      * removes bookmarks
      * {params} bookmarks - information of bookmarks
      */   
-    removeBookmark(key_name) {
+    removebookmark(key) {
         // grab information of bookmarks and remove the bookmark of the key_name
-        var userID = user.userID
-        var bookmarks = user.bookmarks.userID
-        delete bookmarks.userID.key_name
-
-        this.setBookmarks(bookmarks)
-        location.reload()
+        var bookmarks = {key: key}
+        console.log('bookmarks is', bookmarks)
+        this.removeBookmark(bookmarks)
+        this.fetchBookmarks()
     }
 
     /**
@@ -75,17 +92,19 @@ class ContentBookmarks extends Component {
         if (user.bookmarks !=null && user.userID !=null && user.users!=null) {
             var bookmarks = []
             var userID = user.userID
-            var bookmarkKeys = Object.keys(user.bookmarks.userID)
+            var bookmarkKeys = Object.keys(user.bookmarks)
             var userKeys = Object.keys(user.users)
+            console.log(bookmarkKeys)
             for (var i=0; i<bookmarkKeys.length; i++) {
                 for (var j=0; j<userKeys.length; j++) {
-                    if (bookmarkKeys[i] == userKeys[j]) {
+                    if (user.bookmarks[bookmarkKeys[i]].key == userKeys[j]) {
                         bookmarks.push(<h4>{user.users[userKeys[j]].email}</h4>)
-                        bookmarks.push(<br/>)
                         bookmarks.push(<div>
-                        <Button accent ripple onClick={this.removeBookmark.bind(this,userKeys[j])} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
+                        <Button accent ripple onClick={this.removebookmark.bind(this,bookmarkKeys[i])} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
                         </div>)
-                        bookmarks.push(<br/>)
+                        if (i<bookmarkKeys.length) {
+                            bookmarks.push(<hr/>)
+                        }
                     }
                 }
             }
@@ -93,14 +112,23 @@ class ContentBookmarks extends Component {
             
             return(
                 <Content className="learn-content">
-                    <div className="android-content mdl-layout__content">
-                            <a name="top" />
-                            <div style={{width: '80%', margin: 'auto'}}>
 
-                                <CardText>{bookmarks}</CardText>
-
-                            </div>
+                  <div className="learn-content mdl-typography--text-center">
+                    <div style={spacerStyle} />
+                    <Card shadow={0} style={cardStyle} >
+                  <div className="mdl-layout__content mdl-typography--text-center" style={{width: '100%', margin: 'auto'}}>
+                    <div className="grid">
+                      <div className="card mdl-shadow--2dp">
+<CardTitle style={cardTitleStyle} className="mdl-color--indigo mdl-color-text--white mdl-shadow--2dp">Bookmarks</CardTitle>
                         </div>
+                                {bookmarks}
+
+                        </div>
+                    </div>
+                  
+                  </Card>
+                  </div>
+                  <div style={spacerStyle} />
 
                 </Content>
 
@@ -109,12 +137,9 @@ class ContentBookmarks extends Component {
             return(
                 <Content className="learn-content">
                     <div className="android-content mdl-layout__content">
-                            <a name="top" />
-                            <div style={{width: '80%', margin: 'auto'}}>
 
                                 <CardText>No vendors bookmarked</CardText>
 
-                            </div>
                         </div>
 
                 </Content>

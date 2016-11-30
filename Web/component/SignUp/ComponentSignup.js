@@ -32,9 +32,9 @@ class ComponentSignUp extends Component {
     return(
 
       <div className="android-content mdl-layout__content">
-        <a name="top" />
+        
         <div style={{width: '80%', margin: 'auto'}}>
-
+          <br/><br/><br/><br/><br/>
           <CardActions>
             <ButtonSignUpPurchaser to='signup-purchaser' />
           </CardActions>

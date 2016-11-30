@@ -59,6 +59,7 @@ class ContentProfile extends Component {
             return
         }
         if(user.profile.role==1){
+            console.log(user.profile)
         document.getElementById("legalEntity").value=user.profile.legalEntity;
         document.getElementById("operatingName").value=user.profile.operatingName;
         document.getElementById("address1").value=user.profile.address1;
@@ -401,7 +402,6 @@ class ContentProfile extends Component {
     var cat_4 = document.getElementById("cat_4").value;
     var cat_5 = document.getElementById("cat_5").value;
     var categories = [cat_1,cat_2,cat_3,cat_4,cat_5];
-    var specialties = document.getElementById("specialties").value;
     var spec_1 = document.getElementById("spec_1").value;
     var spec_2 = document.getElementById("spec_2").value;
     var spec_3 = document.getElementById("spec_3").value;
@@ -1205,6 +1205,7 @@ class ContentProfile extends Component {
             )
         }else{
             return(
+                /*the profile.menu for course's content is 10 right now*/
                 <ContentCourseUpdate/>
             )
                 }

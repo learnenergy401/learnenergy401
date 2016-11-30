@@ -64,8 +64,8 @@ class ComponentSignUpVendor extends Component {
       ownernum++;
     }
     while(ownerfill <= 5 ){
-      owners.push("Owner " + ownerfill)
-      owners_pos.push("Position " + ownerfill)
+      owners.push("N/A")
+      owners_pos.push("N/A")
       ownerfill++;
     }
 
@@ -120,7 +120,7 @@ class ComponentSignUpVendor extends Component {
       catnum++;
     }
     while(catfill <= 5 ){
-      categories.push("Category " + catfill)
+      categories.push("N/A")
       catfill++;
     }
 
@@ -131,7 +131,7 @@ class ComponentSignUpVendor extends Component {
       specnum++;
     }
     while(specfill <= 5 ){
-      specialties.push("Specialty " + specfill)
+      specialties.push("N/A")
       specfill++;
     }
 
@@ -214,7 +214,6 @@ class ComponentSignUpVendor extends Component {
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,
       }
-
     this.signUpVendor(info);
     }
 
@@ -228,7 +227,7 @@ class ComponentSignUpVendor extends Component {
         var objNewDiv2 = document.createElement('div');
         objNewDiv2.setAttribute('id', 'div_' + intTextBox2);
         objNewDiv2.innerHTML = 'Owner ' + intTextBox2 + ': <input type="text" id="owner_' + intTextBox2 + '"/>' + '&nbsp;' + 'Postion' + ': <input type="text" id="owner_pos_' + intTextBox2 + '"/>';
-        console.log(document.getElementById('content2').appendChild(objNewDiv2))
+        document.getElementById('content2').appendChild(objNewDiv2);
       } else {
         alert("Reached limit of 5 Owners.");
       }

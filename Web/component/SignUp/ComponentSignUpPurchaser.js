@@ -96,7 +96,7 @@ class ComponentSignUpPurchaser extends Component {
     }
 
     while(catfill <= 5 ){
-      categories.push("Category " + catfill)
+      categories.push("N/A")
       catfill++;
     }
 
@@ -120,7 +120,7 @@ class ComponentSignUpPurchaser extends Component {
       var objNewDiv = document.createElement('div');
       objNewDiv.setAttribute('id', 'div_' + intTextBox);
       objNewDiv.innerHTML = 'Category ' + intTextBox + ': <input type="text" id="cat_' + intTextBox + '"/>';
-      console.log(document.getElementById('content').appendChild(objNewDiv));
+      document.getElementById('content').appendChild(objNewDiv);
     } else {
       alert("Reached limit of 5 categories.");
     }
