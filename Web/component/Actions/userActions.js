@@ -993,6 +993,7 @@ export function updateProfile(user) {
       var currentUser = firebaseAuth.currentUser
 
       if (true) { // update as a vendor
+        user.userID = currentUser.uid
         firebaseDb.ref('User/' + currentUser.uid).set(user).then((data) => {
           dispatch({type: "UPDATE_USER_PROFILE_FULFILLED"})
 

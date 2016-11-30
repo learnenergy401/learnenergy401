@@ -136,7 +136,19 @@ class LearnHeader extends Component {
                   //console.log('notify true?', user.notification.notified)
                 }
               }
-
+              var num = 0
+              if (user.purchasers!=null) {
+                var purchasers = Object.keys(user.purchasers)
+                num += purchasers.length
+              }
+              if (user.vendors!=null) {
+                var vendors = Object.keys(user.vendors)
+                num += vendors.length
+              }
+              if (user.ad!=null) {
+                var ad = Object.keys(user.ad)
+                num += ad.length
+              }
               return (
                 <div>
                 <Header className="mdl-color--white mdl-shadow--2dp mdl-layout__header learn-header" waterfall>
@@ -154,11 +166,12 @@ class LearnHeader extends Component {
 
                     <div style={headerStyle}>
                     <Button id="console" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i className="material-icons">account_box</i>
+                      <i className="material-icons mdl-badge mdl-badge--overlap" data-badge={num}>account_box</i>
                     </Button>
                   
                     <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                         <ButtonNotifyAdmin to='admin'/>
+                        <ButtonReviewEOI to='review-eoi-rfp'/>
                         <ButtonLogOut/>
                         
                     </Menu>
