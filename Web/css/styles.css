@@ -5,6 +5,7 @@ body {
   margin: 0;
 }
 
+html { background-color: #F3F3F3; }
 /* Disable ugly boxes around images in IE10 */
 a img{
   border: 0px;
@@ -189,15 +190,10 @@ a img{
   }
 
 
-.android-wear-section {
-  position: relative;
-  background: url('../images/wear.png') center top no-repeat;
-  background-size: cover;
-  height: 800px;
-}
+
 
 .android-wear-band {
-  position: absolute;
+
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -206,7 +202,7 @@ a img{
 
 .android-wear-band-text {
   max-width: 800px;
-  margin-left: 25%;
+  margin-left: 15%;
   padding: 24px;
   text-align: left;
   color: white;
@@ -218,7 +214,7 @@ a img{
 
 .android-link {
   text-decoration: none;
-  color: #8bc34a !important;
+  color: #132F82 !important;
 }
 
   .android-link:hover {
@@ -237,6 +233,10 @@ a img{
   font-size: 16px;
 }
 
+.video-section{
+  height:350px;
+  background-color: white
+}
   .android-alt-link:hover {
     color: #00bfa5 !important;
   }
@@ -272,6 +272,8 @@ a img{
   max-width: 1044px;
   margin-left: auto;
   margin-right: auto;
+  background: #F3F3F3;
+  background-color:#F3F3F3: 
 }
 
   .android-more-section .android-section-title {
