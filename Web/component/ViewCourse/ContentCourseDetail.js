@@ -122,7 +122,7 @@ class ContentCourseDetail extends Component {
     	const {course}=this.props
         const {user} = this.props
         const opts = {
-            height: '320',
+            height: '480',
             width: '570',
             playerVars: { // https://developers.google.com/youtube/player_parameters
                 autoplay: 0,
@@ -146,7 +146,7 @@ class ContentCourseDetail extends Component {
         return(
           <div>
             <div style= {{height:"400px",background:"url(../../images/course.jpg)",padding:"40px",paddingBottom:"0px" }} >
-              <div style= {{height:"400px",width:"55%", background:"white",bottom:"0px" }}>
+              <div style= {{height:"400px",width:"59%", background:"white",bottom:"0px" }}>
                 <div style= {{padding:"80px",paddingBottom:"0px" }}>
                   <div style={{color:"#08287D"}} className="mdl-typography--display-2 ">
                     {course.aCourse.courseName}
@@ -172,9 +172,9 @@ class ContentCourseDetail extends Component {
               </div>
             </div>
 
-            <div style= {{height:"360px",background:"#F8F8F8",margin:"40px",marginTop:"0px" }}>
+            <div style= {{height:"520px",background:"#F8F8F8",margin:"40px",marginTop:"0px" }}>
               <Grid style={{padding:"0px",paddingTop:"20px",margin:"20px",marginLeft:"20px",marginTop:"0px"}}>
-                  <Cell style={{margin:"0px", background:"#F8F8F8",height:"320px"}} col={7}>
+                  <Cell style={{margin:"0px", background:"#F8F8F8",height:"480px"}} col={7}>
                       <YouTube 
                                 videoId={course.aCourse.courseVideoId}
                                 opts={opts}
