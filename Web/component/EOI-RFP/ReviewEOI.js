@@ -388,7 +388,7 @@ class ReviewEOI extends Component {
 			}
 			// grab information on EOIs if they match out vendor's uid
 			var keys
-			if (user.eoi != null && uid!=null) {
+			if (user.eoi != null && uid!=null && user.users!=null) {
 				keys = Object.keys(user.eoi)
 				if (keys.length > 0) { // there exists some EOIs
 					EOIs.push(<h4>Expression Of Interests</h4>)
@@ -407,7 +407,7 @@ class ReviewEOI extends Component {
 				}
 			}
 			// grab information on RFP now and add them to RFP list
-			if (user.rfp != null && uid!=null) {
+			if (user.rfp != null && uid!=null && user.users!=null) {
 				keys = Object.keys(user.rfp)
 				if (keys.length > 0) { // there exists some RFPs
 					RFPs.push(<hr/>)
