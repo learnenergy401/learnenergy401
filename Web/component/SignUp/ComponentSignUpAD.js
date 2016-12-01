@@ -39,15 +39,13 @@ class ComponentSignUpAD extends Component {
 
     var user = {website, email, password}
 
-
-    if(website=="" || email=="" || password=="") {
-      alert("One or more of your fields has been left empty.")
+    if(website==""){alert("Website missing.")}
+    if(email==""){alert("Email missing.")}
+    if(password==""){alert("Password missing.")}
+    if(password.length<6){alert("Password must be at least 6 character long.")}
+    if(website!="" && email!="" && password!="" &&password.length>=6){
+      this.signUpAD(user);
     }
-    else {
-      alert("Signed Up.")
-    }
-
-    //this.signUpAD(user);
 
   }
 
