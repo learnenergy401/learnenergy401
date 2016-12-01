@@ -61,15 +61,16 @@ class ComponentSignUpAD extends Component {
         <div style={{width: '80%', margin: 'auto'}}>
 
             <br/><br/><br/>
+            <h6>*required</h6>
             <u><h4>Login Information</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>*
             <br/>
             <u><h4>Website Information</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>*
 
 
             <hr/>
