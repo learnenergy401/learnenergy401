@@ -119,9 +119,7 @@ class ComponentSignUpPurchaser extends Component {
     if(email!="" && password!="" && legalEntity!="" && operatingName!=""
       && address1!="" && city!="" && province!="" && country!="" && postalCode!=""
       && phone!="" && password.length>=6){
-      alert("signed")
-      //this.signUpPurchaser(user);
-
+      this.signUpPurchaser(user);
     }
 
   }
