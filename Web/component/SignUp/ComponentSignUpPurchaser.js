@@ -100,14 +100,28 @@ class ComponentSignUpPurchaser extends Component {
       catfill++;
     }
 
-    console.log(categories);
-
     var user = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, adminContact, technicalContact,
       gstReg, billAddress1, billAddress2, billCity, billProvince, billCountry, billPostalCode,
       accntRec, bank, ISnumber, website, jointVenture, categories}
 
-    this.signUpPurchaser(user);
+    if(email==""){alert("Email missing.")}
+    if(password==""){alert("Password missing.")}
+    if(legalEntity==""){alert("Legal Entity missing.")}
+    if(operatingName==""){alert("Operating Name missing.")}
+    if(address1==""){alert("Missing Address 1.")}
+    if(city==""){alert("Missing City.")}
+    if(province==""){alert("Missing Province.")}
+    if(country==""){alert("Missing Country.")}
+    if(postalCode==""){alert("Missing Postal Code.")}
+    if(phone==""){alert("Missing Phone.")}
+    if(password.length<6){alert("Password must be at least 6 character long.")}
+    if(email!="" && password!="" && legalEntity!="" && operatingName!=""
+      && address1!="" && city!="" && province!="" && country!="" && postalCode!=""
+      && phone!="" && password.length>=6){
+      this.signUpPurchaser(user);
+    }
+
   }
 
   /**
@@ -153,33 +167,34 @@ class ComponentSignUpPurchaser extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
             <br/><br/><br/>
+            <h6>*required</h6>
             <u><h4>Login Information</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>*
 
             <u><h4>Company Structure</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>*
             <hr/>
             <u><h5>Address:</h5></u>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>*
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>*
             <br/>
             <Textfield floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <br/>

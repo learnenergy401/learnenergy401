@@ -156,8 +156,6 @@ class VendorList extends Component{
                             <br/>
                             {vendor.email}
                             <br/>
-                            {vendor.website}
-                            <br/>
                             {vendor.city}, {vendor.province}, {vendor.country}
                             <br/>
                             <hr/>
@@ -186,8 +184,6 @@ class VendorList extends Component{
                                     {vendor.phone}
                                     <br/>
                                     {vendor.email}
-                                    <br/>
-                                    {vendor.website}
                                     <br/>
                                     {vendor.city}, {vendor.province}, {vendor.country}
                                     <br/>
@@ -234,8 +230,6 @@ class VendorList extends Component{
                                             {user.users[mappedVendors[Vkeys[i]].key].phone}
                                             <br/>
                                             {user.users[mappedVendors[Vkeys[i]].key].email}
-                                            <br/>
-                                            {user.users[mappedVendors[Vkeys[i]].key].website}
                                             <br/>
                                             {user.users[mappedVendors[Vkeys[i]].key].city}, {user.users[mappedVendors[Vkeys[i]].key].province},  {user.users[mappedVendors[Vkeys[i]].key].country}
                                             <br/>

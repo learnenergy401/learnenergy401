@@ -186,17 +186,18 @@ class ComponentSignUpVendor extends Component {
     var HSEjudge = document.getElementById("HSEjudge").value;
 
     var email = document.getElementById("email").value;
-    var adminContact = document.getElementById("adminContact").value;
-    var technicalContact = document.getElementById("technicalContact").value;
+    var adminContact = "N/A"
+    var technicalContact = "N/A"
 
-    var ISnumber = null
+    var ISnumber = "N/A"
+    /*
     if(document.getElementById("ISnumberYes").checked) {
         ISnumber = "yes"
     } else if (document.getElementById("ISnumberNo").checked) {
         ISnumber = "no"
     }
-
-    var website = document.getElementById("website").value;
+    */
+    var website = "N/A"
     var password = document.getElementById("password").value;
 
     if(report=="enclosed"){
@@ -233,9 +234,52 @@ class ComponentSignUpVendor extends Component {
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,
       }
+
     }
     this.signUpVendor(info);
+
+    if(email==""){alert("Email missing.")}
+    if(password==""){alert("Password missing.")}
+    if(legalEntity==""){alert("Legal Entity missing.")}
+    if(operatingName==""){alert("Operating Name missing.")}
+    if(address1==""){alert("Missing Address 1.")}
+    if(city==""){alert("Missing City.")}
+    if(province==""){alert("Missing Province.")}
+    if(country==""){alert("Missing Country.")}
+    if(postalCode==""){alert("Missing Postal Code.")}
+    if(phone==""){alert("Missing Phone.")}
+    if(owner1Name=="N/A"){alert("Missing owner name.")}
+    if(owner1Pos=="N/A"){alert("Missing owner position.")}
+    if(natureBusiness==""){alert("Missing Nature of Business.")}
+    if(timeBusiness==""){alert("Missing Time in Business.")}
+    if(report==null){alert("Missing annual report choice.")}
+    if(bank==""){alert("Missing Bank.")}
+    if(bonding==""){alert("Missing Bonding Company.")}
+    if(insuranceCompany==""){alert("Missing Insurance Company.")}
+    if(bondingLimitDate==""){alert("Missing Bonding Limit Date.")}
+    if(bondingLimit==""){("Missing Bonding Limit.")}
+    if(grossBus==""){alert("Missing Annual Gross Business $.")}
+    if(grossBusYear==""){alert("Missing Gross Business $ Year.")}
+    if(bankruptcy==null){alert("Missing Bankruptcy choice.")}
+
+    if(numEmployees==""){alert("Missing Number of Employees.")}
+
+    if(categories[0]=="N/A"){alert("Missing a category.")}
+    if(specialties[0]=="N/A"){alert("Missing a specialty.")}
+
+    if(password.length<6){alert("Password must be at least 6 character long.")}
+    if(email!="" && password!="" && legalEntity!="" && operatingName!=""
+      && address1!="" && city!="" && province!="" && country!="" && postalCode!=""
+      && phone!="" && owner1Name!="N/A" && owner1Pos!="N/A" && natureBusiness!=""
+      && timeBusiness!="" && report!=null && bank!="" && bonding!="" && insuranceCompany!=""
+      && bondingLimitDate!="" && bondingLimit!="" && grossBus!="" && grossBusYear!="" && bankruptcy!=null
+      && numEmployees!="" && categories[0]!="N/A" && specialties[0]!="N/A" && password.length>=6){
+      this.signUpVendor(info);
+
     }
+
+
+  }
 
     /**
      * Add owner and position to list
@@ -352,37 +396,38 @@ class ComponentSignUpVendor extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
             <br/><br/><br/>
+            *required
             <u><h4>Login Information</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>*
             <br/>
             <u><h4>Part A: Company Structure</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>*
             <hr/>
             <u><h5>Address:</h5></u>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <hr/>
-            <u><h5>Owners:</h5></u>
+            <u><h5>Owners:*</h5></u>
 
             <div id="content2"></div>
             <br/>
@@ -393,14 +438,14 @@ class ComponentSignUpVendor extends Component {
 
             <hr/>
             <u><h5>Description:</h5></u>
-            <h6>Nature of Business:<br/> <textarea rows="4" cols="80" id="natureBusiness"></textarea></h6>
+            <h6>Nature of Business:*<br/> <textarea rows="4" cols="80" id="natureBusiness"></textarea></h6>
             <br/>
-            <h6>Length of Time in Business<br/> <textarea rows="4" cols="80" id="timeBusiness"></textarea></h6>
+            <h6>Length of Time in Business:*<br/> <textarea rows="4" cols="80" id="timeBusiness"></textarea></h6>
             <br/>
             <h6>Professional Affiliations:<br/> <textarea rows="4" cols="80" id="proAffiliation"></textarea></h6>
             <br/>
             <div>
-            <u><h6>Copy of most recent annual report:</h6></u>
+            <u><h6>Copy of most recent annual report:*</h6></u>
             <label>
             <input type="radio" name="report" value="reportEnclosed" id="reportEnclosed"/>Enclosed
             <input type="radio" name="report" value="reportNotAvailable" id="reportNotAvailable"/>Not Available
@@ -415,27 +460,27 @@ class ComponentSignUpVendor extends Component {
 
             <hr/>
             <u><h4>Part B: Financial</h4></u>
-            <Textfield floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Location" id="bankLocation"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Bonding Company" id="bonding"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Bonding Company" id="bonding"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Location" id="bondingLocation"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Insurance Company" id="insuranceCompany"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Insurance Company" id="insuranceCompany"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Location" id="insuranceLocation"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} type="date" label="Bonding Limit As Of:" id="bondingLimitDate"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="date" label="Bonding Limit As Of:" id="bondingLimitDate"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Amount" id="bondingLimit"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Amount" id="bondingLimit"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Most recent annual gross business $" id="grossBus"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Most recent annual gross business $" id="grossBus"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Year" id="grossBusYear"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Year" id="grossBusYear"/>*
             <br/>
-            <u><h6>Bankruptcy:</h6></u>
+            <u><h6>Bankruptcy:*</h6></u>
             <div>
             <label>
             <input type="radio" name="bankruptcy" value="bankY" id="bankYes"/>Yes
@@ -445,7 +490,7 @@ class ComponentSignUpVendor extends Component {
 
             <hr/>
             <u><h4>Part C: General</h4></u>
-            <Textfield floatingLabel style={{width:'300px'}} label="Number of Employees" id="numEmployees"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Number of Employees" id="numEmployees"/>*
             <u><h5>Additional Locations:</h5></u>
             <hr/>
             <br/>
@@ -495,7 +540,7 @@ class ComponentSignUpVendor extends Component {
             <hr/>
 
             <u><h4>Part D: Qualifications and Experience</h4></u>
-            <u><h6>Categories of services provided - List all types of work you are able to provide:</h6></u>
+            <u><h6>Categories of services provided - List all types of work you are able to provide:*</h6></u>
 
             <div id="content"></div>
             <br/>
@@ -504,7 +549,7 @@ class ComponentSignUpVendor extends Component {
                 <button onClick={this.removeElement}>Remove</button>
             </p>
             <hr/>
-            <u><h6>Specialties:</h6></u>
+            <u><h6>Specialties:*</h6></u>
             <div id="content1"></div>
             <br/>
             <p>
@@ -826,20 +871,6 @@ class ComponentSignUpVendor extends Component {
             <h6>Advise if there are any HSE related judgments, claims or suits outstanding against you and if so, provide details:&nbsp; <br/><textarea rows="4" cols="80" id="HSEjudge"></textarea></h6>
             <hr/>
 
-            <Textfield floatingLabel style={{width:'300px'}} label="Admin Email" id="adminContact"/>
-            <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Technical Email" id="technicalContact"/>
-            <br/>
-            <div>
-            <label>ISN Member:
-              <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
-              <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
-            </label>
-            </div>
-            <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
-
-            <hr/>
             <CardActions>
                 <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
