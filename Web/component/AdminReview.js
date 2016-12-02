@@ -670,6 +670,11 @@ class AdminReview extends Component {
 
           var website = user.vendors[key_name].website;
           var password = user.vendors[key_name].password;
+          
+          if(user.vendors[key_name].downloadlink!=null){
+           var downloadlink=user.vendors[key_name].downloadlink;
+          }
+          
           var cat2 = []
           var spec2 = []
           var i = 0
@@ -765,6 +770,11 @@ class AdminReview extends Component {
                             <tr>
                                 <td style={row_format}><b>Techncal Contact:</b></td>
                                 <td style={row_format_right}>{technicalContact}</td>
+                                
+                            </tr>
+                            <tr>
+                                <td style={row_format}><b>Annual Report:</b></td>
+                                <td style={row_format_right}><a href={downloadlink}>click to view</a></td>
                             </tr>
                         </table>
 
@@ -1119,7 +1129,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}><b>Intependent Contractor</b></h6>
+                                <h6 style={sub_header_style}><b>Independent Contractor</b></h6>
                                     <table style={table_style_sub}>
 
                                     <tr>
