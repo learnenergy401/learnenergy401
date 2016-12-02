@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/</td>
+	<td>/#/?_k=1eavl1</td>
 	<td></td>
 </tr>
 <tr>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//button[@type='submit']</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/button</td>
 	<td></td>
 </tr>
 </tbody></table>

@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/</td>
+	<td>/#/?_k=hsfuls</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,13 +28,8 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=website</td>
-	<td>www.adtest2016.com</td>
-</tr>
-<tr>
-	<td>type</td>
 	<td>id=email</td>
-	<td>adtest2016@gmail.com</td>
+	<td>ad@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -42,12 +37,17 @@
 	<td>123456</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>type</td>
+	<td>id=website</td>
+	<td>www.ad.com</td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[4]/button</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyAlert</td>
+	<td>assertAlert</td>
 	<td>Thank you for registering as an Additional User for LearnEnergy Marketplace. We will be in contact with you shortly.</td>
 	<td></td>
 </tr>

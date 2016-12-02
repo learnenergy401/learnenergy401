@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/</td>
+	<td>/#/?_k=4udouk</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,58 +28,8 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=legalEntity</td>
-	<td>P Legal Entity</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=operatingName</td>
-	<td>P Operating Name</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=address1</td>
-	<td>P Address 1</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=address2</td>
-	<td>P Address 2</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=city</td>
-	<td>P City</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=province</td>
-	<td>P Province</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=country</td>
-	<td>P Country</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=postalCode</td>
-	<td>P Postal Code</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=phone</td>
-	<td>P Phone Number</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=fax</td>
-	<td>P Fax Number</td>
-</tr>
-<tr>
-	<td>type</td>
 	<td>id=email</td>
-	<td>purchaser2016@gmail.com</td>
+	<td>testp@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -88,58 +38,98 @@
 </tr>
 <tr>
 	<td>type</td>
+	<td>id=legalEntity</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=operatingName</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address1</td>
+	<td>123 street</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=city</td>
+	<td>Edmonton</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=province</td>
+	<td>Alberta</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=country</td>
+	<td>Canada</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=postalCode</td>
+	<td>T5Y 2O0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phone</td>
+	<td>(780)-342-2343</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=fax</td>
+	<td>(780)-342-2343</td>
+</tr>
+<tr>
+	<td>type</td>
 	<td>id=adminContact</td>
-	<td>purchaseradmin2016@gmail.com</td>
+	<td>John Smith</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=technicalContact</td>
-	<td>purchasertech2016@gmail.com</td>
+	<td>Perter Jone</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gstReg</td>
-	<td>P GSSST Number</td>
+	<td>8098098RT</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=billAddress1</td>
-	<td>P Bill Address 1</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=billAddress2</td>
-	<td>P Bill Address 2</td>
+	<td>343 Street</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=billCity</td>
-	<td>P Bill City</td>
+	<td>Edmonton</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=billProvince</td>
-	<td>P Province Buill</td>
+	<td>Alberta</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=billCountry</td>
-	<td>P Bill Country</td>
+	<td>Canada</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=billPostalCode</td>
-	<td>P Buill Postail Code</td>
+	<td>T3Y 3W0</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=accntRec</td>
-	<td>P Account Receivable</td>
+	<td>(780)-234-2342</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=bank</td>
-	<td>P Bank</td>
+	<td>BMO</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -149,7 +139,7 @@
 <tr>
 	<td>type</td>
 	<td>id=website</td>
-	<td>www.purchaser2016.com</td>
+	<td>www.testp.com</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -157,18 +147,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>click</td>
+	<td>css=p &gt; button</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
-	<td>id=categories</td>
+	<td>id=cat_1</td>
+	<td>Gas</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=p &gt; button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cat_2</td>
 	<td>Oil</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>//div[@id='root']/div/div/div[2]/div[2]/div/div[28]/button</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyAlert</td>
-	<td>Thank you for registering as a Purchaser for LearnEnergy Marketplace. We will be in contact with you shortly.</td>
 	<td></td>
 </tr>
 </tbody></table>

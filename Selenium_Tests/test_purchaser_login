@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/</td>
+	<td>/#/?_k=gc1szg</td>
 	<td></td>
 </tr>
 <tr>
@@ -24,7 +24,7 @@
 <tr>
 	<td>type</td>
 	<td>id=email</td>
-	<td>purchaser2016@gmail.com</td>
+	<td>testp@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -33,10 +33,9 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//button[@type='submit']</td>
+	<td>//div[@id='root']/div/div/div[2]/div[2]/div/button</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

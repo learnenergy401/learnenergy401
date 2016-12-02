@@ -13,30 +13,29 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td></td>
+	<td>/#/?_k=o1pmbw</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='root']/div/header/div/a[3]/button</td>
+	<td>id=console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/div/ul/a/button</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=legalEntity</td>
-	<td>P Legal Entity Update</td>
+	<td>id=address2</td>
+	<td>rr2</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='root']/div/div/div/div/ul/li/div/div/div/button</td>
+	<td>//div[@id='root']/div/div[2]/div/div/ul/li/div/div/div/button</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

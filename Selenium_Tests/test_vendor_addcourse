@@ -13,32 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/#/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForAllButtons</td>
-	<td></td>
+	<td>/#/?_k=f4wxsb</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='root']/div/header/div/a[2]/button</td>
+	<td>id=console</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForAllButtons</td>
-	<td></td>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/div/ul/a/button</td>
 	<td></td>
 </tr>
 <tr>
@@ -47,24 +32,19 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>type</td>
 	<td>id=courseName</td>
-	<td>Test Course</td>
+	<td>Test</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=courseDescription</td>
-	<td>Test course description</td>
+	<td>Test</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=addTag</td>
-	<td>test tag</td>
+	<td>test</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -73,10 +53,9 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='root']/div/div/div/div/div/div/div[6]/button</td>
+	<td>//div[@id='root']/div/div[2]/div/div/div/div/div[6]/button</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
