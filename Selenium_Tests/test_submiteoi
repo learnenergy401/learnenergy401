@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://learn-energy-ea26f.firebaseapp.com/" />
+<title>test_submiteoi</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test_submiteoi</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/#/?_k=hgvw76</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Courses</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=courseSearchInput</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mdl-card__title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[2]/div/div/div/div[2]/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=date</td>
+	<td>2017-01-01</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=service</td>
+	<td>educational</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=text2</td>
+	<td>John Smith</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=closeDate</td>
+	<td>2017-02-02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=closeTime</td>
+	<td>13:00</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name1</td>
+	<td>John Smith</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title1</td>
+	<td>CEO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email1</td>
+	<td>jsmith@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name2</td>
+	<td>John Smith</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title2</td>
+	<td>CEO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email2</td>
+	<td>jsmith@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=phone</td>
+	<td>(780)-123-4567</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=company_name</td>
+	<td>testv</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RFP_parYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_company_address</td>
+	<td>123 street</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_contact_name</td>
+	<td>Peter Jones</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_contact_title_position</td>
+	<td>CEO</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_primary_telephone</td>
+	<td>(780)-123-6544</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_fax</td>
+	<td>(780)-453-3456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=vendor_email</td>
+	<td>pjones@gmail.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=company_approvedYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>pjones@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scope</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=qualificationA</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=qualificationB</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=qualificationC</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=qualificationD</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email3</td>
+	<td>jsmith@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=selection_date</td>
+	<td>2017-03-03</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>EOI submitted</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
