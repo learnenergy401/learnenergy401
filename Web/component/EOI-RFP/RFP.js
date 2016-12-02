@@ -184,7 +184,7 @@ class RFP extends Component {
 
             for (var count=0; count<vendor_ids.length; count++) {
                 var vendor = vendor_ids[count]
-                
+
 
                 var info = {date, purchaser1, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
                 name2, title2, email2, phone, TSissue_date, TSclosing_date, company_background, rfp_overview,
@@ -198,6 +198,8 @@ class RFP extends Component {
 
                 this.storeRFPs(info)
             }
+            alert("RFP(s) submitted")
+
         }
 
 
