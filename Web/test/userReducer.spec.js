@@ -10,6 +10,7 @@ describe('user reducer', () => {
 	    	user: null,
 		    userName:null,
 		    fetching: false,
+            admin: null,
 		    fetched: false,
 		    error: null,
 		    isLoggedIn:false,
@@ -17,6 +18,20 @@ describe('user reducer', () => {
 		    purchasers: null,
 		    vendors: null,
 		    ad: null,
+            bookmarks: null,
+            downloadlink: null,
+            eoi:null,
+            eoiKey:null,
+            keys_roles:null,
+            notification:null,
+            reqEOI:null,
+            rfp:null,
+            rfpKey:null,
+            rfp_from_eoi:null,
+            role:-1,
+            userID:null,
+            users:null,
+            vendorList:[],
 		    editProfile:{
 		            legalEntity: "loading",
 		            operatingName: "loading",
@@ -28,15 +43,21 @@ describe('user reducer', () => {
 		            postalCode: "loading",
 		            phone: "loading",
 		            fax: "loading",
-
+                    accntRec: "loading",
 		            owner1Name: "loading",
 		            owner1Pos: "loading",
-
+                    billAddress1: "loading",
+                    billAddress2: "loading",
+                    billCity: "loading",
+                    billCountry: "loading",
+                    billPostalCode: "loading",
+                    billProvince: "loading",
 		            natureBusiness: "loading",
 		            timeBusiness: "loading",
 		            proAffiliation: "loading",
 		            report:"loading",
-
+                    gstReg: "loading",
+                    jointVenture: "loading",
 		            bank: "loading",
 		            bankLocation: "loading",
 		            bonding: "loading",
@@ -112,10 +133,13 @@ describe('user reducer', () => {
     profile:{
         role:null,
         firstName: null,
+        role: -1,
+        
         // *TODO*
         // add more attribute here in model
         // null as default, i copie role into outer scope for convenience :)
     }
+    
   	})})
 
 	it('should handle FETCH_USER', () => {
