@@ -1011,9 +1011,7 @@ export function uploadAnnualReport(email,fileObj){
             .then((snapshot) =>{
             var url = snapshot.metadata.downloadURLs[0];
             
-            
-            
-            dispatch({type: "UPLOAD_ANNUAL_REPORT_FULFILLED"})
+            dispatch({type: "UPLOAD_ANNUAL_REPORT_FULFILLED",payload:url})
         }).catch((err)=>{
             dispatch({type: "UPLOAD_ANNUAL_REPORT_REJECTED", payload:err})
         })

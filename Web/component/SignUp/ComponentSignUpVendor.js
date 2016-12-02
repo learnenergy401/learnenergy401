@@ -43,6 +43,7 @@ class ComponentSignUpVendor extends Component {
    * @return {Object} user - sends information about vendor.
    */
   requestSubmit() {
+    const {user}=this.props
     // part A
     var legalEntity = document.getElementById("legalEntity").value;
     var operatingName = document.getElementById("operatingName").value;
@@ -199,7 +200,25 @@ class ComponentSignUpVendor extends Component {
     var website = "N/A"
     var password = document.getElementById("password").value;
 
-
+    if(report=="enclosed"){
+        var downloadlink=user.downloadlink;
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
+      adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
+      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees,
+      AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone, AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
+      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Name, client1Service, client2, client2Location, client2Phone, client2Email, client2Name, client2Service,
+      client3, client3Location, client3Phone, client3Email, client3Name, client3Service, client4, client4Location, client4Phone, client4Email, client4Name, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
+      insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
+      insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
+      insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
+      EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
+      MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
+      industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,downloadlink,
+                   }
+    }else{
+      
     var info = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
@@ -215,6 +234,9 @@ class ComponentSignUpVendor extends Component {
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,
       }
+
+    }
+    this.signUpVendor(info);
 
     if(email==""){alert("Email missing.")}
     if(password==""){alert("Password missing.")}
@@ -253,6 +275,7 @@ class ComponentSignUpVendor extends Component {
       && bondingLimitDate!="" && bondingLimit!="" && grossBus!="" && grossBusYear!="" && bankruptcy!=null
       && numEmployees!="" && categories[0]!="N/A" && specialties[0]!="N/A" && password.length>=6){
       this.signUpVendor(info);
+
     }
 
 

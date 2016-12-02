@@ -160,6 +160,7 @@ class ComponentSignUpPurchaser extends Component {
    * @return {html} - displays sign up page for purchaser.
    */
   render() {
+      
     return(
 
       <div className="mdl-layout__content" style={{textAlign: 'left'}}>

@@ -28,6 +28,7 @@ export default function reducer(state={
     rfpKey: null,
     rfp_from_eoi: null,
     bookmarks: null,
+    downloadlink:null,
     editProfile:{
             legalEntity: "loading",
             operatingName: "loading",
@@ -262,7 +263,8 @@ export default function reducer(state={
             return {
                 ...state, 
                 uploaded: true,
-                fetching: false
+                fetching: false,
+                downloadlink: action.payload
             }
         }
         
