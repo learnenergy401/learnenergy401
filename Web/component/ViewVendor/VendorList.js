@@ -8,7 +8,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import "../../extra/material.js"
 import { fetchUsers, fetchBookmarks, setBookmarks, removeBookmark } from "../Actions/userActions"
 
-const KEYS_TO_FILTERS = ['website', 'legalEntity','email', 'natureBusiness']
+const KEYS_TO_FILTERS = ['website', 'legalEntity','email', 'natureBusiness', 'phone', 'city', 'province', 'country']
 
 
 
@@ -156,7 +156,7 @@ class VendorList extends Component{
                             <br/>
                             {vendor.email}
                             <br/>
-                            {vendor.website}
+                            {vendor.city}, {vendor.province}, {vendor.country}
                             <br/>
                             <hr/>
                             {vendor.natureBusiness}
@@ -185,7 +185,7 @@ class VendorList extends Component{
                                     <br/>
                                     {vendor.email}
                                     <br/>
-                                    {vendor.website}
+                                    {vendor.city}, {vendor.province}, {vendor.country}
                                     <br/>
                                     <hr/>
                                     {vendor.natureBusiness}
@@ -231,7 +231,7 @@ class VendorList extends Component{
                                             <br/>
                                             {user.users[mappedVendors[Vkeys[i]].key].email}
                                             <br/>
-                                            {user.users[mappedVendors[Vkeys[i]].key].website}
+                                            {user.users[mappedVendors[Vkeys[i]].key].city}, {user.users[mappedVendors[Vkeys[i]].key].province},  {user.users[mappedVendors[Vkeys[i]].key].country}
                                             <br/>
                                             <hr/>
                                             {user.users[mappedVendors[Vkeys[i]].key].natureBusiness}

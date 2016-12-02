@@ -168,7 +168,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.eoi[key_name].vendor == uid) {
-						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}<br/> Email: {user.users[user.eoi[key_name].vendor].email}</h5>)
+						EOIs.push(<h5>RFP NUM: {user.eoi[key_name].LMRFPnum}<br/> Email: {user.users[user.eoi[key_name].purchaser].email}</h5>)
 						EOIs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.reviewEOI.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Review</Button>
@@ -188,7 +188,7 @@ class ReviewEOI extends Component {
 				for (var count=0; count<=keys.length-1; count++) {
 					var key_name = keys[count]
 					if (user.rfp[key_name].vendor == uid) {
-						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}<br/> Email: {user.users[user.rfp[key_name].vendor].email}</h5>)
+						RFPs.push(<h5>RFP NUM: {user.rfp[key_name].LMRFPnum}<br/> Email: {user.users[user.rfp[key_name].purchaser].email}</h5>)
 						RFPs.push(<div>
 	              		<Button accent ripple onClick={this.callremoveRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Remove</Button>
 	              		<Button accent ripple onClick={this.editRFP.bind(this,key_name)} className="mdl-color-text--indigo btn btn-primary">Edit</Button>
@@ -388,7 +388,7 @@ class ReviewEOI extends Component {
 			}
 			// grab information on EOIs if they match out vendor's uid
 			var keys
-			if (user.eoi != null && uid!=null) {
+			if (user.eoi != null && uid!=null && user.users!=null) {
 				keys = Object.keys(user.eoi)
 				if (keys.length > 0) { // there exists some EOIs
 					EOIs.push(<h4>Expression Of Interests</h4>)
@@ -407,7 +407,7 @@ class ReviewEOI extends Component {
 				}
 			}
 			// grab information on RFP now and add them to RFP list
-			if (user.rfp != null && uid!=null) {
+			if (user.rfp != null && uid!=null && user.users!=null) {
 				keys = Object.keys(user.rfp)
 				if (keys.length > 0) { // there exists some RFPs
 					RFPs.push(<hr/>)

@@ -102,7 +102,7 @@ class CourseEOI extends Component {
 
 	        var date = document.getElementById("date").value
 	        var service = document.getElementById("service").value
-	        var text1 = document.getElementById("text1").value
+	        var text1 = "N/A"
 	        var text2 = document.getElementById("text2").value
 	        var closeDate = document.getElementById("closeDate").value
 	        var closeTime = document.getElementById("closeTime").value
@@ -218,11 +218,10 @@ class CourseEOI extends Component {
 
 							<hr/>
  							<h6>On behalf of
-								&nbsp;<Textfield floatingLabel style={{width:'300px'}} label="" id="purchaser"/>&nbsp;
+								&nbsp;{legal}&nbsp;
                 ("The Purchaser"), your company ("Respondent") is invited to submit a response to this Expression of Interest. The Purchaser plans to issue a Request for Proposal (RFP) for the provision of
 								&nbsp;<Textfield floatingLabel style={{width:'300px'}} label="" id="service"/>&nbsp;
-                services. The current schedule is to issue the RFP
-								&nbsp;<Textfield floatingLabel style={{width:'300px'}} label="" id="text1"/>&nbsp;
+                services. The current schedule is to issue the RFP&nbsp;{LMRFPnum}&nbsp;
 								with contract award by
                 &nbsp;<Textfield floatingLabel style={{width:'300px'}} label="" id="text2"/>.&nbsp;
 								Please complete the attached EOI Questionnaire and Confidentiality Agreement and return, via email, as detailed below:

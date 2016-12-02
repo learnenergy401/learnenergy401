@@ -495,7 +495,7 @@ class AdminReview extends Component {
                             </tr>
                             </table>
 
-                            <h3><b>Buisness Information</b></h3>
+                            <h3><b>Business Information</b></h3>
                             <table style={table_style}>
                             <tr>
                                 <td style = {row_format}><b>GST Registration: </b></td>
@@ -506,7 +506,7 @@ class AdminReview extends Component {
                                  <td style = {row_format_right}>{bank}</td>
                             </tr>
                             <tr>
-                                <td style = {row_format}><b>Accounts Recieveable:</b></td>
+                                <td style = {row_format}><b>Accounts Payable:</b></td>
                                  <td style = {row_format_right}>{accntRec}</td>
                             </tr>
                             <tr>
@@ -671,9 +671,15 @@ class AdminReview extends Component {
 
           var website = user.vendors[key_name].website;
           var password = user.vendors[key_name].password;
+          
+          if(user.vendors[key_name].downloadlink!=null){
+           var downloadlink=user.vendors[key_name].downloadlink;
+          }
+          
           var cat2 = []
           var spec2 = []
-          var i =0
+          var i = 0
+          var j = 0
            var webtest = '//'+website;
           for (i; i< categories.length; i++){
               if(categories[i]=='N/A'){break}
@@ -682,10 +688,10 @@ class AdminReview extends Component {
                   cat2.push(', ')
               }
           }
-          for (i; i< specialties.length; i++){
-              if(categories[i]=='N/A'){break}
+          for (j; j< specialties.length; j++){
+              if(specialties[j]=='N/A'){break}
               else{
-                  spec2.push(specialties[i])
+                  spec2.push(specialties[j])
                   spec2.push(', ')
               }
           }
@@ -765,11 +771,16 @@ class AdminReview extends Component {
                             <tr>
                                 <td style={row_format}><b>Techncal Contact:</b></td>
                                 <td style={row_format_right}>{technicalContact}</td>
+                                
+                            </tr>
+                            <tr>
+                                <td style={row_format}><b>Annual Report:</b></td>
+                                <td style={row_format_right}><a href={downloadlink}>click to view</a></td>
                             </tr>
                         </table>
 
 
-                        <h3 style={header_align}>Buisness Information</h3>
+                        <h3 style={header_align}>Business Information</h3>
                         <table style={table_style}>
                             <tr>
                                 <td style = {row_format}><b>Owner 1:</b></td>
@@ -1119,7 +1130,7 @@ class AdminReview extends Component {
                             </tr>
                             <tr>
                                 <td style = {row_format_right}>
-                                <h6 style={sub_header_style}><b>Intependent Contractor</b></h6>
+                                <h6 style={sub_header_style}><b>Independent Contractor</b></h6>
                                     <table style={table_style_sub}>
 
                                     <tr>

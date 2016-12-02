@@ -180,10 +180,10 @@ class RFP extends Component {
         if (vendor_ids.length != list_of_emails.length) {
             alert("There is a non-valid vendor inputted, please try again.")
         } else { // we have valid vendors
+            var LMRFPnum = generateNumberId()
 
             for (var count=0; count<vendor_ids.length; count++) {
                 var vendor = vendor_ids[count]
-                var LMRFPnum = generateNumberId()
 
 
                 var info = {date, purchaser1, service, LMRFPnum, closeDate, closeTime, name1, title1,  email1,
@@ -198,6 +198,8 @@ class RFP extends Component {
 
                 this.storeRFPs(info)
             }
+            alert("RFP(s) submitted")
+
         }
 
 

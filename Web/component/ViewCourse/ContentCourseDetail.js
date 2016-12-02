@@ -81,6 +81,7 @@ class ContentCourseDetail extends Component {
         break
       }
     }
+
     var email = course.aCourse.courseVendorEmail
 
     var info = {vendor, courseid, email}

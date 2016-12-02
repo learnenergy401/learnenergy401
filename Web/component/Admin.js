@@ -18,6 +18,7 @@ var spacerStyle = {
 var cardStyle = {
     width: '80%',
     margin: 'auto',
+    paddingBottom: "80px"
 }
 
 var cardTitleStyle = {
@@ -409,7 +410,7 @@ class Admin extends Component {
 
       );
     } else {
-        
+
         return(
         <div>
           <LearnHeader/>

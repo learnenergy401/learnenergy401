@@ -58,7 +58,7 @@ export function setBookmarks(bookmarks) {
         firebaseDb.ref('Bookmarks/'+user.uid).push(bookmarks)
         .then((data) => {
             dispatch({type: "SET_BOOKMARKS_FULFILLED"})
-            
+
         })
         .catch((err) => {
             dispatch({type: "SET_BOOKMARKS_REJECTED", payload: err.code})
@@ -352,7 +352,6 @@ export function storeRFPs(info) {
     if (info.remove!=null) {
       removeEOI(info.remove.key_name)
     }
-    alert("RFP submitted")
     window.location.assign("/#/review-eoi-rfp")
   }
 }
@@ -951,7 +950,7 @@ export function logInUser(user) {
             }
 
           })
-          
+
         })
         .catch((err) => {
           dispatch({type: "LOGIN_USER_REJECTED", payload: err})
@@ -1010,10 +1009,8 @@ export function uploadAnnualReport(email,fileObj){
         firebaseStorage.child('AnnualReport'+'/'+email+'/'+fileObj.fileName).put(fileObj.file,fileObj.metadata)
             .then((snapshot) =>{
             var url = snapshot.metadata.downloadURLs[0];
-            
-            
-            
-            dispatch({type: "UPLOAD_ANNUAL_REPORT_FULFILLED"})
+
+            dispatch({type: "UPLOAD_ANNUAL_REPORT_FULFILLED",payload:url})
         }).catch((err)=>{
             dispatch({type: "UPLOAD_ANNUAL_REPORT_REJECTED", payload:err})
         })

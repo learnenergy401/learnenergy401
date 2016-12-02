@@ -277,6 +277,7 @@ class LearnHeader extends Component {
                   
                     <Menu target="console" className="mdl-menu mdl-menu--bottom-right">
                       <ButtonAdmin to='admin'/>
+                      <ButtonReviewEOI to='review-eoi-rfp'/>
                       <ButtonLogOut/>
                         
                     </Menu>

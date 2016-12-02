@@ -43,6 +43,7 @@ class ComponentSignUpVendor extends Component {
    * @return {Object} user - sends information about vendor.
    */
   requestSubmit() {
+    const {user}=this.props
     // part A
     var legalEntity = document.getElementById("legalEntity").value;
     var operatingName = document.getElementById("operatingName").value;
@@ -185,20 +186,39 @@ class ComponentSignUpVendor extends Component {
     var HSEjudge = document.getElementById("HSEjudge").value;
 
     var email = document.getElementById("email").value;
-    var adminContact = document.getElementById("adminContact").value;
-    var technicalContact = document.getElementById("technicalContact").value;
+    var adminContact = "N/A"
+    var technicalContact = "N/A"
 
-    var ISnumber = null
+    var ISnumber = "N/A"
+    /*
     if(document.getElementById("ISnumberYes").checked) {
         ISnumber = "yes"
     } else if (document.getElementById("ISnumberNo").checked) {
         ISnumber = "no"
     }
-
-    var website = document.getElementById("website").value;
+    */
+    var website = "N/A"
     var password = document.getElementById("password").value;
 
-
+    if(report=="enclosed"){
+        var downloadlink=user.downloadlink;
+        var info = {email, password, legalEntity, operatingName, address1, address2,
+      city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
+      adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
+      bondingLimitDate, bondingLimit, grossBus, grossBusYear, bankruptcy, numEmployees,
+      AD1address1, AD1address2, AD1city, AD1province, AD1country, AD1postalCode, AD1phone, AD2address1, AD2address2, AD2city, AD2province, AD2country, AD2postalCode, AD2phone, AD3address1, AD3address2, AD3city, AD3province, AD3country, AD3postalCode, AD3phone,
+      categories, specialties, client1, client1Location, client1Phone, client1Email, client1Name, client1Service, client2, client2Location, client2Phone, client2Email, client2Name, client2Service,
+      client3, client3Location, client3Phone, client3Email, client3Name, client3Service, client4, client4Location, client4Phone, client4Email, client4Name, client4Service, licence1, licence1Location, licence2, licence2Location, licence3, licence3Location, licence4, licence4Location, licence5, licence5Location,
+      insurer1, policyLimit1, expiry1, insurer2, policyLimit2, expiry2, insurer3, policyLimit3, expiry3, insurer4, policyLimit4, expiry4, insurer5, policyLimit5, expiry5,
+      insurer6, policyLimit6, expiry6, insurer7, policyLimit7, expiry7, insurer8, policyLimit8, expiry8, insurer9, policyLimit9, expiry9, insurer10, policyLimit10, expiry10,
+      insurer11, policyLimit11, expiry11, insurer12, policyLimit12, expiry12, insurer13, policyLimit13, expiry13, insurer14, policyLimit14, expiry14, insurer15, policyLimit15, expiry15,
+      EHWcurrentYear, EHWpreviousYear1, EHWpreviousYear2, EHWpreviousYear3, FcurrentYear, FpreviousYear1, FpreviousYear2, FpreviousYear3, LTIcurrentYear, LTIpreviousYear1, LTIpreviousYear2, LTIpreviousYear3,
+      MAIcurrentYear, MAIpreviousYear1, MAIpreviousYear2, MAIpreviousYear3, ORCcurrentYear, ORCpreviousYear1, ORCpreviousYear2, ORCpreviousYear3, TRIcurrentYear, TRIpreviousYear1, TRIpreviousYear2, TRIpreviousYear3,
+      industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
+      PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,downloadlink,
+                   }
+    }else{
+      
     var info = {email, password, legalEntity, operatingName, address1, address2,
       city, province, country, postalCode, phone, fax, owner1Name, owner1Pos, owner2Name, owner2Pos, owner3Name, owner3Pos, owner4Name, owner4Pos, owner5Name, owner5Pos, natureBusiness, timeBusiness, proAffiliation, report,
       adminContact, technicalContact, ISnumber, website, bank, bankLocation, bonding, bondingLocation, insuranceCompany, insuranceLocation,
@@ -214,8 +234,52 @@ class ComponentSignUpVendor extends Component {
       industryCode, industryClassification, IRcurrentYear, IRpreviousYear1, IRpreviousYear2, IRpreviousYear3, PRcurrentYear, PRpreviousYear1, PRpreviousYear2, PRpreviousYear3,
       PDcurrentYear, PDpreviousYear1, PDpreviousYear2, PDpreviousYear3, PScurrentYear, PSpreviousYear1, PSpreviousYear2, PSpreviousYear3, drugPolicy, subcontractors, stopWorkOrder, HSEjudge,
       }
-    this.signUpVendor(info);
+
     }
+    this.signUpVendor(info);
+
+    if(email==""){alert("Email missing.")}
+    if(password==""){alert("Password missing.")}
+    if(legalEntity==""){alert("Legal Entity missing.")}
+    if(operatingName==""){alert("Operating Name missing.")}
+    if(address1==""){alert("Missing Address 1.")}
+    if(city==""){alert("Missing City.")}
+    if(province==""){alert("Missing Province.")}
+    if(country==""){alert("Missing Country.")}
+    if(postalCode==""){alert("Missing Postal Code.")}
+    if(phone==""){alert("Missing Phone.")}
+    if(owner1Name=="N/A"){alert("Missing owner name.")}
+    if(owner1Pos=="N/A"){alert("Missing owner position.")}
+    if(natureBusiness==""){alert("Missing Nature of Business.")}
+    if(timeBusiness==""){alert("Missing Time in Business.")}
+    if(report==null){alert("Missing annual report choice.")}
+    if(bank==""){alert("Missing Bank.")}
+    if(bonding==""){alert("Missing Bonding Company.")}
+    if(insuranceCompany==""){alert("Missing Insurance Company.")}
+    if(bondingLimitDate==""){alert("Missing Bonding Limit Date.")}
+    if(bondingLimit==""){("Missing Bonding Limit.")}
+    if(grossBus==""){alert("Missing Annual Gross Business $.")}
+    if(grossBusYear==""){alert("Missing Gross Business $ Year.")}
+    if(bankruptcy==null){alert("Missing Bankruptcy choice.")}
+
+    if(numEmployees==""){alert("Missing Number of Employees.")}
+
+    if(categories[0]=="N/A"){alert("Missing a category.")}
+    if(specialties[0]=="N/A"){alert("Missing a specialty.")}
+
+    if(password.length<6){alert("Password must be at least 6 character long.")}
+    if(email!="" && password!="" && legalEntity!="" && operatingName!=""
+      && address1!="" && city!="" && province!="" && country!="" && postalCode!=""
+      && phone!="" && owner1Name!="N/A" && owner1Pos!="N/A" && natureBusiness!=""
+      && timeBusiness!="" && report!=null && bank!="" && bonding!="" && insuranceCompany!=""
+      && bondingLimitDate!="" && bondingLimit!="" && grossBus!="" && grossBusYear!="" && bankruptcy!=null
+      && numEmployees!="" && categories[0]!="N/A" && specialties[0]!="N/A" && password.length>=6){
+      this.signUpVendor(info);
+
+    }
+
+
+  }
 
     /**
      * Add owner and position to list
@@ -304,7 +368,7 @@ class ComponentSignUpVendor extends Component {
           alert("No specialties to remove.");
       }
     }
-    
+
     /**
      * Handle file selecting
      */
@@ -318,7 +382,7 @@ class ComponentSignUpVendor extends Component {
       var metadata = {
         'contentType': file.type
       };
-      
+
       this.props.dispatch(uploadAnnualReport(useremail,{fileName,file,metadata}));
     }
 
@@ -332,37 +396,38 @@ class ComponentSignUpVendor extends Component {
         <a name="top" />
         <div style={{width: '80%', margin: 'auto'}}>
             <br/><br/><br/>
+            *required
             <u><h4>Login Information</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Email" id="email"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="password" label="Password" id="password"/>*
             <br/>
             <u><h4>Part A: Company Structure</h4></u>
             <hr/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Legal Entity" id="legalEntity"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Operating Name" id="operatingName"/>*
             <hr/>
             <u><h5>Address:</h5></u>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Address 1" id="address1"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Address 2" id="address2"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="City" id="city"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Province" id="province"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Country" id="country"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Postal Code" id="postalCode"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Phone Number" id="phone"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Fax Number" id="fax"/>
             <hr/>
-            <u><h5>Owners:</h5></u>
+            <u><h5>Owners:*</h5></u>
 
             <div id="content2"></div>
             <br/>
@@ -373,14 +438,14 @@ class ComponentSignUpVendor extends Component {
 
             <hr/>
             <u><h5>Description:</h5></u>
-            <h6>Nature of Business:<br/> <textarea rows="4" cols="80" id="natureBusiness"></textarea></h6>
+            <h6>Nature of Business:*<br/> <textarea rows="4" cols="80" id="natureBusiness"></textarea></h6>
             <br/>
-            <h6>Length of Time in Business<br/> <textarea rows="4" cols="80" id="timeBusiness"></textarea></h6>
+            <h6>Length of Time in Business:*<br/> <textarea rows="4" cols="80" id="timeBusiness"></textarea></h6>
             <br/>
             <h6>Professional Affiliations:<br/> <textarea rows="4" cols="80" id="proAffiliation"></textarea></h6>
             <br/>
             <div>
-            <u><h6>Copy of most recent annual report:</h6></u>
+            <u><h6>Copy of most recent annual report:*</h6></u>
             <label>
             <input type="radio" name="report" value="reportEnclosed" id="reportEnclosed"/>Enclosed
             <input type="radio" name="report" value="reportNotAvailable" id="reportNotAvailable"/>Not Available
@@ -395,27 +460,27 @@ class ComponentSignUpVendor extends Component {
 
             <hr/>
             <u><h4>Part B: Financial</h4></u>
-            <Textfield floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Bank" id="bank"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Location" id="bankLocation"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Bonding Company" id="bonding"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Bonding Company" id="bonding"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Location" id="bondingLocation"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Insurance Company" id="insuranceCompany"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Insurance Company" id="insuranceCompany"/>*
             &nbsp;
             <Textfield floatingLabel style={{width:'300px'}} label="Location" id="insuranceLocation"/>
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} type="date" label="Bonding Limit As Of:" id="bondingLimitDate"/>
+            <Textfield floatingLabel style={{width:'300px'}} type="date" label="Bonding Limit As Of:" id="bondingLimitDate"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Amount" id="bondingLimit"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Amount" id="bondingLimit"/>*
             <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Most recent annual gross business $" id="grossBus"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Most recent annual gross business $" id="grossBus"/>*
             &nbsp;
-            <Textfield floatingLabel style={{width:'300px'}} label="Year" id="grossBusYear"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Year" id="grossBusYear"/>*
             <br/>
-            <u><h6>Bankruptcy:</h6></u>
+            <u><h6>Bankruptcy:*</h6></u>
             <div>
             <label>
             <input type="radio" name="bankruptcy" value="bankY" id="bankYes"/>Yes
@@ -425,55 +490,57 @@ class ComponentSignUpVendor extends Component {
 
             <hr/>
             <u><h4>Part C: General</h4></u>
-            <Textfield floatingLabel style={{width:'300px'}} label="Number of Employees" id="numEmployees"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Number of Employees" id="numEmployees"/>*
             <u><h5>Additional Locations:</h5></u>
             <hr/>
             <br/>
-            <Textfield label="AD1address1" className="form-control" ref="AD1address1"  placeholder="Additional 1: Address 1" id="AD1address1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Address 1" id="AD1address1"/>
             &nbsp;
-            <Textfield label="AD1address2" className="form-control" ref="AD1address2"  placeholder="Additional 1: Address 2" id="AD1address2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Address 2" id="AD1address2"/>
             <br/>
-            <Textfield label="AD1city" className="form-control" ref="AD1city"  placeholder="Additional 1: City" id="AD1city"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: City" id="AD1city"/>
             &nbsp;
-            <Textfield label="AD1province" className="form-control" ref="AD1province"  placeholder="Additional 1: Province" id="AD1province"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Province" id="AD1province"/>
             <br/>
-            <Textfield label="AD1country" className="form-control" ref="AD1country"  placeholder="Additional 1: Country" id="AD1country"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Country" id="AD1country"/>
             &nbsp;
-            <Textfield label="AD1postalCode" className="form-control" ref="AD1postalCode"  placeholder="Additional 1: Postal Code" id="AD1postalCode"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Postal Code" id="AD1postalCode"/>
             <br/>
-            <Textfield label="AD1phone" className="form-control" ref="AD1phone"  placeholder="Additional 1: Phone Number" id="AD1phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 1: Phone Number" id="AD1phone"/>
             <hr/>
-            <Textfield label="AD2address1" className="form-control" ref="AD2address1"  placeholder="Additional 2: Address 1" id="AD2address1"/>
-            &nbsp;
-            <Textfield label="AD2address2" className="form-control" ref="AD2address2"  placeholder="Additional 2: Address 2" id="AD2address2"/>
-            <br/>
-            <Textfield label="AD2city" className="form-control" ref="AD2city"  placeholder="Additional 2: City" id="AD2city"/>
-            &nbsp;
-            <Textfield label="AD2province" className="form-control" ref="AD2province"  placeholder="Additional 2: Province" id="AD2province"/>
-            <br/>
-            <Textfield label="AD2country" className="form-control" ref="AD2country"  placeholder="Additional 2: Country" id="AD2country"/>
-            &nbsp;
-            <Textfield label="AD2postalCode" className="form-control" ref="AD2postalCode"  placeholder="Additional 2: Postal Code" id="AD2postalCode"/>
-            <br/>
-            <Textfield label="AD2phone" className="form-control" ref="AD2phone"  placeholder="Additional 2: Phone Number" id="AD2phone"/>
-            <hr/>
-            <Textfield label="AD3address1" className="form-control" ref="AD3address1"  placeholder="Additional 3: Address 1" id="AD3address1"/>
-            &nbsp;
-            <Textfield label="AD3address2" className="form-control" ref="AD3address2"  placeholder="Additional 3: Address 2" id="AD3address2"/>
-            <br/>
-            <Textfield label="AD3city" className="form-control" ref="AD3city"  placeholder="Additional 3: City" id="AD3city"/>
-            &nbsp;
-            <Textfield label="AD3province" className="form-control" ref="AD3province"  placeholder="Additional 3: Province" id="AD3province"/>
-            <br/>
-            <Textfield label="AD3country" className="form-control" ref="AD3country"  placeholder="Additional 3: Country" id="AD3country"/>
-            &nbsp;
-            <Textfield label="AD3postalCode" className="form-control" ref="AD3postalCode"  placeholder="Additional 3: Postal Code" id="AD3postalCode"/>
-            <br/>
-            <Textfield label="AD3phone" className="form-control" ref="AD3phone"  placeholder="Additional 3: Phone Number" id="AD3phone"/>
 
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Address 1" id="AD2address1"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Address 2" id="AD2address2"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: City" id="AD2city"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Province" id="AD2province"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Country" id="AD2country"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Postal Code" id="AD2postalCode"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 2: Phone Number" id="AD2phone"/>
             <hr/>
+
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Address 1" id="AD3address1"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Address 2" id="AD3address2"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: City" id="AD3city"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Province" id="AD3province"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Country" id="AD3country"/>
+            &nbsp;
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Postal Code" id="AD3postalCode"/>
+            <br/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Additional 3: Phone Number" id="AD3phone"/>
+            <hr/>
+
             <u><h4>Part D: Qualifications and Experience</h4></u>
-            <u><h6>Categories of services provided - List all types of work you are able to provide:</h6></u>
+            <u><h6>Categories of services provided - List all types of work you are able to provide:*</h6></u>
 
             <div id="content"></div>
             <br/>
@@ -482,7 +549,7 @@ class ComponentSignUpVendor extends Component {
                 <button onClick={this.removeElement}>Remove</button>
             </p>
             <hr/>
-            <u><h6>Specialties:</h6></u>
+            <u><h6>Specialties:*</h6></u>
             <div id="content1"></div>
             <br/>
             <p>
@@ -492,72 +559,72 @@ class ComponentSignUpVendor extends Component {
             <hr/>
             <br/>
             <h6>Work History:</h6>
-            <Textfield label="client1" className="form-control" ref="client1"  placeholder="Client 1: Operating Name" id="client1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Operating Name" id="client1"/>
             &nbsp;
-            <Textfield label="client1Location" className="form-control" ref="client1Location"  placeholder="Client 1: Location" id="client1Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Location" id="client1Location"/>
             <br/>
-            <Textfield label="client1Phone" className="form-control" ref="client1Phone"  placeholder="Client 1: Phone" id="client1Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Phone" id="client1Phone"/>
             &nbsp;
-            <Textfield label="client1Email" className="form-control" ref="client1Email"  placeholder="Client 1: Email" id="client1Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Email" id="client1Email"/>
             <br/>
-            <Textfield label="client1name" className="form-control" ref="client1name"  placeholder="Client 1: Contact Name" id="client1Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 1: Contact Name" id="client1Name"/>
             <h6>Client 1 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client1Service"></textarea></h6>
             <hr/>
-            <Textfield label="client2" className="form-control" ref="client2"  placeholder="Client 2: Operating Name" id="client2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Operating Name" id="client2"/>
             &nbsp;
-            <Textfield label="client2Location" className="form-control" ref="client2Location"  placeholder="Client 2: Location" id="client2Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Location" id="client2Location"/>
             <br/>
-            <Textfield label="client2Phone" className="form-control" ref="client2Phone"  placeholder="Client 2: Phone" id="client2Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Phone" id="client2Phone"/>
             &nbsp;
-            <Textfield label="client2Email" className="form-control" ref="client2Email"  placeholder="Client 2: Email" id="client2Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Email" id="client2Email"/>
             <br/>
-            <Textfield label="client2name" className="form-control" ref="client2name"  placeholder="Client 2: Contact Name" id="client2Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 2: Contact Name" id="client2Name"/>
             <h6>Client 2 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client2Service"></textarea></h6>
             <hr/>
-            <Textfield label="client3" className="form-control" ref="client3"  placeholder="Client 3: Operating Name" id="client3"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Operating Name" id="client3"/>
             &nbsp;
-            <Textfield label="client3Location" className="form-control" ref="client3Location"  placeholder="Client 3: Location" id="client3Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Location" id="client3Location"/>
             <br/>
-            <Textfield label="client3Phone" className="form-control" ref="client3Phone"  placeholder="Client 3: Phone" id="client3Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Phone" id="client3Phone"/>
             &nbsp;
-            <Textfield label="client3Email" className="form-control" ref="client3Email"  placeholder="Client 3: Email" id="client3Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Email" id="client3Email"/>
             <br/>
-            <Textfield label="client3name" className="form-control" ref="client3name"  placeholder="Client 3: Contact Name" id="client3Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 3: Contact Name" id="client3Name"/>
             <h6>Client 3 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client3Service"></textarea></h6>
             <hr/>
-            <Textfield label="client4" className="form-control" ref="client4"  placeholder="Client 4: Operating Name" id="client4"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Operating Name" id="client4"/>
             &nbsp;
-            <Textfield label="client4Location" className="form-control" ref="client4Location"  placeholder="Client 4: Location" id="client4Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Location" id="client4Location"/>
             <br/>
-            <Textfield label="client4Phone" className="form-control" ref="client4Phone"  placeholder="Client 4: Phone" id="client4Phone"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Phone" id="client4Phone"/>
             &nbsp;
-            <Textfield label="client4Email" className="form-control" ref="client4Email"  placeholder="Client 4: Email" id="client4Email"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Email" id="client4Email"/>
             <br/>
-            <Textfield label="client4name" className="form-control" ref="client4name"  placeholder="Client 4: Contact Name" id="client4Name"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Client 4: Contact Name" id="client4Name"/>
             <h6>Client 4 Details of services provided (type, duration, dates, etc.):&nbsp; <textarea rows="4" cols="80" id="client4Service"></textarea></h6>
 
             <hr/>
             <h6>Professional Licences: Indicate the categories of Services you are licensed for and the jurisdictions in which they are valid (i.e. Professional Engineers, technicians and other licensed professionals).</h6>
             <br/>
-            <Textfield label="licence1" className="form-control" ref="licence1"  placeholder="1. Type of Licence" id="licence1"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="1. Type of Licence" id="licence1"/>
             &nbsp;
-            <Textfield label="licence1Location" className="form-control" ref="licence1Location"  placeholder="Location" id="licence1Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence1Location"/>
             <br/>
-            <Textfield label="licence2" className="form-control" ref="licence2"  placeholder="2. Type of Licence" id="licence2"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="2. Type of Licence" id="licence2"/>
             &nbsp;
-            <Textfield label="licence2Location" className="form-control" ref="licence2Location"  placeholder="Location" id="licence2Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence2Location"/>
             <br/>
-            <Textfield label="licence3" className="form-control" ref="licence3"  placeholder="3. Type of Licence" id="licence3"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="3. Type of Licence" id="licence3"/>
             &nbsp;
-            <Textfield label="licence3Location" className="form-control" ref="licence3Location"  placeholder="Location" id="licence3Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence3Location"/>
             <br/>
-            <Textfield label="licence4" className="form-control" ref="licence4"  placeholder="4. Type of Licence" id="licence4"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="4. Type of Licence" id="licence4"/>
             &nbsp;
-            <Textfield label="licence4Location" className="form-control" ref="licence4Location"  placeholder="Location" id="licence4Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence4Location"/>
             <br/>
-            <Textfield label="licence5" className="form-control" ref="licence5"  placeholder="5. Type of Licence" id="licence5"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="5. Type of Licence" id="licence5"/>
             &nbsp;
-            <Textfield label="licence5Location" className="form-control" ref="licence5Location"  placeholder="Location" id="licence5Location"/>
+            <Textfield floatingLabel style={{width:'300px'}} label="Location" id="licence5Location"/>
             <hr/>
 
             <u><h4>Part E: Insurance</h4></u>
@@ -804,20 +871,6 @@ class ComponentSignUpVendor extends Component {
             <h6>Advise if there are any HSE related judgments, claims or suits outstanding against you and if so, provide details:&nbsp; <br/><textarea rows="4" cols="80" id="HSEjudge"></textarea></h6>
             <hr/>
 
-            <Textfield floatingLabel style={{width:'300px'}} label="Admin Email" id="adminContact"/>
-            <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Technical Email" id="technicalContact"/>
-            <br/>
-            <div>
-            <label>ISN Member:
-              <input type="radio" name="ISNumber" value="isnY" id="ISnumberYes"/>Yes
-              <input type="radio" name="ISNumber" value="isnN" id="ISnumberNo"/>No
-            </label>
-            </div>
-            <br/>
-            <Textfield floatingLabel style={{width:'300px'}} label="Website" id="website"/>
-
-            <hr/>
             <CardActions>
                 <Button raised ripple className="mdl-color-text--indigo btn btn-primary" onClick={this.requestSubmit.bind(this)}>Register</Button>
             </CardActions>
