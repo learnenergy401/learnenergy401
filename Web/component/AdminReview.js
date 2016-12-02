@@ -383,6 +383,7 @@ class AdminReview extends Component {
           var phone = user.purchasers[key_name].phone;
           var fax = user.purchasers[key_name].fax;
           var email = user.purchasers[key_name].email;
+          console.log(user.purchasers[key_name])
           var adminContact = user.purchasers[key_name].adminContact;
           var technicalContact = user.purchasers[key_name].technicalContact;
 
