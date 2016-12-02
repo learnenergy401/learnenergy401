@@ -14,7 +14,7 @@ describe('course reducer', () => {
 		    aCourse: "Loading...",
 		    aCourseName:"Loading...",
 		    uploaded: false,
-
+            coursePurchasers: null,
 		    courseName:null,
 		    courseDescription: null,
 		    courseVendorEmail: null,})
@@ -137,45 +137,6 @@ describe('course reducer', () => {
 	   )
 	})
 
-	it('should handle UPLOAD_COURSE_DETAIL', () => {
-	    expect(
-	      reducer([], {
-	        type: 'UPLOAD_COURSE_DETAIL',
-	      })
-	    ).toEqual(
-	      	{
-	       		uploaded: false,
-            	fetching: true
-	      	}
-	   )
-	})
-
-
-	it('should handle UPLOAD_COURSE_DETAIL_FULFILLED', () => {
-	    expect(
-	      reducer([], {
-	        type: 'UPLOAD_COURSE_DETAIL_FULFILLED',
-	      })
-	    ).toEqual(
-	      	{
-	        	uploaded: true,
-                fetching: false,
-	      	}
-	   )
-	})
-
-	it('should handle UPLOAD_COURSE_DETAIL_REJECTED', () => {
-	    expect(
-	      reducer([], {
-	        type: 'UPLOAD_COURSE_DETAIL_REJECTED',
-	      })
-	    ).toEqual(
-	      {
-	        fetching: false,
-	      }
-	   )
-	})
-
     
     it('should handle UPDATE_COURSE', () => {
         expect(
@@ -184,8 +145,8 @@ describe('course reducer', () => {
             })
         ).toEqual(
             {
-                uploaded: true,
-                fetching: false,
+                uploaded: false,
+                fetching: true,
             }
         )
     })

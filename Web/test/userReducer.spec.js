@@ -175,8 +175,9 @@ describe('user reducer', () => {
 	        fetching: false,
 	        fetched: true,
 	        user: undefined,
+            isLoggedIn:undefined,
 	        isLoggedIn: undefined,
-	        editProfile: undefined
+	        editProfile: undefined,
 	    })
 	})
 
@@ -190,7 +191,7 @@ describe('user reducer', () => {
 	        fetching: false,
             fetched: true,
 	        purchasers: undefined,
-	        isLoggedIn: undefined
+
 	    })
 	})
 
@@ -205,7 +206,7 @@ describe('user reducer', () => {
 	        fetching: false,
             fetched: true,
 	        vendors: undefined,
-	        isLoggedIn: undefined
+
 	    })
 	})
 
@@ -219,7 +220,7 @@ describe('user reducer', () => {
 	        fetching: false,
             fetched: true,
 	        ad: undefined,
-	        isLoggedIn: undefined
+
 	    })
 	})
 
