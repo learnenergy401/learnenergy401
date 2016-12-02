@@ -9,17 +9,32 @@ describe('user reducer', () => {
 	    ).toEqual({
 	    	user: null,
 		    userName:null,
+            userID: null,
+            users: null,
+            vendorList:[],
 		    fetching: false,
 		    fetched: false,
 		    error: null,
 		    isLoggedIn:false,
-		    role: null,
+		    role: -1,
+            notification:null,
+            keys_roles: null,
 		    purchasers: null,
 		    vendors: null,
 		    ad: null,
+            admin:null,
+            bookmarks:null,
+            downloadlink:null,
+            eoi: null,
+            eoiKey: null,
+            reqEOI: null,
+            rfp: null,
+            rfpKey: null,
+            rfp_from_eoi: null,
 		    editProfile:{
 		            legalEntity: "loading",
 		            operatingName: "loading",
+                    accntRec:"loading",
 		            address1: "loading",
 		            address2: "loading",
 		            city: "loading",
@@ -28,10 +43,15 @@ describe('user reducer', () => {
 		            postalCode: "loading",
 		            phone: "loading",
 		            fax: "loading",
-
+                    billAddress1: "loading",
+                    billAddress2: "loading",
+                    billCity: "loading",
+                    billCountry: "loading",
+                    billPostalCode: "loading",
+                    billProvince: "loading",
 		            owner1Name: "loading",
 		            owner1Pos: "loading",
-
+                    gstReg: "loading",
 		            natureBusiness: "loading",
 		            timeBusiness: "loading",
 		            proAffiliation: "loading",
@@ -65,7 +85,7 @@ describe('user reducer', () => {
 		            client1Location: "loading",
 		            client1Phone: "loading",
 		            client1Email: "loading",
-
+                    jointVenture: "loading",
 		            licence1: "loading",
 		            licence1Location: "loading",
 		            insurer1: "loading",  policyLimit1: "loading",  expiry1: "loading",
@@ -110,7 +130,7 @@ describe('user reducer', () => {
 		            password: "loading"},
     
     profile:{
-        role:null,
+        role:-1,
         firstName: null,
         // *TODO*
         // add more attribute here in model
@@ -245,8 +265,42 @@ describe('user reducer', () => {
 	        fetching: true,
 	    })
 	})
-
-
+    
+    it('should handle UPLOAD_ANNUAL_REPORT',() => {
+        expect(
+            reducer([],{
+                type:'UPLOAD_ANNUAL_REPORT',
+            })
+        ).toEqual({
+            uploaded: false,
+            fetching: true
+        })
+    })
+    
+    it('should handle UPLOAD_ANNUAL_REPORT_FULFILLED',() => {
+        expect(
+            reducer([],{
+                type:'UPLOAD_ANNUAL_REPORT_FULFILLED',
+            })
+        ).toEqual({
+            uploaded: true,
+            fetching: false,
+            downloadlink: undefined
+        })
+    })
+    
+    it('should handle UPLOAD_ANNUAL_REPORT_REJECTED',() => {
+        expect(
+            reducer([],{
+                type:'UPLOAD_ANNUAL_REPORT_REJECTED',
+            })
+        ).toEqual({
+            fetching: false
+        })
+    })
+    
+   
+    
 	it('should handle UPDATE_USER_PROFILE_REJECTED', () => {
 	    expect(
 	      reducer([], {
@@ -335,5 +389,190 @@ describe('user reducer', () => {
             error: undefined
 	    })
 	})
+    
+    it('should handle STORE_RFP_KEY_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'STORE_RFP_KEY_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched:true
+        })
+        
+    })
+    
+    it('should handle STORE_RFP_KEY_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'STORE_RFP_KEY_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error:undefined
+        })
+        
+    })
+    
+    it('should handle FETCH_RFP_KEY_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'FETCH_RFP_KEY_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched: true,
+            rfpKey:undefined
+        })
+        
+    })
+    
+    it('should handle FETCH_RFP_KEY_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'FETCH_RFP_KEY_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error:undefined
+        })
+        
+    })
+    
+    it('should handle UPDATE_RFP', () =>{
+        expect(
+            reducer([],{
+                type:'UPDATE_RFP'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched:true,
+        })
+        
+    })
+    
+    it('should handle UPDATE_RFP_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'UPDATE_RFP_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched:true,
+        })
+        
+    })
+    
+    it('should handle UPDATE_RFP_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'UPDATE_RFP_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error:undefined
+        })
+        
+    })
+    
+    it('should handle FETCH_NOTIFICATION_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'FETCH_NOTIFICATION_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched:true,
+            notification:undefined
+        })
+        
+    })
+    
+    it('should handle FETCH_NOTIFICATION_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'FETCH_NOTIFICATION_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error:undefined
+        })
+        
+    })
+    
+    it('should handle SET_NOTIFICATION_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'SET_NOTIFICATION_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched:true
+        })
+        
+    })
+    
+    it('should handle SET_NOTIFICATION_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'SET_NOTIFICATION_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error:undefined
+        })
+        
+    })
+    
+    it('should handle FETCH_BOOKMARKS_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'FETCH_BOOKMARKS_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched: true,
+            bookmarks: undefined
+        })
+        
+    })
+    
+    it('should handle FETCH_BOOKMARKS_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'FETCH_BOOKMARKS_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error: undefined
+        })
+        
+    })
+    
+    it('should handle SET_BOOKMARKS_FULFILLED', () =>{
+        expect(
+            reducer([],{
+                type:'SET_BOOKMARKS_FULFILLED'
+            })
+        ).toEqual({
+            fetching: false,
+            fetched:true
+        })
+        
+    })
+    
+    it('should handle SET_BOOKMARKS_REJECTED', () =>{
+        expect(
+            reducer([],{
+                type:'SET_BOOKMARKS_REJECTED'
+            })
+        ).toEqual({
+            fetching: false,
+            error:undefined
+        })
+        
+    })
+
+    
 
 })

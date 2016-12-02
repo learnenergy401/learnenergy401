@@ -173,6 +173,7 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched: true,
+                isLoggedIn:undefined,
                 purchasers: action.payload,
             }
         }
@@ -182,6 +183,7 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched: true,
+                isLoggedIn:undefined,
                 vendors: action.payload,
             }
         }
@@ -191,6 +193,7 @@ export default function reducer(state={
                 ...state,
                 fetching: false,
                 fetched: true,
+                isLoggedIn:undefined,
                 ad: action.payload,
             }
         }

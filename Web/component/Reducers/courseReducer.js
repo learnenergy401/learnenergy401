@@ -94,8 +94,8 @@ export default function reducer(state={
         }
         case "UPDATE_COURSE": {
             return {...state, 
-                    uploaded: false,
-                    fetching: true
+                    uploaded: true,
+                    fetching: false
             }
         }
         case "UPDATE_COURSE_FULFILLED": {
