@@ -187,7 +187,6 @@ class CourseEOI extends Component {
 			var address1 = user.user.address1
 			var address2 = user.user.address2
 			var city = user.user.city
-			var province = user.user.province
 			var country = user.user.country
 			var uphone = user.user.phone
 			var fax = user.user.fax
@@ -344,7 +343,7 @@ class CourseEOI extends Component {
 							<textarea rows="6" cols="120" id="qualificationC"></textarea>
 
 							<h6>
-							D. Does the Vendor have an office in {province}?
+							D. Does the Vendor have an office in [jurisdiction]?
 							</h6>
 							<textarea rows="6" cols="120" id="qualificationD"></textarea>
 
