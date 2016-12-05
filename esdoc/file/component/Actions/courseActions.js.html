@@ -292,6 +292,12 @@ export function updateCourse(course,courseID) {
     }
 }
 
+/**
+ * upload course files
+ * @param {object} course, courseID, fileObj - information on course and selected file
+ * @throws {object} err - Returns an error if failed to fetch from database.
+ * @returns {object} dispatch 
+ */
 export function uploadCourseFiles(courseID,coursePrev,fileObj) {
     return function(dispatch) {
         dispatch({type:&quot;UPLOAD_COURSE_FILES&quot;})
@@ -416,7 +422,11 @@ export function saveACourse(courseName) {
     }
 }
 
-
+/**
+ * Sort the course by name.
+ * @param {object} courseList - Object containing course list
+ * @returns {object} number - Returns the value that decides sorting method.
+ */
 export function sortByName(courseList) {
     return function(dispatch) {
         courseList.sort(function(a, b){
@@ -431,7 +441,11 @@ export function sortByName(courseList) {
     }
 }
 
-
+/**
+ * Sort the course by vendor&apos;s email.
+ * @param {object} courseList - Object containing course list
+ * @returns {object} number - Returns the value that decides sorting method.
+ */
 export function sortByVendorEmail(courseList) {
     return function(dispatch) {
         courseList.sort(function(a, b){

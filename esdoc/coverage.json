@@ -1,7 +1,7 @@
 {
-  "coverage": "73.27%",
+  "coverage": "74.42%",
   "expectCount": 348,
-  "actualCount": 255,
+  "actualCount": 259,
   "files": {
     "component/ADpage.js": {
       "expectCount": 4,
@@ -476,12 +476,9 @@
     },
     "component/Actions/courseActions.js": {
       "expectCount": 12,
-      "actualCount": 8,
+      "actualCount": 11,
       "undocumentLines": [
-        259,
-        274,
-        175,
-        134
+        181
       ]
     },
     "component/Actions/tagActions.js": {
@@ -491,10 +488,8 @@
     },
     "component/Actions/userActions.js": {
       "expectCount": 37,
-      "actualCount": 36,
-      "undocumentLines": [
-        1006
-      ]
+      "actualCount": 37,
+      "undocumentLines": []
     },
     "component/Actions/profileActions.js": {
       "expectCount": 1,
