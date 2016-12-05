@@ -1003,6 +1003,12 @@ export function updateProfile(user) {
     }
 }
 
+/**
+ * Upload vendor's annual report.
+ * @params {object} email,fileObj - email of the user and secleted file
+ * @returns {object} dispatch - Returns the state which contains download link
+ * @throws {object} err - Returns an error if fail to logout.
+ */
 export function uploadAnnualReport(email,fileObj){
     return function(dispatch){
         dispatch({type:"UPLOAD_ANNUAL_REPORT"})
